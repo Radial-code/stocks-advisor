@@ -1,10 +1,11 @@
 import "./App.css";
-
+import "./assets/css/common.css";
+import Router from "./component/Router";
 function App() {
   return (
-    <div className="App">
-      <h1>Stock advisor</h1>
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 
