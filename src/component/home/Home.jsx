@@ -9,10 +9,10 @@ const Home = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    centerPadding: "30px",
+    speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
+    rtl: true,
   };
   return (
     <>
@@ -83,95 +83,106 @@ const Home = () => {
             </div>
           </div>
           <h1 className="mt-5 section-heading">Team</h1>
-          <Slider {...settings}>
-            {" "}
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+          <Slider className="about-slider" {...settings}>
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
                 sagittis eu enim.
               </p>
             </div>
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
                 sagittis eu enim.
               </p>
             </div>
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
                 sagittis eu enim.
               </p>
             </div>
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                {" "}
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
                 sagittis eu enim.
               </p>
             </div>
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                {" "}
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
                 sagittis eu enim.
               </p>
             </div>
-            <div className="profile-box me-5">
-              <div className="d-flex align-items-center ">
-                {" "}
-                <img className="w-126" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex flex-column">
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs ">Manager</p>
+                  <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
-              <p className="stock-paragraph max-w-398 w-100 mt-3">
+              <p className="stock-paragraph text-end   mt-3">
+                Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
+                enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
+                eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
+                sagittis eu enim.
+              </p>
+            </div>
+            <div className="  profile-box">
+              <div className="d-flex justify-content-end   align-items-center ">
+                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <div className="me-3 d-flex order-1  flex-column">
+                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <p className="profile-heading font-xs text-end">Manager</p>
+                </div>
+              </div>
+              <p className="stock-paragraph text-end   mt-3">
                 Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
                 enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
                 eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
