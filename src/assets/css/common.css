@@ -12,13 +12,18 @@
   /** Font size use in all projects */
   --font-xxxl: 62px;
   --font-xxl: 49px;
+  --font-48: 48px;
+
   --font-xl: 39px;
   --font-lg: 31px;
   --font-md: 25px;
+  --font-22: 22px;
+
   --font-sm: 20px;
   --font-xs: 16px;
   --font-18: 18px;
   --font-xxs: 14px;
+  --font-13: 13px;
 }
 
 /*  ABOUT PAGE CSS */
@@ -84,7 +89,6 @@
 .profile-box {
   border-radius: 10px;
   padding: 16px;
-  margin: 0 20px;
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
@@ -97,4 +101,7 @@
   font-size: var(--font-xxs);
   font-weight: 400;
   color: var(--color-44464A);
+}
+.about-slider .slick-slide {
+  margin-right: 20px;
 }
