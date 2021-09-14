@@ -1,0 +1,16 @@
+.max-w-para {
+  max-width: 1013px;
+}
+.read-more {
+  font-size: var(--font-xs);
+  font-weight: 400;
+  color: var(--color-127CF9);
+}
+.stock-articles-img {
+  width: 294px;
+  height: 281px;
+  border-radius: 5px;
+}
+.pl-20 {
+  padding-left: 20px;
+}
