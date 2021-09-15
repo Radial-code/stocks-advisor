@@ -1,19 +1,30 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const OurPlans = () => {
+const OurPlans = ({ homepage }) => {
+  console.log(homepage);
   return (
     <>
       <Container>
         <Row>
           <Col xs={12} className="d-flex justify-content-center">
-            <p className="subscription-plans ">Subscription Plans</p>
+            <p
+              className={`subscription-plans ${homepage ? "text-white" : ""} `}
+            >
+              Subscription Plans
+            </p>
           </Col>
 
-          <Col xl={4} md={6} className="d-flex justify-content-center ">
+          <Col
+            xl={4}
+            md={6}
+            className={` ${
+              homepage ? "down" : ""
+            } d-flex justify-content-center mt-5 mt-md-0`}
+          >
             <section className="bg-card-plan">
               <p className="plan-card d-flex justify-content-center pt-5">
-                Plan - 1
+                Plan - 2
               </p>
               <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
                 <p className="amount-card-month align-items-center d-flex  mb-0">
@@ -36,11 +47,11 @@ const OurPlans = () => {
           <Col
             xl={4}
             md={6}
-            className="d-flex justify-content-center mt-5 mt-md-0"
+            className={` d-flex justify-content-center mt-5 mt-md-0`}
           >
             <section className="bg-card-plan">
               <p className="plan-card d-flex justify-content-center pt-5">
-                Plan - 1
+                Plan - 2
               </p>
               <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
                 <p className="amount-card-month align-items-center d-flex  mb-0">
@@ -63,7 +74,9 @@ const OurPlans = () => {
           <Col
             xl={4}
             lg={12}
-            className="d-flex justify-content-center mt-5 mt-xl-0"
+            className={` ${
+              homepage ? "down" : ""
+            } d-flex justify-content-center mt-5 mt-md-0`}
           >
             <section className="bg-card-plan">
               <p className="plan-card d-flex justify-content-center pt-5">
@@ -86,10 +99,15 @@ const OurPlans = () => {
               </div>
             </section>
           </Col>
-
-          <Col xs={12} className="d-flex justify-content-center mt-5">
-            <button className="sing-up-btn text-white">Sign up for Free</button>
-          </Col>
+          {!homepage ? (
+            <Col xs={12} className="d-flex justify-content-center mt-5">
+              <button className="sing-up-btn text-white">
+                Sign up for Free
+              </button>
+            </Col>
+          ) : (
+            ""
+          )}
         </Row>
       </Container>
     </>
