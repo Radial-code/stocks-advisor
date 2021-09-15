@@ -67,6 +67,10 @@
 .ml-20 {
   margin-left: 20px;
 }
+
+.fs-100 {
+  font-size: 100px;
+}
 /*  end here drop down css */
 .navbar-toggler {
   border: none;
