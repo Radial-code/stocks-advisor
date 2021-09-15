@@ -14,7 +14,7 @@ const Payment = () => {
                   <span>$299.99</span>
                 </div>
                 <div className="divider"></div>
-                <span>:Description</span>
+                <span>:Description </span>
                 <p>
                   Duis venenatis aliquot, Eros, non feugiat Tortor semper sed.
                   In diam risus, efficitur Sit amet dolor vitae Finibus
