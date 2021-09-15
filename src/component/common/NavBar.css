@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-/*  */
+/*  Drop down css start here*/
 
 .drop-down-list li {
   padding: 5px 0px;
@@ -67,7 +67,7 @@
 .ml-20 {
   margin-left: 20px;
 }
-/*  */
+/*  end here drop down css */
 .navbar-toggler {
   border: none;
   background: #eee !important;
