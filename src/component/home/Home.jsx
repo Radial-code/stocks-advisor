@@ -7,8 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 const Home = () => {
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: false,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -144,52 +143,14 @@ const Home = () => {
                 sagittis eu enim.
               </p>
             </div>
-            <div className="  profile-box">
-              <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex order-1  flex-column">
-                  <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs text-end">Manager</p>
-                </div>
-              </div>
-              <p className="stock-paragraph text-end   mt-3">
-                Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
-                enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
-                eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
-                sagittis eu enim.
-              </p>
-            </div>
-            <div className="  profile-box">
-              <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex order-1  flex-column">
-                  <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs text-end">Manager</p>
-                </div>
-              </div>
-              <p className="stock-paragraph text-end   mt-3">
-                Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
-                enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
-                eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
-                sagittis eu enim.
-              </p>
-            </div>
-            <div className="  profile-box">
-              <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
-                <div className="me-3 d-flex order-1  flex-column">
-                  <h4 className="profile-heading">Jhone Doe</h4>
-                  <p className="profile-heading font-xs text-end">Manager</p>
-                </div>
-              </div>
-              <p className="stock-paragraph text-end   mt-3">
-                Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu
-                enim. Praesent mauris diam, sollicitudin id rutrum ut, sagittis
-                eu enim. Praesent mauris diam, sollicitudin id rutrum ut,
-                sagittis eu enim.
-              </p>
-            </div>
           </Slider>
+          <h2>
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            voluptatibus doloremque necessitatibus, ut commodi nisi maxime autem
+            harum velit libero ratione delectus, minus est totam! Possimus amet
+            sit cumque distinctio?{" "}
+          </h2>
         </div>
       </section>
     </>
