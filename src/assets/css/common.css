@@ -8,6 +8,8 @@
   --color-f9f9f9: #f9f9f9;
   --color-44464A: #44464a;
   --color-16191E: #16191e;
+  --color-E4E4E4: #e4e4e4;
+  --color-5B5E61: #5b5e61;
 
   /** Font size use in all projects */
   --font-xxxl: 62px;
@@ -51,6 +53,9 @@
 }
 .w-126 {
   width: 126px;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 .stock-heading {
   font-weight: 600;
