@@ -6,6 +6,7 @@ import OurPlanspage from "../view/OurPlanspage";
 import Stockpage from "../view/Stockpage";
 import About from "../view/About";
 import Payment from "../view/Payment";
+import Navbarpage from "../view/Navbarpage";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -16,6 +17,10 @@ const Router = () => {
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/ourplans" component={OurPlanspage} />
+        {/* <Route exact path="/" component={Homepage} /> */}
+        {/* <Route exact path="/stock" component={Stockpage} /> */}
+        {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
+        <Route exact path="/navbar" component={Navbarpage} />
       </Switch>
     </BrowserRouter>
   );
