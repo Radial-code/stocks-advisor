@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "./Manger.css";
+import "./Panel.css";
 const ManagerPanel = () => {
   return (
     <div>

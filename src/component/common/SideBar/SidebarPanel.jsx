@@ -9,7 +9,7 @@ export default function SidebarPanel({ page, sidebarActive }) {
         <div className=" mt-5 w-100  ">
           <p className=" mt-2">Content Manager</p>
           <nav>
-            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover">
+            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover ">
               <Link href="#">
                 <li
                   className={`pt-15 pb-15 mt-15 ${
