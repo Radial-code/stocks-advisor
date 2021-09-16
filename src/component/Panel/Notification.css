@@ -4,6 +4,9 @@
   font-weight: 400;
   color: var(--color-5B5E61);
 }
+.notification {
+  max-width: 1000px;
+}
 .observations {
   width: 323px;
   font-size: var(--font-21);
@@ -13,7 +16,14 @@
 .fs-21 {
   font-size: var(--font-21);
 }
-
+.h-calc-100vh-331 {
+  height: calc(100vh - 331px);
+}
+.notification-card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
 /* check box css */
 .geekmark:after {
   content: "";

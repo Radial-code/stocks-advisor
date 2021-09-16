@@ -7,7 +7,7 @@ const NewsArticles = () => {
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true,
     rtl: true,
 
     nextArrow: <Next />,

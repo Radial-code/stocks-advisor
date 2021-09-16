@@ -8,7 +8,7 @@ const SidebarDashboard = ({ page, sidebarActive, history }) => {
     <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
         <div className=" mt-5 w-100  ">
-          <p className=" mt-2 profile-heading pr-15 pb-2 border-b-1">
+          <p className=" mt-2 profile-heading pr-15 ml-2 pb-2 border-b-1">
             Dashboard
           </p>
           <nav>

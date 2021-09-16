@@ -325,7 +325,7 @@ const Navbar = () => {
                 <li className="nav-item d-none d-md-block">
                   <NavLink
                     exact
-                    to="/blog"
+                    to="/dashboard/edit/contact"
                     activeClassName="active"
                     className="nav-links"
                     onClick={click ? handleClick : null}

@@ -55,7 +55,13 @@
 .pr-15 {
   padding-right: 15px;
 }
+.ml-2 {
+  margin-left: 2rem;
+}
 .wrapper {
+  border-radius: 10px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
 }
 .h-80vh {

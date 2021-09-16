@@ -10,6 +10,11 @@ import Navbarpage from "../view/Navbarpage";
 import Managerpanelpage from "../view/Managerpanelpage";
 import Dashboard from "../view/dashboard/Dashboard";
 import CmPanel from "../view/cmPanel/CmPanel";
+import LineChart from "./chart/LineChart";
+import LineChart2 from "./chart/LineChart2";
+import LineChart3 from "./chart/LineChart3";
+import Login from "./form/Login";
+import SignUp from "./form/SignUp";
 const Router = () => {
   console.log("router ");
   return (
@@ -28,6 +33,11 @@ const Router = () => {
         <Route exact path="/managerpanel" component={Managerpanelpage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
+        <Route path="/linechart2" component={LineChart2} />
+        <Route path="/linechart3" component={LineChart3} />
+        <Route path="/linechart" component={LineChart} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
       </Switch>
     </BrowserRouter>
   );
