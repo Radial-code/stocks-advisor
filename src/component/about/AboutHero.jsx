@@ -3,7 +3,7 @@ import heroImg from "../../assets/img/aboutUs-hero.png";
 const AboutHero = () => {
   return (
     <>
-      <div className="container">
+      <div className="container py-5">
         <div className="row justify-content-between align-items-center justify-content-between">
           <div className="col-6">
             <h2 className="stock-heading">
