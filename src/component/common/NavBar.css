@@ -235,10 +235,10 @@
   background: var(--color-127CF9);
 }
 
-.nav-item .active {
+/* .nav-item .active {
   color: #ffdd40;
   border: 1px solid #ffdd40;
-}
+} */
 .items-nav {
   margin-top: 20px;
   margin-right: 1rem;
@@ -297,8 +297,8 @@
     z-index: 1;
   }
   .nav-item .active {
-    color: #ffdd40;
-    border: none;
+    /* color: #ffdd40;
+    border: none; */
   }
   .nav-links {
     padding: 10px 0px;
