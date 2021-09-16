@@ -11,6 +11,7 @@ import Managerpanelpage from "../view/Managerpanelpage";
 import Dashboard from "../view/dashboard/Dashboard";
 import CmPanel from "../view/cmPanel/CmPanel";
 const Router = () => {
+  console.log("router ");
   return (
     <BrowserRouter>
       <Switch>
