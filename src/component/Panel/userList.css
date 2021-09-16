@@ -29,6 +29,17 @@
 .content-manager-none {
   display: none;
 }
+
+.add-new-btn {
+  background-color: var(--color-88BEFC);
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
 @media (max-width: 1599.98px) {
   .user-panel-card {
     width: 900px;

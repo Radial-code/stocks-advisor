@@ -5,15 +5,15 @@ import "./Sidebar.css";
 // /dashboard/update/payment
 const SidebarPanel = ({ page, sidebarActive, history }) => {
   return (
-    <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
+    <div className={`${sidebarActive ? "hamburgur-active" : ""} mt-5`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
-        <div className=" mt-5 w-100  ">
-          <p className=" mt-2 profile-heading pr-15 pb-2 border-b-1">
+        <div className=" mt-4 w-100  ">
+          <p className="  profile-heading pr-15 pb-2 border-b-1">
             Content Manager
           </p>
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
-              <Link to="/dashboard/update/payment">
+              <Link to="/content/manager/stocks">
                 <li
                   className={`pt-13 pb-13 mt-15  ${
                     page === "add" ? "sidebar-active" : ""
@@ -23,7 +23,7 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                 </li>
               </Link>
 
-              <Link to="/dashboard/notification">
+              <Link to="/content/manager/news">
                 <li
                   className={`pt-13 pb-13 mt-15 ${
                     page === "enquiry" ? "sidebar-active" : ""
@@ -33,7 +33,7 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                 </li>
               </Link>
 
-              <Link to="#">
+              <Link to="/content/manager/users">
                 <li
                   className={`pt-13 pb-13 mt-15 ${
                     page === "job" ? "sidebar-active" : ""
