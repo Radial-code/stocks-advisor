@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SidebarPanel from "../component/common/SideBar/SidebarPanel";
 import ManagerPanel from "../component/Panel/ManagerPanel";
 import { Container, Row, Col } from "react-bootstrap";
+import Footer from "../component/common/Footer";
 
 const Managerpanelpage = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -26,6 +27,7 @@ const Managerpanelpage = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };
