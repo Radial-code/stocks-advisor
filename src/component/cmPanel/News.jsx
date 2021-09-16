@@ -13,7 +13,7 @@ const News = () => {
         <div className="d-flex justify-content-between">
           <p className="heading-stock fs-sm-20">All News</p>
           <div>
-            <Link to="#" className="add-new-btn">
+            <Link to="/content/manager/add/news" className="add-new-btn">
               Add New
             </Link>
           </div>

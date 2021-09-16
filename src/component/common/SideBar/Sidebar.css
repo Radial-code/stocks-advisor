@@ -159,7 +159,7 @@
     display: none;
   }
   .wrapper {
-    margin-right: -460px;
+    margin-right: -560px;
     transition: 0.5s;
     z-index: 5;
   }
