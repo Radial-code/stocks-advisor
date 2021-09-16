@@ -14,3 +14,28 @@
 .pb-15 {
   padding-bottom: 15px;
 }
+.l-s-t-none {
+  list-style-type: none;
+}
+.admin-hover li {
+  color: var(--color-16191eb7);
+}
+.admin-hover a {
+  text-decoration: none;
+}
+.sidebar-active {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: -11px;
+  border-radius: 5px;
+  padding-left: 15px;
+  background-color: #000000;
+}
+.sidebar-active:hover {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: -11px;
+  border-radius: 5px;
+  padding-left: 15px;
+  background-color: #000000 !important;
+}

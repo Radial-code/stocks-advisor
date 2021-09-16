@@ -8,12 +8,13 @@ import About from "../view/About";
 import Payment from "../view/Payment";
 import Navbarpage from "../view/Navbarpage";
 import Managerpanelpage from "../view/Managerpanelpage";
+import UsersEditpage from "../component/Panel/UsersEdit";
+import UserEditpage from "../view/UserEditpage";
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Homepage} />
-
         <Route exact path="/about" component={About} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
@@ -22,7 +23,8 @@ const Router = () => {
         {/* <Route exact path="/stock" component={Stockpage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route exact path="/navbar" component={Navbarpage} />
-        <Route exact path="/managerpanel" component={Managerpanelpage} />
+        <Route exact path="/managerpanel" component={Managerpanelpage} />{" "}
+        <Route exact path="/useredit" component={UserEditpage} />
       </Switch>
     </BrowserRouter>
   );
