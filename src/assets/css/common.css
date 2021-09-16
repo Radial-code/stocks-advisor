@@ -200,3 +200,13 @@ input::-webkit-inner-spin-button {
 .text-decoration {
   text-decoration: none;
 }
+
+@media (min-width: 1600px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1440px;
+  }
+}
