@@ -15,13 +15,14 @@ import LineChart2 from "./chart/LineChart2";
 import LineChart3 from "./chart/LineChart3";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
+import UsersEditpage from "../component/Panel/UsersEdit";
+import UserEditpage from "../view/UserEditpage";
 const Router = () => {
   console.log("router ");
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Homepage} />
-
         <Route exact path="/about" component={About} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
@@ -38,6 +39,8 @@ const Router = () => {
         <Route path="/linechart" component={LineChart} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route exact path="/managerpanel" component={Managerpanelpage} />{" "}
+        <Route exact path="/useredit" component={UserEditpage} />
       </Switch>
     </BrowserRouter>
   );
