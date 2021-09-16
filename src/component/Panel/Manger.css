@@ -87,3 +87,10 @@
     padding-right: 14px;
   }
 }
+.selection-field {
+  background-image: url(../../assets/img/Path\ 44.png);
+  background-repeat: no-repeat;
+  background-position-x: 25px;
+  background-position-y: center;
+  -webkit-appearance: none;
+}

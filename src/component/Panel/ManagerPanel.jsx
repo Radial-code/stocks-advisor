@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import { Container, Row, Col } from "react-bootstrap";
 import "./Manger.css";
+import Dateicon from "../../assets/img/Date-icon.svg";
 const ManagerPanel = () => {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div>
       <div className="conatiner">
@@ -15,13 +20,17 @@ const ManagerPanel = () => {
               placeholder="Title"
             />
           </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <input
-              className="form-control small-paragraph inputs-border p_16_20"
-              placeholder="Date"
-              value="Date"
-              type="date"
-            />
+          <div className="col-12 col-lg-6 mb-3 ">
+            <div className=" inputs-border p_16_20 w-100 d-flex justify-content-between">
+              <DatePicker
+                value=" Date"
+                id="my-date"
+                className="small-paragraph border-0 "
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+              <img for="my-date" src={Dateicon} alt="" />
+            </div>
           </div>
           <div className="col-12 col-lg-6 mb-3 ">
             <div className="inputs-border   d-flex justify-content-between align-items-center py-1 ps-1 pe_12">
@@ -43,9 +52,9 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className="w-100   inputs-border padding-select pb-12 small-paragraph"
+              className=" w-100 selection-field h-100 inputs-border padding-select pb-12 small-paragraph"
               name=""
-              id=""
+              id=" "
             >
               <option className="small-paragraph">Tags</option>
               <option className="small-paragraph" value="1">
@@ -61,7 +70,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className="w-100    inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field   inputs-border padding-select pb-3 small-paragraph"
               name=""
               id=""
             >
@@ -79,7 +88,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className="w-100   inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
               name=""
               id=""
             >
@@ -112,7 +121,7 @@ const ManagerPanel = () => {
           <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className="w-100   inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
               name=""
               id=""
             >
