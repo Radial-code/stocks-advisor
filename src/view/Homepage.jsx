@@ -1,11 +1,15 @@
 import React from "react";
-import Home from "../component/home/Home";
+import Hero from "../component/home/Hero";
+import NewsArticles from "../component/home/NewsArticles";
+import SubscriptionPlans from "../component/home/SubscriptionPlans";
 
 const Homepage = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+      <Hero />
+      <NewsArticles />
+      <SubscriptionPlans />
+    </>
   );
 };
 
