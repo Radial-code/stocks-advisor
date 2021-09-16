@@ -5,18 +5,20 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const Managerpanelpage = () => {
   return (
-    <Container>
-      <Row>
-        <Col className="d-flex">
-          <div className="w-350">
-            <SidebarPanel />
-          </div>
-          <div className="w-100">
-            <ManagerPanel />
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <div className="bg-f9f9f9 h-100vh">
+      <Container>
+        <Row>
+          <Col className="d-flex">
+            <div className="w-350 mt-5 pt-5">
+              <SidebarPanel />
+            </div>
+            <div className="w-100">
+              <ManagerPanel />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 
