@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.ff-popins {
+  font-family: "Poppins", sans-serif;
+}
+
+.form-background {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.h-100vh {
+  height: 100vh;
+}
+.form-section {
+  max-width: 700px;
+}
+.edit-contact-text {
+  font-size: 31px;
+  font-weight: 500;
+  color: #16191e;
+}
+@media (max-width: 567px) {
+  .edit-contact-text {
+    font-size: 24px;
+  }
+}
+.form-field .form-control {
+  padding: 13px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+}
+.form-field .form-control:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+}
+.form-field .form-control::placeholder {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #16191e;
+}
+.update-btn {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+  background-color: #4870b3;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+.green-chart .recharts-responsive-container {
+  background-color: #f7fff5;
+}
+.blue-chart .recharts-responsive-container {
+  background-color: #f5f9ff;
+}
+.pich-chart .recharts-responsive-container {
+  background-color: #fff5f7;
+}
+.chart-text {
+  font-size: 26px;
+  font-weight: 500;
+}
