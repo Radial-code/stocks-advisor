@@ -1,0 +1,16 @@
+.w-350 {
+  width: 350px;
+}
+.sidebar-active span {
+  color: white;
+  background-color: #042954;
+}
+.pt-15 {
+  padding-top: 15px;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.pb-15 {
+  padding-bottom: 15px;
+}

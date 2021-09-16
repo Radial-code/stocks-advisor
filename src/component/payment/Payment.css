@@ -141,6 +141,7 @@ input:focus-visible {
   }
   .monthly-payment {
     width: 171px;
+    height: 30px;
   }
 }
 @media (max-width: 375.98px) {
@@ -161,5 +162,9 @@ input:focus-visible {
   }
   .card-payment {
     width: 303px;
+  }
+  .monthly-payment {
+    font-size: var(--font-xxs);
+    font-weight: 400;
   }
 }
