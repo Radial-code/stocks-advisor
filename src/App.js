@@ -8,9 +8,7 @@ import Footer from "./component/common/Footer";
 function App() {
   return (
     <>
-      <Navbar />
       <Router />
-      <Footer />
     </>
   );
 }

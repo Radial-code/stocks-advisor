@@ -44,6 +44,9 @@
 .bg-f9f9f9 {
   background: var(--color-f9f9f9);
 }
+.font-xl {
+  font-size: var(--font-xl) !important;
+}
 .bg-6B8BC1 {
   background-color: #6b8bc1;
 }
@@ -212,4 +215,8 @@ input::-webkit-inner-spin-button {
   .container {
     max-width: 1440px !important;
   }
+}
+
+.max-w-546 {
+  max-width: 546px;
 }

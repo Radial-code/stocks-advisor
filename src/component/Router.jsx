@@ -15,6 +15,7 @@ import LineChart2 from "./chart/LineChart2";
 import LineChart3 from "./chart/LineChart3";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
+import News from "../view/News";
 import UsersEditpage from "../component/Panel/UsersEdit";
 import UserEditpage from "../view/UserEditpage";
 const Router = () => {
@@ -27,6 +28,7 @@ const Router = () => {
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/ourplans" component={OurPlanspage} />
+        <Route exact path="/news" component={News} />
         {/* <Route exact path="/" component={Homepage} /> */}
         {/* <Route exact path="/stock" component={Stockpage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
