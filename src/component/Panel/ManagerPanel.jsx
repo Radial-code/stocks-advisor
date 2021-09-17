@@ -7,6 +7,12 @@ import "./Manger.css";
 import Dateicon from "../../assets/img/Date-icon.svg";
 const ManagerPanel = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [input, setInput] = useState("");
+  const [blankinput, setBlankInput] = useState(false);
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+  };
   return (
     <div>
       <div className="conatiner">
@@ -36,14 +42,31 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3 ">
             <div className="inputs-border   d-flex justify-content-between align-items-center py-1 ps-1 pe_12">
-              <span className="small-paragraph d-none d-sm-block">
-                YouTube Video/ Image Link
-              </span>
-              <span className="small-paragraph d-block d-sm-none">
-                {" "}
-                Video/ Image Link
-              </span>
-              <input type="file" id="my-file" hidden />
+              {input !== "" ? (
+                <span className="small-paragraph d-none d-sm-block">
+                  {input}
+                </span>
+              ) : (
+                <span className="small-paragraph d-none d-sm-block">
+                  Youtube Video/ Image Link
+                </span>
+              )}
+              {input !== "" ? (
+                <span className="small-paragraph d-block d-sm-none">
+                  {input}
+                </span>
+              ) : (
+                <span className="small-paragraph d-block d-sm-none">
+                  Video/ Image Link
+                </span>
+              )}
+              <span className="small-paragraph "> </span>
+              <input
+                onChange={(e) => changeHandler(e)}
+                type="file"
+                id="my-file"
+                hidden
+              />
               <button className="upload-img-btn d-none d-sm-block">
                 <label for="my-file">Upload Image</label>
               </button>
