@@ -44,6 +44,14 @@
   border-radius: 5px;
   background-color: #4870b3;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  padding: 9.5px 37px;
+  border: 0px;
+  border: 1px solid var(--color-88BEFC);
+}
+.update-btn:hover {
+  background-color: white;
+  color: var(--color-88BEFC);
+  border: 1px solid var(--color-88BEFC);
 }
 .green-chart .recharts-responsive-container {
   background-color: #f7fff5;

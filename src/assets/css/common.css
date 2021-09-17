@@ -31,6 +31,7 @@
   --font-xxs: 14px;
   --font-13: 13px;
   --font-12: 12px;
+  --font-11: 11px;
 }
 
 /*  ABOUT PAGE CSS */
@@ -182,7 +183,6 @@
 .news-heading-font {
   font-weight: 500;
   font-size: var(--font-22);
-  text-align: right;
   color: var(--color-16191e);
 }
 
@@ -209,4 +209,6 @@ input::-webkit-inner-spin-button {
   .container {
     max-width: 1440px !important;
   }
+}
+@media (max-width: 575.98px) {
 }

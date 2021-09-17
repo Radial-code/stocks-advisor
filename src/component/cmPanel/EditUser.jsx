@@ -1,101 +1,130 @@
 import React from "react";
 import "../Panel/userEdit.css";
+import { Container, Row, Col } from "react-bootstrap";
+
 const EditUser = () => {
   return (
-    <div>
-      <section>
-        <div className="container">
-          <div className="row my-5">
-            <div className="col auto">
-              <p className="heading-stock pb-sm-3 border-bottom-1px">
-                Content Manager
+    <Container>
+      <Row>
+        <Col className="d-flex justify-content-end">
+          <section className="edituser-card p-5">
+            <p className="heading-stock">Jhone Doe</p>
+            <div className="border-b-1 mt-5">
+              <p className="fs-22 fw-500 fs-sm-14">Contact Info</p>
+            </div>
+            <Row className="mt-5">
+              <Col lg={6}>
+                <div className="edit-user">
+                  <input
+                    className="input-edit-user"
+                    placeholder="Jhone Doe"
+                    type="text"
+                  />
+                </div>
+              </Col>
+              <Col lg={6} className="mt-3 mt-lg-0">
+                <div className="edit-user">
+                  <input
+                    className="input-edit-user"
+                    placeholder="Jhondoe@gmail.com"
+                    type="email"
+                  />
+                </div>
+              </Col>
+              <Col lg={6} className="mt-3">
+                <div className="edit-user">
+                  <input
+                    className="input-edit-user"
+                    placeholder="1234567890"
+                    type="number"
+                  />
+                </div>
+              </Col>
+            </Row>
+            <div className="d-flex justify-content-center d-sm-block w-100">
+              <button className="update-btn mt-5 fs-sm-16">Udpdate</button>
+            </div>
+            <div className="border-b-1 mt-5">
+              <p className="news-heading-font fs-sm-14">
+                Current Subscription Info
               </p>
             </div>
-            <div className="col-xl-10 col-12 mw-1000 mt-4">
-              <div className="p-sm-4 boxx">
-                <div className="p-3 ">
-                  <p className="heading-stock pb-sm-3">Jhone Doe </p>
-                  <p className="contact-info  border-bottom-1px">
-                    Contact Info
-                  </p>
-                  <div className="row pt-md-2 pt-1  mb-4">
-                    <div className="col-md-6 col-12 my-1 my-md-0">
-                      <input
-                        className="py-md-3 py-2 px-md-4 px-3 input-border w-100 input-placeholder"
-                        type="text"
-                        placeholder="Jhone Doe"
-                      />
+            <Row className="mt-5 justify-content-between">
+              <Col
+                lg={5}
+                xs={12}
+                className="d-flex justify-content-center d-lg-block"
+              >
+                <section className="plan-card-edituser p-4">
+                  <div className="d-flex justify-content-between border-b-1">
+                    <p className="edituser-amount d-none d-sm-block">$299.99</p>
+                    <p className="profile-heading fs-sm-16">Plan-1</p>
+                    <p className="edituser-amount d-sm-none fs-sm-16">
+                      $299.99
+                    </p>
+                  </div>
+                  <div className="d-flex justify-content-sm-end mt-2">
+                    <span className="stock-paragraph fs-sm-11">17/07/2021</span>
+                    <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                      :Purchase Date
+                    </span>
+                  </div>
+                  <div className="d-flex justify-content-between mt-2 mb-2">
+                    <div className="d-none d-sm-block">
+                      <span className="float-md-end me-auto ">
+                        <label class="switch" for="checkbox">
+                          <input type="checkbox" id="checkbox" />
+                          <div class="slider round"></div>
+                        </label>
+                      </span>
                     </div>
-                    <div className="col-md-6 col-12 my-1 my-md-0">
-                      <input
-                        className="py-md-3 py-2 px-md-4 px-3 input-border w-100 input-placeholder bg-161933"
-                        type="email"
-                        placeholder="Jhondoe@gmail.com"
-                      />
+                    <div className="d-flex justify-content-end">
+                      <span className="stock-paragraph fs-sm-11">Enable</span>
+                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                        :Auto Renew
+                      </span>
                     </div>
-                    <div className="col-md-6 col-12 my-1 mt-md-2">
-                      <input
-                        className="py-md-3 py-2 px-md-4 px-3 input-border w-100 input-placeholder"
-                        type="number"
-                        placeholder="1234567890"
-                      />
+                    <div className="d-sm-none">
+                      <span className="float-md-end me-auto ">
+                        <label class="switch" for="checkbox">
+                          <input type="checkbox" id="checkbox" />
+                          <div class="slider round"></div>
+                        </label>
+                      </span>
                     </div>
                   </div>
-                  <button className="border-0 update-btn mb-4">Update</button>
-                  <p className="contact-info border-bottom-1px pt-md-2 pt-1">
-                    Current Subscription Info
-                  </p>
-                  <div className="row my-4 ps-xxl-3">
-                    <div className="col-md-6 col-12 panal-1 my-2 px-sm-0 px-4 ">
-                      <div className=" pt-3 pb-4">
-                        <p className="d-flex justify-content-between mb-0 pb-3 border-bottom-1px">
-                          <span className="color-4870B3 profile-heading fw-bold order-2 order-md-0">
-                            $299.99
-                          </span>
-                          <span className="profile-heading">Plan-1</span>
-                        </p>
-                        <p className="fs-16 color-16191e fw-500 mt-3 mb-2 text-start d-flex d-md-block">
-                          Purchase Date:
-                          <span className="color-16191E-7 fw-normal mx-3">
-                            17/07/2021
-                          </span>
-                        </p>
-                        <p className="fs-16 color-16191e fw-500 text-start d-flex d-md-block">
-                          Auto Renew:
-                          <span className="color-16191E-7 fw-normal ms-3 me-5">
-                            Enable
-                          </span>
-                          <span className="float-md-end me-auto ">
-                            <label class="switch" for="checkbox">
-                              <input type="checkbox" id="checkbox" />
-                              <div class="slider round"></div>
-                            </label>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-12 mt-4 mt-md-0 panal-1  px-sm-0 px-4">
-                      <p className="small-paragraph fw-500 color-16191e d-md-none d-block mb-2 pt-3">
-                        :Plan Description
-                      </p>
-                      <p className="fs-16 color-16191E-7 pe-md-4 ps-xxl-5    mx-234  ">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer
-                      </p>
-                    </div>
+                </section>
+              </Col>
+
+              <Col
+                lg={6}
+                xs={12}
+                className="d-flex justify-content-center mt-5 mt-lg-0"
+              >
+                <section className="current-para">
+                  <div className="d-none">
+                    <p className="fs-14 fw-500 ">:Plan Description</p>
                   </div>
-                  <button className="border-0 cancel-subscription">
-                    Cancel Subscription
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+                  <p className="stock-paragraph fs-sm-14">
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                  </p>
+                </section>
+              </Col>
+              <Col
+                xs={12}
+                className="mt-5 d-flex justify-content-center d-sm-block"
+              >
+                <button className="update-btn fs-sm-14">
+                  Cancel Subscription
+                </button>
+              </Col>
+            </Row>
+          </section>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
