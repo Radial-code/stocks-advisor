@@ -19,6 +19,8 @@ import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
 import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
+import News from "../view/News";
+
 const Router = () => {
   console.log("router ");
   return (
@@ -30,6 +32,7 @@ const Router = () => {
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/ourplans" component={OurPlanspage} />
+        <Route exact path="/news" component={News} />
         {/* <Route exact path="/" component={Homepage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route path="/dashboard" component={Dashboard} />

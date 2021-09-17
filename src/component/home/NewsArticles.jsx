@@ -43,6 +43,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
