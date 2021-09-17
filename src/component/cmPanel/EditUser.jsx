@@ -5,9 +5,9 @@ import { Container, Row, Col } from "react-bootstrap";
 const EditUser = () => {
   return (
     <Container>
-      <Row>
-        <Col className="d-flex justify-content-end">
-          <section className="edituser-card p-5">
+      <Row className="justify">
+        <Col className="d-flex justify-content-sm-end justify-content-center">
+          <section className="edituser-card p-3 p-sm-5">
             <p className="heading-stock">Jhone Doe</p>
             <div className="border-b-1 mt-5">
               <p className="fs-22 fw-500 fs-sm-14">Contact Info</p>
@@ -86,9 +86,9 @@ const EditUser = () => {
                     </div>
                     <div className="d-sm-none">
                       <span className="float-md-end me-auto ">
-                        <label class="switch" for="checkbox">
-                          <input type="checkbox" id="checkbox" />
-                          <div class="slider round"></div>
+                        <label class="switch-2" for="checkbox-2">
+                          <input type="checkbox" id="checkbox-2" />
+                          <div class="slider-2 round"></div>
                         </label>
                       </span>
                     </div>
