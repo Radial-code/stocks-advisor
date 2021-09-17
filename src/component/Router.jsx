@@ -6,7 +6,6 @@ import OurPlanspage from "../view/OurPlanspage";
 import Stockpage from "../view/Stockpage";
 import About from "../view/About";
 import Payment from "../view/Payment";
-import Navbarpage from "../view/Navbarpage";
 import Dashboard from "../view/dashboard/Dashboard";
 import CmPanel from "../view/cmPanel/CmPanel";
 
@@ -33,7 +32,6 @@ const Router = () => {
         <Route exact path="/ourplans" component={OurPlanspage} />
         {/* <Route exact path="/" component={Homepage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
-        <Route exact path="/navbar" component={Navbarpage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
 

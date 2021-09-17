@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 
-import "../Panel/userList.css";
+import "../cmPanelCss/userList.css";
 const Users = () => {
   return (
     <>

@@ -1,5 +1,5 @@
 import React from "react";
-import "../Panel/userEdit.css";
+import "../cmPanelCss/userEdit.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 const EditUser = () => {

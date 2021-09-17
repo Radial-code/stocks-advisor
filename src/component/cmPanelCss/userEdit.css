@@ -215,6 +215,7 @@ input:checked + .slider-2:before {
   }
   .update-btn {
     width: 100%;
+    padding: 4px 37px;
   }
   .current-para {
     border: 1px solid #0000001a;

@@ -1,12 +1,7 @@
 .manger-panel-shadow {
-  padding-top: 40px;
-  padding-bottom: 128px;
-  padding-left: 49px;
-  padding-right: 45px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
-  max-width: 1000px;
 }
 .inputs-border {
   border-radius: 5px;
@@ -51,6 +46,10 @@
   padding: 10px 59px;
   border-radius: 4px;
 }
+.add-btn:hover {
+  background: #fff;
+  color: var(--color-88BEFC);
+}
 .pe_12 {
   padding-right: 12px;
 }
@@ -65,7 +64,6 @@
 .pb-12 {
   padding-bottom: 12px;
 }
-
 .upload-img-btn {
   background: var(--color-88BEFC);
   font-weight: 500;
@@ -74,22 +72,6 @@
   border: 2px solid var(--color-88BEFC);
   padding: 4px 8px;
   border-radius: 4px;
-}
-@media (max-width: 1599.98px) {
-  .manger-panel-shadow {
-    max-width: 900px;
-  }
-}
-
-@media (max-width: 1399.98px) {
-  .manger-panel-shadow {
-    max-width: 750px;
-  }
-}
-@media (max-width: 1280.98px) {
-  .manger-panel-shadow {
-    max-width: 100%;
-  }
 }
 @media (max-width: 575.98px) {
   :root {
@@ -102,6 +84,9 @@
     padding-left: 16px;
     padding-right: 14px;
   }
+  .w-sm-100 {
+    width: 100%;
+  }
 }
 .selection-field {
   background-image: url(../../assets/img/Path\ 44.png);
@@ -109,4 +94,7 @@
   background-position-x: 25px;
   background-position-y: center;
   -webkit-appearance: none;
+}
+.outline:focus-visible {
+  outline: none;
 }

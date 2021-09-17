@@ -1,9 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
-import Sortarrow from "../../assets/img/sortarrow.png";
 
-import "../Panel/Panel.css";
+import "../cmPanelCss/News.css";
 const News = () => {
   return (
     <>
@@ -14,7 +13,7 @@ const News = () => {
         <div className="d-flex justify-content-between">
           <p className="heading-stock fs-sm-20">All News</p>
           <div>
-            <Link to="/content/manager/add/news">
+            <Link to="/content/manager/add/news" className="add-new-btn">
               <button className="update-btn">Add New</button>
             </Link>
           </div>
@@ -23,24 +22,9 @@ const News = () => {
           <Table responsive hover className="">
             <thead>
               <tr className="user-list-panel">
-                <th scope="col">
-                  <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                  Date{" "}
-                </th>
-                <th scope="col">
-                  <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                  Title{" "}
-                </th>
-                <th scope="col">
-                  <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                  Tag{" "}
-                </th>
+                <th> Date</th>
+                <th> Title</th>
+                <th>Tags</th>
               </tr>
             </thead>
             <tbody className="user-details">
@@ -50,9 +34,7 @@ const News = () => {
                   Nullam consequat augue eget finibus pretium. Morbi ultrices
                   eget purus et tempus.
                 </td>
-                <td className="d-flex flex-column">
-                  <span>,Tag-1 ,Tag-2</span> <span>Tag-3, Tag-4</span>
-                </td>
+                <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
               </tr>
               <tr></tr>
             </tbody>

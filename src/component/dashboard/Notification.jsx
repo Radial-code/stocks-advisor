@@ -1,5 +1,5 @@
 import React from "react";
-import "../Panel/Notification.css";
+import "../dashboardCss/Notification.css";
 import { Table, InputGroup, FormControl } from "react-bootstrap";
 const Notification = () => {
   return (
