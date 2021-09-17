@@ -33,8 +33,9 @@ function LineChart3() {
   ];
   return (
     <div className="container">
-      <p className="chart-text ff-popins">E & P 500</p>
       <div className="pich-chart">
+        <p className="chart-text ff-popins">Trading Portfolio</p>
+
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
             data={data}
@@ -57,8 +58,8 @@ function LineChart3() {
             </defs>
             <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" />
-            <YAxis dataKey="uv" />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <YAxis dataKey="uv" axisLine={false} tickLine={false} />
             <Tooltip />
             <Area
               type="monotone"

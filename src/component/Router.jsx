@@ -14,6 +14,9 @@ import LineChart2 from "./chart/LineChart2";
 import LineChart3 from "./chart/LineChart3";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
+import CurrentStock from "./portfolios/CurrentStock";
+import SoldStock from "../component/portfolios/SoldStock";
+import LogInModal from "./modal/LogInModal";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -35,6 +38,9 @@ const Router = () => {
         <Route path="/linechart" component={LineChart} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/currentstock" component={CurrentStock} />
+        <Route path="/soldstock" component={SoldStock} />
+        <Route path="/loginmodal" component={LogInModal} />
       </Switch>
     </BrowserRouter>
   );
