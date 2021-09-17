@@ -57,8 +57,8 @@ function LineChart3() {
             </defs>
             <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" />
-            <YAxis dataKey="uv" />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <YAxis dataKey="uv" axisLine={false} tickLine={false} />
             <Tooltip />
             <Area
               type="monotone"

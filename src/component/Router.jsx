@@ -13,10 +13,16 @@ import CmPanel from "../view/cmPanel/CmPanel";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import AllNewspage from "../view/AllNewspage";
+import CurrentStock from "./portfolios/CurrentStock";
+import SoldStock from "../component/portfolios/SoldStock";
+import LogInModal from "./modal/LogInModal";
+import Navbar from "../component/common/Navbar";
+import Footer from "../component/common/Footer";
 const Router = () => {
   console.log("router ");
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
@@ -32,7 +38,11 @@ const Router = () => {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route exact path="/allnews" component={AllNewspage} />
+        <Route path="/currentstock" component={CurrentStock} />
+        <Route path="/soldstock" component={SoldStock} />
+        <Route path="/loginmodal" component={LogInModal} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

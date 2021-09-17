@@ -18,9 +18,10 @@ function LineChart() {
       name: "2018",
       uv: 7,
     },
+
     {
       name: "2019",
-      uv: 2,
+      uv: 10,
     },
     {
       name: "2020",
@@ -56,9 +57,9 @@ function LineChart() {
           </defs>
           <CartesianGrid stroke="0" />
 
-          <XAxis dataKey="name" />
-          <YAxis dataKey="uv" />
-          <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
+          <XAxis dataKey="name" axisLine={false} tickLine={false} />
+          <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+          <Tooltip />
           <Area
             type="monotone"
             dataKey="uv"

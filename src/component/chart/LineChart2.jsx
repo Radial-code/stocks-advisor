@@ -59,7 +59,7 @@ function LineChart2() {
             <CartesianGrid stroke="0" />
 
             <XAxis dataKey="name" />
-            <YAxis dataKey="uv" />
+            <YAxis dataKey="uv" axisLine={false} tickLine={false} />
             <Tooltip />
             <Area
               type="monotone"

@@ -13,8 +13,8 @@ const Users = () => {
         <div className="d-flex justify-content-between">
           <p className="heading-stock fs-sm-20">Users</p>
           <div>
-            <Link to="/content/manager/edit/user" className="add-new-btn">
-              Add New
+            <Link to="/content/manager/edit/user">
+              <button className="update-btn">Add News</button>
             </Link>
           </div>
         </div>
