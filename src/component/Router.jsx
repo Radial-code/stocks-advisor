@@ -17,6 +17,9 @@ import SignUp from "./form/SignUp";
 import CurrentStock from "./portfolios/CurrentStock";
 import SoldStock from "../component/portfolios/SoldStock";
 import LogInModal from "./modal/LogInModal";
+import Subscription from "./modal/Subscription";
+import AddNewStock from "./addnewstock/AddNewStock";
+import Netflix from "./netflixinc/Netflix";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -41,6 +44,9 @@ const Router = () => {
         <Route path="/currentstock" component={CurrentStock} />
         <Route path="/soldstock" component={SoldStock} />
         <Route path="/loginmodal" component={LogInModal} />
+        <Route path="/subsmodal" component={Subscription} />
+        <Route path="/addnewstock" component={AddNewStock} />
+        <Route path="/netflix" component={Netflix} />
       </Switch>
     </BrowserRouter>
   );

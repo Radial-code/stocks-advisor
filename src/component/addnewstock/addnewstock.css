@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.ff-popins {
+  font-family: "Poppins", sans-serif;
+}
+/* add new stock */
+.add-stock-bg {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.new-stock-heading {
+  font-size: 31px;
+  font-weight: 500;
+  color: #16191e;
+}
+@media (max-width: 567px) {
+  .new-stock-heading {
+    font-size: 20px;
+  }
+}
+.add-new-stock-field .form-control {
+  padding: 14px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+}
+.add-new-stock-field .form-control:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+}
+.add-new-stock-field .form-control::placeholder {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #16191e;
+}
+.add-new-stock-select .form-select {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #16191e;
+  padding: 14px;
+}
+.add-new-stock-select .form-select {
+  -webkit-appearance: none !important ;
+  background-image: url("../../assets/img/dropdown.png");
+  background-position: 20px;
+}
+.add-new-stock-select .form-select:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+  border: 1px solid rgba(22, 25, 30, 0.2) !important;
+}
+.new-stock-btn {
+  background-color: #4870b3;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 7px 50px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  color: white;
+}
+.datepicker-input
+  .react-datepicker-wrapper
+  .react-datepicker__input-container
+  input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+  border-radius: 5px;
+}
+.datepicker-input
+  .react-datepicker-wrapper
+  .react-datepicker__input-container
+  input::placeholder {
+  font-size: 16px;
+  color: #16191e;
+  font-family: "Poppins", sans-serif;
+}
+.bucket-img {
+  left: 27px;
+  top: 16px;
+}
+.delete-new-stock-btn {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 7px 50px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  border: 2px solid #4870b3;
+  color: #4870b3;
+  background: transparent;
+}
