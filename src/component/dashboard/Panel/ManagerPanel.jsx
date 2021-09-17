@@ -56,7 +56,13 @@ const ManagerPanel = () => {
                   {input}
                 </span>
               ) : (
-                <span className="small-paragraph d-block d-sm-none">
+                <span
+                  className="
+                
+                
+                
+                small-paragraph d-block d-sm-none"
+                >
                   Video/ Image Link
                 </span>
               )}
@@ -67,21 +73,13 @@ const ManagerPanel = () => {
                 id="my-file"
                 hidden
               />
-              <button className="upload-img-btn d-none d-sm-block">
-                <label
-                  for="my-file"
-                  className="cursor-pointer
-                "
-                >
+              <button className="upload-img-btn d-none d-sm-block ">
+                <label for="my-file " className="cursor-pointer">
                   Upload Image
                 </label>
               </button>
-              <button className="upload-img-btn d-block d-sm-none">
-                <label
-                  for="my-file"
-                  className="cursor-pointer
-                "
-                >
+              <button className="upload-img-btn d-block d-sm-none ">
+                <label for="my-file " className="cursor-pointer">
                   Upload
                 </label>
               </button>
