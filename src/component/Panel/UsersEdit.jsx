@@ -6,14 +6,14 @@ const UsersEdit = () => {
       <section>
         <div className="container">
           <div className="row my-5">
-            <div className="col auto">
-              <p className="heading-stock pb-sm-3 border-bottom-1px">
+            <div className="col auto px-5  ">
+              <p className="heading-stock pb-sm-3 border-bottom-1px  ">
                 Content Manager
               </p>
             </div>
-            <div className="col-xl-10 col-12 mw-1000 mt-4">
-              <div className="p-sm-4 boxx">
-                <div className="p-3 ">
+            <div className="col-xl-10 col-11 mx-auto mw-1000 mt-4">
+              <div className="p-sm-4 boxx p-10-17 ">
+                <div className="p-2 p-sm-3 ">
                   <p className="heading-stock pb-sm-3">Jhone Doe </p>
                   <p className="contact-info  border-bottom-1px">
                     Contact Info
@@ -46,8 +46,8 @@ const UsersEdit = () => {
                     Current Subscription Info
                   </p>
                   <div className="row my-4 ps-xxl-3">
-                    <div className="col-md-6 col-12 panal-1 my-2 px-sm-0 px-4 ">
-                      <div className=" pt-3 pb-4">
+                    <div className="col-md-6 col-12 my-2 px-sm-4 px-3    panal-1  ">
+                      <div className=" pt-3 pb-4 ">
                         <p className="d-flex justify-content-between mb-0 pb-3 border-bottom-1px">
                           <span className="color-4870B3 profile-heading fw-bold order-2 order-md-0">
                             $299.99
@@ -56,13 +56,13 @@ const UsersEdit = () => {
                         </p>
                         <p className="fs-16 color-16191e fw-500 mt-3 mb-2 text-start d-flex d-md-block">
                           Purchase Date:
-                          <span className="color-16191E-7 fw-normal mx-3">
+                          <span className="color-16191E-7 fw-normal ms-sm-3 me-3 font">
                             17/07/2021
                           </span>
                         </p>
                         <p className="fs-16 color-16191e fw-500 text-start d-flex d-md-block">
                           Auto Renew:
-                          <span className="color-16191E-7 fw-normal ms-3 me-5">
+                          <span className="color-16191E-7 fw-normal ms-sm-3 me-5 font">
                             Enable
                           </span>
                           <span className="float-md-end me-auto ">
@@ -74,16 +74,18 @@ const UsersEdit = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="col-md-6 col-12 mt-4 mt-md-0 panal-1  px-sm-0 px-4">
-                      <p className="small-paragraph fw-500 color-16191e d-md-none d-block mb-2 pt-3">
-                        :Plan Description
-                      </p>
-                      <p className="fs-16 color-16191E-7 pe-md-4 ps-xxl-5    mx-234  ">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer
-                      </p>
+                    <div className="col-md-6 col-12 mt-4 mt-md-0   ">
+                      <div className="px-sm-4 px-3 box-2 mx-266">
+                        <p className="small-paragraph fw-500 color-16191e d-md-none d-block mb-2 pt-3">
+                          :Plan Description
+                        </p>
+                        <p className="fs-16 color-16191E-7 pe-md-4 ps-xxl-5     ">
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry. Lorem Ipsum has been the
+                          industry's standard dummy text ever since the 1500s,
+                          when an unknown printer
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <button className="border-0 cancel-subscription">

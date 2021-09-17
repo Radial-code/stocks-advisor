@@ -55,6 +55,9 @@ body {
 .fs-16 {
   font-size: var(--font-xs);
 }
+.font {
+  font-size: 16px;
+}
 .color-16191e {
   color: var(--color-59A3FB);
 }
@@ -72,8 +75,11 @@ body {
     --font-xs: 14px;
     --font-18: 16px;
   }
+  .font {
+    font-size: 11px;
+  }
   .container {
-    width: 87% !important;
+    width: 95% !important;
   }
   .update-btn {
     width: 100%;
@@ -81,14 +87,32 @@ body {
   .cancel-subscription {
     width: 100%;
   }
-  .mx-234 {
-    max-width: 234px;
-  }
+
   body {
     background-color: white;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 374px) and (max-width: 576px) {
+  .container {
+    width: 100% !important;
+  }
+  .panal-1 {
+    width: 266px;
+    margin: 0 auto;
+  }
+  .mx-266 {
+    max-width: 266px;
+    margin: 0 auto;
+  }
+  .box-2 {
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #0000000d;
+  }
+  .p-10-17 {
+    padding: 10px 17px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
   :root {
     --font-lg: 25px;
     --font-md: 18px;
