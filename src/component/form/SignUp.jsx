@@ -7,7 +7,7 @@ function SignUp() {
     <div className="container h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
         <div className="col-xl-6 col-sm-10">
-          <div className="form-background p-sm-5 p-2">
+          <div className="background-form p-sm-5 p-2">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Sign Up
             </p>
@@ -20,7 +20,7 @@ function SignUp() {
                   >
                     <Form.Control
                       type="email"
-                      className="text-start"
+                      className=""
                       placeholder="Last Name"
                     />
                   </Form.Group>{" "}

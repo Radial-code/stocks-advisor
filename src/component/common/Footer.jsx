@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
+
 import logo from "../../assets/img/Navbar-logo-img.png";
 const Footer = () => {
   return (
@@ -11,12 +13,12 @@ const Footer = () => {
               <img className="filter-img" src={logo} alt="" />
             </div>
             <div className="d-none d-md-block mt-5 mb-4 ">
-              <a
+              <Link
                 className="text-decoration-none text-white footer-btn"
-                href="#"
+                to=""
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -27,12 +29,12 @@ const Footer = () => {
               finibus tristique arcu finibus tristique arcu finibus
             </p>
             <div className="text-center d-md-none mt-5 mb-4 ">
-              <a
+              <Link
                 className="text-decoration-none text-white footer-btn"
-                href="#"
+                to=""
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -40,70 +42,70 @@ const Footer = () => {
             <div className="d-flex justify-content-between w-xs-250 ">
               <ul className="list-unstyled  footer-ul d-sm-none d-flex flex-column align-items-center">
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Portfolio
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Login
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Join
-                  </a>
+                  </Link>
                 </li>
               </ul>
 
               <ul className="list-unstyled footer-ul d-flex flex-column align-items-center">
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     News
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Our Plan
-                  </a>
+                  </Link>
                 </li>
               </ul>
 
               <ul className="list-unstyled  footer-ul d-none d-sm-block">
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Portfolio
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Login
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-decoration-none text-white fs-15" href="#">
+                  <Link className="text-decoration-none text-white fs-15" to="">
                     Join
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
