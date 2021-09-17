@@ -101,3 +101,7 @@
   background-position-y: center;
   -webkit-appearance: none;
 }
+
+.outline:focus-visible {
+  outline: none;
+}

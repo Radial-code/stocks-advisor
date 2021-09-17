@@ -23,9 +23,9 @@ const ManagerPanel = () => {
           <div className="col-12 col-lg-6 mb-3 ">
             <div className=" inputs-border p_16_20 w-100 d-flex justify-content-between">
               <DatePicker
-                value=" Date"
+                value="Date"
                 id="my-date"
-                className="small-paragraph border-0 w-100"
+                className="small-paragraph datepicker border-0 w-100"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
@@ -54,7 +54,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className=" w-100 selection-field h-100 inputs-border padding-select pb-12 small-paragraph"
+              className=" w-100 selection-field h-100 inputs-border padding-select pb-12 small-paragraph outline  "
               name=""
               id=" "
             >
@@ -72,7 +72,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className=" w-100 selection-field   inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field   inputs-border padding-select pb-3 small-paragraph outline"
               name=""
               id=""
             >
@@ -90,7 +90,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph outline"
               name=""
               id=""
             >
@@ -123,7 +123,7 @@ const ManagerPanel = () => {
           <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
           <div className="col-12 col-lg-6 mb-3">
             <select
-              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
+              className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph outline"
               name=""
               id=""
             >
@@ -141,7 +141,7 @@ const ManagerPanel = () => {
           </div>
           <div className="col-12 mb-3">
             <textarea
-              className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+              className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 outline"
               name=""
               id=""
               cols=""
