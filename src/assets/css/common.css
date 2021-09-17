@@ -194,8 +194,11 @@
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
 }
 
-.down {
-  transform: translateY(40px);
+.down-animation {
+  transition: 0.2s ease-in-out;
+}
+.down-animation:hover {
+  transform: translateY(-40px);
 }
 .arrow-none input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
