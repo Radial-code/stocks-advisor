@@ -1,6 +1,7 @@
 import React from "react";
 import "../cmPanelCss/Stock.css";
 import Sortarrow from "../../assets/img/sortarrow.png";
+import { Link } from "react-router-dom";
 
 const Stocks = () => {
   return (
@@ -8,7 +9,9 @@ const Stocks = () => {
       <div className="current-stock-bg p-sm-3 p-2">
         <div className="mt-4 d-flex justify-content-between align-items-center">
           <h1 className="current-stock-text ff-popins mb-0">Current Stocks</h1>
-          <button className="update-btn">Add News</button>
+          <Link to="/content/manager/add/stock">
+            <button className="update-btn">Add News</button>
+          </Link>
         </div>
         <div className="overflow-auto h-calc-100vh-380 mt-3 ">
           <div className="table-responsive  current-stock-scrollbar">

@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import "../cmPanelCss/addnewstock.css";
 import { Form, FormGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Buket from "../../assets/img/backet.png";
-function AddStock() {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [firstDate, setFirstDate] = useState("");
+function Netflix() {
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [firstDate, setFirstDate] = useState(new Date());
 
   return (
     <div className="container">
-      <div className="row h-100">
-        <div className="col-12 h-100 stock-add-new">
-          <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
-            <p className="new-stock-heading ff-popins mb-0 ">Add New Stock</p>
+      <div className="row">
+        <div className="col-12">
+          <div className="add-stock-bg p-sm-5 p-3 mt-3">
+            <p className="new-stock-heading ff-popins mb-0 ">Netflix Inc</p>
             <Form className="pt-sm-5  pt-4">
               <div className="row">
-                <div className="col-md-6 order-2 datepicker-input position-relative order-sm-2 order-1">
+                <div className="col-sm-6 order-2 datepicker-input position-relative order-sm-2 order-1">
                   <DatePicker
-                    placeholderText="Join Date"
                     className="mb-3"
                     selected={firstDate}
                     onChange={(date) => setFirstDate(date)}
@@ -30,42 +28,42 @@ function AddStock() {
                     alt="Buket"
                   />
                 </div>
-                <div className="col-md-6 order-1 last-name order-sm-1 order-2">
+                <div className="col-sm-6 order-1 last-name order-sm-1 order-2">
                   <Form.Group
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="Join Price" />
+                    <Form.Control type="email" placeholder="$125" />
                   </Form.Group>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <Form.Group
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="Symbol" />
+                    <Form.Control type="email" placeholder="NFLX" />
                   </Form.Group>
                 </div>
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <FormGroup className=" add-new-stock-select mb-3">
                     <select className="form-select text-end">
-                      <option>Category</option>
+                      <option>Common</option>
                     </select>
                   </FormGroup>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <Form.Group
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="Portfolio" />
+                    <Form.Control type="email" placeholder="Netflix Inc" />
                   </Form.Group>
                 </div>
-                <div className="col-md-6">
+                <div className="col-sm-6">
                   <Form.Group
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
@@ -75,10 +73,9 @@ function AddStock() {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6  datepicker-input position-relative order-sm-1 order-2">
+                <div className="col-sm-6  datepicker-input position-relative order-sm-1 order-2">
                   <DatePicker
                     className="mb-3"
-                    placeholderText="Sell Date (if sold)"
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                   />
@@ -88,9 +85,8 @@ function AddStock() {
                     alt="Buket"
                   />
                 </div>
-                <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
+                <div className="col-sm-6 datepicker-input position-relative order-sm-2 order-1">
                   <DatePicker
-                    placeholderText="Sold Date"
                     className="mb-3"
                     selected={endDate}
                     onChange={(date) => setEndDate(date)}
@@ -104,7 +100,12 @@ function AddStock() {
               </div>
 
               <div className="d-flex flex-sm-row flex-column">
-                <button className="update-btn my-3  ff-popins">Add</button>
+                <button className="delete-new-stock-btn my-sm-3  ff-popins">
+                  Delete
+                </button>
+                <button className="new-stock-btn my-3 border-0 ff-popins mx-sm-3">
+                  Add
+                </button>
               </div>
             </Form>
           </div>
@@ -114,4 +115,4 @@ function AddStock() {
   );
 }
 
-export default AddStock;
+export default Netflix;

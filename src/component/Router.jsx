@@ -18,6 +18,8 @@ import SoldStock from "../component/portfolios/SoldStock";
 import LogInModal from "./modal/LogInModal";
 import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
+import Subscription from "./modal/Subscription";
+import Netflix from "./netflixinc/Netflix";
 const Router = () => {
   console.log("router ");
   return (
@@ -41,6 +43,8 @@ const Router = () => {
         <Route path="/currentstock" component={CurrentStock} />
         <Route path="/soldstock" component={SoldStock} />
         <Route path="/loginmodal" component={LogInModal} />
+        <Route path="/subsmodal" component={Subscription} />
+        <Route path="/netflix" component={Netflix} />
       </Switch>
       <Footer />
     </BrowserRouter>
