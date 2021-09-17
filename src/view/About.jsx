@@ -8,7 +8,6 @@ import Navbarpage from "./Navbarpage";
 const Homepage = () => {
   return (
     <>
-      <Navbarpage />
       <AboutHero />
       <section className="bg-f9f9f9 py-5">
         <div className="container">
