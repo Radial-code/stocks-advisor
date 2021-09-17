@@ -13,7 +13,9 @@
 .filter-img {
   filter: grayscale(1);
 }
-
+.list-unstyled li {
+  margin-top: 3px;
+}
 .svg:hover path {
   fill: WHITE !important;
 }

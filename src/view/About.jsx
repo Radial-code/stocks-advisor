@@ -3,12 +3,10 @@ import AboutHero from "../component/about/AboutHero";
 import AboutUs from "../component/about/AboutUs";
 import History from "../component/about/History";
 import AboutSlider from "../component/about/AboutSlider";
-import Navbarpage from "./Navbarpage";
 
 const Homepage = () => {
   return (
     <>
-      <Navbarpage />
       <AboutHero />
       <section className="bg-f9f9f9 py-5">
         <div className="container">

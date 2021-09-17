@@ -14,7 +14,7 @@ const CmPanel = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container my-5">
         <div className="d-flex justify-content-between">
           <SidebarPanel
             sidebarActive={sidebarActive}

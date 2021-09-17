@@ -1,0 +1,11 @@
+@media (min-width: 1600.98px) {
+  .current-stock-bg {
+    width: 1000px;
+  }
+  .w-xl-1000 {
+    width: 1000px;
+  }
+}
+.h-calc-100vh-380 {
+  height: calc(100vh - 380px);
+}

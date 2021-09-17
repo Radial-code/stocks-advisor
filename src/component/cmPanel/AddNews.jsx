@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import "../Panel/Manger.css";
+import "../cmPanelCss/News.css";
 import Dateicon from "../../assets/img/Date-icon.svg";
 const AddNews = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <div>
       <div className="conatiner">
-        <div className="row manger-panel-shadow mt-5">
+        <div className="row manger-panel-shadow mt-5 p-5 w-xl-1000">
           <p className="heading-stock d-none d-sm-block">Add New News</p>
           <p className="heading-stock d-block d-sm-none">Add News</p>
           <div className="col-12 col-lg-6 mb-3">
@@ -39,7 +39,7 @@ const AddNews = () => {
                 {" "}
                 Video/ Image Link
               </span>
-              <input type="file" id="my-file" hidden />
+              <input type="file" value="" id="my-file" hidden />
               <button className="upload-img-btn d-none d-sm-block">
                 <label for="my-file">Upload Image</label>
               </button>

@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 
-import "../Panel/Panel.css";
+import "../cmPanelCss/News.css";
 const News = () => {
   return (
     <>
@@ -14,7 +14,7 @@ const News = () => {
           <p className="heading-stock fs-sm-20">All News</p>
           <div>
             <Link to="/content/manager/add/news" className="add-new-btn">
-              Add New
+              <button className="update-btn">Add New</button>
             </Link>
           </div>
         </div>

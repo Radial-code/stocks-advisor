@@ -6,44 +6,48 @@ import OurPlanspage from "../view/OurPlanspage";
 import Stockpage from "../view/Stockpage";
 import About from "../view/About";
 import Payment from "../view/Payment";
-import Navbarpage from "../view/Navbarpage";
-import Managerpanelpage from "../view/Managerpanelpage";
 import Dashboard from "../view/dashboard/Dashboard";
 import CmPanel from "../view/cmPanel/CmPanel";
-import LineChart from "./chart/LineChart";
-import LineChart2 from "./chart/LineChart2";
-import LineChart3 from "./chart/LineChart3";
+
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
-import UsersEditpage from "../component/Panel/UsersEdit";
-import UserEditpage from "../view/UserEditpage";
 import AllNewspage from "../view/AllNewspage";
+import CurrentStock from "./portfolios/CurrentStock";
+import SoldStock from "../component/portfolios/SoldStock";
+import LogInModal from "./modal/LogInModal";
+import Navbar from "../component/common/Navbar";
+import Footer from "../component/common/Footer";
+import Subscription from "./modal/Subscription";
+import Netflix from "./netflixinc/Netflix";
+import News from "../view/News";
+
 const Router = () => {
   console.log("router ");
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/ourplans" component={OurPlanspage} />
+        <Route exact path="/news" component={News} />
         {/* <Route exact path="/" component={Homepage} /> */}
-        {/* <Route exact path="/stock" component={Stockpage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
-        <Route exact path="/navbar" component={Navbarpage} />
-        <Route exact path="/managerpanel" component={Managerpanelpage} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
-        <Route path="/linechart2" component={LineChart2} />
-        <Route path="/linechart3" component={LineChart3} />
-        <Route path="/linechart" component={LineChart} />
+
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-        <Route exact path="/managerpanel" component={Managerpanelpage} />{" "}
-        <Route exact path="/useredit" component={UserEditpage} />
         <Route exact path="/allnews" component={AllNewspage} />
+        <Route path="/currentstock" component={CurrentStock} />
+        <Route path="/soldstock" component={SoldStock} />
+        <Route path="/loginmodal" component={LogInModal} />
+        <Route path="/subsmodal" component={Subscription} />
+        <Route path="/netflix" component={Netflix} />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };

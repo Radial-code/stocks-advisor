@@ -30,9 +30,7 @@ function EditContact() {
                   <Form.Control type="text" placeholder="Mobile No" />
                 </Form.Group>
                 <div className="d-flex flex-sm-row flex-column my-3">
-                  <button className="update-btn  border-0 ff-popins">
-                    Update
-                  </button>
+                  <button className="update-btn  ff-popins">Update</button>
                 </div>
               </Form>
             </div>

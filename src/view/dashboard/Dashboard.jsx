@@ -12,7 +12,7 @@ const Dashboard = () => {
   console.log("dashboard render");
   return (
     <>
-      <div className="container">
+      <div className="container py-5">
         <div className="d-flex justify-content-between">
           <SidebarDashboard
             sidebarActive={sidebarActive}

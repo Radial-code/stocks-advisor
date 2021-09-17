@@ -2,19 +2,19 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 
-import "../Panel/Panel.css";
+import "../cmPanelCss/userList.css";
 const Users = () => {
   return (
     <>
-      <p className=" mt-2 profile-heading content-manager-none fs-sm-20 pr-15 pb-2 border-b-1">
+      {/* <p className=" mt-2 profile-heading content-manager-none fs-sm-20 pr-15 pb-2 border-b-1">
         Content Manager
-      </p>
+      </p> */}
       <section className="user-panel-card p-5 mt-5 pt-5">
         <div className="d-flex justify-content-between">
           <p className="heading-stock fs-sm-20">Users</p>
           <div>
-            <Link to="/content/manager/edit/user" className="add-new-btn">
-              Add New
+            <Link to="/content/manager/edit/user">
+              <button className="update-btn">Add News</button>
             </Link>
           </div>
         </div>
