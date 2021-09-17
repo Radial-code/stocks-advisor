@@ -15,7 +15,7 @@ const ManagerPanel = () => {
   };
   return (
     <div>
-      <div className="conatiner">
+      <div className="container">
         <div className="row manger-panel-shadow mt-5">
           <p className="heading-stock d-none d-sm-block">Add New News</p>
           <p className="heading-stock d-block d-sm-none">Add News</p>
