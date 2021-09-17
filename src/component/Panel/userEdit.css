@@ -1,101 +1,42 @@
-:root {
-  --color-16191E-7: #16191ebd;
+.fs-22 {
+  font-size: var(--font-22);
 }
-body {
-  background-color: var(--color-f9f9f9);
+.edit-user {
+  width: 445px;
+  height: 50px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.boxx {
+.edit-user input {
+  width: 430px;
+  height: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+
+  border: 0px;
+}
+.edituser-card {
+  width: 1000px;
+
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
 }
-.mw-1000 {
-  max-width: 1000px !important;
+.edituser-amount {
+  font-weight: 700;
+  font-size: var(--font-md);
+  color: var(--color-88BEFC);
 }
-.contact-info {
-  font-size: var(--font-22);
-  font-weight: 500;
-  color: var(--color-16191e);
-}
-.border-bottom-1px {
-  border-bottom: 1px solid var(--color-16191e33);
-}
-.input-border {
-  border-radius: 5px;
-  border: 1px solid var(--color-16191e33);
-}
-.input-placeholder {
-  font-size: var(--font-xs);
-  font-weight: 400;
-  color: var(--color-16191e);
-}
-.update-btn {
-  padding: 11px 44px 10px 44px;
-  border-radius: 4px;
-  background-color: var(--color-88BEFC);
-  color: var(--color-B8D8FD);
-  font-weight: 500;
-  font-size: var(--font-18);
-}
-.color-4870B3 {
-  color: var(--color-88BEFC) !important;
-}
-.cancel-subscription {
-  padding: 11px 33px 10px 33px;
-  color: var(--color-B8D8FD);
-  background-color: var(--color-88BEFC);
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: var(--font-18);
-}
-.panal-1 {
-  border-radius: 10px;
+.plan-card-edituser {
+  width: 451px;
+  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
-}
-.fs-16 {
-  font-size: var(--font-xs);
-}
-.color-16191e {
-  color: var(--color-59A3FB);
-}
-.color-16191E-7 {
-  color: var(--color-16191E-7);
-}
-.fw-500 {
-  font-weight: 500;
-}
-@media (max-width: 576px) {
-  :root {
-    --font-lg: 20px;
-    --font-md: 16px;
-    --font-22: 14px;
-    --font-xs: 14px;
-    --font-18: 16px;
-  }
-  .container {
-    width: 87% !important;
-  }
-  .update-btn {
-    width: 100%;
-  }
-  .cancel-subscription {
-    width: 100%;
-  }
-  .mx-234 {
-    max-width: 234px;
-  }
-  body {
-    background-color: white;
-  }
-}
-@media (max-width: 768px) {
-  :root {
-    --font-lg: 25px;
-    --font-md: 18px;
-    --font-22: 16px;
-    --font-xs: 16px;
-    --font-18: 18px;
-  }
+  border-radius: 10px;
 }
 .switch {
   display: inline-block;
@@ -108,7 +49,6 @@ body {
 .switch input {
   display: none;
 }
-
 .slider {
   border: 1px solid var(--color-127CF9) !important;
   background-color: #ccc;
@@ -148,6 +88,91 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-.bg-161933 {
-  background-color: var(--color-16191e33);
+.current-para {
+  width: 385px;
+}
+@media (max-width: 1599.98px) {
+  .edituser-card {
+    max-width: 900px;
+  }
+  .edit-user {
+    width: 400px;
+  }
+  .edit-user input {
+    width: 380px;
+  }
+  .plan-card-edituser {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .edituser-card {
+    max-width: 750px;
+  }
+  .edit-user {
+    width: 315px;
+  }
+  .edit-user input {
+    width: 300px;
+  }
+  .plan-card-edituser {
+    width: 315px;
+  }
+  .current-para {
+    width: 100%;
+  }
+}
+@media (max-width: 1280.98px) {
+  .edituser-card {
+    max-width: 100%;
+  }
+  .edit-user {
+    width: 100%;
+    padding: 8px;
+  }
+  .edit-user input {
+    width: 100%;
+  }
+  .plan-card-edituser {
+    width: 400px;
+  }
+  .current-para {
+    width: 100%;
+  }
+}
+@media (max-width: 991.98px) {
+  .plan-card-edituser {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .fs-sm-14 {
+    font-size: var(--font-xxs);
+  }
+  .fs-sm-16 {
+    font-size: var(--font-xs);
+  }
+  .fs-sm-11 {
+    font-size: var(--font-11);
+  }
+}
+@media (max-width: 375.98px) {
+  .edit-user {
+    height: 37px;
+  }
+  .edit-user input {
+    height: 33px;
+  }
+  .update-btn {
+    width: 100%;
+  }
+  .current-para {
+    border: 1px solid #0000001a;
+    border-radius: 10px;
+    padding: 8px;
+  }
+  .current-para div {
+    display: block !important;
+  }
 }

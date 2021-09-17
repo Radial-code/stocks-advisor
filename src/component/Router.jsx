@@ -17,6 +17,7 @@ import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import UsersEditpage from "../component/Panel/UsersEdit";
 import UserEditpage from "../view/UserEditpage";
+import AllNewspage from "../view/AllNewspage";
 const Router = () => {
   console.log("router ");
   return (
@@ -41,6 +42,7 @@ const Router = () => {
         <Route path="/signup" component={SignUp} />
         <Route exact path="/managerpanel" component={Managerpanelpage} />{" "}
         <Route exact path="/useredit" component={UserEditpage} />
+        <Route exact path="/allnews" component={AllNewspage} />
       </Switch>
     </BrowserRouter>
   );
