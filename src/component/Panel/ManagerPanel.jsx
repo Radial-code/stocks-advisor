@@ -25,11 +25,13 @@ const ManagerPanel = () => {
               <DatePicker
                 value=" Date"
                 id="my-date"
-                className="small-paragraph border-0 "
+                className="small-paragraph border-0 w-100"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
-              <img for="my-date" src={Dateicon} alt="" />
+              <a href="#my-date">
+                <img src={Dateicon} alt="" />
+              </a>
             </div>
           </div>
           <div className="col-12 col-lg-6 mb-3 ">
