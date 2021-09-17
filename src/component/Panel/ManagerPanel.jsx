@@ -163,8 +163,8 @@ const ManagerPanel = () => {
               </label>
             </div>
           </div>
-          <div className=" ">
-            <button className="add-btn">Add</button>
+          <div className="Add-btn">
+            <button className="add-btn w-sm-100">Add</button>
           </div>
         </div>
       </div>

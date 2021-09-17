@@ -8,8 +8,8 @@ const Managerpanelpage = () => {
     <div className="bg-f9f9f9 h-100vh">
       <Container>
         <Row>
-          <Col className="d-flex">
-            <div className="w-350 mt-5 pt-5">
+          <Col className="d-flex mt-5">
+            <div className="w-350 mt-3 ">
               <SidebarPanel />
             </div>
             <div className="w-100">
