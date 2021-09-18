@@ -32,6 +32,15 @@
   font-family: "Poppins", sans-serif;
   color: #16191e;
 }
+.forgot-text {
+  font-size: 16px;
+  color: #16191e;
+}
+@media (max-width: 567px) {
+  .forgot-text {
+    font-size: 11px;
+  }
+}
 .modal-btn {
   background-color: #5cbd4c;
   color: white;
