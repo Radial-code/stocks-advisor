@@ -28,9 +28,7 @@ function Login() {
               </Form.Group>
 
               <div className=" my-3">
-                <button className=" w-100 form-btn px-5 py-3 border-0 ff-popins">
-                  Log In
-                </button>
+                <button className=" w-100 form-btn  ff-popins">Log In</button>
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-5">

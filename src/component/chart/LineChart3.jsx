@@ -33,7 +33,7 @@ function LineChart3() {
   ];
   return (
     <div className="container mt-4">
-      <p className="chart-text ff-popins mb-4">E & P 500</p>
+      <p className="chart-text-2 ff-popins mb-4">E & P 500</p>
       <div className="pich-chart">
         <ResponsiveContainer width="100%" height={213}>
           <AreaChart

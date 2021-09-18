@@ -1,6 +1,7 @@
 import React from "react";
-
 import { Link, withRouter } from "react-router-dom";
+import { News, Stocks, User } from "../icons/Icons";
+
 import "./Sidebar.css";
 // /dashboard/update/payment
 const SidebarPanel = ({ page, sidebarActive, history }) => {
@@ -19,6 +20,9 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                     page === "add" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <Stocks />
+                  </span>
                   <span>Stocks</span>
                 </li>
               </Link>
@@ -29,6 +33,9 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                     page === "enquiry" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <News />
+                  </span>
                   <span>News</span>
                 </li>
               </Link>
@@ -39,6 +46,9 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                     page === "job" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <User />
+                  </span>
                   <span>Users</span>
                 </li>
               </Link>

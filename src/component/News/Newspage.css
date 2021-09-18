@@ -1,0 +1,22 @@
+@media (min-width: 1199.98px) {
+  .max-w-546 {
+    max-width: 546px;
+  }
+}
+
+@media (max-width: 375.98px) {
+  .profile-box {
+    width: 303px;
+    padding: 2px;
+  }
+  .profile-box-2 {
+    width: 303px;
+    border-radius: 10px;
+    padding: 0px;
+    background: #fff;
+    box-shadow: unset;
+  }
+  .h-xs-171 {
+    height: 171px;
+  }
+}

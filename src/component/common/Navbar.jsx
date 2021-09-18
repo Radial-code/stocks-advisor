@@ -171,7 +171,7 @@ const Navbar = () => {
                 <li className="nav-item d-none d-md-block">
                   <NavLink
                     exact
-                    to="/about"
+                    to="/portfolio"
                     activeClassName="active"
                     className="nav-links"
                     onClick={click ? handleClick : null}
@@ -384,7 +384,7 @@ const Navbar = () => {
                 <li className=" d-flex d-none d-xl-block flex-column align-items-center">
                   <NavLink
                     exact
-                    to="/contact"
+                    to="/#"
                     activeClassName="active"
                     className="nav-links d-flex justify-content-center"
                     onClick={click ? handleClick : null}
@@ -399,7 +399,7 @@ const Navbar = () => {
               <li className=" d-flex d-xl-none flex-column align-items-center">
                 <NavLink
                   exact
-                  to="/contact"
+                  to="/#"
                   activeClassName="active"
                   className="nav-links d-flex justify-content-center"
                   onClick={click ? handleClick : null}

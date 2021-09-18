@@ -139,6 +139,9 @@ input:focus-visible {
   .fs-sm-16 {
     font-size: var(--font-xs);
   }
+  .fs-sm-18 {
+    font-size: var(--font-18) !important;
+  }
   .fs-sm-14 {
     font-size: var(--font-xxs);
   }

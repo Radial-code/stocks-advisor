@@ -6,8 +6,12 @@ import LineChart3 from "../chart/LineChart3";
 const Chart = () => {
   return (
     <>
-      <div className="border-b-1">
-        <p className="profile-heading">Our Portfolio's Performance</p>
+      <div className="pr-15 pl-15 mt-2">
+        <div className="border-b-1">
+          <p className="profile-heading fs-lg-22 fs-sm-15 ">
+            Our Portfolio's Performance
+          </p>
+        </div>
       </div>
       <div className="mt-5">
         <LineChart2 />

@@ -108,7 +108,7 @@ const OurPlans = ({ homepage }) => {
 
           {!homepage ? (
             <Col xs={12} className="d-flex justify-content-center mt-5">
-              <button className="sing-up-btn text-white">
+              <button className="sign-up-btn text-white">
                 Sign up for Free
               </button>
             </Col>
