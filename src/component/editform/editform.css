@@ -49,10 +49,39 @@
 .blue-chart .recharts-responsive-container {
   background-color: #f5f9ff;
 }
+.netflix-chart {
+  background: #16191e;
+  border-radius: 10px;
+}
 .pich-chart .recharts-responsive-container {
   background-color: #fff5f7;
 }
 .chart-text {
   font-size: 26px;
   font-weight: 500;
+}
+.chart-btn {
+  padding: 2px 12px;
+  background-color: #4870b3;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+@media (max-width: 992px) {
+  .chart-btn {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+  .chart-text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 567px) {
+  .chart-text {
+    display: none;
+  }
+}
+.chart-btn:hover {
+  background-color: #5cbd4c;
+  color: white;
 }

@@ -20,6 +20,7 @@ import LogInModal from "./modal/LogInModal";
 import Subscription from "./modal/Subscription";
 import AddNewStock from "./addnewstock/AddNewStock";
 import Netflix from "./netflixinc/Netflix";
+import NetflixChart from "./netflixchart/NetflixChart";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -47,6 +48,7 @@ const Router = () => {
         <Route path="/subsmodal" component={Subscription} />
         <Route path="/addnewstock" component={AddNewStock} />
         <Route path="/netflix" component={Netflix} />
+        <Route path="/netflixchart" component={NetflixChart} />
       </Switch>
     </BrowserRouter>
   );
