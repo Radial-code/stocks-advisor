@@ -19,6 +19,7 @@ import Footer from "../component/common/Footer";
 import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
 import News from "../view/News";
+import Portfolio from "../view/Portfolio";
 
 const Router = () => {
   console.log("router ");
@@ -36,6 +37,7 @@ const Router = () => {
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
+        <Route path="/portfolio" component={Portfolio} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
