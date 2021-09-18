@@ -264,7 +264,10 @@
   width: 100%;
   background: var(--color-127CF9);
 }
-
+.nav-item .nav-links active:hover:after {
+  width: 100%;
+  background: var(--color-127CF9);
+}
 /* .nav-item .active {
   color: #ffdd40;
   border: 1px solid #ffdd40;
