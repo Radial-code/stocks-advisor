@@ -156,6 +156,12 @@
 .homePageSlider .slick-dots .slick-active button:after {
   width: 100%;
 }
+.dots {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
 
 .homePageSlider .slick-dots button:before {
   font-family: "" !important;
@@ -212,9 +218,16 @@ input::-webkit-inner-spin-button {
 .text-decoration {
   text-decoration: none;
 }
+
+.w-518 {
+  width: 518px;
+}
 @media (min-width: 1600.99px) {
   .container {
     max-width: 1440px !important;
+  }
+  .h-341 {
+    height: 341px;
   }
 }
 @media (max-width: 575.98px) {

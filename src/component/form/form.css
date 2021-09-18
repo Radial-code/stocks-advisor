@@ -11,6 +11,13 @@
   color: white;
   border-radius: 4px;
   font-weight: 500;
+  font-size: var(--font-18);
+  padding: 8.5px 0px;
+  border: 1px solid var(--color-127CF9);
+}
+.form-btn:hover {
+  background-color: white;
+  color: var(--color-16191E);
 }
 .sign-up-text {
   font-size: 16px;
