@@ -1,6 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+import { News, Stocks, User } from "../icons/Icons";
+
 import "./Sidebar.css";
 export default function SidebarPanel({ page, sidebarActive }) {
   return (
@@ -9,13 +10,16 @@ export default function SidebarPanel({ page, sidebarActive }) {
         <div className=" mt-5 w-100  ">
           <p className=" mt-2 profile-heading pr-15">Content Manager</p>
           <nav>
-            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover ">
+            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover">
               <Link href="#">
                 <li
                   className={`pt-15 pb-15 mt-15  ${
                     page === "add" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <Stocks />
+                  </span>
                   <span>Stocks</span>
                 </li>
               </Link>
@@ -26,6 +30,9 @@ export default function SidebarPanel({ page, sidebarActive }) {
                     page === "enquiry" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <News />
+                  </span>
                   <span>News</span>
                 </li>
               </Link>
@@ -36,6 +43,9 @@ export default function SidebarPanel({ page, sidebarActive }) {
                     page === "job" ? "sidebar-active" : ""
                   }`}
                 >
+                  <span className="svg-image px-3">
+                    <User />
+                  </span>
                   <span>Users</span>
                 </li>
               </Link>
