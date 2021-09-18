@@ -9,47 +9,37 @@ const PortfoliosSidebar = ({ page, sidebarActive, history }) => {
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
         <div className=" mt-5 w-100  ">
           <p className=" mt-2 profile-heading pr-15 ml-2 pb-2 border-b-1">
-            Dashboard
+            Portfolios
           </p>
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
-              <Link to="/dashboard/edit/contact">
-                <li
-                  className={`pt-13 pb-13 mt-15  ${
-                    page === "add" ? "sidebar-active" : ""
-                  }`}
-                >
-                  <span>Edit Contact</span>
-                </li>
-              </Link>
-
-              <Link to="/dashboard/manage/subscription">
+              <Link to="/portfolio/portfolio1">
                 <li
                   className={`pt-13 pb-13 mt-15 ${
                     page === "enquiry" ? "sidebar-active" : ""
                   }`}
                 >
-                  <span>Manage Subscription</span>
+                  <span>Portfolio-1</span>
                 </li>
               </Link>
 
-              <Link to="/dashboard/update/payment">
+              <Link to="/portfolio/portfolio2">
                 <li
                   className={`pt-13 pb-13 mt-15 ${
                     page === "job" ? "sidebar-active" : ""
                   }`}
                 >
-                  <span>Update Payment Method</span>
+                  <span>Portfolio-2</span>
                 </li>
               </Link>
 
-              <Link to="/dashboard/notification">
+              <Link to="/portfolio/portfolio3">
                 <li
                   className={`pt-13 pb-13 mt-15 ${
                     page === "job" ? "sidebar-active" : ""
                   }`}
                 >
-                  <span>Notification</span>
+                  <span>Portfolio-3</span>
                 </li>
               </Link>
             </ul>

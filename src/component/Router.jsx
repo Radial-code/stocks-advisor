@@ -12,7 +12,6 @@ import CmPanel from "../view/cmPanel/CmPanel";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import AllNewspage from "../view/AllNewspage";
-import CurrentStock from "./portfolios/CurrentStock";
 import LogInModal from "./modal/LogInModal";
 import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
@@ -20,6 +19,7 @@ import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
 import News from "../view/News";
 import Portfolio from "../view/Portfolio";
+import Contactpage from "../view/Contactpage";
 
 const Router = () => {
   console.log("router ");
@@ -42,10 +42,10 @@ const Router = () => {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route exact path="/allnews" component={AllNewspage} />
-        <Route path="/currentstock" component={CurrentStock} />
         <Route path="/loginmodal" component={LogInModal} />
         <Route path="/subsmodal" component={Subscription} />
         <Route path="/netflix" component={Netflix} />
+        <Route path="/contact" component={Contactpage} />
       </Switch>
       <Footer />
     </BrowserRouter>
