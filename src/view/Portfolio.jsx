@@ -16,6 +16,7 @@ const Portfolio = () => {
           />
 
           <Route exact path="/portfolio/portfolio1" component={Portfolio1} />
+          <Route />
           <Route exact path="/portfolio/portfolio2" component={Portfolio2} />
         </div>
       </div>
