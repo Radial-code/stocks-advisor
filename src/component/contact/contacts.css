@@ -76,12 +76,6 @@
   }
 }
 @media (min-width: 320px) and (max-width: 399.98px) {
-  :root {
-    --font-md: 14px;
-    --font-18: 14px;
-    --font-xs: 14px;
-    --font-xl: 24px;
-  }
   .form-box {
     border-radius: 0px;
     background: none;

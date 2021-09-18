@@ -159,10 +159,17 @@ input:checked + .slider-2:before {
   }
 }
 
+@media (min-width: 1199.98px) and (max-width: 1399.98px) {
+  .fs-lg-22 {
+    font-size: var(--font-22);
+  }
+}
+
 @media (max-width: 1399.98px) {
   .edituser-card {
     max-width: 750px;
   }
+
   .edit-user {
     width: 315px;
   }
@@ -204,11 +211,20 @@ input:checked + .slider-2:before {
   .fs-sm-14 {
     font-size: var(--font-xxs);
   }
+  .fs-sm-15 {
+    font-size: var(--font-15);
+  }
   .fs-sm-16 {
     font-size: var(--font-xs);
   }
   .fs-sm-11 {
     font-size: var(--font-11);
+  }
+  .fs-sm-13 {
+    font-size: var(--font-13);
+  }
+  .chart-text-2 {
+    font-size: var(--font-18);
   }
 }
 @media (max-width: 375.98px) {

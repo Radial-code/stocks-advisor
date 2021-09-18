@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-import "./Payment.css";
+import "./Paymentpage.css";
 const PayMentPage = () => {
   return (
     <>

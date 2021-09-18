@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Chart from "../home/Chart";
 import PagiNation from "../pagination/PagiNation";
 import AllNews from "./AllNews";
-
+import "./Newspage.css";
 const Main = () => {
   return (
     <div>

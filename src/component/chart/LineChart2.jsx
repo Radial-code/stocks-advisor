@@ -34,7 +34,7 @@ function LineChart2() {
   return (
     <div className="container ">
       <div className="blue-chart">
-        <p className="chart-text ff-popins">Trading Portfolio</p>
+        <p className="chart-text-2 ff-popins ">Trading Portfolio</p>
 
         <ResponsiveContainer width="100%" height={213}>
           <AreaChart
