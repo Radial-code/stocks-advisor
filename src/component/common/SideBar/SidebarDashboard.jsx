@@ -14,42 +14,20 @@ const SidebarDashboard = ({ page, sidebarActive, history }) => {
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
               <Link to="/dashboard/edit/contact">
-                <li
-                  className={`pt-13 pb-13 mt-15  ${
-                    page === "add" ? "sidebar-active" : ""
-                  }`}
-                >
-                  <span>Edit Contact</span>
+                <li className={`pt-13 pb-13 mt-15  `}>
+                  <span>Portfolio-1</span>
                 </li>
               </Link>
 
               <Link to="/dashboard/manage/subscription">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "enquiry" ? "sidebar-active" : ""
-                  }`}
-                >
-                  <span>Manage Subscription</span>
+                <li className={`pt-13 pb-13 mt-15`}>
+                  <span>Portfolio-2</span>
                 </li>
               </Link>
 
               <Link to="/dashboard/update/payment">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "job" ? "sidebar-active" : ""
-                  }`}
-                >
-                  <span>Update Payment Method</span>
-                </li>
-              </Link>
-
-              <Link to="/dashboard/notification">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "job" ? "sidebar-active" : ""
-                  }`}
-                >
-                  <span>Notification</span>
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span>Portfolio-3</span>
                 </li>
               </Link>
             </ul>
