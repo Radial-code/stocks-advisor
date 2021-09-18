@@ -38,15 +38,15 @@ const Router = () => {
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
-        <Route path="/portfolio" component={Portfolio} />
+        <Route exact path="/portfolio" component={Portfolio} />
 
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/loginmodal" component={LogInModal} />
-        <Route path="/subsmodal" component={Subscription} />
-        <Route path="/netflix" component={Netflix} />
-        <Route path="/contact" component={Contactpage} />
-        <Route path="/AllNews" component={NewsDetails} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/loginmodal" component={LogInModal} />
+        <Route exact path="/subsmodal" component={Subscription} />
+        <Route exact path="/netflix" component={Netflix} />
+        <Route exact path="/contact" component={Contactpage} />
+        <Route exact path="/AllNews" component={NewsDetails} />
       </Switch>
       <Footer />
     </BrowserRouter>
