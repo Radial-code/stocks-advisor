@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.ff-popins {
+  font-family: "Poppins", sans-serif;
+}
+.subs-plan-text {
+  font-weight: 500;
+  font-size: 25px;
+  color: #16191e;
+}
+@media (max-width: 567px) {
+  .subs-plan-text {
+    font-size: 15px;
+  }
+}
+.subs-plans-line {
+  border-bottom: 1px solid #16191e;
+  opacity: 0.2;
+}
+.subs-border {
+  border: 1px solid rgba(22, 25, 30, 0.2);
+  border-radius: 10px;
+}
+.join-now {
+  background-color: #4870b3;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+  padding: 10px 30px;
+}
+@media (max-width: 567px) {
+  .join-now {
+    font-size: 9px;
+  }
+}
+.plan-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #16191e;
+}
+@media (max-width: 567px) {
+  .plan-text {
+    font-size: 11px;
+  }
+}
+.plan-price-text {
+  color: #4870b3;
+  font-size: 31px;
+  font-weight: 600;
+}
+@media (max-width: 567px) {
+  .plan-price-text {
+    font-size: 12px;
+  }
+}

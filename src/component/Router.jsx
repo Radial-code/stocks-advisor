@@ -21,6 +21,7 @@ import Subscription from "./modal/Subscription";
 import AddNewStock from "./addnewstock/AddNewStock";
 import Netflix from "./netflixinc/Netflix";
 import NetflixChart from "./netflixchart/NetflixChart";
+import Plans from "./plans/Plans";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -49,6 +50,7 @@ const Router = () => {
         <Route path="/addnewstock" component={AddNewStock} />
         <Route path="/netflix" component={Netflix} />
         <Route path="/netflixchart" component={NetflixChart} />
+        <Route path="/plans" component={Plans} />
       </Switch>
     </BrowserRouter>
   );
