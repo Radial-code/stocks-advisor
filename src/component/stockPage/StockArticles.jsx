@@ -11,7 +11,7 @@ const StockArticles = () => {
               Related News Articles
             </p>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -51,7 +51,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -91,7 +91,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -131,7 +131,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -171,7 +171,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -211,7 +211,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -251,7 +251,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -291,7 +291,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
@@ -331,7 +331,7 @@ const StockArticles = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} className="mt-5">
             <section className="news-articles-card p-lg-5 p-3">
               <Row className="justify-content-between">
                 <Col xl={3} lg={4} xs={4}>
