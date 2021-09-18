@@ -13,7 +13,6 @@ import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import AllNewspage from "../view/AllNewspage";
 import CurrentStock from "./portfolios/CurrentStock";
-import SoldStock from "../component/portfolios/SoldStock";
 import LogInModal from "./modal/LogInModal";
 import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
@@ -42,7 +41,6 @@ const Router = () => {
         <Route path="/signup" component={SignUp} />
         <Route exact path="/allnews" component={AllNewspage} />
         <Route path="/currentstock" component={CurrentStock} />
-        <Route path="/soldstock" component={SoldStock} />
         <Route path="/loginmodal" component={LogInModal} />
         <Route path="/subsmodal" component={Subscription} />
         <Route path="/netflix" component={Netflix} />

@@ -41,7 +41,11 @@
   background-color: var(--color-88BEFC);
   padding: 7.5px 111px;
   border-radius: 4px;
-  border: 0px;
+  border: 1px solid var(--color-88BEFC);
+}
+.join-now-btn:hover {
+  color: var(--color-16191E) !important;
+  background-color: white;
 }
 .card-amount {
   background-color: var(--color-88BEFC);
@@ -64,7 +68,11 @@
   background-color: var(--color-127CF9);
   padding: 9.5px 82px;
   border-radius: 4px;
-  border: 0px;
+  border: 1px solid var(--color-127CF9);
+}
+.sing-up-btn:hover {
+  background-color: white;
+  color: var(--color-16191E) !important;
 }
 @media (max-width: 575.98px) {
   .subscription-plans {

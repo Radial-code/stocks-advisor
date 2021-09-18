@@ -143,6 +143,13 @@
   margin-right: 20px;
   transition: 0.5s;
 }
+
+@media (max-width: 1599.98px) {
+  .wrapper {
+    width: 320px;
+  }
+}
+
 @media (min-width: 1280.98px) and (max-width: 1920.98px) {
   .d-xlg-flex {
     display: flex;
@@ -150,6 +157,9 @@
 }
 @media (min-width: 1280.98px) {
   .hamburgur-none {
+    display: none;
+  }
+  .content-manager {
     display: none;
   }
 }

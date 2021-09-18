@@ -6,7 +6,7 @@ function EditContact() {
     <div className="container">
       <div className="row h-100 ">
         <div className="col-12 h-100 d-flex justify-content-end">
-          <div className="form-background  p-sm-5 p-2 h-100 ">
+          <div className="form-background w-xl-1000 w-xlg-100 p-sm-5 p-2 h-100 ">
             <p className="mb-0 edit-contact-text ff-popins">Edit Contact</p>
             <div className="form-section">
               <Form className="pt-sm-5 pt-4">

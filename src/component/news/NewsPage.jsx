@@ -1,12 +1,13 @@
 import React from "react";
 import HomepageSlider from "../../assets/img/HomepageSlider.png";
 import newsView from "../../assets/img/newsView.png";
+import Chart from "../home/Chart";
 const NewsPage = () => (
   <>
     <section>
       <div className="container">
         <div className="row">
-          <div className="col-8">
+          <div className="col-lg-8">
             {" "}
             <div className="profile-box ">
               <div className=" my-3">
@@ -82,14 +83,8 @@ const NewsPage = () => (
               </div>
             </div>
           </div>
-          <div className="col-4">
-            {" "}
-            <h1 className="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque repellat minus minima facilis, ipsa, molestiae officia
-              accusamus magnam fugiat porro voluptas aspernatur laudantium iusto
-              at quam perspiciatis eligendi consequatur. Debitis.
-            </h1>{" "}
+          <div className="col-lg-4  profile-box">
+            <Chart />
           </div>
         </div>
       </div>

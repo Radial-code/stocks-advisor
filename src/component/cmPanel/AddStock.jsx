@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../cmPanelCss/addnewstock.css";
-import { Form, FormGroup } from "react-bootstrap";
+import { Form, FormGroup, Col } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Buket from "../../assets/img/backet.png";
@@ -12,6 +12,11 @@ function AddStock() {
   return (
     <div className="container">
       <div className="row h-100">
+        <Col xs={12}>
+          <div className="border-b-1 content-manager">
+            <p className="heading-stock pr-15">Content Manager</p>
+          </div>
+        </Col>
         <div className="col-12 h-100 stock-add-new">
           <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
             <p className="new-stock-heading ff-popins mb-0 ">Add New Stock</p>
