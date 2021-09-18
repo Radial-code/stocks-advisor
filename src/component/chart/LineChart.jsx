@@ -18,9 +18,10 @@ function LineChart() {
       name: "2018",
       uv: 7,
     },
+
     {
       name: "2019",
-      uv: 2,
+      uv: 10,
     },
     {
       name: "2020",
@@ -36,46 +37,38 @@ function LineChart() {
   ];
 
   return (
-    <div className="container">
-      <div className="green-chart">
-        <p className="chart-text ff-popins">Trading Portfolio</p>
+    <div className="green-chart container mt-4">
+      <p className="chart-text ff-popins mb-4">Long Term Portfolio</p>
 
-        <ResponsiveContainer width="100%" height={400}>
-          <AreaChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="50%"
-                  stopColor="#219653
-"
-                  stopOpacity={0.4}
-                />
-              </linearGradient>
-            </defs>
-            <CartesianGrid stroke="0" />
+      <ResponsiveContainer width="100%" height={213}>
+        <AreaChart
+          data={data}
+          margin={{
+            top: 10,
+            right: 20,
+            left: -20,
+            bottom: 0,
+          }}
+        >
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="50%" stopColor="#219653" stopOpacity={0.4} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" axisLine={false} tickLine={false} />
-            <YAxis dataKey="uv" axisLine={false} tickLine={false} />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="#5cbd4c"
-              strokeWidth="2"
-              fill="#5cbd4c"
-            />
-            <YAxis axisLine={true} />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
+          <XAxis dataKey="name" axisLine={false} tickLine={false} />
+          <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="uv"
+            stroke="#5cbd4c"
+            strokeWidth="2"
+            fill="#5cbd4c"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
   );
 }

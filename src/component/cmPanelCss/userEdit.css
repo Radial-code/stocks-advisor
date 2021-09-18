@@ -1,0 +1,249 @@
+.fs-22 {
+  font-size: var(--font-22);
+}
+.edit-user {
+  width: 445px;
+  height: 50px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-user input {
+  width: 430px;
+  height: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+
+  border: 0px;
+}
+.edituser-card {
+  width: 1000px;
+
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
+.edituser-amount {
+  font-weight: 700;
+  font-size: var(--font-md);
+  color: var(--color-88BEFC);
+}
+.plan-card-edituser {
+  width: 451px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
+.switch {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 46px;
+  border: 1 px solid black;
+}
+
+.switch input {
+  display: none;
+}
+.slider {
+  border: 1px solid var(--color-127CF9) !important;
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--color-127CF9);
+  bottom: 1px;
+  content: "";
+  height: 22px;
+  left: 2px;
+  position: absolute;
+  transition: 0.4s;
+  width: 22px;
+}
+
+input:checked + .slider {
+  background-color: var(--color-B8D8FD);
+  border: 1px solid var(--color-127CF9) !important;
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
+}
+
+.slider.round {
+  border-radius: 26px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.current-para {
+  width: 385px;
+  border: 1px solid #0000001a;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* switch 2 */
+
+.switch-2 {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 46px;
+  border: 1 px solid black;
+}
+.switch-2 input {
+  display: none;
+}
+.slider-2 {
+  border: 1px solid var(--color-127CF9) !important;
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.slider-2:before {
+  background-color: var(--color-127CF9);
+  bottom: 1px;
+  content: "";
+  height: 22px;
+  left: 2px;
+  position: absolute;
+  transition: 0.4s;
+  width: 22px;
+}
+input:checked + .slider-2 {
+  background-color: var(--color-B8D8FD);
+  border: 1px solid var(--color-127CF9) !important;
+}
+input:checked + .slider-2:before {
+  transform: translateX(19px);
+}
+.slider-2.round {
+  border-radius: 26px;
+}
+.slider-2.round:before {
+  border-radius: 50%;
+}
+
+/* end here switch-2 2 */
+@media (max-width: 1599.98px) {
+  .edituser-card {
+    max-width: 900px;
+  }
+  .edit-user {
+    width: 400px;
+  }
+
+  .edit-user input {
+    width: 380px;
+  }
+  .plan-card-edituser {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .edituser-card {
+    max-width: 750px;
+  }
+  .edit-user {
+    width: 315px;
+  }
+  .edit-user input {
+    width: 300px;
+  }
+  .plan-card-edituser {
+    width: 315px;
+  }
+  .current-para {
+    width: 100%;
+  }
+}
+@media (max-width: 1280.98px) {
+  .edituser-card {
+    max-width: 100%;
+  }
+
+  .edit-user {
+    width: 100%;
+    padding: 8px;
+  }
+  .edit-user input {
+    width: 100%;
+  }
+  .plan-card-edituser {
+    width: 400px;
+  }
+  .current-para {
+    width: 100%;
+  }
+}
+@media (max-width: 991.98px) {
+  .plan-card-edituser {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .fs-sm-14 {
+    font-size: var(--font-xxs);
+  }
+  .fs-sm-16 {
+    font-size: var(--font-xs);
+  }
+  .fs-sm-11 {
+    font-size: var(--font-11);
+  }
+}
+@media (max-width: 375.98px) {
+  .edit-user {
+    height: 37px;
+  }
+  .edit-user input {
+    height: 33px;
+  }
+  .update-btn {
+    width: 100%;
+    padding: 4px 37px;
+  }
+  .current-para {
+    border: 1px solid #0000001a;
+    border-radius: 10px;
+    padding: 8px;
+  }
+  .current-para div {
+    display: block !important;
+  }
+  .switch-2 {
+    width: 31px;
+    height: 16px;
+  }
+  .slider-2:before {
+    height: 16px;
+    width: 16px;
+    left: 0;
+    bottom: -1px;
+  }
+  .slider-2 {
+    right: -6px;
+  }
+  .edituser-card {
+    width: 303px;
+  }
+}

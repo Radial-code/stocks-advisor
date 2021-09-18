@@ -177,3 +177,131 @@ export const News = () => {
     </svg>
   );
 };
+export const Edit = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+    >
+      <g id="Group_57" data-name="Group 57" transform="translate(1 1)">
+        <path
+          id="Path_12"
+          data-name="Path 12"
+          d="M16.474,5.408l2.118,2.117Zm1.362-1.865L12.109,9.27a2.118,2.118,0,0,0-.58,1.082L11,13l2.648-.53a2.116,2.116,0,0,0,1.082-.579l5.727-5.727a1.853,1.853,0,0,0-2.621-2.621Z"
+          transform="translate(-4 -3)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          id="Path_13"
+          data-name="Path 13"
+          d="M19,15v3a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V7A2,2,0,0,1,6,5H9"
+          transform="translate(-4 -3)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </g>
+    </svg>
+  );
+};
+export const Manage = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19.83"
+      height="17"
+      viewBox="0 0 19.83 17"
+    >
+      <path
+        id="Path_14"
+        data-name="Path 14"
+        d="M4,18v-.65a.946.946,0,0,1,.41-.81A10.889,10.889,0,0,1,10,15a.22.22,0,0,1,.08.01,6.886,6.886,0,0,1,.59-1.98c-.22-.02-.44-.03-.67-.03a12.876,12.876,0,0,0-6.61,1.82A2.922,2.922,0,0,0,2,17.35V20h9.26a7.133,7.133,0,0,1-.97-2Zm6-6A4,4,0,1,0,6,8,4,4,0,0,0,10,12Zm0-6A2,2,0,1,1,8,8,2.006,2.006,0,0,1,10,6ZM20.75,16a4.338,4.338,0,0,0-.06-.63l1.14-1.01-1-1.73-1.45.49a3.647,3.647,0,0,0-1.08-.63L18,11H16l-.3,1.49a3.647,3.647,0,0,0-1.08.63l-1.45-.49-1,1.73,1.14,1.01a4.338,4.338,0,0,0-.06.63,4.338,4.338,0,0,0,.06.63l-1.14,1.01,1,1.73,1.45-.49a3.647,3.647,0,0,0,1.08.63L16,21h2l.3-1.49a3.647,3.647,0,0,0,1.08-.63l1.45.49,1-1.73-1.14-1.01a4.338,4.338,0,0,0,.06-.63ZM17,18a2,2,0,1,1,2-2A2.006,2.006,0,0,1,17,18Z"
+        transform="translate(-2 -4)"
+        opacity="0.7"
+      />
+    </svg>
+  );
+};
+export const Update = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20.83"
+      height="14.755"
+      viewBox="0 0 20.83 14.755"
+    >
+      <g id="Group_58" data-name="Group 58" opacity="0.7">
+        <path
+          id="Path_15"
+          data-name="Path 15"
+          d="M18.381,16.4a.781.781,0,1,0,0,1.562h2.6a.781.781,0,1,0,0-1.562Z"
+          transform="translate(-4.06 -6.506)"
+        />
+        <path
+          id="Path_16"
+          data-name="Path 16"
+          d="M4.387,5A2.387,2.387,0,0,0,2,7.387v9.981a2.387,2.387,0,0,0,2.387,2.387H20.443a2.387,2.387,0,0,0,2.387-2.387V7.387A2.387,2.387,0,0,0,20.443,5ZM3.3,17.368V10.641H21.528v6.726a1.085,1.085,0,0,1-1.085,1.085H4.387A1.085,1.085,0,0,1,3.3,17.368Zm0-8.028V7.387A1.085,1.085,0,0,1,4.387,6.3H20.443a1.085,1.085,0,0,1,1.085,1.085V9.34Z"
+          transform="translate(-2 -5)"
+        />
+      </g>
+    </svg>
+  );
+};
+export const Notify = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20.325"
+      height="24.85"
+      viewBox="0 0 20.325 24.85"
+    >
+      <g
+        id="Group_10230"
+        data-name="Group 10230"
+        transform="translate(-16.143 -7.583)"
+      >
+        <path
+          id="Path_43"
+          data-name="Path 43"
+          d="M27.13,21.462l-1.675,0a7.131,7.131,0,0,0-7.164,6.855v4.33a4.5,4.5,0,0,1-.607,2.534l-.328.5a1.142,1.142,0,0,0,.935,1.775h16.03a1.143,1.143,0,0,0,.935-1.775l-.328-.5a4.51,4.51,0,0,1-.607-2.535V28.315a7.179,7.179,0,0,0-7.191-6.853Z"
+          transform="translate(0 -9.447)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          id="Path_44"
+          data-name="Path 44"
+          d="M45.48,81.542a3.428,3.428,0,0,1-6.855,0"
+          transform="translate(-15.747 -53.535)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          id="Path_45"
+          data-name="Path 45"
+          d="M45.2,8.583a2.285,2.285,0,0,1,2.285,2.285v1.143h-4.57V10.868A2.285,2.285,0,0,1,45.2,8.583Z"
+          transform="translate(-18.896)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </g>
+    </svg>
+  );
+};

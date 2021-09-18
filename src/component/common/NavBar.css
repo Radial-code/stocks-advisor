@@ -203,14 +203,51 @@
   padding-left: 0px;
   width: 1131px;
 }
+.search-input {
+  border: 1px solid #16191e33;
+  border-radius: 10px;
+  height: 40px;
+  width: 264px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5px;
+}
+.btn-search-input {
+  width: 42px;
+  height: 40px;
+  background-color: var(--color-127CF9);
+  border-radius: 10px;
+  border: 1px solid var(--color-127CF9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.nav-links {
+.btn-search-input:hover svg path {
+  fill: var(--color-127CF9);
+  background-color: white;
+}
+.btn-search-input:hover {
+  background-color: white;
+}
+.search-input input {
+  padding-left: 10px;
+}
+.nav-item {
   color: black;
   text-decoration: none;
   padding: 0rem 1rem;
   height: 100%;
   border-bottom: 3px solid transparent;
 }
+/* .nav-links {
+  color: black;
+  text-decoration: none;
+  padding: 0rem 1rem;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+} */
 .fa-code {
   margin-left: 1rem;
 }
@@ -235,10 +272,15 @@
   background: var(--color-127CF9);
 }
 
-.nav-item .active {
+.after-header-line::after {
+  width: 100%;
+  background: var(--color-127CF9);
+}
+
+/* .nav-item .active {
   color: #ffdd40;
   border: 1px solid #ffdd40;
-}
+} */
 .items-nav {
   margin-top: 20px;
   margin-right: 1rem;
@@ -265,12 +307,12 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .nav-item:after {
+  .after-header-line:after {
     content: "";
     display: block;
     height: 4px;
-    width: 0;
-    background: transparent;
+    width: 100%;
+    background: var(--color-127CF9);
     transition: width 0.7s ease, background-color 0.5s ease;
   }
 }
@@ -280,7 +322,7 @@
     display: flex;
     flex-direction: column;
     width: 82%;
-    border-top: 1pxsolid #fff;
+    border-top: 1px solid #fff;
     position: absolute;
     top: 0px;
     right: -110%;
@@ -296,10 +338,10 @@
     transition: all 0.5s ease;
     z-index: 1;
   }
-  .nav-item .active {
-    color: #ffdd40;
+  /* .nav-item .active {
+    /* color: #ffdd40;
     border: none;
-  }
+  } */
   .nav-links {
     padding: 10px 0px;
     width: 100%;
@@ -355,5 +397,8 @@
   .nav-icon svg {
     width: 30px;
     height: 30px;
+  }
+  .nav-menu {
+    padding-left: 8px;
   }
 }

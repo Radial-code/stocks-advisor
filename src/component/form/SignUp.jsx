@@ -1,12 +1,13 @@
 import React from "react";
 import { Form, FormGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
     <div className="container h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
         <div className="col-xl-6 col-sm-10">
-          <div className="form-background p-sm-5 p-2">
+          <div className="background-form p-sm-5 p-2">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Sign Up
             </p>
@@ -19,7 +20,7 @@ function SignUp() {
                   >
                     <Form.Control
                       type="email"
-                      className="text-start"
+                      className=""
                       placeholder="Last Name"
                     />
                   </Form.Group>{" "}
@@ -70,7 +71,9 @@ function SignUp() {
             </Form>
             <p className="ff-popins text-center mb-2 pt-4">
               Already have account?{" "}
-              <span className="sign-up-text cursor-pointer">Log In</span>
+              <Link to="/login" className="text-decoration">
+                <span className="sign-up-text cursor-pointer">Log In</span>
+              </Link>
             </p>
           </div>
         </div>

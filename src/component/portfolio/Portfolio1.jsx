@@ -1,8 +1,8 @@
 import React from "react";
-import "../portfolios/portfolios.css";
+import "./portfolios.css";
 import Sortarrow from "../../assets/img/sortarrow.png";
 import SoldStock from "./SoldStock";
-function CurrentStock() {
+function Portfolio1() {
   return (
     <div className="container">
       <div className="current-stock-bg p-sm-3 p-2">
@@ -112,4 +112,4 @@ function CurrentStock() {
   );
 }
 
-export default CurrentStock;
+export default Portfolio1;

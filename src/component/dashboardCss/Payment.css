@@ -1,0 +1,64 @@
+.box {
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
+.visa {
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.change-method {
+  font-size: var(--font-18);
+  padding: 11px 21px;
+  border-radius: 4px;
+  color: var(--color-B8D8FD);
+  background-color: var(--color-88BEFC);
+}
+@media (max-width: 576px) {
+  :root {
+    --font-lg: 20px;
+    --font-md: 16px;
+    --font-22: 14px;
+    --font-xs: 11px;
+    --font-18: 14px;
+  }
+  .fs-16 {
+    font-size: 11px;
+  }
+  .container {
+    width: 95% !important;
+  }
+  .change-method {
+    width: 100%;
+  }
+  body {
+    background-color: white;
+  }
+}
+@media (min-width: 374px) and (max-width: 576px) {
+  .container {
+    width: 100% !important;
+  }
+  .p-10-17 {
+    padding: 10px 17px;
+  }
+  .mx-266 {
+    max-width: 266px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  :root {
+    --font-lg: 25px;
+    --font-md: 18px;
+    --font-22: 16px;
+    --font-18: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  .mx-1000 {
+    max-width: 1000px;
+  }
+}

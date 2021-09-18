@@ -12,11 +12,7 @@
   font-weight: 500;
   color: #16191e;
 }
-@media (max-width: 567px) {
-  .new-stock-heading {
-    font-size: 20px;
-  }
-}
+
 .add-new-stock-field .form-control {
   padding: 14px;
   border: 1px solid rgba(22, 25, 30, 0.2);
@@ -83,4 +79,15 @@
   border: 2px solid #4870b3;
   color: #4870b3;
   background: transparent;
+}
+@media (min-width: 1600.98px) {
+  .stock-add-new {
+    display: flex;
+    justify-content: end;
+  }
+}
+@media (max-width: 567px) {
+  .new-stock-heading {
+    font-size: 20px;
+  }
 }

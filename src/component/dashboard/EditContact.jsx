@@ -1,12 +1,12 @@
 import React from "react";
 import "../editform/editform.css";
 import { Form } from "react-bootstrap";
-function EditForm() {
+function EditContact() {
   return (
-    <div className="container mt-4">
-      <div className="row ">
-        <div className="col-12 ">
-          <div className="form-background  p-sm-5 p-2  ">
+    <div className="container">
+      <div className="row h-100 ">
+        <div className="col-12 h-100 d-flex justify-content-end">
+          <div className="form-background w-xl-1000 w-xlg-100 p-sm-5 p-2 h-100 ">
             <p className="mb-0 edit-contact-text ff-popins">Edit Contact</p>
             <div className="form-section">
               <Form className="pt-sm-5 pt-4">
@@ -30,9 +30,7 @@ function EditForm() {
                   <Form.Control type="text" placeholder="Mobile No" />
                 </Form.Group>
                 <div className="d-flex flex-sm-row flex-column my-3">
-                  <button className="update-btn px-5 py-2 border-0 ff-popins">
-                    Update
-                  </button>
+                  <button className="update-btn  ff-popins">Update</button>
                 </div>
               </Form>
             </div>
@@ -43,4 +41,4 @@ function EditForm() {
   );
 }
 
-export default EditForm;
+export default EditContact;

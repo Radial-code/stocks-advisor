@@ -32,17 +32,16 @@ function LineChart3() {
     },
   ];
   return (
-    <div className="container">
+    <div className="container mt-4">
+      <p className="chart-text ff-popins mb-4">E & P 500</p>
       <div className="pich-chart">
-        <p className="chart-text ff-popins">Trading Portfolio</p>
-
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={213}>
           <AreaChart
             data={data}
             margin={{
               top: 10,
-              right: 30,
-              left: 0,
+              right: 20,
+              left: -20,
               bottom: 0,
             }}
           >
@@ -68,7 +67,6 @@ function LineChart3() {
               strokeWidth="2"
               fill="#bd4c67"
             />
-            <YAxis axisLine={true} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

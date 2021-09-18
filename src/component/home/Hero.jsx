@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import HomepageSlider from "../../assets/img/HomepageSlider.png";
+import Chart from "./Chart";
 const Hero = () => {
   const settings = {
     dots: true,
@@ -15,7 +16,7 @@ const Hero = () => {
       <section className="py-5">
         <div className="container">
           <div className="row  justify-content-between">
-            <div className="col-8">
+            <div className="col-xl-8 col-lg-7">
               <h1 className="profile-heading ">Featured News</h1>
               <div className="profile-box homePageSlider">
                 <Slider className="about-slider w-100" {...settings}>
@@ -80,42 +81,9 @@ const Hero = () => {
                 </Slider>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0">
               <div className="profile-box">
-                <h4>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque fugit officiis deleniti odit laboriosam, vitae, ex
-                  adipisci esse a eos, facilis exercitationem quos harum minima
-                  quaerat aliquid quasi suscipit velit? Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Itaque fugit officiis
-                  deleniti odit laboriosam, vitae, ex adipisci esse a eos,
-                  facilis exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit? Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Itaque fugit officiis deleniti odit
-                  laboriosam, vitae, ex adipisci esse a eos, facilis
-                  exercitationem quos harum minima quaerat aliquid quasi
-                  suscipit velit?
-                </h4>
+                <Chart />
               </div>
             </div>
           </div>

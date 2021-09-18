@@ -32,17 +32,17 @@ function LineChart2() {
     },
   ];
   return (
-    <div className="container">
+    <div className="container ">
       <div className="blue-chart">
         <p className="chart-text ff-popins">Trading Portfolio</p>
 
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={213}>
           <AreaChart
             data={data}
             margin={{
               top: 10,
-              right: 30,
-              left: 0,
+              right: 20,
+              left: -20,
               bottom: 0,
             }}
           >
@@ -58,7 +58,7 @@ function LineChart2() {
             </defs>
             <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
             <YAxis dataKey="uv" axisLine={false} tickLine={false} />
             <Tooltip />
             <Area
@@ -68,7 +68,6 @@ function LineChart2() {
               strokeWidth="2"
               fill="#4870b3"
             />
-            <YAxis axisLine={true} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

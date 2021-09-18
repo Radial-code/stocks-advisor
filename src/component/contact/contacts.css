@@ -1,0 +1,99 @@
+.email-heading {
+  font-weight: 600;
+  font-size: var(--font-md);
+}
+.addres-sub-heading {
+  font-weight: 600;
+  font-size: var(--font-18);
+}
+.email-para {
+  font-weight: 400;
+  font-size: var(--font-xs);
+}
+.sub-text {
+  font-weight: 300;
+  font-size: var(--font-xs);
+}
+.input-text {
+  font-weight: 400;
+  font-size: var(--font-xs);
+  color: var(--color-45474b);
+}
+.send-msg-btn {
+  font-weight: 500;
+  font-size: var(--font-18);
+  border-radius: 4px;
+  border: 1px solid var(--color-127CF9);
+  background: var(--color-127CF9);
+}
+.send-msg-btn:hover {
+  background-color: #ffffff;
+  color: #16191e !important;
+}
+.form-box {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+.input-border {
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+}
+.input-border:focus-visible {
+  outline: none;
+}
+.btn:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 575.98px) {
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  :root {
+    --font-18: 17px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
+
+@media (min-width: 1400px) {
+  .height {
+    height: calc(100vh - 62px);
+  }
+}
+@media (max-width: 450px) {
+  .send-msg-btn {
+    width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 399.98px) {
+  :root {
+    --font-md: 14px;
+    --font-18: 14px;
+    --font-xs: 14px;
+    --font-xl: 24px;
+  }
+  .form-box {
+    border-radius: 0px;
+    background: none;
+    box-shadow: none;
+  }
+  .input-border {
+    width: 303px !important;
+  }
+  .send-msg-btn {
+    width: 303px;
+  }
+  .us-contact {
+    width: 303px;
+  }
+}

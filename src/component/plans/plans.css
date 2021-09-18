@@ -7,7 +7,7 @@
   font-size: 25px;
   color: #16191e;
 }
-@media (max-width: 567px) {
+@media (max-width: 1400px) {
   .subs-plan-text {
     font-size: 15px;
   }
@@ -28,9 +28,14 @@
   color: white;
   padding: 10px 30px;
 }
-@media (max-width: 567px) {
+@media (max-width: 1400px) {
   .join-now {
     font-size: 9px;
+  }
+}
+@media (max-width: 1400px) {
+  .join-now {
+    padding: 10px 20px;
   }
 }
 .plan-text {
@@ -38,7 +43,7 @@
   font-weight: 500;
   color: #16191e;
 }
-@media (max-width: 567px) {
+@media (max-width: 1400px) {
   .plan-text {
     font-size: 11px;
   }
@@ -48,7 +53,7 @@
   font-size: 31px;
   font-weight: 600;
 }
-@media (max-width: 567px) {
+@media (max-width: 1400px) {
   .plan-price-text {
     font-size: 12px;
   }

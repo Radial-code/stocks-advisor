@@ -8,11 +8,11 @@ function LogInModal() {
   const handleShow = () => setShow(true);
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
+      <button className="update-btn" onClick={handleShow}>
+        Login
+      </button>
       <Modal
+        className="px-sm-0 px-2"
         show={show}
         onHide={handleClose}
         animation={true}
@@ -54,7 +54,7 @@ function LogInModal() {
               Don't have an account?{" "}
               <span className="modal-sign-up-text cursor-pointer">Sign Up</span>
             </p>
-            <p className="ff-popins text-center cursor-pointer">
+            <p className="ff-popins forgot-text text-center cursor-pointer">
               ?Forgot Password
             </p>
           </Form>

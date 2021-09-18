@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router";
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import "./NavBar.css";
-const Navbar = () => {
+const Navbar = ({ history }) => {
   const [student, setStudent] = useState(false);
   const dropHandler = () => {
     setStudent(!student);
@@ -14,18 +14,107 @@ const Navbar = () => {
   };
 
   const [click, setClick] = useState(false);
-
+  const [home, setHome] = useState(false);
+  const [about, setAbout] = useState(false);
+  const [news, setNews] = useState(false);
+  const [ourPlans, setOurPlans] = useState(false);
+  const [contact, setContact] = useState(false);
+  const [Login, setLogin] = useState(false);
+  const [dashboards, setDashboards] = useState(false);
+  const [portfolio, setPortfolio] = useState(false);
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
 
+  const pathName = window.location.pathname;
+  console.log("padfghj", pathName);
+  useEffect(() => {
+    if (pathName === "/") {
+      setHome(true);
+      setLogin(false);
+      setNews(false);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/login") {
+      setHome(false);
+      setLogin(true);
+      setNews(false);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/news") {
+      setHome(false);
+      setLogin(false);
+      setNews(true);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/ourplans") {
+      setHome(false);
+      setLogin(false);
+      setNews(false);
+      setOurPlans(true);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/contact") {
+      setHome(false);
+      setLogin(false);
+      setNews(false);
+      setOurPlans(false);
+      setContact(true);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/portfolio") {
+      setHome(false);
+      setLogin();
+      setNews(false);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(true);
+      setAbout(false);
+      setDashboards(false);
+    } else if (pathName === "/about") {
+      setHome(false);
+      setLogin(false);
+      setNews(false);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(true);
+      setDashboards(false);
+    } else if (pathName === "/dashboard") {
+      setHome(false);
+      setLogin(false);
+      setNews(false);
+      setOurPlans(false);
+      setContact(false);
+      setPortfolio(false);
+      setAbout(false);
+      setDashboards(true);
+    }
+  }, [pathName]);
   return (
     <div>
       <div className={click ? "main-container" : ""} onClick={() => Close()} />
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
         <div className="container justify-content-between">
-          <NavLink exact to="/" className="nav-logo logo-img-navbar">
-            <img className="logo-img-navbar" src={logo} alt="" />
-          </NavLink>
+          <div className="nav-logo logo-img-navbar">
+            <img
+              className="logo-img-navbar"
+              onClick={() => history.push("/")}
+              src={logo}
+              alt=""
+            />
+          </div>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <div className="d-flex justify-content-start">
@@ -49,75 +138,95 @@ const Navbar = () => {
             </div>
 
             <div className="d-md-flex align-items-xl-center w-100 justify-content-xl-between justify-content-around ">
+              <li className=" d-md-none d-flex justify-content-center mt-4">
+                <div className="search-input">
+                  <input
+                    type="text"
+                    className="border-0 w-100"
+                    placeholder="Search"
+                  />
+                  <button className="btn-search-input">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </li>
               <div className="d-xl-flex align-items-center">
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Home
-                  </NavLink>
+                <li
+                  className={`${
+                    home ? "after-header-line" : ""
+                  } nav-item cursor-pointer `}
+                  onClick={() => history.push("/")}
+                >
+                  Home
+                </li>
+                {console.log(about, "about")}
+                <li
+                  className={`${
+                    about ? "after-header-line" : ""
+                  } nav-item cursor-pointer `}
+                  onClick={() => history.push("/about")}
+                >
+                  About
                 </li>
 
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/about"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    About
-                  </NavLink>
+                <li
+                  className={`${
+                    news ? "after-header-line" : ""
+                  } nav-item cursor-pointer `}
+                  onClick={() => history.push("/news")}
+                >
+                  News
                 </li>
 
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/blog"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Blog
-                  </NavLink>
+                <li
+                  className={`${
+                    ourPlans ? "after-header-line" : ""
+                  } nav-item cursor-pointer `}
+                  onClick={() => history.push("/ourplans")}
+                >
+                  Our Plans
                 </li>
 
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/contact"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Our Plans
-                  </NavLink>
-                </li>
-
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/contact"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Contact Us
-                  </NavLink>
+                <li
+                  className={`${
+                    contact ? "after-header-line" : ""
+                  } nav-item cursor-pointer position-relative`}
+                  onClick={() => history.push("/contact")}
+                >
+                  Contact Us
                 </li>
               </div>
-
+              <li className=" d-xl-none d-none d-md-block">
+                <div className="search-input">
+                  <input
+                    type="text"
+                    className="border-0 w-100"
+                    placeholder="Search"
+                  />
+                  <button className="btn-search-input">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-search"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                  </button>
+                </div>
+              </li>
               <div className="d-xl-flex align-items-center">
-                <li className="nav-item d-xl-none ">
-                  <div>
-                    <input type="text" placeholder="Search" />
-                  </div>
-                </li>
-
                 <li className="nav-item d-none d-xl-block">
                   <span>
                     <svg
@@ -133,16 +242,13 @@ const Navbar = () => {
                   </span>
                 </li>
 
-                <li className="nav-item d-none d-md-block">
-                  <NavLink
-                    exact
-                    to="/about"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Portfolios{" "}
-                  </NavLink>
+                <li
+                  className={`${
+                    portfolio ? "after-header-line" : ""
+                  } nav-item cursor-pointer position-relative`}
+                  onClick={() => history.push("/portfolio")}
+                >
+                  Portfolios{" "}
                 </li>
 
                 {/*start here drop down  */}
@@ -322,42 +428,31 @@ const Navbar = () => {
                 </li>
 
                 {/* Drop down end here */}
-                <li className="nav-item d-none d-md-block">
-                  <NavLink
-                    exact
-                    to="/blog"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Dashboard
-                  </NavLink>
+                <li
+                  className={`${
+                    dashboards ? "after-header-line" : ""
+                  } nav-item cursor-pointer position-relative`}
+                  onClick={() => history.push("/dashboard")}
+                >
+                  Dashboard
                 </li>
 
-                <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/contact"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={click ? handleClick : null}
-                  >
-                    Login
-                  </NavLink>
+                <li
+                  className={`${
+                    Login ? "after-header-line" : ""
+                  } nav-item cursor-pointer position-relative`}
+                  onClick={() => history.push("/login")}
+                >
+                  Login
                 </li>
 
                 <li className=" d-flex d-none d-xl-block flex-column align-items-center">
-                  <NavLink
-                    exact
-                    to="/contact"
-                    activeClassName="active"
-                    className="nav-links d-flex justify-content-center"
-                    onClick={click ? handleClick : null}
+                  <button
+                    className="update-btn "
+                    onClick={() => history.push("/")}
                   >
-                    <button className="nav-join-now-btn border-0">
-                      Join Now
-                    </button>
-                  </NavLink>
+                    Join Now
+                  </button>
                 </li>
               </div>
             </div>
@@ -366,14 +461,12 @@ const Navbar = () => {
               <li className=" d-flex d-xl-none flex-column align-items-center">
                 <NavLink
                   exact
-                  to="/contact"
+                  to="/#"
                   activeClassName="active"
                   className="nav-links d-flex justify-content-center"
                   onClick={click ? handleClick : null}
                 >
-                  <button className="nav-join-now-btn border-0">
-                    Join Now
-                  </button>
+                  <button className="update-btn ">Join Now</button>
                 </NavLink>
               </li>
             </div>
@@ -401,4 +494,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

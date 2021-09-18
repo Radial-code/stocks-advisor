@@ -1,19 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { News, Stocks, User } from "../icons/Icons";
 
 import "./Sidebar.css";
-export default function SidebarPanel({ page, sidebarActive }) {
+// /dashboard/update/payment
+const SidebarPanel = ({ page, sidebarActive, history }) => {
   return (
-    <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
+    <div className={`${sidebarActive ? "hamburgur-active" : ""} mt-5`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
-        <div className=" mt-5 w-100  ">
-          <p className=" mt-2 profile-heading pr-15">Content Manager</p>
+        <div className=" mt-4 w-100  ">
+          <p className="  profile-heading pr-15 pb-2 border-b-1">
+            Content Manager
+          </p>
           <nav>
-            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover">
-              <Link href="#">
+            <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
+              <NavLink
+                to="/content/manager/stocks"
+                activeClassName="sidebar-background"
+              >
                 <li
-                  className={`pt-15 pb-15 mt-15  ${
+                  className={`pt-13 pb-13 mt-15  ${
                     page === "add" ? "sidebar-active" : ""
                   }`}
                 >
@@ -22,11 +28,14 @@ export default function SidebarPanel({ page, sidebarActive }) {
                   </span>
                   <span>Stocks</span>
                 </li>
-              </Link>
+              </NavLink>
 
-              <Link href="#">
+              <NavLink
+                to="/content/manager/news"
+                activeClassName="sidebar-background"
+              >
                 <li
-                  className={`pt-15 pb-15 mt-15 ${
+                  className={`pt-13 pb-13 mt-15 ${
                     page === "enquiry" ? "sidebar-active" : ""
                   }`}
                 >
@@ -35,11 +44,14 @@ export default function SidebarPanel({ page, sidebarActive }) {
                   </span>
                   <span>News</span>
                 </li>
-              </Link>
+              </NavLink>
 
-              <Link href="#">
+              <NavLink
+                to="/content/manager/users"
+                activeClassName="sidebar-background"
+              >
                 <li
-                  className={`pt-15 pb-15 mt-15 ${
+                  className={`pt-13 pb-13 mt-15 ${
                     page === "job" ? "sidebar-active" : ""
                   }`}
                 >
@@ -48,11 +60,12 @@ export default function SidebarPanel({ page, sidebarActive }) {
                   </span>
                   <span>Users</span>
                 </li>
-              </Link>
+              </NavLink>
             </ul>
           </nav>
         </div>
       </div>
     </div>
   );
-}
+};
+export default withRouter(SidebarPanel);

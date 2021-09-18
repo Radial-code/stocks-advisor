@@ -7,7 +7,7 @@ const NewsArticles = () => {
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true,
     rtl: true,
 
     nextArrow: <Next />,
@@ -43,6 +43,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
