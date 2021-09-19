@@ -1,17 +1,97 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import "./NavBar.css";
 const Navbar = () => {
   const [student, setStudent] = useState(false);
+  const [dashboard, setDashboard] = useState(false);
+
+  // FOR ACTIVE CLASS HEADER
+  const [HomeActive, setHomeActive] = useState(false);
+  const [AboutActive, setAboutActive] = useState(false);
+  const [NewsActive, setNewsActive] = useState(false);
+  const [PlansActive, setPlansActive] = useState(false);
+  const [ContactActive, setContactActive] = useState(false);
+  const [PortfolioActive, setPortfolioActive] = useState(false);
+  const [DashboardActive, setDashboardActive] = useState(false);
+  const [LoginActive, setLoginActive] = useState(false);
+
   const dropHandler = () => {
     setStudent(!student);
   };
 
-  const [dashboard, setDashboard] = useState(false);
   const dashboardHandler = () => {
     setDashboard(!dashboard);
   };
+
+  // ACTIVE HEADER AS PATH
+  const pathNane = window.location.pathname;
+  useEffect(() => {
+    if (pathNane === "/") {
+      setHomeActive(true);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/about") {
+      setHomeActive(false);
+      setAboutActive(true);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/news") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(true);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/ourplans") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(true);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/contactus") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(true);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/portfolio/portfolio1") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(true);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/login") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(true);
+    }
+  }, [pathNane]);
 
   const [click, setClick] = useState(false);
 
@@ -71,7 +151,9 @@ const Navbar = () => {
                 </div>
               </li>
               <div className="d-xl-flex align-items-center">
-                <li className="nav-item">
+                <li
+                  className={`${HomeActive ? "green-bg-active" : ""} nav-item `}
+                >
                   <NavLink
                     exact
                     to="/"
@@ -83,7 +165,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    AboutActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/about"
@@ -95,7 +181,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${NewsActive ? "green-bg-active" : ""} nav-item `}
+                >
                   <NavLink
                     exact
                     to="/news"
@@ -107,7 +195,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    PlansActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/ourplans"
@@ -119,7 +211,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    ContactActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/contactus"
@@ -181,8 +277,13 @@ const Navbar = () => {
                 </li>
 
                 {/*start here drop down  */}
-                <li onClick={dropHandler} className={` nav-item  d-md-none`}>
-                  <a className="d-flex   nav-links justify-content-between align-items-center">
+                <li
+                  onClick={dropHandler}
+                  className={` nav-item  d-md-none ${
+                    student ? "drop-down-active" : ""
+                  }`}
+                >
+                  <a className="d-flex  nav-links justify-content-between align-items-center">
                     Portfolios
                     <span
                       className={`ml-20 ${student ? "sidebardropdown" : ""}`}
@@ -225,13 +326,13 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/portfolio/portfolio1"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Portfolio-1</span>
                           </div>
                         </NavLink>
                       </li>
@@ -239,13 +340,13 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/portfolio/portfolio2"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Portfolio-2</span>
                           </div>
                         </NavLink>
                       </li>
@@ -253,13 +354,13 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/portfolio/portfolio3"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Portfolio-3</span>
                           </div>
                         </NavLink>
                       </li>
@@ -269,7 +370,9 @@ const Navbar = () => {
 
                 <li
                   onClick={dashboardHandler}
-                  className={` nav-item  d-md-none`}
+                  className={` nav-item  d-md-none ${
+                    dashboard ? "drop-down-active" : ""
+                  } `}
                 >
                   <a className="d-flex   nav-links justify-content-between align-items-center">
                     Dashboard
@@ -314,13 +417,13 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/dashboard/edit/contact"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Edit Contact</span>
                           </div>
                         </NavLink>
                       </li>
@@ -328,13 +431,13 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/dashboard/manage/subscription"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Manage Subscription</span>
                           </div>
                         </NavLink>
                       </li>
@@ -342,13 +445,27 @@ const Navbar = () => {
                       <li>
                         <NavLink
                           exact
-                          to="#"
+                          to="/dashboard/update/payment"
                           activeClassName=""
                           className=""
                           onClick={click ? handleClick : null}
                         >
                           <div className="all-student">
-                            <span>All Students</span>
+                            <span>Update payment Method</span>
+                          </div>
+                        </NavLink>
+                      </li>
+
+                      <li>
+                        <NavLink
+                          exact
+                          to="/dashboard/notification"
+                          activeClassName=""
+                          className=""
+                          onClick={click ? handleClick : null}
+                        >
+                          <div className="all-student">
+                            <span>Notification</span>
                           </div>
                         </NavLink>
                       </li>
@@ -369,7 +486,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    LoginActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/login"
