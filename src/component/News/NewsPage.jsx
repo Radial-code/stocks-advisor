@@ -3,6 +3,7 @@ import HomepageSlider from "../../assets/img/HomepageSlider.png";
 import newsView from "../../assets/img/newsView.png";
 import Chart from "../home/Chart";
 import RelatedArticles from "./RelatedArticles";
+import Plans from "../plan/Plans";
 const NewsPage = () => (
   <>
     <section>
@@ -91,6 +92,9 @@ const NewsPage = () => (
           <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 d-flex justify-content-center d-sm-block">
             <div className="profile-box">
               <Chart />
+              <div className="mt-5">
+                <Plans />
+              </div>
             </div>
           </div>
           <div className="col-12">
