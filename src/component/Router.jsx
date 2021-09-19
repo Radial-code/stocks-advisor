@@ -29,7 +29,8 @@ const Router = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/about" component={About} />
+        <Route exact path="/about" component={About} />{" "}
+        <Route exact path="/contactus" component={Contactpage} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/ourplans" component={OurPlanspage} />
@@ -39,13 +40,11 @@ const Router = () => {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
         <Route exact path="/portfolio" component={Portfolio} />
-
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
-        <Route exact path="/contact" component={Contactpage} />
         <Route exact path="/AllNews" component={NewsDetails} />
       </Switch>
       <Footer />
