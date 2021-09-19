@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
 // /dashboard/update/payment
 const PortfoliosSidebar = ({ page, sidebarActive, history }) => {
@@ -13,35 +13,23 @@ const PortfoliosSidebar = ({ page, sidebarActive, history }) => {
           </p>
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
-              <Link to="/portfolio/portfolio1">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "enquiry" ? "sidebar-active" : ""
-                  }`}
-                >
+              <NavLink to="/portfolio/portfolio1" activeClassName="active">
+                <li className={`pt-13 pb-13 mt-15 `}>
                   <span>Portfolio-1</span>
                 </li>
-              </Link>
+              </NavLink>
 
-              <Link to="/portfolio/portfolio2">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "job" ? "sidebar-active" : ""
-                  }`}
-                >
+              <NavLink to="/portfolio/portfolio2" activeClassName="active">
+                <li className={`pt-13 pb-13 mt-15 `}>
                   <span>Portfolio-2</span>
                 </li>
-              </Link>
+              </NavLink>
 
-              <Link to="/portfolio/portfolio3">
-                <li
-                  className={`pt-13 pb-13 mt-15 ${
-                    page === "job" ? "sidebar-active" : ""
-                  }`}
-                >
+              <NavLink to="/portfolio/portfolio3" activeClassName="active">
+                <li className={`pt-13 pb-13 mt-15 `}>
                   <span>Portfolio-3</span>
                 </li>
-              </Link>
+              </NavLink>
             </ul>
           </nav>
         </div>
