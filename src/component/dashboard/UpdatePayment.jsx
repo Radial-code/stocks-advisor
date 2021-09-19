@@ -1,18 +1,37 @@
 import React from "react";
 import "../dashboardCss/Payment.css";
-const UpdatePayment = () => {
+const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
-    <div className="container my-5">
+    <div className="container my-5 my-xl-0">
+      <div
+        onClick={() => setSidebarActive((preState) => !preState)}
+        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
+      ></div>
       <section>
         <div className="row">
           <div className="col-12">
-            <div className="d-none dashboard">
-              <p className=" mt-2 profile-heading pr-15 ml-2 pb-2 border-b-1">
-                Dashboard
-              </p>
+            <div className="border-b-1 content-manager-2">
+              <div className="d-flex justify-content-between">
+                <p className="heading-stock pr-15">Dashboard</p>
+                <span onClick={sideBarHandler}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="54"
+                    height="54"
+                    fill="currentColor"
+                    class="bi bi-list"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
-          <div className=" col-12 d-flex justify-content-end">
+          <div className=" col-12 d-flex justify-content-end mt-3">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
               <h1 className="heading-stock mb-4"> Update Payment Method</h1>
               <p className="news-heading-font pt-sm-5 border-bottom-1px  ">

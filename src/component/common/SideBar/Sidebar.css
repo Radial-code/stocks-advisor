@@ -182,7 +182,14 @@
 .active li svg path {
   opacity: 1;
 }
-
+.content-manager-2 {
+  display: none;
+}
+@media (min-width: 768.98px) and (max-width: 1280.98px) {
+  .content-manager-2 {
+    display: block;
+  }
+}
 @media (min-width: 1280.98px) and (max-width: 1920.98px) {
   .d-xlg-flex {
     display: flex;

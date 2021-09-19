@@ -1,6 +1,6 @@
 import React from "react";
 
-const Portfolio2 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+const Portfolio3 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <div className="container">
       <div
@@ -36,4 +36,4 @@ const Portfolio2 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   );
 };
 
-export default Portfolio2;
+export default Portfolio3;
