@@ -33,7 +33,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </div>
-        <div className="col d-flex justify-content-end d-xl-block">
+        <div className="col-12 d-flex justify-content-end current-stock-block mt-3">
           <div className="current-stock-bg p-sm-3 p-2">
             <div className="mt-4 d-flex justify-content-between align-items-center">
               <h1 className="current-stock-text ff-popins mb-0">

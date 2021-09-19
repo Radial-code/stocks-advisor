@@ -170,15 +170,15 @@
   border-radius: 17px;
   border-radius: 17px;
 }
-.active li svg {
+.admin-hover .active li svg {
   fill: white;
   stroke: white;
   opacity: 1;
 }
-.active li svg path {
+.admin-hover .active li svg path {
   stroke: white;
 }
-.active li svg g,
+.admin-hover .active li svg g,
 .active li svg path {
   opacity: 1;
 }

@@ -32,7 +32,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </Col>
-        <Col className="d-flex justify-content-sm-end justify-content-center">
+        <Col className="d-flex justify-content-sm-end justify-content-center mt-3">
           <section className="edituser-card p-3 p-sm-5">
             <p className="heading-stock">Jhone Doe</p>
             <div className="border-b-1 mt-5">
