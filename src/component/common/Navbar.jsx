@@ -1,17 +1,97 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import "./NavBar.css";
 const Navbar = () => {
   const [student, setStudent] = useState(false);
+  const [dashboard, setDashboard] = useState(false);
+
+  // FOR ACTIVE CLASS HEADER
+  const [HomeActive, setHomeActive] = useState(false);
+  const [AboutActive, setAboutActive] = useState(false);
+  const [NewsActive, setNewsActive] = useState(false);
+  const [PlansActive, setPlansActive] = useState(false);
+  const [ContactActive, setContactActive] = useState(false);
+  const [PortfolioActive, setPortfolioActive] = useState(false);
+  const [DashboardActive, setDashboardActive] = useState(false);
+  const [LoginActive, setLoginActive] = useState(false);
+
   const dropHandler = () => {
     setStudent(!student);
   };
 
-  const [dashboard, setDashboard] = useState(false);
   const dashboardHandler = () => {
     setDashboard(!dashboard);
   };
+
+  // ACTIVE HEADER AS PATH
+  const pathNane = window.location.pathname;
+  useEffect(() => {
+    if (pathNane === "/") {
+      setHomeActive(true);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/about") {
+      setHomeActive(false);
+      setAboutActive(true);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/news") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(true);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/ourplans") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(true);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/contactus") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(true);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/portfolio/portfolio1") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(true);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathNane === "/login") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(true);
+    }
+  }, [pathNane]);
 
   const [click, setClick] = useState(false);
 
@@ -71,7 +151,9 @@ const Navbar = () => {
                 </div>
               </li>
               <div className="d-xl-flex align-items-center">
-                <li className="nav-item">
+                <li
+                  className={`${HomeActive ? "green-bg-active" : ""} nav-item `}
+                >
                   <NavLink
                     exact
                     to="/"
@@ -83,7 +165,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    AboutActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/about"
@@ -95,7 +181,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${NewsActive ? "green-bg-active" : ""} nav-item `}
+                >
                   <NavLink
                     exact
                     to="/news"
@@ -107,7 +195,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    PlansActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/ourplans"
@@ -119,7 +211,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    ContactActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/contactus"
@@ -182,7 +278,7 @@ const Navbar = () => {
 
                 {/*start here drop down  */}
                 <li onClick={dropHandler} className={` nav-item  d-md-none`}>
-                  <a className="d-flex   nav-links justify-content-between align-items-center">
+                  <a className="d-flex  nav-links justify-content-between align-items-center">
                     Portfolios
                     <span
                       className={`ml-20 ${student ? "sidebardropdown" : ""}`}
@@ -369,7 +465,11 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-                <li className="nav-item">
+                <li
+                  className={`${
+                    LoginActive ? "green-bg-active" : ""
+                  } nav-item `}
+                >
                   <NavLink
                     exact
                     to="/login"
