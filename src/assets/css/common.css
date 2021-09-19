@@ -89,7 +89,9 @@
   font-size: var(--font-xs);
   color: var(--color-44464A);
 }
-
+.min-h-100vh {
+  min-height: 100vh;
+}
 .default-btn {
   background: var(--color-127CF9);
   font-weight: 500;

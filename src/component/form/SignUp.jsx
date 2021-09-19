@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
-    <div className="container h-100vh d-flex flex-column justify-content-center">
+    <div className="container min-h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
         <div className="col-xl-6 col-sm-10">
           <div className="background-form p-sm-5 p-2">
