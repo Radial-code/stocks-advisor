@@ -11,7 +11,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         ></div>
         <Row>
           <Col xs={12}>
-            <div className="border-b-1 content-manager-2">
+            <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
                 <p className="heading-stock pr-15">Dashboard</p>
                 <span onClick={sideBarHandler}>
@@ -32,8 +32,8 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </div>
             </div>
           </Col>
-          <Col xs={12} className="mt-3">
-            <section className="notification-card p-5">
+          <Col xs={12} className="d-flex justify-content-end d-xl-block">
+            <section className="notification-card p-5 w-xl-1000">
               <div className="border-b-1">
                 <p className="heading-stock">Notificaion</p>
               </div>

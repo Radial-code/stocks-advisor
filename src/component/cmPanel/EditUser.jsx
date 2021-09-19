@@ -11,7 +11,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       ></div>
       <Row className="">
         <Col xs={12}>
-          <div className="border-b-1 content-manager">
+          <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15">Content Manager</p>
               <span onClick={sideBarHandler}>
@@ -32,7 +32,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </Col>
-        <Col className="d-flex justify-content-sm-end justify-content-center mt-3">
+        <Col className="d-flex justify-content-sm-end justify-content-center ">
           <section className="edituser-card p-3 p-sm-5">
             <p className="heading-stock">Jhone Doe</p>
             <div className="border-b-1 mt-5">

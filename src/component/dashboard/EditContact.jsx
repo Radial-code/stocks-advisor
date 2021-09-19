@@ -10,7 +10,7 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
       ></div>
       <div className="row h-100 ">
         <div className="col-12 d-none dashboard">
-          <div className="border-b-1 content-manager-2">
+          <div className="border-b-1 content-manager-2 mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15">Dashboard</p>
               <span onClick={sideBarHandler}>
@@ -31,7 +31,7 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
             </div>
           </div>
         </div>
-        <div className="col-12  d-flex justify-content-end mt-3">
+        <div className="col-12  d-flex justify-content-end ">
           <div className="form-background w-xl-1000 w-xlg-100 p-sm-5 p-2 ">
             <p className="mb-0 edit-contact-text ff-popins">Edit Contact</p>
             <div className="form-section">

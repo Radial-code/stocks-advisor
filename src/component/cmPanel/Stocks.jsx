@@ -12,7 +12,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       ></div>
       <div className="row">
         <div className="col-12">
-          <div className="border-b-1 content-manager">
+          <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15">Content Manager</p>
               <span onClick={sideBarHandler}>
@@ -33,7 +33,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </div>
-        <div className="col-12 d-flex justify-content-end current-stock-block mt-3">
+        <div className="col-12 d-flex justify-content-end current-stock-block ">
           <div className="current-stock-bg p-sm-3 p-2">
             <div className="mt-4 d-flex justify-content-between align-items-center">
               <h1 className="current-stock-text ff-popins mb-0">

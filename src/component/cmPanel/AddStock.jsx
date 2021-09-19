@@ -17,7 +17,7 @@ function AddStock({ sideBarHandler, setSidebarActive, sidebarActive }) {
       ></div>
       <div className="row h-100">
         <Col xs={12}>
-          <div className="border-b-1 content-manager">
+          <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15">Content Manager</p>
               <span onClick={sideBarHandler}>

@@ -11,7 +11,7 @@ const Portfolio3 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         <div className="col-12">
           <div className="border-b-1 content-manager-2">
             <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15">Dashboard</p>
+              <p className="heading-stock pr-15">Portfolios</p>
               <span onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

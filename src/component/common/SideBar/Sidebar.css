@@ -185,8 +185,11 @@
 .content-manager-2 {
   display: none;
 }
+.content-manager-2 span {
+  display: none;
+}
 @media (min-width: 768.98px) and (max-width: 1280.98px) {
-  .content-manager-2 {
+  .content-manager-2 span {
     display: block;
   }
 }
@@ -212,6 +215,9 @@
 @media (max-width: 1280.99px) {
   .d-xlg-none {
     display: none;
+  }
+  .content-manager-2 {
+    display: block;
   }
   .wrapper {
     margin-right: -560px;

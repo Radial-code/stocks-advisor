@@ -10,7 +10,7 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       <section>
         <div className="row">
           <div className="col-12">
-            <div className="border-b-1 content-manager-2">
+            <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
                 <p className="heading-stock pr-15">Dashboard</p>
                 <span onClick={sideBarHandler}>
@@ -31,7 +31,7 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </div>
             </div>
           </div>
-          <div className=" col-12 d-flex justify-content-end mt-3">
+          <div className=" col-12 d-flex justify-content-end ">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
               <h1 className="heading-stock mb-4"> Update Payment Method</h1>
               <p className="news-heading-font pt-sm-5 border-bottom-1px  ">
