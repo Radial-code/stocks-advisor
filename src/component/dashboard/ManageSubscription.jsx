@@ -6,6 +6,13 @@ const ManageSubscription = () => {
     <>
       <Container>
         <Row>
+          <Col xs={12}>
+            <div className="d-none dashboard px-3">
+              <p className=" mt-2 profile-heading pr-15 ml-2 pb-2 border-b-1">
+                Dashboard
+              </p>
+            </div>
+          </Col>
           <Col>
             <div className="w-xl-1000 box p-md-5 p-4">
               <h2 className="heading-stock">Manage Subscription</h2>

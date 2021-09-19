@@ -5,6 +5,13 @@ const UpdatePayment = () => {
     <div className="container my-5">
       <section>
         <div className="row">
+          <div className="col-12">
+            <div className="d-none dashboard">
+              <p className=" mt-2 profile-heading pr-15 ml-2 pb-2 border-b-1">
+                Dashboard
+              </p>
+            </div>
+          </div>
           <div className=" col-12 d-flex justify-content-end">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
               <h1 className="heading-stock mb-4"> Update Payment Method</h1>

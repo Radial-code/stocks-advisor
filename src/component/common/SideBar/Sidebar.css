@@ -148,7 +148,7 @@
   margin-right: 20px;
   transition: 0.5s;
 }
-.active li {
+.admin-hover .active li {
   background: var(--color-127CF9);
   color: white;
   padding-top: 13px;
@@ -188,7 +188,9 @@
   .w-lg-100 {
     width: 100%;
   }
-
+  .dashboard {
+    display: block !important;
+  }
   .project-active {
     background-color: black;
     padding: 10px;

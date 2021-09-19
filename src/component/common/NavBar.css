@@ -264,10 +264,7 @@
   width: 100%;
   background: var(--color-127CF9);
 }
-.nav-item .active:after {
-  width: 100%;
-  background: var(--color-127CF9);
-}
+
 .nav-item .active {
   width: 100%;
   border-color: var(--color-127CF9);
@@ -379,6 +376,13 @@
     padding-right: 9px;
     border-color: white;
     color: white;
+  }
+  .nav-items .active {
+    background-color: var(--color-127CF9) !important;
+    padding: 9px 0px !important;
+    padding-right: 9px !important;
+    border-color: white !important;
+    color: white !important;
   }
 }
 @media screen and (max-width: 375.98px) {
