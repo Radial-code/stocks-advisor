@@ -22,6 +22,18 @@
   font-size: var(--font-18);
   font-weight: 500;
 }
+.admin-hover li:hover svg {
+  fill: white;
+  stroke: white;
+  opacity: 1;
+}
+.admin-hover li:hover svg path {
+  stroke: white;
+}
+.admin-hover li:hover svg g,
+.admin-hover li:hover svg path {
+  opacity: 1;
+}
 .admin-hover a {
   text-decoration: none;
 }
@@ -157,6 +169,18 @@
   margin-right: -11px;
   border-radius: 17px;
   border-radius: 17px;
+}
+.active li svg {
+  fill: white;
+  stroke: white;
+  opacity: 1;
+}
+.active li svg path {
+  stroke: white;
+}
+.active li svg g,
+.active li svg path {
+  opacity: 1;
 }
 
 @media (min-width: 1280.98px) and (max-width: 1920.98px) {
