@@ -241,4 +241,12 @@ input::-webkit-inner-spin-button {
   }
 }
 @media (max-width: 575.98px) {
+  .next,
+  .prev {
+    display: none !important;
+  }
+  .prev {
+    display: none !important;
+    display: block !important;
+  }
 }

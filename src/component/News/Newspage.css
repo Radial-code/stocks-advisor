@@ -11,7 +11,7 @@
 
 @media (max-width: 375.98px) {
   .profile-box {
-    width: 303px;
+    width: 303px !important;
     padding: 2px;
   }
   .profile-box-2 {
