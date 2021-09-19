@@ -264,6 +264,9 @@
   width: 100%;
   background: var(--color-127CF9);
 }
+.nav-item:hover a {
+  color: black !important;
+}
 .nav-item .active:after {
   width: 100%;
   background: var(--color-127CF9);
@@ -271,6 +274,7 @@
 .nav-item .active {
   width: 100%;
   border-color: var(--color-127CF9);
+  padding-bottom: 15px;
 }
 /* .nav-item .active {
   color: #ffdd40;
@@ -305,7 +309,7 @@
   .nav-item:after {
     content: "";
     display: block;
-    height: 4px;
+    height: 2.5px;
     width: 0;
     background: transparent;
     transition: width 0.7s ease, background-color 0.5s ease;
