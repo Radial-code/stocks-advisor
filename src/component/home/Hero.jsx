@@ -16,9 +16,10 @@ const Hero = () => {
       <section className="py-5">
         <div className="container">
           <div className="row  justify-content-between">
-            <div className="col-xl-8 col-lg-7">
-              <h1 className="profile-heading ">Featured News</h1>
+            <div className="col-xl-8 col-lg-7 d-flex justify-content-center align-items-center flex-column d-sm-block">
               <div className="profile-box homePageSlider">
+                <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
+
                 <Slider className="about-slider w-100" {...settings}>
                   {" "}
                   <div className=" my-3">
@@ -81,7 +82,7 @@ const Hero = () => {
                 </Slider>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0">
+            <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0 d-flex justify-content-center d-sm-block">
               <div className="profile-box">
                 <Chart />
               </div>
