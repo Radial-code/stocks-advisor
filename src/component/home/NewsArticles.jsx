@@ -9,7 +9,32 @@ const NewsArticles = () => {
     slidesToScroll: 1,
     infinite: true,
     rtl: true,
-
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
     nextArrow: <Next />,
     prevArrow: <Prev />,
   };
@@ -63,6 +88,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
@@ -82,6 +108,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
@@ -101,6 +128,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
@@ -120,6 +148,7 @@ const NewsArticles = () => {
                   </p>
                 </div>
               </div>
+
               <div className="profile-box mt-5 hover-anim mb-3 p-0">
                 <img className="w-100" src={NewsSlider} alt="" />
                 <div className="p-3">
