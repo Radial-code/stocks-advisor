@@ -2,10 +2,36 @@ import React from "react";
 import "../cmPanelCss/userEdit.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-const EditUser = () => {
+const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <Container>
-      <Row className="justify">
+      <div
+        onClick={() => setSidebarActive((preState) => !preState)}
+        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
+      ></div>
+      <Row className="">
+        <Col xs={12}>
+          <div className="border-b-1 content-manager">
+            <div className="d-flex justify-content-between">
+              <p className="heading-stock pr-15">Content Manager</p>
+              <span onClick={sideBarHandler}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="54"
+                  height="54"
+                  fill="currentColor"
+                  class="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </Col>
         <Col className="d-flex justify-content-sm-end justify-content-center">
           <section className="edituser-card p-3 p-sm-5">
             <p className="heading-stock">Jhone Doe</p>

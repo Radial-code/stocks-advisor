@@ -11,6 +11,7 @@ import Users from "../../component/cmPanel/Users";
 import SidebarPanel from "../../component/common/SideBar/SidebarPanel";
 const CmPanel = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
+  const sideBarHandler = () => setSidebarActive(!sidebarActive);
 
   return (
     <>
@@ -21,17 +22,56 @@ const CmPanel = () => {
             setSidebarActive={setSidebarActive}
           />
 
-          <Route exact path="/content/manager/add/stock" component={AddStock} />
-          <Route
-            exact
-            path="/content/manager/edit/stock"
-            component={EditStock}
-          />
-          <Route exact path="/content/manager/add/news" component={AddNews} />
-          <Route exact path="/content/manager/users" component={Users} />
-          <Route exact path="/content/manager/stocks" component={Stocks} />
-          <Route exact path="/content/manager/news" component={News} />
-          <Route exact path="/content/manager/edit/user" component={EditUser} />
+          <Route exact path="/content/manager/add/stock">
+            <AddStock
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+
+          <Route exact path="/content/manager/edit/stock">
+            <EditStock
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/add/news">
+            <AddNews
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/users">
+            <Users
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/stocks">
+            <Stocks
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/news">
+            <News
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/edit/user">
+            <EditUser
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
         </div>
       </div>
     </>

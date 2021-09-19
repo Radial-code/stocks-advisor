@@ -196,6 +196,11 @@
     display: none;
   }
 }
+@media (max-width: 1199.98px) {
+  .active li {
+    background: transparent;
+  }
+}
 
 @media (max-width: 1280.99px) {
   .d-xlg-none {
@@ -226,12 +231,25 @@
 @media (max-width: 1280.98px) {
   .wrapper {
     position: fixed;
+    top: 87px;
   }
   .hamburgur-active .wrapper {
     position: fixed;
-    top: 10;
+    top: 87px;
     right: 0;
     z-index: 10;
+  }
+  .admin-overlay {
+    position: fixed;
+    width: 0px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.267);
+    top: 0;
+    left: 0;
+  }
+  .w-100vw-m {
+    width: 100vw !important;
+    z-index: 6;
   }
 }
 @media (max-width: 1280.98px) {
