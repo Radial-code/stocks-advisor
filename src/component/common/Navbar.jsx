@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import "./NavBar.css";
@@ -8,6 +7,7 @@ const Navbar = () => {
   const dropHandler = () => {
     setStudent(!student);
   };
+
   const [dashboard, setDashboard] = useState(false);
   const dashboardHandler = () => {
     setDashboard(!dashboard);
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <li className="nav-item">
                   <NavLink
                     exact
-                    to="/contact"
+                    to="/contactus"
                     activeClassName="active"
                     className="nav-links"
                     onClick={click ? handleClick : null}
