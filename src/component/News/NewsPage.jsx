@@ -2,6 +2,7 @@ import React from "react";
 import HomepageSlider from "../../assets/img/HomepageSlider.png";
 import newsView from "../../assets/img/newsView.png";
 import Chart from "../home/Chart";
+import RelatedArticles from "./RelatedArticles";
 const NewsPage = () => (
   <>
     <section>
@@ -91,6 +92,9 @@ const NewsPage = () => (
             <div className="profile-box">
               <Chart />
             </div>
+          </div>
+          <div className="col-12">
+            <RelatedArticles />
           </div>
         </div>
       </div>
