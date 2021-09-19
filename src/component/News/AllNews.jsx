@@ -8,7 +8,10 @@ const AllNews = () => {
     <div>
       <Container>
         <Row className="h-100">
-          <Col xs={12} className="mt-5 h-100">
+          <Col
+            xs={12}
+            className="mt-5 h-100 d-flex justify-content-center d-sm-block"
+          >
             <section className="news-articles-card h-100 p-3">
               <Row className="justify-content-between h-100">
                 <Col xl={4} lg={4} xs={4} className="h-100">
@@ -59,7 +62,10 @@ const AllNews = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12} className="mt-5 h-100">
+          <Col
+            xs={12}
+            className="mt-5 h-100 d-flex justify-content-center d-sm-block"
+          >
             <section className="news-articles-card h-100 p-3">
               <Row className="justify-content-between h-100">
                 <Col xl={4} lg={4} xs={4} className="h-100">
@@ -110,7 +116,10 @@ const AllNews = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12} className="mt-5 h-100">
+          <Col
+            xs={12}
+            className="mt-5 h-100 d-flex justify-content-center d-sm-block"
+          >
             <section className="news-articles-card h-100 p-3">
               <Row className="justify-content-between h-100">
                 <Col xl={4} lg={4} xs={4} className="h-100">
@@ -161,7 +170,10 @@ const AllNews = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12} className="mt-5 h-100">
+          <Col
+            xs={12}
+            className="mt-5 h-100 d-flex justify-content-center d-sm-block"
+          >
             <section className="news-articles-card h-100 p-3">
               <Row className="justify-content-between h-100">
                 <Col xl={4} lg={4} xs={4} className="h-100">
@@ -212,7 +224,10 @@ const AllNews = () => {
               </Row>
             </section>
           </Col>
-          <Col xs={12} className="mt-5 h-100">
+          <Col
+            xs={12}
+            className="mt-5 h-100 d-flex justify-content-center d-sm-block"
+          >
             <section className="news-articles-card h-100 p-3">
               <Row className="justify-content-between h-100">
                 <Col xl={4} lg={4} xs={4} className="h-100">
