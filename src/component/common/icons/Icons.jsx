@@ -212,6 +212,41 @@ export const Edit = () => {
     </svg>
   );
 };
+export const EditPencilIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+    >
+      <g id="Group_10260" data-name="Group 10260" transform="translate(1 1)">
+        <path
+          id="Path_12"
+          data-name="Path 12"
+          d="M16.474,5.408l2.118,2.117Zm1.362-1.865L12.109,9.27a2.118,2.118,0,0,0-.58,1.082L11,13l2.648-.53a2.116,2.116,0,0,0,1.082-.579l5.727-5.727a1.853,1.853,0,0,0-2.621-2.621Z"
+          transform="translate(-4 -3)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          id="Path_13"
+          data-name="Path 13"
+          d="M19,15v3a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V7A2,2,0,0,1,6,5H9"
+          transform="translate(-4 -3)"
+          fill="none"
+          stroke="#5b5e61"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </g>
+    </svg>
+  );
+};
 export const Manage = () => {
   return (
     <svg

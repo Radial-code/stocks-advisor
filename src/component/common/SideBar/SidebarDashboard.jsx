@@ -1,5 +1,5 @@
 import React from "react";
-import { Edit, Manage, Notify, Update } from "../icons/Icons";
+import { EditPencilIcon, Manage, Notify, Update } from "../icons/Icons";
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
 // /dashboard/update/payment
@@ -16,7 +16,7 @@ const SidebarDashboard = ({ page, sidebarActive, history }) => {
               <NavLink activeClassName="active" to="/dashboard/edit/contact">
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="pl-15">
-                    <Edit />
+                    <EditPencilIcon />
                   </span>
                   <span>Edit Contact</span>
                 </li>
