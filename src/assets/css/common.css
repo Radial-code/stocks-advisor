@@ -113,6 +113,24 @@
 .homePageSlider .slick-dots {
   bottom: 0px;
 }
+@media (min-width: 567px) {
+  .about-slider .slick-dots {
+    display: none !important;
+  }
+}
+.about-slider .slick-dots li button:before {
+  font-size: 14px !important;
+}
+
+.about-slider .slick-dots li.slick-active button:before {
+  color: #5cbd4c;
+  border: transparent;
+}
+.about-slider .slick-dots li button:before {
+  color: black;
+  border-radius: 50%;
+  /* border: 1px solid #707070; */
+}
 .profile-heading {
   font-weight: 500;
   font-size: var(--font-md);
