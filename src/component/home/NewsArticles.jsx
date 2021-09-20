@@ -33,7 +33,7 @@ const NewsArticles = ({ history }) => {
         },
       },
       {
-        breakpoint: 575,
+        breakpoint: 576,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -51,7 +51,7 @@ const NewsArticles = ({ history }) => {
         <div className="row ">
           <div className="col-12">
             <Slider
-              className="about-slider d-flex align-items-center"
+              className="about-slider-2 d-flex align-items-center"
               {...settings}
             >
               <div className="d-flex justify-content-center d-md-block">

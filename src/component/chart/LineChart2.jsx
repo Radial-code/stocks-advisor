@@ -32,7 +32,7 @@ function LineChart2() {
     },
   ];
   return (
-    <div className="  mt-4">
+    <div className="container p-xs-right-left-0  mt-4">
       <p className="chart-text-2 ff-popins mb-4">Trading Portfolio</p>
       <div className="blue-chart">
         <ResponsiveContainer width="100%" height={213}>

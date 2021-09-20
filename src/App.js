@@ -8,7 +8,7 @@ function App() {
   const { setScreenFixed, isScreenFixed } = useFixedScreenProvider();
 
   return (
-    <>
+    <div className="d-flex justify-content-between flex-column h-100vh">
       <Router />
     </>
   );

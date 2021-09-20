@@ -2,7 +2,7 @@ import React from "react";
 
 const Portfolio2 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
-    <div className="container">
+    <div className="container d-flex justify-content-center align-items-center flex-column">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -29,7 +29,9 @@ const Portfolio2 = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </span>
             </div>
           </div>
-          <h1>No Data in This</h1>
+          <div>
+            <h1>No Data in This</h1>
+          </div>
         </div>
       </div>
     </div>

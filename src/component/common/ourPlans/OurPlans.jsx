@@ -9,7 +9,7 @@ const OurPlans = ({ homepage }) => {
         <Row>
           <Col xs={12} className="d-flex  justify-content-center">
             <p
-              className={`subscription-plans mt-sm-5 ${
+              className={`subscription-plans mt-sm-5 mt-3 ${
                 homepage ? "text-white" : ""
               } `}
             >
