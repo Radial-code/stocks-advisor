@@ -37,7 +37,7 @@ function LineChart() {
   ];
 
   return (
-    <div className="green-chart px-sm-0 px-2 mt-4">
+    <div className="green-chart px-sm-0 px-3 mt-4">
       <p className="chart-text-2 ff-popins mb-4">Long Term Portfolio</p>
 
       <ResponsiveContainer width="100%" height={213}>
@@ -58,7 +58,12 @@ function LineChart() {
           <CartesianGrid stroke="0" />
 
           <XAxis dataKey="name" axisLine={false} tickLine={false} />
-          <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+          <YAxis
+            dataKey="uv"
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={(number) => `${number}%`}
+          />
           <Tooltip />
           <Area
             type="monotone"

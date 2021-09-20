@@ -107,7 +107,9 @@
   background-color: white;
   color: var(--color-127CF9);
 }
-
+.homePageSlider .slick-dots {
+  bottom: 0px;
+}
 .profile-heading {
   font-weight: 500;
   font-size: var(--font-md);
