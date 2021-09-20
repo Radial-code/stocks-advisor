@@ -58,7 +58,12 @@ function LineChart() {
           <CartesianGrid stroke="0" />
 
           <XAxis dataKey="name" axisLine={false} tickLine={false} />
-          <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+          <YAxis
+            dataKey="uv"
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={(number) => `${number}%`}
+          />
           <Tooltip />
           <Area
             type="monotone"

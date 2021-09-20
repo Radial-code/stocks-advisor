@@ -28,7 +28,7 @@
 }
 .send-msg-btn:hover {
   background-color: #ffffff;
-  color: #16191e !important;
+  color: var(--color-127CF9) !important;
 }
 .form-box {
   border-radius: 10px;

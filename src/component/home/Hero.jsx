@@ -79,6 +79,25 @@ const Hero = () => {
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
                   </div>
+                  <div className=" my-3">
+                    <img className="w-100" src={HomepageSlider} alt="" />
+                    <p className="text-end stock-paragraph mt-3">16/07/2021</p>
+                    <h6 className="text-end heading-stock">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h6>
+                    <p className="text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu finibus
+                      tristique arcu finibus tristique arcu. Proin dui erat,
+                      pulvinar ac felis eget, mollis rhoncus nunc.
+                    </p>
+                    <p className="text-end read-more">Read More...</p>
+                    <p class="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
                 </Slider>
               </div>
             </div>
