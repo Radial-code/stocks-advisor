@@ -20,7 +20,7 @@ const Hero = () => {
               <div className="profile-box homePageSlider">
                 <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
 
-                <Slider className="about-slider w-100" {...settings}>
+                <Slider className="about-slider-2 w-100" {...settings}>
                   {" "}
                   <div className=" my-3">
                     <img className="w-100" src={HomepageSlider} alt="" />
