@@ -27,6 +27,12 @@
   font-size: 18px;
   color: white;
   padding: 10px 30px;
+  transition: 0.3s;
+  border: 1px solid #4870b3 !important;
+}
+.join-now:hover {
+  background-color: white;
+  color: #4870b3;
 }
 
 @media (max-width: 1400px) {
