@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
 const NewsArticles = ({ history }) => {
   const settings = {
-    dots: true,
+    dots: false,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,

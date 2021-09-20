@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 const AboutSlider = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
@@ -52,8 +52,8 @@ const AboutSlider = () => {
   };
   return (
     <>
-      <h1 className="mt-5 section-heading fs-sm-22">Team</h1>
-      <Slider dir="rtl" className="about-slider-4" {...settings}>
+      <h1 className="mt-5 pt-5 section-heading fs-sm-22">Team</h1>
+      <Slider dir="rtl" className="about-slider-4 mt-4" {...settings}>
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
@@ -81,7 +81,7 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
+
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
@@ -109,9 +109,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -138,9 +137,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -167,9 +165,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -196,9 +193,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -225,9 +221,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -254,9 +249,8 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-      <div className="d-flex justify-content-center fl pr-15 d-sm-block">
+
+        <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
             <div className=" d-none d-sm-block">
               <div className="d-flex align-items-center flex-row-reverse">
@@ -283,12 +277,6 @@ const AboutSlider = () => {
             </p>
           </div>
         </div>
-     
-      
-    
-    
-      
-  
       </Slider>
     </>
   );
