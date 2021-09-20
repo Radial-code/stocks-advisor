@@ -16,7 +16,7 @@ const Main = () => {
               <PagiNation />
             </div>
           </Col>
-          <Col xl={4} className="mt-5 d-flex justify-content-center">
+          <Col xl={4} className="mt-5 d-flex justify-content-center d-sm-block">
             <div className="profile-box mt-5 mt-xl-0">
               <Chart />
               <div className="mt-5">

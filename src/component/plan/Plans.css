@@ -28,11 +28,7 @@
   color: white;
   padding: 10px 30px;
 }
-@media (max-width: 1400px) {
-  .join-now {
-    font-size: 9px;
-  }
-}
+
 @media (max-width: 1400px) {
   .join-now {
     padding: 10px 20px;
@@ -48,6 +44,7 @@
     font-size: 11px;
   }
 }
+
 .plan-price-text {
   color: #4870b3;
   font-size: 31px;
@@ -56,5 +53,24 @@
 @media (max-width: 1400px) {
   .plan-price-text {
     font-size: 12px;
+  }
+}
+@media (max-width: 1200.98px) {
+  .plan-text {
+    font-size: 16px;
+  }
+  .plan-price-text {
+    font-size: 18px;
+  }
+}
+@media (max-width: 575.98px) {
+  .join-now {
+    font-size: 9px;
+  }
+  .plan-text {
+    font-size: 11px;
+  }
+  .plan-price-text {
+    font-size: 11px;
   }
 }
