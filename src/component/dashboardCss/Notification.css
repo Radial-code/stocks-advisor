@@ -1,0 +1,127 @@
+.email {
+  width: 150px;
+  font-size: var(--font-xs);
+  font-weight: 400;
+  color: var(--color-5B5E61);
+}
+.notification {
+  max-width: 1000px;
+}
+.observations {
+  width: 323px;
+  font-size: var(--font-21);
+  font-weight: 500;
+  color: var(--color-5B5E61);
+}
+.fs-21 {
+  font-size: var(--font-21);
+}
+.h-calc-100vh-331 {
+  height: calc(100vh - 331px);
+}
+.notification-card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+}
+/* check box css */
+.geekmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-notification input:checked ~ .geekmark:after {
+  display: block;
+}
+.checkbox-notification input:checked ~ .geekmark {
+  background-color: #4870b3;
+}
+.geekmark {
+  position: absolute;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  background-color: white;
+  border: 1px solid black;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+.checkbox-notification {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.checkbox-notification .geekmark:after {
+  left: 4px;
+  top: 2px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* 2 */
+.geekmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-notification-web input:checked ~ .geekmark:after {
+  display: block;
+}
+.checkbox-notification-web input:checked ~ .geekmark {
+  background-color: #8a8c8e;
+}
+.geekmark {
+  position: absolute;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+.checkbox-notification-web {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.checkbox-notification-web .geekmark:after {
+  left: 4px;
+  top: 2px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* end here check box css */
+.scroll-x-side {
+  overflow-x: scroll;
+}
+@media (max-width: 450px) {
+  .scroll-x-side {
+    width: 315px;
+  }
+}
+@media (max-width: 374.98px) {
+  .scroll-x-side {
+    width: 230px;
+  }
+}

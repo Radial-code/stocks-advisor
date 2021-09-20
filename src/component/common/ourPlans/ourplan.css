@@ -1,0 +1,116 @@
+.h-100vh {
+  height: 100vh;
+}
+.subscription-plans {
+  font-size: var(--font-48);
+  font-weight: 500;
+  color: var(--color-16191e);
+}
+.plan-card {
+  font-size: var(--font-22);
+  font-weight: 500;
+  color: var(--color-16191e);
+}
+.amount-card-month {
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+.bg-card-plan:hover {
+  transform: translateY(-40px);
+  transition: 0.5s;
+}
+@media (max-width: 567px) {
+  .bg-card-plan:hover {
+    transform: translateY(10px);
+    transition: 0.5s;
+  }
+}
+.amount-card-month .month {
+  font-size: var(--font-xs);
+  font-weight: 400;
+}
+.leading-25 {
+  line-height: 25px;
+}
+.card-paragraph {
+  font-size: var(--font-xs);
+  font-weight: 400;
+  line-height: 30.5px;
+  color: var(--color-44464A);
+  max-width: 174px;
+  text-align: center;
+  margin: auto;
+}
+.join-now-btn {
+  font-size: var(--font-18);
+  font-weight: 500;
+  background-color: var(--color-88BEFC);
+  padding: 7.5px 111px;
+  border: none;
+  border-radius: 4px;
+  /* border: 1px solid var(--color-88BEFC); */
+}
+.join-now-btn:hover {
+  color: var(--color-16191E) !important;
+  background-color: #5cbd4c;
+  color: white !important;
+}
+.card-amount {
+  background-color: var(--color-88BEFC);
+}
+.card-amount:hover {
+  background-color: #5cbd4c;
+  cursor: pointer;
+}
+.p-9-0 {
+  padding: 9px 0px;
+}
+.bg-card-plan {
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #0000000d;
+  border-radius: 10px;
+  opacity: 1;
+  width: 372px;
+  transition: 0.5s;
+}
+.sign-up-btn {
+  font-size: var(--font-18);
+  font-weight: 500;
+  background-color: var(--color-127CF9);
+  padding: 9.5px 82px;
+  border-radius: 4px;
+  border: 1px solid var(--color-127CF9);
+}
+.sign-up-btn:hover {
+  background-color: white;
+  color: var(--color-16191E) !important;
+}
+@media (max-width: 575.98px) {
+  .subscription-plans {
+    font-size: var(--font-md);
+  }
+  .bg-card-plan {
+    width: 302px;
+  }
+  .join-now-btn {
+    font-size: var(--font-xxs);
+    padding: 8.5px 93px;
+  }
+  .sign-up-btn {
+    font-size: var(--font-xxs);
+    padding: 8px 70px;
+  }
+}
+@media (max-width: 375.98px) {
+  .plan-card {
+    font-size: var(--font-xs);
+  }
+  .amount-card-month {
+    font-size: var(--font-md);
+  }
+  .card-paragraph {
+    font-size: var(--font-xxs);
+    line-height: 23px;
+  }
+}
