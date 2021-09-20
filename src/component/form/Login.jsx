@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 function Login() {
   return (
-    <div className="container h-100vh d-flex flex-column justify-content-center">
+    <div className="container-fluid h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
-        <div className="col-lg-5 col-8">
+        <div className="col-xl-4 col-sm-8 col">
           <div className="background-form p-sm-5 p-2">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Log In
@@ -37,11 +37,10 @@ function Login() {
                 <span className="sign-up-text cursor-pointer">Sign Up</span>
               </Link>
             </p>
-            <Link to="#" className="text-decoration">
-              <p className="ff-popins text-center cursor-pointer">
-                ?Forgot Password
-              </p>
-            </Link>
+
+            <p className="ff-popins text-center cursor-pointer">
+              ?Forgot Password
+            </p>
           </div>
         </div>
       </div>

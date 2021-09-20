@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import img_1 from "../../assets/img/strock-articles-img-1.png";
-const AllNews = () => {
+const AllNews = ({ history }) => {
   return (
     <div>
       <Container>
@@ -47,11 +47,12 @@ const AllNews = () => {
                         felis eget, mollis rhoncus nunc.
                       </p>
                     </p>
-                    <Link to="AllNews">
-                      <p className="read-more d-none d-lg-block mb-0">
-                        Read More
-                      </p>
-                    </Link>
+                    <p
+                      className="read-more d-none d-lg-block mb-0 cursor-pointer"
+                      onClick={() => history.push("/AllNews")}
+                    >
+                      Read More
+                    </p>
 
                     <p className="small-paragraph d-none d-xl-block mb-0">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
@@ -101,11 +102,12 @@ const AllNews = () => {
                         felis eget, mollis rhoncus nunc.
                       </p>
                     </p>
-                    <Link to="AllNews">
-                      <p className="read-more d-none d-lg-block mb-0">
-                        Read More
-                      </p>
-                    </Link>
+                    <p
+                      className="read-more d-none d-lg-block mb-0 cursor-pointer"
+                      onClick={() => history.push("/AllNews")}
+                    >
+                      Read More
+                    </p>
 
                     <p className="small-paragraph d-none d-xl-block mb-0">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
@@ -155,11 +157,12 @@ const AllNews = () => {
                         felis eget, mollis rhoncus nunc.
                       </p>
                     </p>
-                    <Link to="AllNews">
-                      <p className="read-more d-none d-lg-block mb-0">
-                        Read More
-                      </p>
-                    </Link>
+                    <p
+                      className="read-more d-none d-lg-block mb-0 cursor-pointer"
+                      onClick={() => history.push("/AllNews")}
+                    >
+                      Read More
+                    </p>
 
                     <p className="small-paragraph d-none d-xl-block mb-0">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
@@ -209,11 +212,12 @@ const AllNews = () => {
                         felis eget, mollis rhoncus nunc.
                       </p>
                     </p>
-                    <Link to="AllNews">
-                      <p className="read-more d-none d-lg-block mb-0">
-                        Read More
-                      </p>
-                    </Link>
+                    <p
+                      className="read-more d-none d-lg-block mb-0 cursor-pointer"
+                      onClick={() => history.push("/AllNews")}
+                    >
+                      Read More
+                    </p>
 
                     <p className="small-paragraph d-none d-xl-block mb-0">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
@@ -263,11 +267,13 @@ const AllNews = () => {
                         felis eget, mollis rhoncus nunc.
                       </p>
                     </p>
-                    <Link to="AllNews">
-                      <p className="read-more d-none d-lg-block mb-0">
-                        Read More
-                      </p>
-                    </Link>
+
+                    <p
+                      className="read-more d-none d-lg-block mb-0 cursor-pointer"
+                      onClick={() => history.push("/AllNews")}
+                    >
+                      Read More
+                    </p>
 
                     <p className="small-paragraph d-none d-xl-block mb-0">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
@@ -284,4 +290,4 @@ const AllNews = () => {
   );
 };
 
-export default AllNews;
+export default withRouter(AllNews);
