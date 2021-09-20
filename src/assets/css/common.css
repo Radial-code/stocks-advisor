@@ -248,6 +248,9 @@ input::-webkit-inner-spin-button {
   .h-341 {
     height: 341px;
   }
+  .mr-lg-30 {
+    margin-right: 30px !important;
+  }
 }
 @media (max-width: 575.98px) {
   .next,
