@@ -1,0 +1,26 @@
+.pagination-number {
+  list-style: none;
+}
+.pagination-number li {
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--color-127CF9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: var(--font-18);
+}
+
+.pagination-number li:hover {
+  background-color: var(--color-127CF9);
+  color: white;
+}
+@media (max-width: 475.98px) {
+  .pagination-number li {
+    width: 27px;
+    height: 28px;
+  }
+}

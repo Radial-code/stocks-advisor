@@ -10,6 +10,7 @@
   --color-16191e: #16191e;
   --color-16191E: #16191e;
   --color-E4E4E4: #e4e4e4;
+  --color-45474b: #45474b;
 
   --color-5B5E61: #5b5e61;
   --color-16191e33: #16191e33;
@@ -23,11 +24,16 @@
   --font-lg: 31px;
   --font-md: 25px;
   --font-22: 22px;
+  --font-35: 35px;
+
   --font-21: 21px;
+  --font-28: 28px;
 
   --font-sm: 20px;
   --font-xs: 16px;
   --font-18: 18px;
+  --font-15: 15px;
+
   --font-xxs: 14px;
   --font-13: 13px;
   --font-12: 12px;
@@ -86,7 +92,9 @@
   font-size: var(--font-xs);
   color: var(--color-44464A);
 }
-
+.min-h-100vh {
+  min-height: 100vh;
+}
 .default-btn {
   background: var(--color-127CF9);
   font-weight: 500;
@@ -95,8 +103,16 @@
   border: none;
   padding: 9px 24px;
   border-radius: 4px;
+  transition: 0.6s;
+  border: 1px solid var(--color-127CF9);
 }
-
+.default-btn:hover {
+  background-color: white;
+  color: var(--color-127CF9);
+}
+.homePageSlider .slick-dots {
+  bottom: 0px;
+}
 .profile-heading {
   font-weight: 500;
   font-size: var(--font-md);
@@ -104,6 +120,12 @@
 }
 
 .profile-box {
+  border-radius: 10px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+.profile-box-2 {
   border-radius: 10px;
   padding: 16px;
   background: #fff;
@@ -154,6 +176,12 @@
 }
 .homePageSlider .slick-dots .slick-active button:after {
   width: 100%;
+}
+.dots {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .homePageSlider .slick-dots button:before {
@@ -211,13 +239,49 @@ input::-webkit-inner-spin-button {
 .text-decoration {
   text-decoration: none;
 }
+
+.w-518 {
+  width: 518px;
+}
 @media (min-width: 1600.99px) {
   .container {
     max-width: 1440px !important;
   }
+  .h-341 {
+    height: 341px;
+  }
+  .mr-lg-30 {
+    margin-right: 30px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .fs-lg-35 {
+    font-size: var(--font-35);
+  }
 }
 @media (max-width: 575.98px) {
-}
-.max-w-546 {
-  max-width: 546px;
+  .next,
+  .prev {
+    display: none !important;
+  }
+  .prev {
+    display: none !important;
+    display: block !important;
+  }
+  .team-img {
+    width: 75px;
+    height: 75px;
+  }
+  .fs-sm-28 {
+    font-size: var(--font-28);
+  }
+  .fs-sm-22 {
+    font-size: var(--font-22);
+  }
+  .dots-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+  }
 }

@@ -14,7 +14,7 @@
   color: var(--color-16191eb7);
 }
 .scroll-bar::-webkit-scrollbar {
-  width: 1em;
+  width: 5px;
 }
 
 .scroll-bar::-webkit-scrollbar-thumb {

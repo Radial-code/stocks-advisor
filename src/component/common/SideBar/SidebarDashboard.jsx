@@ -1,6 +1,6 @@
 import React from "react";
-
-import { Link, withRouter } from "react-router-dom";
+import { EditPencilIcon, Manage, Notify, Update } from "../icons/Icons";
+import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
 // /dashboard/update/payment
 const SidebarDashboard = ({ page, sidebarActive, history }) => {
@@ -13,23 +13,45 @@ const SidebarDashboard = ({ page, sidebarActive, history }) => {
           </p>
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5 ">
-              <Link to="/dashboard/edit/contact">
-                <li className={`pt-13 pb-13 mt-15  `}>
-                  <span>Portfolio-1</span>
-                </li>
-              </Link>
-
-              <Link to="/dashboard/manage/subscription">
-                <li className={`pt-13 pb-13 mt-15`}>
-                  <span>Portfolio-2</span>
-                </li>
-              </Link>
-
-              <Link to="/dashboard/update/payment">
+              <NavLink activeClassName="active" to="/dashboard/edit/contact">
                 <li className={`pt-13 pb-13 mt-15 `}>
-                  <span>Portfolio-3</span>
+                  <span className="pl-15">
+                    <EditPencilIcon />
+                  </span>
+                  <span>Edit Contact</span>
                 </li>
-              </Link>
+              </NavLink>
+
+              <NavLink
+                activeClassName="active"
+                to="/dashboard/manage/subscription"
+              >
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="pl-15">
+                    <Manage />
+                  </span>
+                  <span>Manage Subscription</span>
+                </li>
+              </NavLink>
+
+              <NavLink activeClassName="active" to="/dashboard/update/payment">
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="pl-15">
+                    {" "}
+                    <Update />
+                  </span>
+                  <span>Update Payment Method</span>
+                </li>
+              </NavLink>
+
+              <NavLink activeClassName="active" to="/dashboard/notification">
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="pl-15">
+                    <Notify />
+                  </span>
+                  <span>Notification</span>
+                </li>
+              </NavLink>
             </ul>
           </nav>
         </div>

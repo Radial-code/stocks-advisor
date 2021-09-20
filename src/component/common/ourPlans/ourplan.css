@@ -19,6 +19,12 @@
   transform: translateY(-40px);
   transition: 0.5s;
 }
+@media (max-width: 567px) {
+  .bg-card-plan:hover {
+    transform: translateY(10px);
+    transition: 0.5s;
+  }
+}
 .amount-card-month .month {
   font-size: var(--font-xs);
   font-weight: 400;
@@ -40,15 +46,35 @@
   font-weight: 500;
   background-color: var(--color-88BEFC);
   padding: 7.5px 111px;
+  border: none;
   border-radius: 4px;
-  border: 1px solid var(--color-88BEFC);
+  /* border: 1px solid var(--color-88BEFC); */
 }
 .join-now-btn:hover {
   color: var(--color-16191E) !important;
-  background-color: white;
+  background-color: #5cbd4c;
+  color: white !important;
 }
 .card-amount {
   background-color: var(--color-88BEFC);
+}
+.card-amount-2 {
+  background-color: var(--color-127CF9);
+}
+.join-now-btn-2 {
+  font-size: var(--font-18);
+  font-weight: 500;
+  background-color: var(--color-127CF9);
+  padding: 7.5px 111px;
+  border: none;
+  border-radius: 4px;
+}
+.join-now-btn-2:hover {
+  background-color: var(--color-88BEFC);
+}
+.card-amount:hover {
+  background-color: #5cbd4c;
+  cursor: pointer;
 }
 .p-9-0 {
   padding: 9px 0px;
@@ -62,7 +88,7 @@
   width: 372px;
   transition: 0.5s;
 }
-.sing-up-btn {
+.sign-up-btn {
   font-size: var(--font-18);
   font-weight: 500;
   background-color: var(--color-127CF9);
@@ -70,7 +96,7 @@
   border-radius: 4px;
   border: 1px solid var(--color-127CF9);
 }
-.sing-up-btn:hover {
+.sign-up-btn:hover {
   background-color: white;
   color: var(--color-16191E) !important;
 }
@@ -85,7 +111,11 @@
     font-size: var(--font-xxs);
     padding: 8.5px 93px;
   }
-  .sing-up-btn {
+  .join-now-btn-2 {
+    font-size: var(--font-xxs);
+    padding: 8.5px 93px;
+  }
+  .sign-up-btn {
     font-size: var(--font-xxs);
     padding: 8px 70px;
   }

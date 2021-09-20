@@ -9,13 +9,15 @@ const Footer = () => {
       <div className="container pt-lg-5 pt-3  pb-3 pt-lg-5">
         <div className="row justify-content-between align-items-end">
           <div className="col-lg-3  col-md-4 col-12 d-flex d-md-block justify-content-center  ">
-            <div className="">
-              <img className="filter-img" src={logo} alt="" />
-            </div>
+            <Link to="/">
+              <div className="">
+                <img className="filter-img" src={logo} alt="" />
+              </div>
+            </Link>
             <div className="d-none d-md-block mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to=""
+                to="/contactus"
               >
                 Contact Us
               </Link>
@@ -31,7 +33,7 @@ const Footer = () => {
             <div className="text-center d-md-none mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to=""
+                to="/contactus"
               >
                 Contact Us
               </Link>
@@ -42,22 +44,34 @@ const Footer = () => {
             <div className="d-flex justify-content-between w-xs-250 ">
               <ul className="list-unstyled  footer-ul d-sm-none d-flex flex-column align-items-center">
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/portfolio/portfolio1"
+                  >
                     Portfolio
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/dashboard/edit/contact"
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/signup"
+                  >
                     Join
                   </Link>
                 </li>
@@ -65,22 +79,34 @@ const Footer = () => {
 
               <ul className="list-unstyled footer-ul d-flex flex-column align-items-center">
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/"
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/about"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/news"
+                  >
                     News
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/ourplans"
+                  >
                     Our Plan
                   </Link>
                 </li>
@@ -88,22 +114,34 @@ const Footer = () => {
 
               <ul className="list-unstyled  footer-ul d-none d-sm-block">
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/portfolio/portfolio1"
+                  >
                     Portfolio
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/dashboard/edit/contact"
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-white fs-15" to="">
+                  <Link
+                    className="text-decoration-none text-white fs-15"
+                    to="/signup"
+                  >
                     Join
                   </Link>
                 </li>

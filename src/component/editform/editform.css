@@ -83,6 +83,10 @@
   font-size: 26px;
   font-weight: 500;
 }
+.chart-text-2 {
+  font-size: 26px;
+  font-weight: 500;
+}
 .chart-btn {
   padding: 2px 12px;
   background-color: #4870b3;
@@ -94,9 +98,6 @@
   .chart-btn {
     padding: 2px 8px;
     font-size: 10px;
-  }
-  .chart-text {
-    font-size: 12px;
   }
 }
 @media (max-width: 567px) {

@@ -6,12 +6,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./Store";
+import FixedScreenProvider from "./contexts/FixedScreenProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <App />
+        <FixedScreenProvider>
+          <App />
+        </FixedScreenProvider>
       </Router>
     </Provider>
   </React.StrictMode>,

@@ -17,13 +17,6 @@
   background-color: var(--color-88BEFC);
 }
 @media (max-width: 576px) {
-  :root {
-    --font-lg: 20px;
-    --font-md: 16px;
-    --font-22: 14px;
-    --font-xs: 11px;
-    --font-18: 14px;
-  }
   .fs-16 {
     font-size: 11px;
   }

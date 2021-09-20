@@ -64,4 +64,7 @@
   .articles-date {
     font-size: var(--font-13);
   }
+  .news-articles-card {
+    width: 303px;
+  }
 }

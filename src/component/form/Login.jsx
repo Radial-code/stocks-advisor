@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 function Login() {
   return (
-    <div className="container h-100vh d-flex flex-column justify-content-center">
+    <div className="container-fluid height-100vh   d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
-        <div className="col-lg-5 col-8">
-          <div className="background-form p-sm-5 p-2">
+        <div className="col-xl-4 col-sm-8 col">
+          <div className="background-form p-sm-5 p-2 my-sm-0 my-5">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Log In
             </p>
@@ -27,23 +27,20 @@ function Login() {
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
 
-              <div className=" my-3">
-                <button className=" w-100 form-btn px-5 py-3 border-0 ff-popins">
-                  Log In
-                </button>
+              <div className=" my-sm-3">
+                <button className=" w-100 form-btn  ff-popins">Log In</button>
               </div>
             </Form>
-            <p className="ff-popins text-center mb-2 pt-5">
+            <p className="ff-popins text-center mb-2 pt-sm-5 pt-4">
               Don't have an account?{" "}
               <Link to="/signup" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">Sign Up</span>
               </Link>
             </p>
-            <Link to="#" className="text-decoration">
-              <p className="ff-popins text-center cursor-pointer">
-                ?Forgot Password
-              </p>
-            </Link>
+
+            <p className="ff-popins text-center cursor-pointer pt-sm-0 pt-3">
+              ?Forgot Password
+            </p>
           </div>
         </div>
       </div>

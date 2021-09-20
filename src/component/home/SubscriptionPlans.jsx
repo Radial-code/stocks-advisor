@@ -6,8 +6,6 @@ const SubscriptionPlans = () => {
     <>
       <section className="bg-6B8BC1 py-5">
         <div className="container pb-5">
-          {/* <h1 className="text-center">Subscription Plans</h1> */}
-
           <OurPlans homepage={true} />
         </div>
       </section>

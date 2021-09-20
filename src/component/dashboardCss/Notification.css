@@ -112,3 +112,16 @@ input[type="checkbox"] {
 }
 
 /* end here check box css */
+.scroll-x-side {
+  overflow-x: scroll;
+}
+@media (max-width: 450px) {
+  .scroll-x-side {
+    width: 315px;
+  }
+}
+@media (max-width: 374.98px) {
+  .scroll-x-side {
+    width: 230px;
+  }
+}
