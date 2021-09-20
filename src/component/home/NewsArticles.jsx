@@ -54,7 +54,7 @@ const NewsArticles = ({ history }) => {
               className="about-slider-2 d-flex align-items-center"
               {...settings}
             >
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
@@ -75,7 +75,7 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
@@ -97,7 +97,7 @@ const NewsArticles = ({ history }) => {
                 </div>
               </div>
 
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
