@@ -390,6 +390,7 @@
   .nav-item a:hover .nav-item {
     color: white;
   }
+
   .down-active-1 {
     background-color: var(--color-127CF9) !important;
     padding: 9px 0px !important;

@@ -9,7 +9,7 @@ const Homepage = () => {
     <>
       <AboutHero />
       <section className="bg-f9f9f9 py-5">
-        <div className="container">
+        <div className="container  p-left-right">
           <AboutUs />
           <History />
           <AboutSlider />

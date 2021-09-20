@@ -102,7 +102,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0 d-flex justify-content-center d-sm-block">
-              <div className="profile-box">
+              <div className="profile-box p-2">
                 <Chart />
               </div>
             </div>

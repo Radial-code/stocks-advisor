@@ -58,6 +58,20 @@
 .card-amount {
   background-color: var(--color-88BEFC);
 }
+.card-amount-2 {
+  background-color: var(--color-127CF9);
+}
+.join-now-btn-2 {
+  font-size: var(--font-18);
+  font-weight: 500;
+  background-color: var(--color-127CF9);
+  padding: 7.5px 111px;
+  border: none;
+  border-radius: 4px;
+}
+.join-now-btn-2:hover {
+  background-color: var(--color-88BEFC);
+}
 .card-amount:hover {
   background-color: #5cbd4c;
   cursor: pointer;

@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
 const NewsArticles = ({ history }) => {
   const settings = {
-    dots: false,
+    dots: true,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -45,7 +45,7 @@ const NewsArticles = ({ history }) => {
   };
   return (
     <>
-      <div className="container">
+      <div className="container p-left-right">
         <h1 className="profile-heading ">Other News Articles</h1>
 
         <div className="row ">

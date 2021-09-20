@@ -1,10 +1,12 @@
 import React from "react";
 import "../dashboardCss/Notification.css";
+import Sortarrow from "../../assets/img/sortarrow.png";
+
 import { Table, Container, Row, Col } from "react-bootstrap";
 const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <>
-      <Container>
+      <Container className="mr-lg-30">
         <div
           onClick={() => setSidebarActive((preState) => !preState)}
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -13,7 +15,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <Col xs={12}>
             <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
+                <p className="heading-stock pr-15 fs-sm-20">Dashboard</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -32,368 +34,658 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </div>
             </div>
           </Col>
-          <Col xs={12} className="d-flex justify-content-end d-xl-block">
-            <section className="notification-card p-5 w-xl-1000">
+          <Col xs={12}>
+            <section className="notification-card p-lg-5 p-2 ">
               <div className="border-b-1">
-                <p className="heading-stock">Notificaion</p>
+                <p className="heading-stock fs-sm-20">Notificaion</p>
               </div>
               <p className="small-paragraph mt-5">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                 tristique leo et pulvinar luctus. Donec aliquet mauris eget e
               </p>
-              <div className="h-calc-100vh-442 scroll-bar overflow-auto w-100 notification mt-5">
-                <Table hover>
-                  <thead>
-                    <tr>
-                      <th className="observations">Observations</th>
-                      <th className="email">Push</th>
-                      <th className="email ">Web</th>
 
-                      <th className="email ">E-mail</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+              <div className="mt-5 h-calc-100vh-442 overflow-auto">
+                <div className="table-responsive sold-stock-scrollbar">
+                  <table className="table table-borderless">
+                    <thead>
+                      <tr className="">
+                        <th scope="col" className="observations">
+                          Observations
+                        </th>
+                        <th scope="col" className="email">
+                          Push
+                        </th>
+                        <th scope="col" className="email ">
+                          Web
+                        </th>
 
-                      <td>
-                        <div>
+                        <th scope="col" className="email ">
+                          E-mail
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
 
-                      <td>
-                        <div>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="sold-stock-data ">
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-
-                      <td>
-                        <div>
-                          <label className="checkbox-notification">
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
                             <input type="checkbox" />
                             <span class="geekmark"></span>
                           </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
+                        </td>
 
-                      <td>
-                        <div>
-                          <label className="checkbox-notification">
-                            <input type="checkbox" />
-                            <span class="geekmark"></span>
-                          </label>
-                        </div>
-                      </td>
-                    </tr>{" "}
-                    <tr>
-                      <td className="email">
-                        Lorem ipsum dolor sit amet, consectetur
-                      </td>
-                      <td>
-                        <label className="checkbox-notification">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <label className="checkbox-notification-web">
-                          <input type="checkbox" />
-                          <span class="geekmark"></span>
-                        </label>
-                      </td>
-
-                      <td>
-                        <div>
-                          <label className="checkbox-notification">
-                            <input type="checkbox" />
-                            <span class="geekmark"></span>
-                          </label>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
+
+              {/* <div className="d-flex justify-content-center">
+                <div className="h-calc-100vh-442 scroll-x-side scroll-bar overflow-auto  notification mt-5">
+                  <Table hover responsive>
+                    <thead>
+                      <tr>
+                        <th className="observations">Observations</th>
+                        <th className="email">Push</th>
+                        <th className="email ">Web</th>
+
+                        <th className="email ">E-mail</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>{" "}
+                      <tr>
+                        <td className="email">
+                          Lorem ipsum dolor sit amet, consectetur
+                        </td>
+                        <td>
+                          <label className="checkbox-notification">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+                        <td>
+                          <label className="checkbox-notification-web">
+                            <input type="checkbox" />
+                            <span class="geekmark"></span>
+                          </label>
+                        </td>
+
+                        <td>
+                          <div>
+                            <label className="checkbox-notification">
+                              <input type="checkbox" />
+                              <span class="geekmark"></span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
+              </div> */}
             </section>
           </Col>
         </Row>
