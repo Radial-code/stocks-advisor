@@ -546,12 +546,7 @@ const Navbar = () => {
               </div>
             </ul>
 
-            <div
-              className={`nav-icon  ${
-                isScreenFixed ? "overlflow-hidden h-100vh" : ""
-              }`}
-              onClick={handleClick}
-            >
+            <div className={`nav-icon  `} onClick={handleClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="54"

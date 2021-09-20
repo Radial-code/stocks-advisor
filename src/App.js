@@ -8,9 +8,9 @@ function App() {
   const { setScreenFixed, isScreenFixed } = useFixedScreenProvider();
 
   return (
-    <div>
+    <>
       <Router />
-    </div>
+    </>
   );
 }
 
