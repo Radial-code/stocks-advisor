@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
 const NewsArticles = () => {
   const settings = {
-    dots: false,
+    dots: true,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -44,7 +44,7 @@ const NewsArticles = () => {
   };
   return (
     <>
-      <div className="container">
+      <div className="container p-left-right">
         <h1 className="profile-heading ">Other News Articles</h1>
 
         <div className="row ">
@@ -203,7 +203,7 @@ const NewsArticles = () => {
             </Slider>
           </div>
         </div>
-        <div className="d-flex pt-3 pb-5 justify-content-center ">
+        <div className="d-flex pt-5 pb-5  justify-content-center ">
           <button className="default-btn">View All News</button>
         </div>
       </div>

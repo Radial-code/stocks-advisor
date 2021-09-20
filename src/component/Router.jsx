@@ -23,7 +23,6 @@ import Contactpage from "../view/Contactpage";
 import NewsDetails from "../view/NewsDetails";
 
 const Router = () => {
-  console.log("router ");
   return (
     <BrowserRouter>
       <Navbar />

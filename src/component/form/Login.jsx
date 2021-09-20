@@ -7,8 +7,8 @@ function Login() {
   return (
     <div className="container h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
-        <div className="col-lg-5 col-8">
-          <div className="background-form p-sm-5 p-2">
+        <div className="col-lg-5 ">
+          <div className="background-form w-xs-303 p-sm-5 p-2">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Log In
             </p>

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
+import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
 import "./NavBar.css";
 const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
+
+  const { setScreenFixed, isScreenFixed } = useFixedScreenProvider();
 
   // FOR ACTIVE CLASS HEADER
   const [HomeActive, setHomeActive] = useState(false);
@@ -17,10 +20,13 @@ const Navbar = () => {
   const [LoginActive, setLoginActive] = useState(false);
 
   const dropHandler = () => {
+    console.log(student, "student");
+
     setStudent(!student);
   };
 
   const dashboardHandler = () => {
+    console.log(dashboard, "dashboard");
     setDashboard(!dashboard);
   };
 
@@ -96,16 +102,19 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
   const Close = () => setClick(false);
 
   return (
-    <div>
+    <>
       <div className={click ? "main-container" : ""} onClick={() => Close()} />
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
         <div className="container justify-content-between">
-          <NavLink exact to="/" className="nav-logo logo-img-navbar">
-            <img className="logo-img-navbar" src={logo} alt="" />
-          </NavLink>
+          <div>
+            <NavLink exact to="/" className="nav-logo logo-img-navbar">
+              <img className="logo-img-navbar" src={logo} alt="" />
+            </NavLink>
+          </div>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <div className="d-flex justify-content-start">
@@ -531,7 +540,12 @@ const Navbar = () => {
             </div>
           </ul>
 
-          <div className="nav-icon" onClick={handleClick}>
+          <div
+            className={`nav-icon  ${
+              isScreenFixed ? "overlflow-hidden h-100vh" : ""
+            }`}
+            onClick={handleClick}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="54"
@@ -549,7 +563,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div className="container"></div>
-    </div>
+    </>
   );
 };
 

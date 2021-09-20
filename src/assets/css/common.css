@@ -24,7 +24,10 @@
   --font-lg: 31px;
   --font-md: 25px;
   --font-22: 22px;
+  --font-35: 35px;
+
   --font-21: 21px;
+  --font-28: 28px;
 
   --font-sm: 20px;
   --font-xs: 16px;
@@ -248,5 +251,21 @@ input::-webkit-inner-spin-button {
   .prev {
     display: none !important;
     display: block !important;
+  }
+  .team-img {
+    width: 75px;
+    height: 75px;
+  }
+  .fs-sm-28 {
+    font-size: var(--font-28);
+  }
+  .fs-sm-22 {
+    font-size: var(--font-22);
+  }
+  .dots-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
   }
 }

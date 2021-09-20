@@ -386,6 +386,9 @@
   .nav-item a:hover .nav-item {
     color: white;
   }
+  .fs-lg-35 {
+    font-size: var(--font-35);
+  }
   .down-active-1 {
     background-color: var(--color-127CF9) !important;
     padding: 9px 0px !important;

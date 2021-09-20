@@ -218,13 +218,16 @@ input:checked + .slider-2:before {
     font-size: var(--font-xs);
   }
   .fs-sm-11 {
-    font-size: var(--font-11);
+    font-size: var(--font-11) !important;
   }
   .fs-sm-13 {
     font-size: var(--font-13);
   }
   .chart-text-2 {
     font-size: var(--font-18);
+  }
+  .w-sm-303 {
+    width: 303px;
   }
 }
 @media (max-width: 375.98px) {
@@ -261,5 +264,19 @@ input:checked + .slider-2:before {
   }
   .edituser-card {
     width: 303px;
+  }
+  .w-xs-303 {
+    width: 303px;
+  }
+  .p-left-right {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .p-xs-right-left-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .homePageSlider .slick-dots {
+    bottom: -8px;
   }
 }
