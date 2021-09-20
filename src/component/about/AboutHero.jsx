@@ -17,7 +17,9 @@ const AboutHero = () => {
           <div className="col-lg-6 mt-5 mt-lg-0">
             <img className="w-100" src={heroImg} alt="" />
             <div className="d-flex justify-content-center d-sm-block">
-              <button className="default-btn mt-4 d-lg-none ">Know More</button>
+              <button className="default-btn mt-4 d-lg-none fs-sm-14">
+                Know More
+              </button>
             </div>
           </div>
         </div>

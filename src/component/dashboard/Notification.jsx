@@ -15,7 +15,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <Col xs={12}>
             <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
+                <p className="heading-stock pr-15 fs-sm-20">Dashboard</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
