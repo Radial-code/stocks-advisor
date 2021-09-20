@@ -16,7 +16,7 @@
   font-weight: 600;
 }
 .bg-card-plan:hover {
-  transform: translateY(-40px);
+  transform: translateY(-15px);
   transition: 0.5s;
 }
 @media (max-width: 567px) {
@@ -76,10 +76,7 @@
 .join-now-btn-2:hover {
   background-color: var(--color-88BEFC);
 }
-.card-amount:hover {
-  background-color: #5cbd4c;
-  cursor: pointer;
-}
+
 .p-9-0 {
   padding: 9px 0px;
 }

@@ -122,7 +122,12 @@
   transition: 0.6s;
   border: 1px solid var(--color-127CF9);
 }
-
+.h-19 {
+  height: 19px;
+}
+.w-19 {
+  width: 19px;
+}
 .default-btn:hover {
   background-color: white;
   color: var(--color-127CF9);
@@ -334,7 +339,6 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 575.98px) {
-
   .next,
   .prev {
     display: none !important;
