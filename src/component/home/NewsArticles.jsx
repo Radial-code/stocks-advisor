@@ -153,7 +153,7 @@ const Next = (props) => {
           transform="translate(-276.961 -1333.363)"
           fill="none"
           stroke="#16191e"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.6"
         />
       </svg>
@@ -179,7 +179,7 @@ const Prev = (props) => {
           transform="translate(-276.961 -1333.363)"
           fill="none"
           stroke="#16191e"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.6"
         />
       </svg>

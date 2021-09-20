@@ -53,7 +53,7 @@ export const Stocks = () => {
           fill="none"
           stroke="#16191e"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_26"
@@ -64,7 +64,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_27"
@@ -75,7 +75,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_28"
@@ -85,7 +85,7 @@ export const Stocks = () => {
           fill="none"
           stroke="#16191e"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_29"
@@ -96,7 +96,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_30"
@@ -107,7 +107,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_31"
@@ -117,7 +117,7 @@ export const Stocks = () => {
           fill="none"
           stroke="#16191e"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_32"
@@ -128,7 +128,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <path
           id="Path_33"
@@ -139,7 +139,7 @@ export const Stocks = () => {
           stroke="#16191e"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
       </g>
     </svg>
@@ -195,7 +195,7 @@ export const Edit = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Path_13"
@@ -206,7 +206,7 @@ export const Edit = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
     </svg>
@@ -230,7 +230,7 @@ export const EditPencilIcon = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Path_13"
@@ -241,7 +241,7 @@ export const EditPencilIcon = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
     </svg>
@@ -312,7 +312,7 @@ export const Notify = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Path_44"
@@ -323,7 +323,7 @@ export const Notify = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           id="Path_45"
@@ -334,7 +334,7 @@ export const Notify = () => {
           stroke="#5b5e61"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
+          strokeWidth="2"
         />
       </g>
     </svg>
