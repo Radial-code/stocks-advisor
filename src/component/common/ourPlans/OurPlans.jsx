@@ -18,13 +18,13 @@ const OurPlans = ({ homepage }) => {
           </Col>
 
           <Col xs={12}>
-            <div className="row mt-sm-5 pt-sm-5">
+            <div className="row mt-sm-5 ">
               <Col
                 xl={4}
                 md={6}
                 className={` ${
                   homepage ? "down-animation" : ""
-                } d-flex justify-content-center mt-5 mt-md-0`}
+                } d-flex justify-content-center mt-3 mt-md-0`}
               >
                 <section className="bg-card-plan">
                   <p className="plan-card d-flex justify-content-center pt-5">

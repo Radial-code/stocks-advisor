@@ -74,6 +74,12 @@
   .send-msg-btn {
     width: 100%;
   }
+  .cancel-btn {
+    padding: 9.5px 26px;
+  }
+  .update-btn-2 {
+    padding: 9.5px 26px;
+  }
 }
 @media (min-width: 320px) and (max-width: 399.98px) {
   .form-box {

@@ -17,7 +17,7 @@ const ManageSubscription = ({
           <Col xs={12}>
             <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
+                <p className="heading-stock pr-15 fs-sm-20">Dashboard</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +38,8 @@ const ManageSubscription = ({
           </Col>
           <Col xs={12} className="d-flex justify-content-end ">
             <div className="w-xl-1000 box p-md-5 p-4">
-              <h2 className="heading-stock">Manage Subscription</h2>
-              <div className="border-b-1 mt-5">
+              <h2 className="heading-stock fs-sm-20">Manage Subscription</h2>
+              <div className="border-b-1 mt-md-5 mt-3">
                 <p className="news-heading-font fs-sm-14">
                   Current Subscription Info
                 </p>
@@ -106,7 +106,7 @@ const ManageSubscription = ({
                 >
                   <button className="cancel-btn fs-sm-14 ">Cancel Plan</button>
 
-                  <button className="update-btn fs-sm-14 mr-15">
+                  <button className="update-btn-2 fs-sm-14 mr-15">
                     Change Plan
                   </button>
                 </Col>
