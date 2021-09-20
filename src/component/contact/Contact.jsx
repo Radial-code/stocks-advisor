@@ -50,28 +50,29 @@ const Contact = () => {
                   />
                   {/* DROPDOWN */}
 
-                  <select
-                    id="cars"
-                    name="cars"
-                    className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-4 w-100 input-text border-A3A3A3 dropdown-toggle"
-                    type="text"
-                    id="cars"
-                    placeholder="Select Contact Reason"
-                  >
-                    <option value="Select Contact Reason">
-                      Select Contact Reason
-                    </option>
-                    <option value="Select Contact Reason">
-                      Select Contact Reason
-                    </option>
-                    <option value="Select Contact Reason">
-                      Select Contact Reason
-                    </option>
-                    <option value="Select Contact Reason">
-                      Select Contact Reason
-                    </option>
-                  </select>
-
+                  <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15">
+                    <select
+                      id="cars"
+                      name="cars"
+                      className="  w-100 border-0 bg-white input-text border-A3A3A3 dropdown-toggle"
+                      type="text"
+                      id="cars"
+                      placeholder="Select Contact Reason"
+                    >
+                      <option value="Select Contact Reason">
+                        Select Contact Reason
+                      </option>
+                      <option value="Select Contact Reason">
+                        Select Contact Reason
+                      </option>
+                      <option value="Select Contact Reason">
+                        Select Contact Reason
+                      </option>
+                      <option value="Select Contact Reason">
+                        Select Contact Reason
+                      </option>
+                    </select>
+                  </div>
                   {/* MESSAGE */}
                   <textarea
                     className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "

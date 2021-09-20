@@ -111,6 +111,10 @@
     font-size: var(--font-xxs);
     padding: 8.5px 93px;
   }
+  .join-now-btn-2 {
+    font-size: var(--font-xxs);
+    padding: 8.5px 93px;
+  }
   .sign-up-btn {
     font-size: var(--font-xxs);
     padding: 8px 70px;

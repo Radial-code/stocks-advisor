@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="d-none d-md-block mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contact"
+                to="/contactus"
               >
                 Contact Us
               </Link>
@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="text-center d-md-none mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contact"
+                to="/contactus"
               >
                 Contact Us
               </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/portfolio"
+                    to="/portfolio/portfolio1"
                   >
                     Portfolio
                   </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="ourplans"
+                    to="/ourplans"
                   >
                     Our Plan
                   </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/portfolio"
+                    to="/portfolio/portfolio1"
                   >
                     Portfolio
                   </Link>
