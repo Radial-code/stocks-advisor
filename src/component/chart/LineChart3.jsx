@@ -11,8 +11,12 @@ import {
 function LineChart3() {
   const data = [
     {
+      name: "",
+      uv: 4,
+    },
+    {
       name: "2017",
-      uv: 0,
+      uv: 2,
     },
     {
       name: "2018",
@@ -24,7 +28,7 @@ function LineChart3() {
     },
     {
       name: "2020",
-      uv: 3,
+      uv: 5,
     },
     {
       name: "2021",

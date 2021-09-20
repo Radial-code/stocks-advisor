@@ -11,8 +11,12 @@ import {
 function LineChart2() {
   const data = [
     {
-      name: "2017",
-      uv: 0,
+      name: "",
+      uv: 4,
+    },
+    {
+      name: "2107",
+      uv: 6,
     },
     {
       name: "2018",

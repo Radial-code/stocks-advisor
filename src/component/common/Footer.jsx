@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-lg-3  col- mt-5 mt-lg-0  col-12 d-flex d-xsm-block justify-content-center ">
+          <div className="col-xl-2  col-lg-3 col- mt-5 mt-lg-0  col-12 d-flex d-xsm-block justify-content-center ">
             <div className="d-flex justify-content-between w-xs-250 ">
               <ul className="list-unstyled  footer-ul d-sm-none d-flex flex-column align-items-center">
                 <li>
