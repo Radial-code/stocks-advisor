@@ -7,7 +7,7 @@ const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
 
-  const { setScreenFixed, isScreenFixed } = useFixedScreenProvider();
+  const { setScreenFixed } = useFixedScreenProvider();
 
   // FOR ACTIVE CLASS HEADER
   const [HomeActive, setHomeActive] = useState(false);
@@ -21,7 +21,6 @@ const Navbar = () => {
 
   const dropHandler = () => {
     console.log(student, "student");
-
     setStudent(!student);
   };
 
@@ -101,8 +100,10 @@ const Navbar = () => {
 
   const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(!click);
-
+  const handleClick = () => {
+    setClick(!click);
+    setScreenFixed((pre) => !pre);
+  };
   const Close = () => setClick(false);
 
   return (

@@ -116,11 +116,7 @@
     font-size: 10px;
   }
 }
-@media (max-width: 567px) {
-  .chart-text {
-    display: none;
-  }
-}
+
 .chart-btn:hover {
   background-color: #5cbd4c;
   color: white;
