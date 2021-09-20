@@ -98,9 +98,9 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   <div className="d-flex justify-content-between mt-2 mb-2">
                     <div className="d-none d-sm-block">
                       <span className="float-md-end me-auto ">
-                        <label class="switch" for="checkbox">
+                        <label className="switch" for="checkbox">
                           <input type="checkbox" id="checkbox" />
-                          <div class="slider round"></div>
+                          <div className="slider round"></div>
                         </label>
                       </span>
                     </div>
@@ -112,9 +112,9 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     </div>
                     <div className="d-sm-none">
                       <span className="float-md-end me-auto ">
-                        <label class="switch-2" for="checkbox-2">
+                        <label className="switch-2" for="checkbox-2">
                           <input type="checkbox" id="checkbox-2" />
-                          <div class="slider-2 round"></div>
+                          <div className="slider-2 round"></div>
                         </label>
                       </span>
                     </div>

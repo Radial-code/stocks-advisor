@@ -68,7 +68,7 @@ const NewsArticles = ({ history }) => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -89,7 +89,7 @@ const NewsArticles = ({ history }) => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -111,7 +111,7 @@ const NewsArticles = ({ history }) => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>

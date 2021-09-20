@@ -19,7 +19,7 @@ const NewsPage = () => (
                   Duis sed augue eu augue ornare augue ornare porta
                 </h6>
 
-                <p class="small-paragraph text-end mt-3 fs-sm-11">
+                <p className="small-paragraph text-end mt-3 fs-sm-11">
                   <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                   <span>tag-4</span>,<span>tag-5</span>
                 </p>

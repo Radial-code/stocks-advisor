@@ -150,15 +150,15 @@ const EditNews = () => {
             ></textarea>
           </div>
           <div className="col-auto mb-3">
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
               />
               <label
-                class="form-check-label check-box-text "
+                className="form-check-label check-box-text "
                 for="flexCheckDefault"
               >
                 Feature on homepage

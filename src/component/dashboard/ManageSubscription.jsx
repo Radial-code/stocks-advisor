@@ -74,9 +74,9 @@ const ManageSubscription = ({
                       </div>
                       <div className="">
                         <span className="float-md-end me-auto ">
-                          <label class="switch-2" for="checkbox-2">
+                          <label className="switch-2" for="checkbox-2">
                             <input type="checkbox" id="checkbox-2" />
-                            <div class="slider-2 round"></div>
+                            <div className="slider-2 round"></div>
                           </label>
                         </span>
                       </div>

@@ -72,13 +72,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -86,7 +86,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -99,13 +99,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -113,7 +113,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -125,13 +125,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -139,7 +139,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -151,13 +151,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -165,7 +165,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -177,13 +177,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -191,7 +191,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -203,13 +203,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -217,7 +217,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -229,13 +229,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -243,7 +243,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -255,13 +255,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -269,7 +269,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -281,13 +281,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -295,7 +295,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -307,13 +307,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -321,7 +321,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -351,13 +351,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -365,7 +365,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -377,13 +377,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -391,7 +391,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -403,13 +403,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -417,7 +417,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -429,13 +429,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -443,7 +443,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -455,13 +455,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -469,7 +469,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -481,13 +481,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -495,7 +495,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -507,13 +507,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -521,7 +521,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -533,13 +533,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -547,7 +547,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -559,13 +559,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -573,7 +573,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -585,13 +585,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -599,7 +599,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -611,13 +611,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -625,7 +625,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -637,13 +637,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -651,7 +651,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>
@@ -663,13 +663,13 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         <td>
                           <label className="checkbox-notification">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
                         <td>
                           <label className="checkbox-notification-web">
                             <input type="checkbox" />
-                            <span class="geekmark"></span>
+                            <span className="geekmark"></span>
                           </label>
                         </td>
 
@@ -677,7 +677,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                           <div>
                             <label className="checkbox-notification">
                               <input type="checkbox" />
-                              <span class="geekmark"></span>
+                              <span className="geekmark"></span>
                             </label>
                           </div>
                         </td>

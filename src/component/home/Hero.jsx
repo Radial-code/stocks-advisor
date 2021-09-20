@@ -36,7 +36,7 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -55,7 +55,7 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -74,7 +74,7 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -93,7 +93,7 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
