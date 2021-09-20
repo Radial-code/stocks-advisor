@@ -37,7 +37,7 @@ function LineChart() {
   ];
 
   return (
-    <div className="green-chart container mt-4">
+    <div className="green-chart px-sm-0 px-2 mt-4">
       <p className="chart-text-2 ff-popins mb-4">Long Term Portfolio</p>
 
       <ResponsiveContainer width="100%" height={213}>

@@ -3,7 +3,7 @@ import "../editform/editform.css";
 import { Form } from "react-bootstrap";
 function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}

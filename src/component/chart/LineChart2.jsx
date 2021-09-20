@@ -32,10 +32,9 @@ function LineChart2() {
     },
   ];
   return (
-    <div className="container ">
+    <div className=" px-sm-0 px-2 mt-4">
+      <p className="chart-text-2 ff-popins mb-4">Trading Portfolio</p>
       <div className="blue-chart">
-        <p className="chart-text-2 ff-popins ">Trading Portfolio</p>
-
         <ResponsiveContainer width="100%" height={213}>
           <AreaChart
             data={data}
@@ -51,18 +50,17 @@ function LineChart2() {
                 <stop
                   offset="50%"
                   stopColor="#219653
-"
+   "
                   stopOpacity={0.4}
                 />
               </linearGradient>
             </defs>
             <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
             <YAxis dataKey="uv" axisLine={false} tickLine={false} />
             <Tooltip />
             <Area
-              type="monotone"
               dataKey="uv"
               stroke="#4870B3"
               strokeWidth="2"
