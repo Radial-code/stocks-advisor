@@ -50,7 +50,7 @@ const Contact = () => {
                   />
                   {/* DROPDOWN */}
 
-                  <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15">
+                  <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15 w-100">
                     <select
                       id="cars"
                       name="cars"

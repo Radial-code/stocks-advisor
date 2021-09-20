@@ -8,6 +8,7 @@
   border-radius: 5px;
   font-size: 18px;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 .filter-img {
@@ -18,14 +19,21 @@
 }
 .svg:hover path {
   fill: WHITE !important;
+  cursor: pointer;
 }
 
 .svg:hover circle {
   fill: #5cbd4c !important;
+  transition: 0.4s;
+  cursor: pointer;
 }
 .footer-ul li a {
   font-size: var(--font-xs);
   font-weight: 400;
+  transition: 0.3s;
+}
+.footer-ul li a:hover {
+  color: #5cbd4c !important;
 }
 
 .footer-btn:hover {

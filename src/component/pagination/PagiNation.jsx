@@ -23,9 +23,10 @@ const PagiNation = () => {
                 </svg>
               </span>
             </li>
-            <li>1</li>
-            <li>2</li>
             <li>3</li>
+            <li>2</li>
+            <li>1</li>
+
             <li>
               <span>
                 <svg
