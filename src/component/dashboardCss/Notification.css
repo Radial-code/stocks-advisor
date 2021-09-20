@@ -113,7 +113,7 @@ input[type="checkbox"] {
 
 /* end here check box css */
 .scroll-x-side {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 @media (max-width: 450px) {
   .scroll-x-side {
