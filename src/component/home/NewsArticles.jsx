@@ -1,7 +1,8 @@
 import React from "react";
+import { withRouter } from "react-router";
 import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
-const NewsArticles = () => {
+const NewsArticles = ({ history }) => {
   const settings = {
     dots: true,
     speed: 300,
@@ -203,15 +204,20 @@ const NewsArticles = () => {
             </Slider>
           </div>
         </div>
-        <div className="d-flex pt-5 pb-5  justify-content-center ">
-          <button className="default-btn">View All News</button>
+        <div className="d-flex pt-3 pb-5 justify-content-center ">
+          <button
+            className="default-btn"
+            onClick={() => history.push("/AllNews")}
+          >
+            View All News
+          </button>
         </div>
       </div>
     </>
   );
 };
 
-export default NewsArticles;
+export default withRouter(NewsArticles);
 
 const Next = (props) => {
   const { className, style, onClick } = props;
