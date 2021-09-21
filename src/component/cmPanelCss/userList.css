@@ -48,6 +48,6 @@
 }
 @media (max-width: 575.98px) {
   .fs-sm-20 {
-    font-size: var(--font-sm);
+    font-size: var(--font-sm) !important;
   }
 }

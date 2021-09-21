@@ -12,7 +12,7 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <div className="col-12">
             <div className="border-b-1 content-manager-2 mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
+                <p className="heading-stock pr-15 fs-sm-20">Dashboard</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -33,14 +33,17 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           </div>
           <div className=" col-12 d-flex justify-content-end ">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
-              <h1 className="heading-stock mb-4"> Update Payment Method</h1>
-              <p className="news-heading-font pt-sm-5 border-bottom-1px  ">
+              <h1 className="heading-stock mb-4 fs-sm-20">
+                {" "}
+                Update Payment Method
+              </h1>
+              <p className="news-heading-font pt-sm-5 border-bottom-1px fs-sm-20 ">
                 Current Payment Details
               </p>
               <div className="row my-4">
                 <div className="col-lg-6 col-12">
                   <div className="visa p-sm-4 p-10-17">
-                    <p className="profile-heading pb-sm-3 border-bottom-1px">
+                    <p className="profile-heading pb-sm-3 border-bottom-1px fs-sm-20">
                       Visa/Master Card
                     </p>
                     <div>

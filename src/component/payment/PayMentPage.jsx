@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
+import img_1 from "../../assets/img/visa.png";
+import img_2 from "../../assets/img/paypal.png";
 import "./Paymentpage.css";
 const PayMentPage = () => {
   return (
     <>
-      <Container className="max-w-1400 mt-5">
+      <Container className="max-w-1400 mt-5 mb-5">
         <Row className="justify-content-between">
           <Col lg={7} className="d-flex justify-content-center">
             <section className=" select-plan-payment p-lg-4 p-3">
@@ -72,9 +73,13 @@ const PayMentPage = () => {
                   placeholder="Phone"
                 />
               </div>
-              <div className="d-flex justify-content-between">
-                {/* <img src={img_2} alt="" />
-                <img src={img_1} alt="" /> */}
+              <div className="d-flex justify-content-between paypal mt-4">
+                <div className="visa-paypal">
+                  <img className="w-100" src={img_2} alt="" />
+                </div>
+                <div className="visa-paypal mr-15">
+                  <img className="w-100" src={img_1} alt="" />
+                </div>
               </div>
             </section>
           </Col>

@@ -12,7 +12,7 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
         <div className="col-12 d-none dashboard">
           <div className="border-b-1 content-manager-2 mb-3">
             <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15">Dashboard</p>
+              <p className="heading-stock pr-15 fs-sm-20">Dashboard</p>
               <span onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,9 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
         </div>
         <div className="col-12  d-flex justify-content-end ">
           <div className="form-background w-xl-1000 w-xlg-100 p-sm-5 p-2 ">
-            <p className="mb-0 edit-contact-text ff-popins">Edit Contact</p>
+            <p className="mb-0 edit-contact-text ff-popins fs-sm-20">
+              Edit Contact
+            </p>
             <div className="form-section">
               <Form className="pt-sm-5 pt-4">
                 <Form.Group

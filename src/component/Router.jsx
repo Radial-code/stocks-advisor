@@ -21,6 +21,7 @@ import News from "../view/News";
 import Portfolio from "../view/Portfolio";
 import Contactpage from "../view/Contactpage";
 import NewsDetails from "../view/NewsDetails";
+import NetflixChart from "./stockPage/NetflixChart";
 
 const Router = () => {
   return (
