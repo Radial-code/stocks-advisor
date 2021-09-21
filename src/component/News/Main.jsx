@@ -17,7 +17,7 @@ const Main = () => {
             </div>
           </Col>
           <Col xl={4} className="mt-5 d-flex justify-content-center d-sm-block">
-            <div className="profile-box mt-5 mt-xl-0">
+            <div className="profile-box mt-5 mt-xl-0 w-xs-303">
               <Chart />
               <div className="mt-5">
                 <Plans />

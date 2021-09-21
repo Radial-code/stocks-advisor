@@ -26,14 +26,14 @@ const AllNews = ({ history }) => {
                   xs={8}
                   className="d-flex justify-content-center h-100"
                 >
-                  <div className="w-518">
+                  <div className="w-lg-518">
                     <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 articles-date">
                       16/07/2021
                       <span className="pr-15">
                         <img src={img_2} alt="" />{" "}
                       </span>{" "}
                     </p>
-                    <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                    <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title">
                       Duis sed augue eu augue ornare augue ornare porta
                     </p>
                     <p className="stock-paragraph max-w-para d-none  d-xl-block">
@@ -84,14 +84,14 @@ const AllNews = ({ history }) => {
                   xs={8}
                   className="d-flex justify-content-center h-100"
                 >
-                  <div className="w-518">
+                  <div className="w-lg-518">
                     <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 articles-date">
                       16/07/2021
                       <span className="pr-15">
                         <img src={img_2} alt="" />{" "}
                       </span>{" "}
                     </p>
-                    <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                    <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title">
                       Duis sed augue eu augue ornare augue ornare porta
                     </p>
                     <p className="stock-paragraph max-w-para d-none  d-xl-block">
@@ -142,14 +142,14 @@ const AllNews = ({ history }) => {
                   xs={8}
                   className="d-flex justify-content-center h-100"
                 >
-                  <div className="w-518">
+                  <div className="w-lg-518">
                     <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 articles-date">
                       16/07/2021
                       <span className="pr-15">
                         <img src={img_2} alt="" />{" "}
                       </span>{" "}
                     </p>
-                    <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                    <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title">
                       Duis sed augue eu augue ornare augue ornare porta
                     </p>
                     <p className="stock-paragraph max-w-para d-none  d-xl-block">
@@ -200,14 +200,14 @@ const AllNews = ({ history }) => {
                   xs={8}
                   className="d-flex justify-content-center h-100"
                 >
-                  <div className="w-518">
+                  <div className="w-lg-518">
                     <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 articles-date">
                       16/07/2021
                       <span className="pr-15">
                         <img src={img_2} alt="" />{" "}
                       </span>{" "}
                     </p>
-                    <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                    <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title">
                       Duis sed augue eu augue ornare augue ornare porta
                     </p>
                     <p className="stock-paragraph max-w-para d-none  d-xl-block">
@@ -258,14 +258,14 @@ const AllNews = ({ history }) => {
                   xs={8}
                   className="d-flex justify-content-center h-100"
                 >
-                  <div className="w-518">
+                  <div className="w-lg-518">
                     <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 articles-date">
                       16/07/2021
                       <span className="pr-15">
                         <img src={img_2} alt="" />{" "}
                       </span>{" "}
                     </p>
-                    <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                    <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title">
                       Duis sed augue eu augue ornare augue ornare porta
                     </p>
                     <p className="stock-paragraph max-w-para d-none  d-xl-block">

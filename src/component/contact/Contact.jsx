@@ -18,7 +18,9 @@ const Contact = () => {
                   </div>
 
                   <div className="col-4 col-md-4 order-2 order-md-2 ">
-                    <p className=" email-heading pb-2 m-0">Telephone</p>
+                    <p className=" email-heading pb-2 m-0 fs-sm-14">
+                      Telephone
+                    </p>
                     <p className=" email-para">01234567890</p>
                   </div>
 

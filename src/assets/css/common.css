@@ -314,10 +314,6 @@ input::-webkit-inner-spin-button {
   text-decoration: none;
 }
 
-.w-518 {
-  width: 518px;
-}
-
 @media (min-width: 1600.99px) {
   .container {
     max-width: 1440px !important;
@@ -326,7 +322,9 @@ input::-webkit-inner-spin-button {
   .h-341 {
     height: 341px;
   }
-
+  .w-lg-518 {
+    width: 518px;
+  }
   .mr-lg-30 {
     margin-right: 30px !important;
   }

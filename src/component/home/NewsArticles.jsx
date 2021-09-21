@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
+import img_1 from "../../assets/img/calendar-icon.png";
 const NewsArticles = ({ history }) => {
   const settings = {
     dots: false,
@@ -58,7 +59,14 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -79,7 +87,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -100,7 +116,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -121,7 +145,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -142,7 +174,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -163,7 +203,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -184,7 +232,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -205,7 +261,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -226,7 +290,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -247,7 +319,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -268,7 +348,15 @@ const NewsArticles = ({ history }) => {
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
