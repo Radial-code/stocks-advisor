@@ -25,6 +25,8 @@
   --font-lg: 31px;
   --font-md: 25px;
   --font-22: 22px;
+  --font-24: 24px;
+
   --font-35: 35px;
 
   --font-21: 21px;
@@ -365,5 +367,11 @@ input::-webkit-inner-spin-button {
     display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
+  }
+  .email-para {
+    font-size: var(--font-xxs) !important;
+  }
+  .sub-text {
+    font-size: var(--font-xxs) !important;
   }
 }

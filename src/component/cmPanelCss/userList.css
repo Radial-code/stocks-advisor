@@ -50,4 +50,7 @@
   .fs-sm-20 {
     font-size: var(--font-sm) !important;
   }
+  .fs-sm-24 {
+    font-size: var(--font-24);
+  }
 }
