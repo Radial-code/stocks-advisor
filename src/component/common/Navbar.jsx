@@ -117,7 +117,11 @@ const Navbar = () => {
               </NavLink>
             </div>
 
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <ul
+              className={`${
+                click ? "nav-menu active" : "nav-menu"
+              } scroll-sm-bar`}
+            >
               <div className="d-flex justify-content-start">
                 <li className="items-nav d-xl-none d-block">
                   <div

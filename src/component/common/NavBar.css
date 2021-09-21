@@ -448,6 +448,12 @@
   .green-bg-active a {
     color: white !important;
   }
+  .scroll-sm-bar {
+    overflow: auto;
+    height: 85vh;
+  }
+}
+@media screen and (max-width: 575.98px) {
 }
 @media screen and (max-width: 375.98px) {
   .logo-img-navbar {
