@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
+import { withRouter } from "react-router";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { SignUpAction } from "../../redux/action/auth";
 
-function SignUp() {
+function SignUp({ history }) {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [signUpDetails, setSignUpDetails] = useState({
+    firstname: "indu",
+    lastname: "jangra",
+    email: "indujangra@gmail.com",
+    password: "indu",
+    phone_number: "345678567",
+    username: "indujangra",
+  });
+
+  const submitSignUpForm = () => {
+    console.log(signUpDetails);
+    dispatch(SignUpAction(signUpDetails, setLoading, history));
+  };
+
   return (
     <div className="container min-h-100vh d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
@@ -64,7 +83,11 @@ function SignUp() {
                 </select>
               </FormGroup>
               <div className=" my-4">
-                <button className=" w-100 form-btn px-5 py-3 border-0 ff-popins">
+                <button
+                  type="button"
+                  onClick={() => submitSignUpForm()}
+                  className=" w-100 form-btn px-5 py-3 border-0 ff-popins"
+                >
                   Sign Up
                 </button>
               </div>
@@ -82,4 +105,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default withRouter(SignUp);
