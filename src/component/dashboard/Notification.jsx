@@ -1,6 +1,6 @@
 import React from "react";
 import "../dashboardCss/Notification.css";
-import Sortarrow from "../../assets/img/sortarrow.png";
+// import Sortarrow from "../../assets/img/sortarrow.png";
 import push from "../../assets/img/push.png";
 import { Table, Container, Row, Col } from "react-bootstrap";
 const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
