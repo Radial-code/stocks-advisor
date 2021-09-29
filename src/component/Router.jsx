@@ -22,6 +22,9 @@ import Portfolio from "../view/Portfolio";
 import Contactpage from "../view/Contactpage";
 import NewsDetails from "../view/NewsDetails";
 import NetflixChart from "./stockPage/NetflixChart";
+import ChangePassword from "./form/ChangePassword";
+import ForgetPassword from "./form/ForgetPassword";
+import CreateNewPassword from "./form/CreateNewPassword";
 
 const Router = () => {
   return (
@@ -38,6 +41,7 @@ const Router = () => {
         {/* <Route exact path="/" component={Homepage} /> */}
         {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/forget/password" component={ForgetPassword} />
         <Route path="/content/manager" component={CmPanel} />
         <Route path="/portfolio" component={Portfolio} />
         <Route exact path="/login" component={Login} />
@@ -46,6 +50,8 @@ const Router = () => {
         <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
         <Route exact path="/AllNews" component={NewsDetails} />
+        <Route exact path="/create-newpassword" component={CreateNewPassword} />
+        <Route exact path="/change-password" component={ChangePassword} />
       </Switch>
       <Footer />
     </BrowserRouter>

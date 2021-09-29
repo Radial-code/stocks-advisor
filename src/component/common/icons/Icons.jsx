@@ -340,3 +340,154 @@ export const Notify = () => {
     </svg>
   );
 };
+
+export const ForgetpasswordIcon = () => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18.236"
+        height="18.236"
+        viewBox="0 0 18.236 18.236"
+      >
+        <g
+          id="Group_9914"
+          data-name="Group 9914"
+          transform="translate(-444.882 -245.882)"
+        >
+          <g
+            id="Group_9909"
+            data-name="Group 9909"
+            transform="translate(-765.118 -408.118)"
+            opacity="0.7"
+          >
+            <path
+              id="Path_34"
+              data-name="Path 34"
+              d="M432.118,4A9.24,9.24,0,0,0,423,13.118a9.163,9.163,0,0,0,3.647,7.225v.069h.093a8.842,8.842,0,0,0,10.756,0h.093v-.069a9.162,9.162,0,0,0,3.647-7.225A9.24,9.24,0,0,0,432.118,4Zm-3.58,15.434a2.736,2.736,0,0,1,2.668-2.146h1.824a2.739,2.739,0,0,1,2.668,2.146,7.038,7.038,0,0,1-7.16,0Zm8.7-1.173a4.565,4.565,0,0,0-4.2-2.8h-1.824a4.565,4.565,0,0,0-4.2,2.8,7.275,7.275,0,0,1-2.179-5.144,7.295,7.295,0,0,1,14.589,0A7.275,7.275,0,0,1,437.233,18.262Z"
+              transform="translate(787 650)"
+              fill="#16191e"
+            />
+            <path
+              id="Path_35"
+              data-name="Path 35"
+              d="M432.647,8A3.568,3.568,0,0,0,429,11.647a3.647,3.647,0,0,0,7.295,0A3.568,3.568,0,0,0,432.647,8Zm0,5.471a1.744,1.744,0,0,1-1.824-1.824,1.824,1.824,0,0,1,3.647,0A1.744,1.744,0,0,1,432.647,13.471Z"
+              transform="translate(786.471 649.647)"
+              fill="#16191e"
+            />
+          </g>
+        </g>
+      </svg>
+    </>
+  );
+};
+
+export const ProfileIcon = () => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18.236"
+        height="18.236"
+        viewBox="0 0 18.236 18.236"
+      >
+        <g
+          id="Group_10379"
+          data-name="Group 10379"
+          transform="translate(-1210 -654)"
+        >
+          <path
+            id="Path_34"
+            data-name="Path 34"
+            d="M432.118,4A9.24,9.24,0,0,0,423,13.118a9.163,9.163,0,0,0,3.647,7.225v.069h.093a8.842,8.842,0,0,0,10.756,0h.093v-.069a9.162,9.162,0,0,0,3.647-7.225A9.24,9.24,0,0,0,432.118,4Zm-3.58,15.434a2.736,2.736,0,0,1,2.668-2.146h1.824a2.739,2.739,0,0,1,2.668,2.146,7.038,7.038,0,0,1-7.16,0Zm8.7-1.173a4.565,4.565,0,0,0-4.2-2.8h-1.824a4.565,4.565,0,0,0-4.2,2.8,7.275,7.275,0,0,1-2.179-5.144,7.295,7.295,0,0,1,14.589,0A7.275,7.275,0,0,1,437.233,18.262Z"
+            transform="translate(787 650)"
+            fill="#5b5e61"
+          />
+          <path
+            id="Path_35"
+            data-name="Path 35"
+            d="M432.647,8A3.568,3.568,0,0,0,429,11.647a3.647,3.647,0,0,0,7.295,0A3.568,3.568,0,0,0,432.647,8Zm0,5.471a1.744,1.744,0,0,1-1.824-1.824,1.824,1.824,0,0,1,3.647,0A1.744,1.744,0,0,1,432.647,13.471Z"
+            transform="translate(786.471 649.647)"
+            fill="#5b5e61"
+          />
+        </g>
+      </svg>
+    </>
+  );
+};
+
+export const EditIcon = () => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="36"
+        height="36"
+        viewBox="0 0 36 36"
+      >
+        <g
+          id="Group_10296"
+          data-name="Group 10296"
+          transform="translate(-808 -442)"
+        >
+          <circle
+            id="Ellipse_3"
+            data-name="Ellipse 3"
+            cx="18"
+            cy="18"
+            r="18"
+            transform="translate(808 442)"
+            fill="#4870b3"
+          />
+          <g
+            id="Group_10295"
+            data-name="Group 10295"
+            transform="translate(815 447)"
+          >
+            <path
+              id="Path_59"
+              data-name="Path 59"
+              d="M16.474,5.408l2.118,2.117Zm1.362-1.865L12.109,9.27a2.118,2.118,0,0,0-.58,1.082L11,13l2.648-.53a2.116,2.116,0,0,0,1.082-.579l5.727-5.727a1.853,1.853,0,0,0-2.621-2.621Z"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              id="Path_60"
+              data-name="Path 60"
+              d="M19,15v3a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V7A2,2,0,0,1,6,5H9"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </g>
+        </g>
+      </svg>
+    </>
+  );
+};
+
+export const DropDownIcon = () => {
+  return (
+    <>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="8"
+        viewBox="0 0 10 8"
+      >
+        <path
+          id="Polygon_30"
+          data-name="Polygon 30"
+          d="M5,0l5,8H0Z"
+          transform="translate(10 8) rotate(180)"
+          fill="#16191e"
+        />
+      </svg>
+    </>
+  );
+};

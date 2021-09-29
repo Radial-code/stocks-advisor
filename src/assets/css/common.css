@@ -12,8 +12,13 @@
   --color-16191E: #16191e;
   --color-E4E4E4: #e4e4e4;
   --color-45474b: #45474b;
-
+  --color-D0D1D2: #d0d1d2;
+  --color-ffffff: #ffffff;
+  --color-cbcccd: #cbcccd;
+  --color-16191e_08: #44474b;
+  --color-44474b_08: #44474b;
   --color-5B5E61: #5b5e61;
+  --color-16191e_07: #5b5d61;
   --color-16191e33: #16191e33;
   --color-16191eb7: #16191eb7;
 
@@ -26,17 +31,13 @@
   --font-md: 25px;
   --font-22: 22px;
   --font-24: 24px;
-
   --font-35: 35px;
-
   --font-21: 21px;
   --font-28: 28px;
-
   --font-sm: 20px;
   --font-xs: 16px;
   --font-18: 18px;
   --font-15: 15px;
-
   --font-xxs: 14px;
   --font-13: 13px;
   --font-12: 12px;
@@ -374,4 +375,13 @@ input::-webkit-inner-spin-button {
   .sub-text {
     font-size: var(--font-xxs) !important;
   }
+}
+
+.bg-16191e {
+  color: var(--color-16191e);
+}
+
+.edit-label {
+  color: var(--color-44474b_08);
+  font-size: var(--font-xxs);
 }

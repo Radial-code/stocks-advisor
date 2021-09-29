@@ -1,6 +1,6 @@
 import Axios from "axios";
-export let SERVER_URL =
-  "https://a032-2409-4051-2e1c-5fcf-cedc-61f8-7280-93b8.ngrok.io";
+export let SERVER_URL = "https://47b7-45-115-176-128.ngrok.io";
+// export let SERVER_URL = "http://192.168.0.199:3000";
 
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
 
@@ -10,9 +10,9 @@ export async function axiosRequest(method, url, data = null) {
     let response = await Axios({
       method: method,
       url: `${PUBLIC_URL}${url}`,
-      headers: {
-        accessToken: token,
-      },
+      // headers: {
+      //   accessToken: token,
+      // },
       data: data,
     });
     return await response.data;

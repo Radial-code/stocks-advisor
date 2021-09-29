@@ -6,6 +6,8 @@ import UpdatePayment from "../../component/dashboard/UpdatePayment";
 import ManageSubscription from "../../component/dashboard/ManageSubscription";
 
 import SidebarDashboard from "../../component/common/SideBar/SidebarDashboard";
+import AdvisorProfile from "../../component/dashboard/AdvisorProfile";
+import PaymentDetails from "../../component/dashboard/PaymentDetails";
 
 const Dashboard = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -43,6 +45,20 @@ const Dashboard = () => {
           </Route>
           <Route exact path="/dashboard/manage/subscription">
             <ManageSubscription
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/dashboard/profile">
+            <AdvisorProfile
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/dashboard/payment">
+            <PaymentDetails
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}

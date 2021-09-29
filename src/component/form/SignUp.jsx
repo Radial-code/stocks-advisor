@@ -7,19 +7,40 @@ import { SignUpAction } from "../../redux/action/auth";
 
 function SignUp({ history }) {
   const dispatch = useDispatch();
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [signUpDetails, setSignUpDetails] = useState({
-    firstname: "indu",
-    lastname: "jangra",
-    email: "indujangra@gmail.com",
-    password: "indu",
-    phone_number: "345678567",
-    username: "indujangra",
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    phone_number: "",
+    confirm_password: "",
+    country: "",
   });
 
+  const regex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  const phoneRegex =
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
   const submitSignUpForm = () => {
-    console.log(signUpDetails);
-    dispatch(SignUpAction(signUpDetails, setLoading, history));
+    setError(true);
+    if (
+      signUpDetails.firstname &&
+      signUpDetails.lastname &&
+      signUpDetails.email &&
+      signUpDetails.password &&
+      signUpDetails.phone_number &&
+      signUpDetails.confirm_password &&
+      signUpDetails.country
+    ) {
+      console.log(signUpDetails);
+      dispatch(SignUpAction(signUpDetails, setLoading, history));
+    } else {
+    }
   };
 
   return (
@@ -38,18 +59,41 @@ function SignUp({ history }) {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
-                      type="email"
+                      value={signUpDetails.lastname}
+                      onChange={(e) => {
+                        setSignUpDetails({
+                          ...signUpDetails,
+                          lastname: e.target.value,
+                        });
+                      }}
+                      type="text"
                       className=""
                       placeholder="Last Name"
                     />
-                  </Form.Group>{" "}
+                    {error && signUpDetails.lastname === ""
+                      ? "Last name is required"
+                      : null}
+                  </Form.Group>
                 </div>
                 <div className="col-6 order-1 last-name">
                   <Form.Group
                     className="mb-3 form-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="First Name" />
+                    <Form.Control
+                      value={signUpDetails.firstname}
+                      onChange={(e) => {
+                        setSignUpDetails({
+                          ...signUpDetails,
+                          firstname: e.target.value,
+                        });
+                      }}
+                      type="text"
+                      placeholder="First Name"
+                    />
+                    {error && signUpDetails.firstname === ""
+                      ? "First name is required"
+                      : null}
                   </Form.Group>
                 </div>
               </div>
@@ -57,31 +101,107 @@ function SignUp({ history }) {
                 className="mb-3 form-field "
                 controlId="formBasicEmail"
               >
-                <Form.Control type="email" placeholder="Email" />
+                <Form.Control
+                  value={signUpDetails.email}
+                  onChange={(e) => {
+                    setSignUpDetails({
+                      ...signUpDetails,
+                      email: e.target.value,
+                    });
+                  }}
+                  type="email"
+                  placeholder="Email"
+                />
+                {error && signUpDetails.email === ""
+                  ? "email is required"
+                  : error && regex.test(signUpDetails.email) === false
+                  ? "Enter valid email"
+                  : null}
+              </Form.Group>
+
+              <Form.Group
+                className="my-4 form-field"
+                controlId="formBasicPassword"
+              >
+                <Form.Control
+                  value={signUpDetails.phone_number}
+                  onChange={(e) => {
+                    setSignUpDetails({
+                      ...signUpDetails,
+                      phone_number: e.target.value,
+                    });
+                  }}
+                  type="tel"
+                  placeholder="Phone Number"
+                />
+                {error && signUpDetails.phone_number === ""
+                  ? "Phone Number is required"
+                  : error &&
+                    phoneRegex.test(signUpDetails.phone_number) === false
+                  ? "Enter valid Phone Number"
+                  : null}
               </Form.Group>
               <Form.Group
                 className="my-4 form-field"
                 controlId="formBasicPassword"
               >
-                <Form.Control type="text" placeholder="Phone Number" />
+                <Form.Control
+                  value={signUpDetails.password}
+                  onChange={(e) => {
+                    setSignUpDetails({
+                      ...signUpDetails,
+                      password: e.target.value,
+                    });
+                  }}
+                  type="password"
+                  placeholder="Password"
+                />
+                {error && signUpDetails.password === ""
+                  ? "Password is required"
+                  : null}
               </Form.Group>
               <Form.Group
                 className="my-4 form-field"
                 controlId="formBasicPassword"
               >
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group
-                className="my-4 form-field"
-                controlId="formBasicPassword"
-              >
-                <Form.Control type="password" placeholder="Confirm Password" />
+                <Form.Control
+                  value={signUpDetails.confirm_password}
+                  onChange={(e) => {
+                    setSignUpDetails({
+                      ...signUpDetails,
+                      confirm_password: e.target.value,
+                    });
+                  }}
+                  type="password"
+                  placeholder="Confirm Password"
+                />{" "}
+                {error && signUpDetails.confirm_password === ""
+                  ? "Confirm Password is required"
+                  : error &&
+                    signUpDetails.password !== signUpDetails.confirm_password
+                  ? "Enter  same password"
+                  : null}
               </Form.Group>
               <FormGroup className=" form-field">
-                <select className="form-select text-end">
+                <select
+                  value={signUpDetails.country}
+                  onChange={(e) => {
+                    setSignUpDetails({
+                      ...signUpDetails,
+                      country: e.target.value,
+                    });
+                  }}
+                  className="form-select text-end"
+                >
                   <option>Select Country</option>
+                  <option>India</option>
+                  <option>USA</option>
+                  <option>JAPAN</option>
                 </select>
               </FormGroup>
+              {error && signUpDetails.country === ""
+                ? "Country is required"
+                : null}
               <div className=" my-4">
                 <button
                   type="button"

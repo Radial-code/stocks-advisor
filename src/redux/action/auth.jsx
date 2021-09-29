@@ -44,7 +44,7 @@ export const SignUpAction = (data, setLoading, history) => async (dispatch) => {
   try {
     const response = await SignUpApi(data);
     if (response.success) {
-      dispatch(SignUpSuccess(response));
+      dispatch(SignUpSuccess(response.user));
       setLoading(false);
       history.push("/");
     } else {
