@@ -3,7 +3,9 @@
   padding: 0;
 }
 /*  Drop down css start here*/
-
+.z-index_2 {
+  z-index: -2;
+}
 .drop-down-list li {
   padding: 5px 0px;
   margin-top: 5px;
@@ -169,7 +171,6 @@
   font-size: var(--font-xs);
   position: sticky;
   top: 0;
-  z-index: 20;
 }
 
 .nav-container {

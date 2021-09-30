@@ -178,7 +178,7 @@
   stroke: white;
   opacity: 1;
 }
-.admin-hover .active li svg {
+.admin-hover .active li svg path {
   stroke: white;
 }
 .admin-hover .active li svg g,
