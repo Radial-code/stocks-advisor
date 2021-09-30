@@ -109,7 +109,7 @@ const Navbar = () => {
   return (
     <>
       <div className={click ? "main-container" : ""} onClick={() => Close()}>
-        <nav className="navbar z-index_2" onClick={(e) => e.stopPropagation()}>
+        <nav className="navbar" onClick={(e) => e.stopPropagation()}>
           <div className="container justify-content-between">
             <div>
               <NavLink exact to="/" className="nav-logo logo-img-navbar">
