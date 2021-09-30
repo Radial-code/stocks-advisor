@@ -9,9 +9,9 @@ const ForgetPassword = () => {
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
             <div className="py-4 px-xxl-5 px-3  ">
               <p className="mb-sm-4 mb-0 from-heading text-center">
-                ?Forget Your Password
+                {/* Forget Your Password ? */}
               </p>
-              <p className=" mb-sm-5 mb-0 py-3 py-sm-0 from-sub-heading text-center">
+              <p className=" mb-sm-5 mb-0 max-sm-w-283 mx-auto py-3 py-sm-0 from-sub-heading text-center">
                 Enter your email and we'll send the instructions
               </p>
 

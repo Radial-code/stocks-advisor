@@ -183,7 +183,7 @@
 .from-sub-heading {
   font-weight: 500;
   font-size: var(--font-18);
-  color: var(--color-16191e);
+  color: var(--color-16191e_08);
   font-family: "Poppins", sans-serif;
 }
 
@@ -299,5 +299,16 @@
   .profile-img {
     height: 108px;
     width: 108px;
+  }
+  .from-edit-profile-btn {
+    padding: 6px 30px;
+    font-size: var(--font-9);
+  }
+  .edit-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .max-sm-w-283 {
+    max-width: 283px;
   }
 }
