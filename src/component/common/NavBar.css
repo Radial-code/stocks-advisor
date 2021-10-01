@@ -312,7 +312,8 @@
 
 .search-icon input[type="search"] {
   -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
+  -webkit-box-sizing: border-box;
+  /* -webkit-box-sizing: content-box; */
   font-family: inherit;
   font-size: 100%;
 }
