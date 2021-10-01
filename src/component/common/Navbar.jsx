@@ -122,7 +122,7 @@ const Navbar = () => {
                 click ? "nav-menu active" : "nav-menu"
               } scroll-sm-bar`}
             >
-              <div className="d-md-flex align-items-xl-center w-100 justify-content-xl-between justify-content-around ">
+              <div className="d-md-flex align-items-xl-center mt-md-5 w-100 justify-content-xl-between justify-content-around ">
                 <li className=" d-md-none d-flex justify-content-between mt-4">
                   <div className="d-flex justify-content-start">
                     <li className="items-nav mt-0 d-xl-none d-block">
