@@ -178,6 +178,19 @@
   stroke: white;
   opacity: 1;
 }
+.dashboard-down {
+  background-color: var(--color-88BEFC);
+}
+
+.dashboard-sm-dropdown plus {
+  display: none;
+}
+.drop-active {
+  background-color: var(--color-127CF9);
+}
+.drop-active a {
+  color: white !important;
+}
 .admin-hover .active li svg path {
   stroke: white;
 }
