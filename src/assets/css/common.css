@@ -357,7 +357,7 @@ input::-webkit-inner-spin-button {
   }
 
   .fs-sm-28 {
-    font-size: var(--font-28);
+    font-size: var(--font-28) !important;
   }
 
   .fs-sm-22 {

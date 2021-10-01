@@ -44,8 +44,8 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 tristique leo et pulvinar luctus. Donec aliquet mauris eget e
               </p>
 
-              <div className="mt-5 h-calc-100vh-442 overflow-auto scroll-bar">
-                <div className="table-responsive sold-stock-scrollbar">
+              <div className="mt-5 h-calc-100vh-442 overflow-auto  sold-stock-scrollbar">
+                <div className="table-responsive ">
                   <table className="table table-borderless">
                     <thead>
                       <tr className="">

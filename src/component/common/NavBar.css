@@ -210,6 +210,7 @@
   height: 40px;
   width: 264px;
   display: flex;
+  margin-right: 10px;
   justify-content: center;
   align-items: center;
   padding-right: 5px;
@@ -238,7 +239,7 @@
 .nav-links {
   color: #16191e;
   text-decoration: none;
-  padding: 0rem 1rem;
+  padding: 0px 10px;
   height: 100%;
 
   border-bottom: 3px solid transparent;
@@ -267,7 +268,7 @@
 
 .nav-item:hover:after {
   width: 100%;
-  background: var(--color-127CF9);
+  background: var(--color-88BEFC);
 }
 
 .nav-item .active:after {
@@ -299,6 +300,80 @@
   padding: 9.5px 32px;
   border-radius: 4px;
 }
+@media (min-width: 1399.98px) {
+  .search-icon input[type="search"]:focus {
+    width: 170px !important;
+  }
+}
+/* search input css start here  */
+
+.search-icon input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+.search-icon input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-icon input[type="search"] {
+  background: url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png)
+    no-repeat 9px center;
+  border: solid 1px #ccc;
+  padding: 4px 10px 4px 32px;
+  width: 55px;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.search-icon input[type="search"]:focus {
+  width: 110px;
+  background-color: #fff;
+  border-color: #66cc75;
+
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+}
+
+.search-icon input:-moz-placeholder {
+  color: #999;
+}
+.search-icon input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.search-icon input[type="search"] {
+  width: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+.search-icon input[type="search"]:hover {
+  background-color: #fff;
+}
+.search-icon input[type="search"]:focus {
+  width: 110px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+.search-icon input:-moz-placeholder {
+  color: transparent;
+}
+.search-icon input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* search input css end here  */
 
 @media screen and (max-width: 1399.98px) {
   .logo-img-navbar {
@@ -366,7 +441,7 @@
   .main-container {
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 3;
     bottom: 0;
     left: 0;
     right: 0;
@@ -379,7 +454,7 @@
   }
   .nav-item {
     border-bottom: 1px solid var(--color-5B5E61);
-    margin-top: 15px;
+    margin-top: 8px;
   }
   .nav-item:hover {
     background-color: var(--color-127CF9);
@@ -451,7 +526,7 @@
   }
   .scroll-sm-bar {
     overflow: auto;
-    height: 85vh;
+    max-height: 85vh;
   }
 }
 @media screen and (max-width: 575.98px) {

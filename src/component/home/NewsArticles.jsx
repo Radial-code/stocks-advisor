@@ -5,6 +5,7 @@ import NewsSlider from "../../assets/img/newsArticles_1.png";
 import img_1 from "../../assets/img/calendar-icon.png";
 const NewsArticles = ({ history }) => {
   const settings = {
+    centerMode: true,
     dots: false,
     speed: 300,
     slidesToShow: 3,
@@ -29,7 +30,7 @@ const NewsArticles = ({ history }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1.05,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
