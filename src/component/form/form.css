@@ -183,7 +183,7 @@
 .from-sub-heading {
   font-weight: 500;
   font-size: var(--font-18);
-  color: var(--color-16191e);
+  color: var(--color-16191e_08);
   font-family: "Poppins", sans-serif;
 }
 
@@ -206,6 +206,8 @@
   padding-top: 14px;
   padding-bottom: 13px;
   padding-right: 24px;
+  border-radius: 5px;
+  border: 1px solid #16191e33;
 }
 
 .padding-right-50 {
@@ -252,7 +254,11 @@
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
   filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.05));
 }
-
+.profile-img {
+  width: 192px;
+  height: 192px;
+  border-radius: 50%;
+}
 .form-control:focus {
   outline: 0;
   box-shadow: none;
@@ -284,5 +290,25 @@
 
   .from-btn {
     padding: 8px;
+  }
+  .profile-input-placeholder {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 16px;
+  }
+  .profile-img {
+    height: 108px;
+    width: 108px;
+  }
+  .from-edit-profile-btn {
+    padding: 6px 30px;
+    font-size: var(--font-9);
+  }
+  .edit-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .max-sm-w-283 {
+    max-width: 283px;
   }
 }

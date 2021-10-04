@@ -14,7 +14,7 @@ const Hero = () => {
   };
   return (
     <>
-      <section className="py-5">
+      <section className="py-sm-5 py-3">
         <div className="container p-left-right">
           <div className="row  justify-content-between">
             <div className="col-xl-8 col-lg-7 ">

@@ -268,10 +268,7 @@ input:checked + .slider-2:before {
   .w-xs-303 {
     width: 303px;
   }
-  .p-left-right {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+
   .p-xs-right-left-0 {
     padding-left: 0px;
     padding-right: 0px;
