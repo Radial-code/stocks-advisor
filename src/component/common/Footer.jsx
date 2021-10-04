@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="d-none d-md-block mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contactus"
+                to="/contact-us"
               >
                 Contact Us
               </Link>
@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="text-center d-md-none mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contactus"
+                to="/contact-us"
               >
                 Contact Us
               </Link>
@@ -81,7 +81,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/"
+                    to="/home"
                   >
                     Home
                   </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/ourplans"
+                    to="/"
                   >
                     Our Plan
                   </Link>

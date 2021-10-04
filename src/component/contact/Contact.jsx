@@ -1,5 +1,7 @@
 import React from "react";
+import ContactForm from "./ContactForm";
 import "./contacts.css";
+
 const Contact = () => {
   return (
     <div className="container  py-5">
@@ -11,7 +13,6 @@ const Contact = () => {
                 <h1 className=" mb-2 mb-md-3  section-heading fs-sm-24">
                   Contact Us
                 </h1>
-
                 <p className=" sub-text m-0">Send us your concerns 24x7</p>
                 <div className="row mt-4 mt-md-5 pt-2 ">
                   <div className=" col-12 col-md-4 order-3 mt-5 mt-md-0  order-md-1 px-auto ">
@@ -36,62 +37,7 @@ const Contact = () => {
             </div>
 
             <div className="col-12   col-lg-5 ">
-              <form className="form-box p-xl-5 p-4" action="">
-                <div className="d-flex flex-column justify-content-center d-sm-block align-items-center pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
-                  {/* NAME */}
-                  <input
-                    className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
-                    type="text"
-                    placeholder="Name"
-                    required
-                  />
-                  {/* EMAIL */}
-                  <input
-                    className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
-                    type="email"
-                    placeholder="Email"
-                    required
-                  />
-                  {/* DROPDOWN */}
-
-                  <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15 w-100">
-                    <select
-                      id="cars"
-                      name="cars"
-                      className="  w-100 border-0 bg-white input-text border-A3A3A3 dropdown-toggle"
-                      type="text"
-                      id="cars"
-                      placeholder="Select Contact Reason"
-                    >
-                      <option value="Select Contact Reason">
-                        Select Contact Reason
-                      </option>
-                      <option value="Select Contact Reason">
-                        Select Contact Reason
-                      </option>
-                      <option value="Select Contact Reason">
-                        Select Contact Reason
-                      </option>
-                      <option value="Select Contact Reason">
-                        Select Contact Reason
-                      </option>
-                    </select>
-                  </div>
-                  {/* MESSAGE */}
-                  <textarea
-                    className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
-                    rows="6"
-                    placeholder="Message..."
-                    required
-                  ></textarea>
-                  {/* BUTTON */}
-                  <div className="text-end">
-                    <button className=" mt-4  btn send-msg-btn text-white">
-                      Send Message
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
@@ -99,5 +45,4 @@ const Contact = () => {
     </div>
   );
 };
-
 export default Contact;
