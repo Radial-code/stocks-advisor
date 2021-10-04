@@ -12,8 +12,6 @@ import PaymentDetails from "../../component/dashboard/PaymentDetails";
 const Dashboard = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
-
-  console.log("dashboard render");
   return (
     <>
       <div className="container py-5">

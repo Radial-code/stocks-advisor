@@ -20,12 +20,10 @@ const Navbar = () => {
   const [LoginActive, setLoginActive] = useState(false);
 
   const dropHandler = () => {
-    console.log(student, "student");
     setStudent(!student);
   };
 
   const dashboardHandler = () => {
-    console.log(dashboard, "dashboard");
     setDashboard(!dashboard);
   };
 

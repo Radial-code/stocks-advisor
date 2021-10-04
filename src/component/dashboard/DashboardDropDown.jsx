@@ -6,7 +6,6 @@ const DashboardDropDown = ({ sideBarHandler }) => {
   const [dashboard, setDashboard] = useState(false);
 
   const dashboardHandler = () => {
-    console.log(dashboard, "dashboard");
     setDashboard(!dashboard);
   };
   const [click, setClick] = useState(false);

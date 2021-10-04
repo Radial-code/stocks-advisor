@@ -100,12 +100,10 @@ export const getUserProfileAction =
  */
 
 export const UserNameAction = (data, setUserNameError) => async (dispatch) => {
-  console.log(data);
   try {
     const response = await UserNameApi(data);
     if (response.success) {
     } else {
-      console.log(response, "chota sa bhi");
       setUserNameError(response);
     }
   } catch (error) {
