@@ -1,4 +1,9 @@
-import { LoginApi, SignUpApi } from "../api/auth";
+import {
+  LoginApi,
+  SignUpApi,
+  UserNameApi,
+  ChangePasswordApi,
+} from "../api/auth";
 
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
 export const SIGN_UP_SUCCESSFULLY = "SIGN_UP_SUCCESSFULLY";
@@ -52,5 +57,29 @@ export const SignUpAction = (data, setLoading, history) => async (dispatch) => {
     }
   } catch (error) {
     setLoading(false);
+  }
+};
+
+
+
+// export const
+
+/**
+ * username action*
+ * @param {Object} setUserNameError
+ * @returns
+ */
+
+export const UserNameAction = (data, setUserNameError) => async (dispatch) => {
+  console.log(data);
+  try {
+    const response = await UserNameApi(data);
+    if (response.success) {
+    } else {
+      console.log(response, "chota sa bhi");
+      setUserNameError(response);
+    }
+  } catch (error) {
+    console.log(error.response, "kuch bhi");
   }
 };

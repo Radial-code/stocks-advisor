@@ -489,6 +489,32 @@ const Navbar = () => {
                             </div>
                           </NavLink>
                         </li>
+                        <li>
+                          <NavLink
+                            exact
+                            to="/dashboard/profile"
+                            activeClassName=""
+                            className=""
+                            onClick={click ? handleClick : null}
+                          >
+                            <div className="all-student">
+                              <span>Profile</span>
+                            </div>
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            exact
+                            to="/dashboard/payment"
+                            activeClassName=""
+                            className=""
+                            onClick={click ? handleClick : null}
+                          >
+                            <div className="all-student">
+                              <span>Payment Details</span>
+                            </div>
+                          </NavLink>
+                        </li>
                       </ul>
                     </div>
                   </li>

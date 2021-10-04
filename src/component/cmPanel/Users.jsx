@@ -44,7 +44,7 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   </Link>
                 </div>
               </div>
-              <div className="h-calc-100vh-331 scroll-bar overflow-auto mt-4">
+              <div className="h-calc-100vh-331 scroll-bar overflow-auto mb-4">
                 <Table responsive hover className="">
                   <thead>
                     <tr className="user-list-panel">

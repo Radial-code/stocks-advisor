@@ -38,6 +38,83 @@ const PaymentDetails = ({
       amount: "$125,210",
       data: "15/07/2021",
     },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
+    {
+      status: "Better",
+      cardNo: 123456789,
+      plan: 123456789,
+      amount: "$125,210",
+      data: "15/07/2021",
+    },
   ];
 
   return (
@@ -76,7 +153,7 @@ const PaymentDetails = ({
                 <p className="heading-stock fs-sm-20">Payment Details</p>
               </div>
 
-              <div className="mt-5 h-calc-100vh-442 overflow-auto">
+              <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
                 <div className="table-responsive sold-stock-scrollbar">
                   <table className="table white-space-nowrap table-borderless">
                     <thead>

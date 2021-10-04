@@ -3,20 +3,22 @@ import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { SignUpAction } from "../../redux/action/auth";
+import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 
 function SignUp({ history }) {
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [userNameError, setUserNameError] = useState("");
 
   const [signUpDetails, setSignUpDetails] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
+    username: "",
     email: "",
     password: "",
-    phone_number: "",
-    confirm_password: "",
+    phone: "",
+    confirmPassword: "",
     country: "",
   });
 
@@ -29,17 +31,33 @@ function SignUp({ history }) {
   const submitSignUpForm = () => {
     setError(true);
     if (
-      signUpDetails.firstname &&
-      signUpDetails.lastname &&
+      signUpDetails.firstName &&
+      signUpDetails.lastName &&
+      signUpDetails.username &&
       signUpDetails.email &&
       signUpDetails.password &&
-      signUpDetails.phone_number &&
-      signUpDetails.confirm_password &&
+      signUpDetails.password === signUpDetails.confirmPassword &&
+      signUpDetails.phone &&
+      signUpDetails.confirmPassword &&
       signUpDetails.country
     ) {
       console.log(signUpDetails);
       dispatch(SignUpAction(signUpDetails, setLoading, history));
     } else {
+    }
+  };
+
+  const userNameSubmit = (e) => {
+    setSignUpDetails({
+      ...signUpDetails,
+      username: e.target.value,
+    });
+    console.log(signUpDetails);
+
+    if (signUpDetails.username.length > 2) {
+      dispatch(
+        UserNameAction({ username: signUpDetails.username }, setUserNameError)
+      );
     }
   };
 
@@ -59,20 +77,23 @@ function SignUp({ history }) {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
-                      value={signUpDetails.lastname}
+                      value={signUpDetails.lastName}
                       onChange={(e) => {
                         setSignUpDetails({
                           ...signUpDetails,
-                          lastname: e.target.value,
+                          lastName: e.target.value,
                         });
                       }}
                       type="text"
                       className=""
                       placeholder="Last Name"
                     />
-                    {error && signUpDetails.lastname === ""
-                      ? "Last name is required"
-                      : null}
+                    <span className="text-danger">
+                      {" "}
+                      {error && signUpDetails.lastName === ""
+                        ? "Last name is required"
+                        : null}
+                    </span>
                   </Form.Group>
                 </div>
                 <div className="col-6 order-1 last-name">
@@ -81,22 +102,45 @@ function SignUp({ history }) {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
-                      value={signUpDetails.firstname}
+                      value={signUpDetails.firstName}
                       onChange={(e) => {
                         setSignUpDetails({
                           ...signUpDetails,
-                          firstname: e.target.value,
+                          firstName: e.target.value,
                         });
                       }}
                       type="text"
                       placeholder="First Name"
                     />
-                    {error && signUpDetails.firstname === ""
-                      ? "First name is required"
-                      : null}
+                    <span className="text-danger">
+                      {error && signUpDetails.firstName === ""
+                        ? "First name is required"
+                        : null}
+                    </span>
                   </Form.Group>
                 </div>
               </div>
+              {/* userName */}
+              <Form.Group
+                className="mb-3 form-field "
+                controlId="formBasicEmail"
+              >
+                <Form.Control
+                  value={signUpDetails.username}
+                  onChange={userNameSubmit}
+                  type="text"
+                  placeholder="UserName"
+                />
+
+                <span className="text-danger">
+                  {" "}
+                  {error && signUpDetails.username === ""
+                    ? "UserName is required"
+                    : error}
+                </span>
+                {userNameError ? "User Name already exist" : null}
+              </Form.Group>
+              {/* email */}
               <Form.Group
                 className="mb-3 form-field "
                 controlId="formBasicEmail"
@@ -112,11 +156,13 @@ function SignUp({ history }) {
                   type="email"
                   placeholder="Email"
                 />
-                {error && signUpDetails.email === ""
-                  ? "email is required"
-                  : error && regex.test(signUpDetails.email) === false
-                  ? "Enter valid email"
-                  : null}
+                <span className="text-danger">
+                  {error && signUpDetails.email === ""
+                    ? "email is required"
+                    : error && regex.test(signUpDetails.email) === false
+                    ? "Enter valid email"
+                    : null}
+                </span>
               </Form.Group>
 
               <Form.Group
@@ -124,22 +170,23 @@ function SignUp({ history }) {
                 controlId="formBasicPassword"
               >
                 <Form.Control
-                  value={signUpDetails.phone_number}
+                  value={signUpDetails.phone}
                   onChange={(e) => {
                     setSignUpDetails({
                       ...signUpDetails,
-                      phone_number: e.target.value,
+                      phone: Number(e.target.value),
                     });
                   }}
                   type="tel"
                   placeholder="Phone Number"
                 />
-                {error && signUpDetails.phone_number === ""
-                  ? "Phone Number is required"
-                  : error &&
-                    phoneRegex.test(signUpDetails.phone_number) === false
-                  ? "Enter valid Phone Number"
-                  : null}
+                <span className="text-danger">
+                  {error && signUpDetails.phone === ""
+                    ? "Phone Number is required"
+                    : error && phoneRegex.test(signUpDetails.phone) === false
+                    ? "Enter valid Phone Number"
+                    : null}
+                </span>
               </Form.Group>
               <Form.Group
                 className="my-4 form-field"
@@ -156,31 +203,35 @@ function SignUp({ history }) {
                   type="password"
                   placeholder="Password"
                 />
-                {error && signUpDetails.password === ""
-                  ? "Password is required"
-                  : null}
+                <span className="text-danger">
+                  {error && signUpDetails.password === ""
+                    ? "Password is required"
+                    : null}
+                </span>
               </Form.Group>
               <Form.Group
                 className="my-4 form-field"
                 controlId="formBasicPassword"
               >
                 <Form.Control
-                  value={signUpDetails.confirm_password}
+                  value={signUpDetails.confirmPassword}
                   onChange={(e) => {
                     setSignUpDetails({
                       ...signUpDetails,
-                      confirm_password: e.target.value,
+                      confirmPassword: e.target.value,
                     });
                   }}
                   type="password"
                   placeholder="Confirm Password"
                 />{" "}
-                {error && signUpDetails.confirm_password === ""
-                  ? "Confirm Password is required"
-                  : error &&
-                    signUpDetails.password !== signUpDetails.confirm_password
-                  ? "Enter  same password"
-                  : null}
+                <span className="text-danger">
+                  {error && signUpDetails.confirmPassword === ""
+                    ? "Confirm Password is required"
+                    : error &&
+                      signUpDetails.password !== signUpDetails.confirmPassword
+                    ? "Enter  same password"
+                    : null}
+                </span>
               </Form.Group>
               <FormGroup className=" form-field">
                 <select
@@ -199,9 +250,12 @@ function SignUp({ history }) {
                   <option>JAPAN</option>
                 </select>
               </FormGroup>
-              {error && signUpDetails.country === ""
-                ? "Country is required"
-                : null}
+              <span className="text-danger">
+                {error && signUpDetails.country === ""
+                  ? "Country is required"
+                  : null}
+              </span>
+
               <div className=" my-4">
                 <button
                   type="button"

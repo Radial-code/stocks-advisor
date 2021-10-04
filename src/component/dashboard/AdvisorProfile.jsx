@@ -66,7 +66,7 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
             </div>
             <div className="my-sm-5 my-3 img-size  d-flex justify-content-center">
               <div className="position-relative d-flex flex-column align-items-md-end justify-content-end">
-                <img src={ProfileImage} alt="img" />
+                <img className="profile-img" src={ProfileImage} alt="img" />
 
                 <div className="position-absolute pb-sm-2 cursor-pointer">
                   <EditIcon />

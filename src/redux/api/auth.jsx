@@ -26,3 +26,13 @@ export const SignUpApi = async (data) => {
 export const ChangePasswordApi = async (data) => {
   return await axiosRequest("POST", `/change_password`, data);
 };
+
+/**
+ * User Name Api
+ * @param {Opject} data
+ * @return
+ */
+
+export const UserNameApi = async (data) => {
+  return await axiosRequest("Post", `/checkusername`, data);
+};

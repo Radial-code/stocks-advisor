@@ -17,6 +17,9 @@
 .l-s-t-none {
   list-style-type: none;
 }
+.pl-0 {
+  padding-left: 0px;
+}
 .admin-hover li {
   color: var(--color-16191eb7);
   font-size: var(--font-18);
@@ -72,8 +75,8 @@
 .pl-15 {
   padding-left: 15px;
 }
-.ml-2 {
-  margin-left: 2rem;
+.ml-1 {
+  margin-left: 1rem;
 }
 .wrapper {
   border-radius: 10px;
@@ -175,7 +178,7 @@
   stroke: white;
   opacity: 1;
 }
-.admin-hover .active li svg path {
+.admin-hover .active li svg {
   stroke: white;
 }
 .admin-hover .active li svg g,
