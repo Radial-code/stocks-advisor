@@ -8,15 +8,23 @@ import { loginAction } from "../../redux/action/auth";
 function Login({ history }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [logInDetails, setLoginInDetails] = useState({
     email: "",
     password: "",
   });
 
   const submitLoginInForm = () => {
-    console.log(logInDetails);
-    dispatch(loginAction(logInDetails, setLoading, history));
+    setError(true);
+    if (logInDetails.email && logInDetails.password) {
+      console.log(logInDetails);
+      dispatch(loginAction(logInDetails, setLoading, history));
+    } else {
+    }
   };
+
+  const regex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   return (
     <div className="container-fluid height-100vh   d-flex flex-column justify-content-center">
@@ -42,6 +50,13 @@ function Login({ history }) {
                   type="email"
                   placeholder="Email"
                 />
+                <span className="text-danger">
+                  {error && logInDetails.email === ""
+                    ? "email is required"
+                    : error && regex.test(logInDetails.email) === false
+                    ? "Enter valid email"
+                    : null}
+                </span>
               </Form.Group>
 
               <Form.Group

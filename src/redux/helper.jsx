@@ -1,6 +1,6 @@
 import Axios from "axios";
-export let SERVER_URL = "https://47b7-45-115-176-128.ngrok.io";
-// export let SERVER_URL = "http://192.168.0.199:3000";
+// export let SERVER_URL = "https://47b7-45-115-176-128.ngrok.io";
+export let SERVER_URL = "http://192.168.0.200:3000";
 
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
 
