@@ -15,7 +15,7 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <Col xs={12}>
             <div className="border-b-1 content-manager mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Content Manager</p>
+                <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           </Col>
           <Col className="d-xl-flex justify-content-end ">
             <section className="user-panel-card w-xl-1000 p-5 mt-5 pt-5">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between pb-3">
                 <p className="heading-stock fs-sm-20">Users</p>
                 <div>
                   <Link to="/content/manager/edit/user">
@@ -44,7 +44,7 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   </Link>
                 </div>
               </div>
-              <div className="h-calc-100vh-331 scroll-bar overflow-auto mb-4">
+              <div className="h-calc-100vh-331 scroll-bar overflow-auto mt-4">
                 <Table responsive hover className="">
                   <thead>
                     <tr className="user-list-panel">

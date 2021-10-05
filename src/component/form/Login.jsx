@@ -27,9 +27,9 @@ function Login({ history }) {
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   return (
-    <div className="container-fluid height-100vh   d-flex flex-column justify-content-center">
+    <div className="container-fluid height-100vh bg-f9f9f9   d-flex flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
-        <div className="col-xl-4 col-sm-8 col">
+        <div className="col-xl-4 col-sm-5">
           <div className="background-form p-sm-5 p-2 my-sm-0 my-5">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Log In

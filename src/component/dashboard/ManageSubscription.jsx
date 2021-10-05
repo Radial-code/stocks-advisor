@@ -17,7 +17,7 @@ const ManageSubscription = ({
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
         ></div>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} className="dashboard">
             <div className="border-b-1  mb-3">
               <DashboardDropDown sideBarHandler={sideBarHandler} />
             </div>

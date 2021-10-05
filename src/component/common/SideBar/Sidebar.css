@@ -227,7 +227,9 @@
     background: transparent;
   }
 }
-
+.dashboard {
+  display: none;
+}
 @media (max-width: 1280.99px) {
   .d-xlg-none {
     display: none;

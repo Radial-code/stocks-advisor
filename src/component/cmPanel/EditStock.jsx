@@ -19,7 +19,7 @@ function EditStock({ sideBarHandler, setSidebarActive, sidebarActive }) {
         <div className="col-12">
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15">Content Manager</p>
+              <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
               <span onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,9 @@ function EditStock({ sideBarHandler, setSidebarActive, sidebarActive }) {
         </div>
         <div className="col-12 h-100 stock-add-new">
           <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
-            <p className="new-stock-heading ff-popins mb-0 ">Add New Stock</p>
+            <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
+              Add New Stock
+            </p>
             <Form className="pt-sm-5  pt-4">
               <div className="row">
                 <div className="col-md-6 order-2 datepicker-input position-relative order-sm-2 order-1">

@@ -106,7 +106,7 @@ const ContactForm = () => {
             type="button"
             disabled={loading}
             onClick={() => SubmitContactForm()}
-            className=" mt-4  btn send-msg-btn text-white"
+            className=" mt-4   send-msg-btn text-white"
           >
             {loading ? <Loader /> : "Send Message"}
           </button>

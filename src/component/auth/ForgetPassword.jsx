@@ -53,7 +53,7 @@ const ForgetPassword = () => {
               <button
                 disabled={loading}
                 onClick={() => submitResetPassword()}
-                className="border-0 w-100 mt-sm-3 mt-2 mb-sm-4 from-btn"
+                className=" w-100 mt-sm-3 mt-2 mb-sm-4 from-btn"
               >
                 {loading ? <Loader /> : "Reset Password"}
               </button>

@@ -62,9 +62,9 @@ function SignUp({ history }) {
   };
 
   return (
-    <div className="container min-h-100vh d-flex flex-column justify-content-center">
+    <div className="container min-h-100vh d-flex  flex-column justify-content-center">
       <div className="row justify-content-center align-items-center">
-        <div className="col-xl-6 col-sm-10">
+        <div className="col-xl-5 col-sm-10">
           <div className="background-form p-sm-5 p-2">
             <p className="text-center edit-contact-text ff-popins mb-0">
               Sign Up
@@ -260,7 +260,7 @@ function SignUp({ history }) {
                 <button
                   type="button"
                   onClick={() => submitSignUpForm()}
-                  className=" w-100 form-btn px-5 py-3 border-0 ff-popins"
+                  className=" w-100 form-btn px-5 py-3 ff-popins"
                 >
                   Sign Up
                 </button>

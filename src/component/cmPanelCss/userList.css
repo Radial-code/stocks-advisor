@@ -1,18 +1,22 @@
 .h-calc-100vh-331 {
   height: calc(100vh - 331px);
 }
+
 .h-calc-100vh-442 {
   height: calc(100vh - 442px);
 }
+
 .user-list-panel th {
   font-size: var(--font-xs);
   font-weight: 500;
 }
+
 .user-details {
   font-size: var(--font-xs);
   font-weight: 400;
   color: var(--color-16191eb7);
 }
+
 .scroll-bar::-webkit-scrollbar {
   width: 5px;
 }
@@ -22,12 +26,14 @@
   border-radius: 5px;
   width: 10px;
 }
+
 .user-panel-card {
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
   opacity: 1;
 }
+
 .content-manager-none {
   display: none;
 }
@@ -42,15 +48,18 @@
   .user-panel-card {
     width: 100%;
   }
+
   .content-manager-none {
     display: block;
   }
 }
+
 @media (max-width: 575.98px) {
   .fs-sm-20 {
     font-size: var(--font-sm) !important;
   }
+
   .fs-sm-24 {
-    font-size: var(--font-24);
+    font-size: var(--font-24) !important;
   }
 }
