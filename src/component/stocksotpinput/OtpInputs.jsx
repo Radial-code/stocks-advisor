@@ -5,7 +5,7 @@ const OtpInputs = () => {
   return (
     <div className="container">
       <form>
-        <div className="row  justify-content-center align-items-center ">
+        <div className="row height-100vh  justify-content-center align-items-center ">
           <div className="col-12  col-xl-6 col-md-10 otp-box p-3 mt-5 mb-5">
             <div className="row">
               <div className="col justify-content-center d-flex mt-5">

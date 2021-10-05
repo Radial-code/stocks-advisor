@@ -46,8 +46,11 @@
 }
 
 /* VERIFY EMAIL PAGE */
+.height-100vh {
+  height: 100vh;
+}
 
-.log-outbtn {
+.resend-email-btnn {
   background-color: var(--color-88BEFC);
   color: white;
   border-radius: 4px;
@@ -57,7 +60,7 @@
   border: 2px solid var(--color-88BEFC) !important;
   transition: 0.3s;
 }
-.log-outbtn:hover {
+.resend-email-btnn:hover {
   background-color: transparent;
   color: var(--color-88BEFC);
 }
@@ -436,7 +439,6 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 575.98px) {
-
   .next,
   .prev {
     display: none !important;
