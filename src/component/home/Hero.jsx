@@ -36,7 +36,7 @@ const Hero = () => {
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h6>
-                    <p className="text-end">
+                    <p className="text-end pt-3 ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
                       finibus tristique arcu finibus tristique arcu finibus
@@ -62,7 +62,7 @@ const Hero = () => {
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h6>
-                    <p className="text-end">
+                    <p className="text-end pt-3 ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
                       finibus tristique arcu finibus tristique arcu finibus
@@ -88,7 +88,7 @@ const Hero = () => {
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h6>
-                    <p className="text-end">
+                    <p className="text-end pt-3 ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
                       finibus tristique arcu finibus tristique arcu finibus
@@ -114,7 +114,7 @@ const Hero = () => {
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h6>
-                    <p className="text-end">
+                    <p className="text-end ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
                       finibus tristique arcu finibus tristique arcu finibus
@@ -140,14 +140,14 @@ const Hero = () => {
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h6>
-                    <p className="text-end">
+                    <p className="text-end pt-3 ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
                       finibus tristique arcu finibus tristique arcu finibus
                       tristique arcu finibus tristique arcu. Proin dui erat,
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
-                    <p className="text-end read-more">Read More...</p>
+                    <p className="text-end read-more cursor-pointer">Read More...</p>
                     <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
