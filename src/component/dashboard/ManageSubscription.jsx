@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
+import DashboardDropDown from "./DashboardDropDown";
 
 const ManageSubscription = ({
   sideBarHandler,
@@ -15,31 +18,14 @@ const ManageSubscription = ({
         ></div>
         <Row>
           <Col xs={12}>
-            <div className="border-b-1 content-manager-2 mb-3">
-              <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
-                <span onClick={sideBarHandler}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="54"
-                    height="54"
-                    fill="currentColor"
-                    class="bi bi-list"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                    />
-                  </svg>
-                </span>
-              </div>
+            <div className="border-b-1  mb-3">
+              <DashboardDropDown sideBarHandler={sideBarHandler} />
             </div>
           </Col>
           <Col xs={12} className="d-flex justify-content-end ">
             <div className="w-xl-1000 box p-md-5 p-4">
-              <h2 className="heading-stock">Manage Subscription</h2>
-              <div className="border-b-1 mt-5">
+              <h2 className="heading-stock fs-sm-20">Manage Subscription</h2>
+              <div className="border-b-1 mt-md-5 mt-3">
                 <p className="news-heading-font fs-sm-14">
                   Current Subscription Info
                 </p>
@@ -74,9 +60,9 @@ const ManageSubscription = ({
                       </div>
                       <div className="">
                         <span className="float-md-end me-auto ">
-                          <label class="switch-2" for="checkbox-2">
+                          <label className="switch-2" for="checkbox-2">
                             <input type="checkbox" id="checkbox-2" />
-                            <div class="slider-2 round"></div>
+                            <div className="slider-2 round"></div>
                           </label>
                         </span>
                       </div>
@@ -106,7 +92,7 @@ const ManageSubscription = ({
                 >
                   <button className="cancel-btn fs-sm-14 ">Cancel Plan</button>
 
-                  <button className="update-btn fs-sm-14 mr-15">
+                  <button className="update-btn-2 fs-sm-14 mr-15">
                     Change Plan
                   </button>
                 </Col>

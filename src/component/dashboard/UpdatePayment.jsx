@@ -1,5 +1,6 @@
 import React from "react";
 import "../dashboardCss/Payment.css";
+import DashboardDropDown from "./DashboardDropDown";
 const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <div className="container my-5 my-xl-0">
@@ -10,37 +11,23 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       <section>
         <div className="row">
           <div className="col-12">
-            <div className="border-b-1 content-manager-2 mb-3">
-              <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Dashboard</p>
-                <span onClick={sideBarHandler}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="54"
-                    height="54"
-                    fill="currentColor"
-                    class="bi bi-list"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                    />
-                  </svg>
-                </span>
-              </div>
+            <div className="border-b-1  mb-3">
+              <DashboardDropDown sideBarHandler={sideBarHandler} />
             </div>
           </div>
           <div className=" col-12 d-flex justify-content-end ">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
-              <h1 className="heading-stock mb-4"> Update Payment Method</h1>
-              <p className="news-heading-font pt-sm-5 border-bottom-1px  ">
+              <h1 className="heading-stock mb-4 fs-sm-20">
+                {" "}
+                Update Payment Method
+              </h1>
+              <p className="news-heading-font pt-sm-5 border-bottom-1px fs-sm-20 ">
                 Current Payment Details
               </p>
               <div className="row my-4">
                 <div className="col-lg-6 col-12">
                   <div className="visa p-sm-4 p-10-17">
-                    <p className="profile-heading pb-sm-3 border-bottom-1px">
+                    <p className="profile-heading pb-sm-3 border-bottom-1px fs-sm-20">
                       Visa/Master Card
                     </p>
                     <div>

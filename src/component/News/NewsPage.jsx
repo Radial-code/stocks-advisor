@@ -7,7 +7,7 @@ import Plans from "../plan/Plans";
 const NewsPage = () => (
   <>
     <section>
-      <div className="container py-4">
+      <div className="container py-4 p-left-right">
         <div className="row d-flex justify-content-center">
           <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
             {" "}
@@ -19,7 +19,7 @@ const NewsPage = () => (
                   Duis sed augue eu augue ornare augue ornare porta
                 </h6>
 
-                <p class="small-paragraph text-end mt-3 fs-sm-11">
+                <p className="small-paragraph text-end mt-3 fs-sm-11">
                   <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                   <span>tag-4</span>,<span>tag-5</span>
                 </p>
@@ -89,7 +89,8 @@ const NewsPage = () => (
               </div>
             </div>
           </div>
-          <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 d-flex justify-content-center d-sm-block">
+
+          <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
             <div className="profile-box">
               <Chart />
               <div className="mt-5">

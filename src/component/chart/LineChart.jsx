@@ -11,8 +11,12 @@ import {
 function LineChart() {
   const data = [
     {
+      name: "",
+      uv: 4,
+    },
+    {
       name: "2017",
-      uv: 0,
+      uv: 2,
     },
     {
       name: "2018",
@@ -21,11 +25,11 @@ function LineChart() {
 
     {
       name: "2019",
-      uv: 10,
+      uv: 5,
     },
     {
       name: "2020",
-      uv: 3,
+      uv: 7,
     },
     {
       name: "2021",
@@ -37,7 +41,7 @@ function LineChart() {
   ];
 
   return (
-    <div className="green-chart  mt-4 p-xs-right-left-0">
+    <div className="green-chart container mt-4 p-xs-right-left-0">
       <p className="chart-text-2 ff-popins mb-4">Long Term Portfolio</p>
 
       <ResponsiveContainer width="100%" height={213}>
@@ -58,7 +62,12 @@ function LineChart() {
           <CartesianGrid stroke="0" />
 
           <XAxis dataKey="name" axisLine={false} tickLine={false} />
-          <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+          <YAxis
+            dataKey="uv"
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={(number) => `${number}%`}
+          />
           <Tooltip />
           <Area
             type="monotone"

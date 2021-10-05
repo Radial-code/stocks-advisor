@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="d-none d-md-block mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contact"
+                to="/contact-us"
               >
                 Contact Us
               </Link>
@@ -33,20 +33,20 @@ const Footer = () => {
             <div className="text-center d-md-none mt-5 mb-4 ">
               <Link
                 className="text-decoration-none text-white footer-btn"
-                to="/contact"
+                to="/contact-us"
               >
                 Contact Us
               </Link>
             </div>
           </div>
 
-          <div className="col-lg-3  col- mt-5 mt-lg-0  col-12 d-flex d-xsm-block justify-content-center ">
+          <div className="col-xl-2  col-lg-3 col- mt-5 mt-lg-0  col-12 d-flex d-xsm-block justify-content-center ">
             <div className="d-flex justify-content-between w-xs-250 ">
               <ul className="list-unstyled  footer-ul d-sm-none d-flex flex-column align-items-center">
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/portfolio"
+                    to="/portfolio/portfolio1"
                   >
                     Portfolio
                   </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/dashboard"
+                    to="/dashboard/edit/contact"
                   >
                     Dashboard
                   </Link>
@@ -81,7 +81,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/"
+                    to="/home"
                   >
                     Home
                   </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="ourplans"
+                    to="/"
                   >
                     Our Plan
                   </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/portfolio"
+                    to="/portfolio/portfolio1"
                   >
                     Portfolio
                   </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/dashboard"
+                    to="/dashboard/edit/contact"
                   >
                     Dashboard
                   </Link>

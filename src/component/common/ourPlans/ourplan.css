@@ -16,7 +16,7 @@
   font-weight: 600;
 }
 .bg-card-plan:hover {
-  transform: translateY(-40px);
+  transform: translateY(-15px);
   transition: 0.5s;
 }
 @media (max-width: 567px) {
@@ -48,6 +48,7 @@
   padding: 7.5px 111px;
   border: none;
   border-radius: 4px;
+  transition: 0.3s;
   /* border: 1px solid var(--color-88BEFC); */
 }
 .join-now-btn:hover {
@@ -57,11 +58,25 @@
 }
 .card-amount {
   background-color: var(--color-88BEFC);
+  transition: 0.3s;
 }
-.card-amount:hover {
-  background-color: #5cbd4c;
-  cursor: pointer;
+.card-amount-2 {
+  background-color: var(--color-127CF9);
+  transition: 0.3s;
 }
+.join-now-btn-2 {
+  font-size: var(--font-18);
+  font-weight: 500;
+  background-color: var(--color-127CF9);
+  padding: 7.5px 111px;
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.join-now-btn-2:hover {
+  background-color: var(--color-88BEFC);
+}
+
 .p-9-0 {
   padding: 9px 0px;
 }
@@ -81,10 +96,11 @@
   padding: 9.5px 82px;
   border-radius: 4px;
   border: 1px solid var(--color-127CF9);
+  transition: 0.3s;
 }
 .sign-up-btn:hover {
   background-color: white;
-  color: var(--color-16191E) !important;
+  color: var(--color-127CF9) !important;
 }
 @media (max-width: 575.98px) {
   .subscription-plans {
@@ -94,6 +110,10 @@
     width: 302px;
   }
   .join-now-btn {
+    font-size: var(--font-xxs);
+    padding: 8.5px 93px;
+  }
+  .join-now-btn-2 {
     font-size: var(--font-xxs);
     padding: 8.5px 93px;
   }

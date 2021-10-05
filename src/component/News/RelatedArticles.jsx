@@ -22,7 +22,11 @@ const RelatedArticles = () => {
                 </div>
               </section>
             </Col>
-            <Col xl={4} lg={6} className="d-flex justify-content-center">
+            <Col
+              xl={4}
+              lg={6}
+              className="d-flex justify-content-center mt-5 mt-lg-0"
+            >
               <section className="articles-card ">
                 <div className="related-articles-img">
                   <img className="w-100 h-100" src={img_1} alt="" />
@@ -37,7 +41,7 @@ const RelatedArticles = () => {
             <Col
               xl={4}
               lg={12}
-              className="mt-5 mt-lg-0 d-flex justify-content-center"
+              className="mt-5 mt-xl-0 d-flex justify-content-center"
             >
               <section className="articles-card ">
                 <div className="related-articles-img">

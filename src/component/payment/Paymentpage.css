@@ -50,6 +50,15 @@
   height: 40px;
   padding-right: 20px;
 }
+.paypal {
+  width: 481px;
+}
+.visa-paypal {
+  box-shadow: 0px 5px 15px #0000000d;
+  border-radius: 5px;
+  width: 231px;
+  height: 116px;
+}
 
 input:focus-visible {
   outline: unset;
@@ -82,6 +91,13 @@ input:focus-visible {
   .form-input-payment input {
     width: 390px;
   }
+  .paypal {
+    width: 371px;
+  }
+  .visa-paypal {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media (max-width: 1399.98px) {
   .select-plan-payment {
@@ -95,6 +111,9 @@ input:focus-visible {
   }
   .form-input-payment input {
     width: 290px;
+  }
+  .paypal {
+    width: 293px;
   }
 }
 
@@ -127,6 +146,13 @@ input:focus-visible {
     padding-left: 20px;
     height: 20px;
   }
+  .paypal {
+    width: 100%;
+  }
+  .visa-paypal {
+    width: 213px;
+    height: 116px;
+  }
 }
 @media (max-width: 575.98px) {
   .fs-sm-20 {
@@ -152,6 +178,10 @@ input:focus-visible {
     width: 171px;
     height: 30px;
   }
+  .visa-paypal {
+    width: 150px;
+    height: 70px;
+  }
 }
 @media (max-width: 375.98px) {
   .max-w-sm-263 {
@@ -175,5 +205,12 @@ input:focus-visible {
   .monthly-payment {
     font-size: var(--font-xxs);
     font-weight: 400;
+  }
+  .paypal {
+    width: 250px;
+  }
+  .visa-paypal {
+    width: 115px;
+    height: 61px;
   }
 }

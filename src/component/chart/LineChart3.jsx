@@ -11,8 +11,12 @@ import {
 function LineChart3() {
   const data = [
     {
+      name: "",
+      uv: 4,
+    },
+    {
       name: "2017",
-      uv: 0,
+      uv: 2,
     },
     {
       name: "2018",
@@ -24,7 +28,7 @@ function LineChart3() {
     },
     {
       name: "2020",
-      uv: 3,
+      uv: 5,
     },
     {
       name: "2021",
@@ -32,7 +36,7 @@ function LineChart3() {
     },
   ];
   return (
-    <div className=" px-sm-0 px-2 mt-4">
+    <div className=" container p-xs-right-left-0 mt-4">
       <p className="chart-text-2 ff-popins mb-4">E & P 500</p>
       <div className="pich-chart">
         <ResponsiveContainer width="100%" height={213}>
@@ -58,7 +62,12 @@ function LineChart3() {
             <CartesianGrid stroke="0" />
 
             <XAxis dataKey="name" axisLine={false} tickLine={false} />
-            <YAxis dataKey="uv" axisLine={false} tickLine={false} />
+            <YAxis
+              dataKey="uv"
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(number) => `${number}%`}
+            />
             <Tooltip />
             <Area
               type="monotone"
@@ -67,7 +76,6 @@ function LineChart3() {
               strokeWidth="2"
               fill="#bd4c67"
             />
-            <YAxis axisLine={true} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

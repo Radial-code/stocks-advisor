@@ -2,9 +2,11 @@ import React from "react";
 import { withRouter } from "react-router";
 import Slider from "react-slick";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
+import img_1 from "../../assets/img/calendar-icon.png";
 const NewsArticles = ({ history }) => {
   const settings = {
-    dots: true,
+    centerMode: true,
+    dots: false,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -28,12 +30,12 @@ const NewsArticles = ({ history }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1.05,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 575,
+        breakpoint: 576,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -51,14 +53,79 @@ const NewsArticles = ({ history }) => {
         <div className="row ">
           <div className="col-12">
             <Slider
-              className="about-slider d-flex align-items-center"
+              className="about-slider-2 d-flex align-items-center"
               {...settings}
             >
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
+                    <h3 className="news-heading-font ">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h3>
+                    <p className="stock-paragraph text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu
+                    </p>
+                    <p className="read-more text-end">Read More...</p>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex justify-content-center d-md-block pr-15">
+                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
+                  <img className="w-100" src={NewsSlider} alt="" />
+                  <div className="p-3">
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
+                    <h3 className="news-heading-font ">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h3>
+                    <p className="stock-paragraph text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu
+                    </p>
+                    <p className="read-more text-end">Read More...</p>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex justify-content-center d-md-block pr-15">
+                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
+                  <img className="w-100" src={NewsSlider} alt="" />
+                  <div className="p-3">
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -75,11 +142,19 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -96,11 +171,48 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
+                    <h3 className="news-heading-font ">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h3>
+                    <p className="stock-paragraph text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu
+                    </p>
+                    <p className="read-more text-end">Read More...</p>
+                    <p class="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
+                </div>
+              </div>{" "}
+              <div className="d-flex justify-content-center d-md-block pr-15">
+                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
+                  <img className="w-100" src={NewsSlider} alt="" />
+                  <div className="p-3">
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -117,11 +229,48 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
+                    <h3 className="news-heading-font ">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h3>
+                    <p className="stock-paragraph text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu
+                    </p>
+                    <p className="read-more text-end">Read More...</p>
+                    <p class="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
+                </div>
+              </div>{" "}
+              <div className="d-flex justify-content-center d-md-block pr-15">
+                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
+                  <img className="w-100" src={NewsSlider} alt="" />
+                  <div className="p-3">
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -138,11 +287,48 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
+                    <h3 className="news-heading-font ">
+                      Duis sed augue eu augue ornare augue ornare porta
+                    </h3>
+                    <p className="stock-paragraph text-end">
+                      Duis venenatis aliquet eros, non feugiat tortor semper
+                      sed. In diam risus, efficitur sit amet dolor vitae,
+                      finibus tristique arcu finibus tristique arcu
+                    </p>
+                    <p className="read-more text-end">Read More...</p>
+                    <p class="small-paragraph text-end">
+                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
+                      <span>tag-4</span>,<span>tag-5</span>
+                    </p>
+                  </div>
+                </div>
+              </div>{" "}
+              <div className="d-flex justify-content-center d-md-block pr-15">
+                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
+                  <img className="w-100" src={NewsSlider} alt="" />
+                  <div className="p-3">
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -159,11 +345,19 @@ const NewsArticles = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-center d-md-block">
+              <div className="d-flex justify-content-center d-md-block pr-15">
                 <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
                   <img className="w-100" src={NewsSlider} alt="" />
                   <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
+                    <p className="text-end stock-paragraph">
+                      {" "}
+                      <span className="d-flex justify-content-end align-items-center">
+                        <span className="d-flex justify-content-end px-2">
+                          <img className="w-19 h-19" src={img_1} alt="" />
+                        </span>{" "}
+                        <span>16/07/2021</span>
+                      </span>
+                    </p>
                     <h3 className="news-heading-font ">
                       Duis sed augue eu augue ornare augue ornare porta
                     </h3>
@@ -173,28 +367,7 @@ const NewsArticles = ({ history }) => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">16/07/2021</p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
+                    <p className="small-paragraph text-end">
                       <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
                       <span>tag-4</span>,<span>tag-5</span>
                     </p>
@@ -204,7 +377,7 @@ const NewsArticles = ({ history }) => {
             </Slider>
           </div>
         </div>
-        <div className="d-flex pt-3 pb-5 justify-content-center ">
+        <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
           <button
             className="default-btn"
             onClick={() => history.push("/AllNews")}
@@ -236,7 +409,7 @@ const Next = (props) => {
           transform="translate(-276.961 -1333.363)"
           fill="none"
           stroke="#16191e"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.6"
         />
       </svg>
@@ -262,7 +435,7 @@ const Prev = (props) => {
           transform="translate(-276.961 -1333.363)"
           fill="none"
           stroke="#16191e"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.6"
         />
       </svg>

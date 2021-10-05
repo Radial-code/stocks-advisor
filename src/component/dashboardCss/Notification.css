@@ -1,17 +1,17 @@
 .email {
   width: 150px;
-  font-size: var(--font-xs);
-  font-weight: 400;
-  color: var(--color-5B5E61);
+  font-size: var(--font-xs) !important;
+  font-weight: 400 !important;
+  color: var(--color-5B5E61) !important;
 }
 .notification {
   max-width: 1000px;
 }
 .observations {
   width: 323px;
-  font-size: var(--font-21);
-  font-weight: 500;
-  color: var(--color-5B5E61);
+  font-size: var(--font-21) !important;
+  font-weight: 500 !important;
+  color: var(--color-5B5E61) !important;
 }
 .fs-21 {
   font-size: var(--font-21);
@@ -113,7 +113,7 @@ input[type="checkbox"] {
 
 /* end here check box css */
 .scroll-x-side {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 @media (max-width: 450px) {
   .scroll-x-side {

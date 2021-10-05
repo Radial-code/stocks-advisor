@@ -25,10 +25,11 @@
   border-radius: 4px;
   border: 1px solid var(--color-127CF9);
   background: var(--color-127CF9);
+  transition: 0.3s;
 }
 .send-msg-btn:hover {
   background-color: #ffffff;
-  color: #16191e !important;
+  color: var(--color-127CF9) !important;
 }
 .form-box {
   border-radius: 10px;
@@ -49,6 +50,12 @@
 }
 
 @media (max-width: 575.98px) {
+  .email-heading {
+    font-size: 14px;
+  }
+  .addres-sub-heading {
+    font-size: 14px;
+  }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
 }
@@ -57,9 +64,6 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  :root {
-    --font-18: 17px;
-  }
 }
 
 @media (min-width: 1200px) and (max-width: 1399.98px) {
@@ -73,6 +77,12 @@
 @media (max-width: 450px) {
   .send-msg-btn {
     width: 100%;
+  }
+  .cancel-btn {
+    padding: 9.5px 26px;
+  }
+  .update-btn-2 {
+    padding: 9.5px 26px;
   }
 }
 @media (min-width: 320px) and (max-width: 399.98px) {

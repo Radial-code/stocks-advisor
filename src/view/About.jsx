@@ -12,7 +12,9 @@ const Homepage = () => {
         <div className="container  p-left-right">
           <AboutUs />
           <History />
-          <AboutSlider />
+          <div className="mb-5">
+            <AboutSlider />
+          </div>
         </div>
       </section>
     </>

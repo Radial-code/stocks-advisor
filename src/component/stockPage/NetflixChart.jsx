@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { subDays } from "date-fns";
+import DropDown from "../../assets/img/btnarrow.png";
 function NetflixChart() {
   const data = [
     {
@@ -66,7 +67,7 @@ function NetflixChart() {
   return (
     <div className="container">
       <div className="netflix-chart mt-5">
-        <div className="d-flex  align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4 ps-xl-5 pt-2">
+        <div className="d-sm-flex  d-none align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4 ps-xl-5 pt-2">
           <div className="mx-sm-3">
             <button className="chart-btn ff-popins mx-1 border-0">
               1 Year
@@ -84,6 +85,17 @@ function NetflixChart() {
             <button className="chart-btn ff-popins mx-1 border-0">
               {" "}
               1 Min
+            </button>
+          </div>
+          <p className="chart-text ff-popins text-white mb-0">.Netflix Inc</p>
+        </div>
+        <div className="d-sm-none d-flex align-items-center justify-content-between ms-xl-5 ms-4 ps-4 ps-xl-5 pt-2">
+          <div className="mx-3">
+            <button className="chart-btn ff-popins mx-1 border-0">
+              <span className="px-1">
+                <img src={DropDown} alt="DropDown" />
+              </span>
+              1 Hr
             </button>
           </div>
           <p className="chart-text ff-popins text-white mb-0">.Netflix Inc</p>

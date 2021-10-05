@@ -26,9 +26,6 @@
   .change-method {
     width: 100%;
   }
-  body {
-    background-color: white;
-  }
 }
 @media (min-width: 374px) and (max-width: 576px) {
   .container {

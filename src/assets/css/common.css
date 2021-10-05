@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 :root {
   /** Color use in all projects */
   --color-127CF9: #5cbd4c;
@@ -11,8 +12,13 @@
   --color-16191E: #16191e;
   --color-E4E4E4: #e4e4e4;
   --color-45474b: #45474b;
-
+  --color-D0D1D2: #d0d1d2;
+  --color-ffffff: #ffffff;
+  --color-cbcccd: #cbcccd;
+  --color-16191e_08: #44474b;
+  --color-44474b_08: #44474b;
   --color-5B5E61: #5b5e61;
+  --color-16191e_07: #5b5d61;
   --color-16191e33: #16191e33;
   --color-16191eb7: #16191eb7;
 
@@ -24,77 +30,93 @@
   --font-lg: 31px;
   --font-md: 25px;
   --font-22: 22px;
+  --font-24: 24px;
   --font-35: 35px;
-
   --font-21: 21px;
   --font-28: 28px;
-
   --font-sm: 20px;
   --font-xs: 16px;
   --font-18: 18px;
   --font-15: 15px;
-
   --font-xxs: 14px;
   --font-13: 13px;
   --font-12: 12px;
   --font-11: 11px;
+  --font-9: 9px;
 }
 
 /*  ABOUT PAGE CSS */
 #root {
   font-family: "Poppins", sans-serif;
 }
+
 /* UTILITY CSS */
 .text-5CBD4C {
   color: var(--color-127CF9);
 }
+
 .bg-f9f9f9 {
   background: var(--color-f9f9f9);
 }
+
 .font-xl {
   font-size: var(--font-xl) !important;
 }
+
 .bg-6B8BC1 {
   background-color: #6b8bc1;
+}
+.mr-0 {
+  margin-right: 0px !important;
 }
 .font-xs {
   font-size: var(--font-xs) !important;
 }
+
 .max-w-398 {
   max-width: 398px;
 }
+
 .max-w-665 {
   max-width: 665px;
 }
+
 .max-w-625 {
   max-width: 625px;
 }
+
 .w-126 {
   width: 126px;
 }
+
 .cursor-pointer {
   cursor: pointer;
 }
+
 .stock-heading {
   font-weight: 600;
   font-size: var(--font-xxxl);
   line-height: 115%;
   color: var(--color-59A3FB);
 }
+
 .section-heading {
   font-weight: 500;
   font-size: var(--font-xl);
   color: var(--color-16191e);
 }
+
 .stock-paragraph {
   font-weight: 400;
   line-height: 165%;
   font-size: var(--font-xs);
   color: var(--color-44464A);
 }
+
 .min-h-100vh {
   min-height: 100vh;
 }
+
 .default-btn {
   background: var(--color-127CF9);
   font-weight: 500;
@@ -106,9 +128,52 @@
   transition: 0.6s;
   border: 1px solid var(--color-127CF9);
 }
+.h-19 {
+  height: 19px;
+}
+.w-19 {
+  width: 19px;
+}
 .default-btn:hover {
   background-color: white;
   color: var(--color-127CF9);
+}
+
+.homePageSlider .slick-dots {
+  bottom: 0px;
+}
+
+@media (min-width: 567px) {
+  .about-slider .slick-dots {
+    display: none !important;
+  }
+}
+
+/* .about-slider .slick-dots li button:before {
+   font-size: 14px !important; 
+} */
+
+.about-slider .slick-dots li.slick-active button:before {
+  color: #5cbd4c;
+  border: transparent;
+}
+
+.about-slider .slick-dots li button {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  border: 2px solid black;
+  border-radius: 100%;
+  background-color: white;
+  border: 1px solid #707070;
+
+  text-indent: -9999px;
+}
+
+.about-slider .slick-dots li.slick-active button {
+  background-color: #5cbd4c;
+  border: transparent;
 }
 
 .profile-heading {
@@ -123,6 +188,7 @@
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
+
 .profile-box-2 {
   border-radius: 10px;
   padding: 16px;
@@ -133,23 +199,28 @@
 .fw-500 {
   font-weight: 500;
 }
+
 .heading-stock {
   font-size: var(--font-lg);
   font-weight: 500;
   color: var(--color-16191E);
 }
+
 .small-paragraph {
   font-size: var(--font-xxs);
   font-weight: 400;
   color: var(--color-44464A);
 }
+
 .about-slider .slick-slide {
   padding-right: 10px;
   padding-left: 10px;
 }
+
 .homePageSlider .slick-dots {
   display: flex !important;
 }
+
 .homePageSlider .slick-dots button {
   width: 23px;
   height: 4px;
@@ -159,6 +230,7 @@
   transition: 0.2s all;
   position: relative;
 }
+
 .homePageSlider .slick-dots button:after {
   content: "";
   position: absolute;
@@ -172,9 +244,11 @@
   border-radius: 2px;
   transition: 0.2s ease-out;
 }
+
 .homePageSlider .slick-dots .slick-active button:after {
   width: 100%;
 }
+
 .dots {
   overflow: hidden;
   display: -webkit-box;
@@ -187,6 +261,7 @@
   font-size: 0 !important;
   color: transparent !important;
 }
+
 .next,
 .prev {
   border-radius: 5px;
@@ -196,14 +271,17 @@
   height: 74px !important;
   transform-origin: center !important;
 }
+
 .next svg {
   transform: rotate(180deg);
   transform-origin: center !important;
 }
+
 .next:hover,
 .prev:hover {
   background: #5cbd4c;
 }
+
 .next:hover svg path,
 .prev:hover svg path {
   stroke: white !important;
@@ -218,6 +296,7 @@
 .hover-anim {
   transition: 0.3s ease-in-out;
 }
+
 .hover-anim:hover {
   transform: translateY(-20px);
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
@@ -226,52 +305,103 @@
 .down-animation {
   transition: 0.2s ease-in-out;
 }
+
 .down-animation:hover {
-  transform: translateY(-40px);
+  transform: translateY(-15px);
 }
+
 .arrow-none input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .text-decoration {
   text-decoration: none;
 }
 
-.w-518 {
-  width: 518px;
-}
 @media (min-width: 1600.99px) {
   .container {
     max-width: 1440px !important;
   }
+
   .h-341 {
     height: 341px;
   }
+  .w-lg-518 {
+    width: 518px;
+  }
+  .mr-lg-30 {
+    margin-right: 30px !important;
+  }
 }
+
+@media (max-width: 767.98px) {
+  .fs-lg-35 {
+    font-size: var(--font-35);
+  }
+}
+
 @media (max-width: 575.98px) {
   .next,
   .prev {
     display: none !important;
   }
+
   .prev {
     display: none !important;
     display: block !important;
   }
+
   .team-img {
     width: 75px;
     height: 75px;
   }
+
   .fs-sm-28 {
-    font-size: var(--font-28);
+    font-size: var(--font-28) !important;
   }
+
   .fs-sm-22 {
     font-size: var(--font-22);
   }
+
   .dots-2 {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
   }
+  .email-para {
+    font-size: var(--font-xxs) !important;
+  }
+  .sub-text {
+    font-size: var(--font-xxs) !important;
+  }
+}
+
+.bg-16191e {
+  color: var(--color-16191e);
+}
+
+.edit-label {
+  color: var(--color-44474b_08);
+  font-size: var(--font-xxs);
+}
+
+.payment-thead {
+  font-weight: 500;
+  font-size: var(--font-xs);
+  color: var(--color-16191e);
+}
+
+.tb-text {
+  font-size: var(--font-xs);
+  font-weight: normal;
+  color: var(--color-16191e);
+  opacity: 0.7;
+}
+
+.white-space-nowrap {
+  white-space: nowrap;
 }
