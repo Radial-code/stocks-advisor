@@ -1,6 +1,7 @@
 .pagination-number {
   list-style: none;
 }
+
 .pagination-number li {
   width: 45px;
   height: 45px;
@@ -23,6 +24,13 @@
   color: white;
   border: 2px solid transparent;
 }
+
+.pagination-number .arrow-icon:hover {
+  background-color: var(--color-88BEFC) !important;
+  color: white;
+  border: 2px solid transparent;
+}
+
 @media (max-width: 475.98px) {
   .pagination-number li {
     width: 27px;

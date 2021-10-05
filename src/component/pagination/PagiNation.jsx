@@ -6,7 +6,7 @@ const PagiNation = () => {
       <div className="row">
         <div className="col-12 mt-5">
           <ul className="d-flex pagination-number pr-15">
-            <li>
+            <li className="arrow-icon">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const PagiNation = () => {
             <li>2</li>
             <li>1</li>
 
-            <li>
+            <li className="arrow-icon">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
