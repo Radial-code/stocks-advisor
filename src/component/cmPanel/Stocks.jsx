@@ -13,8 +13,10 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       <div className="row">
         <div className="col-12">
           <div className="border-b-1 content-manager mb-3">
-            <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15">Content Manager</p>
+            <div className="d-flex justify-content-between align-items-center">
+              <p className="heading-stock pr-15 fs-sm-20 mb-0">
+                Content Manager
+              </p>
               <span onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -36,17 +38,17 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         <div className="col-12 d-flex justify-content-end current-stock-block ">
           <div className="current-stock-bg p-sm-3 p-2">
             <div className="mt-4 d-flex justify-content-between align-items-center">
-              <h1 className="current-stock-text ff-popins mb-0">
+              <h1 className="current-stock-text ff-popins mb-0 fs-sm-20">
                 Current Stocks
               </h1>
               <Link to="/content/manager/add/stock">
-                <button className="update-btn">Add New</button>
+                <button className="update-btn-2">Add New</button>
               </Link>
             </div>
             <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
               <div className="table-responsive  current-stock-scrollbar">
-                <table className="table table-borderless mt-3">
-                  <thead>
+                <table className="table table-borderless table-hover mb-3">
+                  <thead className="portfolio-sticky ">
                     <tr className="current-stock-table-head table-border-bottom table-border-top">
                       <th scope="col" className="text-center">
                         <span>

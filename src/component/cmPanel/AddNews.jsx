@@ -21,7 +21,7 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <Col xs={12}>
             <div className="border-b-1 content-manager mb-3">
               <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15">Content Manager</p>
+                <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
                 <span onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,9 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
 
           <Col xs={12}>
             <div className="manger-panel-shadow p-5 w-xl-1000">
-              <p className="heading-stock d-none d-sm-block">Add New News</p>
+              <p className="heading-stock d-none d-sm-block fs-sm-20">
+                Add New News
+              </p>
               <p className="heading-stock d-block d-sm-none">Add News</p>
 
               <div className="row">

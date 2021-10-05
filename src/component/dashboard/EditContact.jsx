@@ -10,7 +10,7 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row h-100 ">
-        <div className="col-12 d-none dashboard">
+        <div className="col-12   dashboard">
           <div className="border-b-1  mb-3">
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
