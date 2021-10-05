@@ -45,6 +45,50 @@
   --font-9: 9px;
 }
 
+/* OTP PAGE  */
+.otp-box {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.otp-inputs .form-control {
+  font-size: 12px;
+}
+.otp-inputs .form-control:focus {
+  box-shadow: none;
+}
+.verify-otp {
+  background-color: var(--color-127CF9);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-127CF9) !important;
+  transition: 0.3s;
+}
+.verify-otp:hover {
+  background-color: transparent;
+  color: var(--color-127CF9);
+}
+.resend-otp {
+  background-color: var(--color-88BEFC);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-88BEFC) !important;
+  transition: 0.3s;
+}
+.resend-otp:hover {
+  background-color: transparent;
+  color: var(--color-88BEFC);
+}
+
+/* OTP PAGE  */
+
 /*  ABOUT PAGE CSS */
 #root {
   font-family: "Poppins", sans-serif;
