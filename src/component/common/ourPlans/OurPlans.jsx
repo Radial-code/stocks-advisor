@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 const OurPlans = ({ homepage }) => {
-  console.log(homepage);
   return (
     <>
       <Container>
