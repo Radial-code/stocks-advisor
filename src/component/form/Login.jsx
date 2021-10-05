@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../redux/action/auth";
+import Loader from "../common/Loader";
 
 function Login({ history }) {
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ function Login({ history }) {
   const submitLoginInForm = () => {
     setError(true);
     if (logInDetails.email && logInDetails.password) {
-      console.log(logInDetails);
       dispatch(loginAction(logInDetails, setLoading, history));
     } else {
     }
@@ -82,7 +82,7 @@ function Login({ history }) {
                   onClick={() => submitLoginInForm()}
                   className=" w-100 form-btn  ff-popins"
                 >
-                  Log In
+                  {loading ? <Loader /> : "Log In"}
                 </button>
               </div>
             </Form>

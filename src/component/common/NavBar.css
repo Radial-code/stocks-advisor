@@ -342,46 +342,35 @@
 }
 
 @media (min-width: 1399.98px) {
-  .search-icon input[type="search"]:focus {
-    width: 170px !important;
+  .search-icon-input-header:focus {
+    width: 180px !important;
   }
 }
 
 /* search input css start here  */
-
-.search-icon input[type="search"] {
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: border-box;
-  /* -webkit-box-sizing: content-box; */
-  font-family: inherit;
-  font-size: 100%;
-}
 
 .search-icon input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
   display: none;
 }
 
-.search-icon input[type="search"] {
-  background: url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+.search-icon-input-header {
+  background: url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png)
+    no-repeat 9px center;
   border: 1px solid transparent !important;
   padding: 4px 10px 4px 32px;
   width: 55px;
-
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
   border-radius: 10em;
-
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
-
-.search-icon input[type="search"]:focus {
-  width: 110px;
+.search-icon-input-header:focus {
+  width: 130px;
   background-color: #fff;
   border-color: #66cc75;
-
   -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
   -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
   box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
@@ -395,19 +384,17 @@ input::-webkit-search-cancel-button {
   color: #999;
 }
 
-.search-icon input[type="search"] {
+.search-icon-input-header {
   width: 15px;
-  padding-left: 10px;
+  padding-left: 16px;
   color: transparent;
   cursor: pointer;
 }
-
-.search-icon input[type="search"]:hover {
+.search-icon-input-header:hover {
   background-color: #fff;
 }
-
-.search-icon input[type="search"]:focus {
-  width: 110px;
+.search-icon-input-header:focus {
+  width: 130px;
   padding-left: 32px;
   color: #000;
   background-color: #fff;
@@ -603,7 +590,8 @@ input::-webkit-search-cancel-button {
   }
 }
 
-@media screen and (max-width: 575.98px) {}
+@media screen and (max-width: 575.98px) {
+}
 
 @media screen and (max-width: 375.98px) {
   .logo-img-navbar {

@@ -26,6 +26,8 @@ import NewsDetails from "../view/NewsDetails";
 import NetflixChart from "./stockPage/NetflixChart";
 import ChangePassword from "./form/ChangePassword";
 import CreateNewPassword from "./form/CreateNewPassword";
+import OtpInputs from "./stocksotpinput/OtpInputs";
+import IsEmailMessage from "./auth/verfiy/IsEmailMessage";
 
 const Router = () => {
   return (
@@ -55,6 +57,8 @@ const Router = () => {
         <Route exact path="/AllNews" component={NewsDetails} />
         <Route exact path="/create-newpassword" component={CreateNewPassword} />
         <Route exact path="/change-password" component={ChangePassword} />
+        <Route exact path="/otpinputs" component={OtpInputs} />
+        <Route exact path="/email" component={IsEmailMessage} />
       </Switch>
       <Footer />
     </BrowserRouter>

@@ -45,6 +45,84 @@
   --font-9: 9px;
 }
 
+/* VERIFY EMAIL PAGE */
+
+.log-outbtn {
+  background-color: var(--color-88BEFC);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-88BEFC) !important;
+  transition: 0.3s;
+}
+.log-outbtn:hover {
+  background-color: transparent;
+  color: var(--color-88BEFC);
+}
+.request-line {
+  color: var(--color-88BEFC);
+}
+
+.email-verify-box {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  background-color: white;
+}
+.orr {
+  font-weight: 400;
+}
+/* OTP PAGE  */
+.otp-box {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.otp-inputs .form-control {
+  font-size: 12px;
+}
+
+.otp-inputs .form-control:focus {
+  box-shadow: none;
+  border-color: none;
+}
+
+.verify-otp {
+  background-color: var(--color-127CF9);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-127CF9) !important;
+  transition: 0.3s;
+}
+
+.verify-otp:hover {
+  background-color: transparent;
+  color: var(--color-127CF9);
+}
+
+.resend-otp {
+  background-color: var(--color-88BEFC);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-88BEFC) !important;
+  transition: 0.3s;
+}
+
+.resend-otp:hover {
+  background-color: transparent;
+  color: var(--color-88BEFC);
+}
+
+/* OTP PAGE  */
+
 /*  ABOUT PAGE CSS */
 #root {
   font-family: "Poppins", sans-serif;
@@ -66,9 +144,11 @@
 .bg-6B8BC1 {
   background-color: #6b8bc1;
 }
+
 .mr-0 {
   margin-right: 0px !important;
 }
+
 .font-xs {
   font-size: var(--font-xs) !important;
 }
@@ -128,12 +208,15 @@
   transition: 0.6s;
   border: 1px solid var(--color-127CF9);
 }
+
 .h-19 {
   height: 19px;
 }
+
 .w-19 {
   width: 19px;
 }
+
 .default-btn:hover {
   background-color: white;
   color: var(--color-127CF9);
@@ -272,6 +355,14 @@
   transform-origin: center !important;
 }
 
+.next {
+  margin-left: 20px;
+}
+
+.prev {
+  margin-right: 20px;
+}
+
 .next svg {
   transform: rotate(180deg);
   transform-origin: center !important;
@@ -328,9 +419,11 @@ input::-webkit-inner-spin-button {
   .h-341 {
     height: 341px;
   }
+
   .w-lg-518 {
     width: 518px;
   }
+
   .mr-lg-30 {
     margin-right: 30px !important;
   }
@@ -343,6 +436,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 575.98px) {
+
   .next,
   .prev {
     display: none !important;
@@ -372,9 +466,11 @@ input::-webkit-inner-spin-button {
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
   }
+
   .email-para {
     font-size: var(--font-xxs) !important;
   }
+
   .sub-text {
     font-size: var(--font-xxs) !important;
   }

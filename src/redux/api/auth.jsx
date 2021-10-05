@@ -53,3 +53,39 @@ export const resetPasswordApi = async (data) => {
 export const getUserProfileApi = async (data) => {
   return await axiosRequest("GET", `/profile`, data);
 };
+
+/**
+ * verify-email-token Api
+ * @param {Object} data
+ * @return
+ */
+export const verfiyEmailTokenApi = async (data) => {
+  return await axiosRequest("POST", `/verify-email-token`, data);
+};
+
+/**
+ * verify-email Api
+ * @param {Object} data
+ * @return
+ */
+export const verfiyEmailApi = async () => {
+  return await axiosRequest("GET", `/verify-email`);
+};
+
+/**
+ * verify-mobile-otp Api
+ * @param {Object} data
+ * @return
+ */
+export const verfiyMobileOtpApi = async (data) => {
+  return await axiosRequest("POST", `/verify-mobile-otp`, data);
+};
+
+/**
+ * send-otp Api
+ * @param {Object} data
+ * @return
+ */
+export const resendOtpApi = async (data) => {
+  return await axiosRequest("POST", `/send-otp`, data);
+};
