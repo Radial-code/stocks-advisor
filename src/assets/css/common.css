@@ -55,9 +55,11 @@
 .otp-inputs .form-control {
   font-size: 12px;
 }
+
 .otp-inputs .form-control:focus {
   box-shadow: none;
 }
+
 .verify-otp {
   background-color: var(--color-127CF9);
   color: white;
@@ -68,10 +70,12 @@
   border: 2px solid var(--color-127CF9) !important;
   transition: 0.3s;
 }
+
 .verify-otp:hover {
   background-color: transparent;
   color: var(--color-127CF9);
 }
+
 .resend-otp {
   background-color: var(--color-88BEFC);
   color: white;
@@ -82,6 +86,7 @@
   border: 2px solid var(--color-88BEFC) !important;
   transition: 0.3s;
 }
+
 .resend-otp:hover {
   background-color: transparent;
   color: var(--color-88BEFC);
@@ -110,9 +115,11 @@
 .bg-6B8BC1 {
   background-color: #6b8bc1;
 }
+
 .mr-0 {
   margin-right: 0px !important;
 }
+
 .font-xs {
   font-size: var(--font-xs) !important;
 }
@@ -172,12 +179,15 @@
   transition: 0.6s;
   border: 1px solid var(--color-127CF9);
 }
+
 .h-19 {
   height: 19px;
 }
+
 .w-19 {
   width: 19px;
 }
+
 .default-btn:hover {
   background-color: white;
   color: var(--color-127CF9);
@@ -372,9 +382,11 @@ input::-webkit-inner-spin-button {
   .h-341 {
     height: 341px;
   }
+
   .w-lg-518 {
     width: 518px;
   }
+
   .mr-lg-30 {
     margin-right: 30px !important;
   }
@@ -387,6 +399,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 575.98px) {
+
   .next,
   .prev {
     display: none !important;
@@ -416,9 +429,11 @@ input::-webkit-inner-spin-button {
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
   }
+
   .email-para {
     font-size: var(--font-xxs) !important;
   }
+
   .sub-text {
     font-size: var(--font-xxs) !important;
   }
@@ -448,4 +463,13 @@ input::-webkit-inner-spin-button {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+.slick-arrow slick-next {
+  display: none !important;
+}
+
+
+.slick-arrow .slick-next {
+  display: none !important;
 }
