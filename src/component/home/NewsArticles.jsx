@@ -1,43 +1,58 @@
 import React from "react";
-import { withRouter } from "react-router";
 import Slider from "react-slick";
-import NewsSlider from "../../assets/img/newsArticles_1.png";
-import img_1 from "../../assets/img/calendar-icon.png";
+import NewsArticlesListItem from "./NewsArticlesListItem";
+import { withRouter } from "react-router";
+
 const NewsArticles = ({ history }) => {
-  const settings = {
-    centerMode: true,
+  var settings = {
     dots: false,
-    speed: 300,
+    infinite: true,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    infinite: true,
-    rtl: true,
+    initialSlide: 0,
+    // autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          innerWidth: 200,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          innerWidth: 200,
+          slidesToShow: 2.3,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2.09,
           slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
       },
       {
-        breakpoint: 992,
+        breakpoint: 900,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.05,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
         },
       },
@@ -56,324 +71,10 @@ const NewsArticles = ({ history }) => {
               className="about-slider-2 d-flex align-items-center"
               {...settings}
             >
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p className="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p className="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>{" "}
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>{" "}
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>{" "}
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center d-md-block pr-15">
-                <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-                  <img className="w-100" src={NewsSlider} alt="" />
-                  <div className="p-3">
-                    <p className="text-end stock-paragraph">
-                      {" "}
-                      <span className="d-flex justify-content-end align-items-center">
-                        <span className="d-flex justify-content-end px-2">
-                          <img className="w-19 h-19" src={img_1} alt="" />
-                        </span>{" "}
-                        <span>16/07/2021</span>
-                      </span>
-                    </p>
-                    <h3 className="news-heading-font ">
-                      Duis sed augue eu augue ornare augue ornare porta
-                    </h3>
-                    <p className="stock-paragraph text-end">
-                      Duis venenatis aliquet eros, non feugiat tortor semper
-                      sed. In diam risus, efficitur sit amet dolor vitae,
-                      finibus tristique arcu finibus tristique arcu
-                    </p>
-                    <p className="read-more text-end">Read More...</p>
-                    <p className="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <NewsArticlesListItem />
+              <NewsArticlesListItem />
+              <NewsArticlesListItem />
+              <NewsArticlesListItem />
             </Slider>
           </div>
         </div>
