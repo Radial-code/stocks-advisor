@@ -2,11 +2,11 @@ import React from "react";
 import "./Pagination.css";
 const PagiNation = () => {
   return (
-    <div>
+    <div className="mt-sm-4 mt-3">
       <div className="row">
-        <div className="col-12 mt-5">
-          <ul className="d-flex pagination-number pr-15">
-            <li className="arrow-icon">
+        <div className="col-12">
+          <ul className="d-flex pagination-number ">
+            <li className="arrow-icon px-3 py-3">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -23,11 +23,11 @@ const PagiNation = () => {
                 </svg>
               </span>
             </li>
-            <li>3</li>
-            <li>2</li>
-            <li>1</li>
+            <li className="px-3 py-3">3</li>
+            <li className="px-3 py-3">2</li>
+            <li className="px-3 py-3">1</li>
 
-            <li className="arrow-icon">
+            <li className="arrow-icon px-3 py-3">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

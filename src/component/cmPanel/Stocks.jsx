@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
-    <div className="container  mt-5">
+    <div className="container mt-5">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -44,11 +44,11 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </Link>
             </div>
             <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
-              <div className="table-responsive  current-stock-scrollbar">
+              <div className="table-responsive ">
                 <table className="table table-borderless mt-3">
                   <thead>
                     <tr className="current-stock-table-head table-border-bottom table-border-top">
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -59,7 +59,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         Date{" "}
                       </th>
 
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -69,7 +69,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Profit/Loss
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -79,7 +79,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         State
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -89,7 +89,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Current Price
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -99,7 +99,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Join Price
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -109,7 +109,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Category
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -119,7 +119,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Symbol
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -129,7 +129,7 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         </span>
                         Name
                       </th>
-                      <th scope="col" className="text-center">
+                      <th scope="col" className="text-center position-sticky top-0 ">
                         <span>
                           <img
                             className="ps-1"
@@ -141,9 +141,9 @@ const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody >
                     <tr className="current-stock-data table-border-bottom">
-                      <td className="text-center">15/07</td>
+                      <td className="text-center ">15/07</td>
                       <td className="text-center profitloss-text">25</td>
 
                       <td className="text-center">Sold</td>
