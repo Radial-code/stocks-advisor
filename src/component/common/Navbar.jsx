@@ -120,7 +120,7 @@ const Navbar = () => {
                 click ? "nav-menu active" : "nav-menu"
               } scroll-sm-bar`}
             >
-              <div className="d-md-flex align-items-xl-center mt-md-5 w-100 justify-content-xl-between justify-content-around ">
+              <div className="d-md-flex align-items-xl-center mt-md-4 w-100 justify-content-xl-between justify-content-around ">
                 <li className=" d-md-none d-flex justify-content-between mt-4">
                   <div className="d-flex justify-content-start">
                     <li className="items-nav mt-0 d-xl-none d-block">
@@ -242,7 +242,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 </div>
-                <li className=" d-xl-none d-none d-md-block">
+                <li className="d-xl-none d-none d-md-block">
                   <div className="search-input">
                     <input
                       type="text"
@@ -265,9 +265,11 @@ const Navbar = () => {
                 </li>
                 <div className="d-xl-flex align-items-center">
                   <li className=" d-none d-xl-block">
-                    <span className="search-icon">
-                      <input type="search" placeholder="search" />
-                    </span>
+                    <input
+                      type="search"
+                      className="search-icon-input-header"
+                      placeholder="search"
+                    />
                   </li>
 
                   <li className="nav-item d-none d-md-block">
