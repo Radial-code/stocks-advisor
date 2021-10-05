@@ -80,3 +80,12 @@ export const verfiyEmailApi = async () => {
 export const verfiyMobileOtpApi = async (data) => {
   return await axiosRequest("POST", `/verify-mobile-otp`, data);
 };
+
+/**
+ * send-otp Api
+ * @param {Object} data
+ * @return
+ */
+export const resendOtpApi = async (data) => {
+  return await axiosRequest("POST", `/send-otp`, data);
+};

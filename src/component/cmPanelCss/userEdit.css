@@ -1,6 +1,7 @@
 .fs-22 {
   font-size: var(--font-22);
 }
+
 .edit-user {
   width: 445px;
   height: 50px;
@@ -11,6 +12,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .edit-user input {
   width: 430px;
   height: 40px;
@@ -20,6 +22,7 @@
 
   border: 0px;
 }
+
 .edituser-card {
   width: 1000px;
 
@@ -27,17 +30,20 @@
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
 }
+
 .edituser-amount {
   font-weight: 700;
   font-size: var(--font-md);
   color: var(--color-88BEFC);
 }
+
 .plan-card-edituser {
   width: 451px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
 }
+
 .switch {
   display: inline-block;
   height: 26px;
@@ -49,6 +55,7 @@
 .switch input {
   display: none;
 }
+
 .slider {
   border: 1px solid var(--color-127CF9) !important;
   background-color: #ccc;
@@ -72,12 +79,12 @@
   width: 22px;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: var(--color-B8D8FD);
   border: 1px solid var(--color-127CF9) !important;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(19px);
 }
 
@@ -88,6 +95,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
 .current-para {
   width: 385px;
   border: 1px solid #0000001a;
@@ -104,9 +112,11 @@ input:checked + .slider:before {
   width: 46px;
   border: 1 px solid black;
 }
+
 .switch-2 input {
   display: none;
 }
+
 .slider-2 {
   border: 1px solid var(--color-127CF9) !important;
   background-color: #ccc;
@@ -118,6 +128,7 @@ input:checked + .slider:before {
   top: 0;
   transition: 0.4s;
 }
+
 .slider-2:before {
   background-color: var(--color-127CF9);
   bottom: 1px;
@@ -128,16 +139,20 @@ input:checked + .slider:before {
   transition: 0.4s;
   width: 22px;
 }
-input:checked + .slider-2 {
+
+input:checked+.slider-2 {
   background-color: var(--color-B8D8FD);
   border: 1px solid var(--color-127CF9) !important;
 }
-input:checked + .slider-2:before {
+
+input:checked+.slider-2:before {
   transform: translateX(19px);
 }
+
 .slider-2.round {
   border-radius: 26px;
 }
+
 .slider-2.round:before {
   border-radius: 50%;
 }
@@ -147,6 +162,7 @@ input:checked + .slider-2:before {
   .edituser-card {
     max-width: 900px;
   }
+
   .edit-user {
     width: 400px;
   }
@@ -154,6 +170,7 @@ input:checked + .slider-2:before {
   .edit-user input {
     width: 380px;
   }
+
   .plan-card-edituser {
     width: 400px;
   }
@@ -161,7 +178,7 @@ input:checked + .slider-2:before {
 
 @media (min-width: 1199.98px) and (max-width: 1399.98px) {
   .fs-lg-22 {
-    font-size: var(--font-22);
+    font-size: var(--font-22) !important;
   }
 }
 
@@ -173,16 +190,20 @@ input:checked + .slider-2:before {
   .edit-user {
     width: 315px;
   }
+
   .edit-user input {
     width: 300px;
   }
+
   .plan-card-edituser {
     width: 315px;
   }
+
   .current-para {
     width: 100%;
   }
 }
+
 @media (max-width: 1280.98px) {
   .edituser-card {
     max-width: 100%;
@@ -192,87 +213,109 @@ input:checked + .slider-2:before {
     width: 100%;
     padding: 8px;
   }
+
   .edit-user input {
     width: 100%;
   }
+
   .plan-card-edituser {
     width: 400px;
   }
+
   .current-para {
     width: 100%;
   }
 }
+
 @media (max-width: 991.98px) {
   .plan-card-edituser {
     width: 100%;
   }
 }
+
 @media (max-width: 575.98px) {
   .fs-sm-14 {
     font-size: var(--font-xxs);
   }
+
   .fs-sm-15 {
-    font-size: var(--font-15);
+    font-size: var(--font-15) !important;
   }
+
   .fs-sm-16 {
-    font-size: var(--font-xs);
+    font-size: var(--font-xs) !important;
   }
+
   .fs-sm-11 {
     font-size: var(--font-11) !important;
   }
+
   .fs-sm-13 {
     font-size: var(--font-13);
   }
+
   .chart-text-2 {
     font-size: var(--font-18);
   }
+
   .w-sm-303 {
     width: 303px;
   }
 }
+
 @media (max-width: 375.98px) {
   .edit-user {
     height: 37px;
   }
+
   .edit-user input {
     height: 33px;
   }
+
   .update-btn {
     width: 100%;
     padding: 4px 37px;
   }
+
   .current-para {
     border: 1px solid #0000001a;
     border-radius: 10px;
     padding: 8px;
   }
+
   .current-para div {
     display: block !important;
   }
+
   .switch-2 {
     width: 31px;
     height: 16px;
   }
+
   .slider-2:before {
     height: 16px;
     width: 16px;
     left: 0;
     bottom: -1px;
   }
+
   .slider-2 {
     right: -6px;
   }
+
   .edituser-card {
     width: 303px;
   }
+
   .w-xs-303 {
     width: 303px;
   }
 
   .p-xs-right-left-0 {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
+
   .homePageSlider .slick-dots {
     bottom: -8px;
   }

@@ -29,7 +29,7 @@ function App({ history }) {
         isScreenFixed ? "overflow-hidden  h-100vh" : ""
       } d-flex justify-content-between flex-column h-100vh `}
     >
-      {auth ? (
+      {/* {auth ? (
         <>
           {loading ? (
             <Loader />
@@ -40,9 +40,9 @@ function App({ history }) {
             <Router />
           )}
         </>
-      ) : (
-        <Router />
-      )}
+      ) : ( */}
+      <Router />
+      {/* // )} */}
     </div>
   );
 }

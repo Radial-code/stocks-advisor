@@ -1,21 +1,20 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
-import { verfiyMobileOtpAction } from "../../../redux/action/auth";
+import { resendOtpAction } from "../../../redux/action/auth";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
 
-const IsPhoneConfirmed = ({ history }) => {
+const ResendOtp = ({ history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [verificationOTP, setVerificationOTP] = useState("");
-  const userData = useSelector((state) => state.auth.userData);
+  const [phone, setPhone] = useState("");
 
-  const verificationOTPSubmit = () => {
-    if (verificationOTP) {
+  const Submit = () => {
+    if (phone) {
       const data = {
-        verificationOTP: verificationOTP,
+        phone: phone,
       };
-      dispatch(verfiyMobileOtpAction(data, setLoading, history, userData));
+      dispatch(resendOtpAction(data, setLoading, history));
     }
   };
 
@@ -32,14 +31,15 @@ const IsPhoneConfirmed = ({ history }) => {
             <div className="row mt-5 justify-content-center ">
               <div className="col-12 col-xl-8  otp-inputs mb-3 pt-5">
                 <label for="exampleInputEmail1" class="form-label">
-                  Enter your otp
+                  Enter your mobile number
                 </label>
                 <input
-                  type="email"
+                  type="number"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="  Enter your otp"
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
             </div>
@@ -49,11 +49,6 @@ const IsPhoneConfirmed = ({ history }) => {
                   Verify OTP
                 </button>
               </div>
-              <div className="">
-                <button type="button" className="resend-otp px-3  mt-3  w-100">
-                  Resend OTP
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -61,4 +56,4 @@ const IsPhoneConfirmed = ({ history }) => {
     </div>
   );
 };
-export default withRouter(IsPhoneConfirmed);
+export default withRouter(ResendOtp);

@@ -11,7 +11,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins border-0">
+          <button className="ff-popins join-now ff-popins ">
             Join Now
           </button>
         </div>
@@ -22,7 +22,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins border-0">
+          <button className="ff-popins join-now ff-popins ">
             Join Now
           </button>
         </div>
@@ -33,7 +33,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins border-0">
+          <button className="ff-popins join-now ff-popins ">
             Join Now
           </button>
         </div>
