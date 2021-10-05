@@ -45,6 +45,38 @@
   --font-9: 9px;
 }
 
+/* VERIFY EMAIL PAGE */
+
+.log-outbtn {
+  background-color: var(--color-88BEFC);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: var(--font-18);
+  padding: 6px 0px;
+  border: 2px solid var(--color-88BEFC) !important;
+  transition: 0.3s;
+}
+
+.log-outbtn:hover {
+  background-color: transparent;
+  color: var(--color-88BEFC);
+}
+
+.request-line {
+  color: var(--color-88BEFC);
+}
+
+.email-verify-box {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
+  border-radius: 10px;
+  background-color: white;
+}
+
+.orr {
+  font-weight: 400;
+}
+
 /* OTP PAGE  */
 .otp-box {
   box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
@@ -58,6 +90,7 @@
 
 .otp-inputs .form-control:focus {
   box-shadow: none;
+  border-color: none;
 }
 
 .verify-otp {
@@ -326,6 +359,14 @@
   transform-origin: center !important;
 }
 
+.next {
+  margin-left: 20px;
+}
+
+.prev {
+  margin-right: 20px;
+}
+
 .next svg {
   transform: rotate(180deg);
   transform-origin: center !important;
@@ -463,13 +504,4 @@ input::-webkit-inner-spin-button {
 
 .white-space-nowrap {
   white-space: nowrap;
-}
-
-.slick-arrow slick-next {
-  display: none !important;
-}
-
-
-.slick-arrow .slick-next {
-  display: none !important;
 }

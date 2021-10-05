@@ -8,12 +8,12 @@ const Chart = () => {
     <>
       <div className="pr-15 pl-15 mt-2">
         <div className="border-b-1">
-          <p className="profile-heading fs-lg-22 fs-sm-15 ">
+          <p className="profile-heading fs-lg-22 fs-sm-15 pt-2">
             Our Portfolio's Performance
           </p>
         </div>
       </div>
-      <div className="mt-5">
+      <div className="my-5">
         <LineChart2 />
         <LineChart />
 

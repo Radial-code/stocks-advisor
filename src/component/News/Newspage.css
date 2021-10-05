@@ -22,10 +22,12 @@
     max-width: 397px;
   }
 }
+
 @media (max-width: 1599.98px) {
   .articles-card {
     width: 350px;
   }
+
   .related-articles-img {
     width: 350px;
   }
@@ -35,6 +37,7 @@
   .profile-box {
     padding: 7px;
   }
+
   .profile-box-2 {
     width: 303px;
     border-radius: 10px;
@@ -42,12 +45,22 @@
     background: #fff;
     box-shadow: unset;
   }
+
   .h-xs-171 {
     height: 171px;
   }
 }
+
 @media (max-width: 370.98px) {
   .fs-xs-15 {
-    font-size: var(--font-15);
+    font-size: var(--font-15) !important;
+  }
+
+  .fs-xs-14 {
+    font-size: var(--font-14) !important;
+  }
+
+  .fs-xs-12 {
+    font-size: var(--font-12) !important;
   }
 }
