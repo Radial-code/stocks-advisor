@@ -25,7 +25,7 @@ function App({ history }) {
         isScreenFixed ? "overflow-hidden  h-100vh" : ""
       } d-flex justify-content-between flex-column h-100vh `}
     >
-      {loading ? <Loader /> : <Router />}
+      {loading ? <Loader /> : <Router />}{" "}
     </div>
   );
 }
