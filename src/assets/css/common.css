@@ -57,10 +57,12 @@
   border: 2px solid var(--color-88BEFC) !important;
   transition: 0.3s;
 }
+
 .log-outbtn:hover {
   background-color: transparent;
   color: var(--color-88BEFC);
 }
+
 .request-line {
   color: var(--color-88BEFC);
 }
@@ -70,9 +72,11 @@
   border-radius: 10px;
   background-color: white;
 }
+
 .orr {
   font-weight: 400;
 }
+
 /* OTP PAGE  */
 .otp-box {
   box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
@@ -267,14 +271,14 @@
 
 .profile-box {
   border-radius: 10px;
-  padding: 16px;
+  /* padding: 16px;s */
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
 
 .profile-box-2 {
   border-radius: 10px;
-  padding: 16px;
+  /* padding: 16px; */
   background: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
@@ -289,10 +293,32 @@
   color: var(--color-16191E);
 }
 
+@media (max-width:567px) {
+  .heading-stock {
+    --font-lg: 18px
+  }
+}
+
+.parargraph-stock {
+  font-size: var(--font-xs);
+}
+
+@media (max-width:567px) {
+  .parargraph-stock {
+    --font-xs: 14px;
+  }
+}
+
 .small-paragraph {
   font-size: var(--font-xxs);
   font-weight: 400;
   color: var(--color-44464A);
+}
+
+@media (max-width:567px) {
+  .small-paragraph {
+    --font-xxs: 11px
+  }
 }
 
 .about-slider .slick-slide {
