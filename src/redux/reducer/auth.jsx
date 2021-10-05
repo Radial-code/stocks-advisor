@@ -2,6 +2,7 @@ import { SIGN_UP_SUCCESSFULLY } from "../action/auth";
 import { LOGIN_SUCCESSFULLY } from "../action/auth";
 
 const initialState = {
+  token: "",
   userData: {},
 };
 
@@ -12,15 +13,16 @@ export default function AuthReducer(state = initialState, action) {
       console.log(action.data);
       return {
         ...state,
-        userData: action.data,
+        userData: action.data.user,
+        token: action.data["x-api-key"],
       };
     }
-    // LOGIN REDUCER TO SAVE USER DATA
 
+    // LOGIN REDUCER TO SAVE USER DATA
     case LOGIN_SUCCESSFULLY: {
       return {
         ...state,
-        userData: action.data,
+        token: action.data,
       };
     }
 

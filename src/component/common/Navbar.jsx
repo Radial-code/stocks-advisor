@@ -20,19 +20,17 @@ const Navbar = () => {
   const [LoginActive, setLoginActive] = useState(false);
 
   const dropHandler = () => {
-    console.log(student, "student");
     setStudent(!student);
   };
 
   const dashboardHandler = () => {
-    console.log(dashboard, "dashboard");
     setDashboard(!dashboard);
   };
 
   // ACTIVE HEADER AS PATH
   const pathNane = window.location.pathname;
   useEffect(() => {
-    if (pathNane === "/") {
+    if (pathNane === "/home") {
       setHomeActive(true);
       setAboutActive(false);
       setNewsActive(false);
@@ -59,7 +57,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/ourplans") {
+    } else if (pathNane === "/") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -68,7 +66,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/contactus") {
+    } else if (pathNane === "/contact-us") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -171,7 +169,7 @@ const Navbar = () => {
                   >
                     <NavLink
                       exact
-                      to="/"
+                      to="/home"
                       activeClassName="active"
                       className="nav-links"
                       onClick={click ? handleClick : null}
@@ -219,7 +217,7 @@ const Navbar = () => {
                   >
                     <NavLink
                       exact
-                      to="/ourplans"
+                      to="/"
                       activeClassName="active"
                       className="nav-links"
                       onClick={click ? handleClick : null}
@@ -235,7 +233,7 @@ const Navbar = () => {
                   >
                     <NavLink
                       exact
-                      to="/contactus"
+                      to="/contact-us"
                       activeClassName="active"
                       className="nav-links"
                       onClick={click ? handleClick : null}
