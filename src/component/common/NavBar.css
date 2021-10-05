@@ -590,7 +590,8 @@ input::-webkit-search-cancel-button {
   }
 }
 
-@media screen and (max-width: 575.98px) {}
+@media screen and (max-width: 575.98px) {
+}
 
 @media screen and (max-width: 375.98px) {
   .logo-img-navbar {
