@@ -8,6 +8,7 @@ import {
   verfiyEmailTokenApi,
   verfiyEmailApi,
   verfiyMobileOtpApi,
+  resendOtpApi,
 } from "../api/auth";
 
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
@@ -244,3 +245,27 @@ export const verfiyMobileOtpAction =
       setTimeout(Swal.close, 2000);
     }
   };
+
+/**
+ * Resend OTP action*
+ * @param {Object} data
+ * @returns
+ */
+export const resendOtpAction = (data, setLoading, history) => async () => {
+  setLoading(true);
+  try {
+    const response = await resendOtpApi(data);
+    if (response.success) {
+      setLoading(false);
+      history.push("/verify/mobile-otp");
+    } else {
+      setLoading(false);
+      Swal.fire("Error!", `Failed to authenticate Mobile number`, "Try again");
+      setTimeout(Swal.close, 4000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
