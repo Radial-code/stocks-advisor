@@ -65,6 +65,7 @@ function LineChart() {
           <YAxis
             dataKey="uv"
             axisLine={false}
+             dx={-20}
             tickLine={false}
             tickFormatter={(number) => `${number}%`}
           />

@@ -2,7 +2,7 @@ import React from "react";
 import "./Plans.css";
 function Plans() {
   return (
-    <div className="container">
+    <div className="container px-sm-4 px-0 ">
       <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
       <span className="subs-plans-line d-block mb-4"></span>
       <div className="subs-border d-flex justify-content-between align-items-center p-3">

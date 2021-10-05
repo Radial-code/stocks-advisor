@@ -66,6 +66,7 @@ function LineChart3() {
               dataKey="uv"
               axisLine={false}
               tickLine={false}
+               dx={-20}
               tickFormatter={(number) => `${number}%`}
             />
             <Tooltip />

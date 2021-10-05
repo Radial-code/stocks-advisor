@@ -63,7 +63,7 @@
 }
 
 .current-stock-scrollbar {
-  max-height: 350px;
+  /* max-height: 350px; */
   overflow: auto;
 }
 
@@ -143,7 +143,8 @@
 .sold-stock-scrollbar::-webkit-scrollbar {
 
   height: 5px;
-  width: 5px;
+  width: 7px;
+
 }
 
 .sold-stock-scrollbar::-webkit-scrollbar-track {
@@ -160,6 +161,7 @@
 .current-stock-scrollbar::-webkit-scrollbar {
   height: 5px;
   width: 5px;
+  direction: ltr;
 }
 
 .current-stock-scrollbar::-webkit-scrollbar-track {
@@ -184,6 +186,8 @@
 @media (min-width: 1280.98px) and (max-width: 1399.98px) {
   .current-stock-bg {
     width: 750px;
+
+
   }
 }
 
