@@ -439,7 +439,18 @@ input::-webkit-inner-spin-button {
   }
 }
 
+
+
 @media (max-width: 575.98px) {
+
+  .fs-xs-19 {
+    font-size: 19px;
+  }
+
+  .w-xs-95 {
+    width: 95px;
+  }
+
 
   .next,
   .prev {
@@ -504,4 +515,21 @@ input::-webkit-inner-spin-button {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+.about-slider-4 .slick-next {
+  display: none !important;
+}
+
+.about-slider-4 .slick-dots {
+  bottom: -37px !important;
+}
+
+
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .fs-992-1200-19 {
+    font-size: 19px;
+  }
 }
