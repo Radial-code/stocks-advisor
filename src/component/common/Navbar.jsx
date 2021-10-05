@@ -4,7 +4,6 @@ import logo from "../../assets/img/Navbar-logo-img.png";
 import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
 import "./NavBar.css";
 
-
 const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
@@ -110,7 +109,7 @@ const Navbar = () => {
     <>
       <div className={click ? "main-container" : ""} onClick={() => Close()}>
         <nav className="navbar" onClick={(e) => e.stopPropagation()}>
-          <div className="container justify-content-between">
+          <div className="container mx-4 mx-sm-auto justify-content-between">
             <div>
               <NavLink exact to="/" className="nav-logo logo-img-navbar">
                 <img className="logo-img-navbar" src={logo} alt="" />

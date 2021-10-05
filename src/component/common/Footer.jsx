@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   return (
     <section className="bg-16191E">
-      <div className="container pt-lg-5 pt-3  pb-3 pt-lg-5">
+      <div className="container pt-3 pb-4 pt-lg-5">
         <div className="row justify-content-between align-items-end">
           <div className="col-lg-3 col-12 d-flex  flex-column justify-content-center align-items-lg-start">
             <Link to="/" className="text-center">
