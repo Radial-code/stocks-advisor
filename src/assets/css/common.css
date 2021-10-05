@@ -64,6 +64,11 @@
   background-color: transparent;
   color: var(--color-88BEFC);
 }
+.log-outbtn:hover {
+  background-color: transparent;
+  color: var(--color-88BEFC);
+}
+
 .request-line {
   color: var(--color-88BEFC);
 }
@@ -73,9 +78,11 @@
   border-radius: 10px;
   background-color: white;
 }
+
 .orr {
   font-weight: 400;
 }
+
 /* OTP PAGE  */
 .otp-box {
   box-shadow: 0px 0px 15px rgb(0 0 0 / 5%);
@@ -439,6 +446,14 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 575.98px) {
+  .fs-xs-19 {
+    font-size: 19px;
+  }
+
+  .w-xs-95 {
+    width: 95px;
+  }
+
   .next,
   .prev {
     display: none !important;
@@ -502,4 +517,18 @@ input::-webkit-inner-spin-button {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+.about-slider-4 .slick-next {
+  display: none !important;
+}
+
+.about-slider-4 .slick-dots {
+  bottom: -37px !important;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .fs-992-1200-19 {
+    font-size: 19px;
+  }
 }

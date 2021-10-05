@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 const AboutSlider = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 3,
@@ -29,25 +29,12 @@ const AboutSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 675,
-        settings: {
-          slidesToShow: 1.02,
-          slidesToScroll: 1,
-        },
-      },
-
-      {
-        breakpoint: 576,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
+     
+    
     ],
   };
   return (
@@ -56,24 +43,16 @@ const AboutSlider = () => {
       <Slider dir="rtl" className="about-slider-4 mt-4" {...settings}>
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19  fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+          
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -84,24 +63,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+          
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -112,24 +83,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+           
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -140,24 +103,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+          
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -168,24 +123,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+           
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -196,24 +143,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+           
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -224,24 +163,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+          
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
@@ -252,24 +183,16 @@ const AboutSlider = () => {
 
         <div className="d-flex justify-content-center fl pr-15 d-sm-block">
           <div className="  profile-box">
-            <div className=" d-none d-sm-block">
+            <div className="">
               <div className="d-flex align-items-center flex-row-reverse">
-                <img className="w-126" src={Team} alt="" />{" "}
+                <img className="w-126 w-xs-95" src={Team} alt="" />{" "}
                 <div className="me-3 d-flex  flex-column pr-15">
-                  <h4 className="profile-heading">Jhone Doe</h4>
+                  <h4 className="profile-heading fs-xs-19 fs-992-1200-19">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center flex-column d-sm-none align-items-center mt-4">
-              <img className="team-img " src={Team} alt="" />{" "}
-              <div className="me-3 d-flex   flex-column mt-3">
-                <h4 className="profile-heading fs-sm-15">Jhone Doe</h4>
-                <p className="profile-heading font-xs text-center fs-sm-11">
-                  Manager
-                </p>
-              </div>
-            </div>
+           
             <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
               Praesent mauris diam, sollicitudin id rutrum ut, sagittis eu enim.
