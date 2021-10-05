@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getPlansListAction } from "../../../redux/action/plan";
+import BubblesLoader from "../BubblesLoader";
 
 const OurPlans = ({ homepage }) => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const planList = useSelector((state) => state.list.planList);
+
+  useEffect(() => {
+    dispatch(getPlansListAction(setLoading));
+  }, []);
+
   return (
     <>
       <Container>
@@ -15,116 +27,54 @@ const OurPlans = ({ homepage }) => {
               Subscription Plans
             </p>
           </Col>
-
-          <Col xs={12}>
-            <div className="row mt-sm-5 ">
-              <Col
-                xl={4}
-                md={6}
-                className={` ${
-                  homepage ? "down-animation" : ""
-                } d-flex justify-content-center mt-3 mt-md-0`}
-              >
-                <section className="bg-card-plan">
-                  <p className="plan-card d-flex justify-content-center pt-5">
-                    Plan - 1
-                  </p>
-                  <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
-                    <p className="amount-card-month align-items-center d-flex  mb-0">
-                      <span className="d-none d-sm-block month">month/</span>
-
-                      <span> 299.99 $</span>
-                    </p>
-                  </div>
-                  <p className="card-paragraph  mt-4">
-                    Duis venenatis aliquet Eros, non feugiat Tortor semper sed.
-                    In diam risus, efficitur Sit amet dolor vitae Finibus
-                    tristique Arcu finibus tristique
-                  </p>
-                  <div className="d-flex justify-content-center mt-5 pb-5">
-                    <button className="join-now-btn text-white">
-                      Join Now
-                    </button>
-                  </div>
-                </section>
-              </Col>
-
-              <Col
-                xl={4}
-                md={6}
-                className={` ${
-                  homepage ? "down-animation" : ""
-                } d-flex justify-content-center mt-5 mt-md-0`}
-              >
-                <section className="bg-card-plan">
-                  <p className="plan-card d-flex justify-content-center pt-5">
-                    Plan - 2
-                  </p>
-                  <div className="card-amount-2 text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
-                    <p className="amount-card-month align-items-center d-flex  mb-0">
-                      <span className="d-none d-sm-block month">month/</span>
-
-                      <span> 299.99 $</span>
-                    </p>
-                  </div>
-                  <p className="card-paragraph  mt-4">
-                    Duis venenatis aliquet Eros, non feugiat Tortor semper sed.
-                    In diam risus, efficitur Sit amet dolor vitae Finibus
-                    tristique Arcu finibus tristique
-                  </p>
-                  <div className="d-flex justify-content-center mt-5 pb-5">
-                    <button className="join-now-btn-2 text-white">
-                      Join Now
-                    </button>
-                  </div>
-                </section>
-              </Col>
-
-              <Col
-                xl={4}
-                lg={12}
-                className={` ${
-                  homepage ? "down-animation" : ""
-                } d-flex justify-content-center mt-5 mt-xl-0`}
-              >
-                <section className="bg-card-plan">
-                  <p className="plan-card d-flex justify-content-center pt-5">
-                    Plan - 3
-                  </p>
-                  <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
-                    <p className="amount-card-month align-items-center d-flex  mb-0">
-                      <span className="d-none d-sm-block month">month/</span>
-
-                      <span> 299.99 $</span>
-                    </p>
-                  </div>
-                  <p className="card-paragraph  mt-4">
-                    Duis venenatis aliquet Eros, non feugiat Tortor semper sed.
-                    In diam risus, efficitur Sit amet dolor vitae Finibus
-                    tristique Arcu finibus tristique
-                  </p>
-                  <div className="d-flex justify-content-center mt-5 pb-5">
-                    <button className="join-now-btn text-white">
-                      Join Now
-                    </button>
-                  </div>
-                </section>
-              </Col>
-            </div>
-          </Col>
-          {!homepage ? (
-            <Col xs={12} className="d-flex justify-content-center mt-5">
-              {/* <button className="sign-up-btn text-white">
-                Sign up for Free
-              </button> */}
-            </Col>
+          {loading ? (
+            <BubblesLoader />
           ) : (
-            ""
+            <Col xs={12}>
+              <div className="row mt-sm-5 ">
+                {planList && planList.length
+                  ? planList.map((value, index) => {
+                      return (
+                        <Col
+                          key={index}
+                          xl={4}
+                          md={6}
+                          className={` ${
+                            homepage ? "down-animation" : ""
+                          } d-flex justify-content-center mt-3 mt-md-0`}
+                        >
+                          <section className="bg-card-plan">
+                            <p className="plan-card d-flex justify-content-center pt-5">
+                              Plan - {index + 1}
+                            </p>
+                            <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
+                              <p className="amount-card-month align-items-center d-flex  mb-0">
+                                <span className="d-none d-sm-block month">
+                                  {value.type}/
+                                </span>
+
+                                <span> {value.price} $</span>
+                              </p>
+                            </div>
+                            <p className="card-paragraph  mt-4">
+                              {value.title}
+                            </p>
+                            <div className="d-flex justify-content-center mt-5 pb-5">
+                              <button className="join-now-btn text-white">
+                                Join Now
+                              </button>
+                            </div>
+                          </section>
+                        </Col>
+                      );
+                    })
+                  : null}
+              </div>
+            </Col>
           )}
         </Row>
       </Container>
     </>
   );
 };
-
 export default OurPlans;

@@ -15,7 +15,6 @@ const VerifyRoutes = () => {
           path="/verify/email/:token/:userId"
           component={IsEmailConfirmed}
         />
-        <Route exact path="/verify/mobile-otp" component={IsPhoneConfirmed} />
       </Switch>
     </BrowserRouter>
   );

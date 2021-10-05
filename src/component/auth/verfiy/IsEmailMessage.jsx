@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { verfiyEmailAction } from "../../../redux/action/auth";
-import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
+import Loader from "../../common/Loader";
 
-const IsEmailMessage = ({ hitory }) => {
+const IsEmailMessage = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -26,8 +26,13 @@ const IsEmailMessage = ({ hitory }) => {
             </p>
             <p className="text-center orr pt-3">or</p>
             <div className="d-flex justify-content-center mt-4 ">
-              <button type="button" className="resend-email-btnn px-4 ">
-                Resend Email
+              <button
+                type="button"
+                disabled={loading}
+                onClick={() => verfiyEmailToken()}
+                className="resend-email-btnn px-4 "
+              >
+                {loading ? <Loader /> : "Resend Email"}
               </button>
             </div>
           </div>

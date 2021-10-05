@@ -35,23 +35,30 @@ const IsPhoneConfirmed = ({ history }) => {
                   Enter your otp
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
                   placeholder="  Enter your otp"
+                  onChange={(e) => setVerificationOTP(e.target.value)}
                 />
               </div>
             </div>
             <div className="d-flex  flex-column flex-md-row justify-content-center mt-3 mb-4">
-              <div className="mx-md-2">
-                <button className="verify-otp px-3  mt-3 verify-otp w-100">
-                  Verify OTP
+              <div className="">
+                <button
+                  type="button"
+                  onClick={() => verificationOTPSubmit()}
+                  className="resend-otp px-3  mt-3  w-100"
+                >
+                  Resend OTP
                 </button>
               </div>
-              <div className="">
-                <button type="button" className="resend-otp px-3  mt-3  w-100">
-                  Resend OTP
+              <div className="mx-md-2">
+                <button
+                  type="button"
+                  onClick={() => history.push("/resend-otp")}
+                  className="verify-otp px-3  mt-3 verify-otp w-100"
+                >
+                  Verify OTP
                 </button>
               </div>
             </div>

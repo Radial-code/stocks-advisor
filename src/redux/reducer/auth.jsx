@@ -1,4 +1,8 @@
-import { GET_USER_PROFILE_LIST, SIGN_UP_SUCCESSFULLY } from "../action/auth";
+import {
+  GET_LOCAL_STORAGE_TOKEN,
+  GET_USER_PROFILE_LIST,
+  SIGN_UP_SUCCESSFULLY,
+} from "../action/auth";
 import { LOGIN_SUCCESSFULLY } from "../action/auth";
 
 const initialState = {
@@ -28,12 +32,21 @@ export default function AuthReducer(state = initialState, action) {
       };
     }
 
+    // get profile list data
     case GET_USER_PROFILE_LIST: {
       console.log(action);
       return {
         ...state,
         userData: action.payload.data,
-        token: action.payload.token,
+      };
+    }
+
+    //Save token and auth
+    case GET_LOCAL_STORAGE_TOKEN: {
+      console.log(action);
+      return {
+        ...state,
+        token: action.token,
         auth: true,
       };
     }

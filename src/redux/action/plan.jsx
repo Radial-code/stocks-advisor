@@ -18,7 +18,7 @@ export const getPlansListAction = (setLoading) => async (dispatch) => {
   try {
     const response = await getPlansListApi();
     if (response.success) {
-      dispatch(getPlansList(response.data));
+      dispatch(getPlansList(response.allPlans));
       setLoading(false);
     } else {
       setLoading(false);

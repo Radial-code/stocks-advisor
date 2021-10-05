@@ -14,6 +14,16 @@ import {
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
 export const SIGN_UP_SUCCESSFULLY = "SIGN_UP_SUCCESSFULLY";
 export const GET_USER_PROFILE_LIST = "GET_USER_PROFILE_LIST";
+export const GET_LOCAL_STORAGE_TOKEN = "GET_LOCAL_STORAGE_TOKEN";
+
+/**
+ * get Local Storage Token
+ * @returns
+ */
+export const getLocalStorageToken = () => ({
+  type: GET_LOCAL_STORAGE_TOKEN,
+  token: localStorage.getItem("stock-advisor"),
+});
 
 /**
  * Login action
@@ -171,25 +181,20 @@ export const resetPasswordAction = (data, setLoading) => async () => {
  * @param {Object} data
  * @returns
  */
-export const verfiyEmailTokenAction =
-  (data, setLoading, history) => async () => {
-    setLoading(true);
-    try {
-      const response = await verfiyEmailTokenApi(data);
-      if (response.success) {
-        setLoading(false);
-        setTimeout(history.push("/verify/mobile-otp"), 4000);
-      } else {
-        setLoading(false);
-        Swal.fire("Error!", `Failed to authenticate token`, "error");
-        setTimeout(Swal.close, 4000);
-      }
-    } catch (error) {
-      setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+export const verfiyEmailTokenAction = (data, history) => async () => {
+  try {
+    const response = await verfiyEmailTokenApi(data);
+    if (response.success) {
+      setTimeout(history.push("/verify/mobile-otp"), 4000);
+    } else {
+      Swal.fire("Error!", `Failed to authenticate token`, "error");
+      setTimeout(Swal.close, 4000);
     }
-  };
+  } catch (error) {
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
 
 /**
  * verfiy Email action*
@@ -202,7 +207,11 @@ export const verfiyEmailAction = (setLoading) => async () => {
     const response = await verfiyEmailApi();
     if (response.success) {
       setLoading(false);
-      Swal.fire("Success", `Check your mail to verify your e-mail`, "error");
+      Swal.fire(
+        "Success",
+        `A verification email has been sent to your email`,
+        "success"
+      );
       setTimeout(Swal.close, 4000);
     } else {
       setLoading(false);
