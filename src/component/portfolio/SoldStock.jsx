@@ -5,10 +5,10 @@ import "./portfolios.css";
 function SoldStock() {
   return (
     <div className="mt-5">
-      <h1 className="sold-stock-text ff-popins">Sold Stocks</h1>
+      <h1 className="sold-stock-text ff-popins pt-md-4 ">Sold Stocks</h1>
       <div className="table-responsive scroll-bar-1  sold-stock-scrollbar">
-        <table className="table table-borderless">
-          <thead>
+        <table className="table table-borderless table-hover">
+          <thead className="portfolio-sticky">
             <tr className="sold-stock-table-head table-border-bottom table-border-top">
               <th scope="col" className="text-center">
                 Date Bought
@@ -61,7 +61,88 @@ function SoldStock() {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-hover-scale">
+              <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center profitloss-text">25</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center first-text">10-</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center profitloss-text">25</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center first-text">10-</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center profitloss-text">25</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center first-text">10-</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center profitloss-text">25</td>
+            </tr>
+            <tr className="sold-stock-data table-border-bottom">
+              <td className="text-center">15/07/2021</td>
+              <td className="text-center">Netflix Inc</td>
+              <td className="text-center">NFLX</td>
+              <td className="text-center">Portfolio</td>
+              <td className="text-center">Common</td>
+              <td className="text-center">$125</td>
+              <td className="text-center">$150</td>
+              <td className="text-center first-text">10-</td>
+            </tr>
+        
             <tr className="sold-stock-data table-border-bottom">
               <td className="text-center">15/07/2021</td>
               <td className="text-center">Netflix Inc</td>
