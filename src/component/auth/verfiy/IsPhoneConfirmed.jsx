@@ -50,7 +50,7 @@ const IsPhoneConfirmed = ({ history }) => {
                 </button>
               </div>
               <div className="">
-                <button className="resend-otp px-3  mt-3  w-100">
+                <button type="button" className="resend-otp px-3  mt-3  w-100">
                   Resend OTP
                 </button>
               </div>
