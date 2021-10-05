@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
 import "./NavBar.css";
+
+
 const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
