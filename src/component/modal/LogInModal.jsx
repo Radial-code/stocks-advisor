@@ -1,7 +1,12 @@
-import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
-import "../modal/modal.css";
-import CloseIcon from "../../assets/img/close-icon.png";
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
+import { Modal, Form } from 'react-bootstrap';
+import './modal.css';
+import CloseIcon from '../../assets/img/close-icon.png';
+
 function LogInModal() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -15,7 +20,7 @@ function LogInModal() {
         className="px-sm-0 px-2"
         show={show}
         onHide={handleClose}
-        animation={true}
+        animation
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
@@ -51,7 +56,8 @@ function LogInModal() {
               </button>
             </div>
             <p className="ff-popins text-center mb-2 pt-4">
-              Don't have an account?{" "}
+              Don't have an account?
+              {' '}
               <span className="modal-sign-up-text cursor-pointer">Sign Up</span>
             </p>
             <p className="ff-popins forgot-text text-center cursor-pointer">

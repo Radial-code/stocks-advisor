@@ -1,12 +1,10 @@
-import React from "react";
-import NewsPage from "../component/News/NewsPage";
+import React from 'react';
+import NewsPage from '../component/News/NewsPage';
 
-const NewsDetails = () => {
-  return (
-    <div>
-      <NewsPage />
-    </div>
-  );
-};
+const NewsDetails = () => (
+  <div>
+    <NewsPage />
+  </div>
+);
 
 export default NewsDetails;

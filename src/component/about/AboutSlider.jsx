@@ -1,8 +1,11 @@
-import React from "react";
-import Team from "../../assets/img/team_1.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+/* eslint-disable import/order */
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import Team from '../../assets/img/team_1.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+
 const AboutSlider = () => {
   const settings = {
     dots: true,
@@ -18,7 +21,8 @@ const AboutSlider = () => {
       <Slider dir="ltr" className="about-slider" {...settings}>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -32,7 +36,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -46,7 +51,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -60,7 +66,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -74,7 +81,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -88,7 +96,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>
@@ -102,7 +111,8 @@ const AboutSlider = () => {
         </div>
         <div className="  profile-box">
           <div className="d-flex justify-content-end   align-items-center ">
-            <img className="w-126 order-2" src={Team} alt="" />{" "}
+            <img className="w-126 order-2" src={Team} alt="" />
+            {' '}
             <div className="me-3 d-flex order-1  flex-column">
               <h4 className="profile-heading">Jhone Doe</h4>
               <p className="profile-heading font-xs text-end">Manager</p>

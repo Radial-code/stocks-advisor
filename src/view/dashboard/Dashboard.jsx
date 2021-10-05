@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import EditContact from "../../component/dashboard/EditContact";
-import { Route } from "react-router";
-import Notification from "../../component/dashboard/Notification";
-import UpdatePayment from "../../component/dashboard/UpdatePayment";
-import ManageSubscription from "../../component/dashboard/ManageSubscription";
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useState } from 'react';
+import { Route } from 'react-router';
+import EditContact from '../../component/dashboard/EditContact';
+import Notification from '../../component/dashboard/Notification';
+import UpdatePayment from '../../component/dashboard/UpdatePayment';
+import ManageSubscription from '../../component/dashboard/ManageSubscription';
 
-import SidebarDashboard from "../../component/common/SideBar/SidebarDashboard";
+import SidebarDashboard from '../../component/common/SideBar/SidebarDashboard';
 
 const Dashboard = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
 
-  console.log("dashboard render");
+  console.log('dashboard render');
   return (
     <>
       <div className="container py-5">

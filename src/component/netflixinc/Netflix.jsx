@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Form, FormGroup } from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Buket from "../../assets/img/backet.png";
+/* eslint-disable react/button-has-type */
+import React, { useState } from 'react';
+import { Form, FormGroup } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Buket from '../../assets/img/backet.png';
+
 function Netflix() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());

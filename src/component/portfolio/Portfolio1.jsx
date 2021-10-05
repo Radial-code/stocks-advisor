@@ -1,14 +1,18 @@
-import React from "react";
-import "./portfolios.css";
-import Sortarrow from "../../assets/img/sortarrow.png";
-import SoldStock from "./SoldStock";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import './portfolios.css';
+import Sortarrow from '../../assets/img/sortarrow.png';
+import SoldStock from './SoldStock';
+
 function Portfolio1({ sideBarHandler, setSidebarActive, sidebarActive }) {
   return (
     <div className="container">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
-        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-      ></div>
+        className={`admin-overlay ${sidebarActive ? 'w-100vw-m' : ''}`}
+      />
       <div className="row">
         <div className="col-12">
           <div className="border-b-1 content-manager-2">
@@ -20,11 +24,11 @@ function Portfolio1({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   width="54"
                   height="54"
                   fill="currentColor"
-                  class="bi bi-list"
+                  className="bi bi-list"
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
                   />
                 </svg>
@@ -44,7 +48,8 @@ function Portfolio1({ sideBarHandler, setSidebarActive, sidebarActive }) {
                     <span>
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                     </span>
-                    Date{" "}
+                    Date
+                    {' '}
                   </th>
 
                   <th scope="col" className="text-center">

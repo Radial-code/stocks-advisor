@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import CloseIcon from "../../assets/img/close-icon.png";
-import { Button, Modal, Form } from "react-bootstrap";
-import "../modal/modal.css";
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import CloseIcon from '../../assets/img/close-icon.png';
+import './modal.css';
 
 function Subscription() {
   const [show, setShow] = useState(false);
@@ -17,7 +20,7 @@ function Subscription() {
       <Modal
         show={show}
         onHide={handleClose}
-        animation={true}
+        animation
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >

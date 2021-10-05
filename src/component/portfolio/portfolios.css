@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 .ff-popins {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .current-stock-text {
   font-size: 31px;
@@ -19,12 +19,12 @@
   font-size: 16px;
   white-space: nowrap;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #16191e;
 }
 
 .current-stock-data {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
   color: #16191e;
   font-size: 16px;
@@ -37,12 +37,12 @@
 }
 .profitloss-text {
   color: #5cbd4c;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
 }
 .first-text {
   color: #f00;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
 }
 .table-border-bottom {
@@ -83,11 +83,11 @@
   font-size: 16px;
   font-weight: 500;
   white-space: nowrap;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #16191e;
 }
 .sold-stock-data {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
   color: #16191e;
   font-size: 16px;
@@ -101,12 +101,12 @@
 }
 .profitloss-text {
   color: #5cbd4c;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
 }
 .first-text {
   color: #f00;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
 }
 .table-border-bottom {

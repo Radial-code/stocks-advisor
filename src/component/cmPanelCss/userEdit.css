@@ -64,7 +64,7 @@
 .slider:before {
   background-color: var(--color-127CF9);
   bottom: 1px;
-  content: "";
+  content: '';
   height: 22px;
   left: 2px;
   position: absolute;
@@ -121,7 +121,7 @@ input:checked + .slider:before {
 .slider-2:before {
   background-color: var(--color-127CF9);
   bottom: 1px;
-  content: "";
+  content: '';
   height: 22px;
   left: 2px;
   position: absolute;

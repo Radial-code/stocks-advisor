@@ -1,7 +1,9 @@
-import React from "react";
-import Slider from "react-slick";
-import HomepageSlider from "../../assets/img/HomepageSlider.png";
-import Chart from "./Chart";
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import Slider from 'react-slick';
+import HomepageSlider from '../../assets/img/HomepageSlider.png';
+import Chart from './Chart';
+
 const Hero = () => {
   const settings = {
     dots: true,
@@ -21,7 +23,7 @@ const Hero = () => {
                 <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
 
                 <Slider className="about-slider w-100" {...settings}>
-                  {" "}
+                  {' '}
                   <div className=" my-3">
                     <img className="w-100" src={HomepageSlider} alt="" />
                     <p className="text-end stock-paragraph mt-3">16/07/2021</p>
@@ -36,11 +38,19 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
-                  </div>{" "}
+                  </div>
+                  {' '}
                   <div className=" my-3">
                     <img className="w-100" src={HomepageSlider} alt="" />
                     <p className="text-end stock-paragraph mt-3">16/07/2021</p>
@@ -55,9 +65,16 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                   <div className=" my-3">
@@ -74,9 +91,16 @@ const Hero = () => {
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
                     <p className="text-end read-more">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </Slider>

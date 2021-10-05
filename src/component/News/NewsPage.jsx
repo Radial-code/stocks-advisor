@@ -1,16 +1,20 @@
-import React from "react";
-import HomepageSlider from "../../assets/img/HomepageSlider.png";
-import newsView from "../../assets/img/newsView.png";
-import Chart from "../home/Chart";
-import RelatedArticles from "./RelatedArticles";
-import Plans from "../plan/Plans";
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/img-redundant-alt */
+
+import React from 'react';
+import HomepageSlider from '../../assets/img/HomepageSlider.png';
+import newsView from '../../assets/img/newsView.png';
+import Chart from '../home/Chart';
+import RelatedArticles from './RelatedArticles';
+import Plans from '../plan/Plans';
+
 const NewsPage = () => (
   <>
     <section>
       <div className="container py-4">
         <div className="row d-flex justify-content-center">
           <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
-            {" "}
+            {' '}
             <div className="profile-box-2 w-xs-303">
               <div className=" my-3">
                 <img className="w-100 h-xs-171" src={HomepageSlider} alt="" />
@@ -19,17 +23,25 @@ const NewsPage = () => (
                   Duis sed augue eu augue ornare augue ornare porta
                 </h6>
 
-                <p class="small-paragraph text-end mt-3 fs-sm-11">
-                  <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                  <span>tag-4</span>,<span>tag-5</span>
+                <p className="small-paragraph text-end mt-3 fs-sm-11">
+                  <span>tag-1</span>
+                  ,
+                  <span>tag-2</span>
+                  ,
+                  <span>tag-3</span>
+                  ,
+                  <span>tag-4</span>
+                  ,
+                  <span>tag-5</span>
                 </p>
                 <p className="text-end stock-paragraph mt-4 fs-sm-13">
                   16/07/2021
                 </p>
-              </div>{" "}
+              </div>
+              {' '}
               <div className="row">
                 <div className="col-xl-6 col-xxl-7">
-                  {" "}
+                  {' '}
                   <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
@@ -52,7 +64,7 @@ const NewsPage = () => (
                 <div className="col-xl-6 col-xxl-5 mt-5 mt-xl-0">
                   <img
                     className=" w-100"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: 'cover' }}
                     src={newsView}
                     alt="news Image"
                   />
@@ -104,7 +116,7 @@ const NewsPage = () => (
       </div>
     </section>
     <section className="py-5">
-      <div className="container"></div>
+      <div className="container" />
     </section>
   </>
 );

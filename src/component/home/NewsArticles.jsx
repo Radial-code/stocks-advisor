@@ -1,6 +1,11 @@
-import React from "react";
-import Slider from "react-slick";
-import NewsSlider from "../../assets/img/newsArticles_1.png";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import Slider from 'react-slick';
+import NewsSlider from '../../assets/img/newsArticles_1.png';
+
 const NewsArticles = () => {
   const settings = {
     dots: false,
@@ -67,9 +72,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -88,9 +100,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -109,9 +128,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -130,9 +156,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -151,9 +184,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -172,9 +212,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -193,9 +240,16 @@ const NewsArticles = () => {
                       finibus tristique arcu finibus tristique arcu
                     </p>
                     <p className="read-more text-end">Read More...</p>
-                    <p class="small-paragraph text-end">
-                      <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
-                      <span>tag-4</span>,<span>tag-5</span>
+                    <p className="small-paragraph text-end">
+                      <span>tag-1</span>
+                      ,
+                      <span>tag-2</span>
+                      ,
+                      <span>tag-3</span>
+                      ,
+                      <span>tag-4</span>
+                      ,
+                      <span>tag-5</span>
                     </p>
                   </div>
                 </div>
@@ -214,9 +268,9 @@ const NewsArticles = () => {
 export default NewsArticles;
 
 const Next = (props) => {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
-    <button style={{ ...style }} onClick={onClick} className={`next`}>
+    <button style={{ ...style }} onClick={onClick} className="next">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="9.681"
@@ -230,36 +284,34 @@ const Next = (props) => {
           transform="translate(-276.961 -1333.363)"
           fill="none"
           stroke="#16191e"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.6"
         />
       </svg>
     </button>
   );
 };
-const Prev = (props) => {
-  return (
-    <button
-      onClick={props.onClick}
-      className="prev d-sm-flex justify-content-center d-none d-sm-block align-items-center"
+const Prev = (props) => (
+  <button
+    onClick={props.onClick}
+    className="prev d-sm-flex justify-content-center d-none d-sm-block align-items-center"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="9.681"
+      height="16.533"
+      viewBox="0 0 9.681 16.533"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.681"
-        height="16.533"
-        viewBox="0 0 9.681 16.533"
-      >
-        <path
-          id="Path_6"
-          data-name="Path 6"
-          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
-          transform="translate(-276.961 -1333.363)"
-          fill="none"
-          stroke="#16191e"
-          stroke-width="2"
-          opacity="0.6"
-        />
-      </svg>
-    </button>
-  );
-};
+      <path
+        id="Path_6"
+        data-name="Path 6"
+        d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
+        transform="translate(-276.961 -1333.363)"
+        fill="none"
+        stroke="#16191e"
+        strokeWidth="2"
+        opacity="0.6"
+      />
+    </svg>
+  </button>
+);

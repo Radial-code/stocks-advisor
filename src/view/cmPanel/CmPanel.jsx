@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import { Route } from "react-router";
-import AddNews from "../../component/cmPanel/AddNews";
-import AddStock from "../../component/cmPanel/AddStock";
-import EditNews from "../../component/cmPanel/EditNews";
-import EditStock from "../../component/cmPanel/EditStock";
-import EditUser from "../../component/cmPanel/EditUser";
-import News from "../../component/cmPanel/News";
-import Stocks from "../../component/cmPanel/Stocks";
-import Users from "../../component/cmPanel/Users";
-import SidebarPanel from "../../component/common/SideBar/SidebarPanel";
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useState } from 'react';
+import { Route } from 'react-router';
+import AddNews from '../../component/cmPanel/AddNews';
+import AddStock from '../../component/cmPanel/AddStock';
+import EditStock from '../../component/cmPanel/EditStock';
+import EditUser from '../../component/cmPanel/EditUser';
+import News from '../../component/cmPanel/News';
+import Stocks from '../../component/cmPanel/Stocks';
+import Users from '../../component/cmPanel/Users';
+import SidebarPanel from '../../component/common/SideBar/SidebarPanel';
+
 const CmPanel = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);

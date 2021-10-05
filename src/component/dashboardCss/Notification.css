@@ -26,7 +26,7 @@
 }
 /* check box css */
 .geekmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -44,7 +44,7 @@
   background-color: white;
   border: 1px solid black;
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
   visibility: hidden;
 }
 .checkbox-notification {
@@ -69,7 +69,7 @@ input[type="checkbox"] {
 
 /* 2 */
 .geekmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -88,7 +88,7 @@ input[type="checkbox"] {
   border: 1px solid black;
   border-radius: 3px;
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
   visibility: hidden;
 }
 .checkbox-notification-web {

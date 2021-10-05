@@ -1,64 +1,64 @@
-import React from "react";
+/* eslint-disable react/button-has-type */
+import React from 'react';
 import {
   AreaChart,
   Area,
   XAxis,
   Line,
-  Legend,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
-import { subDays } from "date-fns";
+} from 'recharts';
+
 function NetflixChart() {
   const data = [
     {
-      name: "Jan",
+      name: 'Jan',
       uv: 0,
     },
     {
-      name: "Feb",
+      name: 'Feb',
       uv: 2000,
     },
     {
-      name: "Mar",
+      name: 'Mar',
       uv: 1000,
     },
     {
-      name: "Apr",
+      name: 'Apr',
       uv: 4000,
     },
     {
-      name: "May",
+      name: 'May',
       uv: 1000,
     },
     {
-      name: "Jun",
+      name: 'Jun',
       uv: 600,
     },
     {
-      name: "Jul",
+      name: 'Jul',
       uv: 8000,
     },
     {
-      name: "Aug",
+      name: 'Aug',
       uv: 5000,
     },
     {
-      name: "Sep",
+      name: 'Sep',
       uv: 1000,
     },
     {
-      name: "Oct",
+      name: 'Oct',
       uv: 4500,
     },
     {
-      name: "Nov",
+      name: 'Nov',
       uv: 5000,
     },
     {
-      name: "Dec",
+      name: 'Dec',
       uv: 5500,
     },
   ];
@@ -82,7 +82,7 @@ function NetflixChart() {
             <button className="chart-btn ff-popins mx-1 border-0">1 Hr</button>
 
             <button className="chart-btn ff-popins mx-1 border-0">
-              {" "}
+              {' '}
               1 Min
             </button>
           </div>
@@ -102,23 +102,23 @@ function NetflixChart() {
             <CartesianGrid stroke="0" />
             <defs>
               <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4870b3" stopOpacity={0.9}></stop>
+                <stop offset="5%" stopColor="#4870b3" stopOpacity={0.9} />
                 <stop
                   offset="75%"
                   stopColor="#4870b3"
                   stopOpacity={0.04}
-                ></stop>
+                />
               </linearGradient>
             </defs>
             <XAxis
               dataKey="name"
-              axisLine={true}
+              axisLine
               align="center"
               tickLine={false}
             />
             <YAxis
               dataKey="uv"
-              axisLine={true}
+              axisLine
               fill="#ffff"
               tickLine={false}
               tickFormatter={(number) => `$${number}`}
@@ -133,7 +133,7 @@ function NetflixChart() {
               strokeWidth="2"
               fill="url(#color)"
             />
-            <YAxis axisLine={true} style={{ color: "white" }} />
+            <YAxis axisLine style={{ color: 'white' }} />
           </AreaChart>
         </ResponsiveContainer>
       </div>

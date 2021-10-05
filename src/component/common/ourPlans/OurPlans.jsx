@@ -1,5 +1,7 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const OurPlans = ({ homepage }) => {
   console.log(homepage);
@@ -10,7 +12,7 @@ const OurPlans = ({ homepage }) => {
           <Col xs={12} className="d-flex  justify-content-center">
             <p
               className={`subscription-plans mt-5 ${
-                homepage ? "text-white" : ""
+                homepage ? 'text-white' : ''
               } `}
             >
               Subscription Plans
@@ -23,7 +25,7 @@ const OurPlans = ({ homepage }) => {
                 xl={4}
                 md={6}
                 className={` ${
-                  homepage ? "down-animation" : ""
+                  homepage ? 'down-animation' : ''
                 } d-flex justify-content-center mt-5 mt-md-0`}
               >
                 <section className="bg-card-plan">
@@ -54,7 +56,7 @@ const OurPlans = ({ homepage }) => {
                 xl={4}
                 md={6}
                 className={` ${
-                  homepage ? "down-animation" : ""
+                  homepage ? 'down-animation' : ''
                 } d-flex justify-content-center mt-5 mt-md-0`}
               >
                 <section className="bg-card-plan">
@@ -85,7 +87,7 @@ const OurPlans = ({ homepage }) => {
                 xl={4}
                 lg={12}
                 className={` ${
-                  homepage ? "down-animation" : ""
+                  homepage ? 'down-animation' : ''
                 } d-flex justify-content-center mt-5 mt-md-0`}
               >
                 <section className="bg-card-plan">
@@ -120,7 +122,7 @@ const OurPlans = ({ homepage }) => {
               </button>
             </Col>
           ) : (
-            ""
+            ''
           )}
         </Row>
       </Container>

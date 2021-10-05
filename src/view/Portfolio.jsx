@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router";
-import Portfolio1 from "../component/portfolio/Portfolio1";
-import PortfoliosSidebar from "../component/common/SideBar/PortfoliosSidebar";
-import Portfolio2 from "../component/portfolio/Portfolio2";
-import Portfolio3 from "../component/portfolio/Portfolio3";
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useState } from 'react';
+import { Route } from 'react-router';
+import Portfolio1 from '../component/portfolio/Portfolio1';
+import PortfoliosSidebar from '../component/common/SideBar/PortfoliosSidebar';
+import Portfolio2 from '../component/portfolio/Portfolio2';
+import Portfolio3 from '../component/portfolio/Portfolio3';
+
 const Portfolio = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);

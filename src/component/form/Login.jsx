@@ -1,8 +1,12 @@
-import React from "react";
-import "../form/form.css";
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/button-has-type */
+import React from 'react';
+import './form.css';
+import { Link } from 'react-router-dom';
 
-import { Form } from "react-bootstrap";
+import { Form } from 'react-bootstrap';
+
 function Login() {
   return (
     <div className="container h-100vh d-flex flex-column justify-content-center">
@@ -32,7 +36,8 @@ function Login() {
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-5">
-              Don't have an account?{" "}
+              Don't have an account?
+              {' '}
               <Link to="/signup" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">Sign Up</span>
               </Link>

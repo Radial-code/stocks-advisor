@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 :root {
   /** Color use in all projects */
   --color-127CF9: #5cbd4c;
@@ -39,7 +39,7 @@
 
 /*  ABOUT PAGE CSS */
 #root {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 /* UTILITY CSS */
 .text-5CBD4C {
@@ -151,7 +151,7 @@
   position: relative;
 }
 .homePageSlider .slick-dots button:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -174,7 +174,7 @@
 }
 
 .homePageSlider .slick-dots button:before {
-  font-family: "" !important;
+  font-family: '' !important;
   font-size: 0 !important;
   color: transparent !important;
 }

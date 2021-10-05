@@ -1,6 +1,7 @@
-import React from "react";
-import { Form, FormGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+/* eslint-disable react/button-has-type */
+import React from 'react';
+import { Form, FormGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
   return (
@@ -23,7 +24,8 @@ function SignUp() {
                       className=""
                       placeholder="Last Name"
                     />
-                  </Form.Group>{" "}
+                  </Form.Group>
+                  {' '}
                 </div>
                 <div className="col-6 order-1 last-name">
                   <Form.Group
@@ -70,7 +72,8 @@ function SignUp() {
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-4">
-              Already have account?{" "}
+              Already have account?
+              {' '}
               <Link to="/login" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">Log In</span>
               </Link>

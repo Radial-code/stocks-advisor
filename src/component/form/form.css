@@ -25,13 +25,13 @@
 }
 .form-field .form-select {
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #16191e;
   padding: 13px;
 }
 .form-field .form-select {
   -webkit-appearance: none !important ;
-  background-image: url("../../assets/img/dropdown.png");
+  background-image: url('../../assets/img/dropdown.png');
   background-position: 20px;
 }
 .form-field .form-select:focus {

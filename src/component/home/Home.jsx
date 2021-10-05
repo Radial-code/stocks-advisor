@@ -1,10 +1,15 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import heroImg from "../../assets/img/aboutUs-hero.png";
-import Team from "../../assets/img/team_1.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/button-has-type */
+/* eslint-disable import/order */
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import heroImg from '../../assets/img/aboutUs-hero.png';
+import Team from '../../assets/img/team_1.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+
 const Home = () => {
   const settings = {
     dots: false,
@@ -19,8 +24,11 @@ const Home = () => {
         <div className="row justify-content-between align-items-center justify-content-between">
           <div className="col-6">
             <h2 className="stock-heading">
-              Quisque maximus, orci at{" "}
-              <span className="text-5CBD4C">pharetra </span> feugiat de
+              Quisque maximus, orci at
+              {' '}
+              <span className="text-5CBD4C">pharetra </span>
+              {' '}
+              feugiat de
             </h2>
             <button className="default-btn mt-4">Know More</button>
           </div>
@@ -85,7 +93,8 @@ const Home = () => {
           <Slider className="about-slider" {...settings}>
             <div className="  profile-box">
               <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <img className="w-126 order-2" src={Team} alt="" />
+                {' '}
                 <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
@@ -100,7 +109,8 @@ const Home = () => {
             </div>
             <div className="  profile-box">
               <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <img className="w-126 order-2" src={Team} alt="" />
+                {' '}
                 <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
@@ -115,7 +125,8 @@ const Home = () => {
             </div>
             <div className="  profile-box">
               <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <img className="w-126 order-2" src={Team} alt="" />
+                {' '}
                 <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
@@ -130,7 +141,8 @@ const Home = () => {
             </div>
             <div className="  profile-box">
               <div className="d-flex justify-content-end   align-items-center ">
-                <img className="w-126 order-2" src={Team} alt="" />{" "}
+                <img className="w-126 order-2" src={Team} alt="" />
+                {' '}
                 <div className="me-3 d-flex order-1  flex-column">
                   <h4 className="profile-heading">Jhone Doe</h4>
                   <p className="profile-heading font-xs text-end">Manager</p>
@@ -145,11 +157,12 @@ const Home = () => {
             </div>
           </Slider>
           <h2>
-            {" "}
+            {' '}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             voluptatibus doloremque necessitatibus, ut commodi nisi maxime autem
             harum velit libero ratione delectus, minus est totam! Possimus amet
-            sit cumque distinctio?{" "}
+            sit cumque distinctio?
+            {' '}
           </h2>
         </div>
       </section>

@@ -1,7 +1,8 @@
-import React from "react";
-import Sortarrow from "../../assets/img/sortarrow.png";
+import React from 'react';
+import Sortarrow from '../../assets/img/sortarrow.png';
 
-import "./portfolios.css";
+import './portfolios.css';
+
 function SoldStock() {
   return (
     <div className="mt-5">

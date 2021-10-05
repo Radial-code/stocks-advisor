@@ -1,12 +1,10 @@
-import React from "react";
-import PayMentPage from "../component/payment/PayMentPage";
+import React from 'react';
+import PayMentPage from '../component/payment/PayMentPage';
 
-const Payment = () => {
-  return (
-    <>
-      <PayMentPage />
-    </>
-  );
-};
+const Payment = () => (
+  <>
+    <PayMentPage />
+  </>
+);
 
 export default Payment;

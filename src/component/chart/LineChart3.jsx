@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   AreaChart,
   Area,
@@ -7,27 +7,28 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts';
+
 function LineChart3() {
   const data = [
     {
-      name: "2017",
+      name: '2017',
       uv: 0,
     },
     {
-      name: "2018",
+      name: '2018',
       uv: 7,
     },
     {
-      name: "2019",
+      name: '2019',
       uv: 2,
     },
     {
-      name: "2020",
+      name: '2020',
       uv: 3,
     },
     {
-      name: "2021",
+      name: '2021',
       uv: 4,
     },
   ];
@@ -67,7 +68,7 @@ function LineChart3() {
               strokeWidth="2"
               fill="#bd4c67"
             />
-            <YAxis axisLine={true} />
+            <YAxis axisLine />
           </AreaChart>
         </ResponsiveContainer>
       </div>

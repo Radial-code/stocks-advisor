@@ -252,7 +252,7 @@
   margin-left: 10px;
 }
 /* .nav-item:after {
-  content: "";
+  content: '';
   display: block;
   height: 4px;
   width: 0;
@@ -305,7 +305,7 @@
 }
 @media screen and (min-width: 768px) {
   .nav-item:after {
-    content: "";
+    content: '';
     display: block;
     height: 2.5px;
     width: 0;

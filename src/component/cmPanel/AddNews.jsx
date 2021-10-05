@@ -1,22 +1,29 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Buket from "../../assets/img/backet.png";
-import { Container, Col, Row } from "react-bootstrap";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Container, Col, Row } from 'react-bootstrap';
+import Buket from '../../assets/img/backet.png';
 
-import "../cmPanelCss/News.css";
+import '../cmPanelCss/News.css';
+
 const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [firstDate, setFirstDate] = useState("");
-  const [input, setInput] = useState("");
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [firstDate, setFirstDate] = useState('');
+  const [input, setInput] = useState('');
   return (
     <div>
       <Container>
         <div
           onClick={() => setSidebarActive((preState) => !preState)}
-          className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-        ></div>
+          className={`admin-overlay ${sidebarActive ? 'w-100vw-m' : ''}`}
+        />
         <Row>
           <Col xs={12}>
             <div className="border-b-1 content-manager mb-3">
@@ -28,11 +35,11 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     width="54"
                     height="54"
                     fill="currentColor"
-                    class="bi bi-list"
+                    className="bi bi-list"
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
                     />
                   </svg>
@@ -70,7 +77,7 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
 
                 <div className="col-12 col-lg-6 mb-3 ">
                   <div className="inputs-border   d-flex justify-content-between align-items-center py-1 ps-1 pe_12">
-                    {input !== "" ? (
+                    {input !== '' ? (
                       <span className="small-paragraph d-none d-sm-block">
                         {input}
                       </span>
@@ -79,7 +86,7 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         YouTube / Image Link
                       </span>
                     )}
-                    {input !== "" ? (
+                    {input !== '' ? (
                       <span className="small-paragraph d-block d-sm-none">
                         {input}
                       </span>
@@ -98,10 +105,10 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     />
 
                     <button className="upload-img-btn d-none d-sm-block">
-                      <label for="my-file">Upload Image</label>
+                      <label htmlFor="my-file">Upload Image</label>
                     </button>
                     <button className="upload-img-btn d-block d-sm-none">
-                      <label for="my-file">Upload</label>
+                      <label htmlFor="my-file">Upload</label>
                     </button>
                   </div>
                 </div>
@@ -174,7 +181,7 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     placeholder="Wrote By"
                   />
                 </div>
-                <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
+                <div className="col-12 col-lg-6 mb-3 d-none d-lg-block" />
                 <div className="col-12 col-lg-6 mb-3">
                   <select
                     className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
@@ -203,19 +210,19 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     cols=""
                     rows="6"
                     placeholder="Text "
-                  ></textarea>
+                  />
                 </div>
                 <div className="col-auto mb-3">
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault"
                     />
                     <label
-                      class="form-check-label check-box-text "
-                      for="flexCheckDefault"
+                      className="form-check-label check-box-text "
+                      htmlFor="flexCheckDefault"
                     >
                       Feature on homepage
                     </label>

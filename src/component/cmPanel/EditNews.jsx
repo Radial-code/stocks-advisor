@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Buket from "../../assets/img/backet.png";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Buket from '../../assets/img/backet.png';
 
-import "../cmPanelCss/News.css";
+import '../cmPanelCss/News.css';
+
 const EditNews = () => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [firstDate, setFirstDate] = useState("");
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [firstDate, setFirstDate] = useState('');
   return (
     <div>
       <div className="conatiner">
@@ -40,15 +47,15 @@ const EditNews = () => {
                 YouTube Video/ Image Link
               </span>
               <span className="small-paragraph d-block d-sm-none">
-                {" "}
+                {' '}
                 Video/ Image Link
               </span>
               <input type="file" value="" id="my-file" hidden />
               <button className="upload-img-btn d-none d-sm-block">
-                <label for="my-file">Upload Image</label>
+                <label htmlFor="my-file">Upload Image</label>
               </button>
               <button className="upload-img-btn d-block d-sm-none">
-                <label for="my-file">Upload</label>
+                <label htmlFor="my-file">Upload</label>
               </button>
             </div>
           </div>
@@ -120,7 +127,7 @@ const EditNews = () => {
               placeholder="Wrote By"
             />
           </div>
-          <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
+          <div className="col-12 col-lg-6 mb-3 d-none d-lg-block" />
           <div className="col-12 col-lg-6 mb-3">
             <select
               className=" w-100 selection-field  inputs-border padding-select pb-3 small-paragraph"
@@ -147,19 +154,19 @@ const EditNews = () => {
               cols=""
               rows="6"
               placeholder="Text "
-            ></textarea>
+            />
           </div>
           <div className="col-auto mb-3">
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
               />
               <label
-                class="form-check-label check-box-text "
-                for="flexCheckDefault"
+                className="form-check-label check-box-text "
+                htmlFor="flexCheckDefault"
               >
                 Feature on homepage
               </label>

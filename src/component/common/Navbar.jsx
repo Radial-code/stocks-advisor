@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../../assets/img/Navbar-logo-img.png";
-import "./NavBar.css";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/img/Navbar-logo-img.png';
+import './NavBar.css';
+
 const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
@@ -27,7 +34,7 @@ const Navbar = () => {
   // ACTIVE HEADER AS PATH
   const pathNane = window.location.pathname;
   useEffect(() => {
-    if (pathNane === "/") {
+    if (pathNane === '/') {
       setHomeActive(true);
       setAboutActive(false);
       setNewsActive(false);
@@ -36,7 +43,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/about") {
+    } else if (pathNane === '/about') {
       setHomeActive(false);
       setAboutActive(true);
       setNewsActive(false);
@@ -45,7 +52,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/news") {
+    } else if (pathNane === '/news') {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(true);
@@ -54,7 +61,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/ourplans") {
+    } else if (pathNane === '/ourplans') {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -63,7 +70,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/contactus") {
+    } else if (pathNane === '/contactus') {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -72,7 +79,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/portfolio/portfolio1") {
+    } else if (pathNane === '/portfolio/portfolio1') {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -81,7 +88,7 @@ const Navbar = () => {
       setPortfolioActive(true);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/login") {
+    } else if (pathNane === '/login') {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -100,14 +107,14 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className={click ? "main-container" : ""} onClick={() => Close()} />
+      <div className={click ? 'main-container' : ''} onClick={() => Close()} />
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
         <div className="container justify-content-between">
           <NavLink exact to="/" className="nav-logo logo-img-navbar">
             <img className="logo-img-navbar" src={logo} alt="" />
           </NavLink>
 
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <div className="d-flex justify-content-start">
               <li className="items-nav d-xl-none d-block">
                 <div
@@ -119,7 +126,7 @@ const Navbar = () => {
                     width="35"
                     height="35"
                     fill="currentColor"
-                    class="bi bi-x-circle-fill"
+                    className="bi bi-x-circle-fill"
                     viewBox="0 0 16 16"
                   >
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
@@ -142,7 +149,7 @@ const Navbar = () => {
                       width="16"
                       height="16"
                       fill="white"
-                      class="bi bi-search"
+                      className="bi bi-search"
                       viewBox="0 0 16 16"
                     >
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -152,7 +159,7 @@ const Navbar = () => {
               </li>
               <div className="d-xl-flex align-items-center">
                 <li
-                  className={`${HomeActive ? "green-bg-active" : ""} nav-item `}
+                  className={`${HomeActive ? 'green-bg-active' : ''} nav-item `}
                 >
                   <NavLink
                     exact
@@ -167,7 +174,7 @@ const Navbar = () => {
 
                 <li
                   className={`${
-                    AboutActive ? "green-bg-active" : ""
+                    AboutActive ? 'green-bg-active' : ''
                   } nav-item `}
                 >
                   <NavLink
@@ -182,7 +189,7 @@ const Navbar = () => {
                 </li>
 
                 <li
-                  className={`${NewsActive ? "green-bg-active" : ""} nav-item `}
+                  className={`${NewsActive ? 'green-bg-active' : ''} nav-item `}
                 >
                   <NavLink
                     exact
@@ -197,7 +204,7 @@ const Navbar = () => {
 
                 <li
                   className={`${
-                    PlansActive ? "green-bg-active" : ""
+                    PlansActive ? 'green-bg-active' : ''
                   } nav-item `}
                 >
                   <NavLink
@@ -213,7 +220,7 @@ const Navbar = () => {
 
                 <li
                   className={`${
-                    ContactActive ? "green-bg-active" : ""
+                    ContactActive ? 'green-bg-active' : ''
                   } nav-item `}
                 >
                   <NavLink
@@ -240,7 +247,7 @@ const Navbar = () => {
                       width="16"
                       height="16"
                       fill="white"
-                      class="bi bi-search"
+                      className="bi bi-search"
                       viewBox="0 0 16 16"
                     >
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -256,7 +263,7 @@ const Navbar = () => {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-search"
+                      className="bi bi-search"
                       viewBox="0 0 16 16"
                     >
                       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -272,21 +279,22 @@ const Navbar = () => {
                     className="nav-links"
                     onClick={click ? handleClick : null}
                   >
-                    Portfolios{" "}
+                    Portfolios
+                    {' '}
                   </NavLink>
                 </li>
 
-                {/*start here drop down  */}
+                {/* start here drop down  */}
                 <li
                   onClick={dropHandler}
                   className={` nav-item  d-md-none ${
-                    student ? "drop-down-active" : ""
+                    student ? 'drop-down-active' : ''
                   }`}
                 >
                   <a className="d-flex  nav-links justify-content-between align-items-center">
                     Portfolios
                     <span
-                      className={`ml-20 ${student ? "sidebardropdown" : ""}`}
+                      className={`ml-20 ${student ? 'sidebardropdown' : ''}`}
                     >
                       <span className="plus">
                         <svg
@@ -294,7 +302,7 @@ const Navbar = () => {
                           width="16"
                           height="16"
                           fill="currentColor"
-                          class="bi bi-plus"
+                          className="bi bi-plus"
                           viewBox="0 0 16 16"
                         >
                           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -306,11 +314,12 @@ const Navbar = () => {
                           width="16"
                           height="16"
                           fill="currentColor"
-                          class="bi bi-dash bg-5CBD4C"
+                          className="bi bi-dash bg-5CBD4C"
                           viewBox="0 0 16 16"
                         >
                           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
-                        </svg>{" "}
+                        </svg>
+                        {' '}
                       </span>
                     </span>
                   </a>
@@ -319,7 +328,7 @@ const Navbar = () => {
                 <li className=" drop-item d-md-none">
                   <div
                     className={`drop-none w-100   ${
-                      student ? "sidebardropdown" : ""
+                      student ? 'sidebardropdown' : ''
                     }`}
                   >
                     <ul className="py-2 w-100 drop-down-list">
@@ -371,13 +380,13 @@ const Navbar = () => {
                 <li
                   onClick={dashboardHandler}
                   className={` nav-item  d-md-none ${
-                    dashboard ? "drop-down-active" : ""
+                    dashboard ? 'drop-down-active' : ''
                   } `}
                 >
                   <a className="d-flex   nav-links justify-content-between align-items-center">
                     Dashboard
                     <span
-                      className={`ml-20 ${dashboard ? "sidebardropdown" : ""}`}
+                      className={`ml-20 ${dashboard ? 'sidebardropdown' : ''}`}
                     >
                       <span className="plus">
                         <svg
@@ -385,7 +394,7 @@ const Navbar = () => {
                           width="16"
                           height="16"
                           fill="currentColor"
-                          class="bi bi-plus"
+                          className="bi bi-plus"
                           viewBox="0 0 16 16"
                         >
                           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -397,11 +406,12 @@ const Navbar = () => {
                           width="16"
                           height="16"
                           fill="currentColor"
-                          class="bi bi-dash bg-5CBD4C"
+                          className="bi bi-dash bg-5CBD4C"
                           viewBox="0 0 16 16"
                         >
                           <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
-                        </svg>{" "}
+                        </svg>
+                        {' '}
                       </span>
                     </span>
                   </a>
@@ -410,7 +420,7 @@ const Navbar = () => {
                 <li className=" drop-item d-md-none">
                   <div
                     className={`drop-none w-100   ${
-                      dashboard ? "sidebardropdown" : ""
+                      dashboard ? 'sidebardropdown' : ''
                     }`}
                   >
                     <ul className="py-2 w-100 drop-down-list">
@@ -488,7 +498,7 @@ const Navbar = () => {
 
                 <li
                   className={`${
-                    LoginActive ? "green-bg-active" : ""
+                    LoginActive ? 'green-bg-active' : ''
                   } nav-item `}
                 >
                   <NavLink
@@ -537,18 +547,18 @@ const Navbar = () => {
               width="54"
               height="54"
               fill="currentColor"
-              class="bi bi-list"
+              className="bi bi-list"
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
               />
             </svg>
           </div>
         </div>
       </nav>
-      <div className="container"></div>
+      <div className="container" />
     </div>
   );
 };
