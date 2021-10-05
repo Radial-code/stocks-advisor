@@ -24,10 +24,6 @@ const Navbar = () => {
     setStudent(!student);
   };
 
-  const dashboardHandler = () => {
-    setDashboard(!dashboard);
-  };
-
   // ACTIVE HEADER AS PATH
   const pathNane = window.location.pathname;
   useEffect(() => {
