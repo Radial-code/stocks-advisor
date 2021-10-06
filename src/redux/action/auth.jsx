@@ -43,7 +43,17 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
       dispatch(LoginSuccess(response["x-api-key"]));
       localStorage.setItem("stock-advisor", response["x-api-key"]);
       setLoading(false);
-      history.push("/");
+      if (!response.user.isAdmin) {
+        console.log("response.user.isPaidUser", response.user.isPaidPlan);
+        if (response.user.isPaidPlan) {
+          console.log("response", response.user.isPaidPlan);
+          history.push("/portfolio/portfolio1");
+        } else {
+          history.push("/");
+        }
+      } else {
+        history.push("/content/manager/stocks");
+      }
     } else {
       setLoading(false);
       Swal.fire(

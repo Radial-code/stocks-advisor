@@ -25,7 +25,7 @@ function App({ history }) {
   const token = localStorage.getItem("stock-advisor");
 
   useEffect(() => {
-    // dispatch(getLocalStorageToken());
+    dispatch(getLocalStorageToken());
     if (auth) {
       dispatch(getUserProfileAction(setLoading, history, token));
     }

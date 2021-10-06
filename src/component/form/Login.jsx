@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../form/form.css";
 import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
 
@@ -14,11 +14,12 @@ function Login({ history }) {
     email: "",
     password: "",
   });
+  const userData = useSelector((state) => state.auth.userData);
 
   const submitLoginInForm = () => {
     setError(true);
     if (logInDetails.email && logInDetails.password) {
-      dispatch(loginAction(logInDetails, setLoading, history));
+      dispatch(loginAction(logInDetails, setLoading, history, userData));
     } else {
     }
   };

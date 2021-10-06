@@ -17,8 +17,8 @@ export default function AuthReducer(state = initialState, action) {
     case SIGN_UP_SUCCESSFULLY: {
       return {
         ...state,
-        // userData: action.data.user,
-        // token: action.data["x-api-key"],
+        userData: action.data.user,
+        token: action.data["x-api-key"],
         auth: true,
       };
     }
