@@ -22,7 +22,7 @@ const IsEmailConfirmed = ({ match, history }) => {
     <div className="container">
       <form>
         <div className="row height-100vh  justify-content-center align-items-center ">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-3 email-verify-box mt-5 mb-5">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-md-5 p-3 email-verify-box">
             <h1 className="text-center ">Verify Your Email Address</h1>
             <p className="text-center pt-4">
               We are verifing your email address
