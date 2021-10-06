@@ -43,11 +43,13 @@ const ForgetPassword = () => {
                     <ForgetpasswordIcon />
                   </div>
                 </span>
-                {error && email === ""
-                  ? "Email is required"
-                  : error && EmailRegex.test(email) === false
-                  ? "Enter valid email"
-                  : null}
+                <span className="text-danger">
+                  {error && email === ""
+                    ? "Email is required"
+                    : error && EmailRegex.test(email) === false
+                    ? "Enter valid email"
+                    : null}
+                </span>
               </div>
 
               <button

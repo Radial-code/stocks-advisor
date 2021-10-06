@@ -26,7 +26,7 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </p>
               <div className="row my-4">
                 <div className="col-lg-6 col-12">
-                  <div className="visa p-sm-4 p-10-17">
+                  <div className="visa p-sm-4 p-xs-7 p-10-17">
                     <p className="profile-heading pb-sm-3 border-bottom-1px fs-sm-20">
                       Visa/Master Card
                     </p>

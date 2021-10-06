@@ -88,13 +88,15 @@ const ManageSubscription = ({
 
                 <Col
                   xs={12}
-                  className="mt-5 d-flex justify-content-center d-sm-block"
+                  className="mt-5 d-flex justify-content-center mx-auto"
                 >
-                  <button className="cancel-btn fs-sm-14 ">Cancel Plan</button>
+                  <div className="cancel-change-btn">
+                    <button className="cancel-btn fs-sm-14">Cancel Plan</button>
 
-                  <button className="update-btn-2 fs-sm-14 mr-15">
-                    Change Plan
-                  </button>
+                    <button className="update-btn-2 fs-sm-14  change-btn mr-15 mr-xs-0">
+                      Change Plan
+                    </button>
+                  </div>
                 </Col>
               </Row>
             </div>

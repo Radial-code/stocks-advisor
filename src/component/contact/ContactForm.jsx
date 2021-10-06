@@ -32,7 +32,7 @@ const ContactForm = () => {
       <div className="d-flex flex-column justify-content-center d-sm-block  pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
         {/* NAME */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           type="text"
           placeholder="Name"
           onChange={(e) => {
@@ -47,7 +47,7 @@ const ContactForm = () => {
         ) : null}
         {/* EMAIL */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           type="email"
           placeholder="Email"
           required
@@ -66,7 +66,7 @@ const ContactForm = () => {
 
         {/* DROPDOWN */}
 
-        <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15 w-100">
+        <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mt-3 pl-15 w-100">
           <select
             id="cars"
             name="cars"
@@ -92,7 +92,7 @@ const ContactForm = () => {
         ) : null}
         {/* MESSAGE */}
         <textarea
-          className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           rows="6"
           placeholder="Message..."
           required
