@@ -149,7 +149,7 @@ export const UserNameAction = (data, setUserNameError) => async (dispatch) => {
       setUserNameError(response);
     }
   } catch (error) {
-    console.log(error.response, "kuch bhi");
+    console.log(error.response);
   }
 };
 

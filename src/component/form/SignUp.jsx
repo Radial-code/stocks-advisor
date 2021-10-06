@@ -41,7 +41,6 @@ function SignUp({ history }) {
       signUpDetails.confirmPassword &&
       signUpDetails.country
     ) {
-      console.log(signUpDetails);
       dispatch(SignUpAction(signUpDetails, setLoading, history));
     } else {
     }
@@ -52,7 +51,6 @@ function SignUp({ history }) {
       ...signUpDetails,
       username: e.target.value,
     });
-    console.log(signUpDetails);
 
     if (signUpDetails.username.length > 2) {
       dispatch(

@@ -34,7 +34,6 @@ export default function AuthReducer(state = initialState, action) {
 
     // get profile list data
     case GET_USER_PROFILE_LIST: {
-      console.log(action);
       return {
         ...state,
         userData: action.payload.data,
@@ -43,7 +42,6 @@ export default function AuthReducer(state = initialState, action) {
 
     //Save token and auth
     case GET_LOCAL_STORAGE_TOKEN: {
-      console.log(action);
       return {
         ...state,
         token: action.token,
