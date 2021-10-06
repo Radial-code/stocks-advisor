@@ -43,7 +43,7 @@ const OurPlans = ({ homepage }) => {
                           md={6}
                           className={` ${
                             homepage ? "down-animation" : ""
-                          } d-flex justify-content-center mt-3 mt-md-0`}
+                          } d-flex justify-content-center mx-auto mt-5 mt-xl-0`}
                         >
                           <section className="bg-card-plan">
                             <p className="plan-card d-flex justify-content-center pt-5">
