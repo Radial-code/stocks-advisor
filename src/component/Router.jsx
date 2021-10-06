@@ -47,7 +47,7 @@ const Router = () => {
         <Route exact path="/resend-otp" component={ResendOtp} />
         {/** */}
         <Route exact path="/home" component={Homepage} />
-        <Route exact path="/about" component={About} />{" "}
+        <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/payment" component={Payment} />
         <Route exact path="/stock" component={Stockpage} />
