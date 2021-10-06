@@ -1,5 +1,5 @@
 import Router from "./component/Router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   getLocalStorageToken,
   getUserProfileAction,
@@ -13,6 +13,7 @@ import "./App.css";
 import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import IsPhoneConfirmed from "./component/auth/verfiy/IsPhoneConfirmed";
+import IsEmailMessage from "./component/auth/verfiy/IsEmailMessage";
 
 function App({ history }) {
   const dispatch = useDispatch();
@@ -20,11 +21,12 @@ function App({ history }) {
   const auth = useSelector((state) => state.auth.auth);
   const userData = useSelector((state) => state.auth.userData);
   const { isScreenFixed } = useFixedScreenProvider();
+  const token = localStorage.getItem("stock-advisor");
 
   useEffect(() => {
-    dispatch(getLocalStorageToken());
+    // dispatch(getLocalStorageToken());
     if (auth) {
-      dispatch(getUserProfileAction(setLoading, history));
+      dispatch(getUserProfileAction(setLoading, history, token));
     }
   }, [auth]);
 
@@ -34,22 +36,25 @@ function App({ history }) {
         isScreenFixed ? "overflow-hidden  h-100vh" : ""
       } d-flex justify-content-between flex-column h-100vh `}
     >
-      {/* {auth ? (
+      {auth ? (
         <>
           {loading ? (
             <Loader />
-          ) : !userData.isEmailConfirmed ? (
-            <VerifyRoutes />
-          ) : !userData.isMobileNumberConfirmed ? (
-            <IsPhoneConfirmed />
+          ) : userData !== {} ? (
+            !userData.isEmailConfirmed ? (
+              <IsEmailMessage />
+            ) : !userData.isMobileNumberConfirmed ? (
+              <IsPhoneConfirmed />
+            ) : (
+              <Router />
+            )
           ) : (
-            <Router />
+            <Loader />
           )}
         </>
       ) : (
         <Router />
-      )} */}
-      <Router />
+      )}
     </div>
   );
 }

@@ -17,8 +17,8 @@ export default function AuthReducer(state = initialState, action) {
     case SIGN_UP_SUCCESSFULLY: {
       return {
         ...state,
-        userData: action.data.user,
-        token: action.data["x-api-key"],
+        // userData: action.data.user,
+        // token: action.data["x-api-key"],
         auth: true,
       };
     }
@@ -28,7 +28,7 @@ export default function AuthReducer(state = initialState, action) {
       return {
         ...state,
         token: action.data,
-        auth: action.data === null ? false : true,
+        auth: action.data === "null" ? false : true,
       };
     }
 
@@ -37,6 +37,8 @@ export default function AuthReducer(state = initialState, action) {
       return {
         ...state,
         userData: action.payload.data,
+        token: action.payload.token,
+        auth: action.payload.token === "null" ? false : true,
       };
     }
 

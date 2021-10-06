@@ -18,7 +18,7 @@ const IsEmailMessage = () => {
         <div className="row height-100vh  justify-content-center align-items-center ">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-3 email-verify-box mt-5 mb-5">
             <div className="row">
-              <div className="col justify-content-center d-flex mt-5">
+              <div className="col justify-content-center d-flex my-4">
                 <img src={LogoPhoto} style={{ width: "40%" }} />
               </div>
             </div>

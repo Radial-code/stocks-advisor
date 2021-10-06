@@ -28,6 +28,9 @@ import ChangePassword from "./form/ChangePassword";
 import CreateNewPassword from "./form/CreateNewPassword";
 import OtpInputs from "./stocksotpinput/OtpInputs";
 import IsEmailMessage from "./auth/verfiy/IsEmailMessage";
+import IsEmailConfirmed from "./auth/verfiy/IsEmailConfirmed";
+import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
+import ResendOtp from "./auth/verfiy/ResendOtp";
 
 const Router = () => {
   return (
@@ -38,6 +41,13 @@ const Router = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route path="/forget/password" component={ForgetPassword} />
+        <Route
+          exact
+          path="/verify/email/:token/:userId"
+          component={IsEmailConfirmed}
+        />
+        <Route exact path="/verify/mobile-otp" component={IsPhoneConfirmed} />
+        <Route exact path="/resend-otp" component={ResendOtp} />
         {/** */}
         <Route exact path="/home" component={Homepage} />
         <Route exact path="/about" component={About} />{" "}

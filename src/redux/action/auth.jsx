@@ -108,21 +108,21 @@ export const SignUpAction = (data, setLoading, history) => async (dispatch) => {
  * @param {Object} data
  * @returns
  */
-const getUserProfile = (data) => ({
+const getUserProfile = (data, token) => ({
   type: GET_USER_PROFILE_LIST,
   payload: {
-    token: localStorage.getItem("stock-advisor"),
+    token: token,
     data: data,
   },
 });
 
 export const getUserProfileAction =
-  (setLoading, history) => async (dispatch) => {
+  (setLoading, history, token) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await getUserProfileApi();
       if (response.success) {
-        dispatch(getUserProfile(response.data));
+        dispatch(getUserProfile(response.data, token));
         setLoading(false);
         history.push("/");
       } else {
