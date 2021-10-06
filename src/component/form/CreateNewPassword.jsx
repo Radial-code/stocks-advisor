@@ -3,7 +3,7 @@ import React from "react";
 const CreateNewPassword = () => {
   return (
     <div>
-      <div class="container container my-sm-5 my-3 min-h-576px-100vh pt-sm-5">
+      <div class="container container my-sm-5 my-3 min-h-576px-80vh pt-sm-5">
         <div class="row">
           <div class="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
             <div class="py-4 px-xxl-5 px-3  ">
@@ -13,7 +13,7 @@ const CreateNewPassword = () => {
               <div class="mb-3 mt-2 ">
                 <input
                   type="text"
-                  class="form-control from-input-placeholder"
+                  class="form-control  from-input-placeholder"
                   id="exampleFormControlInput1"
                   placeholder="New password"
                 />
