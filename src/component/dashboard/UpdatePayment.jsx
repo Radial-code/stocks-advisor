@@ -34,14 +34,14 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <p className="fs-16 color-16191E-7 mb-2 ">
                         Jhone Doe
                         <span className="color-16191e fw-500 ms-3">
-                          :Name On Card
+                          : Name On Card
                         </span>
                       </p>
                     </div>
                     <div className="d-flex mb-2 align-items-center">
                       <div className="fs-16    ">
                         <span className="color-16191e fw-500 ms-3 ">
-                          Card Number:
+                          Card Number :
                         </span>
                       </div>
                       <div>
@@ -53,7 +53,7 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     <div className="d-flex mb-2 align-items-center">
                       <div className="fs-16    ">
                         <span className="color-16191e fw-500 ms-3 ">
-                          :Expiry Date
+                          Expiry Date :
                         </span>
                       </div>
                       <div>

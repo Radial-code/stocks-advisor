@@ -16,13 +16,13 @@ const IsEmailMessage = () => {
     <div className="container">
       <form>
         <div className="row height-100vh  justify-content-center align-items-center ">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-3 email-verify-box mt-5 mb-5">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-2 pt-4 pb-4 email-verify-box ">
             <div className="row">
               <div className="col justify-content-center d-flex my-4">
                 <img src={LogoPhoto} style={{ width: "40%" }} />
               </div>
             </div>
-            <h1 className="text-center ">Verify Your Email Address</h1>
+            <h1 className="text-center  mt-5">Verify Your Email Address</h1>
             <p className="text-center pt-4">
               Before proceeding, please check your email for a verification
               link. If you did not receive the email
