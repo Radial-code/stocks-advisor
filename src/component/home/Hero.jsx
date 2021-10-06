@@ -30,7 +30,7 @@ const Hero = () => {
                         <span className="d-flex justify-content-end px-2">
                           <img className="w-19 h-19" src={img_1} alt="" />
                         </span>{" "}
-                        <span>16/07/2021</span>
+                        <span className="cursor-pointer">16/07/2021</span>
                       </span>
                     </p>
                     <h6 className="text-end heading-stock">
@@ -56,7 +56,7 @@ const Hero = () => {
                         <span className="d-flex justify-content-end px-2">
                           <img className="w-19 h-19" src={img_1} alt="" />
                         </span>{" "}
-                        <span>16/07/2021</span>
+                        <span className="cursor-pointer">16/07/2021</span>
                       </span>
                     </p>
                     <h6 className="text-end heading-stock">
@@ -82,7 +82,7 @@ const Hero = () => {
                         <span className="d-flex justify-content-end px-2">
                           <img className="w-19 h-19" src={img_1} alt="" />
                         </span>{" "}
-                        <span>16/07/2021</span>
+                        <span className="cursor-pointer">16/07/2021</span>
                       </span>
                     </p>
                     <h6 className="text-end heading-stock">
@@ -101,7 +101,6 @@ const Hero = () => {
                       <span>Tag-4</span>
                     </p>
                   </div>{" "}
-             
                   <div className=" my-3">
                     <img className="w-100" src={HomepageSlider} alt="" />
                     <p className="text-end stock-paragraph mt-3">
@@ -109,12 +108,12 @@ const Hero = () => {
                         <span className="d-flex justify-content-end px-2">
                           <img className="w-19 h-19" src={img_1} alt="" />
                         </span>{" "}
-                        <span>16/07/2021</span>
+                        <span className="cursor-pointer">16/07/2021</span>
                       </span>
                     </p>
                     <h6 className="text-end heading-stock">
                       Duis sed augue eu augue ornare augue ornare porta
-                    </h6> 
+                    </h6>
                     <p className="text-end parargraph-stock pt-sm-2  ps-sm-5">
                       Duis venenatis aliquet eros, non feugiat tortor semper
                       sed. In diam risus, efficitur sit amet dolor vitae,
@@ -122,7 +121,9 @@ const Hero = () => {
                       tristique arcu finibus tristique arcu. Proin dui erat,
                       pulvinar ac felis eget, mollis rhoncus nunc.
                     </p>
-                    <p className="text-end read-more cursor-pointer">Read More...</p>
+                    <p className="text-end read-more cursor-pointer">
+                      Read More...
+                    </p>
                     <p className="small-paragraph text-end">
                       <span>Tag-1</span>,<span>Tag-2</span>,<span>Tag-3</span>,
                       <span>Tag-4</span>

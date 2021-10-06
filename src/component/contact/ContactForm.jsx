@@ -28,8 +28,8 @@ const ContactForm = () => {
     }
   };
   return (
-    <form className="form-box p-xl-5 p-4" action="">
-      <div className="d-flex flex-column justify-content-center d-sm-block align-items-center pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
+    <form className="form-box p-xl-5 p-sm-4 p-2 " action="">
+      <div className="d-flex flex-column justify-content-center d-sm-block  pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
         {/* NAME */}
         <input
           className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
@@ -42,7 +42,9 @@ const ContactForm = () => {
             });
           }}
         />
-        {error && contactDetails.name === "" ? "Name is required" : null}
+        {error && contactDetails.name === "" ? (
+          <span className="text-danger">Name is required</span>
+        ) : null}
         {/* EMAIL */}
         <input
           className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
@@ -56,11 +58,11 @@ const ContactForm = () => {
             });
           }}
         />
-        {error && contactDetails.email === ""
-          ? "Email is required"
-          : error && EmailRegex.test(contactDetails.email) === false
-          ? "Enter valid email"
-          : null}
+        {error && contactDetails.email === "" ? (
+          <span className="text-danger">Email is required</span>
+        ) : error && EmailRegex.test(contactDetails.email) === false ? (
+          <span className="text-danger">Enter valid email</span>
+        ) : null}
 
         {/* DROPDOWN */}
 
@@ -85,7 +87,9 @@ const ContactForm = () => {
             <option value="Select Contact Reason">Select Contact Reason</option>
           </select>
         </div>
-        {error && contactDetails.reason === "" ? "Reason is required" : null}
+        {error && contactDetails.reason === "" ? (
+          <span className="text-danger">Reason is required</span>
+        ) : null}
         {/* MESSAGE */}
         <textarea
           className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
@@ -99,7 +103,9 @@ const ContactForm = () => {
             });
           }}
         ></textarea>
-        {error && contactDetails.message === "" ? "Message is required" : null}
+        {error && contactDetails.message === "" ? (
+          <span className="text-danger">Message is required</span>
+        ) : null}
         {/* BUTTON */}
         <div className="text-end">
           <button

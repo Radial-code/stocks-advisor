@@ -186,12 +186,22 @@
   color: var(--color-16191e);
   font-family: "Poppins", sans-serif;
 }
+@media (max-width: 567px) {
+  .from-heading {
+    --font-lg: 22px;
+  }
+}
 
 .from-sub-heading {
   font-weight: 500;
   font-size: var(--font-18);
   color: var(--color-16191e_08);
   font-family: "Poppins", sans-serif;
+}
+@media (max-width: 567px) {
+  .from-sub-heading {
+    --font-18: 15px;
+  }
 }
 
 .from-input-placeholder {

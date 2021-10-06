@@ -125,14 +125,18 @@ function NetflixChart() {
             <XAxis
               dataKey="name"
               axisLine={true}
+              tick={{ fill: "#fff" }}
               align="center"
+              dy={7}
               tickLine={false}
             />
             <YAxis
               dataKey="uv"
               axisLine={true}
-              fill="#ffff"
+              tick={{ fill: "#fff" }}
               tickLine={false}
+              width={90}
+              dx={-63}
               tickFormatter={(number) => `$${number}`}
             />
             <Tooltip />

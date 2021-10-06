@@ -305,7 +305,7 @@
 
 .nav-item:hover:after {
   width: 100%;
-  background: var(--color-88BEFC);
+  background: var(--color-127CF9);
 }
 
 .nav-item .active:after {

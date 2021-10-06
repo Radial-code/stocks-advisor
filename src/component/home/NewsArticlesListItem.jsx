@@ -15,10 +15,10 @@ const NewsArticlesListItem = () => {
                 <span className="d-flex justify-content-end px-2">
                   <img className="w-19 h-19" src={img_1} alt="" />
                 </span>{" "}
-                <span>16/07/2021</span>
+                <span className="cursor-pointer">16/07/2021</span>
               </span>
             </p>
-            <h3 className="news-heading-font ">
+            <h3 className="news-heading-font text-end">
               Duis sed augue eu augue ornare augue ornare porta
             </h3>
             <p className="stock-paragraph text-end">
@@ -26,7 +26,7 @@ const NewsArticlesListItem = () => {
               diam risus, efficitur sit amet dolor vitae, finibus tristique arcu
               finibus tristique arcu
             </p>
-            <p className="read-more text-end">Read More...</p>
+            <p className="read-more text-end cursor-pointer">Read More...</p>
             <p class="small-paragraph text-end">
               <span>tag-1</span>,<span>tag-2</span>,<span>tag-3</span>,
               <span>tag-4</span>,<span>tag-5</span>

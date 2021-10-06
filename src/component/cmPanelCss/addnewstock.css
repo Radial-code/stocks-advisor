@@ -23,6 +23,7 @@
 
 .add-new-stock-field .form-control:focus {
   box-shadow: 0 0 0 0.25rem transparent;
+  border-color: rgba(22, 25, 30, 0.2);
 }
 
 .add-new-stock-field .form-control::placeholder {
@@ -46,7 +47,7 @@
 
 .add-new-stock-select .form-select:focus {
   box-shadow: 0 0 0 0.25rem transparent;
-  border: 1px solid rgba(22, 25, 30, 0.2) !important;
+  border-color: rgba(22, 25, 30, 0.2) !important;
 }
 
 .new-stock-btn {
@@ -59,14 +60,20 @@
   color: white;
 }
 
-.datepicker-input .react-datepicker-wrapper .react-datepicker__input-container input {
+.datepicker-input
+  .react-datepicker-wrapper
+  .react-datepicker__input-container
+  input {
   width: 100%;
   padding: 14px;
   border: 1px solid rgba(22, 25, 30, 0.2);
   border-radius: 5px;
 }
 
-.datepicker-input .react-datepicker-wrapper .react-datepicker__input-container input::placeholder {
+.datepicker-input
+  .react-datepicker-wrapper
+  .react-datepicker__input-container
+  input::placeholder {
   font-size: 16px;
   color: #16191e;
   font-family: "Poppins", sans-serif;

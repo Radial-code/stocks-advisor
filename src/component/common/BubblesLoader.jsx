@@ -7,7 +7,7 @@ function BubblesLoader() {
       <ReactLoading
         className="preloader"
         type="spinningBubbles"
-        color="#127cf9"
+        color="#4870b3"
       />
     </div>
   );
