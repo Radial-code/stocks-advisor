@@ -28,7 +28,7 @@ export default function AuthReducer(state = initialState, action) {
       return {
         ...state,
         token: action.data,
-        auth: true,
+        auth: action.data === null ? false : true,
       };
     }
 
@@ -42,10 +42,11 @@ export default function AuthReducer(state = initialState, action) {
 
     //Save token and auth
     case GET_LOCAL_STORAGE_TOKEN: {
+      console.log("action.token", action.token);
       return {
         ...state,
         token: action.token,
-        auth: true,
+        auth: action.token === "null" ? false : true,
       };
     }
 

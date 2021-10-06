@@ -293,9 +293,25 @@
     left: 0;
   }
 }
+.cancel-change-btn {
+  display: flex;
+  justify-content: center;
+}
 
 @media (max-width: 374.98px) {
   .wrapper {
     width: 230px;
+  }
+  .cancel-change-btn {
+    display: block !important;
+  }
+  .mr-xs-0 {
+    margin-right: 0px;
+  }
+  .change-btn {
+    margin-top: 15px;
+  }
+  .cancel-change-btn button {
+    width: 100%;
   }
 }

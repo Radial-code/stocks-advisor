@@ -32,7 +32,7 @@ const ContactForm = () => {
       <div className="d-flex flex-column justify-content-center d-sm-block align-items-center pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
         {/* NAME */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           type="text"
           placeholder="Name"
           onChange={(e) => {
@@ -42,10 +42,12 @@ const ContactForm = () => {
             });
           }}
         />
-        {error && contactDetails.name === "" ? "Name is required" : null}
+        <span className="text-danger">
+          {error && contactDetails.name === "" ? "Name is required" : null}
+        </span>
         {/* EMAIL */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           type="email"
           placeholder="Email"
           required
@@ -56,15 +58,17 @@ const ContactForm = () => {
             });
           }}
         />
-        {error && contactDetails.email === ""
-          ? "Email is required"
-          : error && EmailRegex.test(contactDetails.email) === false
-          ? "Enter valid email"
-          : null}
+        <span className="text-danger">
+          {error && contactDetails.email === ""
+            ? "Email is required"
+            : error && EmailRegex.test(contactDetails.email) === false
+            ? "Enter valid email"
+            : null}
+        </span>
 
         {/* DROPDOWN */}
 
-        <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mb-4 pl-15 w-100">
+        <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mt-3 pl-15 w-100">
           <select
             id="cars"
             name="cars"
@@ -85,10 +89,12 @@ const ContactForm = () => {
             <option value="Select Contact Reason">Select Contact Reason</option>
           </select>
         </div>
-        {error && contactDetails.reason === "" ? "Reason is required" : null}
+        <span className="text-danger">
+          {error && contactDetails.reason === "" ? "Reason is required" : null}
+        </span>
         {/* MESSAGE */}
         <textarea
-          className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0 mb-2 mb-md-3 w-100 input-text border-A3A3A3 "
+          className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
           rows="6"
           placeholder="Message..."
           required
@@ -99,7 +105,11 @@ const ContactForm = () => {
             });
           }}
         ></textarea>
-        {error && contactDetails.message === "" ? "Message is required" : null}
+        <span className="text-danger">
+          {error && contactDetails.message === ""
+            ? "Message is required"
+            : null}
+        </span>
         {/* BUTTON */}
         <div className="text-end">
           <button

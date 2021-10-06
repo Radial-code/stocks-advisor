@@ -33,8 +33,8 @@ const DashboardDropDown = ({ sideBarHandler }) => {
               <span className="plus">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   fill="currentColor"
                   className="bi bi-plus"
                   viewBox="0 0 16 16"
@@ -45,8 +45,8 @@ const DashboardDropDown = ({ sideBarHandler }) => {
               <span className="subs">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="20"
+                  height="20"
                   fill="currentColor"
                   className="bi bi-dash bg-5CBD4C"
                   viewBox="0 0 16 16"
