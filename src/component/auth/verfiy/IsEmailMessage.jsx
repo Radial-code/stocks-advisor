@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { verfiyEmailAction } from "../../../redux/action/auth";
 import Loader from "../../common/Loader";
+import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
 
 const IsEmailMessage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,11 @@ const IsEmailMessage = () => {
       <form>
         <div className="row height-100vh  justify-content-center align-items-center ">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-3 email-verify-box mt-5 mb-5">
+            <div className="row">
+              <div className="col justify-content-center d-flex mt-5">
+                <img src={LogoPhoto} style={{ width: "40%" }} />
+              </div>
+            </div>
             <h1 className="text-center ">Verify Your Email Address</h1>
             <p className="text-center pt-4">
               Before proceeding, please check your email for a verification

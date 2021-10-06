@@ -14,13 +14,13 @@ const OtpInputs = () => {
             </div>
             <div className="row mt-5 justify-content-center ">
               <div className="col-12 col-md-9 col-xl-10  otp-inputs mb-3 pt-5">
-                <label for="exampleInputEmail1" class="form-label">
+                <label for="exampleotpinput" class="form-label">
                   Enter your otp
                 </label>
                 <input
                   type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="exampleotpinput"
                   aria-describedby="emailHelp"
                   placeholder="  Enter your otp"
                 />
