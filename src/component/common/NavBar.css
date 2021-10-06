@@ -7,6 +7,35 @@
 .z-index_2 {
   z-index: -2;
 }
+.user-profile-dropdown button {
+  background-color: transparent !important;
+}
+.user-profile-dropdown .btn-primary:focus {
+  background-color: transparent !important;
+}
+
+.user-profile-dropdown .btn-check:active + .btn-primary {
+  background-color: transparent !important;
+}
+.user-profile-dropdown .dropdown-item.active,
+.dropdown-item:active {
+  background-color: #66cc75 !important;
+}
+.header-username-char {
+  background-color: #66cc75;
+  font-weight: 500;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.header-username-char span {
+  color: white;
+  font-weight: 500;
+}
 
 .drop-down-list li {
   padding: 5px 0px;

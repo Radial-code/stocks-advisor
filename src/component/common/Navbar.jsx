@@ -10,12 +10,14 @@ import {
 } from "./icons/Icons";
 import "./NavBar.css";
 import { useHistory } from "react-router-dom";
+import UserDropDown from "./UserDropDown";
 
 const Navbar = () => {
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
   const { setScreenFixed } = useFixedScreenProvider();
   const auth = useSelector((state) => state.auth.auth);
+  // const auth = false;
   // FOR ACTIVE CLASS HEADER
   const [HomeActive, setHomeActive] = useState(false);
   const [AboutActive, setAboutActive] = useState(false);
@@ -107,6 +109,9 @@ const Navbar = () => {
     setScreenFixed((pre) => !pre);
   };
   const Close = () => setClick(false);
+
+  const firstName = "Sharukh";
+  const lastName = "Khan";
 
   return (
     <>
@@ -392,7 +397,9 @@ const Navbar = () => {
                       Login
                     </NavLink> 
                   </li> */}
-                  {!auth ? (
+                  {auth ? (
+                    <UserDropDown />
+                  ) : (
                     <>
                       <button
                         className="form-btn px-4"
@@ -407,8 +414,6 @@ const Navbar = () => {
                         Join Now
                       </button>
                     </>
-                  ) : (
-                    ""
                   )}
                 </div>
               </div>
