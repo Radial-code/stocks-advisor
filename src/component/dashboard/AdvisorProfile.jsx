@@ -81,7 +81,7 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
             </div>
             <div className="row">
               <div className="col-6 ">
-                <div className="mb-md-4 mb-3">
+                <div className="mb-md-4 mb-3 profile-field">
                   {inputDisable ? (
                     ""
                   ) : (
@@ -97,14 +97,14 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   <input
                     type="text"
                     disabled={inputDisable ? true : false}
-                    className="form-control  input-border-16191e33 btn-disable  profile-input-placeholder"
+                    className="form-control  input-border-16191e33 btn-disable  py-2 profile-input-placeholder"
                     id="exampleFormControlInput12"
                     placeholder="Jhone"
                   />
                 </div>
               </div>
               <div className="col-6">
-                <div className="mb-md-4 mb-3">
+                <div className="mb-md-4 mb-3 profile-field">
                   {inputDisable ? (
                     ""
                   ) : (
@@ -120,14 +120,14 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   <input
                     type="text"
                     disabled={inputDisable ? true : false}
-                    className="form-control input-border-16191e33  profile-input-placeholder"
+                    className="form-control input-border-16191e33 py-2 profile-input-placeholder"
                     id="exampleFormControlInput13"
                     placeholder="doe"
                   />
                 </div>
               </div>
               <div className="col-lg-6 col-12">
-                <div className="mb-md-4 mb-3">
+                <div className="mb-md-4 mb-3 profile-field">
                   {inputDisable ? (
                     ""
                   ) : (
@@ -143,14 +143,14 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   <input
                     type="gmail"
                     disabled={inputDisable ? true : false}
-                    className="form-control input-border-16191e33  profile-input-placeholder"
+                    className="form-control input-border-16191e33 py-2 profile-input-placeholder"
                     id="exampleFormControlInput14"
                     placeholder="jhone@gmail.com"
                   />
                 </div>
               </div>
               <div className="col-lg-6 col-12">
-                <div className="mb-md-4 mb-3">
+                <div className="mb-md-4 mb-3 profile-field">
                   {inputDisable ? (
                     ""
                   ) : (
@@ -166,7 +166,7 @@ function AdvisorProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   <input
                     type="number"
                     disabled={inputDisable ? true : false}
-                    className="form-control input-border-16191e33   profile-input-placeholder"
+                    className="form-control input-border-16191e33 py-2  profile-input-placeholder"
                     id="exampleFormControlInput15"
                     placeholder="1234567890"
                   />

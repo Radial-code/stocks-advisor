@@ -28,6 +28,7 @@ import IsEmailMessage from "./auth/verfiy/IsEmailMessage";
 import IsEmailConfirmed from "./auth/verfiy/IsEmailConfirmed";
 import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
 import ResendOtp from "./auth/verfiy/ResendOtp";
+import NetflixChart from "./stockPage/NetflixChart";
 
 const Router = () => {
   return (
@@ -59,6 +60,7 @@ const Router = () => {
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
+        <Route exact path="/netfix/chart" component={NetflixChart} />
         <Route exact path="/AllNews" component={NewsDetails} />
         <Route exact path="/create-newpassword" component={CreateNewPassword} />
         <Route exact path="/change-password" component={ChangePassword} />

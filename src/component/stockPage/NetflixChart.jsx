@@ -4,10 +4,9 @@ import {
   Area,
   XAxis,
   Line,
-  Legend,
+  Tooltip,
   YAxis,
   CartesianGrid,
-  Tooltip,
   ResponsiveContainer,
 } from "recharts";
 import { subDays } from "date-fns";
@@ -15,52 +14,76 @@ import DropDown from "../../assets/img/btnarrow.png";
 function NetflixChart() {
   const data = [
     {
-      name: "Jan",
-      uv: 0,
-    },
-    {
-      name: "Feb",
-      uv: 2000,
-    },
-    {
-      name: "Mar",
-      uv: 1000,
-    },
-    {
-      name: "Apr",
+      name: "JAN",
       uv: 4000,
+      pv: 1982,
+      amt: 2400,
     },
     {
-      name: "May",
-      uv: 1000,
+      name: "FEB",
+      uv: 3000,
+      pv: 1398,
+      amt: 4739,
     },
     {
-      name: "Jun",
-      uv: 600,
+      name: "MAR",
+      uv: 2000,
+      pv: 9800,
+      amt: 9056,
     },
     {
-      name: "Jul",
-      uv: 8000,
+      name: "APR",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
     },
     {
-      name: "Aug",
+      name: "MAY",
+      uv: 1890,
+      pv: 4678,
+      amt: 2181,
+    },
+    {
+      name: "JUN",
+      uv: 2390,
+      pv: 3800,
+      amt: 2873,
+    },
+    {
+      name: "JUL",
+      uv: 2000,
+      pv: 9800,
+      amt: 9056,
+    },
+    {
+      name: "AUG",
+      uv: 2390,
+      pv: 3800,
+      amt: 2873,
+    },
+    {
+      name: "SEP",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: "OCT",
+      uv: 4000,
+      pv: 1982,
+      amt: 2400,
+    },
+    {
+      name: "NOV",
       uv: 5000,
+      pv: 1982,
+      amt: 2400,
     },
     {
-      name: "Sep",
-      uv: 1000,
-    },
-    {
-      name: "Oct",
-      uv: 4500,
-    },
-    {
-      name: "Nov",
-      uv: 5000,
-    },
-    {
-      name: "Dec",
-      uv: 5500,
+      name: "DEC",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
     },
   ];
 
@@ -110,7 +133,8 @@ function NetflixChart() {
               bottom: 10,
             }}
           >
-            <Line type="monotone" dataKey="uv" stroke="#ffff" />
+            <Line type="monotone" dataKey="uv" />
+
             <CartesianGrid stroke="0" />
             <defs>
               <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">

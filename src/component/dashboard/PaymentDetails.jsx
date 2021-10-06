@@ -141,7 +141,7 @@ const PaymentDetails = ({
                 <div className="table-responsive sold-stock-scrollbar">
                   <table className="table white-space-nowrap table-borderless">
                     <thead>
-                      <tr className="">
+                      <tr>
                         <th scope="col-5" className="payment-thead">
                           <DropDownIcon />
                           <span className="me-2">Status</span>

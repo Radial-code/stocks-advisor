@@ -43,6 +43,7 @@ export const addPortfolioAction = (data, setLoading) => async () => {
   setLoading(true);
   try {
     const response = await addPortfolioApi(data);
+
     if (response.success) {
       setLoading(false);
     } else {

@@ -398,9 +398,11 @@ const Navbar = () => {
                     </NavLink> 
                   </li> */}
                   {auth ? (
-                    <div className="d-flex">
+                    <div className="d-flex flex-lg-row flex-column  align-items-sm-start  align-items-center">
                       <UserDropDown />
-                      <button className="update-btn ">Log Out</button>
+                      <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
+                        <button className="update-btn ">Log Out</button>
+                      </div>
                     </div>
                   ) : (
                     <>
@@ -421,7 +423,7 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <div className="d-flex justify-content-center">
+              <div className="d-flex flex-sm-row flex-column justify-content-center ">
                 <li className=" d-flex d-xl-none flex-column align-items-center">
                   <NavLink
                     exact
