@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Route } from "react-router";
-import AddNews from "../../component/cmPanel/AddNews";
-import AddStock from "../../component/cmPanel/AddStock";
-import EditNews from "../../component/cmPanel/EditNews";
-import EditStock from "../../component/cmPanel/EditStock";
-import EditUser from "../../component/cmPanel/EditUser";
-import News from "../../component/cmPanel/News";
-import Stocks from "../../component/cmPanel/stock/Stock";
-import Users from "../../component/cmPanel/Users";
-import SidebarPanel from "../../component/common/SideBar/SidebarPanel";
+import AddNews from "./AddNews";
+import AddStock from "./stock/AddStock";
+import EditNews from "./EditNews";
+import EditStock from "./EditStock";
+import EditUser from "./EditUser";
+import News from "./News";
+import Stocks from "./stock/Stock";
+import Users from "./Users";
+import SidebarPanel from "../common/SideBar/SidebarPanel";
 
-const CmPanel = () => {
+const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
 
@@ -22,7 +22,7 @@ const CmPanel = () => {
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
           />
-          <Route exact path="/content/manager/stocks">
+          <Route path="/content/manager/stocks">
             <Stocks
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -38,21 +38,21 @@ const CmPanel = () => {
             />
           </Route>
 
-          <Route exact path="/content/manager/edit/stock">
+          {/* <Route path="/content/manager/edit/stock">
             <EditStock
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
-          </Route>
-          <Route exact path="/content/manager/add/news">
+          </Route> */}
+          <Route path="/content/manager/add/news">
             <AddNews
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exact path="/content/manager/users">
+          <Route path="/content/manager/users">
             <Users
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -60,14 +60,14 @@ const CmPanel = () => {
             />
           </Route>
 
-          <Route exact path="/content/manager/news">
+          <Route path="/content/manager/news">
             <News
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exact path="/content/manager/edit/user">
+          <Route path="/content/manager/edit/user">
             <EditUser
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -79,5 +79,4 @@ const CmPanel = () => {
     </>
   );
 };
-
-export default CmPanel;
+export default CmPanelRoutes;

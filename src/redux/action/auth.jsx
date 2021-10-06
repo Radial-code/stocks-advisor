@@ -15,6 +15,7 @@ export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
 export const SIGN_UP_SUCCESSFULLY = "SIGN_UP_SUCCESSFULLY";
 export const GET_USER_PROFILE_LIST = "GET_USER_PROFILE_LIST";
 export const GET_LOCAL_STORAGE_TOKEN = "GET_LOCAL_STORAGE_TOKEN";
+export const REMOVE_LOCAL_STORAGE_TOKEN = "REMOVE_LOCAL_STORAGE_TOKEN";
 
 /**
  * get Local Storage Token
@@ -24,6 +25,23 @@ export const getLocalStorageToken = () => ({
   type: GET_LOCAL_STORAGE_TOKEN,
   token: localStorage.getItem("stock-advisor"),
 });
+
+/**
+ * remove Local Storage Token
+ * @returns
+ */
+export const Logout = () => ({
+  type: REMOVE_LOCAL_STORAGE_TOKEN,
+});
+
+export const LogoutAction = (history) => async (dispatch) => {
+  try {
+    dispatch(Logout);
+    localStorage.setItem("stock-advisor", null);
+    history.push("/");
+    window.location.reload();
+  } catch (error) {}
+};
 
 /**
  * Login action
@@ -44,9 +62,7 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
       localStorage.setItem("stock-advisor", response["x-api-key"]);
       setLoading(false);
       if (!response.user.isAdmin) {
-        console.log("response.user.isPaidUser", response.user.isPaidPlan);
         if (response.user.isPaidPlan) {
-          console.log("response", response.user.isPaidPlan);
           history.push("/portfolio/portfolio1");
         } else {
           history.push("/");
@@ -134,14 +150,11 @@ export const getUserProfileAction =
       if (response.success) {
         dispatch(getUserProfile(response.data, token));
         setLoading(false);
-        history.push("/");
       } else {
         setLoading(false);
-        history.push("/");
       }
     } catch (error) {
       setLoading(false);
-      history.push("/");
     }
   };
 
@@ -248,7 +261,7 @@ export const verfiyMobileOtpAction =
       if (response.success) {
         setLoading(false);
         setTimeout(
-          userData.isPaidUser
+          userData.isPaidPlan
             ? history.push("/portfolio/portfolio1")
             : history.push("/"),
           3000

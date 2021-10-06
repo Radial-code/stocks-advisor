@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-
 import ForgetPassword from "./auth/ForgetPassword";
 import Homepage from "../view/Homepage";
 import OurPlanspage from "../view/OurPlanspage";
@@ -9,7 +8,6 @@ import Stockpage from "../view/Stockpage";
 import About from "../view/About";
 import Payment from "../view/Payment";
 import Dashboard from "../view/dashboard/Dashboard";
-import CmPanel from "../view/cmPanel/CmPanel";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import LogInModal from "./modal/LogInModal";
@@ -28,6 +26,7 @@ import IsEmailMessage from "./auth/verfiy/IsEmailMessage";
 import IsEmailConfirmed from "./auth/verfiy/IsEmailConfirmed";
 import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
 import ResendOtp from "./auth/verfiy/ResendOtp";
+import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 
 const Router = () => {
   return (
@@ -54,7 +53,6 @@ const Router = () => {
         <Route exact path="/" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/content/manager/stocks" component={CmPanel} />
         <Route path="/portfolio" component={Portfolio} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
@@ -64,6 +62,14 @@ const Router = () => {
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/otpinputs" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
+
+        {/** Content Manager panel Dashboard */}
+        <Route path="/content/manager/stocks" component={CmPanelRoutes} />
+        <Route path="/content/manager/add/stock" component={CmPanelRoutes} />
+        <Route path="/content/manager/news" component={CmPanelRoutes} />
+        <Route path="/content/manager/add/news" component={CmPanelRoutes} />
+        <Route path="/content/manager/users" component={CmPanelRoutes} />
+        <Route path="/content/manager/edit/user" component={CmPanelRoutes} />
       </Switch>
       <Footer />
     </BrowserRouter>

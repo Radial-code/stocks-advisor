@@ -1,6 +1,7 @@
 import {
   GET_LOCAL_STORAGE_TOKEN,
   GET_USER_PROFILE_LIST,
+  REMOVE_LOCAL_STORAGE_TOKEN,
   SIGN_UP_SUCCESSFULLY,
 } from "../action/auth";
 import { LOGIN_SUCCESSFULLY } from "../action/auth";
@@ -44,11 +45,19 @@ export default function AuthReducer(state = initialState, action) {
 
     //Save token and auth
     case GET_LOCAL_STORAGE_TOKEN: {
-      console.log("action.token", action.token);
       return {
         ...state,
         token: action.token,
         auth: action.token === "null" ? false : true,
+      };
+    }
+
+    //Save token and auth
+    case REMOVE_LOCAL_STORAGE_TOKEN: {
+      return {
+        ...state,
+        token: null,
+        auth: false,
       };
     }
 

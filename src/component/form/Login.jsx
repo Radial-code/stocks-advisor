@@ -5,6 +5,7 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
+import { EmailRegex } from "../common/Validation";
 
 function Login({ history }) {
   const dispatch = useDispatch();
@@ -18,14 +19,14 @@ function Login({ history }) {
 
   const submitLoginInForm = () => {
     setError(true);
-    if (logInDetails.email && logInDetails.password) {
+    if (
+      logInDetails.email &&
+      logInDetails.password &&
+      EmailRegex.test(logInDetails.email) === true
+    ) {
       dispatch(loginAction(logInDetails, setLoading, history, userData));
-    } else {
     }
   };
-
-  const regex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   return (
     <div className="container-fluid height-100vh bg-f9f9f9   d-flex flex-column justify-content-center">
@@ -54,7 +55,7 @@ function Login({ history }) {
                 <span className="text-danger">
                   {error && logInDetails.email === ""
                     ? "email is required"
-                    : error && regex.test(logInDetails.email) === false
+                    : error && EmailRegex.test(logInDetails.email) === false
                     ? "Enter valid email"
                     : null}
                 </span>

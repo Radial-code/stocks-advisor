@@ -38,10 +38,10 @@ const getContactList = (data) => ({
   data,
 });
 
-export const getContactListAction = (data, setLoading) => async (dispatch) => {
+export const getContactListAction = (setLoading) => async (dispatch) => {
   setLoading(true);
   try {
-    const response = await getContactListApi(data);
+    const response = await getContactListApi();
     if (response.success) {
       dispatch(getContactList(response.data));
       setLoading(false);

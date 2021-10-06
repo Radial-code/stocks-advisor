@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import UserDropDown from "./UserDropDown";
+import { LogoutAction } from "../../redux/action/auth";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
 import {
@@ -9,10 +13,10 @@ import {
   SearchMagnifyIcon,
 } from "./icons/Icons";
 import "./NavBar.css";
-import { useHistory } from "react-router-dom";
-import UserDropDown from "./UserDropDown";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.auth.userData);
   const [student, setStudent] = useState(false);
   const [dashboard, setDashboard] = useState(false);
   const { setScreenFixed } = useFixedScreenProvider();
@@ -371,7 +375,11 @@ const Navbar = () => {
                     <li className="nav-item ">
                       <NavLink
                         exact
-                        to="/dashboard/edit/contact"
+                        to={
+                          userData.isAdmin
+                            ? "/content/manager/stocks"
+                            : "/dashboard/edit/contact"
+                        }
                         activeClassName="active"
                         className="nav-links"
                         onClick={click ? handleClick : null}
@@ -400,7 +408,13 @@ const Navbar = () => {
                   {auth ? (
                     <div className="d-flex">
                       <UserDropDown />
-                      <button className="update-btn ">Log Out</button>
+                      <button
+                        type="button"
+                        onClick={() => dispatch(LogoutAction(history))}
+                        className="update-btn "
+                      >
+                        Log Out
+                      </button>
                     </div>
                   ) : (
                     <>
