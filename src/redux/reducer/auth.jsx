@@ -39,7 +39,7 @@ export default function AuthReducer(state = initialState, action) {
         ...state,
         userData: action.payload.data,
         token: action.payload.token,
-        auth: action.payload.token === "null" ? false : true,
+        // auth: action.payload.token === "null" ? false : true,
       };
     }
 
@@ -48,7 +48,7 @@ export default function AuthReducer(state = initialState, action) {
       return {
         ...state,
         token: action.token,
-        auth: action.token === "null" ? false : true,
+        // auth: action.token === "null" ? false : true,
       };
     }
 
