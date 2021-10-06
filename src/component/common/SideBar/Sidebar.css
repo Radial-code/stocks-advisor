@@ -161,7 +161,6 @@
 
 .hamburgur-active .wrapper {
   margin-right: 20px;
-  transition: 0.5s;
 }
 .admin-hover .active li {
   background: var(--color-127CF9);
@@ -239,7 +238,6 @@
   }
   .wrapper {
     margin-right: -560px;
-    transition: 0.5s;
     z-index: 5;
   }
   .w-xxlg-100 {
@@ -266,9 +264,10 @@
   }
   .hamburgur-active .wrapper {
     position: fixed;
-    top: 87px;
-    right: 0;
+    top: 0px;
+    right: -20px;
     z-index: 10;
+    height: 100vh;
   }
   .admin-overlay {
     position: fixed;
