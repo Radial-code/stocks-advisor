@@ -398,7 +398,10 @@ const Navbar = () => {
                     </NavLink> 
                   </li> */}
                   {auth ? (
-                    <UserDropDown />
+                    <div className="d-flex">
+                      <UserDropDown />
+                      <button className="update-btn ">Log Out</button>
+                    </div>
                   ) : (
                     <>
                       <button
