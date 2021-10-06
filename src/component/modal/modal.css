@@ -71,12 +71,18 @@
   font-size: 18px;
   font-weight: 500;
   color: white;
+  transition: 0.5s;
+  border: 1px solid #5cbd4c !important;
   border-radius: 5px;
 }
 @media (max-width: 567px) {
   .select-now-btn {
     font-size: 9px;
   }
+}
+.select-now-btn:hover {
+  background-color: white;
+  color: #5cbd4c;
 }
 .plan-text {
   font-weight: 500;

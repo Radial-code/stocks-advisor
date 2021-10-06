@@ -10,10 +10,8 @@ import About from "../view/About";
 import Payment from "../view/Payment";
 import Dashboard from "../view/dashboard/Dashboard";
 import CmPanel from "../view/cmPanel/CmPanel";
-
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
-import AllNewspage from "../view/AllNewspage";
 import LogInModal from "./modal/LogInModal";
 import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
@@ -23,7 +21,6 @@ import News from "../view/News";
 import Portfolio from "../view/Portfolio";
 import Contact from "./contact/Contact";
 import NewsDetails from "../view/NewsDetails";
-import NetflixChart from "./stockPage/NetflixChart";
 import ChangePassword from "./form/ChangePassword";
 import CreateNewPassword from "./form/CreateNewPassword";
 import OtpInputs from "./stocksotpinput/OtpInputs";
@@ -46,8 +43,6 @@ const Router = () => {
         <Route exact path="/stock" component={Stockpage} />
         <Route exact path="/" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
-        {/* <Route exact path="/" component={Homepage} /> */}
-        {/* <Route exact path="/ourplans" component={OurPlanspage} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/content/manager" component={CmPanel} />
         <Route path="/portfolio" component={Portfolio} />

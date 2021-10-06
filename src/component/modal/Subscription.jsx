@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CloseIcon from "../../assets/img/close-icon.png";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "../modal/modal.css";
 
 function Subscription() {
@@ -22,7 +22,7 @@ function Subscription() {
         centered
       >
         <img
-          className="close-icon pt-2 mx-3 cursor-pointer"
+          className="close-icon pt-3 mx-3 cursor-pointer"
           onClick={handleClose}
           src={CloseIcon}
           alt="close-icon"
@@ -31,41 +31,43 @@ function Subscription() {
           Subscription
         </p>
 
-        <Modal.Body>
+        <Modal.Body className="px-sm-5 px-3 rounded">
           <div className="subs-border p-3 d-flex justify-content-between align-items-center">
             <div>
-              <p className="plan-text ff-popins mb-0">Plan-1</p>
+              <p className="plan-text ff-popins mb-sm-0 mb-1">Plan-1</p>
               <p className="price-text mb-0">$299.99</p>
             </div>
             <div>
-              <button className="select-now-btn border-0 py-2 px-3 ff-popins">
+              <button className="select-now-btn  py-2 px-3 ff-popins">
                 Select Now
               </button>
             </div>
           </div>
           <div className="subs-border p-3 d-flex justify-content-between align-items-center my-3">
             <div>
-              <p className="plan-text ff-popins mb-0">Plan-1</p>
+              <p className="plan-text ff-popins mb-sm-0 mb-1">Plan-1</p>
               <p className="price-text mb-0">$299.99</p>
             </div>
             <div>
-              <button className="select-now-btn border-0 py-2 px-3 ff-popins">
+              <button className="select-now-btn  py-2 px-3 ff-popins">
                 Select Now
               </button>
             </div>
           </div>
           <div className="subs-border p-3 d-flex justify-content-between align-items-center">
             <div>
-              <p className="plan-text ff-popins mb-0">Plan-1</p>
+              <p className="plan-text ff-popins mb-sm-0 mb-1">Plan-1</p>
               <p className="price-text mb-0">$299.99</p>
             </div>
             <div>
-              <button className="select-now-btn border-0 py-2 px-3 ff-popins">
+              <button className="select-now-btn  py-2 px-3 ff-popins">
                 Select Now
               </button>
             </div>
           </div>
-          <p className="free-plan-text ff-popins pt-2 ">Select Free Plan</p>
+          <p className="free-plan-text ff-popins pt-3  cursor-pointer">
+            Select Free Plan
+          </p>
         </Modal.Body>
       </Modal>
     </div>

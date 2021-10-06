@@ -7,12 +7,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useFixedScreenProvider } from "./contexts/FixedScreenProvider";
 import { withRouter } from "react-router";
-import Loader from "./component/common/Loader";
 import VerifyRoutes from "./component/common/VerifyRoutes";
 import "./App.css";
+import LogoImage from "./assets/img/Navbar-logo-img.png";
 import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import IsPhoneConfirmed from "./component/auth/verfiy/IsPhoneConfirmed";
+import BubblesLoader from "./component/common/BubblesLoader";
 
 function App({ history }) {
   const dispatch = useDispatch();
@@ -37,7 +38,12 @@ function App({ history }) {
       {/* {auth ? (
         <>
           {loading ? (
-            <Loader />
+            <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
+              <div className="mb-5">
+                <img src={LogoImage} />
+              </div>
+              <BubblesLoader />
+            </div>
           ) : !userData.isEmailConfirmed ? (
             <VerifyRoutes />
           ) : !userData.isMobileNumberConfirmed ? (

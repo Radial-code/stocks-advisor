@@ -37,6 +37,7 @@
 
 .form-field .form-control:focus {
   box-shadow: 0 0 0 0.25rem transparent;
+  border-color: rgba(22, 25, 30, 0.2) !important;
 }
 
 .form-field .form-control::placeholder {
@@ -115,8 +116,6 @@
 .pich-chart .recharts-responsive-container {
   background-color: #fff5f7;
   border-radius: 10px;
-
-
 }
 
 .chart-text {

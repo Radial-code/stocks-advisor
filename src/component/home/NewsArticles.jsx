@@ -8,10 +8,8 @@ const NewsArticles = ({ history }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3.2,
     slidesToScroll: 1,
-    initialSlide: 0,
-    // autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
       {
@@ -20,9 +18,8 @@ const NewsArticles = ({ history }) => {
           innerWidth: 200,
           slidesToShow: 3,
           slidesToScroll: 1,
-
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -39,20 +36,20 @@ const NewsArticles = ({ history }) => {
           slidesToShow: 2.09,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 1.05,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 1.1,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },

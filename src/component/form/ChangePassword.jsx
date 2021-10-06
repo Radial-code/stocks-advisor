@@ -8,10 +8,10 @@ const ChangePassword = () => {
         <div className="row">
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12   mx-auto form-box-shadow">
             <div className="py-4 px-xxl-5 px-3  ">
-              <p className="mb-4 mb-md-5 from-heading text-center">
+              <p className="mb-4 mb-md-5 edit-contact-text text-center">
                 Change Password
               </p>
-              <div className="mb-3   ">
+              <div className="mb-3 form-field">
                 <input
                   type="text"
                   className="form-control from-input-placeholder"
@@ -19,7 +19,7 @@ const ChangePassword = () => {
                   placeholder="Current Password"
                 />
               </div>
-              <div className="mb-3  ">
+              <div className="mb-3 form-field ">
                 <input
                   type="text"
                   className="form-control from-input-placeholder"
@@ -27,7 +27,7 @@ const ChangePassword = () => {
                   placeholder="New Password"
                 />
               </div>
-              <div className="mb-0">
+              <div className="mb-0 form-field">
                 <input
                   type="text"
                   className="form-control from-input-placeholder"
@@ -35,7 +35,7 @@ const ChangePassword = () => {
                   placeholder="Confirm Password"
                 />
               </div>
-              <button className="border-0 w-100 mb-4 mt-sm-5 mt-3 from-btn">
+              <button className=" w-100 mb-4 mt-sm-5 mt-3 from-btn">
                 Update My Password
               </button>
             </div>

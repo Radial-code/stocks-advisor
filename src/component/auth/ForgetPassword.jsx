@@ -30,11 +30,11 @@ const ForgetPassword = () => {
                 Enter your email and we'll send the instructions
               </p>
 
-              <div className="mb-3 ">
+              <div className="mb-3 form-field">
                 <span className="position-relative d-flex flex-column justify-content-center ">
                   <input
                     type="text"
-                    className="form-control from-input-placeholder padding-right-50"
+                    className="form-control  padding-right-50"
                     id="exampleFormControlInput3"
                     placeholder="Johndoe@gmail.com"
                     onChange={(e) => setEmail(e.target.value)}
