@@ -8,8 +8,11 @@ import {
   FacebookIcon,
   LinkedinIcon,
 } from "../common/icons/Icons";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const auth = useSelector((state) => state.auth.auth);
+
   return (
     <section className="bg-16191E">
       <div className="container pt-3 pb-4 pt-lg-5">
@@ -80,22 +83,27 @@ const Footer = () => {
               </ul>
 
               <ul className="list-unstyled mb-0 footer-ul text-center text-lg-start">
-                <li>
-                  <Link
-                    className="text-decoration-none text-white fs-15"
-                    to="/portfolio/portfolio1"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-decoration-none text-white fs-15"
-                    to="/dashboard/edit/contact"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
+                {auth ? (
+                  <li>
+                    <Link
+                      className="text-decoration-none text-white fs-15"
+                      to="/portfolio/portfolio1"
+                    >
+                      Portfolio
+                    </Link>
+                  </li>
+                ) : null}
+                {auth ? (
+                  <li>
+                    <Link
+                      className="text-decoration-none text-white fs-15"
+                      to="/dashboard/edit/contact"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                ) : null}
+
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
