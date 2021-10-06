@@ -175,8 +175,8 @@
 }
 
 @media (min-width: 576px) {
-  .min-h-576px-100vh {
-    min-height: 65vh !important;
+  .min-h-576px-80vh {
+    min-height: 80vh !important;
   }
 }
 
@@ -230,12 +230,12 @@
   padding: 16px;
   border-radius: 4px;
   transition: 0.6s;
-  border: 1px solid var(--color-5cbd4c) !important;
+  border: 1px solid transparent;
 }
 
-.from-btn:hover {
-  background: var(--color-ffffff);
-  color: var(--color-127CF9);
+.form-btn:hover {
+  color: #5cbd4c !important;
+  border: 1px solid #5cbd4c !important;
 }
 
 .from-edit-profile-btn {
@@ -325,4 +325,15 @@
   .max-sm-w-283 {
     max-width: 283px;
   }
+}
+
+.same-input-style {
+  border-radius: 5px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+}
+
+.same-input-style:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(22, 25, 30, 0.2) !important;
 }

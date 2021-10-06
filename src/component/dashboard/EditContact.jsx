@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "../editform/editform.css";
 import { Form } from "react-bootstrap";
+import { EmailRegex, PhoneRegex } from "../../component/common/Validation";
 import DashboardDropDown from "./DashboardDropDown";
 function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
+  const [editDetails, setEditDetails] = useState({
+    editName: "",
+    email: "",
+    phone: "",
+  });
+
+  const editSubmitHandler = () => {
+    if (editDetails.editName && editDetails.email && editDetails.phone) {
+      console.log(editDetails);
+    } else {
+      alert("add details");
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div
@@ -26,23 +41,59 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
                   className="mb-3 form-field "
                   controlId="formBasicEmail"
                 >
-                  <Form.Control type="Text" placeholder="Name" />
+                  <Form.Control
+                    value={editDetails.editName}
+                    onChange={(e) => {
+                      setEditDetails({
+                        ...editDetails,
+                        editName: e.target.value,
+                      });
+                    }}
+                    type="Text"
+                    placeholder="Name"
+                  />
                 </Form.Group>
 
                 <Form.Group
                   className="my-4 form-field"
                   controlId="formBasicPassword"
                 >
-                  <Form.Control type="text" placeholder="Email" />
+                  <Form.Control
+                    value={editDetails.email}
+                    onChange={(e) =>
+                      setEditDetails({
+                        ...editDetails,
+                        email: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Email"
+                  />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 form-field"
                   controlId="formBasicPassword"
                 >
-                  <Form.Control type="text" placeholder="Mobile No" />
+                  <Form.Control
+                    value={editDetails.phone}
+                    onChange={(e) =>
+                      setEditDetails({
+                        ...editDetails,
+                        phone: e.target.value,
+                      })
+                    }
+                    type="text"
+                    placeholder="Mobile No"
+                  />
                 </Form.Group>
                 <div className="d-flex flex-sm-row flex-column my-3">
-                  <button className="update-btn  ff-popins">Update</button>
+                  <button
+                    type="button"
+                    onClick={() => editSubmitHandler()}
+                    className="update-btn  ff-popins"
+                  >
+                    Update
+                  </button>
                 </div>
               </Form>
             </div>
