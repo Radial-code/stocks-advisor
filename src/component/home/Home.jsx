@@ -13,6 +13,7 @@ const Home = () => {
     slidesToScroll: 1,
     rtl: true,
   };
+
   return (
     <>
       <div className="container">

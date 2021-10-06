@@ -28,7 +28,9 @@ const OurPlans = ({ homepage }) => {
             </p>
           </Col>
           {loading ? (
-            <BubblesLoader />
+            <div className="text-center d-flex  justify-content-center pt-2">
+              <BubblesLoader />
+            </div>
           ) : (
             <Col xs={12}>
               <div className="row mt-sm-5 ">
