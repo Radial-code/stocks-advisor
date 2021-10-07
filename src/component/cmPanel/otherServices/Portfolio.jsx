@@ -38,7 +38,7 @@ function Portfolio() {
             <input
               type="text"
               placeholder=" Add Portfolio"
-              className="py-3 px-3 w-100"
+              className="py-2 px-3 w-100"
             />
           </div>
         </Modal.Body>

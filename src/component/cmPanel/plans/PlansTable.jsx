@@ -1,6 +1,7 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { withRouter } from "react-router";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
   deletePlansDetailsAction,
@@ -9,7 +10,7 @@ import {
 import BubblesLoader from "../../common/BubblesLoader";
 import Loader from "../../common/Loader";
 
-function PlansTable() {
+function PlansTable({ history }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeletedLoading] = useState(false);
@@ -89,7 +90,14 @@ function PlansTable() {
                       <td className="text-center">{value.price}</td>
                       <td className="text-center">${value.type}</td>
                       <td className="text-center">
-                        <button className="px-3 py-1 edit-button ">Edit</button>
+                        <button
+                          className="px-3 py-1 edit-button"
+                          onClick={() =>
+                            history.push("/content/manager/plan/form")
+                          }
+                        >
+                          Edit
+                        </button>
                       </td>
                       <td className="text-center">
                         <button
@@ -112,4 +120,4 @@ function PlansTable() {
   );
 }
 
-export default PlansTable;
+export default withRouter(PlansTable);

@@ -73,6 +73,8 @@ const Router = () => {
         <Route path="/content/manager/add/news" component={CmPanelRoutes} />
         <Route path="/content/manager/users" component={CmPanelRoutes} />
         <Route path="/content/manager/edit/user" component={CmPanelRoutes} />
+        <Route path="/content/manager/plan/form" component={CmPanelRoutes} />
+
         <Route
           path="/content/manager/other/services"
           component={CmPanelRoutes}
@@ -86,7 +88,6 @@ const Router = () => {
           path="/content/manager/our/plans/details"
           component={CmPanelRoutes}
         />
-        <Route path="/content/manager/plan/form" component={PlansSection} />
       </Switch>
       <Footer />
     </BrowserRouter>

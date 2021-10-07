@@ -9,7 +9,7 @@ function PlansSection({ sideBarHandler, setSidebarActive, sidebarActive }) {
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
-      <div className="row h-100">
+      <div className="row ">
         <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">

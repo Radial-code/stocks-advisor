@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ExchangeTable from "./ExchangeTable";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Exchange() {
   const [show, setShow] = useState(false);
@@ -40,7 +40,7 @@ function Exchange() {
             <input
               type="text"
               placeholder=" Add Exchange"
-              className="py-3 px-3 w-100"
+              className="py-2 px-3 w-100"
             />
           </div>
         </Modal.Body>
