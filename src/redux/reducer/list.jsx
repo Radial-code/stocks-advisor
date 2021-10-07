@@ -1,5 +1,5 @@
+import { GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_CONTACT_LIST } from "../action/contact";
-import { GET_PLANS_LIST_SUCCESS } from "../action/plan";
 import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
 
 const initialState = {
@@ -19,7 +19,7 @@ export default function ListReducer(state = initialState, action) {
     }
 
     //Get plan list
-    case GET_PLANS_LIST_SUCCESS: {
+    case GET_PLANS_LIST: {
       return {
         ...state,
         planList: action.data,

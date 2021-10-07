@@ -1,790 +1,129 @@
+import moment from "moment";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
+import { getStockListAction } from "../../../redux/action/cmPanel/stock";
+import BubblesLoader from "../../common/BubblesLoader";
 
 const CurrentStockTable = () => {
-  return (
-    <table className="table table-borderless table-hover mb-3">
-      <thead className="portfolio-sticky ">
-        <tr className="current-stock-table-head table-border-bottom table-border-top">
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Date{" "}
-          </th>
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const stockList = useSelector((state) => state.cmPanel.stockList);
 
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Profit/Loss
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            State
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Current Price
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Join Price
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Category
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Symbol
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
+  useEffect(() => {
+    dispatch(getStockListAction(setLoading));
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <BubblesLoader />
+      ) : (
+        <table className="table table-borderless table-hover mb-3">
+          <thead className="portfolio-sticky ">
+            <tr className="current-stock-table-head table-border-bottom table-border-top">
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Date{" "}
+              </th>
+
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Profit/Loss
+              </th>
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                State
+              </th>
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Current Price
+              </th>
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Join Price
+              </th>
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Category
+              </th>
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Symbol
+              </th>
+              {/* <th scope="col" className="text-center position-sticky top-0 ">
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
             Name
-          </th>
-          <th scope="col" className="text-center position-sticky top-0 ">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            Portfolio
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center ">15/07</td>
-          <td className="text-center profitloss-text">25</td>
+          </th> */}
+              <th scope="col" className="text-center position-sticky top-0 ">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Portfolio
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {!!stockList && !!stockList.length
+              ? stockList.map((value, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      className="current-stock-data table-border-bottom"
+                    >
+                      <td className="text-center ">
+                        {moment(value.createdAt).format("MM/ddd")}
+                      </td>
+                      <td className="text-center profitloss-text">
+                        {value &&
+                        value.profitOrLoss &&
+                        value.profitOrLoss.percentage
+                          ? value.profitOrLoss.percentage
+                          : "N/A"}
+                      </td>
 
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-        <tr className="current-stock-data table-border-bottom">
-          <td className="text-center">15/07</td>
-          <td className="text-center profitloss-text">25</td>
-
-          <td className="text-center">Sold</td>
-          <td className="text-center">$150</td>
-          <td className="text-center">$125</td>
-          <td className="text-center">Common</td>
-          <td className="text-center">NFLX</td>
-          <td className="text-center">Netflix</td>
-          <td className="text-center">Portfolio 1</td>
-        </tr>
-      </tbody>
-    </table>
+                      <td className="text-center">
+                        {value.isSold ? "Sold" : "No Sold"}
+                      </td>
+                      <td className="text-center">${value.currentPrice}</td>
+                      <td className="text-center">${value.joinPrice}</td>
+                      <td className="text-center">
+                        {value && value.category ? value.category.title : "N/A"}
+                      </td>
+                      <td className="text-center">
+                        {value.symbol ? value.symbol : "N/A"}
+                      </td>
+                      {/* <td className="text-center">Netflix</td> */}
+                      <td className="text-center">
+                        {value && value.portfolio
+                          ? value.portfolio.title
+                          : "N/A"}
+                      </td>
+                    </tr>
+                  );
+                })
+              : "You don't have any stock"}
+          </tbody>
+        </table>
+      )}
+    </>
   );
 };
 export default CurrentStockTable;

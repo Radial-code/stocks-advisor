@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { getPlansListAction } from "../../../redux/action/plan";
+import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import BubblesLoader from "../BubblesLoader";
 
 const OurPlans = ({ homepage }) => {

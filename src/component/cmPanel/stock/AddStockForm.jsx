@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Buket from "../../../assets/img/backet.png";
+import {
+  getCategoryListAction,
+  getExchangeListAction,
+  getPortfolioListAction,
+} from "../../../redux/action/cmPanel/OurServices";
 import { addNewStockDetailsAction } from "../../../redux/action/cmPanel/stock";
+import Loader from "../../common/Loader";
 
 const AddStockForm = () => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [exchangeLoading, setExchangeLoading] = useState(false);
+  const [portfolioLoading, setPortfolioLoading] = useState(false);
+  const [addStockLoading, setAddStockLoading] = useState(false);
   const [stockDetails, setStockDetails] = useState({
     joinDate: "",
     joinPrice: "",
@@ -20,6 +30,16 @@ const AddStockForm = () => {
     currentPrice: 0,
   });
 
+  const categoryList = useSelector((state) => state.cmPanel.categoryList);
+  const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
+  const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
+
+  useEffect(() => {
+    dispatch(getCategoryListAction(setLoading));
+    dispatch(getExchangeListAction(setExchangeLoading));
+    dispatch(getPortfolioListAction(setPortfolioLoading));
+  }, []);
+
   const submitStockDetails = () => {
     if (
       stockDetails.joinDate !== "" &&
@@ -31,7 +51,24 @@ const AddStockForm = () => {
       stockDetails.soldPrice !== "" &&
       stockDetails.symbol !== ""
     ) {
-      dispatch(addNewStockDetailsAction(stockDetails));
+      dispatch(
+        addNewStockDetailsAction(
+          stockDetails,
+          setAddStockLoading,
+          setStockDetails
+        )
+      );
+      setStockDetails({
+        joinDate: "",
+        joinPrice: "",
+        category: "",
+        exchange: "",
+        portfolio: "",
+        soldDate: "",
+        soldPrice: "",
+        symbol: "",
+        currentPrice: 0,
+      });
     }
   };
 
@@ -68,11 +105,13 @@ const AddStockForm = () => {
               >
                 <Form.Control
                   type="text"
+                  value={stockDetails.joinPrice}
                   placeholder="Join Price"
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
                       joinPrice: e.target.value,
+                      currentPrice: e.target.value,
                     });
                   }}
                 />
@@ -88,6 +127,7 @@ const AddStockForm = () => {
                 <Form.Control
                   type="text"
                   placeholder="Symbol"
+                  value={stockDetails.symbol}
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
@@ -99,6 +139,7 @@ const AddStockForm = () => {
             </div>
             <div className="col-md-6">
               <FormGroup
+                value={stockDetails.category}
                 onChange={(e) => {
                   setStockDetails({
                     ...stockDetails,
@@ -109,74 +150,105 @@ const AddStockForm = () => {
               >
                 <select className="form-select text-end">
                   <option>Category</option>
+                  {!!categoryList && !!categoryList.length ? (
+                    categoryList.map((category, index) => {
+                      return (
+                        <option key={index} value={category._id}>
+                          {category.title}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option>You don't have any category </option>
+                  )}
                 </select>
               </FormGroup>
             </div>
           </div>
           <div className="row">
             <div className="col-md-6">
-              <Form.Group
-                className="mb-3 add-new-stock-field "
-                controlId="formBasicEmail"
+              <FormGroup
+                value={stockDetails.portfolio}
+                onChange={(e) => {
+                  setStockDetails({
+                    ...stockDetails,
+                    portfolio: e.target.value,
+                  });
+                }}
+                className=" add-new-stock-select mb-3"
               >
-                <Form.Control
-                  type="text"
-                  placeholder="Portfolio"
-                  onChange={(e) => {
-                    setStockDetails({
-                      ...stockDetails,
-                      portfolio: e.target.value,
-                    });
-                  }}
-                />
-              </Form.Group>
+                <select className="form-select text-end">
+                  <option>Portfolio</option>
+                  {!!portfolioList && !!portfolioList.length ? (
+                    portfolioList.map((portfolio, index) => {
+                      return (
+                        <option key={index} value={portfolio._id}>
+                          {portfolio.title}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option>You don't have any portfolio </option>
+                  )}
+                </select>
+              </FormGroup>
             </div>
             <div className="col-md-6">
-              <Form.Group
-                className="mb-3 add-new-stock-field "
-                controlId="formBasicEmail"
+              <FormGroup
+                value={stockDetails.exchange}
+                onChange={(e) => {
+                  setStockDetails({
+                    ...stockDetails,
+                    exchange: e.target.value,
+                  });
+                }}
+                className=" add-new-stock-select mb-3"
               >
-                <Form.Control
-                  type="text"
-                  placeholder="Exchange"
-                  onChange={(e) => {
-                    setStockDetails({
-                      ...stockDetails,
-                      exchange: e.target.value,
-                    });
-                  }}
-                />
-              </Form.Group>
+                <select className="form-select text-end">
+                  <option>Exchange</option>
+                  {!!exchangeList && !!exchangeList.length ? (
+                    exchangeList.map((exchange, index) => {
+                      return (
+                        <option key={index} value={exchange._id}>
+                          {exchange.title}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option>You don't have any exchange </option>
+                  )}
+                </select>
+              </FormGroup>
             </div>
           </div>
           <div className="row">
             <div className="col-md-6  datepicker-input position-relative order-sm-1 order-2">
-              <DatePicker
-                className="mb-3"
-                placeholderText="Sell Date (if sold)"
-                selected={stockDetails.soldDate}
-                onChange={(e) => {
-                  setStockDetails({
-                    ...stockDetails,
-                    soldDate: e,
-                  });
-                }}
-              />
-              <img
-                className="position-absolute bucket-img "
-                src={Buket}
-                alt="Buket"
-              />
+              <Form.Group
+                className="mb-3 add-new-stock-field "
+                controlId="formBasicEmail"
+              >
+                <Form.Control
+                  value={stockDetails.soldPrice}
+                  type="text"
+                  placeholder="Sold Price"
+                  onChange={(e) => {
+                    setStockDetails({
+                      ...stockDetails,
+                      soldPrice: e.target.value,
+                    });
+                  }}
+                />
+              </Form.Group>
             </div>
             <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
               <DatePicker
                 placeholderText="Sold Date"
                 className="mb-3"
-                selected={stockDetails.soldPrice}
+                selected={stockDetails.soldDate}
                 onChange={(e) => {
                   setStockDetails({
                     ...stockDetails,
-                    soldPrice: e,
+                    soldDate: e,
                   });
                 }}
               />
@@ -191,10 +263,11 @@ const AddStockForm = () => {
           <div className="d-flex flex-sm-row flex-column">
             <button
               type="button"
+              disabled={addStockLoading}
               className="update-btn my-3 ff-popins"
               onClick={() => submitStockDetails()}
             >
-              Add
+              {addStockLoading ? <Loader /> : "Add"}
             </button>
           </div>
         </Form>
