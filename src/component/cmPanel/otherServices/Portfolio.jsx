@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import PortfolioTable from "./PortfolioTable";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Portfolio() {
   const [show, setShow] = useState(false);
@@ -35,7 +34,6 @@ function Portfolio() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {" "}
           <div className="add-new-stock-field my-3 ms-sm-3">
             <input
               type="text"

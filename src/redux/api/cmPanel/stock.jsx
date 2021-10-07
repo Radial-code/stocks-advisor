@@ -16,3 +16,11 @@ export const addNewStockDetailsApi = async (data) => {
 export const getStockListApi = async () => {
   return await axiosRequest("GET", `/stock`);
 };
+
+/**
+ *  user list for admin api
+ * @returns
+ */
+export const getUserListForAdminApi = async () => {
+  return await axiosRequest("GET", `/users`);
+};

@@ -18,6 +18,14 @@ export const getCategoryListApi = async () => {
 };
 
 /**
+ *  delete category api
+ * @returns
+ */
+export const deleteCategoryApi = async (id) => {
+  return await axiosRequest("DELETE", `/category/${id}`);
+};
+
+/**
  * Add new exchange details api
  * @param {Object} data
  * @returns

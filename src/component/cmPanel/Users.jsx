@@ -1,7 +1,6 @@
 import React from "react";
 import { Table, Container, Row, Col } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "../cmPanelCss/userList.css";
 const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (

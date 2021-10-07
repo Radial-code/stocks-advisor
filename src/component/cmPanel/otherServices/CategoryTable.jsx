@@ -2,10 +2,13 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
-import { getCategoryListAction } from "../../../redux/action/cmPanel/OurServices";
+import {
+  deleteCategoryAction,
+  getCategoryListAction,
+} from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function CategoryTable({ setShow, show }) {
+function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -13,6 +16,18 @@ function CategoryTable({ setShow, show }) {
   useEffect(() => {
     dispatach(getCategoryListAction(setLoading));
   }, []);
+
+  const deleteCategory = (id) => {
+    if (id) {
+      dispatach(deleteCategoryAction(id));
+    }
+  };
+
+  const editCategory = (value) => {
+    setShow(true);
+    setEdit(true);
+    setUpdateValue(value);
+  };
 
   return (
     <>
@@ -67,13 +82,16 @@ function CategoryTable({ setShow, show }) {
                     <td className="text-center">
                       <button
                         className="px-3 py-1 edit-button "
-                        onClick={() => setShow(true)}
+                        onClick={() => editCategory(value.title)}
                       >
                         Edit
                       </button>
                     </td>
                     <td className="text-center">
-                      <button className="px-3 py-1 delete-button">
+                      <button
+                        onClick={() => deleteCategory(value._id)}
+                        className="px-3 py-1 delete-button"
+                      >
                         Delete
                       </button>
                     </td>

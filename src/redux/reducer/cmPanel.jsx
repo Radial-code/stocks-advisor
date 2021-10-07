@@ -1,9 +1,13 @@
 import {
+  DELETE_CATEGORY_LIST,
   GET_CATEGORY_LIST,
   GET_EXCHANGE_LIST,
   GET_PORTFOLIO_LIST,
 } from "../action/cmPanel/OurServices";
-import { GET_STOCK_LIST } from "../action/cmPanel/stock";
+import {
+  GET_STOCK_LIST,
+  GET_USER_LIST_FOR_ADMIN,
+} from "../action/cmPanel/stock";
 import { GET_NEWS_FOR_ADMIN } from "../action/news";
 
 const initialState = {
@@ -12,6 +16,7 @@ const initialState = {
   exchangeList: [],
   portfolioList: [],
   adminNewsList: [],
+  adminUserList: [],
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -29,6 +34,18 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         categoryList: action.data,
+      };
+    }
+
+    // delete category list
+    case DELETE_CATEGORY_LIST: {
+      const deleteCategoryList = [...state.categoryList];
+      const deleteList = deleteCategoryList.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        categoryList: deleteList,
       };
     }
 
@@ -53,6 +70,14 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         adminNewsList: action.data,
+      };
+    }
+
+    // Get user list for admin
+    case GET_USER_LIST_FOR_ADMIN: {
+      return {
+        ...state,
+        adminUserList: action.data,
       };
     }
 

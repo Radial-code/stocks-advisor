@@ -3,6 +3,7 @@ import {
   addNewCategoryDetailsApi,
   addNewExchangeDetailsApi,
   addNewPortfolioDetailsApi,
+  deleteCategoryApi,
   getCategoryListApi,
   getExchangeListApi,
   getPortfolioListApi,
@@ -15,31 +16,34 @@ export const GET_EXCHANGE_LIST = "GET_EXCHANGE_LIST";
 export const UPDATE_EXCHANGE_DETAILS = "UPDATE_EXCHANGE_DETAILS";
 export const UPDATE_PORTFOLIO_DETAILS = "UPDATE_PORTFOLIO_DETAILS";
 export const GET_PORTFOLIO_LIST = "GET_PORTFOLIO_LIST";
+export const DELETE_CATEGORY_LIST = "DELETE_CATEGORY_LIST";
 
 /**
  * add new Category details action
  * @param {Object} data
  * @returns
  */
-export const addNewCategoryDetailsAction = (data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await addNewCategoryDetailsApi(data);
-    if (response.success) {
+export const addNewCategoryDetailsAction =
+  (data, setLoading, handleClose) => async () => {
+    setLoading(true);
+    try {
+      const response = await addNewCategoryDetailsApi(data);
+      if (response.success) {
+        setLoading(false);
+        handleClose();
+        Swal.fire("Success", "Category submitted successfully", "success");
+        setTimeout(Swal.close, 2000);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to add Category", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-      Swal.fire("Success", "Category submitted successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to add Category", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get Category list action
@@ -66,6 +70,33 @@ export const getCategoryListAction = (setLoading) => async (dispatch) => {
     }
   } catch (error) {
     setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+/**
+ * delete Category  action
+ * @param {Object} data
+ * @returns
+ */
+
+const deleteCategory = (data) => ({
+  type: DELETE_CATEGORY_LIST,
+  data,
+});
+
+export const deleteCategoryAction = (id) => async (dispatch) => {
+  try {
+    const response = await deleteCategoryApi(id);
+    if (response.success) {
+      dispatch(deleteCategory(id));
+      Swal.fire("success", "Category deleted successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      Swal.fire("Error", "Failed to delete Category", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }

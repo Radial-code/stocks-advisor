@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import CategoryTable from "./CategoryTable";
-import { Button, Modal } from "react-bootstrap";
+import CategoryPopup from "./CategoryPopup";
+
 function Category() {
   const [show, setShow] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [updateValue, setUpdateValue] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -22,31 +25,22 @@ function Category() {
       </div>
       <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
         <div className="table-responsive  current-stock-scrollbar h-100">
-          <CategoryTable show={show} setShow={setShow} />
+          <CategoryTable
+            show={show}
+            setShow={setShow}
+            setEdit={setEdit}
+            setUpdateValue={setUpdateValue}
+          />
         </div>
       </div>
       {/* Modal */}
-
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header className="d-block">
-          <Modal.Title>
-            <p className="mb-0 text-center fw-bold">Add Category</p>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {" "}
-          <div className="add-new-stock-field my-3 ms-sm-3">
-            <input
-              type="text"
-              placeholder=" Add Category"
-              className="py-3 px-3 w-100"
-            />
-          </div>
-        </Modal.Body>
-        <Modal.Footer className="d-block text-center">
-          <button className="px-5 py-2 add-button ms-3 my-sm-3">Submit</button>
-        </Modal.Footer>
-      </Modal>
+      <CategoryPopup
+        handleClose={handleClose}
+        setShow={setShow}
+        show={show}
+        edit={edit}
+        updateValue={updateValue}
+      />
     </div>
   );
 }
