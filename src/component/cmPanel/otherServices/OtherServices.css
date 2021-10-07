@@ -60,3 +60,11 @@
   font-weight: 500;
   color: black;
 }
+.input-tag .react-tag-input {
+  padding: 11px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+}
+.input-tag .react-tag-input__input::placeholder {
+  font-size: 16px;
+  color: #16191e !important;
+}
