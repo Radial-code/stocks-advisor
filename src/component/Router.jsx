@@ -29,6 +29,7 @@ import ResendOtp from "./auth/verfiy/ResendOtp";
 import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
+import PlansSection from "./cmPanel/plans/PlansSection";
 
 const Router = () => {
   return (
@@ -85,6 +86,7 @@ const Router = () => {
           path="/content/manager/our/plans/details"
           component={CmPanelRoutes}
         />
+        <Route path="/content/manager/plan/form" component={PlansSection} />
       </Switch>
       <Footer />
     </BrowserRouter>

@@ -10,6 +10,7 @@ import SidebarPanel from "../common/SideBar/SidebarPanel";
 import OtherServices from "./otherServices/OtherServices";
 import OtherServicesForm from "./otherServices/OtherServicesForm";
 import Plans from "../cmPanel/plans/Plans";
+import PlansSection from "./plans/PlansSection";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -85,6 +86,13 @@ const CmPanelRoutes = () => {
 
           <Route path="/content/manager/our/plans/details">
             <Plans
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/plan/form">
+            <PlansSection
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
