@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Buket from "../../assets/img/backet.png";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Form } from "react-bootstrap";
 
 import "../cmPanelCss/News.css";
 const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
@@ -50,11 +50,12 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
 
               <div className="row">
                 <div className="col-12 col-lg-6 mb-3">
-                  <input
-                    className="form-control  small-paragraph inputs-border p_16_20"
-                    type=""
-                    placeholder="Title"
-                  />
+                  <Form.Group
+                    className="mb-3 add-new-stock-field "
+                    controlId="formBasicEmail"
+                  >
+                    <Form.Control placeholder="Title" />
+                  </Form.Group>
                 </div>
                 <div className="col-lg-6 col-12  datepicker-input position-relative ">
                   <DatePicker
@@ -163,18 +164,20 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   </select>
                 </div>
                 <div className="col-12 col-lg-6 mb-3">
-                  <input
-                    className="form-control small-paragraph inputs-border p_16_20"
-                    type=""
-                    placeholder="Updated By"
-                  />
+                  <Form.Group
+                    className="mb-3 add-new-stock-field "
+                    controlId="formBasicEmail"
+                  >
+                    <Form.Control type="number" placeholder="Update By" />
+                  </Form.Group>
                 </div>
                 <div className="col-12 col-lg-6 mb-3">
-                  <input
-                    className="form-control small-paragraph inputs-border p_16_20"
-                    type=""
-                    placeholder="Wrote By"
-                  />
+                  <Form.Group
+                    className="mb-3 add-new-stock-field "
+                    controlId="formBasicEmail"
+                  >
+                    <Form.Control placeholder="Wrote By" />
+                  </Form.Group>
                 </div>
                 <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
                 <div className="col-12 col-lg-6 mb-3">

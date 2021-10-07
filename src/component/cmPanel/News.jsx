@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Table } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Container, Row, Col, Table, FormGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Sortarrow from "../../assets/img/sortarrow.png";
 
 import "../cmPanelCss/News.css";
 const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
@@ -46,11 +47,35 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </div>
               <div className="h-calc-100vh-442 scroll-bar overflow-auto mt-4">
                 <Table responsive hover className="">
-                  <thead>
+                  <thead className="portfolio-sticky">
                     <tr className="user-list-panel">
-                      <th> Date</th>
-                      <th> Title</th>
-                      <th>Tags</th>
+                      <th>
+                        {" "}
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                        Date{" "}
+                      </th>
+                      <th>
+                        {" "}
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />{" "}
+                        Title
+                      </th>
+                      <th>
+                        {" "}
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                        Tags
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="user-details">
