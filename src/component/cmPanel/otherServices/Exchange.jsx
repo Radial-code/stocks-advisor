@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ExchangeTable from "./ExchangeTable";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Exchange() {
   const [show, setShow] = useState(false);

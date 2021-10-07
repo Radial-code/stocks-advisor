@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CategoryTable from "./CategoryTable";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 function Category() {
   const [show, setShow] = useState(false);
 

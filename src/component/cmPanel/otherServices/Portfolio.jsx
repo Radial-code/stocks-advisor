@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import PortfolioTable from "./PortfolioTable";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function Portfolio() {
   const [show, setShow] = useState(false);
