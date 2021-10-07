@@ -10,11 +10,12 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   const [categoryTable, setCategoryTable] = useState(true);
   const [portfolioTable, setPortfolioTable] = useState(false);
   const [exchangeTable, setExchangeTable] = useState(false);
+
   const showTable = (value) => {
     if (value === "category") {
       setCategoryTable(true);
       setExchangeTable(false);
-      setExchangeTable(false);
+      setPortfolioTable(false);
     } else if (value === "portfolio") {
       setPortfolioTable(true);
       setExchangeTable(false);
@@ -64,7 +65,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   Other Services
                 </p>
               </div>
-              <div className="col-9 d-flex  justify-content-md-end flex-md-row flex-column">
+              <div className="col-sm-9 d-flex  justify-content-md-end flex-md-row flex-column">
                 <button
                   className={`${
                     exchangeTable ? "services-btn-active" : "services-btn"
@@ -91,6 +92,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 </button>
               </div>
             </div>
+
             {categoryTable ? <Category /> : ""}
             {portfolioTable ? <Portfolio /> : ""}
             {exchangeTable ? <Exchange /> : ""}
