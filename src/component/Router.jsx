@@ -28,6 +28,7 @@ import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
 import ResendOtp from "./auth/verfiy/ResendOtp";
 import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
+import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
 
 const Router = () => {
   return (
@@ -64,7 +65,6 @@ const Router = () => {
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/otpinputs" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
-
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />
         <Route path="/content/manager/add/stock" component={CmPanelRoutes} />
@@ -76,6 +76,11 @@ const Router = () => {
           path="/content/manager/other/services"
           component={CmPanelRoutes}
         />
+        <Route
+          path="/content/manager/add/other/services"
+          component={OtherServicesForm}
+        />
+
         <Route
           path="/content/manager/our/plans/details"
           component={CmPanelRoutes}

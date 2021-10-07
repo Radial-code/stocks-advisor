@@ -8,6 +8,7 @@ import Stocks from "./stock/Stock";
 import Users from "./Users";
 import SidebarPanel from "../common/SideBar/SidebarPanel";
 import OtherServices from "./otherServices/OtherServices";
+import OtherServicesForm from "./otherServices/OtherServicesForm";
 import Plans from "../cmPanel/plans/Plans";
 
 const CmPanelRoutes = () => {
@@ -74,8 +75,24 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
+          <Route path="/content/manager/add/services">
+            <OtherServicesForm
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+
           <Route path="/content/manager/our/plans/details">
             <Plans
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+
+          <Route path="/content/manager/add/other/services">
+            <OtherServicesForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
