@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import "@pathofdev/react-tag-input/build/index.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
+import { useDispatch } from "react-redux";
+import Loader from "../../common/Loader";
+import { addNewPlansDetailsAction } from "../../../redux/action/cmPanel/plans";
+
 function PlansForm() {
-  const [tags, setTags] = React.useState(["example tag"]);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [tags, setTags] = useState([]);
+  const [planDetails, setPlanDetails] = useState({
+    title: "",
+    price: "",
+    type: "",
+    details: "",
+  });
+
+  const submitPlanDetails = () => {
+    tags.map((item) => {
+      planDetails.details += `${item},`;
+    });
+    if (
+      planDetails.title !== "" &&
+      planDetails.price !== "" &&
+      planDetails.type !== "" &&
+      planDetails.details !== ""
+    ) {
+      dispatch(addNewPlansDetailsAction(planDetails, setLoading));
+    }
+  };
+
   return (
     <div>
       <div className="col-12 h-100 stock-add-new">
@@ -16,7 +43,16 @@ function PlansForm() {
                   className="mb-3 add-new-stock-field "
                   controlId="formBasicEmail"
                 >
-                  <Form.Control type="text" placeholder="Price" />
+                  <Form.Control
+                    type="number"
+                    placeholder="Price"
+                    onChange={(e) => {
+                      setPlanDetails({
+                        ...planDetails,
+                        price: e.target.value,
+                      });
+                    }}
+                  />
                 </Form.Group>
               </div>
               <div className="col-md-6 order-1 last-name order-sm-1 order-2">
@@ -24,7 +60,16 @@ function PlansForm() {
                   className="mb-3 add-new-stock-field "
                   controlId="formBasicEmail"
                 >
-                  <Form.Control type="text" placeholder="Title" />
+                  <Form.Control
+                    type="text"
+                    placeholder="Title"
+                    onChange={(e) => {
+                      setPlanDetails({
+                        ...planDetails,
+                        title: e.target.value,
+                      });
+                    }}
+                  />
                 </Form.Group>
               </div>
             </div>
@@ -33,7 +78,7 @@ function PlansForm() {
                 <ReactTagInput
                   tags={tags}
                   placeholder="Details"
-                  maxTags={3}
+                  maxTags={10}
                   editable={true}
                   readOnly={false}
                   removeOnBackspace={true}
@@ -42,7 +87,15 @@ function PlansForm() {
               </div>
               <div className="col-md-6">
                 <FormGroup className=" add-new-stock-select mb-3">
-                  <select className="form-select text-end">
+                  <select
+                    onChange={(e) => {
+                      setPlanDetails({
+                        ...planDetails,
+                        type: e.target.value,
+                      });
+                    }}
+                    className="form-select text-end"
+                  >
                     <option>Week</option>
                     <option>Month</option>
                     <option>Year</option>
@@ -52,8 +105,13 @@ function PlansForm() {
             </div>
 
             <div className="d-flex flex-sm-row flex-column">
-              <button type="button" className="update-btn my-3 ff-popins">
-                Add
+              <button
+                onClick={() => submitPlanDetails()}
+                type="button"
+                disabled={loading}
+                className="update-btn my-3 ff-popins"
+              >
+                {loading ? <Loader /> : "Add"}
               </button>
             </div>
           </Form>

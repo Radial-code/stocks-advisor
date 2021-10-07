@@ -43,7 +43,6 @@ const IsPhoneConfirmed = ({ history }) => {
                   placeholder="  Enter your otp"
                   onChange={(e) => setVerificationOTP(e.target.value)}
                 />
-                {console.log(verificationOTP, "verificationOTP")}{" "}
                 {error && verificationOTP
                   ? "OTP is required"
                   : (error && verificationOTP.length < 6) ||

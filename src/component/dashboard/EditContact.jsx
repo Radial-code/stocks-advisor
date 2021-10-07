@@ -12,7 +12,6 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
 
   const editSubmitHandler = () => {
     if (editDetails.editName && editDetails.email && editDetails.phone) {
-      console.log(editDetails);
     } else {
       alert("add details");
     }

@@ -1,4 +1,4 @@
-import { GET_PLANS_LIST } from "../action/cmPanel/plans";
+import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_CONTACT_LIST } from "../action/contact";
 import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
 
@@ -23,6 +23,18 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         planList: action.data,
+      };
+    }
+
+    // Delete plan by id
+    case DELETE_PLANS_SUCCESS: {
+      const deletePlan = [...state.planList];
+      const deleteList = deletePlan.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        planList: deleteList,
       };
     }
 

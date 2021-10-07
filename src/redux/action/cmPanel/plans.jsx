@@ -15,25 +15,26 @@ export const DELETE_PLANS_SUCCESS = "DELETE_PLANS_SUCCESS";
  * @param {Object} data
  * @returns
  */
-export const addNewPlansDetails = (data, setAddPlansLoading) => async () => {
-  setAddPlansLoading(true);
-  try {
-    const response = await addNewPlansDetailsApi(data);
-    if (response.success) {
+export const addNewPlansDetailsAction =
+  (data, setAddPlansLoading) => async () => {
+    setAddPlansLoading(true);
+    try {
+      const response = await addNewPlansDetailsApi(data);
+      if (response.success) {
+        setAddPlansLoading(false);
+        Swal.fire("Success", "Plans submitted successfully", "success");
+        setTimeout(Swal.close, 2000);
+      } else {
+        setAddPlansLoading(false);
+        Swal.fire("Error", "Failed to add Plans", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setAddPlansLoading(false);
-      Swal.fire("Success", "Plans submitted successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setAddPlansLoading(false);
-      Swal.fire("Error", "Failed to add Plans", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setAddPlansLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get Plans list action
@@ -110,12 +111,12 @@ const deletePlansDetails = (data) => ({
 });
 
 export const deletePlansDetailsAction =
-  (data, id, setDeletedLoading) => async (dispatch) => {
+  (id, setDeletedLoading) => async (dispatch) => {
     setDeletedLoading(true);
     try {
-      const response = await deletePlansApi(data, id);
+      const response = await deletePlansApi(id);
       if (response.success) {
-        dispatch(deletePlansDetails(response.Plans));
+        dispatch(deletePlansDetails(id));
         setDeletedLoading(false);
         Swal.fire("Success", "Plans Delete successfully", "Success");
         setTimeout(Swal.close, 2000);
