@@ -18,7 +18,9 @@ const CurrentStockTable = () => {
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <BubblesLoader />
+        </div>
       ) : (
         <table className="table table-borderless table-hover mb-3">
           <thead className="portfolio-sticky ">

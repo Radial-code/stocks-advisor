@@ -39,7 +39,7 @@ function Category() {
             <input
               type="text"
               placeholder=" Add Category"
-              className="py-3 px-3 w-100"
+              className="py-2 px-3 w-100"
             />
           </div>
         </Modal.Body>
