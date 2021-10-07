@@ -5,7 +5,7 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function PortfolioTable() {
+function PortfolioTable({ setShow, show }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(true);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
@@ -65,7 +65,12 @@ function PortfolioTable() {
                     </td>
                     <td className="text-center">{value.title}</td>
                     <td className="text-center">
-                      <button className="px-3 py-1 edit-button ">Edit</button>
+                      <button
+                        className="px-3 py-1 edit-button "
+                        onClick={() => setShow(true)}
+                      >
+                        Edit
+                      </button>
                     </td>
                     <td className="text-center">
                       <button className="px-3 py-1 delete-button">

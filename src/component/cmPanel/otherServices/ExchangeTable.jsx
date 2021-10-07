@@ -5,7 +5,8 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getExchangeListAction } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function ExchangeTable() {
+function ExchangeTable({ setShow, show }) {
+  console.log("asdfghjkl;", show);
   const dispatach = useDispatch();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
@@ -65,7 +66,12 @@ function ExchangeTable() {
                     </td>
                     <td className="text-center">{value.title}</td>
                     <td className="text-center">
-                      <button className="px-3 py-1 edit-button ">Edit</button>
+                      <button
+                        className="px-3 py-1 edit-button "
+                        onClick={() => setShow(true)}
+                      >
+                        Edit
+                      </button>
                     </td>
                     <td className="text-center">
                       <button className="px-3 py-1 delete-button">

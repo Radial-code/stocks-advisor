@@ -44,7 +44,7 @@ const Plans = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </Link>
             </div>
             <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
-              <div className="table-responsive  current-stock-scrollbar">
+              <div className="table-responsive  current-stock-scrollbar h-100">
                 <PlansTable />
               </div>
             </div>

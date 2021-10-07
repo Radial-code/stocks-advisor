@@ -5,7 +5,7 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getCategoryListAction } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function CategoryTable() {
+function CategoryTable({ setShow, show }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -65,7 +65,12 @@ function CategoryTable() {
                     </td>
                     <td className="text-center">{value.title}</td>
                     <td className="text-center">
-                      <button className="px-3 py-1 edit-button ">Edit</button>
+                      <button
+                        className="px-3 py-1 edit-button "
+                        onClick={() => setShow(true)}
+                      >
+                        Edit
+                      </button>
                     </td>
                     <td className="text-center">
                       <button className="px-3 py-1 delete-button">
