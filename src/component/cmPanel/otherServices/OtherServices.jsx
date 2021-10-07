@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
-import OtherServicesTable from "./OtherServicesTable";
+import { useState } from "react";
+import CategoryTable from "./CategoryTable";
+import "../otherServices/OtherServices.css";
+import PortfolioTable from "./PortfolioTable";
+import ExchangeTable from "./ExchangeTable";
 const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+  const [categoryTable, setCategoryTable] = useState(true);
+  const [portfolioTable, setPortfolioTable] = useState(false);
+  const [exchangeTable, setExchangeTable] = useState(false);
+  const showTable = (value) => {
+    if (value === "category") {
+      setCategoryTable(true);
+      setExchangeTable(false);
+      setExchangeTable(false);
+    } else if (value === "portfolio") {
+      setPortfolioTable(true);
+      setExchangeTable(false);
+      setCategoryTable(false);
+    } else if (value === "exchange") {
+      setExchangeTable(true);
+      setPortfolioTable(false);
+      setCategoryTable(false);
+    }
+  };
   return (
     <div className="container mt-5">
       <div
@@ -32,21 +54,44 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </div>
-        <div className="col-12 d-flex justify-content-end current-stock-block ">
-          <div className="current-stock-bg p-sm-3 p-2">
-            <div className="mt-4 d-flex justify-content-between align-items-center">
-              <h1 className="current-stock-text ff-popins mb-0 fs-sm-20">
-                Current Stocks
-              </h1>
-              <Link to="/content/manager/add/services">
-                <button className="update-btn-2">Add New</button>
-              </Link>
-            </div>
-            <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
-              <div className="table-responsive  current-stock-scrollbar">
-                <OtherServicesTable />
+        <div className="col-12 ">
+          <div className="other-services bg-white  p-sm-3 p-2">
+            <div className="row justify-content-between flex-md-row flex-column align-items-center">
+              <div className="col-md-3 col-12 ">
+                <p className="mb-0 text-md-end text-center other-services-text">
+                  Other Services
+                </p>
+              </div>
+              <div className="col-9 d-flex  justify-content-md-end flex-md-row flex-column">
+                <button
+                  className={`${
+                    exchangeTable ? "services-btn-active" : "services-btn"
+                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  onClick={() => showTable("exchange")}
+                >
+                  Exchange
+                </button>
+                <button
+                  className={`${
+                    portfolioTable ? "services-btn-active" : "services-btn"
+                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  onClick={() => showTable("portfolio")}
+                >
+                  Portfolio
+                </button>
+                <button
+                  className={`${
+                    categoryTable ? "services-btn-active" : "services-btn"
+                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  onClick={() => showTable("category")}
+                >
+                  Category
+                </button>
               </div>
             </div>
+            {categoryTable ? <CategoryTable /> : ""}
+            {portfolioTable ? <PortfolioTable /> : ""}
+            {exchangeTable ? <ExchangeTable /> : ""}
           </div>
         </div>
       </div>

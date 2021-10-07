@@ -1,5 +1,6 @@
 import React from "react";
 import "./Plans.css";
+
 function Plans() {
   return (
     <div className="container px-sm-4 px-0 ">
@@ -11,9 +12,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins ">
-            Join Now
-          </button>
+          <button className="ff-popins join-now ff-popins ">Join Now</button>
         </div>
       </div>
       <div className="subs-border d-flex justify-content-between align-items-center p-3 my-3">
@@ -22,9 +21,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins ">
-            Join Now
-          </button>
+          <button className="ff-popins join-now ff-popins ">Join Now</button>
         </div>
       </div>
       <div className="subs-border d-flex justify-content-between align-items-center p-3">
@@ -33,9 +30,7 @@ function Plans() {
           <p className="ff-popins mb-0 plan-price-text">$299.99</p>
         </div>
         <div>
-          <button className="ff-popins join-now ff-popins ">
-            Join Now
-          </button>
+          <button className="ff-popins join-now ff-popins ">Join Now</button>
         </div>
       </div>
     </div>

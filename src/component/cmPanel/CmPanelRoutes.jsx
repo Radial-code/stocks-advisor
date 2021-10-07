@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Route } from "react-router";
 import AddNews from "./AddNews";
 import AddStock from "./stock/AddStock";
-import EditNews from "./EditNews";
-import EditStock from "./EditStock";
 import EditUser from "./EditUser";
 import News from "./News";
 import Stocks from "./stock/Stock";
@@ -11,6 +9,7 @@ import Users from "./Users";
 import SidebarPanel from "../common/SideBar/SidebarPanel";
 import OtherServices from "./otherServices/OtherServices";
 import OtherServicesForm from "./otherServices/OtherServicesForm";
+import Plans from "../cmPanel/plans/Plans";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -40,13 +39,6 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          {/* <Route path="/content/manager/edit/stock">
-            <EditStock
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
-            />
-          </Route> */}
           <Route path="/content/manager/add/news">
             <AddNews
               sideBarHandler={sideBarHandler}
@@ -84,6 +76,22 @@ const CmPanelRoutes = () => {
             />
           </Route>
           <Route path="/content/manager/add/services">
+            <OtherServicesForm
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+
+          <Route path="/content/manager/our/plans/details">
+            <Plans
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+
+          <Route path="/content/manager/add/other/services">
             <OtherServicesForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}

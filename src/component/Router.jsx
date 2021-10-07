@@ -65,7 +65,6 @@ const Router = () => {
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/otpinputs" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
-
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />
         <Route path="/content/manager/add/stock" component={CmPanelRoutes} />
@@ -78,8 +77,13 @@ const Router = () => {
           component={CmPanelRoutes}
         />
         <Route
-          path="/content/manager/add/services"
+          path="/content/manager/add/other/services"
           component={OtherServicesForm}
+        />
+
+        <Route
+          path="/content/manager/our/plans/details"
+          component={CmPanelRoutes}
         />
       </Switch>
       <Footer />

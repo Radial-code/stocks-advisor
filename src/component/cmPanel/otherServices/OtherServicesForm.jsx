@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import "../../cmPanelCss/addnewstock.css";
+import { Col } from "react-bootstrap";
 import AddOtherServices from "./AddOtherServices";
 
-function OtherServicesForm({
+const OtherServicesForm = ({
   sideBarHandler,
   setSidebarActive,
   sidebarActive,
-}) {
+}) => {
   return (
     <div className="container">
       <div
@@ -13,7 +15,7 @@ function OtherServicesForm({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row h-100">
-        <div className="col-12">
+        <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
@@ -34,11 +36,10 @@ function OtherServicesForm({
               </span>
             </div>
           </div>
-        </div>
+        </Col>
         <AddOtherServices />
       </div>
     </div>
   );
-}
-
+};
 export default OtherServicesForm;
