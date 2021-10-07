@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from "react-redux";
 import Buket from "../../../assets/img/backet.png";
+import { addNewStockDetailsAction } from "../../../redux/action/cmPanel/stock";
 
 const AddStockForm = () => {
+  const dispatch = useDispatch();
   const [stockDetails, setStockDetails] = useState({
     joinDate: "",
     joinPrice: "",
@@ -16,10 +19,20 @@ const AddStockForm = () => {
     symbol: "",
     currentPrice: 0,
   });
-  console.log("stockDetails", stockDetails);
 
   const submitStockDetails = () => {
-    console.log("stockDetails", stockDetails);
+    if (
+      stockDetails.joinDate !== "" &&
+      stockDetails.joinPrice !== "" &&
+      stockDetails.category !== "" &&
+      stockDetails.exchange !== "" &&
+      stockDetails.portfolio !== "" &&
+      stockDetails.soldDate !== "" &&
+      stockDetails.soldPrice !== "" &&
+      stockDetails.symbol !== ""
+    ) {
+      dispatch(addNewStockDetailsAction(stockDetails));
+    }
   };
 
   return (

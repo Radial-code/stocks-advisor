@@ -9,6 +9,7 @@ import News from "./News";
 import Stocks from "./stock/Stock";
 import Users from "./Users";
 import SidebarPanel from "../common/SideBar/SidebarPanel";
+import OtherServices from "./otherServices/OtherServices";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -69,6 +70,13 @@ const CmPanelRoutes = () => {
           </Route>
           <Route path="/content/manager/edit/user">
             <EditUser
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/other/services">
+            <OtherServices
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}

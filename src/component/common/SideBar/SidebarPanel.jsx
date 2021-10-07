@@ -40,6 +40,17 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                   <span>Users</span>
                 </li>
               </NavLink>
+              <NavLink
+                activeClassName="active"
+                to="/content/manager/other/services"
+              >
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="svg-image pl-15">
+                    <User />
+                  </span>
+                  <span>Other Services</span>
+                </li>
+              </NavLink>
             </ul>
           </nav>
         </div>

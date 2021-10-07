@@ -72,6 +72,10 @@ const Router = () => {
         <Route path="/content/manager/add/news" component={CmPanelRoutes} />
         <Route path="/content/manager/users" component={CmPanelRoutes} />
         <Route path="/content/manager/edit/user" component={CmPanelRoutes} />
+        <Route
+          path="/content/manager/other/services"
+          component={CmPanelRoutes}
+        />
       </Switch>
       <Footer />
     </BrowserRouter>
