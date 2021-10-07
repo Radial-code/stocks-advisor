@@ -17,7 +17,9 @@ function CategoryTable() {
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <BubblesLoader />
+        </div>
       ) : (
         <table className="table table-borderless table-hover mb-3">
           <thead className="portfolio-sticky ">
@@ -51,29 +53,35 @@ function CategoryTable() {
             </tr>
           </thead>
           <tbody>
-            {categoryList && !!categoryList.length
-              ? categoryList.map((value, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      className="current-stock-data table-border-bottom"
-                    >
-                      <td className="text-center ">
-                        {moment(value.createdAt).format("MM/ddd")}
-                      </td>
-                      <td className="text-center">{value.title}</td>
-                      <td className="text-center">
-                        <button className="px-3 py-1 edit-button ">Edit</button>
-                      </td>
-                      <td className="text-center">
-                        <button className="px-3 py-1 delete-button">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })
-              : "You don't have any Category list"}
+            {categoryList && !!categoryList.length ? (
+              categoryList.map((value, index) => {
+                return (
+                  <tr
+                    key={index}
+                    className="current-stock-data table-border-bottom"
+                  >
+                    <td className="text-center ">
+                      {moment(value.createdAt).format("MM/ddd")}
+                    </td>
+                    <td className="text-center">{value.title}</td>
+                    <td className="text-center">
+                      <button className="px-3 py-1 edit-button ">Edit</button>
+                    </td>
+                    <td className="text-center">
+                      <button className="px-3 py-1 delete-button">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <div className="h-100">
+                <p className="table-text text-center">
+                  You don't have any Category list
+                </p>
+              </div>
+            )}
           </tbody>
         </table>
       )}

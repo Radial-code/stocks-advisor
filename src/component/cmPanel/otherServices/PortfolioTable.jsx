@@ -7,7 +7,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 
 function PortfolioTable() {
   const dispatach = useDispatch();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
 
   useEffect(() => {
@@ -17,7 +17,9 @@ function PortfolioTable() {
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <BubblesLoader />
+        </div>
       ) : (
         <table className="table table-borderless table-hover mb-3">
           <thead className="portfolio-sticky ">
@@ -51,29 +53,35 @@ function PortfolioTable() {
             </tr>
           </thead>
           <tbody>
-            {portfolioList && !!portfolioList.length
-              ? portfolioList.map((value, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      className="current-stock-data table-border-bottom"
-                    >
-                      <td className="text-center ">
-                        {moment(value.createdAt).format("MM/ddd")}
-                      </td>
-                      <td className="text-center">{value.title}</td>
-                      <td className="text-center">
-                        <button className="px-3 py-1 edit-button ">Edit</button>
-                      </td>
-                      <td className="text-center">
-                        <button className="px-3 py-1 delete-button">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })
-              : "You don't have any Category list"}
+            {portfolioList && !!portfolioList.length ? (
+              portfolioList.map((value, index) => {
+                return (
+                  <tr
+                    key={index}
+                    className="current-stock-data table-border-bottom"
+                  >
+                    <td className="text-center ">
+                      {moment(value.createdAt).format("MM/ddd")}
+                    </td>
+                    <td className="text-center">{value.title}</td>
+                    <td className="text-center">
+                      <button className="px-3 py-1 edit-button ">Edit</button>
+                    </td>
+                    <td className="text-center">
+                      <button className="px-3 py-1 delete-button">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <div className="h-100">
+                <p className="table-text text-center">
+                  You don't have any Category list
+                </p>
+              </div>
+            )}
           </tbody>
         </table>
       )}

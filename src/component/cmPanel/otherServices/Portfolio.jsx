@@ -7,9 +7,9 @@ function Portfolio() {
   return (
     <div>
       <div className="row">
-        <div className="col-12 d-flex justify-content-end align-items-center">
+        <div className="col-12 d-flex flex-sm-row flex-column justify-content-end align-items-center">
           {showInput ? (
-            <div className="add-new-stock-field my-3 ms-3">
+            <div className="add-new-stock-field my-3 ms-sm-3">
               <input
                 type="text"
                 placeholder=" Add Portfolio"
@@ -21,7 +21,7 @@ function Portfolio() {
           )}
           <div>
             <button
-              className="px-3 py-1 add-button ms-3 my-3"
+              className="px-3 py-1 add-button ms-3 my-sm-3"
               onClick={() => setShowInput(true)}
             >
               Add
@@ -29,7 +29,11 @@ function Portfolio() {
           </div>
         </div>
       </div>
-      <PortfolioTable />
+      <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
+        <div className="table-responsive  current-stock-scrollbar h-100">
+          <PortfolioTable />
+        </div>
+      </div>
     </div>
   );
 }
