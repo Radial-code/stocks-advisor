@@ -5,7 +5,7 @@ import AddStock from "./stock/AddStock";
 import EditUser from "./EditUser";
 import News from "./News";
 import Stocks from "./stock/Stock";
-import Users from "./Users";
+import Users from "./user/Users";
 import SidebarPanel from "../common/SideBar/SidebarPanel";
 import OtherServices from "./otherServices/OtherServices";
 import OtherServicesForm from "./otherServices/OtherServicesForm";

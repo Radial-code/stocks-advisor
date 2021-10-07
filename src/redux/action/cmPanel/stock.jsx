@@ -80,7 +80,7 @@ export const getUserListForAdminAction = (setLoading) => async (dispatch) => {
   try {
     const response = await getUserListForAdminApi();
     if (response.success) {
-      dispatch(getUserListForAdmin(response.allStock));
+      dispatch(getUserListForAdmin(response.allUsers));
       setLoading(false);
     } else {
       setLoading(false);
