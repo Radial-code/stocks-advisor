@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import HomepageSliderPng from "../../assets/img/HomepageSlider.png";
 import img_1 from "../../assets/img/calendar-icon.png";
 import BubblesLoader from "../common/BubblesLoader";
 import { useSelector } from "react-redux";
@@ -23,10 +22,10 @@ const HomePageSlider = ({ loading }) => {
         <BubblesLoader />
       ) : (
         <Slider className="hero-slider-2 w-100" {...settings}>
-          {homeNewsList && !!homeNewsList.length
+          {!!homeNewsList && !!homeNewsList.length
             ? homeNewsList.map((value, index) => {
                 return (
-                  <div className=" my-3">
+                  <div key={index} className=" my-3">
                     <img className="w-100" src={value.imagePath} alt="" />
                     <p className="text-end stock-paragraph mt-3">
                       <span className="d-flex justify-content-end align-items-center">
