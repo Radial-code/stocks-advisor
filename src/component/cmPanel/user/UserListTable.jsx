@@ -52,15 +52,21 @@ const UserListTable = () => {
               ? adminUserList.map((value, index) => {
                   return (
                     <tr key={index}>
-                      <td className="text-end whitespace ">
+                      <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace ">
+                      <td className="text-end whitespace Ellipse">
                         {value.firstName} {value.lastName}
                       </td>
-                      <td className="text-end whitespace ">{value.phone}</td>
-                      <td className="text-end whitespace ">{value.email}</td>
-                      <td className="text-end whitespace ">{value.plan}</td>
+                      <td className="text-end whitespace Ellipse">
+                        {value.phone}
+                      </td>
+                      <td className="text-end whitespace Ellipse">
+                        {value.email}
+                      </td>
+                      <td className="text-end whitespace Ellipse">
+                        {value.plan}
+                      </td>
                     </tr>
                   );
                 })

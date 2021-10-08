@@ -25,7 +25,7 @@ const NewsTable = () => {
         <Table hover>
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
-              <th className="whitespace">
+              <th className="whitespace ">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Date
               </th>
@@ -43,12 +43,14 @@ const NewsTable = () => {
               ? adminNewsList.map((value, index) => {
                   return (
                     <tr key={index}>
-                      <td className="whitespace">
+                      <td className="whitespace Ellipse">
                         {" "}
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="whitespace">{value.description}</td>
-                      <td className="whitespace">{value.tags}</td>
+                      <td className="whitespace Ellipse">
+                        {value.description}
+                      </td>
+                      <td className="whitespace Ellipse">{value.tags}</td>
                     </tr>
                   );
                 })

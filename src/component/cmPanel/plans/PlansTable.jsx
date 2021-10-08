@@ -100,14 +100,20 @@ function PlansTable({ history }) {
                       key={index}
                       className="current-stock-data table-border-bottom"
                     >
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace">{value.title}</td>
+                      <td className="text-end whitespace Ellipse">
+                        {value.title}
+                      </td>
 
-                      <td className="text-end whitespace">{value.price}</td>
-                      <td className="text-end whitespace">${value.type}</td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
+                        {value.price}
+                      </td>
+                      <td className="text-end whitespace Ellipse">
+                        ${value.type}
+                      </td>
+                      <td className="text-end whitespace Ellipse">
                         <button
                           className="px-3 py-1 edit-button"
                           onClick={() =>
@@ -117,7 +123,7 @@ function PlansTable({ history }) {
                           Edit
                         </button>
                       </td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         <button
                           type="button"
                           disabled={deleteLoading}

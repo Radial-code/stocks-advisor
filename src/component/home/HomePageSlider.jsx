@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
 import Slider from "react-slick";
 import img_1 from "../../assets/img/calendar-icon.png";
-import BubblesLoader from "../common/BubblesLoader";
 import { useSelector } from "react-redux";
-import moment from "moment";
-
-const HomePageSlider = ({ loading }) => {
+import BubblesLoader from "../common/BubblesLoader";
+const HomePageSlider = () => {
+  const [loading, setLoading] = useState(false);
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
     dots: true,
@@ -16,12 +16,12 @@ const HomePageSlider = ({ loading }) => {
     rtl: true,
   };
 
-  console.log("homeNewsList", homeNewsList);
-
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center">
+          <BubblesLoader />
+        </div>
       ) : (
         <Slider className="hero-slider-2 w-100" {...settings}>
           {homeNewsList.map((value, index) => {
