@@ -1,40 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { withRouter } from "react-router";
+import { getPlansListAction } from "../../redux/action/cmPanel/plans";
+import BubblesLoader from "../common/BubblesLoader";
 import "./Plans.css";
 
-function Plans() {
+function Plans({ history }) {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const planList = useSelector((state) => state.list.planList);
+  const auth = useSelector((state) => state.auth.auth);
+
+  useEffect(() => {
+    dispatch(getPlansListAction(setLoading));
+  }, []);
+
   return (
     <div className="container px-sm-4 px-0 ">
       <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
       <span className="subs-plans-line d-block mb-4"></span>
-      <div className="subs-border d-flex justify-content-between align-items-center p-3">
-        <div>
-          <p className="ff-popins plan-text mb-0">Plan-1</p>
-          <p className="ff-popins mb-0 plan-price-text">$299.99</p>
-        </div>
-        <div>
-          <button className="ff-popins join-now ff-popins ">Join Now</button>
-        </div>
-      </div>
-      <div className="subs-border d-flex justify-content-between align-items-center p-3 my-3">
-        <div>
-          <p className="ff-popins plan-text mb-0">Plan-1</p>
-          <p className="ff-popins mb-0 plan-price-text">$299.99</p>
-        </div>
-        <div>
-          <button className="ff-popins join-now ff-popins ">Join Now</button>
-        </div>
-      </div>
-      <div className="subs-border d-flex justify-content-between align-items-center p-3">
-        <div>
-          <p className="ff-popins plan-text mb-0">Plan-1</p>
-          <p className="ff-popins mb-0 plan-price-text">$299.99</p>
-        </div>
-        <div>
-          <button className="ff-popins join-now ff-popins ">Join Now</button>
-        </div>
-      </div>
+      {loading ? (
+        <BubblesLoader />
+      ) : (
+        <>
+          {!!planList && !!planList.length
+            ? planList.map((value, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="subs-border d-flex justify-content-between align-items-center p-3"
+                  >
+                    <div>
+                      <p className="ff-popins plan-text mb-0">
+                        Plan-{index + 1}
+                      </p>
+                      <p className="ff-popins mb-0 plan-price-text">
+                        ${value.price}
+                      </p>
+                    </div>
+                    <div>
+                      {auth ? (
+                        <button
+                          type="button"
+                          onClick={() => history.push("/")}
+                          className="ff-popins join-now ff-popins "
+                        >
+                          Buy now
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => history.push("/login")}
+                          className="ff-popins join-now ff-popins "
+                        >
+                          Join Now
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            : "You don't have any plan list"}
+        </>
+      )}
     </div>
   );
 }
-
-export default Plans;
+export default withRouter(Plans);
