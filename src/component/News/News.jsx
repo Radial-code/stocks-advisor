@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "../component/News/Main";
+import Main from "./Main";
 
 const News = () => {
   return (

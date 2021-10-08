@@ -15,7 +15,7 @@ import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
 import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
-import News from "../view/News";
+import News from "../component/News/News";
 import Portfolio from "../view/Portfolio";
 import Contact from "./contact/Contact";
 import NewsDetails from "../view/NewsDetails";
