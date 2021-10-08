@@ -63,3 +63,6 @@
     font-size: var(--font-24) !important;
   }
 }
+.whitespace {
+  white-space: nowrap;
+}

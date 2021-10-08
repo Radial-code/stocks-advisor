@@ -46,10 +46,10 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 </div>
               </div>
               <div className="h-calc-100vh-442 scroll-bar overflow-auto mt-4">
-                <Table responsive hover className="">
+                <Table>
                   <thead className="portfolio-sticky">
-                    <tr className="user-list-panel">
-                      <th>
+                    <tr className="user-list-panel ">
+                      <th className="whitespace ">
                         {" "}
                         <img
                           className="ps-1"
@@ -58,7 +58,7 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         />
                         Date{" "}
                       </th>
-                      <th>
+                      <th className="whitespace ">
                         {" "}
                         <img
                           className="ps-1"
@@ -67,7 +67,7 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                         />{" "}
                         Title
                       </th>
-                      <th>
+                      <th className="whitespace ">
                         {" "}
                         <img
                           className="ps-1"
@@ -80,437 +80,181 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                   </thead>
                   <tbody className="user-details">
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
                     </tr>
                     <tr>
-                      <td>15/07/2021</td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
                       <td>
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td>
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td>
+                        Nullam consequat augue eget finibus pretium. Morbi
+                        ultrices
+                      </td>
+                      <td className="whitespace ">
+                        Tag-1, Tag-2, Tag-3, Tag-4
+                      </td>
+                    </tr>{" "}
+                    <tr>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
                     <tr>
-                      <td>15/07/2021</td>
-                      <td>
+                      <td className="whitespace ">15/07/2021</td>
+                      <td className="whitespace ">
                         Nullam consequat augue eget finibus pretium. Morbi
                         ultrices
                       </td>
                       <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
                     </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>{" "}
-                    <tr>
-                      <td>15/07/2021</td>
-                      <td>
-                        Nullam consequat augue eget finibus pretium. Morbi
-                        ultrices
-                      </td>
-                      <td>Tag-1, Tag-2, Tag-3, Tag-4</td>
-                    </tr>
                   </tbody>
                 </Table>
               </div>

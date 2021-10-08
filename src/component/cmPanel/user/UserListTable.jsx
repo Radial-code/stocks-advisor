@@ -25,26 +25,26 @@ const UserListTable = () => {
         <Table responsive hover className="">
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
-              <th className="text-center">
+              <th className="text-center whitespace   ">
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Join Date{" "}
               </th>
-              <th className="text-center">
+              <th className="text-center whitespace ">
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
               </th>
-              <th className="text-center">
+              <th className="text-center whitespace ">
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Phone
               </th>
-              <th className="text-center">
+              <th className="text-center whitespace ">
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 E-mail
               </th>
-              <th className="text-center">
+              <th className="text-center whitespace ">
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Subscription Plan Name
@@ -56,15 +56,15 @@ const UserListTable = () => {
               ? adminUserList.map((value, index) => {
                   return (
                     <tr key={index}>
-                      <td className="text-center">
+                      <td className="text-center whitespace ">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-center">
+                      <td className="text-center whitespace ">
                         {value.firstName} {value.lastName}
                       </td>
-                      <td className="text-center">{value.phone}</td>
-                      <td className="text-center">{value.email}</td>
-                      <td className="text-center">{value.plan}</td>
+                      <td className="text-center whitespace ">{value.phone}</td>
+                      <td className="text-center whitespace ">{value.email}</td>
+                      <td className="text-center whitespace ">{value.plan}</td>
                     </tr>
                   );
                 })

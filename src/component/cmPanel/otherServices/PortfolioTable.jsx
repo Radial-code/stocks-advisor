@@ -24,27 +24,39 @@ function PortfolioTable({ setShow, show }) {
         <table className="table table-borderless table-hover mb-3">
           <thead className="portfolio-sticky ">
             <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-center position-sticky top-0 whitespace"
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Date
               </th>
 
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-center position-sticky top-0 whitespace"
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Portfolio
               </th>
 
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-center position-sticky top-0 whitespace"
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Edit
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-center position-sticky top-0 whitespace"
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
@@ -60,11 +72,11 @@ function PortfolioTable({ setShow, show }) {
                     key={index}
                     className="current-stock-data table-border-bottom"
                   >
-                    <td className="text-center ">
+                    <td className="text-center whitespace ">
                       {moment(value.createdAt).format("MM/ddd")}
                     </td>
-                    <td className="text-center">{value.title}</td>
-                    <td className="text-center">
+                    <td className="text-center whitespace">{value.title}</td>
+                    <td className="text-center whitespace">
                       <button
                         className="px-3 py-1 edit-button "
                         onClick={() => setShow(true)}
@@ -72,7 +84,7 @@ function PortfolioTable({ setShow, show }) {
                         Edit
                       </button>
                     </td>
-                    <td className="text-center">
+                    <td className="text-center whitespace">
                       <button className="px-3 py-1 delete-button">
                         Delete
                       </button>
