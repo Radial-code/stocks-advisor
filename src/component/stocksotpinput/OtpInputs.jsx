@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-
 import LogoPhoto from "../../assets/img/Navbar-logo-img.png";
 
 const OtpInputs = () => {

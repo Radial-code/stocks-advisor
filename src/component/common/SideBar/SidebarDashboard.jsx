@@ -8,8 +8,7 @@ import {
 } from "../icons/Icons";
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
-// /dashboard/update/payment
-const SidebarDashboard = ({ page, sidebarActive, history }) => {
+const SidebarDashboard = ({ sidebarActive }) => {
   return (
     <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">

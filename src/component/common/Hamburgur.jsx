@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Hamburgur.css";
 const Hamburgur = ({ setSidebarActive, sidebarActive }) => {
   const toggler = sidebarActive

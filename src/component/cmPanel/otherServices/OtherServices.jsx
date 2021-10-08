@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import Category from "./Category";
 import "../otherServices/OtherServices.css";
-import PortfolioTable from "./PortfolioTable";
-import ExchangeTable from "./ExchangeTable";
 import Portfolio from "./Portfolio";
 import Exchange from "./Exchange";
 const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {

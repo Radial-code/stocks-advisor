@@ -4,7 +4,6 @@ import "@pathofdev/react-tag-input/build/index.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
 import Loader from "../../common/Loader";
 import { addNewPlansDetailsAction } from "../../../redux/action/cmPanel/plans";
 
