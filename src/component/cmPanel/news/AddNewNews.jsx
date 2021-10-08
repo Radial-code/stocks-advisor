@@ -127,17 +127,62 @@ const AddNewNews = () => {
           </div>
 
           <div className="col-12 col-lg-6 mb-3">
-            <div className="col-md-6 input-tag">
+            <div className="col-md-6 input-tag w-100">
               <ReactTagInput
                 tags={tags}
                 placeholder="Details"
-                maxTags={10}
+                maxTags={1}
                 editable={true}
                 readOnly={false}
                 removeOnBackspace={true}
                 onChange={(newTags) => setTags(newTags)}
               />
             </div>
+          </div>
+
+          <div className="col-12 col-lg-6 mb-3">
+            <FormGroup
+              value={newsDetails.exchange}
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  exchange: e.target.value,
+                });
+              }}
+              className=" add-new-stock-select mb-3"
+            >
+              <select className="form-select text-end">
+                <option>Exchange</option>
+                {!!exchangeList && !!exchangeList.length ? (
+                  exchangeList.map((exchange, index) => {
+                    return (
+                      <option key={index} value={exchange._id}>
+                        {exchange.title}
+                      </option>
+                    );
+                  })
+                ) : (
+                  <option>You don't have any exchange </option>
+                )}
+              </select>
+            </FormGroup>
+          </div>
+
+          <div className="col-12 col-lg-6 mb-3">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control type="number" placeholder="Palvi Tiwari" disabled />
+            </Form.Group>
+          </div>
+          <div className="col-12 col-lg-6 mb-3">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control placeholder="Palvi Tiwari " disabled />
+            </Form.Group>
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
@@ -166,50 +211,6 @@ const AddNewNews = () => {
               </select>
             </FormGroup>
           </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <FormGroup
-              value={newsDetails.exchange}
-              onChange={(e) => {
-                setNewsDetails({
-                  ...newsDetails,
-                  exchange: e.target.value,
-                });
-              }}
-              className=" add-new-stock-select mb-3"
-            >
-              <select className="form-select text-end">
-                <option>Exchange</option>
-                {!!exchangeList && !!exchangeList.length ? (
-                  exchangeList.map((exchange, index) => {
-                    return (
-                      <option key={index} value={exchange._id}>
-                        {exchange.title}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option>You don't have any exchange </option>
-                )}
-              </select>
-            </FormGroup>
-          </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <Form.Group
-              className="mb-3 add-new-stock-field "
-              controlId="formBasicEmail"
-            >
-              <Form.Control type="number" placeholder="Update By" />
-            </Form.Group>
-          </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <Form.Group
-              className="mb-3 add-new-stock-field "
-              controlId="formBasicEmail"
-            >
-              <Form.Control placeholder="Wrote By" />
-            </Form.Group>
-          </div>
-          <div className="col-12 col-lg-6 mb-3 d-none d-lg-block"></div>
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
               value={newsDetails.portfolio}
