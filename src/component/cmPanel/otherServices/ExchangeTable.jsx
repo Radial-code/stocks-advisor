@@ -6,7 +6,6 @@ import { getExchangeListAction } from "../../../redux/action/cmPanel/OurServices
 import BubblesLoader from "../../common/BubblesLoader";
 
 function ExchangeTable({ setShow, show }) {
-  console.log("asdfghjkl;", show);
   const dispatach = useDispatch();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);

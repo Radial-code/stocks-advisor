@@ -35,7 +35,9 @@ function PlansForm() {
     <div>
       <div className="col-12 h-100 stock-add-new">
         <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
-          <p className="new-stock-heading ff-popins mb-0 fs-sm-20">Plans</p>
+          <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
+            Add New Plans
+          </p>
           <Form className="pt-sm-5  pt-4">
             <div className="row">
               <div className="col-md-6 order-1 last-name order-sm-1 order-2">

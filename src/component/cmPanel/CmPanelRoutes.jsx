@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route } from "react-router";
-import AddNews from "./AddNews";
+import AddNews from "./news/AddNews";
 import AddStock from "./stock/AddStock";
 import EditUser from "./EditUser";
 import News from "./news/News";
