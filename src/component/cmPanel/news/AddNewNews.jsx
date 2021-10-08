@@ -31,6 +31,7 @@ const AddNewNews = () => {
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
+  const userDetails = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     dispatch(getStockListAction(setLoading));
@@ -173,7 +174,15 @@ const AddNewNews = () => {
               className="mb-3 add-new-stock-field "
               controlId="formBasicEmail"
             >
-              <Form.Control type="number" placeholder="Palvi Tiwari" disabled />
+              <Form.Control
+                type="number"
+                placeholder={
+                  userDetails
+                    ? `${userDetails.firstName} ${userDetails.lastName}`
+                    : "N/A"
+                }
+                disabled
+              />
             </Form.Group>
           </div>
           <div className="col-12 col-lg-6 mb-3">
@@ -181,7 +190,14 @@ const AddNewNews = () => {
               className="mb-3 add-new-stock-field "
               controlId="formBasicEmail"
             >
-              <Form.Control placeholder="Palvi Tiwari " disabled />
+              <Form.Control
+                placeholder={
+                  userDetails
+                    ? `${userDetails.firstName} ${userDetails.lastName}`
+                    : "N/A"
+                }
+                disabled
+              />
             </Form.Group>
           </div>
           <div className="col-12 col-lg-6 mb-3">
