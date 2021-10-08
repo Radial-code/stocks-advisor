@@ -2,11 +2,13 @@ import Swal from "sweetalert2";
 import {
   addNewNewsDetailsApi,
   getAllNewsListApi,
+  getHomeNewsListApi,
   getNewsForAdminApi,
 } from "../api/news";
 
 export const GET_NEWS_LIST = "GET_NEWS_LIST";
 export const GET_NEWS_FOR_ADMIN = "GET_NEWS_FOR_ADMIN";
+export const GET_HOME_PAGE_NEWS = "GET_HOME_PAGE_NEWS";
 
 /**
  * add new News details action
@@ -81,6 +83,36 @@ export const getNewsListForAdminAction = (setLoading) => async (dispatch) => {
     const response = await getNewsForAdminApi();
     if (response.success) {
       dispatch(getNewsForAdmin(response.allNews));
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to Load News list", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get home News action
+ * @param {Object} data
+ * @returns
+ */
+
+const getHomeNewsList = (data) => ({
+  type: GET_HOME_PAGE_NEWS,
+  data,
+});
+
+export const getHomeNewsListApiAction = (setLoading) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getHomeNewsListApi();
+    if (response.success) {
+      dispatch(getHomeNewsList(response.allNews));
       setLoading(false);
     } else {
       setLoading(false);

@@ -8,7 +8,7 @@ import {
   GET_STOCK_LIST,
   GET_USER_LIST_FOR_ADMIN,
 } from "../action/cmPanel/stock";
-import { GET_NEWS_FOR_ADMIN } from "../action/news";
+import { GET_HOME_PAGE_NEWS, GET_NEWS_FOR_ADMIN } from "../action/news";
 
 const initialState = {
   stockList: [],
@@ -17,6 +17,7 @@ const initialState = {
   portfolioList: [],
   adminNewsList: [],
   adminUserList: [],
+  homeNewsList: [],
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -70,6 +71,14 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         adminNewsList: action.data,
+      };
+    }
+
+    // Get news list for home
+    case GET_HOME_PAGE_NEWS: {
+      return {
+        ...state,
+        homeNewsList: action.data,
       };
     }
 

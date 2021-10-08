@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { withRouter } from "react-router";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import BubblesLoader from "../BubblesLoader";
 
-const OurPlans = ({ homepage }) => {
+const OurPlans = ({ homepage, history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const planList = useSelector((state) => state.list.planList);
+  const auth = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     dispatch(getPlansListAction(setLoading));
@@ -62,9 +64,23 @@ const OurPlans = ({ homepage }) => {
                               {value.title}
                             </p>
                             <div className="d-flex justify-content-center mt-5 pb-5">
-                              <button className="join-now-btn text-white">
-                                Join Now
-                              </button>
+                              {auth ? (
+                                <button
+                                  type="button"
+                                  onClick={() => history.push("/payment")}
+                                  className="join-now-btn text-white"
+                                >
+                                  Buy now
+                                </button>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => history.push("/login")}
+                                  className="join-now-btn text-white"
+                                >
+                                  Join Now
+                                </button>
+                              )}
                             </div>
                           </section>
                         </Col>
@@ -79,4 +95,4 @@ const OurPlans = ({ homepage }) => {
     </>
   );
 };
-export default OurPlans;
+export default withRouter(OurPlans);
