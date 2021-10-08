@@ -138,7 +138,7 @@ const PaymentDetails = ({
               </div>
 
               <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
-                <div className="table-responsive sold-stock-scrollbar">
+                <div className=" sold-stock-scrollbar">
                   <table className="table white-space-nowrap table-borderless">
                     <thead className="portfolio-sticky">
                       <tr>

@@ -18,7 +18,7 @@ const UserListTable = () => {
   return (
     <>
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center h-100">
+        <div className="d-flex flex-column justify-content-center align-items-center h-100">
           <BubblesLoader />
         </div>
       ) : (
@@ -55,13 +55,13 @@ const UserListTable = () => {
                       <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td className="text-end whitespace Ellipse" dir="ltr">
                         {value.firstName} {value.lastName}
                       </td>
                       <td className="text-end whitespace Ellipse">
                         {value.phone}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td className="text-end whitespace Ellipse" dir="ltr">
                         {value.email}
                       </td>
                       <td className="text-end whitespace Ellipse">

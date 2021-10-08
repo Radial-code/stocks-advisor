@@ -117,7 +117,16 @@ const CurrentStockTable = () => {
                       <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace profitloss-text Ellipse">
+
+                      <td
+                        className={`${
+                          value.profitOrLoss.status === 0
+                            ? "profitloss-text"
+                            : value.profitOrLoss.status === 1
+                            ? "text-dark"
+                            : "text-danger"
+                        } text-end whitespace Ellipse`}
+                      >
                         {value &&
                         value.profitOrLoss &&
                         value.profitOrLoss.percentage
@@ -141,7 +150,7 @@ const CurrentStockTable = () => {
                         {value.symbol ? value.symbol : "N/A"}
                       </td>
                       {/* <td className="text-end whitespace">Netflix</td> */}
-                      <td className="text-end whitespace Ellipse">
+                      <td className="text-end whitespace Ellipse" dir="ltr">
                         {value && value.portfolio
                           ? value.portfolio.title
                           : "N/A"}

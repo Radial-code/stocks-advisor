@@ -27,7 +27,7 @@ function PlansTable({ history }) {
   return (
     <>
       {loading ? (
-        <div className="d-flex justify-content-center align-items-center h-100">
+        <div className="d-flex flex-column justify-content-center align-items-center h-100">
           <BubblesLoader />
         </div>
       ) : (
@@ -103,7 +103,7 @@ function PlansTable({ history }) {
                       <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td className="text-end whitespace Ellipse" dir="ltr">
                         {value.title}
                       </td>
 

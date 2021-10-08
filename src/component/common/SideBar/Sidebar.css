@@ -57,7 +57,7 @@
   background-color: #000000 !important;
 }
 .admin-hover li:hover {
-  background: var(--color-127CF9);
+  background-color: lightgray;
   color: white;
   padding-top: 13px;
   padding-right: 15px;

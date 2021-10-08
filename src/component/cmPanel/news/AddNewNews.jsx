@@ -8,6 +8,8 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import { addNewNewsDetailsAction } from "../../../redux/action/news";
+import { Link } from "react-router-dom";
+
 import Loader from "../../common/Loader";
 
 const AddNewNews = () => {
@@ -67,9 +69,16 @@ const AddNewNews = () => {
 
   return (
     <Col xs={12}>
-      <div className="manger-panel-shadow p-5 w-xl-1000">
-        <p className="heading-stock d-none d-sm-block fs-sm-20">Add New News</p>
-        <p className="heading-stock d-block d-sm-none">Add News</p>
+      <div className="manger-panel-shadow p-5 w-xl-1000 mt-5">
+        <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
+          <p className="heading-stock d-none d-sm-block fs-sm-20">
+            Add New News
+          </p>
+          <p className="heading-stock d-block d-sm-none">Add News</p>
+          <Link to="/content/manager/news">
+            <button className="update-btn-2 ">Back</button>
+          </Link>
+        </div>
 
         <div className="row">
           <div className="col-12 col-lg-6 mb-3">
@@ -92,7 +101,7 @@ const AddNewNews = () => {
           <div className="col-12 col-lg-6 mb-3 ">
             <div className="inputs-border   d-flex justify-content-between align-items-center py-1 ps-1 pe_12">
               {input !== "" ? (
-                <span className="small-paragraph d-none d-sm-block">
+                <span className="small-paragraph d-none d-sm-block Ellipse">
                   {input}
                 </span>
               ) : (
@@ -101,7 +110,7 @@ const AddNewNews = () => {
                 </span>
               )}
               {input !== "" ? (
-                <span className="small-paragraph d-block d-sm-none">
+                <span className="small-paragraph d-block d-sm-none ">
                   {input}
                 </span>
               ) : (
@@ -118,11 +127,15 @@ const AddNewNews = () => {
                 hidden
               />
 
-              <button className="upload-img-btn d-none d-sm-block">
-                <label for="my-file">Upload Image</label>
+              <button className="upload-img-btn d-none d-sm-block cursor-pointer">
+                <label className="cursor-pointer" for="my-file">
+                  Upload Image
+                </label>
               </button>
-              <button className="upload-img-btn d-block d-sm-none">
-                <label for="my-file">Upload</label>
+              <button className="upload-img-btn d-block d-sm-none cursor-pointer">
+                <label className="cursor-pointer" for="my-file">
+                  Upload
+                </label>
               </button>
             </div>
           </div>
@@ -132,7 +145,7 @@ const AddNewNews = () => {
               <ReactTagInput
                 tags={tags}
                 placeholder="Details"
-                maxTags={1}
+                maxTags={5}
                 editable={true}
                 readOnly={false}
                 removeOnBackspace={true}
@@ -152,7 +165,7 @@ const AddNewNews = () => {
               }}
               className=" add-new-stock-select mb-3"
             >
-              <select className="form-select text-end">
+              <select className="form-select text-end cursor-pointer">
                 <option>Exchange</option>
                 {!!exchangeList && !!exchangeList.length ? (
                   exchangeList.map((exchange, index) => {
@@ -211,7 +224,7 @@ const AddNewNews = () => {
               }}
               className=" add-new-stock-select mb-3"
             >
-              <select className="form-select text-end">
+              <select className="form-select text-end cursor-pointer">
                 <option>Stock</option>
                 {!!stockList && !!stockList.length ? (
                   stockList.map((stock, index) => {
@@ -238,7 +251,7 @@ const AddNewNews = () => {
               }}
               className=" add-new-stock-select mb-3"
             >
-              <select className="form-select text-end">
+              <select className="form-select text-end cursor-pointer">
                 <option>Portfolio</option>
                 {!!portfolioList && !!portfolioList.length ? (
                   portfolioList.map((portfolio, index) => {
@@ -275,11 +288,10 @@ const AddNewNews = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
                 id="flexCheckDefault"
               />
               <label
-                className="form-check-label check-box-text "
+                className="form-check-label check-box-text cursor-pointer"
                 for="flexCheckDefault"
               >
                 Feature on homepage

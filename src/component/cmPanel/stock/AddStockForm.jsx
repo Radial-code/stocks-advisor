@@ -11,6 +11,7 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import { addNewStockDetailsAction } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
+import { Link } from "react-router-dom";
 
 const AddStockForm = () => {
   const dispatch = useDispatch();
@@ -75,9 +76,15 @@ const AddStockForm = () => {
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
-        <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
-          Add New Stock
-        </p>
+        <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
+          <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
+            Add New Stock
+          </p>
+          <Link to="/content/manager/stocks">
+            <button className="update-btn-2 ">Back</button>
+          </Link>
+        </div>
+
         <Form className="pt-sm-5  pt-4">
           <div className="row">
             <div className="col-md-6 order-2 datepicker-input position-relative order-sm-2 order-1">
@@ -104,7 +111,7 @@ const AddStockForm = () => {
                 controlId="formBasicEmail"
               >
                 <Form.Control
-                  type="text"
+                  type="number"
                   value={stockDetails.joinPrice}
                   placeholder="Join Price"
                   onChange={(e) => {
@@ -148,7 +155,7 @@ const AddStockForm = () => {
                 }}
                 className=" add-new-stock-select mb-3"
               >
-                <select className="form-select text-end">
+                <select className="form-select text-end cursor-pointer">
                   <option>Category</option>
                   {!!categoryList && !!categoryList.length ? (
                     categoryList.map((category, index) => {
@@ -177,7 +184,7 @@ const AddStockForm = () => {
                 }}
                 className=" add-new-stock-select mb-3"
               >
-                <select className="form-select text-end">
+                <select className="form-select text-end cursor-pointer">
                   <option>Portfolio</option>
                   {!!portfolioList && !!portfolioList.length ? (
                     portfolioList.map((portfolio, index) => {
@@ -204,7 +211,7 @@ const AddStockForm = () => {
                 }}
                 className=" add-new-stock-select mb-3"
               >
-                <select className="form-select text-end">
+                <select className="form-select text-end cursor-pointer">
                   <option>Exchange</option>
                   {!!exchangeList && !!exchangeList.length ? (
                     exchangeList.map((exchange, index) => {
