@@ -8,7 +8,11 @@ import {
   GET_STOCK_LIST,
   GET_USER_LIST_FOR_ADMIN,
 } from "../action/cmPanel/stock";
-import { GET_HOME_PAGE_NEWS, GET_NEWS_FOR_ADMIN } from "../action/news";
+import {
+  GET_HOME_PAGE_NEWS,
+  GET_NEWS_FOR_ADMIN,
+  GET_NEWS_LIST,
+} from "../action/news";
 
 const initialState = {
   stockList: [],
@@ -18,6 +22,7 @@ const initialState = {
   adminNewsList: [],
   adminUserList: [],
   homeNewsList: [],
+  allNews: [],
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -79,6 +84,14 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         homeNewsList: action.data,
+      };
+    }
+
+    // Get all news list
+    case GET_NEWS_LIST: {
+      return {
+        ...state,
+        allNews: action.data,
       };
     }
 
