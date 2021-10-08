@@ -47,7 +47,7 @@ const NewsTable = () => {
                         {" "}
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="whitespace Ellipse">
+                      <td className="whitespace Ellipse" dir="ltr">
                         {value.description}
                       </td>
                       <td className="whitespace Ellipse">{value.tags}</td>

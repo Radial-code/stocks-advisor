@@ -7,7 +7,7 @@ const UsersList = () => {
   return (
     <Col className="d-xl-flex justify-content-end ">
       <section className="user-panel-card w-xl-1000 p-md-5 p-2 mt-5 pt-5">
-        <div className="d-flex justify-content-between pb-3">
+        <div className="d-flex justify-content-sm-between flex-sm-row flex-column align-items-center pb-3">
           <p className="heading-stock fs-sm-20">Users</p>
           <div>
             <Link to="/content/manager/edit/user">

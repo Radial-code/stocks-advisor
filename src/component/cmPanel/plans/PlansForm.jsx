@@ -3,6 +3,8 @@ import { Form, FormGroup } from "react-bootstrap";
 import "@pathofdev/react-tag-input/build/index.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 import Loader from "../../common/Loader";
 import { addNewPlansDetailsAction } from "../../../redux/action/cmPanel/plans";
 
@@ -35,9 +37,14 @@ function PlansForm() {
     <div>
       <div className="col-12 h-100 stock-add-new">
         <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
-          <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
-            Add New Plans
-          </p>
+          <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
+            <h1 className="current-stock-text ff-popins mb-sm-0 mb-3 fs-sm-20">
+              Add New Plans
+            </h1>
+            <Link to="/content/manager/our/plans/details">
+              <button className="update-btn-2 ">Back</button>
+            </Link>
+          </div>
           <Form className="pt-sm-5  pt-4">
             <div className="row">
               <div className="col-md-6 order-1 last-name order-sm-1 order-2">

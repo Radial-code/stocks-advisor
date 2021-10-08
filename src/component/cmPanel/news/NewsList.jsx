@@ -6,7 +6,7 @@ const NewsList = () => {
   return (
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-4 mt-5 pt-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-sm-between align-items-center flex-sm-row flex-column">
           <p className="heading-stock fs-sm-20 fs-sm-20">All News</p>
           <div>
             <Link to="/content/manager/add/news" className="add-new-btn">
