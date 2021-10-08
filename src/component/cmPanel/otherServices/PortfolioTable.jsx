@@ -26,7 +26,7 @@ function PortfolioTable({ setShow, show }) {
             <tr className="current-stock-table-head table-border-bottom table-border-top">
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -36,7 +36,7 @@ function PortfolioTable({ setShow, show }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -46,7 +46,7 @@ function PortfolioTable({ setShow, show }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -55,7 +55,7 @@ function PortfolioTable({ setShow, show }) {
               </th>
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -72,11 +72,11 @@ function PortfolioTable({ setShow, show }) {
                     key={index}
                     className="current-stock-data table-border-bottom"
                   >
-                    <td className="text-center whitespace ">
+                    <td className="text-end whitespace ">
                       {moment(value.createdAt).format("MM/ddd")}
                     </td>
-                    <td className="text-center whitespace">{value.title}</td>
-                    <td className="text-center whitespace">
+                    <td className="text-end whitespace">{value.title}</td>
+                    <td className="text-end whitespace">
                       <button
                         className="px-3 py-1 edit-button "
                         onClick={() => setShow(true)}
@@ -84,7 +84,7 @@ function PortfolioTable({ setShow, show }) {
                         Edit
                       </button>
                     </td>
-                    <td className="text-center whitespace">
+                    <td className="text-end whitespace">
                       <button className="px-3 py-1 delete-button">
                         Delete
                       </button>
@@ -94,7 +94,7 @@ function PortfolioTable({ setShow, show }) {
               })
             ) : (
               <div className="h-100">
-                <p className="table-text text-center">
+                <p className="table-text text-end">
                   You don't have any Category list
                 </p>
               </div>

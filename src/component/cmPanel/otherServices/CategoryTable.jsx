@@ -41,7 +41,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
             <tr className="current-stock-table-head table-border-bottom table-border-top">
               <th
                 scope="col"
-                className="text-center position-sticky top-0  whitespace"
+                className="text-end  position-sticky top-0  whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -51,7 +51,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0  whitespace"
+                className="text-end  position-sticky top-0  whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -61,7 +61,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0  whitespace"
+                className="text-end  position-sticky top-0  whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -70,7 +70,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
               </th>
               <th
                 scope="col"
-                className="text-center position-sticky top-0  whitespace"
+                className="text-end  position-sticky top-0  whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -87,11 +87,11 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                     key={index}
                     className="current-stock-data table-border-bottom"
                   >
-                    <td className="text-center whitespace">
+                    <td className="text-end  whitespace">
                       {moment(value.createdAt).format("MM/ddd")}
                     </td>
-                    <td className="text-center whitespace">{value.title}</td>
-                    <td className="text-center whitespace">
+                    <td className="text-end  whitespace">{value.title}</td>
+                    <td className="text-end  whitespace">
                       <button
                         className="px-3 py-1 edit-button "
                         onClick={() => editCategory(value.title)}
@@ -99,7 +99,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                         Edit
                       </button>
                     </td>
-                    <td className="text-center whitespace">
+                    <td className="text-end  whitespace">
                       <button
                         onClick={() => deleteCategory(value._id)}
                         className="px-3 py-1 delete-button"
@@ -112,7 +112,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
               })
             ) : (
               <div className="h-100">
-                <p className="table-text text-center">
+                <p className="table-text text-end ">
                   You don't have any Category list
                 </p>
               </div>

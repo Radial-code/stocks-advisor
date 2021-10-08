@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { News, Stocks, User } from "../icons/Icons";
+import { News, PlansIcon, ServiceIcon, Stocks, User } from "../icons/Icons";
 
 import "./Sidebar.css";
 // /dashboard/update/payment
@@ -46,7 +46,7 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
               >
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="svg-image pl-15">
-                    <User />
+                    <ServiceIcon />
                   </span>
                   <span>Other Services</span>
                 </li>
@@ -57,7 +57,7 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
               >
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="svg-image pl-15">
-                    <User />
+                    <PlansIcon />
                   </span>
                   <span>Our Plans</span>
                 </li>

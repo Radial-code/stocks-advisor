@@ -14,7 +14,7 @@ const NewsList = () => {
             </Link>
           </div>
         </div>
-        <div className="h-calc-100vh-442 scroll-bar overflow-auto mt-4">
+        <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
           <NewsTable />
         </div>
       </section>

@@ -25,56 +25,80 @@ const CurrentStockTable = () => {
         <table className="table table-borderless table-hover mb-3">
           <thead className="portfolio-sticky ">
             <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Date{" "}
               </th>
 
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Profit/Loss
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 State
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Current Price
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Join Price
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Category
               </th>
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Symbol
               </th>
-              {/* <th scope="col" className="text-center position-sticky top-0 ">
+              {/* <th scope="col" className="text-end whitespace position-sticky top-0 ">
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
             Name
           </th> */}
-              <th scope="col" className="text-center position-sticky top-0 ">
+              <th
+                scope="col"
+                className="text-end whitespace position-sticky top-0 "
+              >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
@@ -90,10 +114,10 @@ const CurrentStockTable = () => {
                       key={index}
                       className="current-stock-data table-border-bottom"
                     >
-                      <td className="text-center ">
+                      <td className="text-end whitespace ">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-center profitloss-text">
+                      <td className="text-end whitespace profitloss-text">
                         {value &&
                         value.profitOrLoss &&
                         value.profitOrLoss.percentage
@@ -101,19 +125,23 @@ const CurrentStockTable = () => {
                           : "N/A"}
                       </td>
 
-                      <td className="text-center">
+                      <td className="text-end whitespace">
                         {value.isSold ? "Sold" : "No Sold"}
                       </td>
-                      <td className="text-center">${value.currentPrice}</td>
-                      <td className="text-center">${value.joinPrice}</td>
-                      <td className="text-center">
+                      <td className="text-end whitespace">
+                        ${value.currentPrice}
+                      </td>
+                      <td className="text-end whitespace">
+                        ${value.joinPrice}
+                      </td>
+                      <td className="text-end whitespace">
                         {value && value.category ? value.category.title : "N/A"}
                       </td>
-                      <td className="text-center">
+                      <td className="text-end whitespace">
                         {value.symbol ? value.symbol : "N/A"}
                       </td>
-                      {/* <td className="text-center">Netflix</td> */}
-                      <td className="text-center">
+                      {/* <td className="text-end whitespace">Netflix</td> */}
+                      <td className="text-end whitespace">
                         {value && value.portfolio
                           ? value.portfolio.title
                           : "N/A"}

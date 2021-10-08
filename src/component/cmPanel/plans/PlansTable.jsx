@@ -36,7 +36,7 @@ function PlansTable({ history }) {
             <tr className="current-stock-table-head table-border-bottom table-border-top">
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -46,7 +46,7 @@ function PlansTable({ history }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -55,7 +55,7 @@ function PlansTable({ history }) {
               </th>
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -64,7 +64,7 @@ function PlansTable({ history }) {
               </th>
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -73,7 +73,7 @@ function PlansTable({ history }) {
               </th>
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -83,7 +83,7 @@ function PlansTable({ history }) {
 
               <th
                 scope="col"
-                className="text-center position-sticky top-0 whitespace"
+                className="text-end position-sticky top-0 whitespace"
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -100,14 +100,14 @@ function PlansTable({ history }) {
                       key={index}
                       className="current-stock-data table-border-bottom"
                     >
-                      <td className="text-center whitespace">
+                      <td className="text-end whitespace">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-center whitespace">{value.title}</td>
+                      <td className="text-end whitespace">{value.title}</td>
 
-                      <td className="text-center whitespace">{value.price}</td>
-                      <td className="text-center whitespace">${value.type}</td>
-                      <td className="text-center whitespace">
+                      <td className="text-end whitespace">{value.price}</td>
+                      <td className="text-end whitespace">${value.type}</td>
+                      <td className="text-end whitespace">
                         <button
                           className="px-3 py-1 edit-button"
                           onClick={() =>
@@ -117,7 +117,7 @@ function PlansTable({ history }) {
                           Edit
                         </button>
                       </td>
-                      <td className="text-center whitespace">
+                      <td className="text-end whitespace">
                         <button
                           type="button"
                           disabled={deleteLoading}
