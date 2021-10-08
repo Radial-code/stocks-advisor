@@ -1,6 +1,6 @@
 import React from "react";
-import heroImg from "../../assets/img/aboutUs-hero.png";
-import  BusinessImg from "../../assets/img/chashmalady.png"
+import BusinessImg from "../../assets/img/chashmalady.png";
+
 const History = () => {
   return (
     <>
@@ -27,7 +27,6 @@ const History = () => {
             PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
-      
       </div>
     </>
   );
