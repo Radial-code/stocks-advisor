@@ -10,7 +10,12 @@
   font-size: var(--font-xs);
   font-weight: 500;
 }
-
+.table-width {
+  width: 133px;
+}
+.table-width-header {
+  width: 491px;
+}
 .user-details {
   font-size: var(--font-xs);
   font-weight: 400;

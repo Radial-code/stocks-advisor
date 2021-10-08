@@ -29,7 +29,6 @@ import ResendOtp from "./auth/verfiy/ResendOtp";
 import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
-import PlansSection from "./cmPanel/plans/PlansSection";
 
 const Router = () => {
   return (

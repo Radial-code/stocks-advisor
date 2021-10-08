@@ -25,11 +25,11 @@ const NewsTable = () => {
         <Table hover>
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
-              <th className="whitespace ">
+              <th className="whitespace table-width">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Date
               </th>
-              <th className="whitespace">
+              <th className="whitespace table-width-header">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Title
               </th>
               <th className="whitespace">
