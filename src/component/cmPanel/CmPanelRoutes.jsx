@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import AddNews from "./AddNews";
 import AddStock from "./stock/AddStock";
 import EditUser from "./EditUser";
-import News from "./News";
+import News from "./news/News";
 import Stocks from "./stock/Stock";
 import Users from "./user/Users";
 import SidebarPanel from "../common/SideBar/SidebarPanel";

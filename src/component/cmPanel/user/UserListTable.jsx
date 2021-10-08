@@ -26,26 +26,21 @@ const UserListTable = () => {
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
               <th className="text-center">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Join Date{" "}
+                Join Date
               </th>
               <th className="text-center">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
               </th>
               <th className="text-center">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Phone
               </th>
               <th className="text-center">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 E-mail
               </th>
               <th className="text-center">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Subscription Plan Name
               </th>
