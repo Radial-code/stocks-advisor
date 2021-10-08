@@ -114,10 +114,10 @@ const CurrentStockTable = () => {
                       key={index}
                       className="current-stock-data table-border-bottom"
                     >
-                      <td className="text-end whitespace ">
+                      <td className="text-end whitespace Ellipse">
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="text-end whitespace profitloss-text">
+                      <td className="text-end whitespace profitloss-text Ellipse">
                         {value &&
                         value.profitOrLoss &&
                         value.profitOrLoss.percentage
@@ -125,23 +125,23 @@ const CurrentStockTable = () => {
                           : "N/A"}
                       </td>
 
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         {value.isSold ? "Sold" : "No Sold"}
                       </td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         ${value.currentPrice}
                       </td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         ${value.joinPrice}
                       </td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         {value && value.category ? value.category.title : "N/A"}
                       </td>
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         {value.symbol ? value.symbol : "N/A"}
                       </td>
                       {/* <td className="text-end whitespace">Netflix</td> */}
-                      <td className="text-end whitespace">
+                      <td className="text-end whitespace Ellipse">
                         {value && value.portfolio
                           ? value.portfolio.title
                           : "N/A"}

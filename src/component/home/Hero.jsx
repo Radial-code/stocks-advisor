@@ -10,7 +10,13 @@ const Hero = ({ loading }) => {
           <div className="col-xl-8 col-lg-7 ">
             <div className="profile-box p-3 homePageSlider">
               <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
-              {loading ? <BubblesLoader /> : <HomePageSlider />}
+              {loading ? (
+                <div className="d-flex justify-content-center align-items-center">
+                  <BubblesLoader />
+                </div>
+              ) : (
+                <HomePageSlider />
+              )}
             </div>
           </div>
           <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0 ">

@@ -73,11 +73,13 @@ function ExchangeTable({ setShow, show }) {
                     key={index}
                     className="current-stock-data table-border-bottom"
                   >
-                    <td className="text-end  whitespace">
+                    <td className="text-end  whitespace Ellipse">
                       {moment(value.createdAt).format("MM/ddd")}
                     </td>
-                    <td className="text-end  whitespace">{value.title}</td>
-                    <td className="text-end  whitespace">
+                    <td className="text-end  whitespace Ellipse">
+                      {value.title}
+                    </td>
+                    <td className="text-end  whitespace Ellipse">
                       <button
                         className="px-3 py-1 edit-button "
                         onClick={() => setShow(true)}
@@ -85,7 +87,7 @@ function ExchangeTable({ setShow, show }) {
                         Edit
                       </button>
                     </td>
-                    <td className="text-end  whitespace">
+                    <td className="text-end  whitespace Ellipse">
                       <button className="px-3 py-1 delete-button">
                         Delete
                       </button>

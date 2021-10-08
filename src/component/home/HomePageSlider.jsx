@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import Slider from "react-slick";
 import img_1 from "../../assets/img/calendar-icon.png";
 import { useSelector } from "react-redux";
-
+import BubblesLoader from "../common/BubblesLoader";
 const HomePageSlider = () => {
+  const [loading, setLoading] = useState(false);
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
     dots: true,
@@ -16,43 +17,51 @@ const HomePageSlider = () => {
   };
 
   return (
-    <Slider className="hero-slider-2 w-100" {...settings}>
-      {!!homeNewsList && !!homeNewsList.length
-        ? homeNewsList.map((value, index) => {
+    <>
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center">
+          <BubblesLoader />
+        </div>
+      ) : (
+        <Slider className="hero-slider-2 w-100" {...settings}>
+          {homeNewsList.map((value, index) => {
             return (
-              <div key={index} className=" my-3">
+              <div key={index}>
                 <img
-                  className="w-100"
-                  src={value ? value.imagePath : null}
+                  className="w-100 slider-img"
+                  src={value.imagePath}
                   alt=""
                 />
                 <p className="text-end stock-paragraph mt-3">
+                  {" "}
                   <span className="d-flex justify-content-end align-items-center">
+                    {" "}
                     <span className="d-flex justify-content-end px-2">
-                      <img className="w-19 h-19" src={img_1} alt="" />
-                    </span>
+                      <img className="w-19 h-19" src={img_1} alt="" />{" "}
+                    </span>{" "}
                     <span className="cursor-pointer">
-                      {moment(value.createdAt).format("ddd/MM/yyyy")}
-                    </span>
-                  </span>
+                      {moment(value.createdAt).format("ddd/MM/yyyy")}{" "}
+                    </span>{" "}
+                  </span>{" "}
                 </p>
                 <h6 className="text-end heading-stock">
-                  {value && value.title ? value.title : "N/A"}
+                  {value.title ? value.title : "N/A"}{" "}
                 </h6>
                 <p className="text-end parargraph-stock pt-sm-2  ps-sm-5">
-                  {value && value.description ? value.description : "N/A"}
+                  {value.description}{" "}
                 </p>
                 <p className="text-end read-more cursor-pointer">
-                  Read More...
-                </p>
+                  Read More...{" "}
+                </p>{" "}
                 <p className="small-paragraph text-end">
-                  <span>{value && value.tags ? value.tags : "N/A"}</span>
+                  <span>{value.tags}</span>{" "}
                 </p>
               </div>
             );
-          })
-        : "You do not't have any news"}
-    </Slider>
+          })}
+        </Slider>
+      )}
+    </>
   );
 };
 export default HomePageSlider;

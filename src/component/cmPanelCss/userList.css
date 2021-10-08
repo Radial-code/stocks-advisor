@@ -67,3 +67,9 @@
 .whitespace {
   white-space: nowrap;
 }
+.Ellipse {
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

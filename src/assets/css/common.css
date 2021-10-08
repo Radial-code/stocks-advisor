@@ -205,6 +205,9 @@
   font-size: var(--font-xs);
   color: var(--color-44464A);
 }
+.slider-img {
+  height: 415px;
+}
 
 @media (max-width: 567px) {
   .stock-paragraph {
