@@ -4,7 +4,6 @@ import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import img_2 from "../../assets/img/calendar-icon.png";
-import img_1 from "../../assets/img/strock-articles-img-1.png";
 
 const AllNews = ({ history }) => {
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
@@ -17,22 +16,25 @@ const AllNews = ({ history }) => {
           className="mt-sm-3 h-100 d-flex justify-content-center d-sm-block"
         >
           <section className="news-articles-card h-100 p-3">
-            <Row className="justify-content-between h-100">
-              <Col xl={4} lg={4} xs={4} className="h-100">
-                <div className="stock-articles-img h-100">
-                  <img className="w-100 h-341" src={img_1} alt="" />
-                </div>
-              </Col>
-
-              <Col
-                xl={8}
-                sm={8}
-                xs={8}
-                className="d-flex justify-content-center h-100"
-              >
-                {allNewsList && allNewsList.length
-                  ? allNewsList.map((value, index) => {
-                      return (
+            {allNewsList && allNewsList.length
+              ? allNewsList.map((value, index) => {
+                  return (
+                    <Row key={index} className="justify-content-between h-100">
+                      <Col xl={4} lg={4} xs={4} className="h-100">
+                        <div className="stock-articles-img h-100">
+                          <img
+                            className="w-100 h-341"
+                            src={value.imagePath}
+                            alt=""
+                          />
+                        </div>
+                      </Col>
+                      <Col
+                        xl={8}
+                        sm={8}
+                        xs={8}
+                        className="d-flex justify-content-center h-100"
+                      >
                         <div className="w-lg-518">
                           <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
                             {moment(value.createdAt).format("ddd/MM/yyyy")}
@@ -63,11 +65,11 @@ const AllNews = ({ history }) => {
                             </span>
                           </p>
                         </div>
-                      );
-                    })
-                  : null}
-              </Col>
-            </Row>
+                      </Col>
+                    </Row>
+                  );
+                })
+              : null}
           </section>
         </Col>
       </Row>

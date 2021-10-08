@@ -21,7 +21,9 @@ function Plans({ history }) {
       <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
       <span className="subs-plans-line d-block mb-4"></span>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center">
+          <BubblesLoader />
+        </div>
       ) : (
         <>
           {!!planList && !!planList.length
@@ -29,7 +31,7 @@ function Plans({ history }) {
                 return (
                   <div
                     key={index}
-                    className="subs-border d-flex justify-content-between align-items-center p-3"
+                    className="subs-border d-flex justify-content-between align-items-center p-3 my-2"
                   >
                     <div>
                       <p className="ff-popins plan-text mb-0">

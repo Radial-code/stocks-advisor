@@ -140,7 +140,7 @@ const PaymentDetails = ({
               <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
                 <div className="table-responsive sold-stock-scrollbar">
                   <table className="table white-space-nowrap table-borderless">
-                    <thead>
+                    <thead className="portfolio-sticky">
                       <tr>
                         <th scope="col-5" className="payment-thead">
                           <DropDownIcon />
