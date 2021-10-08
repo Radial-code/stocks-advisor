@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Sortarrow from "../../../assets/img/sortarrow.png";
-
 import { useDispatch, useSelector } from "react-redux";
 import { getUserListForAdminAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
+import moment from "moment";
 
 const UserListTable = () => {
   const dispatch = useDispatch();
@@ -53,14 +53,18 @@ const UserListTable = () => {
           </thead>
           <tbody className="user-details">
             {adminUserList && adminUserList.length
-              ? adminUserList.map(() => {
+              ? adminUserList.map((value, index) => {
                   return (
-                    <tr>
-                      <td className="text-center">15/07/2021</td>
-                      <td className="text-center">Jhone Doe</td>
-                      <td className="text-center">1234567890</td>
-                      <td className="text-center">1234567890@gmail.com</td>
-                      <td className="text-center">Plan 1</td>
+                    <tr key={index}>
+                      <td className="text-center">
+                        {moment(value.createdAt).format("MM/ddd")}
+                      </td>
+                      <td className="text-center">
+                        {value.firstName} {value.lastName}
+                      </td>
+                      <td className="text-center">{value.phone}</td>
+                      <td className="text-center">{value.email}</td>
+                      <td className="text-center">{value.plan}</td>
                     </tr>
                   );
                 })
