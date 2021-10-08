@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 
 const Footer = () => {
   const auth = useSelector((state) => state.auth.auth);
+  const token = useSelector((state) => state.auth.token);
 
   return (
     <section className="bg-16191E">
@@ -83,7 +84,7 @@ const Footer = () => {
               </ul>
 
               <ul className="list-unstyled mb-0 footer-ul text-center text-lg-start">
-                {auth ? (
+                {auth && !!token ? (
                   <li>
                     <Link
                       className="text-decoration-none text-white fs-15"
@@ -93,7 +94,7 @@ const Footer = () => {
                     </Link>
                   </li>
                 ) : null}
-                {auth ? (
+                {auth && token ? (
                   <li>
                     <Link
                       className="text-decoration-none text-white fs-15"

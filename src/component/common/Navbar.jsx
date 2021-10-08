@@ -18,11 +18,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const [student, setStudent] = useState(false);
-  const [dashboard, setDashboard] = useState(false);
   const { setScreenFixed } = useFixedScreenProvider();
-  const auth = useSelector((state) => state.auth.auth);
-  // const auth = false;
-  // FOR ACTIVE CLASS HEADER
   const [HomeActive, setHomeActive] = useState(false);
   const [AboutActive, setAboutActive] = useState(false);
   const [NewsActive, setNewsActive] = useState(false);
@@ -31,6 +27,8 @@ const Navbar = () => {
   const [PortfolioActive, setPortfolioActive] = useState(false);
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
+  const auth = useSelector((state) => state.auth.auth);
+  const token = useSelector((state) => state.auth.token);
 
   const dropHandler = () => {
     setStudent(!student);
@@ -250,7 +248,7 @@ const Navbar = () => {
                   </div>
                 </li>
                 <div className="d-xl-flex align-items-center">
-                  {auth ? (
+                  {auth && !!token ? (
                     <>
                       <li className=" d-none d-xl-block">
                         <input
@@ -275,7 +273,7 @@ const Navbar = () => {
                     ""
                   )}
                   {/*start here drop down  */}
-                  {auth ? (
+                  {auth && !!token ? (
                     <li
                       onClick={dropHandler}
                       className={` nav-item  d-md-none ${
@@ -371,7 +369,7 @@ const Navbar = () => {
                     </div>
                   </li>
                   {/* Drop down end here */}
-                  {auth ? (
+                  {auth && !!token ? (
                     <li className="nav-item ">
                       <NavLink
                         exact
@@ -405,7 +403,7 @@ const Navbar = () => {
                       Login
                     </NavLink> 
                   </li> */}
-                  {auth ? (
+                  {auth && !!token ? (
                     <div className="d-flex flex-lg-row flex-column  align-items-sm-start  align-items-center">
                       <UserDropDown />
                       <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">

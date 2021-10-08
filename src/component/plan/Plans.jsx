@@ -11,6 +11,7 @@ function Plans({ history }) {
   const [loading, setLoading] = useState(false);
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
+  const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
     dispatch(getPlansListAction(setLoading));
@@ -42,7 +43,7 @@ function Plans({ history }) {
                       </p>
                     </div>
                     <div>
-                      {auth ? (
+                      {auth && !!token ? (
                         <button
                           type="button"
                           onClick={() => history.push("/")}
