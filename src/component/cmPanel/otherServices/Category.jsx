@@ -6,7 +6,6 @@ function Category() {
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
   const [updateValue, setUpdateValue] = useState("");
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (

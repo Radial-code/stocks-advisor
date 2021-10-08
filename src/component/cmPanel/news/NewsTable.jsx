@@ -18,19 +18,21 @@ const NewsTable = () => {
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <BubblesLoader />
+        </div>
       ) : (
-        <Table responsive hover className="">
+        <Table hover>
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
-              <th>
+              <th className="whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Date
               </th>
-              <th>
+              <th className="whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Title
               </th>
-              <th>
+              <th className="whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Tags
               </th>
@@ -41,9 +43,12 @@ const NewsTable = () => {
               ? adminNewsList.map((value, index) => {
                   return (
                     <tr key={index}>
-                      <td> {moment(value.createdAt).format("MM/ddd")}</td>
-                      <td>{value.description}</td>
-                      <td>{value.tags}</td>
+                      <td className="whitespace">
+                        {" "}
+                        {moment(value.createdAt).format("MM/ddd")}
+                      </td>
+                      <td className="whitespace">{value.description}</td>
+                      <td className="whitespace">{value.tags}</td>
                     </tr>
                   );
                 })
