@@ -8,8 +8,8 @@ import {
 } from "../icons/Icons";
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
-// /dashboard/update/payment
-const SidebarDashboard = ({ page, sidebarActive, history }) => {
+
+const SidebarDashboard = ({ sidebarActive }) => {
   return (
     <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
@@ -58,7 +58,7 @@ const SidebarDashboard = ({ page, sidebarActive, history }) => {
                   <span>Notification</span>
                 </li>
               </NavLink>
-              <NavLink activeClassName="active" to="/dashboard/profile">
+              <NavLink activeClassName="active" to="/dashboard/view/profile">
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="pl-15">
                     <ProfileIcon />

@@ -1,6 +1,6 @@
 import Axios from "axios";
 export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
-// export let SERVER_URL = "http://192.168.0.200:3000";
+// export let SERVER_URL = "http://192.168.0.198:3000";
 
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
 
@@ -9,6 +9,7 @@ export async function axiosRequest(method, url, data = null) {
     const token = localStorage.getItem("stock-advisor");
     let response;
     if (token) {
+      console.log(`${PUBLIC_URL}${url}`);
       response = await Axios({
         method: method,
         url: `${PUBLIC_URL}${url}`,

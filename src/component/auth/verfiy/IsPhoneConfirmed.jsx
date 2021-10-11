@@ -43,12 +43,14 @@ const IsPhoneConfirmed = ({ history }) => {
                   placeholder="  Enter your otp"
                   onChange={(e) => setVerificationOTP(e.target.value)}
                 />
-                {error && verificationOTP
-                  ? "OTP is required"
-                  : (error && verificationOTP.length < 6) ||
-                    (error && verificationOTP.length > 6)
-                  ? "Enter valid OTP"
-                  : null}
+                <span className="text-danger">
+                  {error && verificationOTP
+                    ? "OTP is required"
+                    : (error && verificationOTP.length < 6) ||
+                      (error && verificationOTP.length > 6)
+                    ? "Enter valid OTP"
+                    : null}
+                </span>
               </div>
             </div>
             <div className="d-flex  flex-column flex-md-row justify-content-center mt-3 mb-4">

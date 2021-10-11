@@ -43,11 +43,13 @@ const ResendOtp = ({ history }) => {
                   placeholder="  Enter your Phone number"
                   onChange={(e) => setPhone(e.target.value)}
                 />
-                {error && phone === ""
-                  ? "Phone number is required"
-                  : error && PhoneRegex.test(phone) === false
-                  ? "Enter valid Phone Number"
-                  : null}
+                <span className="text-danger">
+                  {error && phone === ""
+                    ? "Phone number is required"
+                    : error && PhoneRegex.test(phone) === false
+                    ? "Enter valid Phone Number"
+                    : null}
+                </span>
               </div>
             </div>
             <div className="d-flex  flex-column flex-md-row justify-content-center mt-3 mb-4">
