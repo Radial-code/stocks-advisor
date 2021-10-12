@@ -72,10 +72,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                       )
                     }
                   >
-                    <span>{value.tags}</span>
+                    <span className="cursor-pointer fw-bold">{value.tags}</span>
                   </p>
                   <p className="small-paragraph text-end">
                     <span
+                      className="fw-bold cursor-pointer"
                       onClick={() =>
                         history.push(
                           `/stock/news/${value.stock._id}/stock-tags`
@@ -84,6 +85,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     >
                       {value.stock.symbol}
                     </span>
+                    <span className="cursor-pointer fw-bold pe-1"> Stock</span>
                   </p>
                 </div>
               );

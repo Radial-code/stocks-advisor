@@ -18,7 +18,7 @@ const StockArticles = ({ history }) => {
             ? allRelatedNews.map((value) => {
                 return (
                   <Col xs={12} className="mt-5">
-                    <section className="news-articles-card p-lg-5 p-3">
+                    <section className="news-articles-card p-lg-5 p-3 mb-4">
                       <Row className="justify-content-between">
                         <Col xl={3} lg={4} xs={4}>
                           <div className="stock-articles-img ">
@@ -47,7 +47,7 @@ const StockArticles = ({ history }) => {
                               Read More
                             </p>
                             <p
-                              className="small-paragraph d-none d-lg-block mb-0"
+                              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold"
                               onClick={() =>
                                 history.push(
                                   `/stock/news/${value.stock._id}/${value.tags}`
@@ -57,7 +57,11 @@ const StockArticles = ({ history }) => {
                               <span>{value.tags}</span>
                             </p>
                             <p className="small-paragraph text-end">
+                              <span className="ps-1 cursor-pointer fw-bold">
+                                Stock
+                              </span>
                               <span
+                                className="cursor-pointer fw-bold"
                                 onClick={() =>
                                   history.push(
                                     `/stock/news/${value.stock._id}/stock-tags`

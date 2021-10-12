@@ -9,7 +9,6 @@ import {
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import { addNewNewsDetailsAction } from "../../../redux/action/news";
 import { Link } from "react-router-dom";
-
 import Loader from "../../common/Loader";
 
 const AddNewNews = () => {
