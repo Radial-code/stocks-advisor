@@ -7,7 +7,7 @@ import img_2 from "../../assets/img/calendar-icon.png";
 
 const AllNews = ({ history }) => {
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
-
+  console.log("allNewsList", allNewsList);
   return (
     <div>
       <Row className="h-100">
@@ -60,7 +60,7 @@ const AllNews = ({ history }) => {
                           </p>
 
                           <p
-                            className="small-paragraph d-none d-xl-block mb-0"
+                            className="small-paragraph d-none d-xl-block mb-0 cursor-pointer fw-bold"
                             onClick={() =>
                               history.push(
                                 `/stock/news/${value.stock._id}/${value.tags}`
@@ -70,7 +70,11 @@ const AllNews = ({ history }) => {
                             {value && value.tags ? value.tags : "N/A"}
                           </p>
                           <p className="small-paragraph text-end">
+                            <span className="cursor-pointer small-paragraph fw-bold">
+                              Stock
+                            </span>
                             <span
+                              className="cursor-pointer fw-bold pe-1"
                               onClick={() =>
                                 history.push(
                                   `/stock/news/${value.stock._id}/stock-tags`

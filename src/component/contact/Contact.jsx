@@ -17,7 +17,9 @@ const Contact = () => {
                 <div className="row mt-4 mt-md-5 pt-2 ">
                   <div className=" col-12 col-md-4 order-3 mt-5 mt-md-0  order-md-1 px-auto ">
                     <p className=" email-heading pb-2 m-0">Email</p>
-                    <p className="email-para ">stockadvisor@email.com</p>
+                    <p className="email-para Ellipse" dir="ltr">
+                      stockadvisor@email.com
+                    </p>
                   </div>
 
                   <div className="col-5 col-md-4 order-2 order-md-2  d-flex flex-column justify-content-end d-md-block">
