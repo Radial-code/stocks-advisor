@@ -46,7 +46,7 @@ function Plans({ history }) {
                       {auth && !!token ? (
                         <button
                           type="button"
-                          onClick={() => history.push("/")}
+                          onClick={() => history.push("/our-plan")}
                           className="ff-popins join-now ff-popins "
                         >
                           Buy now

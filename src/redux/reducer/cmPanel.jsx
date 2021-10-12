@@ -10,8 +10,10 @@ import {
 } from "../action/cmPanel/stock";
 import {
   GET_HOME_PAGE_NEWS,
+  GET_NEWS_BY_STOCK_PAGE,
   GET_NEWS_FOR_ADMIN,
   GET_NEWS_LIST,
+  GET_RELATED_NEWS,
 } from "../action/news";
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   adminUserList: [],
   homeNewsList: [],
   allNews: [],
+  allRelatedNews: [],
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -92,6 +95,22 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         allNews: action.data,
+      };
+    }
+
+    // Get Related news list
+    case GET_RELATED_NEWS: {
+      return {
+        ...state,
+        allRelatedNews: action.data,
+      };
+    }
+
+    //Get Stock news list
+    case GET_NEWS_BY_STOCK_PAGE: {
+      return {
+        ...state,
+        allRelatedNews: action.data,
       };
     }
 

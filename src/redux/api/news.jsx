@@ -48,3 +48,11 @@ export const getNewsForAdminApi = async () => {
 export const getNewsByStockApi = async (id) => {
   return await axiosRequest("GET", `/news/by-stock/${id}?page=0&limit=10`);
 };
+
+/**
+ *  get Related News api
+ * @returns
+ */
+export const getRelatedNewsApi = async (data) => {
+  return await axiosRequest("POST", `/news/related?page=0&limit=10`, data);
+};

@@ -38,7 +38,7 @@ const Navbar = () => {
   // ACTIVE HEADER AS PATH
   const pathNane = window.location.pathname;
   useEffect(() => {
-    if (pathNane === "/home") {
+    if (pathNane === "/") {
       setHomeActive(true);
       setAboutActive(false);
       setNewsActive(false);
@@ -65,7 +65,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/") {
+    } else if (pathNane === "/our-plan") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -162,7 +162,7 @@ const Navbar = () => {
                   >
                     <NavLink
                       exact
-                      to="/home"
+                      to="/"
                       activeClassName="active"
                       className="nav-links"
                       onClick={click ? handleClick : null}
@@ -210,7 +210,7 @@ const Navbar = () => {
                   >
                     <NavLink
                       exact
-                      to="/"
+                      to="/our-plan"
                       activeClassName="active"
                       className="nav-links"
                       onClick={click ? handleClick : null}

@@ -52,7 +52,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/home"
+                    to="/"
                   >
                     Home
                   </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-decoration-none text-white fs-15"
-                    to="/"
+                    to="/our-plan"
                   >
                     Our Plan
                   </Link>

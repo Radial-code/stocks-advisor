@@ -5,12 +5,14 @@ import {
   getHomeNewsListApi,
   getNewsByStockApi,
   getNewsForAdminApi,
+  getRelatedNewsApi,
 } from "../api/news";
 
 export const GET_NEWS_LIST = "GET_NEWS_LIST";
 export const GET_NEWS_FOR_ADMIN = "GET_NEWS_FOR_ADMIN";
 export const GET_HOME_PAGE_NEWS = "GET_HOME_PAGE_NEWS";
 export const GET_NEWS_BY_STOCK_PAGE = "GET_NEWS_BY_STOCK_PAGE";
+export const GET_RELATED_NEWS = "GET_RELATED_NEWS";
 
 /**
  * add new News details action
@@ -127,8 +129,9 @@ export const getHomeNewsListApiAction = (setLoading) => async (dispatch) => {
     setTimeout(Swal.close, 2000);
   }
 };
+
 /**
- * Get new by stock action
+ * Get news by stock action
  * @param {Object} data
  * @returns
  */
@@ -156,3 +159,33 @@ export const getNewsByStockAction = (id, setLoading) => async (dispatch) => {
     setTimeout(Swal.close, 2000);
   }
 };
+/**
+ * Get related news action
+ * @param {Object} data
+ * @returns
+ */
+
+const getRelatedNews = (data) => ({
+  type: GET_RELATED_NEWS,
+  data,
+});
+
+export const getRelatedNewsAction =
+  (data, setRelatedLoading) => async (dispatch) => {
+    setRelatedLoading(true);
+    try {
+      const response = await getRelatedNewsApi(data);
+      if (response.success) {
+        dispatch(getRelatedNews(response.news));
+        setRelatedLoading(false);
+      } else {
+        setRelatedLoading(false);
+        Swal.fire("Error", "Failed to Load News list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setRelatedLoading(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };

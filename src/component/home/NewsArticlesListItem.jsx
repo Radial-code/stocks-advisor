@@ -2,7 +2,7 @@ import React from "react";
 import NewsSlider from "../../assets/img/newsArticles_1.png";
 import img_1 from "../../assets/img/calendar-icon.png";
 
-const NewsArticlesListItem = () => {
+const NewsArticlesListItem = ({ value }) => {
   return (
     <>
       <div className="d-flex justify-content-center d-md-block pr-15">

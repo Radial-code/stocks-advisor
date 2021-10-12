@@ -1,11 +1,10 @@
 import moment from "moment";
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import img_1 from "../../assets/img/strock-articles-img-1.png";
+import { withRouter } from "react-router";
 
-const StockArticles = () => {
-  const stockNewsList = useSelector((state) => state.list.stockNewsList);
+const StockArticles = ({ history }) => {
+  const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
   return (
     <>
       <Container className="max-w-container ">
@@ -15,8 +14,8 @@ const StockArticles = () => {
               Related News Articles
             </p>
           </Col>
-          {stockNewsList && stockNewsList.length
-            ? stockNewsList.map((value) => {
+          {allRelatedNews && allRelatedNews.length
+            ? allRelatedNews.map((value) => {
                 return (
                   <Col xs={12} className="mt-5">
                     <section className="news-articles-card p-lg-5 p-3">
@@ -47,8 +46,26 @@ const StockArticles = () => {
                             <p className="read-more d-none d-lg-block mb-0">
                               Read More
                             </p>
-                            <p className="small-paragraph d-none d-lg-block mb-0">
+                            <p
+                              className="small-paragraph d-none d-lg-block mb-0"
+                              onClick={() =>
+                                history.push(
+                                  `/stock/news/${value.stock._id}/${value.tags}`
+                                )
+                              }
+                            >
                               <span>{value.tags}</span>
+                            </p>
+                            <p className="small-paragraph text-end">
+                              <span
+                                onClick={() =>
+                                  history.push(
+                                    `/stock/news/${value.stock._id}/stock-tags`
+                                  )
+                                }
+                              >
+                                {value.stock.symbol}
+                              </span>
                             </p>
                           </div>
                         </Col>
@@ -64,4 +81,4 @@ const StockArticles = () => {
   );
 };
 
-export default StockArticles;
+export default withRouter(StockArticles);

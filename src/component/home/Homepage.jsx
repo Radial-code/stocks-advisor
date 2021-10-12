@@ -8,6 +8,7 @@ import { getHomeNewsListApiAction } from "../../redux/action/news";
 const Homepage = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [relatedloader, setRelatedLoading] = useState(false);
 
   useEffect(() => {
     dispatch(getHomeNewsListApiAction(setLoading));
@@ -15,7 +16,7 @@ const Homepage = () => {
 
   return (
     <>
-      <Hero loading={loading} />
+      <Hero loading={loading} setRelatedLoading={setRelatedLoading} />
       <NewsArticles />
       <SubscriptionPlans />
     </>

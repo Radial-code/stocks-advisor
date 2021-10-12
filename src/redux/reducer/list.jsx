@@ -1,14 +1,12 @@
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_TEAM_LIST } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
-import { GET_NEWS_BY_STOCK_PAGE } from "../action/news";
 import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
 
 const initialState = {
   contactList: [],
   planList: [],
   portfoliosList: [],
-  stockNewsList: [],
   teamList: [],
 };
 
@@ -47,14 +45,6 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         portfoliosList: action.data,
-      };
-    }
-
-    //Get Portfolios list
-    case GET_NEWS_BY_STOCK_PAGE: {
-      return {
-        ...state,
-        stockNewsList: action.data,
       };
     }
 

@@ -2,7 +2,7 @@ import BubblesLoader from "../common/BubblesLoader";
 import Chart from "./Chart";
 import HomePageSlider from "./HomePageSlider";
 
-const Hero = ({ loading }) => {
+const Hero = ({ loading, setRelatedLoading }) => {
   return (
     <section className="py-sm-5 py-3">
       <div className="container p-left-right">
@@ -15,7 +15,10 @@ const Hero = ({ loading }) => {
                   <BubblesLoader />
                 </div>
               ) : (
-                <HomePageSlider />
+                <HomePageSlider
+                  loading={loading}
+                  setRelatedLoading={setRelatedLoading}
+                />
               )}
             </div>
           </div>

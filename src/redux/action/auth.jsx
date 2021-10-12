@@ -39,7 +39,7 @@ export const LogoutAction = (history) => async (dispatch) => {
   try {
     dispatch(Logout);
     localStorage.setItem("stock-advisor", null);
-    history.push("/");
+    history.push("/our-plan");
     window.location.reload();
   } catch (error) {}
 };
@@ -66,7 +66,7 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
         if (response.user.isPaidPlan) {
           history.push("/portfolio/portfolio1");
         } else {
-          history.push("/");
+          history.push("/our-plan");
         }
       } else {
         history.push("/content/manager/stocks");
@@ -109,7 +109,7 @@ export const SignUpAction = (data, setLoading, history) => async (dispatch) => {
       dispatch(SignUpSuccess(response));
       localStorage.setItem("stock-advisor", response["x-api-key"]);
       setLoading(false);
-      history.push("/");
+      history.push("/our-plan");
     } else {
       setLoading(false);
       Swal.fire(
@@ -288,7 +288,7 @@ export const verfiyMobileOtpAction =
         setTimeout(
           userData.isPaidPlan
             ? history.push("/portfolio/portfolio1")
-            : history.push("/"),
+            : history.push("/our-plan"),
           3000
         );
       } else {

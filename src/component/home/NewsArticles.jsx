@@ -1,9 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
-import NewsArticlesListItem from "./NewsArticlesListItem";
 import { withRouter } from "react-router";
+import { useSelector } from "react-redux";
+import NewsArticlesListItem from "./NewsArticlesListItem";
 
 const NewsArticles = ({ history }) => {
+  const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
+
   var settings = {
     dots: false,
     infinite: true,
@@ -70,6 +73,11 @@ const NewsArticles = ({ history }) => {
               className="about-slider-2 d-flex align-items-center"
               {...settings}
             >
+              {/* {allRelatedNews && allRelatedNews.length
+                ? allRelatedNews.map((value, index) => {
+                    return <NewsArticlesListItem value={value} index={index} />;
+                  })
+                : null} */}
               <NewsArticlesListItem />
               <NewsArticlesListItem />
               <NewsArticlesListItem />

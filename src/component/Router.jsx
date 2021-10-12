@@ -47,12 +47,12 @@ const Router = () => {
         <Route exact path="/verify/mobile-otp" component={IsPhoneConfirmed} />
         <Route exact path="/resend-otp" component={ResendOtp} />
         {/** */}
-        <Route exact path="/home" component={Homepage} />
+        <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/payment" component={Payment} />
-        <Route exact path="/stock/news/:id" component={Stockpage} />
-        <Route exact path="/" component={OurPlanspage} />
+        <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
+        <Route exact path="/our-plan" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
         <Route path="/portfolio" component={Portfolio} />
         <Route exact path="/loginmodal" component={LogInModal} />

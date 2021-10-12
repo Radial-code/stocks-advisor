@@ -1,4 +1,4 @@
-import moment, { useState } from "moment";
+import moment from "moment";
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -59,9 +59,25 @@ const AllNews = ({ history }) => {
                             ...Read More
                           </p>
 
-                          <p className="small-paragraph d-none d-xl-block mb-0">
-                            <span>
-                              {value && value.tags ? value.tags : "N/A"}
+                          <p
+                            className="small-paragraph d-none d-xl-block mb-0"
+                            onClick={() =>
+                              history.push(
+                                `/stock/news/${value.stock._id}/${value.tags}`
+                              )
+                            }
+                          >
+                            {value && value.tags ? value.tags : "N/A"}
+                          </p>
+                          <p className="small-paragraph text-end">
+                            <span
+                              onClick={() =>
+                                history.push(
+                                  `/stock/news/${value.stock._id}/stock-tags`
+                                )
+                              }
+                            >
+                              {value.stock.symbol}
                             </span>
                           </p>
                         </div>
