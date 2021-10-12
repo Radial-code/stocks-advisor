@@ -1,6 +1,11 @@
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_TEAM_LIST } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
+import {
+  GET_CURRENT_STOCK_PORTFOLIOS_LIST,
+  GET_PORTFOLIOS_LIST_FOR_DASHBOARD,
+  GET_SOLD_STOCK_PORTFOLIOS_LIST,
+} from "../action/portfolio";
 import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
 
 const initialState = {
@@ -8,6 +13,9 @@ const initialState = {
   planList: [],
   portfoliosList: [],
   teamList: [],
+  dashboardPortfoliosList: [],
+  currentStockList: [],
+  soldStockList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -53,6 +61,30 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         teamList: action.data,
+      };
+    }
+
+    //Get Portfolios list for dashboard
+    case GET_PORTFOLIOS_LIST_FOR_DASHBOARD: {
+      return {
+        ...state,
+        dashboardPortfoliosList: action.data,
+      };
+    }
+
+    //Get sold stock Portfolios list for dashboard
+    case GET_SOLD_STOCK_PORTFOLIOS_LIST: {
+      return {
+        ...state,
+        soldStockList: action.data,
+      };
+    }
+
+    //Get current stock Portfolios list for dashboard
+    case GET_CURRENT_STOCK_PORTFOLIOS_LIST: {
+      return {
+        ...state,
+        currentStockList: action.data,
       };
     }
 

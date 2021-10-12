@@ -50,7 +50,7 @@ const OurPlans = ({ homepage, history }) => {
                         >
                           <section className="bg-card-plan mb-4">
                             <p className="plan-card d-flex justify-content-center pt-5">
-                              Plan - {index + 1}
+                              Plan - {value.title}
                             </p>
                             <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
                               <p className="amount-card-month align-items-center d-flex  mb-0">
@@ -62,7 +62,9 @@ const OurPlans = ({ homepage, history }) => {
                               </p>
                             </div>
                             <p className="card-paragraph  mt-4">
-                              {value.title}
+                              {value.details
+                                ? value.details.map((val) => <li>{val}</li>)
+                                : "N/A"}
                             </p>
                             <div className="d-flex justify-content-center mt-5 pb-5">
                               {auth && !!token ? (

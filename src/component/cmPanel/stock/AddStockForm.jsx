@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 const AddStockForm = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [exchangeLoading, setExchangeLoading] = useState(false);
   const [portfolioLoading, setPortfolioLoading] = useState(false);
   const [addStockLoading, setAddStockLoading] = useState(false);
@@ -42,14 +43,13 @@ const AddStockForm = () => {
   }, []);
 
   const submitStockDetails = () => {
+    setError(true);
     if (
       stockDetails.joinDate !== "" &&
       stockDetails.joinPrice !== "" &&
       stockDetails.category !== "" &&
       stockDetails.exchange !== "" &&
       stockDetails.portfolio !== "" &&
-      stockDetails.soldDate !== "" &&
-      stockDetails.soldPrice !== "" &&
       stockDetails.symbol !== ""
     ) {
       dispatch(
@@ -59,6 +59,7 @@ const AddStockForm = () => {
           setStockDetails
         )
       );
+      setError(false);
       setStockDetails({
         joinDate: "",
         joinPrice: "",
@@ -99,6 +100,11 @@ const AddStockForm = () => {
                   });
                 }}
               />
+              <span className="text-danger">
+                {error && stockDetails.joinDate === ""
+                  ? "Join Date is required"
+                  : null}
+              </span>
               <img
                 className="position-absolute bucket-img"
                 src={Buket}
@@ -122,6 +128,11 @@ const AddStockForm = () => {
                     });
                   }}
                 />
+                <span className="text-danger">
+                  {error && stockDetails.joinPrice === ""
+                    ? "Join Price is required"
+                    : null}
+                </span>
               </Form.Group>
             </div>
           </div>
@@ -142,6 +153,11 @@ const AddStockForm = () => {
                     });
                   }}
                 />
+                <span className="text-danger">
+                  {error && stockDetails.symbol === ""
+                    ? "Symbol is required"
+                    : null}
+                </span>
               </Form.Group>
             </div>
             <div className="col-md-6">
@@ -169,6 +185,11 @@ const AddStockForm = () => {
                     <option>You don't have any category </option>
                   )}
                 </select>
+                <span className="text-danger">
+                  {error && stockDetails.category === ""
+                    ? "Category is required"
+                    : null}
+                </span>
               </FormGroup>
             </div>
           </div>
@@ -198,6 +219,11 @@ const AddStockForm = () => {
                     <option>You don't have any portfolio </option>
                   )}
                 </select>
+                <span className="text-danger">
+                  {error && stockDetails.portfolio === ""
+                    ? "Portfolio is required"
+                    : null}
+                </span>
               </FormGroup>
             </div>
             <div className="col-md-6">
@@ -225,6 +251,11 @@ const AddStockForm = () => {
                     <option>You don't have any exchange </option>
                   )}
                 </select>
+                <span className="text-danger">
+                  {error && stockDetails.exchange === ""
+                    ? "Exchange is required"
+                    : null}
+                </span>
               </FormGroup>
             </div>
           </div>

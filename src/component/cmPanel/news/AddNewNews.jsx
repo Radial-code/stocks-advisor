@@ -2,10 +2,6 @@ import ReactTagInput from "@pathofdev/react-tag-input";
 import React, { useEffect, useState } from "react";
 import { Col, Form, FormGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getExchangeListAction,
-  getPortfolioListAction,
-} from "../../../redux/action/cmPanel/OurServices";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import { addNewNewsDetailsAction } from "../../../redux/action/news";
 import { Link } from "react-router-dom";
@@ -15,51 +11,42 @@ const AddNewNews = () => {
   const dispatch = useDispatch();
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [exchangeLoading, setExchangeLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [addStockLoading, setAddStockLoading] = useState(false);
-  const [portfolioLoading, setPortfolioLoading] = useState(false);
   const [input, setInput] = useState("");
   const [newsDetails, setNewsDetails] = useState({
     title: "",
     description: "",
-    showOnHomePage: true,
-    portfolio: "",
-    exchange: "",
+    showOnHomePage: false,
     stock: "",
     tags: "",
   });
 
   const stockList = useSelector((state) => state.cmPanel.stockList);
-  const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
-  const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const userDetails = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     dispatch(getStockListAction(setLoading));
-    dispatch(getExchangeListAction(setExchangeLoading));
-    dispatch(getPortfolioListAction(setPortfolioLoading));
   }, []);
 
   const AddNewNewsDetails = () => {
+    setError(true);
     tags.map((item) => {
       newsDetails.tags += `${item},`;
     });
     if (
       newsDetails.title !== "" &&
       newsDetails.description !== "" &&
-      newsDetails.portfolio !== "" &&
-      newsDetails.exchange !== "" &&
       newsDetails.stock !== "" &&
       newsDetails.tags !== ""
     ) {
       dispatch(
         addNewNewsDetailsAction(newsDetails, setAddStockLoading, setNewsDetails)
       );
+      setError(false);
       setNewsDetails({
         title: "",
         description: "",
-        portfolio: "",
-        exchange: "",
         stock: "",
         tags: "",
       });
@@ -95,6 +82,9 @@ const AddNewNews = () => {
                   });
                 }}
               />
+              <span className="text-danger">
+                {error && newsDetails.title === "" ? "Title is required" : null}
+              </span>
             </Form.Group>
           </div>
           <div className="col-12 col-lg-6 mb-3 ">
@@ -138,35 +128,6 @@ const AddNewNews = () => {
               </button>
             </div>
           </div>
-
-          {/* 
-          <div className="col-12 col-lg-6 mb-3">
-            <FormGroup
-              value={newsDetails.exchange}
-              onChange={(e) => {
-                setNewsDetails({
-                  ...newsDetails,
-                  exchange: e.target.value,
-                });
-              }}
-              className=" add-new-stock-select mb-3"
-            >
-              <select className="form-select text-end cursor-pointer">
-                <option>Exchange</option>
-                {!!exchangeList && !!exchangeList.length ? (
-                  exchangeList.map((exchange, index) => {
-                    return (
-                      <option key={index} value={exchange._id}>
-                        {exchange.title}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option>You don't have any exchange </option>
-                )}
-              </select>
-            </FormGroup>
-          </div> */}
           <div className="col-12 col-lg-6 mb-3">
             <Form.Group
               className="mb-3 add-new-stock-field "
@@ -210,6 +171,10 @@ const AddNewNews = () => {
                 removeOnBackspace={true}
                 onChange={(newTags) => setTags(newTags)}
               />
+              {console.log("tags", tags.length)}
+              <span className="text-danger">
+                {error && tags.length < 0 ? "Details is required" : null}
+              </span>
             </div>
           </div>
           <div className="col-12 col-lg-6 mb-3">
@@ -237,35 +202,11 @@ const AddNewNews = () => {
                   <option>You don't have any stock </option>
                 )}
               </select>
+              <span className="text-danger">
+                {error && newsDetails.stock === "" ? "Stock is required" : null}
+              </span>
             </FormGroup>
           </div>
-          {/* <div className="col-12 col-lg-6 mb-3">
-            <FormGroup
-              value={newsDetails.portfolio}
-              onChange={(e) => {
-                setNewsDetails({
-                  ...newsDetails,
-                  portfolio: e.target.value,
-                });
-              }}
-              className=" add-new-stock-select mb-3"
-            >
-              <select className="form-select text-end cursor-pointer">
-                <option>Portfolio</option>
-                {!!portfolioList && !!portfolioList.length ? (
-                  portfolioList.map((portfolio, index) => {
-                    return (
-                      <option key={index} value={portfolio._id}>
-                        {portfolio.title}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option>You don't have any portfolio </option>
-                )}
-              </select>
-            </FormGroup>
-          </div> */}
           <div className="col-12 mb-3">
             <textarea
               className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
@@ -281,6 +222,11 @@ const AddNewNews = () => {
                 });
               }}
             ></textarea>
+            <span className="text-danger">
+              {error && newsDetails.description === ""
+                ? "Description is required"
+                : null}
+            </span>
           </div>
           <div className="col-auto mb-3">
             <div className="form-check cursor-pointer">
@@ -288,6 +234,12 @@ const AddNewNews = () => {
                 className="form-check-input cursor-pointer"
                 type="checkbox"
                 id="flexCheckDefault"
+                onChange={(e) => {
+                  setNewsDetails({
+                    ...newsDetails,
+                    showOnHomePage: e.target.checked,
+                  });
+                }}
               />
               <label
                 className="form-check-label check-box-text cursor-pointer"

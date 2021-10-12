@@ -13,7 +13,6 @@ function PlansForm() {
   const [loading, setLoading] = useState(false);
   const [portfoliosLoader, setPortfoliosLoader] = useState(false);
   const [error, setError] = useState(false);
-  const [tags, setTags] = useState([]);
   const [planDetails, setPlanDetails] = useState({
     title: "",
     price: "",
@@ -24,7 +23,8 @@ function PlansForm() {
 
   const submitPlanDetails = () => {
     setError(true);
-    tags.map((item) => {
+    const data = planDetails.details.split("\n");
+    data.map((item) => {
       planDetails.details += `${item},`;
     });
     if (
@@ -32,7 +32,7 @@ function PlansForm() {
       planDetails.price !== "" &&
       planDetails.type !== "" &&
       planDetails.details !== "" &&
-      !!planDetails.portfolio.length
+      !!planDetails.portfolios.length
     ) {
       dispatch(addNewPlansDetailsAction(planDetails, setLoading));
     }
@@ -44,8 +44,7 @@ function PlansForm() {
 
   const selectPortfolio = (id) => {
     if (id) {
-      console.log("planDetails.portfolio.push({ portfolioId: id });", id);
-      planDetails.portfolios.push(id);
+      planDetails.portfolios.push({ portfolioId: id });
     }
   };
   return (
