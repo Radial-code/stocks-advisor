@@ -248,7 +248,7 @@ const Navbar = () => {
                   </div>
                 </li>
                 <div className="d-xl-flex align-items-center">
-                  {auth && !!token ? (
+                  {auth && !!token && userData.isPaidPlan ? (
                     <>
                       <li className=" d-none d-xl-block">
                         <input
@@ -376,7 +376,7 @@ const Navbar = () => {
                         to={
                           userData.isAdmin
                             ? "/content/manager/stocks"
-                            : "/dashboard/edit/contact"
+                            : "/dashboard/view/profile"
                         }
                         activeClassName="active"
                         className="nav-links"

@@ -51,7 +51,7 @@ const Router = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/payment" component={Payment} />
-        <Route exact path="/stock" component={Stockpage} />
+        <Route exact path="/stock/news/:id" component={Stockpage} />
         <Route exact path="/" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
         <Route path="/portfolio" component={Portfolio} />

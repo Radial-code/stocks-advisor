@@ -4,7 +4,9 @@ import Slider from "react-slick";
 import img_1 from "../../assets/img/calendar-icon.png";
 import { useSelector } from "react-redux";
 import BubblesLoader from "../common/BubblesLoader";
-const HomePageSlider = () => {
+import { withRouter } from "react-router";
+
+const HomePageSlider = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
@@ -56,6 +58,13 @@ const HomePageSlider = () => {
                 <p className="small-paragraph text-end">
                   <span>{value.tags}</span>{" "}
                 </p>
+                <p className="small-paragraph text-end">
+                  <span
+                    onClick={() => history.push(`/stock/news/${value.stock}`)}
+                  >
+                    {value.stock}
+                  </span>
+                </p>
               </div>
             );
           })}
@@ -64,4 +73,4 @@ const HomePageSlider = () => {
     </>
   );
 };
-export default HomePageSlider;
+export default withRouter(HomePageSlider);
