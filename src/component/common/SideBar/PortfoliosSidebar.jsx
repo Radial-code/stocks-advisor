@@ -2,8 +2,8 @@ import React from "react";
 
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
-// /dashboard/update/payment
-const PortfoliosSidebar = ({ page, sidebarActive, history }) => {
+
+const PortfoliosSidebar = ({ sidebarActive }) => {
   return (
     <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-60vh p-4">

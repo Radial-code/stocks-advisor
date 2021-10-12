@@ -44,9 +44,9 @@
   background-color: white;
   border: 1px solid black;
 }
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   visibility: hidden;
-}
+} */
 .checkbox-notification {
   display: block;
   position: relative;
@@ -88,9 +88,10 @@ input[type="checkbox"] {
   border: 1px solid black;
   border-radius: 3px;
 }
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   visibility: hidden;
-}
+} */
+
 .checkbox-notification-web {
   display: block;
   position: relative;

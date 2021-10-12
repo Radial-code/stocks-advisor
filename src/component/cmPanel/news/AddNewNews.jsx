@@ -140,20 +140,7 @@ const AddNewNews = () => {
             </div>
           </div>
 
-          <div className="col-12 col-lg-6 mb-3">
-            <div className="col-md-6 input-tag w-100">
-              <ReactTagInput
-                tags={tags}
-                placeholder="Details"
-                maxTags={5}
-                editable={true}
-                readOnly={false}
-                removeOnBackspace={true}
-                onChange={(newTags) => setTags(newTags)}
-              />
-            </div>
-          </div>
-
+          {/* 
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
               value={newsDetails.exchange}
@@ -180,8 +167,22 @@ const AddNewNews = () => {
                 )}
               </select>
             </FormGroup>
+          </div> */}
+          <div className="col-12 col-lg-6 mb-3">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control
+                placeholder={
+                  userDetails
+                    ? `${userDetails.firstName} ${userDetails.lastName}`
+                    : "N/A"
+                }
+                disabled
+              />
+            </Form.Group>
           </div>
-
           <div className="col-12 col-lg-6 mb-3">
             <Form.Group
               className="mb-3 add-new-stock-field "
@@ -198,20 +199,19 @@ const AddNewNews = () => {
               />
             </Form.Group>
           </div>
+
           <div className="col-12 col-lg-6 mb-3">
-            <Form.Group
-              className="mb-3 add-new-stock-field "
-              controlId="formBasicEmail"
-            >
-              <Form.Control
-                placeholder={
-                  userDetails
-                    ? `${userDetails.firstName} ${userDetails.lastName}`
-                    : "N/A"
-                }
-                disabled
+            <div className="col-md-6 input-tag w-100">
+              <ReactTagInput
+                tags={tags}
+                placeholder="Details"
+                maxTags={5}
+                editable={true}
+                readOnly={false}
+                removeOnBackspace={true}
+                onChange={(newTags) => setTags(newTags)}
               />
-            </Form.Group>
+            </div>
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
@@ -240,7 +240,7 @@ const AddNewNews = () => {
               </select>
             </FormGroup>
           </div>
-          <div className="col-12 col-lg-6 mb-3">
+          {/* <div className="col-12 col-lg-6 mb-3">
             <FormGroup
               value={newsDetails.portfolio}
               onChange={(e) => {
@@ -266,7 +266,7 @@ const AddNewNews = () => {
                 )}
               </select>
             </FormGroup>
-          </div>
+          </div> */}
           <div className="col-12 mb-3">
             <textarea
               className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
@@ -284,9 +284,9 @@ const AddNewNews = () => {
             ></textarea>
           </div>
           <div className="col-auto mb-3">
-            <div className="form-check">
+            <div className="form-check cursor-pointer">
               <input
-                className="form-check-input"
+                className="form-check-input cursor-pointer"
                 type="checkbox"
                 id="flexCheckDefault"
               />

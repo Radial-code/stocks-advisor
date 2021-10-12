@@ -4,7 +4,6 @@ import "@pathofdev/react-tag-input/build/index.css";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
 import Loader from "../../common/Loader";
 import { addNewPlansDetailsAction } from "../../../redux/action/cmPanel/plans";
 
@@ -83,19 +82,8 @@ function PlansForm() {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6 input-tag">
-                <ReactTagInput
-                  tags={tags}
-                  placeholder="Details"
-                  maxTags={10}
-                  editable={true}
-                  readOnly={false}
-                  removeOnBackspace={true}
-                  onChange={(newTags) => setTags(newTags)}
-                />
-              </div>
-              <div className="col-md-6">
-                <FormGroup className=" add-new-stock-select mb-3">
+              <div className="col-12">
+                <FormGroup className=" add-new-stock-select mb-3 cursor-pointer">
                   <select
                     onChange={(e) => {
                       setPlanDetails({
@@ -103,13 +91,23 @@ function PlansForm() {
                         type: e.target.value,
                       });
                     }}
-                    className="form-select text-end"
+                    className="form-select text-end cursor-pointer"
                   >
                     <option>Week</option>
                     <option>Month</option>
                     <option>Year</option>
                   </select>
                 </FormGroup>
+              </div>
+              <div className="col-12 mb-3">
+                <textarea
+                  className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                  name=""
+                  id=""
+                  cols=""
+                  rows="6"
+                  placeholder="...Description "
+                ></textarea>
               </div>
             </div>
 

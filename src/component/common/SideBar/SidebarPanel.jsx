@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { News, PlansIcon, ServiceIcon, Stocks, User } from "../icons/Icons";
-
 import "./Sidebar.css";
-// /dashboard/update/payment
-const SidebarPanel = ({ page, sidebarActive, history }) => {
+
+const SidebarPanel = ({ sidebarActive }) => {
   return (
     <div className={`${sidebarActive ? "hamburgur-active" : ""} mt-5`}>
       <div className="w-350 wrapper d-flex justify-content-center bg-white  h-80vh p-4">
@@ -60,6 +59,17 @@ const SidebarPanel = ({ page, sidebarActive, history }) => {
                     <PlansIcon />
                   </span>
                   <span>Our Plans</span>
+                </li>
+              </NavLink>
+              <NavLink
+                activeClassName="active"
+                to="/content/manager/team/cards"
+              >
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="svg-image pl-15">
+                    <PlansIcon />
+                  </span>
+                  <span>Team</span>
                 </li>
               </NavLink>
             </ul>

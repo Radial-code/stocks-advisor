@@ -11,6 +11,8 @@ import OtherServices from "./otherServices/OtherServices";
 import OtherServicesForm from "./otherServices/OtherServicesForm";
 import Plans from "../cmPanel/plans/Plans";
 import PlansSection from "./plans/PlansSection";
+import TeamCards from "./team/TeamCards";
+import TeamForm from "./team/TeamForm";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -101,6 +103,20 @@ const CmPanelRoutes = () => {
 
           <Route path="/content/manager/add/other/services">
             <OtherServicesForm
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/team/cards">
+            <TeamCards
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/team/form">
+            <TeamForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}

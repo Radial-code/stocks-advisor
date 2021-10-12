@@ -8,7 +8,6 @@ import {
 } from "../icons/Icons";
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
-
 const SidebarDashboard = ({ sidebarActive }) => {
   return (
     <div className={`${sidebarActive ? "hamburgur-active" : ""}`}>
