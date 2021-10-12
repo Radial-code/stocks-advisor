@@ -87,7 +87,6 @@ function SignUp({ history }) {
                       placeholder="Last Name"
                     />
                     <span className="text-danger">
-                      {" "}
                       {error && signUpDetails.lastName === ""
                         ? "Last name is required"
                         : null}

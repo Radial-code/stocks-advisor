@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import "@pathofdev/react-tag-input/build/index.css";
-import ReactTagInput from "@pathofdev/react-tag-input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import { addNewPlansDetailsAction } from "../../../redux/action/cmPanel/plans";
+import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurServices";
 
 function PlansForm() {
   const dispatch = useDispatch();
+  const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const [loading, setLoading] = useState(false);
+  const [portfoliosLoader, setPortfoliosLoader] = useState(false);
+  const [error, setError] = useState(false);
   const [tags, setTags] = useState([]);
   const [planDetails, setPlanDetails] = useState({
     title: "",
     price: "",
     type: "",
     details: "",
+    portfolios: [],
   });
 
   const submitPlanDetails = () => {
+    setError(true);
     tags.map((item) => {
       planDetails.details += `${item},`;
     });
@@ -26,12 +31,23 @@ function PlansForm() {
       planDetails.title !== "" &&
       planDetails.price !== "" &&
       planDetails.type !== "" &&
-      planDetails.details !== ""
+      planDetails.details !== "" &&
+      !!planDetails.portfolio.length
     ) {
       dispatch(addNewPlansDetailsAction(planDetails, setLoading));
     }
   };
 
+  useEffect(() => {
+    dispatch(getPortfolioListAction(setPortfoliosLoader));
+  }, []);
+
+  const selectPortfolio = (id) => {
+    if (id) {
+      console.log("planDetails.portfolio.push({ portfolioId: id });", id);
+      planDetails.portfolios.push(id);
+    }
+  };
   return (
     <div>
       <div className="col-12 h-100 stock-add-new">
@@ -61,6 +77,11 @@ function PlansForm() {
                       });
                     }}
                   />
+                  <span className="text-danger">
+                    {error && planDetails.price === ""
+                      ? "Price is required"
+                      : null}
+                  </span>
                 </Form.Group>
               </div>
               <div className="col-md-6 order-1 last-name order-sm-1 order-2">
@@ -78,6 +99,11 @@ function PlansForm() {
                       });
                     }}
                   />
+                  <span className="text-danger">
+                    {error && planDetails.title === ""
+                      ? "Title is required"
+                      : null}
+                  </span>
                 </Form.Group>
               </div>
             </div>
@@ -97,6 +123,11 @@ function PlansForm() {
                     <option>Month</option>
                     <option>Year</option>
                   </select>
+                  <span className="text-danger">
+                    {error && planDetails.type === ""
+                      ? "Week is required"
+                      : null}
+                  </span>
                 </FormGroup>
               </div>
               <div className="col-12 mb-3">
@@ -107,8 +138,49 @@ function PlansForm() {
                   cols=""
                   rows="6"
                   placeholder="...Description "
+                  onChange={(e) => {
+                    setPlanDetails({
+                      ...planDetails,
+                      details: e.target.value,
+                    });
+                  }}
                 ></textarea>
+                <span className="text-danger">
+                  {error && planDetails.details === ""
+                    ? "Description is required"
+                    : null}
+                </span>
               </div>
+              <p>Select portfolio list</p>
+              {portfolioList && portfolioList.length
+                ? portfolioList.map((value, index) => {
+                    return (
+                      <div className="col-auto mb-3">
+                        <div className="form-check">
+                          <input
+                            key={index}
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                            onClick={() => selectPortfolio(value._id)}
+                          />
+                          <label
+                            className="form-check-label check-box-text "
+                            for="flexCheckDefault"
+                          >
+                            {value.title}
+                          </label>
+                        </div>
+                      </div>
+                    );
+                  })
+                : "You don't have any portfolio List"}
+              <span className="text-danger">
+                {error && !planDetails.portfolios.length
+                  ? "Portfolio is required"
+                  : null}
+              </span>
             </div>
 
             <div className="d-flex flex-sm-row flex-column">
