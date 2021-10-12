@@ -61,6 +61,17 @@ const SidebarPanel = ({ sidebarActive }) => {
                   <span>Our Plans</span>
                 </li>
               </NavLink>
+              <NavLink
+                activeClassName="active"
+                to="/content/manager/team/cards"
+              >
+                <li className={`pt-13 pb-13 mt-15 `}>
+                  <span className="svg-image pl-15">
+                    <PlansIcon />
+                  </span>
+                  <span>Team</span>
+                </li>
+              </NavLink>
             </ul>
           </nav>
         </div>
