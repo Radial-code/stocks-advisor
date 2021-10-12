@@ -1,12 +1,15 @@
 import Swal from "sweetalert2";
 import {
   addNewStockDetailsApi,
+  createNewTeamMemberApi,
   getStockListApi,
+  getTeamMemberListApi,
   getUserListForAdminApi,
 } from "../../api/cmPanel/stock";
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
 export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
+export const GET_TEAM_LIST = "GET_TEAM_LIST";
 
 /**
  * add new stock details action
@@ -85,6 +88,61 @@ export const getUserListForAdminAction = (setLoading) => async (dispatch) => {
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to user list", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * create new Team member details action
+ * @param {Object} data
+ * @returns
+ */
+export const createNewTeamMemberAction = (data, setLoading) => async () => {
+  setLoading(true);
+  try {
+    const response = await createNewTeamMemberApi(data);
+    if (response.success) {
+      setLoading(false);
+      Swal.fire("Success", "Team created successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to create Team", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get Team list action
+ * @param {Object} data
+ * @returns
+ */
+
+const getTeamMemberList = (data) => ({
+  type: GET_TEAM_LIST,
+  data,
+});
+
+export const getTeamMemberListAction = (setLoading) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getTeamMemberListApi();
+    if (response.success) {
+      dispatch(getTeamMemberList(response.members));
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to team list", "error");
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {

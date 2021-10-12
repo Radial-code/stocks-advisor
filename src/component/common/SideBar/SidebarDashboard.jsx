@@ -18,14 +18,14 @@ const SidebarDashboard = ({ sidebarActive }) => {
           </p>
           <nav>
             <ul className="l-s-t-none cursor-pointer pr-15 admin-hover mt-5  pl-0 ">
-              <NavLink activeClassName="active" to="/dashboard/edit/contact">
+              {/* <NavLink activeClassName="active" to="/dashboard/edit/contact">
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="pl-15">
                     <EditPencilIcon />
                   </span>
                   <span>Edit Contact</span>
                 </li>
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 activeClassName="active"
@@ -39,7 +39,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                 </li>
               </NavLink>
 
-              <NavLink activeClassName="active" to="/dashboard/update/payment">
+              {/* <NavLink activeClassName="active" to="/dashboard/update/payment">
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="pl-15">
                     {" "}
@@ -47,7 +47,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                   </span>
                   <span>Update Payment Method</span>
                 </li>
-              </NavLink>
+              </NavLink> */}
 
               <NavLink activeClassName="active" to="/dashboard/notification">
                 <li className={`pt-13 pb-13 mt-15 `}>
@@ -57,7 +57,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                   <span>Notification</span>
                 </li>
               </NavLink>
-              <NavLink activeClassName="active" to="/dashboard/profile">
+              <NavLink activeClassName="active" to="/dashboard/view/profile">
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="pl-15">
                     <ProfileIcon />

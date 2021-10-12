@@ -1,5 +1,5 @@
 import Router from "./component/Router";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getLocalStorageToken,
   getUserProfileAction,
@@ -7,14 +7,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useFixedScreenProvider } from "./contexts/FixedScreenProvider";
 import { withRouter } from "react-router";
-import VerifyRoutes from "./component/common/VerifyRoutes";
-import "./App.css";
 import LogoImage from "./assets/img/Navbar-logo-img.png";
-import "./assets/css/common.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import IsPhoneConfirmed from "./component/auth/verfiy/IsPhoneConfirmed";
 import IsEmailMessage from "./component/auth/verfiy/IsEmailMessage";
 import BubblesLoader from "./component/common/BubblesLoader";
+import "./assets/css/common.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App({ history }) {
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ function App({ history }) {
         isScreenFixed ? "overflow-hidden  h-100vh" : ""
       } d-flex justify-content-between flex-column h-100vh `}
     >
-      {auth ? (
+      {!!auth && !!token ? (
         <>
           {loading ? (
             <div className="h-100vh d-flex justify-content-center align-items-center flex-column">

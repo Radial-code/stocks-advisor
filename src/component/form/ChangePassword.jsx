@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "../form/form.css";
 import { passwordRegex } from "../../component/common/Validation";
+import { useDispatch } from "react-redux";
+import { ChangePasswordAction } from "../../redux/action/auth";
+import Loader from "../common/Loader";
 
 const ChangePassword = () => {
+  const dispatch = useDispatch();
   const [changePasswordDetails, setChangePasswordDetails] = useState({
     password: "",
     newPassword: "",
@@ -10,6 +14,7 @@ const ChangePassword = () => {
   });
 
   const [error, setError] = useState(false);
+  const [loading, setLoding] = useState(false);
   const [specialChar, SetSpecialChar] = useState(false);
 
   const changeSubmitHandler = () => {
@@ -23,7 +28,11 @@ const ChangePassword = () => {
       changePasswordDetails.newPassword ===
         changePasswordDetails.confirmPassword
     ) {
-      console.log(changePasswordDetails);
+      const data = {
+        password: changePasswordDetails.password,
+        newPassword: changePasswordDetails.newPassword,
+      };
+      dispatch(ChangePasswordAction(data, setLoding));
     }
   };
 
@@ -52,7 +61,7 @@ const ChangePassword = () => {
                 />
                 <span className="text-danger">
                   {error && changePasswordDetails.password === ""
-                    ? "Please Enter Password"
+                    ? "Please Enter Your Old Password"
                     : null}
                 </span>
               </div>
@@ -73,7 +82,7 @@ const ChangePassword = () => {
                 />
                 <span className="text-danger">
                   {error && changePasswordDetails.newPassword === ""
-                    ? "Please Enter confirm Password"
+                    ? "Please Enter Your New Password"
                     : specialChar &&
                       passwordRegex.test(changePasswordDetails.newPassword) ===
                         false
@@ -97,7 +106,7 @@ const ChangePassword = () => {
                 />
                 <span className="text-danger">
                   {error && changePasswordDetails.confirmPassword === ""
-                    ? "Please enter confirm password"
+                    ? "Please Enter confirm Confirm password"
                     : error &&
                       changePasswordDetails.newPassword !==
                         changePasswordDetails.confirmPassword
@@ -107,9 +116,10 @@ const ChangePassword = () => {
               </div>
               <button
                 onClick={() => changeSubmitHandler()}
+                disabled={loading}
                 className=" w-100 mb-4 mt-sm-5 mt-3 from-btn"
               >
-                Update My Password
+                {loading ? <Loader /> : "Update My Password"}
               </button>
             </div>
           </div>

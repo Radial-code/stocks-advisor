@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AboutHero from "../component/about/AboutHero";
 import AboutUs from "../component/about/AboutUs";
 import History from "../component/about/History";
 import AboutSlider from "../component/about/AboutSlider";
+import { useDispatch } from "react-redux";
+import { getTeamMemberListAction } from "../redux/action/cmPanel/stock";
 
 const Homepage = () => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    dispatch(getTeamMemberListAction(setLoading));
+  }, []);
+
   return (
     <>
       <AboutHero />

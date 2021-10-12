@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { verfiyEmailAction } from "../../../redux/action/auth";
+import { LogoutAction, verfiyEmailAction } from "../../../redux/action/auth";
 import Loader from "../../common/Loader";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
+import { withRouter } from "react-router";
 
-const IsEmailMessage = () => {
+const IsEmailMessage = ({ history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -30,7 +31,6 @@ const IsEmailMessage = () => {
             <p className="request-line text-center">
               click here to request another
             </p>
-            <p className="text-center orr pt-3">or</p>
             <div className="d-flex justify-content-center mt-4 ">
               <button
                 type="button"
@@ -41,10 +41,20 @@ const IsEmailMessage = () => {
                 {loading ? <Loader /> : "Resend Email"}
               </button>
             </div>
+            <p className="text-center orr pt-3">or</p>
+            <div className="d-flex justify-content-center mt-4 ">
+              <span
+                onClick={() => dispatch(LogoutAction(history))}
+                type="button"
+                disabled={loading}
+              >
+                Logout
+              </span>
+            </div>
           </div>
         </div>
       </form>
     </div>
   );
 };
-export default IsEmailMessage;
+export default withRouter(IsEmailMessage);

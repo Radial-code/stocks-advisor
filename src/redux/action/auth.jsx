@@ -9,6 +9,7 @@ import {
   verfiyEmailApi,
   verfiyMobileOtpApi,
   resendOtpApi,
+  ChangePasswordApi,
 } from "../api/auth";
 
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
@@ -142,21 +143,20 @@ const getUserProfile = (data, token) => ({
   },
 });
 
-export const getUserProfileAction =
-  (setLoading, history, token) => async (dispatch) => {
-    setLoading(true);
-    try {
-      const response = await getUserProfileApi();
-      if (response.success) {
-        dispatch(getUserProfile(response.data, token));
-        setLoading(false);
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
+export const getUserProfileAction = (setLoading, token) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getUserProfileApi();
+    if (response.success) {
+      dispatch(getUserProfile(response.data, token));
+      setLoading(false);
+    } else {
       setLoading(false);
     }
-  };
+  } catch (error) {
+    setLoading(false);
+  }
+};
 
 /**
  * username action*
@@ -191,6 +191,31 @@ export const resetPasswordAction = (data, setLoading) => async () => {
       setLoading(false);
       Swal.fire("Error!", `Failed to authenticate token`, "error");
       setTimeout(Swal.close, 4000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * username action*
+ * @param {Object} data
+ * @returns
+ */
+export const ChangePasswordAction = (data, setLoading) => async () => {
+  setLoading(true);
+  try {
+    const response = await ChangePasswordApi(data);
+    if (response.success) {
+      setLoading(false);
+      Swal.fire("Success!", `Password change sucessfully`, "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      setLoading(false);
+      Swal.fire("Error!", `Failed to Change Password`, "error");
+      setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);

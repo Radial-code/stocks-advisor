@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import EditContact from "../../component/dashboard/EditContact";
+import EditContact from "./profile/EditContact";
 import { Route } from "react-router";
-import Notification from "../../component/dashboard/Notification";
-import UpdatePayment from "../../component/dashboard/UpdatePayment";
-import ManageSubscription from "../../component/dashboard/ManageSubscription";
-import SidebarDashboard from "../../component/common/SideBar/SidebarDashboard";
-import AdvisorProfile from "../../component/dashboard/AdvisorProfile";
-import PaymentDetails from "../../component/dashboard/PaymentDetails";
+import Notification from "../dashboard/Notification";
+import UpdatePayment from "../dashboard/UpdatePayment";
+import ManageSubscription from "../dashboard/ManageSubscription";
+import SidebarDashboard from "../common/SideBar/SidebarDashboard";
+import UserProfile from "./profile/UserProfile";
+import PaymentDetails from "../dashboard/PaymentDetails";
 
-const Dashboard = () => {
+const UserRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
   return (
@@ -47,8 +47,8 @@ const Dashboard = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exact path="/dashboard/profile">
-            <AdvisorProfile
+          <Route exact path="/dashboard/view/profile">
+            <UserProfile
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
@@ -67,4 +67,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UserRoutes;

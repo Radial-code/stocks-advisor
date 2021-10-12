@@ -11,6 +11,7 @@ const OurPlans = ({ homepage, history }) => {
   const [loading, setLoading] = useState(false);
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
+  const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
     dispatch(getPlansListAction(setLoading));
@@ -64,7 +65,7 @@ const OurPlans = ({ homepage, history }) => {
                               {value.title}
                             </p>
                             <div className="d-flex justify-content-center mt-5 pb-5">
-                              {auth ? (
+                              {auth && !!token ? (
                                 <button
                                   type="button"
                                   onClick={() => history.push("/payment")}

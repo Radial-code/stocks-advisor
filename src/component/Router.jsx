@@ -7,7 +7,7 @@ import OurPlanspage from "../view/OurPlanspage";
 import Stockpage from "../view/Stockpage";
 import About from "../view/About";
 import Payment from "./payment/Payment";
-import Dashboard from "../view/dashboard/Dashboard";
+import UserRoutes from "./userPanel/UserRoutes";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
 import LogInModal from "./modal/LogInModal";
@@ -51,10 +51,9 @@ const Router = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/payment" component={Payment} />
-        <Route exact path="/stock" component={Stockpage} />
+        <Route exact path="/stock/news/:id" component={Stockpage} />
         <Route exact path="/" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
-        <Route path="/dashboard" component={Dashboard} />
         <Route path="/portfolio" component={Portfolio} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
@@ -65,6 +64,9 @@ const Router = () => {
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/otpinputs" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
+        {/** User dashboard routes */}
+        <Route path="/dashboard" component={UserRoutes} />
+
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />
         <Route path="/content/manager/add/stock" component={CmPanelRoutes} />

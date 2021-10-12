@@ -24,3 +24,19 @@ export const getStockListApi = async () => {
 export const getUserListForAdminApi = async () => {
   return await axiosRequest("GET", `/users`);
 };
+
+/**
+ *  add new team member api
+ * @returns
+ */
+export const createNewTeamMemberApi = async (data) => {
+  return await axiosRequest("POST", `/team`, data);
+};
+
+/**
+ *  get team member list api
+ * @returns
+ */
+export const getTeamMemberListApi = async () => {
+  return await axiosRequest("GET", `/team`);
+};
