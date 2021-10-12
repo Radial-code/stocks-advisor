@@ -298,6 +298,23 @@
   background-color: #5cbd4c;
   border: transparent;
 }
+/* slider */
+.Slider-Ellipse {
+  white-space: nowrap;
+  max-width: 703px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 1275px) {
+  .about-slider-2 {
+    display: block !important;
+  }
+}
+
+.about-slider-2 {
+  display: flex;
+  align-items: center;
+}
 
 .profile-heading {
   font-weight: 500;

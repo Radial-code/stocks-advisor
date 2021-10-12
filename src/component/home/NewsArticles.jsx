@@ -67,21 +67,14 @@ const NewsArticles = ({ history }) => {
       <div className="container p-left-right">
         <h1 className="profile-heading pt-3">Other News Articles</h1>
 
-        <div className="row ">
+        <div className="row">
           <div className="col-12">
-            <Slider
-              className="about-slider-2 d-flex align-items-center"
-              {...settings}
-            >
-              {/* {allRelatedNews && allRelatedNews.length
+            <Slider className="about-slider-2 " {...settings}>
+              {allRelatedNews && allRelatedNews.length
                 ? allRelatedNews.map((value, index) => {
                     return <NewsArticlesListItem value={value} index={index} />;
                   })
-                : null} */}
-              <NewsArticlesListItem />
-              <NewsArticlesListItem />
-              <NewsArticlesListItem />
-              <NewsArticlesListItem />
+                : null}
             </Slider>
           </div>
         </div>

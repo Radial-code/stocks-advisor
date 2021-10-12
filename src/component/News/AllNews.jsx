@@ -71,7 +71,7 @@ const AllNews = ({ history }) => {
                           </p>
                           <p className="small-paragraph text-end">
                             <span className="cursor-pointer small-paragraph fw-bold">
-                              Stock
+                              Stock:
                             </span>
                             <span
                               className="cursor-pointer fw-bold pe-1"

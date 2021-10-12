@@ -85,7 +85,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     >
                       {value.stock.symbol}
                     </span>
-                    <span className="cursor-pointer fw-bold pe-1"> Stock</span>
+                    <span className="cursor-pointer fw-bold ps-1">:Stock</span>
                   </p>
                 </div>
               );
