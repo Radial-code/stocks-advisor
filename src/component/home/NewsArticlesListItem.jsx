@@ -1,6 +1,4 @@
 import React from "react";
-import NewsSlider from "../../assets/img/newsArticles_1.png";
-import img_1 from "../../assets/img/calendar-icon.png";
 
 const NewsArticlesListItem = ({ value }) => {
   return (

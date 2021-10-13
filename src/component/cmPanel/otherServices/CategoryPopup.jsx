@@ -40,7 +40,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
             type="text"
             value={category}
             placeholder=" Add Category"
-            className="py-3 px-3 w-100"
+            className="py-2 px-3 w-100"
             onChange={(e) => setCategory(e.target.value)}
           />
         </div>

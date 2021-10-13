@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+.h-100vh {
+  height: 100vh !important;
+}
 /*  Drop down css start here*/
 .z-index_2 {
   z-index: -2;
@@ -492,6 +494,7 @@ input::-webkit-search-cancel-button {
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    height: 100vh;
   }
 
   /* .nav-item .active {
@@ -547,8 +550,6 @@ input::-webkit-search-cancel-button {
 
   .nav-item:hover {
     background-color: var(--color-127CF9);
-    /* padding: 9px 0px;
-    padding-right: 9px; */
     border-color: white;
     color: white;
   }
@@ -601,21 +602,11 @@ input::-webkit-search-cancel-button {
   }
 
   .nav-item .active {
-    /* background-color: var(--color-127CF9); */
     width: 100% !important;
     border-color: transparent !important;
     border: 0px;
   }
 
-  /* .nav-item .active ~ li {
-    background: black !important;
-  } */
-  /* .active:hover ~ .nav-item {
-    background: red;
-  }
-  .active ~ .nav-item {
-    background: red;
-  } */
   .green-bg-active {
     background: var(--color-127CF9) !important;
   }
@@ -626,7 +617,6 @@ input::-webkit-search-cancel-button {
 
   .scroll-sm-bar {
     overflow: auto;
-    max-height: 85vh;
   }
 }
 
