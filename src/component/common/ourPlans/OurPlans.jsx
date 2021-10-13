@@ -70,7 +70,9 @@ const OurPlans = ({ homepage, history }) => {
                               {auth && !!token ? (
                                 <button
                                   type="button"
-                                  onClick={() => history.push("/payment")}
+                                  onClick={() =>
+                                    history.push(`/payment/${value._id}`)
+                                  }
                                   className="join-now-btn text-white"
                                 >
                                   Buy now

@@ -264,9 +264,12 @@ export const getPortfolioListAction =
  * @returns
  */
 
-const updatePortfolioDetails = (data) => ({
+const updatePortfolioDetails = (id, data) => ({
   type: UPDATE_PORTFOLIO_DETAILS,
-  data,
+  payload: {
+    data: data,
+    id: id,
+  },
 });
 
 export const updatePortfolioDetailsAction =
@@ -276,7 +279,7 @@ export const updatePortfolioDetailsAction =
       const response = await updatePortfolioDetailsApi(id, data);
       handleClose();
       if (response.success) {
-        dispatch(updatePortfolioDetails(response.Portfolio));
+        dispatch(updatePortfolioDetails(id, data));
         setLoading(false);
         Swal.fire(
           "Success",

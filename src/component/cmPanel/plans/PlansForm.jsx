@@ -134,11 +134,6 @@ function PlansForm() {
               <div className="col-12 mb-3">
                 <textarea
                   className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                  name=""
-                  id=""
-                  cols=""
-                  value=""
-                  rows="6"
                   placeholder="...Description "
                   onChange={(e) => {
                     setPlanDetails({
@@ -147,7 +142,6 @@ function PlansForm() {
                     });
                   }}
                 ></textarea>
-                {console.log("planDetails.details", planDetails.details)}
                 <span className="text-danger">
                   {error && planDetails.details === ""
                     ? "Description is required"

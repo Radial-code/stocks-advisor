@@ -74,7 +74,7 @@ export const getPortfolioListApi = async () => {
  * @returns
  */
 export const updatePortfolioDetailsApi = async (id, data) => {
-  return await axiosRequest("PATCH", `/portfolio/${id}`, data);
+  return await axiosRequest("PUT", `/portfolio/${id}`, data);
 };
 
 /**

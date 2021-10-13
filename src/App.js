@@ -7,6 +7,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useFixedScreenProvider } from "./contexts/FixedScreenProvider";
 import { withRouter } from "react-router";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import LogoImage from "./assets/img/Navbar-logo-img.png";
 import IsPhoneConfirmed from "./component/auth/verfiy/IsPhoneConfirmed";
 import IsEmailMessage from "./component/auth/verfiy/IsEmailMessage";
@@ -17,6 +19,9 @@ import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 
 function App({ history }) {
+  const stripePromise = loadStripe(
+    "pk_test_51Ix50ySAXA6ohppa6sCSbgt2LbGnFl07UlO5v7HnRza0NT0idMwCYas5ouQBR8GEmv4l2SeR3lfwJXKzVUxmkghh00fs3EjdLI"
+  );
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [sideBarLoading, setSideBarLoading] = useState(false);
@@ -69,7 +74,9 @@ function App({ history }) {
           )}
         </>
       ) : (
-        <Router />
+        <Elements stripe={stripePromise}>
+          <Router />
+        </Elements>
       )}
     </div>
   );

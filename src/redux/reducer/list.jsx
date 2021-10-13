@@ -1,7 +1,12 @@
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_TEAM_LIST } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
-import { GET_USER_MY_PLAN, GET_USER_PAYMENT_METHOD } from "../action/payment";
+import {
+  ADD_PAYMENT_STRIPE_ID,
+  GET_PLAN_DETAILS_BY_ID,
+  GET_USER_MY_PLAN,
+  GET_USER_PAYMENT_METHOD,
+} from "../action/payment";
 import {
   GET_CURRENT_STOCK_PORTFOLIOS_LIST,
   GET_PORTFOLIOS_LIST_FOR_DASHBOARD,
@@ -21,6 +26,8 @@ const initialState = {
   paymentList: [],
   myPlanDetails: [],
   uploadImageUrl: null,
+  stripeID: "",
+  planDetails: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -114,6 +121,22 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         uploadImageUrl: action.file,
+      };
+    }
+
+    // Store stripe id
+    case ADD_PAYMENT_STRIPE_ID: {
+      return {
+        ...state,
+        stripeID: action.id,
+      };
+    }
+
+    // get plan details by id
+    case GET_PLAN_DETAILS_BY_ID: {
+      return {
+        ...state,
+        planDetails: action.data,
       };
     }
 

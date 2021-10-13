@@ -6,7 +6,6 @@ import Homepage from "./home/Homepage";
 import OurPlanspage from "../view/OurPlanspage";
 import Stockpage from "../view/Stockpage";
 import About from "../view/About";
-import Payment from "./payment/Payment";
 import UserRoutes from "./userPanel/UserRoutes";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
@@ -29,6 +28,7 @@ import ResendOtp from "./auth/verfiy/ResendOtp";
 import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
+import Stripe from "./payment/Stripe";
 
 const Router = () => {
   return (
@@ -50,7 +50,7 @@ const Router = () => {
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
-        <Route exact path="/payment" component={Payment} />
+        <Route exact path="/payment/:id" component={Stripe} />
         <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
         <Route exact path="/our-plan" component={OurPlanspage} />
         <Route exact path="/news" component={News} />

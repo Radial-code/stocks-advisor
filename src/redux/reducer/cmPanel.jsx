@@ -5,6 +5,7 @@ import {
   GET_CATEGORY_LIST,
   GET_EXCHANGE_LIST,
   GET_PORTFOLIO_LIST,
+  UPDATE_PORTFOLIO_DETAILS,
 } from "../action/cmPanel/OurServices";
 import {
   GET_STOCK_LIST,
@@ -95,6 +96,26 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         portfolioList: addNewPortfolioDetails,
+      };
+    }
+
+    //update portfolios details on list
+    case UPDATE_PORTFOLIO_DETAILS: {
+      const updatePortfolioDetails = [...state.portfolioList];
+      console.log("action", action);
+      const updatePortfolioDetailsData = updatePortfolioDetails.filter(
+        (value) => value._id === action.payload.id
+      );
+      console.log(
+        "updatePortfolioDetailsDawwwwwwwwta",
+        updatePortfolioDetailsData
+      );
+      console.log("action.payload", action.payload);
+      updatePortfolioDetailsData.title = action.payload.data.title;
+      console.log("updatePortfolioDetailsData", updatePortfolioDetailsData);
+      return {
+        ...state,
+        portfolioList: updatePortfolioDetails,
       };
     }
 
