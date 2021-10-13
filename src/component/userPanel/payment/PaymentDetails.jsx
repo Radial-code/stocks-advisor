@@ -38,7 +38,13 @@ const PaymentDetails = ({
 
             <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
               <div className=" sold-stock-scrollbar">
-                {loading ? <BubblesLoader /> : <PaymentTable />}
+                {loading ? (
+                  <div className=" h-calc-100vh-442 d-flex align-items-center justify-content-center">
+                    <BubblesLoader />
+                  </div>
+                ) : (
+                  <PaymentTable />
+                )}
               </div>
             </div>
           </section>

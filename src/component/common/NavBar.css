@@ -307,7 +307,10 @@
 .search-input input {
   padding-left: 10px;
 }
-
+.search-input input::placeholder {
+  font-size: 20px;
+  padding-right: 10px;
+}
 .nav-links {
   color: #16191e;
   text-decoration: none;
@@ -479,7 +482,7 @@ input::-webkit-search-cancel-button {
     display: flex;
     flex-direction: column;
     width: 82%;
-    border-top: 1pxsolid #fff;
+    border-top: 1px solid #fff;
     position: absolute;
     top: 0px;
     right: -110%;
@@ -505,7 +508,7 @@ input::-webkit-search-cancel-button {
     padding: 10px 0px;
     width: 100%;
     display: table;
-    padding-right: 10px;
+    /* padding-right: 10px; */
   }
 
   .nav-item {

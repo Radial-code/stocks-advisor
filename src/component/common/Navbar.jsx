@@ -138,7 +138,7 @@ const Navbar = () => {
               <div className="d-md-flex align-items-xl-center mt-md-4 w-100 justify-content-xl-between justify-content-around ">
                 <li className=" d-md-none d-flex justify-content-between mt-4">
                   <div className="d-flex justify-content-start">
-                    <li className="items-nav mt-0 d-xl-none d-block">
+                    <li className="items-nav mt-0 d-xl-none d-block mr-0">
                       <div
                         onClick={handleClick}
                         className="cursor-pointer close-btn-nav"
@@ -161,7 +161,7 @@ const Navbar = () => {
                 <div className="d-xl-flex align-items-center">
                   <div className="d-xl-none">
                     <NavLink exact to="/" className="nav-logo logo-img-navbar">
-                      <img className="logo-img-navbar" src={logo} alt="" />
+                      <img className="logo-img-navbar my-3" src={logo} alt="" />
                     </NavLink>
                   </div>
                   <li
@@ -263,18 +263,7 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  {/* <li className="d-xl-none d-none d-md-block">
-                    <div className="search-input">
-                      <input
-                        type="text"
-                        className="border-0 w-100"
-                        placeholder="Search"
-                      />
-                      <button className="btn-search-input">
-                        <SearchMagnifyIcon />
-                      </button>
-                    </div>
-                  </li> */}
+
                   {/*start here drop down  */}
                   {auth && !!token ? (
                     <li
@@ -320,7 +309,7 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  <li className=" drop-item d-md-none">
+                  <li className=" drop-item d-md-none mr-0">
                     <div
                       className={`drop-none w-100   ${
                         student ? "sidebardropdown" : ""
@@ -417,18 +406,7 @@ const Navbar = () => {
                     </li>
                   </div>
                 </div>
-                {/* <li className="d-xl-none d-none d-md-block">
-                  <div className="search-input">
-                    <input
-                      type="text"
-                      className="border-0 w-100"
-                      placeholder="Search"
-                    />
-                    <button className="btn-search-input">
-                      <SearchMagnifyIcon />
-                    </button>
-                  </div>
-                </li> */}
+
                 <div className="d-xl-flex align-items-center">
                   {auth && !!token && userData.isPaidPlan ? (
                     <>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../cmPanelCss/addnewstock.css";
 import { Col } from "react-bootstrap";
 import AddOtherServices from "./AddOtherServices";

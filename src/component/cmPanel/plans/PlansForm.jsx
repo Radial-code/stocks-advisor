@@ -169,7 +169,7 @@ function PlansForm() {
                             onClick={() => selectPortfolio(value._id)}
                           />
                           <label
-                            className="form-check-label check-box-text "
+                            className="form-check-label check-box-text Ellipse"
                             for="flexCheckDefault"
                           >
                             {value.title}
