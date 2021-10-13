@@ -71,9 +71,9 @@ const StripeForm = ({ loader, match, history }) => {
 
   return (
     <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
-      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container">
+      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">
         <div>
-          <p className="fs-24 fw-600 fs-xxs-20">Payment Details</p>
+          <p className="fs-24 payment-stripe-text  ">Payment</p>
         </div>
         <div className="w-483 b-b-1"></div>
         <form className="Form" onSubmit={handleSubmit}>

@@ -214,3 +214,18 @@ input:focus-visible {
     height: 61px;
   }
 }
+/* stripe form */
+.payment-stripe-text {
+  font-size: 31px;
+  font-weight: 500;
+}
+.stripe-button {
+  background-color: #4870b3;
+  border-radius: 4px;
+}
+
+.FormGroup {
+  border: 1px solid rgba(22, 25, 30, 0.2);
+  padding: 10px 4px;
+  border-radius: 5px;
+}
