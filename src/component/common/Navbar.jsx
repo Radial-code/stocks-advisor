@@ -238,44 +238,38 @@ const Navbar = () => {
                       Contact Us
                     </NavLink>
                   </li>
-                </div>
-                <li className="d-xl-none d-none d-md-block">
-                  <div className="search-input">
-                    <input
-                      type="text"
-                      className="border-0 w-100"
-                      placeholder="Search"
-                    />
-                    <button className="btn-search-input">
-                      <SearchMagnifyIcon />
-                    </button>
-                  </div>
-                </li>
-                <div className="d-xl-flex align-items-center">
-                  {auth && !!token && userData.isPaidPlan ? (
-                    <>
-                      <li className=" d-none d-xl-block">
-                        <input
-                          type="search"
-                          className="search-icon-input-header"
-                          placeholder="search"
-                        />
-                      </li>
-                      <li className="nav-item d-none d-md-block">
-                        <NavLink
-                          exact
-                          to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                          activeClassName="active"
-                          className="nav-links"
-                          onClick={click ? handleClick : null}
-                        >
-                          Portfolios
-                        </NavLink>
-                      </li>
-                    </>
+                  {/* Drop down end here */}
+                  {auth && !!token ? (
+                    <li className="nav-item d-xl-none d-flex">
+                      <NavLink
+                        exact
+                        to={
+                          userData.isAdmin
+                            ? "/content/manager/stocks"
+                            : "/dashboard/view/profile"
+                        }
+                        activeClassName="active"
+                        className="nav-links"
+                        onClick={click ? handleClick : null}
+                      >
+                        Dashboard
+                      </NavLink>
+                    </li>
                   ) : (
                     ""
                   )}
+                  <li className="d-xl-none d-none d-md-block">
+                    <div className="search-input">
+                      <input
+                        type="text"
+                        className="border-0 w-100"
+                        placeholder="Search"
+                      />
+                      <button className="btn-search-input">
+                        <SearchMagnifyIcon />
+                      </button>
+                    </div>
+                  </li>
                   {/*start here drop down  */}
                   {auth && !!token ? (
                     <li
@@ -372,9 +366,185 @@ const Navbar = () => {
                       </ul>
                     </div>
                   </li>
+                  {auth && !!token ? (
+                    <div className="d-flex d-xl-none  flex-lg-row flex-column  align-items-sm-start  align-items-center">
+                      <UserDropDown />
+                      <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
+                        <button
+                          type="button"
+                          onClick={() => dispatch(LogoutAction(history))}
+                          className="update-btn "
+                        >
+                          Log Out
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="d-xl-none d-flex flex-md-row  flex-column justify-content-center">
+                      <button
+                        className="form-btn px-4 mt-2"
+                        onClick={() => history.push("/login")}
+                      >
+                        Login
+                      </button>
+                      <button
+                        onClick={() => history.push("/signup")}
+                        className="update-btn me-md-3 mt-2"
+                      >
+                        Join Now
+                      </button>
+                    </div>
+                  )}
+                  <div className="d-flex flex-sm-row flex-column justify-content-start-end ">
+                    <li className=" d-flex d-xl-none flex-column align-items-center">
+                      <NavLink
+                        exact
+                        to="/signup"
+                        activeClassName="active"
+                        className="nav-links d-flex justify-content-center"
+                        onClick={click ? handleClick : null}
+                      >
+                        <button className="update-btn">Join Now</button>
+                      </NavLink>
+                    </li>
+                  </div>
+                </div>
+                {/* <li className="d-xl-none d-none d-md-block">
+                  <div className="search-input">
+                    <input
+                      type="text"
+                      className="border-0 w-100"
+                      placeholder="Search"
+                    />
+                    <button className="btn-search-input">
+                      <SearchMagnifyIcon />
+                    </button>
+                  </div>
+                </li> */}
+                <div className="d-xl-flex align-items-center">
+                  {auth && !!token && userData.isPaidPlan ? (
+                    <>
+                      <li className=" d-none d-xl-block">
+                        <input
+                          type="search"
+                          className="search-icon-input-header"
+                          placeholder="search"
+                        />
+                      </li>
+                      <li className="nav-item d-none d-md-block">
+                        <NavLink
+                          exact
+                          to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                          activeClassName="active"
+                          className="nav-links"
+                          onClick={click ? handleClick : null}
+                        >
+                          Portfolios
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  {/*start here drop down  */}
+                  {/* {auth && !!token ? (
+                    <li
+                      onClick={dropHandler}
+                      className={` nav-item  d-md-none ${
+                        student ? "drop-down-active" : ""
+                      }`}
+                    >
+                      <a className="d-flex  nav-links justify-content-between align-items-center">
+                        Portfolios
+                        <span
+                          className={`ml-20 ${
+                            student ? "sidebardropdown" : ""
+                          }`}
+                        >
+                          <span className="plus">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              className="bi bi-plus"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                          </span>
+                          <span className="subs">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              className="bi bi-dash bg-5CBD4C"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                            </svg>{" "}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  ) : (
+                    ""
+                  )}
+                  <li className=" drop-item d-md-none">
+                    <div
+                      className={`drop-none w-100   ${
+                        student ? "sidebardropdown" : ""
+                      }`}
+                    >
+                      <ul className="py-2 w-100 drop-down-list">
+                        <li>
+                          <NavLink
+                            exact
+                            to="/portfolio/portfolio1"
+                            activeClassName=""
+                            className=""
+                            onClick={click ? handleClick : null}
+                          >
+                            <div className="all-student">
+                              <span>Portfolio-1</span>
+                            </div>
+                          </NavLink>
+                        </li>
+
+                        <li>
+                          <NavLink
+                            exact
+                            to="/portfolio/portfolio2"
+                            activeClassName=""
+                            className=""
+                            onClick={click ? handleClick : null}
+                          >
+                            <div className="all-student">
+                              <span>Portfolio-2</span>
+                            </div>
+                          </NavLink>
+                        </li>
+
+                        <li>
+                          <NavLink
+                            exact
+                            to="/portfolio/portfolio3"
+                            activeClassName=""
+                            className=""
+                            onClick={click ? handleClick : null}
+                          >
+                            <div className="all-student">
+                              <span>Portfolio-3</span>
+                            </div>
+                          </NavLink>
+                        </li>
+                      </ul>
+                    </div>
+                  </li> */}
                   {/* Drop down end here */}
                   {auth && !!token ? (
-                    <li className="nav-item ">
+                    <li className="nav-item d-xl-flex d-none">
                       <NavLink
                         exact
                         to={
@@ -408,7 +578,7 @@ const Navbar = () => {
                     </NavLink> 
                   </li> */}
                   {auth && !!token ? (
-                    <div className="d-flex flex-lg-row flex-column  align-items-sm-start  align-items-center">
+                    <div className="d-xl-flex flex-lg-row flex-column d-none align-items-sm-start  align-items-center">
                       <UserDropDown />
                       <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
                         <button
@@ -421,7 +591,7 @@ const Navbar = () => {
                       </div>
                     </div>
                   ) : (
-                    <>
+                    <div className="d-xl-flex d-none">
                       <button
                         className="form-btn px-4"
                         onClick={() => history.push("/login")}
@@ -434,12 +604,12 @@ const Navbar = () => {
                       >
                         Join Now
                       </button>
-                    </>
+                    </div>
                   )}
                 </div>
               </div>
 
-              <div className="d-flex flex-sm-row flex-column justify-content-center ">
+              {/* <div className="d-flex flex-sm-row flex-column justify-content-center ">
                 <li className=" d-flex d-xl-none flex-column align-items-center">
                   <NavLink
                     exact
@@ -451,7 +621,7 @@ const Navbar = () => {
                     <button className="update-btn">Join Now</button>
                   </NavLink>
                 </li>
-              </div>
+              </div> */}
             </ul>
 
             <div className="nav-icon" onClick={handleClick}>

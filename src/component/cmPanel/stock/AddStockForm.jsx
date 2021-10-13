@@ -91,7 +91,7 @@ const AddStockForm = () => {
             <div className="col-md-6 order-2 datepicker-input position-relative order-sm-2 order-1">
               <DatePicker
                 placeholderText="Join Date"
-                className="mb-3"
+                className="mb-md-0 mb-3"
                 selected={stockDetails.joinDate}
                 onChange={(e) => {
                   setStockDetails({

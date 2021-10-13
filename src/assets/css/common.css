@@ -140,6 +140,9 @@
 #root {
   font-family: "Poppins", sans-serif;
 }
+.home-slider {
+  height: 400px;
+}
 
 /* UTILITY CSS */
 .text-5CBD4C {

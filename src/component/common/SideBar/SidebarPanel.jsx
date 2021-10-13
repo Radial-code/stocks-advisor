@@ -1,6 +1,13 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { News, PlansIcon, ServiceIcon, Stocks, User } from "../icons/Icons";
+import {
+  News,
+  PlansIcon,
+  ServiceIcon,
+  Stocks,
+  TeamIcon,
+  User,
+} from "../icons/Icons";
 import "./Sidebar.css";
 
 const SidebarPanel = ({ sidebarActive }) => {
@@ -67,7 +74,7 @@ const SidebarPanel = ({ sidebarActive }) => {
               >
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="svg-image pl-15">
-                    <PlansIcon />
+                    <TeamIcon />
                   </span>
                   <span>Team</span>
                 </li>

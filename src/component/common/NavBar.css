@@ -510,7 +510,7 @@ input::-webkit-search-cancel-button {
 
   .nav-item {
     line-height: 3px;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     padding: 9px 0px;
     padding-right: 9px;
   }

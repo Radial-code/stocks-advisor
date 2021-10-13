@@ -36,7 +36,7 @@ function LineChart3() {
     },
   ];
   return (
-    <div className=" container  px-sm-4 px-0   mt-4">
+    <div className=" container  px-sm-4 px-1   mt-4">
       <p className="chart-text-2 ff-popins mb-4">E & P 500</p>
       <div className="pich-chart">
         <ResponsiveContainer width="100%" height={213}>
@@ -66,7 +66,7 @@ function LineChart3() {
               dataKey="uv"
               axisLine={false}
               tickLine={false}
-               dx={-20}
+              dx={-20}
               tickFormatter={(number) => `${number}%`}
             />
             <Tooltip />
