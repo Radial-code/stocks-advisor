@@ -11,7 +11,7 @@ function Portfolio() {
   return (
     <div>
       <div className="row">
-        <div className="col-12 d-flex flex-sm-row flex-column justify-content-end align-items-center">
+        <div className="col-12 d-flex flex-sm-row flex-column justify-content-md-end justify-content-center align-items-center">
           <div>
             <button
               className="px-3 py-1 add-button ms-3 my-sm-3"

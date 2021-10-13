@@ -15,10 +15,10 @@ const AllNews = ({ history }) => {
           xs={12}
           className="mt-sm-3 h-100 d-flex justify-content-center d-sm-block"
         >
-          <section className="news-articles-card h-100 p-3">
-            {allNewsList && allNewsList.length
-              ? allNewsList.map((value, index) => {
-                  return (
+          {allNewsList && allNewsList.length
+            ? allNewsList.map((value, index) => {
+                return (
+                  <section className="news-articles-card h-100 p-3 mb-4">
                     <Row key={index} className="justify-content-between h-100 ">
                       <Col xl={4} lg={4} xs={4} className="h-100">
                         <div className="stock-articles-img h-100">
@@ -87,10 +87,10 @@ const AllNews = ({ history }) => {
                         </div>
                       </Col>
                     </Row>
-                  );
-                })
-              : null}
-          </section>
+                  </section>
+                );
+              })
+            : null}
         </Col>
       </Row>
     </div>

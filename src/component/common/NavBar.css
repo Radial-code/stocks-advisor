@@ -328,9 +328,9 @@
   color: black;
 }
 
-.nav-item {
+/* .nav-item {
   line-height: 55px;
-}
+} */
 
 .ml-10 {
   margin-left: 10px;
@@ -435,15 +435,17 @@ input::-webkit-search-cancel-button {
   color: transparent;
   cursor: pointer;
 }
+
 .search-icon-input-header:hover {
   background-color: #fff;
 }
 .search-icon-input-header:focus {
-  width: 130px;
+  width: 150px;
   padding-left: 32px;
   color: #000;
   background-color: #fff;
   cursor: auto;
+  font-size: 20px;
 }
 
 .search-icon input:-moz-placeholder {

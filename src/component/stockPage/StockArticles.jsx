@@ -58,7 +58,7 @@ const StockArticles = ({ history }) => {
                             </p>
                             <p className="small-paragraph text-end">
                               <span className="ps-1 cursor-pointer fw-bold">
-                                Stock
+                                Stock :
                               </span>
                               <span
                                 className="cursor-pointer fw-bold"

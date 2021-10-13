@@ -263,6 +263,17 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
+                  <li className="nav-item d-md-block d-none d-xl-none">
+                    <NavLink
+                      exact
+                      to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                      activeClassName="active"
+                      className="nav-links"
+                      onClick={click ? handleClick : null}
+                    >
+                      Portfolios
+                    </NavLink>
+                  </li>
 
                   {/*start here drop down  */}
                   {auth && !!token ? (
@@ -417,7 +428,7 @@ const Navbar = () => {
                           placeholder="search"
                         />
                       </li>
-                      <li className="nav-item d-none d-md-block">
+                      <li className="nav-item d-none d-xl-block">
                         <NavLink
                           exact
                           to={`/protfolios/stock/${dashboardPortfoliosListId}`}
@@ -619,7 +630,14 @@ const Navbar = () => {
             </ul>
 
             <div className="nav-icon d-flex d-xl-none   align-items-center">
-              <div className="search-input d-md-flex d-none">
+              <li className=" d-md-flex d-none">
+                <input
+                  type="search"
+                  className="search-icon-input-header py-0"
+                  placeholder="search"
+                />
+              </li>
+              {/* <div className="search-input d-md-flex d-none">
                 <input
                   type="text"
                   className="border-0 w-100"
@@ -628,7 +646,7 @@ const Navbar = () => {
                 <button className="btn-search-input">
                   <SearchMagnifyIcon />
                 </button>
-              </div>
+              </div> */}
               <div className="d-md-flex d-none">
                 <UserDropDown />
               </div>

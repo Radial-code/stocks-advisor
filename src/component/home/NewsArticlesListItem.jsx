@@ -1,6 +1,7 @@
 import moment from "moment";
 import React from "react";
 import { withRouter } from "react-router";
+import img_1 from "../../assets/img/calendar-icon.png";
 
 const NewsArticlesListItem = ({ value, history }) => {
   return (
@@ -13,7 +14,7 @@ const NewsArticlesListItem = ({ value, history }) => {
               {" "}
               <span className="d-flex justify-content-end align-items-center">
                 <span className="d-flex justify-content-end px-2">
-                  <img className="w-19 h-19" src={value.imagePath} alt="" />
+                  <img className="w-19 h-19" src={img_1} alt="" />
                 </span>{" "}
                 <span className="cursor-pointer">
                   {moment(value.createdAt).format("DD/MMM/YYYY")}
@@ -36,7 +37,7 @@ const NewsArticlesListItem = ({ value, history }) => {
               <span>{value.tags}</span>
             </p>
             <p className="small-paragraph text-end">
-              <span className="ps-1 cursor-pointer fw-bold">Stock:</span>
+              <span className="ps-1 cursor-pointer fw-bold">Stock :</span>
               <span
                 onClick={() =>
                   history.push(`/stock/news/${value.stock._id}/stock-tags`)
