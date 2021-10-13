@@ -20,7 +20,7 @@ const SubscriptionPlan = ({ loading }) => {
             </div>
             <p className="fs-xs fw-500 mt-3 fs-sm-14">:Description</p>
             <p className="stock-paragraph fs-sm-14">{planDetails.details}</p>
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-between align-items-center fw-bold">
               <p>{planDetails.type}</p>
               <p className="fs-xs fw-500 fs-sm-14">:Plan Type</p>
             </div>

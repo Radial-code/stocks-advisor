@@ -1,4 +1,7 @@
 import { CardElement } from "@stripe/react-stripe-js";
+import PaymentForm from "./PaymentForm";
+import img_1 from "../../assets/img/visa.png";
+import img_2 from "../../assets/img/paypal.png";
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -25,8 +28,10 @@ const CARD_OPTIONS = {
 };
 
 const StripeCardField = ({ onChange }) => (
-  <div className="FormRow">
-    <CardElement options={CARD_OPTIONS} onChange={onChange} />
-  </div>
+  <>
+    <div className="FormRow">
+      <CardElement options={CARD_OPTIONS} onChange={onChange} />
+    </div>
+  </>
 );
 export default StripeCardField;
