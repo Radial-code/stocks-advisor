@@ -5,7 +5,7 @@ const NewsArticlesListItem = ({ value }) => {
     <>
       <div className="pr-15">
         <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-          <img className="w-100" src={value.imagePath} alt="" />
+          <img className="w-100 home-slider" src={value.imagePath} alt="" />
           <div className="p-3">
             <p className="text-end stock-paragraph">
               {" "}

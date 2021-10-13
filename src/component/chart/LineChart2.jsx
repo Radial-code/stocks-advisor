@@ -36,7 +36,7 @@ function LineChart2() {
     },
   ];
   return (
-    <div className="container px-sm-4 px-0  mt-4">
+    <div className="container px-sm-4 px-1  mt-4">
       <p className="chart-text-2 ff-popins mb-4"> % Trading Portfolio </p>
       <div className="blue-chart">
         <ResponsiveContainer width="100%" height={213}>
@@ -61,7 +61,7 @@ function LineChart2() {
             </defs>
             <CartesianGrid stroke="0" />
 
-            <XAxis dataKey="name" axisLine={false} tickLine={false}  />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} />
             <YAxis
               dataKey="uv"
               dx={-30}
