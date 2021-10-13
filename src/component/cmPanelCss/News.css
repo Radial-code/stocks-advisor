@@ -67,7 +67,7 @@
 .upload-img-btn {
   background: var(--color-88BEFC);
   font-weight: 500;
-  font-size: var(--font-18);
+  font-size: 17px;
   color: #fff;
   border: 2px solid var(--color-88BEFC);
   padding: 4px 8px;

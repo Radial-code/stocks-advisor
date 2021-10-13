@@ -8,7 +8,6 @@ import {
   getPlansListAction,
 } from "../../../redux/action/cmPanel/plans";
 import BubblesLoader from "../../common/BubblesLoader";
-import Loader from "../../common/Loader";
 
 function PlansTable({ history }) {
   const dispatch = useDispatch();

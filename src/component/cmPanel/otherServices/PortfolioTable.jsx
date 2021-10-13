@@ -5,7 +5,7 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function PortfolioTable({ setShow, show }) {
+function PortfolioTable({ setShow }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(true);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
