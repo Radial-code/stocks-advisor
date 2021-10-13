@@ -5,6 +5,7 @@ import DashboardDropDown from "../../dashboard/DashboardDropDown";
 import { useDispatch } from "react-redux";
 import { getUserPaymentMethodAction } from "../../../redux/action/payment";
 import PaymentTable from "./PaymentTable";
+import BubblesLoader from "../../common/BubblesLoader";
 
 const PaymentDetails = ({
   sideBarHandler,
@@ -18,34 +19,32 @@ const PaymentDetails = ({
   }, []);
 
   return (
-    <>
-      <Container className="mr-lg-30">
-        <div
-          onClick={() => setSidebarActive((preState) => !preState)}
-          className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-        ></div>
-        <Row>
-          <Col xs={12} className="dashboard">
-            <div className="border-b-1  mb-3">
-              <DashboardDropDown sideBarHandler={sideBarHandler} />
+    <Container className="mr-lg-30">
+      <div
+        onClick={() => setSidebarActive((preState) => !preState)}
+        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
+      ></div>
+      <Row>
+        <Col xs={12} className="dashboard">
+          <div className="border-b-1  mb-3">
+            <DashboardDropDown sideBarHandler={sideBarHandler} />
+          </div>
+        </Col>
+        <Col xs={12}>
+          <section className="notification-card p-lg-5 p-2 ">
+            <div className="border-b-1">
+              <p className="heading-stock fs-sm-20">Payment Details</p>
             </div>
-          </Col>
-          <Col xs={12}>
-            <section className="notification-card p-lg-5 p-2 ">
-              <div className="border-b-1">
-                <p className="heading-stock fs-sm-20">Payment Details</p>
-              </div>
 
-              <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
-                <div className=" sold-stock-scrollbar">
-                  <PaymentTable />
-                </div>
+            <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
+              <div className=" sold-stock-scrollbar">
+                {loading ? <BubblesLoader /> : <PaymentTable />}
               </div>
-            </section>
-          </Col>
-        </Row>
-      </Container>
-    </>
+            </div>
+          </section>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

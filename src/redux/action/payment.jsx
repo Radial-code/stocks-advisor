@@ -48,7 +48,7 @@ export const getMyPlanAction = (setLoading) => async (dispatch) => {
   try {
     const response = await getMyPlanApi();
     if (response.success) {
-      dispatch(getMyPlan(response.myPayments));
+      dispatch(getMyPlan(response.plan));
       setLoading(false);
     } else {
       setLoading(false);

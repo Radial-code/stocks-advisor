@@ -36,11 +36,11 @@ const PaymentTable = () => {
               return (
                 <tr key={index} className="tb-text border-b-1">
                   <td className="py-3">{obj.status}</td>
-                  <td className="py-3">{obj.card}</td>
+                  <td className="py-3">{obj.card}*******</td>
                   <td className="py-3">{obj.plan.title}</td>
-                  <td className="py-3">{obj.amount}</td>
+                  <td className="py-3">${obj.amount}</td>
                   <td className="py-3">
-                    {moment(obj.createdAt).format("mm/dd/yy")}
+                    {moment(obj.createdAt).format("DD/MMM/YYYY")}
                   </td>
                 </tr>
               );

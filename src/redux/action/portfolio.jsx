@@ -59,7 +59,7 @@ export const getSoldPortfolioListForDashBoardAction =
     try {
       const response = await getSoldPortfolioListForDashBoardApi(id);
       if (response.success) {
-        dispatch(getSoldPortfolioListForDashBoard(response.news));
+        dispatch(getSoldPortfolioListForDashBoard(response.allStock));
         setLoading(false);
       } else {
         setLoading(false);

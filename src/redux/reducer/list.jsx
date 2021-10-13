@@ -8,6 +8,7 @@ import {
   GET_SOLD_STOCK_PORTFOLIOS_LIST,
 } from "../action/portfolio";
 import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
+import { UPLOAD_IAMGE } from "../uploadImage";
 
 const initialState = {
   contactList: [],
@@ -19,6 +20,7 @@ const initialState = {
   soldStockList: [],
   paymentList: [],
   myPlanDetails: [],
+  uploadImageUrl: "",
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -104,6 +106,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         myPlanDetails: action.data,
+      };
+    }
+
+    //upload image
+    case UPLOAD_IAMGE: {
+      return {
+        ...state,
+        uploadImageUrl: action.file,
       };
     }
 

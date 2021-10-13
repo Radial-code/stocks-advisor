@@ -6,11 +6,16 @@ import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import { addNewNewsDetailsAction } from "../../../redux/action/news";
 import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
+import { uploadImageAction } from "../../../redux/uploadImage";
 
 const AddNewNews = () => {
   const dispatch = useDispatch();
+  const stockList = useSelector((state) => state.cmPanel.stockList);
+  const userDetails = useSelector((state) => state.auth.userData);
+  const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingImage, setLoadingImage] = useState(false);
   const [error, setError] = useState(false);
   const [addStockLoading, setAddStockLoading] = useState(false);
   const [input, setInput] = useState("");
@@ -20,10 +25,8 @@ const AddNewNews = () => {
     showOnHomePage: false,
     stock: "",
     tags: "",
+    media: uploadImageUrl,
   });
-
-  const stockList = useSelector((state) => state.cmPanel.stockList);
-  const userDetails = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     dispatch(getStockListAction(setLoading));
@@ -38,7 +41,8 @@ const AddNewNews = () => {
       newsDetails.title !== "" &&
       newsDetails.description !== "" &&
       newsDetails.stock !== "" &&
-      newsDetails.tags !== ""
+      newsDetails.tags !== "" &&
+      newsDetails.media
     ) {
       dispatch(
         addNewNewsDetailsAction(newsDetails, setAddStockLoading, setNewsDetails)
@@ -111,15 +115,22 @@ const AddNewNews = () => {
               <input
                 onChange={(e) => setInput(e.target.value)}
                 type="file"
-                value=""
+                value={uploadImageUrl ? uploadImageUrl : null}
                 id="my-file"
+                onChange={(e) =>
+                  dispatch(uploadImageAction(e, setLoadingImage, "news"))
+                }
                 hidden
               />
 
               <button className="upload-img-btn d-none d-sm-block cursor-pointer">
-                <label className="cursor-pointer" for="my-file">
-                  Upload Image
-                </label>
+                {loadingImage ? (
+                  <Loader />
+                ) : (
+                  <label className="cursor-pointer" for="my-file">
+                    Upload Image
+                  </label>
+                )}
               </button>
               <button className="upload-img-btn d-block d-sm-none cursor-pointer">
                 <label className="cursor-pointer" for="my-file">
@@ -127,6 +138,9 @@ const AddNewNews = () => {
                 </label>
               </button>
             </div>
+            <span className="text-danger">
+              {error && uploadImageUrl === "" ? "Media link is required" : null}
+            </span>
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <Form.Group

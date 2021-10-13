@@ -5,21 +5,18 @@ import PortfoliosSidebar from "./PortfoliosSidebar";
 import { useDispatch } from "react-redux";
 import {
   getCurrentPortfolioListForDashBoardAction,
-  getPortfolioListForDashBoardAction,
   getSoldPortfolioListForDashBoardAction,
 } from "../../redux/action/portfolio";
 
 const Portfolio = ({ match }) => {
   const dispatch = useDispatch();
   const [sidebarActive, setSidebarActive] = useState(false);
-  const [sideBarLoading, setSideBarLoading] = useState(false);
   const [portfoliosId, setPortfoliosId] = useState(null);
   const [loading, setLoading] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
   const { id } = match.params;
 
   useEffect(() => {
-    dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
     if (id) {
       dispatch(getCurrentPortfolioListForDashBoardAction(id, setLoading));
       dispatch(getSoldPortfolioListForDashBoardAction(id, setLoading));

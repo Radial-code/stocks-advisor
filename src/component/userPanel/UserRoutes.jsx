@@ -3,7 +3,7 @@ import EditContact from "./profile/EditContact";
 import { Route } from "react-router";
 import Notification from "../dashboard/Notification";
 import UpdatePayment from "../dashboard/UpdatePayment";
-import ManageSubscription from "../dashboard/ManageSubscription";
+import ManageSubscription from "./manageSubscription/ManageSubscription";
 import SidebarDashboard from "../common/SideBar/SidebarDashboard";
 import UserProfile from "./profile/UserProfile";
 import PaymentDetails from "./payment/PaymentDetails";

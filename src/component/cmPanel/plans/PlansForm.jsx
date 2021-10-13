@@ -23,10 +23,12 @@ function PlansForm() {
 
   const submitPlanDetails = () => {
     setError(true);
-    const data = planDetails.details.split("\n");
-    data.map((item) => {
-      planDetails.details += `${item},`;
-    });
+    if (planDetails.details !== "") {
+      const data = planDetails.details.split("\n");
+      data.map((item) => {
+        planDetails.details += `${item},`;
+      });
+    }
     if (
       planDetails.title !== "" &&
       planDetails.price !== "" &&
@@ -135,6 +137,7 @@ function PlansForm() {
                   name=""
                   id=""
                   cols=""
+                  value=""
                   rows="6"
                   placeholder="...Description "
                   onChange={(e) => {
@@ -144,6 +147,7 @@ function PlansForm() {
                     });
                   }}
                 ></textarea>
+                {console.log("planDetails.details", planDetails.details)}
                 <span className="text-danger">
                   {error && planDetails.details === ""
                     ? "Description is required"

@@ -27,6 +27,7 @@ function ViewProfile() {
       lastName: UpdateUserDetailsData.lastName
         ? UpdateUserDetailsData.lastName
         : userDetails.lastName,
+      // isAdmin: true,
     };
     dispatch(updateUserDetailsAction(data, setLoading));
     setInputDisable(true);
