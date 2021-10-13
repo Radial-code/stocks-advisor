@@ -20,7 +20,7 @@ const initialState = {
   soldStockList: [],
   paymentList: [],
   myPlanDetails: [],
-  uploadImageUrl: "",
+  uploadImageUrl: null,
 };
 
 export default function ListReducer(state = initialState, action) {

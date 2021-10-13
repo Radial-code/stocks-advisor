@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PortfolioTable from "./PortfolioTable";
-import { Modal } from "react-bootstrap";
+import PortfoliosPopup from "./PortfoliosPopup";
 
 function Portfolio() {
   const [show, setShow] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [updateValue, setUpdateValue] = useState({});
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -22,30 +24,23 @@ function Portfolio() {
       </div>
       <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
         <div className="table-responsive  current-stock-scrollbar h-100">
-          <PortfolioTable setShow={setShow} show={show} />
+          <PortfolioTable
+            show={show}
+            setShow={setShow}
+            setEdit={setEdit}
+            setUpdateValue={setUpdateValue}
+          />
         </div>
       </div>
       {/* Modal */}
 
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header className="d-block">
-          <Modal.Title>
-            <p className="mb-0 text-center fw-bold">Add Portfolio</p>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="add-new-stock-field my-3 ms-sm-3">
-            <input
-              type="text"
-              placeholder=" Add Portfolio"
-              className="py-2 px-3 w-100"
-            />
-          </div>
-        </Modal.Body>
-        <Modal.Footer className="d-block text-center">
-          <button className="px-5 py-2 add-button ms-3 my-sm-3">Submit</button>
-        </Modal.Footer>
-      </Modal>
+      <PortfoliosPopup
+        handleClose={handleClose}
+        setShow={setShow}
+        show={show}
+        edit={edit}
+        updateValue={updateValue}
+      />
     </div>
   );
 }

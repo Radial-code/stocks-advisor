@@ -1,5 +1,7 @@
 import {
+  ADD_NEW_PORTFOLIOS_DETAILS,
   DELETE_CATEGORY_LIST,
+  DELETE_PORTFOLIOS_LIST,
   GET_CATEGORY_LIST,
   GET_EXCHANGE_LIST,
   GET_PORTFOLIO_LIST,
@@ -71,6 +73,28 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         portfolioList: action.data,
+      };
+    }
+
+    // delete portfolio list
+    case DELETE_PORTFOLIOS_LIST: {
+      const deletePortfolioList = [...state.portfolioList];
+      const deleteList = deletePortfolioList.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        portfolioList: deleteList,
+      };
+    }
+
+    //Add new portfolios details on list
+    case ADD_NEW_PORTFOLIOS_DETAILS: {
+      const addNewPortfolioDetails = [...state.portfolioList];
+      addNewPortfolioDetails.push(action.data);
+      return {
+        ...state,
+        portfolioList: addNewPortfolioDetails,
       };
     }
 

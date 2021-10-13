@@ -73,6 +73,15 @@ export const getPortfolioListApi = async () => {
  * @param {Object} data
  * @returns
  */
-export const updatePortfolioDetailsApi = async (data, id) => {
+export const updatePortfolioDetailsApi = async (id, data) => {
   return await axiosRequest("PATCH", `/portfolio/${id}`, data);
+};
+
+/**
+ * delete Portfolio details api
+ * @param {string} id
+ * @returns
+ */
+export const DeletePortfolioDetailsApi = async (id) => {
+  return await axiosRequest("DELETE", `/portfolio/${id}`);
 };

@@ -4,6 +4,7 @@ import {
   addNewExchangeDetailsApi,
   addNewPortfolioDetailsApi,
   deleteCategoryApi,
+  DeletePortfolioDetailsApi,
   getCategoryListApi,
   getExchangeListApi,
   getPortfolioListApi,
@@ -12,11 +13,13 @@ import {
 } from "../../api/cmPanel/ourServices";
 
 export const GET_CATEGORY_LIST = "GET_CATEGORY_LIST";
+export const DELETE_CATEGORY_LIST = "DELETE_CATEGORY_LIST";
 export const GET_EXCHANGE_LIST = "GET_EXCHANGE_LIST";
 export const UPDATE_EXCHANGE_DETAILS = "UPDATE_EXCHANGE_DETAILS";
 export const UPDATE_PORTFOLIO_DETAILS = "UPDATE_PORTFOLIO_DETAILS";
 export const GET_PORTFOLIO_LIST = "GET_PORTFOLIO_LIST";
-export const DELETE_CATEGORY_LIST = "DELETE_CATEGORY_LIST";
+export const DELETE_PORTFOLIOS_LIST = "DELETE_PORTFOLIOS_LIST";
+export const ADD_NEW_PORTFOLIOS_DETAILS = "ADD_NEW_PORTFOLIOS_DETAILS";
 
 /**
  * add new Category details action
@@ -196,25 +199,33 @@ export const updateExchangeDetailsAction =
  * @param {Object} data
  * @returns
  */
-export const addNewPortfolioDetailsAction = (data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await addNewPortfolioDetailsApi(data);
-    if (response.success) {
+
+const addNewPortfolioDetails = (data) => ({
+  type: ADD_NEW_PORTFOLIOS_DETAILS,
+  data,
+});
+
+export const addNewPortfolioDetailsAction =
+  (data, setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await addNewPortfolioDetailsApi(data);
+      if (response.success) {
+        setLoading(false);
+        dispatch(addNewPortfolioDetails(response.portfolio));
+        Swal.fire("Success", "Portfolio submitted successfully", "success");
+        setTimeout(Swal.close, 2000);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to add Portfolio", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-      Swal.fire("Success", "Portfolio submitted successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to add Portfolio", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get Portfolio list action
@@ -259,13 +270,14 @@ const updatePortfolioDetails = (data) => ({
 });
 
 export const updatePortfolioDetailsAction =
-  (data, id, setPortfolioLoading) => async (dispatch) => {
-    setPortfolioLoading(true);
+  (id, data, setLoading, handleClose) => async (dispatch) => {
+    setLoading(true);
     try {
-      const response = await updatePortfolioDetailsApi(data, id);
+      const response = await updatePortfolioDetailsApi(id, data);
+      handleClose();
       if (response.success) {
         dispatch(updatePortfolioDetails(response.Portfolio));
-        setPortfolioLoading(false);
+        setLoading(false);
         Swal.fire(
           "Success",
           "Portfolio Details Update successfully",
@@ -273,13 +285,41 @@ export const updatePortfolioDetailsAction =
         );
         setTimeout(Swal.close, 2000);
       } else {
-        setPortfolioLoading(false);
+        setLoading(false);
         Swal.fire("Error", "Failed to Update Portfolio Details", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {
-      setPortfolioLoading(false);
+      setLoading(false);
       Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
   };
+
+/**
+ * delete Category  action
+ * @param {Object} data
+ * @returns
+ */
+
+const DeletePortfolioDetails = (data) => ({
+  type: DELETE_PORTFOLIOS_LIST,
+  data,
+});
+
+export const DeletePortfolioDetailsAction = (id) => async (dispatch) => {
+  try {
+    const response = await DeletePortfolioDetailsApi(id);
+    if (response.success) {
+      dispatch(DeletePortfolioDetails(id));
+      Swal.fire("success", "Portfolio deleted successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      Swal.fire("Error", "Failed to delete Portfolio", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};

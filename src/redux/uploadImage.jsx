@@ -34,7 +34,6 @@ export const RemoveFileUrlLink = () => ({
 export const uploadImageAction =
   (e, setLoadingImage, type) => async (dispatch) => {
     setLoadingImage(true);
-    console.log("eeeeeeeee", e);
     try {
       if (e.target.files[0]) {
         const file = e.target.files[0];
@@ -49,7 +48,6 @@ export const uploadImageAction =
 
         // FORM DATA
         const form = new FormData();
-        console.log("form", form);
         form.append("file", file);
         const response = await uploadImageApi(type, form);
         if (response.success) {

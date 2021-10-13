@@ -2,10 +2,13 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
-import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurServices";
+import {
+  DeletePortfolioDetailsAction,
+  getPortfolioListAction,
+} from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function PortfolioTable({ setShow, show }) {
+function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(true);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
@@ -14,6 +17,17 @@ function PortfolioTable({ setShow, show }) {
     dispatach(getPortfolioListAction(setLoading));
   }, []);
 
+  const deletePortfolios = (id) => {
+    if (id) {
+      dispatach(DeletePortfolioDetailsAction(id));
+    }
+  };
+
+  const editPortfolios = (value) => {
+    setShow(true);
+    setEdit(true);
+    setUpdateValue(value);
+  };
   return (
     <>
       {loading ? (
@@ -81,13 +95,18 @@ function PortfolioTable({ setShow, show }) {
                     <td className="text-end whitespace Ellipse">
                       <button
                         className="px-3 py-1 edit-button "
-                        onClick={() => setShow(true)}
+                        onClick={() => editPortfolios(value)}
+                        type="button"
                       >
                         Edit
                       </button>
                     </td>
                     <td className="text-end whitespace Ellipse">
-                      <button className="px-3 py-1 delete-button">
+                      <button
+                        onClick={() => deletePortfolios(value._id)}
+                        type="button"
+                        className="px-3 py-1 delete-button"
+                      >
                         Delete
                       </button>
                     </td>
