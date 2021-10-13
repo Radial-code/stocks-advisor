@@ -24,20 +24,20 @@ const getPortfolioListForDashBoard = (data) => ({
 });
 
 export const getPortfolioListForDashBoardAction =
-  (setLoading) => async (dispatch) => {
-    setLoading(true);
+  (setSideBarLoading) => async (dispatch) => {
+    setSideBarLoading(true);
     try {
       const response = await getPortfolioListForDashBoardApi();
       if (response.success) {
-        dispatch(getPortfolioListForDashBoard(response.news));
-        setLoading(false);
+        dispatch(getPortfolioListForDashBoard(response.portfolios));
+        setSideBarLoading(false);
       } else {
-        setLoading(false);
+        setSideBarLoading(false);
         Swal.fire("Error", "Failed to Load  Portfolios list", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {
-      setLoading(false);
+      setSideBarLoading(false);
       Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
@@ -93,7 +93,7 @@ export const getCurrentPortfolioListForDashBoardAction =
     try {
       const response = await getCurrentPortfolioListForDashBoardApi(id);
       if (response.success) {
-        dispatch(getCurrentPortfolioListForDashBoard(response.news));
+        dispatch(getCurrentPortfolioListForDashBoard(response.allStock));
         setLoading(false);
       } else {
         setLoading(false);

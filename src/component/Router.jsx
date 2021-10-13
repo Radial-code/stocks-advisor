@@ -16,7 +16,7 @@ import Footer from "../component/common/Footer";
 import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
 import News from "../component/News/News";
-import Portfolio from "../view/Portfolio";
+import Portfolio from "./portfolio/Portfolio";
 import Contact from "./contact/Contact";
 import NewsDetails from "../view/NewsDetails";
 import ChangePassword from "./form/ChangePassword";
@@ -54,7 +54,6 @@ const Router = () => {
         <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
         <Route exact path="/our-plan" component={OurPlanspage} />
         <Route exact path="/news" component={News} />
-        <Route path="/portfolio" component={Portfolio} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
@@ -66,6 +65,9 @@ const Router = () => {
         <Route exact path="/email" component={IsEmailMessage} />
         {/** User dashboard routes */}
         <Route path="/dashboard" component={UserRoutes} />
+
+        {/** User Portfolios routes */}
+        <Route path="/protfolios/stock/:id" component={Portfolio} />
 
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />

@@ -14,10 +14,12 @@ import BubblesLoader from "./component/common/BubblesLoader";
 import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 
 function App({ history }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [sideBarLoading, setSideBarLoading] = useState(false);
   const auth = useSelector((state) => state.auth.auth);
   const userData = useSelector((state) => state.auth.userData);
   const { isScreenFixed } = useFixedScreenProvider();
@@ -29,6 +31,10 @@ function App({ history }) {
       dispatch(getUserProfileAction(setLoading, history, token));
     }
   }, [auth]);
+
+  useEffect(() => {
+    dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
+  }, []);
 
   return (
     <div

@@ -13,6 +13,13 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
+  const dashboardPortfoliosList = useSelector(
+    (state) => state.list.dashboardPortfoliosList
+  );
+  const dashboardPortfoliosListId =
+    dashboardPortfoliosList &&
+    dashboardPortfoliosList.length &&
+    dashboardPortfoliosList[0]._id;
 
   return (
     <section className="bg-16191E">
@@ -88,7 +95,7 @@ const Footer = () => {
                   <li>
                     <Link
                       className="text-decoration-none text-white fs-15"
-                      to="/portfolio/portfolio1"
+                      to={`/protfolios/stock/${dashboardPortfoliosListId}`}
                     >
                       Portfolio
                     </Link>
@@ -150,5 +157,4 @@ const Footer = () => {
     </section>
   );
 };
-
 export default Footer;

@@ -29,6 +29,13 @@ const Navbar = () => {
   const [LoginActive, setLoginActive] = useState(false);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
+  const dashboardPortfoliosList = useSelector(
+    (state) => state.list.dashboardPortfoliosList
+  );
+  const dashboardPortfoliosListId =
+    dashboardPortfoliosList &&
+    dashboardPortfoliosList.length &&
+    dashboardPortfoliosList[0]._id;
 
   const dropHandler = () => {
     setStudent(!student);
@@ -83,7 +90,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/portfolio/portfolio1") {
+    } else if (pathNane === `/protfolios/stock/${dashboardPortfoliosListId}`) {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -111,9 +118,6 @@ const Navbar = () => {
     setScreenFixed((pre) => !pre);
   };
   const Close = () => setClick(false);
-
-  const firstName = "Sharukh";
-  const lastName = "Khan";
 
   return (
     <>
@@ -260,12 +264,12 @@ const Navbar = () => {
                       <li className="nav-item d-none d-md-block">
                         <NavLink
                           exact
-                          to="/portfolio/portfolio1"
+                          to={`/protfolios/stock/${dashboardPortfoliosListId}`}
                           activeClassName="active"
                           className="nav-links"
                           onClick={click ? handleClick : null}
                         >
-                          Portfolios{" "}
+                          Portfolios
                         </NavLink>
                       </li>
                     </>

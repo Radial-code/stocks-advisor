@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+import "../../dashboardCss/Notification.css";
+import { Container, Row, Col } from "react-bootstrap";
+import DashboardDropDown from "../../dashboard/DashboardDropDown";
+import { useDispatch } from "react-redux";
+import { getUserPaymentMethodAction } from "../../../redux/action/payment";
+import PaymentTable from "./PaymentTable";
+
+const PaymentDetails = ({
+  sideBarHandler,
+  setSidebarActive,
+  sidebarActive,
+}) => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    dispatch(getUserPaymentMethodAction(setLoading));
+  }, []);
+
+  return (
+    <>
+      <Container className="mr-lg-30">
+        <div
+          onClick={() => setSidebarActive((preState) => !preState)}
+          className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
+        ></div>
+        <Row>
+          <Col xs={12} className="dashboard">
+            <div className="border-b-1  mb-3">
+              <DashboardDropDown sideBarHandler={sideBarHandler} />
+            </div>
+          </Col>
+          <Col xs={12}>
+            <section className="notification-card p-lg-5 p-2 ">
+              <div className="border-b-1">
+                <p className="heading-stock fs-sm-20">Payment Details</p>
+              </div>
+
+              <div className="mb-5 h-calc-100vh-442 overflow-auto scroll-bar">
+                <div className=" sold-stock-scrollbar">
+                  <PaymentTable />
+                </div>
+              </div>
+            </section>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+};
+
+export default PaymentDetails;

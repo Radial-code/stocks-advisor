@@ -6,7 +6,7 @@ import UpdatePayment from "../dashboard/UpdatePayment";
 import ManageSubscription from "../dashboard/ManageSubscription";
 import SidebarDashboard from "../common/SideBar/SidebarDashboard";
 import UserProfile from "./profile/UserProfile";
-import PaymentDetails from "../dashboard/PaymentDetails";
+import PaymentDetails from "./payment/PaymentDetails";
 
 const UserRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);

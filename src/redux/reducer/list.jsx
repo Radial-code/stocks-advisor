@@ -1,6 +1,7 @@
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_TEAM_LIST } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
+import { GET_USER_MY_PLAN, GET_USER_PAYMENT_METHOD } from "../action/payment";
 import {
   GET_CURRENT_STOCK_PORTFOLIOS_LIST,
   GET_PORTFOLIOS_LIST_FOR_DASHBOARD,
@@ -16,6 +17,8 @@ const initialState = {
   dashboardPortfoliosList: [],
   currentStockList: [],
   soldStockList: [],
+  paymentList: [],
+  myPlanDetails: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -85,6 +88,22 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         currentStockList: action.data,
+      };
+    }
+
+    //Get user payment method list
+    case GET_USER_PAYMENT_METHOD: {
+      return {
+        ...state,
+        paymentList: action.data,
+      };
+    }
+
+    //Get user my plan list
+    case GET_USER_MY_PLAN: {
+      return {
+        ...state,
+        myPlanDetails: action.data,
       };
     }
 
