@@ -155,10 +155,10 @@ function PlansForm() {
                 ? portfolioList.map((value, index) => {
                     return (
                       <div className="col-auto mb-3">
-                        <div className="form-check">
+                        <div className="form-check ">
                           <input
                             key={index}
-                            className="form-check-input"
+                            className="form-check-input cursor-pointer"
                             type="checkbox"
                             value=""
                             id="flexCheckDefault"

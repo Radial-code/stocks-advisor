@@ -7,7 +7,7 @@ import img_2 from "../../assets/img/calendar-icon.png";
 
 const AllNews = ({ history }) => {
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
-  console.log("allNewsList", allNewsList);
+
   return (
     <div>
       <Row className="h-100">
@@ -19,7 +19,7 @@ const AllNews = ({ history }) => {
             {allNewsList && allNewsList.length
               ? allNewsList.map((value, index) => {
                   return (
-                    <Row key={index} className="justify-content-between h-100">
+                    <Row key={index} className="justify-content-between h-100 ">
                       <Col xl={4} lg={4} xs={4} className="h-100">
                         <div className="stock-articles-img h-100">
                           <img

@@ -112,9 +112,6 @@ const Navbar = () => {
   };
   const Close = () => setClick(false);
 
-  const firstName = "Sharukh";
-  const lastName = "Khan";
-
   return (
     <>
       <div className={click ? "main-container" : ""} onClick={() => Close()}>

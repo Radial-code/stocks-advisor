@@ -45,9 +45,10 @@
   font-weight: 400;
   line-height: 30.5px;
   color: var(--color-44464A);
-  max-width: 174px;
+  max-width: 270px;
   text-align: center;
   margin: auto;
+  overflow: hidden;
 }
 
 .join-now-btn {
