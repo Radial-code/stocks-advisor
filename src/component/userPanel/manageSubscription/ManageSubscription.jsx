@@ -30,7 +30,13 @@ const ManageSubscription = ({
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
         </Col>
-        {loading ? <BubblesLoader /> : <SubscriptionDetails />}
+        {loading ? (
+          <div className="d-flex justify-content-center h-100vh align-items-center">
+            <BubblesLoader />
+          </div>
+        ) : (
+          <SubscriptionDetails />
+        )}
       </Row>
     </Container>
   );

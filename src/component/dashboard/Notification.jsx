@@ -20,7 +20,7 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <Col xs={12}>
             <section className="notification-card p-lg-5 p-2 ">
               <div className="border-b-1">
-                <p className="heading-stock fs-sm-20">Notificaion</p>
+                <p className="heading-stock fs-sm-20">Notification</p>
               </div>
               <p className="small-paragraph mt-5">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla

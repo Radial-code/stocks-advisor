@@ -78,7 +78,7 @@ function SoldStock() {
             </tbody>
           </table>
         ) : (
-          "You don't have any sold stocks"
+          <p className="text-center">You don't have any sold stocks</p>
         )}
       </div>
     </div>
