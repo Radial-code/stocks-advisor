@@ -10,11 +10,16 @@ import {
   getPortfolioListApi,
   updateExchangeDetailsApi,
   updatePortfolioDetailsApi,
+  updateCategoryDetailsApi,
+  DeleteExchangeDetailsApi,
 } from "../../api/cmPanel/ourServices";
 
 export const GET_CATEGORY_LIST = "GET_CATEGORY_LIST";
+export const UPDATE_CATEGORY_DETAILS = "UPDATE_CATEGORY_DETAILS";
 export const DELETE_CATEGORY_LIST = "DELETE_CATEGORY_LIST";
 export const GET_EXCHANGE_LIST = "GET_EXCHANGE_LIST";
+export const ADD_NEW_EXCHANGE_DETAILS = "ADD_NEW_EXCHANGE_DETAILS";
+export const DELETE_EXCHANGE_LIST = "DELETE_EXCHANGE_LIST";
 export const UPDATE_EXCHANGE_DETAILS = "UPDATE_EXCHANGE_DETAILS";
 export const UPDATE_PORTFOLIO_DETAILS = "UPDATE_PORTFOLIO_DETAILS";
 export const GET_PORTFOLIO_LIST = "GET_PORTFOLIO_LIST";
@@ -110,25 +115,33 @@ export const deleteCategoryAction = (id) => async (dispatch) => {
  * @param {Object} data
  * @returns
  */
-export const addNewExchangeDetailsAction = (data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await addNewExchangeDetailsApi(data);
-    if (response.success) {
+
+const addNewExchangeDetails = (data) => ({
+  type: ADD_NEW_EXCHANGE_DETAILS,
+  data,
+});
+
+export const addNewExchangeDetailsAction =
+  (data, setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await addNewExchangeDetailsApi(data);
+      if (response.success) {
+        setLoading(false);
+        dispatch(addNewExchangeDetails(response.exchange));
+        Swal.fire("Success", "Exchange submitted successfully", "success");
+        setTimeout(Swal.close, 2000);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to add Exchange", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-      Swal.fire("Success", "Exchange submitted successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to add Exchange", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get Exchange list action
@@ -193,6 +206,34 @@ export const updateExchangeDetailsAction =
       setTimeout(Swal.close, 2000);
     }
   };
+
+/**
+ * delete Exchange  action
+ * @param {Object} data
+ * @returns
+ */
+
+const DeleteExchangeDetails = (data) => ({
+  type: DELETE_EXCHANGE_LIST,
+  data,
+});
+
+export const DeleteExchangeDetailsAction = (id) => async (dispatch) => {
+  try {
+    const response = await DeleteExchangeDetailsApi(id);
+    if (response.success) {
+      dispatch(DeleteExchangeDetails(id));
+      Swal.fire("success", "Exchange deleted successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      Swal.fire("Error", "Failed to delete Exchange", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
 
 /**
  * add new Portfolio details action
@@ -299,6 +340,42 @@ export const updatePortfolioDetailsAction =
     }
   };
 
+/**
+ * Update Category details action
+ * @param {Object} data
+ * @returns
+ */
+
+const updateCategoryDetails = (id, data) => ({
+  type: UPDATE_CATEGORY_DETAILS,
+  payload: {
+    data: data,
+    id: id,
+  },
+});
+
+export const updateCategoryDetailsAction =
+  (id, data, setLoading, handleClose) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await updateCategoryDetailsApi(id, data);
+      handleClose();
+      if (response.success) {
+        dispatch(updateCategoryDetails(id, data));
+        setLoading(false);
+        Swal.fire("Success", "category Details Update successfully", "Success");
+        setTimeout(Swal.close, 2000);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Update category Details", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setLoading(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
 /**
  * delete Category  action
  * @param {Object} data

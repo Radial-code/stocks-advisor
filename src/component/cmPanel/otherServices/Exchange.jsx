@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ExchangeTable from "./ExchangeTable";
-import { Modal } from "react-bootstrap";
+import ExchangePopup from "./ExchangePopup";
 
 function Exchange() {
   const [show, setShow] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [updateValue, setUpdateValue] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -23,31 +25,23 @@ function Exchange() {
       </div>
       <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
         <div className="table-responsive  current-stock-scrollbar h-100">
-          <ExchangeTable setShow={setShow} show={show} />
+          <ExchangeTable
+            show={show}
+            setShow={setShow}
+            setEdit={setEdit}
+            setUpdateValue={setUpdateValue}
+          />
         </div>
       </div>
       {/* Modal */}
 
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header className="d-block">
-          <Modal.Title>
-            <p className="mb-0 text-center fw-bold">Add Exchange</p>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {" "}
-          <div className="add-new-stock-field my-3 ms-sm-3">
-            <input
-              type="text"
-              placeholder=" Add Exchange"
-              className="py-2 px-3 w-100"
-            />
-          </div>
-        </Modal.Body>
-        <Modal.Footer className="d-block text-center">
-          <button className="px-5 py-2 add-button ms-3 my-sm-3">Submit</button>
-        </Modal.Footer>
-      </Modal>
+      <ExchangePopup
+        handleClose={handleClose}
+        setShow={setShow}
+        show={show}
+        edit={edit}
+        updateValue={updateValue}
+      />
     </div>
   );
 }

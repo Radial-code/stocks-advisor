@@ -2,36 +2,39 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import {
-  addNewCategoryDetailsAction,
-  updateCategoryDetailsAction,
+  addNewExchangeDetailsAction,
+  updateExchangeDetailsAction,
 } from "../../../redux/action/cmPanel/OurServices";
 import Loader from "../../common/Loader";
 
-function CategoryPopup({ handleClose, show, edit, updateValue }) {
+function ExchangePopup({ handleClose, show, edit, updateValue }) {
   const dispatch = useDispatch();
-  const [category, setCategory] = useState(
-    !!updateValue ? updateValue.title : ""
+  const [portfolios, setPortfolios] = useState(
+    !!updateValue && !!updateValue.title ? updateValue.title : ""
   );
   const [loading, setLoading] = useState(false);
 
-  const submitCategoryDetails = () => {
-    if (category !== "") {
-      const data = { title: category };
-      dispatch(addNewCategoryDetailsAction(data, setLoading, handleClose));
+  const submitPortfoliosDetails = () => {
+    if (portfolios !== "") {
+      const data = { title: portfolios };
+      dispatch(addNewExchangeDetailsAction(data, setLoading, handleClose));
     }
   };
 
-  const updateCategory = () => {
-    if (category !== "") {
-      const data = { title: category };
-      dispatch(
-        updateCategoryDetailsAction(
-          updateValue._id,
-          data,
-          setLoading,
-          handleClose
-        )
-      );
+  const updatePortfolios = () => {
+    if (updateValue._id) {
+      if (portfolios !== "") {
+        const data = { title: portfolios };
+        dispatch(
+          updateExchangeDetailsAction(
+            updateValue._id,
+            data,
+            setLoading,
+            handleClose
+          )
+        );
+      }
+      setPortfolios("");
     }
   };
 
@@ -40,7 +43,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
       <Modal.Header className="d-block">
         <Modal.Title>
           <p className="mb-0 text-center fw-bold">
-            {edit ? "Update Category" : "Add Category"}
+            {edit ? "Update Exchange" : "Add Exchange"}
           </p>
         </Modal.Title>
       </Modal.Header>
@@ -48,17 +51,17 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
         <div className="add-new-stock-field my-3 ms-sm-3">
           <input
             type="text"
-            value={!!category ? category : updateValue.title}
-            placeholder=" Add Category"
+            value={!!portfolios ? portfolios : updateValue.title}
+            placeholder=" Add portfolios"
             className="py-2 px-3 w-100"
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => setPortfolios(e.target.value)}
           />
         </div>
       </Modal.Body>
       <Modal.Footer className="d-block text-center">
         {edit ? (
           <button
-            onClick={() => updateCategory()}
+            onClick={() => updatePortfolios()}
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
@@ -66,7 +69,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
           </button>
         ) : (
           <button
-            onClick={() => submitCategoryDetails()}
+            onClick={() => submitPortfoliosDetails()}
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
@@ -77,4 +80,4 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
     </Modal>
   );
 }
-export default CategoryPopup;
+export default ExchangePopup;

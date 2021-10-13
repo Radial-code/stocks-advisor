@@ -1,6 +1,8 @@
 import {
+  ADD_NEW_EXCHANGE_DETAILS,
   ADD_NEW_PORTFOLIOS_DETAILS,
   DELETE_CATEGORY_LIST,
+  DELETE_EXCHANGE_LIST,
   DELETE_PORTFOLIOS_LIST,
   GET_CATEGORY_LIST,
   GET_EXCHANGE_LIST,
@@ -61,6 +63,18 @@ export default function cmPanel(state = initialState, action) {
       };
     }
 
+    // Delete plan by id
+    case DELETE_EXCHANGE_LIST: {
+      const deleteExchangeList = [...state.exchangeList];
+      const deleteList = deleteExchangeList.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        exchangeList: deleteList,
+      };
+    }
+
     // Get Exchange list
     case GET_EXCHANGE_LIST: {
       return {
@@ -98,21 +112,23 @@ export default function cmPanel(state = initialState, action) {
         portfolioList: addNewPortfolioDetails,
       };
     }
+    //Add new portfolios details on list
+    case ADD_NEW_EXCHANGE_DETAILS: {
+      const addNewexchangeListDetails = [...state.exchangeList];
+      addNewexchangeListDetails.push(action.data);
+      return {
+        ...state,
+        exchangeList: addNewexchangeListDetails,
+      };
+    }
 
     //update portfolios details on list
     case UPDATE_PORTFOLIO_DETAILS: {
       const updatePortfolioDetails = [...state.portfolioList];
-      console.log("action", action);
       const updatePortfolioDetailsData = updatePortfolioDetails.filter(
         (value) => value._id === action.payload.id
       );
-      console.log(
-        "updatePortfolioDetailsDawwwwwwwwta",
-        updatePortfolioDetailsData
-      );
-      console.log("action.payload", action.payload);
       updatePortfolioDetailsData.title = action.payload.data.title;
-      console.log("updatePortfolioDetailsData", updatePortfolioDetailsData);
       return {
         ...state,
         portfolioList: updatePortfolioDetails,

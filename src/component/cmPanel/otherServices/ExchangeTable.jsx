@@ -2,10 +2,13 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
-import { getExchangeListAction } from "../../../redux/action/cmPanel/OurServices";
+import {
+  DeleteExchangeDetailsAction,
+  getExchangeListAction,
+} from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-function ExchangeTable({ setShow, show }) {
+function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
@@ -13,6 +16,18 @@ function ExchangeTable({ setShow, show }) {
   useEffect(() => {
     dispatach(getExchangeListAction(setExchangeLoading));
   }, []);
+
+  const deleteExchange = (id) => {
+    if (id) {
+      dispatach(DeleteExchangeDetailsAction(id));
+    }
+  };
+
+  const editCategory = (value) => {
+    setShow(true);
+    setEdit(true);
+    setUpdateValue(value);
+  };
 
   return (
     <>
@@ -81,13 +96,17 @@ function ExchangeTable({ setShow, show }) {
                     <td className="text-end  whitespace Ellipse">
                       <button
                         className="px-3 py-1 edit-button "
+                        onClick={() => editCategory(value)}
                         onClick={() => setShow(true)}
                       >
                         Edit
                       </button>
                     </td>
                     <td className="text-end  whitespace Ellipse">
-                      <button className="px-3 py-1 delete-button">
+                      <button
+                        onClick={() => deleteExchange(value._id)}
+                        className="px-3 py-1 delete-button"
+                      >
                         Delete
                       </button>
                     </td>

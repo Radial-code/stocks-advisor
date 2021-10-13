@@ -96,7 +96,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                     <td className="text-end  whitespace Ellipse">
                       <button
                         className="px-3 py-1 edit-button "
-                        onClick={() => editCategory(value.title)}
+                        onClick={() => editCategory(value)}
                       >
                         Edit
                       </button>

@@ -1,3 +1,4 @@
+import { DELETE_EXCHANGE_LIST } from "../action/cmPanel/OurServices";
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import { GET_TEAM_LIST } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";

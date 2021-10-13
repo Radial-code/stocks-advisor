@@ -26,6 +26,15 @@ export const deleteCategoryApi = async (id) => {
 };
 
 /**
+ * Update Category details api
+ * @param {Object} data
+ * @returns
+ */
+export const updateCategoryDetailsApi = async (id, data) => {
+  return await axiosRequest("PUT", `/category/${id}`, data);
+};
+
+/**
  * Add new exchange details api
  * @param {Object} data
  * @returns
@@ -48,7 +57,16 @@ export const getExchangeListApi = async () => {
  * @returns
  */
 export const updateExchangeDetailsApi = async (data, id) => {
-  return await axiosRequest("PATCH", `/exchange/${id}`, data);
+  return await axiosRequest("PUT", `/exchange/${id}`, data);
+};
+
+/**
+ * delete exchange details api
+ * @param {string} id
+ * @returns
+ */
+export const DeleteExchangeDetailsApi = async (id) => {
+  return await axiosRequest("DELETE", `/exchange/${id}`);
 };
 
 /**
