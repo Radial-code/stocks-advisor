@@ -159,6 +159,11 @@ const Navbar = () => {
                   </div>
                 </li>
                 <div className="d-xl-flex align-items-center">
+                  <div className="d-xl-none">
+                    <NavLink exact to="/" className="nav-logo logo-img-navbar">
+                      <img className="logo-img-navbar" src={logo} alt="" />
+                    </NavLink>
+                  </div>
                   <li
                     className={`${
                       HomeActive ? "green-bg-active" : ""
@@ -258,7 +263,7 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  <li className="d-xl-none d-none d-md-block">
+                  {/* <li className="d-xl-none d-none d-md-block">
                     <div className="search-input">
                       <input
                         type="text"
@@ -269,7 +274,7 @@ const Navbar = () => {
                         <SearchMagnifyIcon />
                       </button>
                     </div>
-                  </li>
+                  </li> */}
                   {/*start here drop down  */}
                   {auth && !!token ? (
                     <li
@@ -368,7 +373,10 @@ const Navbar = () => {
                   </li>
                   {auth && !!token ? (
                     <div className="d-flex d-xl-none  flex-lg-row flex-column  align-items-sm-start  align-items-center">
-                      <UserDropDown />
+                      <div className="d-md-none d-flex">
+                        <UserDropDown />
+                      </div>
+                      {/* <UserDropDown />s */}
                       <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
                         <button
                           type="button"
@@ -624,8 +632,24 @@ const Navbar = () => {
               </div> */}
             </ul>
 
-            <div className="nav-icon" onClick={handleClick}>
-              <HamburgerIcon />
+            <div className="nav-icon d-flex d-xl-none   align-items-center">
+              <div className="search-input d-md-flex d-none">
+                <input
+                  type="text"
+                  className="border-0 w-100"
+                  placeholder="Search"
+                />
+                <button className="btn-search-input">
+                  <SearchMagnifyIcon />
+                </button>
+              </div>
+              <div className="d-md-flex d-none">
+                <UserDropDown />
+              </div>
+              <div onClick={handleClick}>
+                {" "}
+                <HamburgerIcon />
+              </div>
             </div>
           </div>
         </nav>

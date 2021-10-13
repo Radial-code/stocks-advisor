@@ -1,8 +1,7 @@
 import React from "react";
 import "../dashboardCss/Notification.css";
-import Sortarrow from "../../assets/img/sortarrow.png";
 import push from "../../assets/img/push.png";
-import { Table, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import DashboardDropDown from "./DashboardDropDown";
 const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
@@ -86,13 +85,15 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
 
                       <td className="email text-center">
-                        <div>
+                        <div className="checkbox-notification">
                           <label className="checkbox-notification">
                             <input type="checkbox" />
                             <span className="geekmark"></span>
@@ -106,13 +107,18 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
+
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -120,7 +126,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -132,13 +140,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -146,7 +158,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -158,13 +172,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -172,7 +190,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -184,13 +204,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -198,7 +222,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -210,13 +236,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -224,7 +254,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>{" "}
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -236,13 +268,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -250,7 +286,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>
@@ -262,13 +300,17 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
                       <td className="email text-center">
                         <label className="checkbox-notification-web">
-                          <input type="checkbox" />
+                          <div className="checkbox-notification1">
+                            <input type="checkbox" />
+                          </div>
                           <span className="geekmark"></span>
                         </label>
                       </td>
@@ -276,7 +318,9 @@ const Notification = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                       <td className="email text-center">
                         <div>
                           <label className="checkbox-notification">
-                            <input type="checkbox" />
+                            <div className="checkbox-notification1">
+                              <input type="checkbox" />
+                            </div>
                             <span className="geekmark"></span>
                           </label>
                         </div>

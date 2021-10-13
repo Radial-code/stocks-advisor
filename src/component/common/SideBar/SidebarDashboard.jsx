@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  EditPencilIcon,
-  Manage,
-  Notify,
-  ProfileIcon,
-  Update,
-} from "../icons/Icons";
+import { Manage, Notify, ProfileIcon } from "../icons/Icons";
 import { NavLink, withRouter } from "react-router-dom";
 import "./Sidebar.css";
 const SidebarDashboard = ({ sidebarActive }) => {
