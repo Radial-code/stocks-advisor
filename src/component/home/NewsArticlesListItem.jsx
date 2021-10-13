@@ -1,6 +1,8 @@
+import moment from "moment";
 import React from "react";
+import { withRouter } from "react-router";
 
-const NewsArticlesListItem = ({ value }) => {
+const NewsArticlesListItem = ({ value, history }) => {
   return (
     <>
       <div className="pr-15">
@@ -13,7 +15,9 @@ const NewsArticlesListItem = ({ value }) => {
                 <span className="d-flex justify-content-end px-2">
                   <img className="w-19 h-19" src={value.imagePath} alt="" />
                 </span>{" "}
-                <span className="cursor-pointer">16/07/2021</span>
+                <span className="cursor-pointer">
+                  {moment(value.createdAt).format("DD/MMM/YYYY")}
+                </span>
               </span>
             </p>
             <h3 className="news-heading-font text-end Slider-Ellipse" dir="ltr">
@@ -23,12 +27,22 @@ const NewsArticlesListItem = ({ value }) => {
               {value.description}
             </p>
             <p className="read-more text-end cursor-pointer">Read More...</p>
-            <p className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold">
+            <p
+              onClick={() =>
+                history.push(`/stock/news/${value.stock._id}/${value.tags}`)
+              }
+              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold"
+            >
               <span>{value.tags}</span>
             </p>
             <p className="small-paragraph text-end">
-              <span className="ps-1 cursor-pointer fw-bold">Stock</span>
-              <span className="cursor-pointer fw-bold">
+              <span className="ps-1 cursor-pointer fw-bold">Stock:</span>
+              <span
+                onClick={() =>
+                  history.push(`/stock/news/${value.stock._id}/stock-tags`)
+                }
+                className="cursor-pointer fw-bold"
+              >
                 {value.stock.symbol}
               </span>
             </p>
@@ -38,5 +52,4 @@ const NewsArticlesListItem = ({ value }) => {
     </>
   );
 };
-
-export default NewsArticlesListItem;
+export default withRouter(NewsArticlesListItem);

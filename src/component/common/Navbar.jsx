@@ -565,7 +565,15 @@ const Navbar = () => {
                   </li> */}
                   {auth && !!token ? (
                     <div className="d-xl-flex flex-lg-row flex-column d-none align-items-sm-start  align-items-center">
-                      <UserDropDown />
+                      <UserDropDown
+                        onClick={() =>
+                          history.push(
+                            userData.isAdmin
+                              ? "/content/manager/stocks"
+                              : "/dashboard/view/profile"
+                          )
+                        }
+                      />
                       <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
                         <button
                           type="button"

@@ -23,8 +23,6 @@ export const getProtfoliosListAction = (setLoading) => async (dispatch) => {
       setLoading(false);
     } else {
       setLoading(false);
-      Swal.fire("Error", "Failed to load Protfolios list", "error");
-      setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);

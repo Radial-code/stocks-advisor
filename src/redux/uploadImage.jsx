@@ -52,7 +52,7 @@ export const uploadImageAction =
         const response = await uploadImageApi(type, form);
         if (response.success) {
           console.log("success", response);
-          dispatch(uploadImageSuccess(response));
+          //   dispatch(uploadImageSuccess(response));
           setLoadingImage(false);
         } else {
           setLoadingImage(false);

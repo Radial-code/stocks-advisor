@@ -1,15 +1,24 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { withRouter } from "react-router";
 
-const UserDropDown = () => {
+const UserDropDown = ({ history }) => {
   const firstname = useSelector((state) => state.auth.userData.firstName);
+  const userData = useSelector((state) => state.auth.userData);
   const lastname = useSelector((state) => state.auth.userData.lastName);
 
   return (
     <>
       <Dropdown className="user-profile-dropdown">
         <Dropdown.Toggle
+          onClick={() =>
+            history.push(
+              userData.isAdmin
+                ? "/content/manager/stocks"
+                : "/dashboard/view/profile"
+            )
+          }
           className="border-0 profile-dropdown d-flex justify-content-center align-items-center"
           id="dropdown-basic"
         >
@@ -27,4 +36,4 @@ const UserDropDown = () => {
   );
 };
 
-export default UserDropDown;
+export default withRouter(UserDropDown);
