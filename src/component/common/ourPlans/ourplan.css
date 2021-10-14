@@ -58,6 +58,7 @@
   padding: 7.5px 111px;
   border: 1px solid var(--color-88BEFC);
   border-radius: 4px;
+  color: white;
   transition: 0.3s;
   /* border: 1px solid var(--color-88BEFC); */
 }
@@ -77,13 +78,16 @@
   background-color: var(--color-127CF9);
   transition: 0.3s;
 }
-
+.week-plan {
+  background-color: var(--color-127CF9);
+}
 .join-now-btn-2 {
   font-size: var(--font-18);
   font-weight: 500;
   background-color: var(--color-127CF9);
   padding: 7.5px 111px;
   border: none;
+  color: white;
   border: 1px solid var(--color-127CF9);
   border-radius: 4px;
   transition: 0.3s;
@@ -91,7 +95,7 @@
 
 .join-now-btn-2:hover {
   background-color: var(--color-B8D8FD);
-  color: var(--color-16191E) !important;
+  color: var(--color-127CF9) !important;
 }
 
 .p-9-0 {

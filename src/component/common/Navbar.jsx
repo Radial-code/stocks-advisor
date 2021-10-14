@@ -121,7 +121,7 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(true);
-    } else if (pathName === "/") {
+    } else if (pathName === "/lang") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
@@ -250,47 +250,6 @@ const Navbar = () => {
                       Our Plans
                     </NavLink>
                   </li>
-                  <span>
-                    <li
-                      onClick={() => setLang(!Lang)}
-                      className={`${
-                        LangActive ? "green-bg-active" : ""
-                      } nav-item `}
-                    >
-                      <NavLink
-                        exact
-                        to="/"
-                        activeClassName="active"
-                        className="nav-links"
-                        onClick={click ? handleClick : null}
-                      >
-                        <span className="ps-1">
-                          {" "}
-                          <Drop />
-                        </span>
-                        Lang
-                      </NavLink>
-                    </li>
-                    {Lang ? (
-                      <div className="bg-white shadow p-2 rounded position-absolute">
-                        {" "}
-                        <span className="d-flex px-2 py-1 cursor-pointer">
-                          English{" "}
-                          <img
-                            className="flag-img  mx-2 "
-                            src={England}
-                            alt="England"
-                          />
-                        </span>
-                        <span className="d-flex px-2 py-1 cursor-pointer">
-                          Arabic{" "}
-                          <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
-                        </span>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </span>
 
                   <li
                     className={`${
@@ -307,6 +266,47 @@ const Navbar = () => {
                       Contact Us
                     </NavLink>
                   </li>
+                  <span>
+                    <li
+                      onClick={() => setLang(!Lang)}
+                      className={`${
+                        LangActive ? "green-bg-active" : ""
+                      } nav-item `}
+                    >
+                      <NavLink
+                        exact
+                        to="/lang"
+                        activeClassName="active"
+                        className="nav-links"
+                        onClick={click ? handleClick : null}
+                      >
+                        <span className="ps-1">
+                          {" "}
+                          <Drop />
+                        </span>
+                        Lang
+                      </NavLink>
+                    </li>
+                    {Lang ? (
+                      <div className="bg-white shadow p-2 rounded position-absolute">
+                        {" "}
+                        <span className="d-flex px-2 py-1 cursor-pointer fw-bold">
+                          English{" "}
+                          <img
+                            className="flag-img  mx-2 "
+                            src={England}
+                            alt="England"
+                          />
+                        </span>
+                        <span className="d-flex px-2 py-1 cursor-pointer fw-bold">
+                          Arabic{" "}
+                          <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
+                        </span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </span>
                   {/* Drop down end here */}
                   {auth && !!token ? (
                     <li className="nav-item d-xl-none d-flex">
