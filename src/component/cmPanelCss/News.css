@@ -72,6 +72,9 @@
   border: 2px solid var(--color-88BEFC);
   padding: 4px 8px;
   border-radius: 4px;
+  position: absolute !important;
+  top: 7px;
+  left: 12px;
 }
 @media (max-width: 575.98px) {
   .manger-panel-shadow {
