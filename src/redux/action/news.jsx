@@ -209,7 +209,7 @@ export const getNewsDetailsAction = (id, setLoading) => async (dispatch) => {
   try {
     const response = await getNewsDetailsApi(id);
     if (response.success) {
-      dispatch(getNewsDetails(response.news));
+      dispatch(getNewsDetails(response.details));
       setLoading(false);
     } else {
       setLoading(false);

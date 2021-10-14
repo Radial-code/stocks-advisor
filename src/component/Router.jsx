@@ -58,7 +58,7 @@ const Router = () => {
         <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
         <Route exact path="/netfix/chart" component={NetflixChart} />
-        <Route exact path="/AllNews" component={NewsDetails} />
+        <Route exact path="/news/details/:id" component={NewsDetails} />
         <Route exact path="/create-newpassword" component={CreateNewPassword} />
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/otpinputs" component={OtpInputs} />

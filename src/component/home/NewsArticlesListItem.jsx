@@ -27,7 +27,12 @@ const NewsArticlesListItem = ({ value, history }) => {
             <p className="stock-paragraph text-end Slider-Ellipse" dir="ltr">
               {value.description}
             </p>
-            <p className="read-more text-end cursor-pointer">Read More...</p>
+            <p
+              onClick={() => history.push(`/news/details/${value._id}`)}
+              className="read-more text-end cursor-pointer"
+            >
+              Read More...
+            </p>
             <p
               onClick={() =>
                 history.push(`/stock/news/${value.stock._id}/${value.tags}`)

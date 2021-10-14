@@ -61,7 +61,10 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p className="text-end parargraph-stock pt-sm-2  ps-sm-5">
                     {value.description}
                   </p>
-                  <p className="text-end read-more cursor-pointer">
+                  <p
+                    onClick={() => history.push(`/news/details/${value._id}`)}
+                    className="text-end read-more cursor-pointer"
+                  >
                     Read More...
                   </p>
                   <p

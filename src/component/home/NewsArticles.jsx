@@ -79,9 +79,9 @@ const NewsArticles = ({ history }) => {
           </div>
         </div>
         <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
-          <button className="default-btn" onClick={() => history.push("/news")}>
+          <p className="default-btn" onClick={() => history.push("/news")}>
             View All News
-          </button>
+          </p>
         </div>
       </div>
     </>

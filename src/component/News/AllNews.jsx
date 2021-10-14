@@ -54,7 +54,9 @@ const AllNews = ({ history }) => {
                           </p>
                           <p
                             className="read-more  mb-0 cursor-pointer fs-xs-12"
-                            onClick={() => history.push("/AllNews")}
+                            onClick={() =>
+                              history.push(`/news/details/${value._id}`)
+                            }
                           >
                             ...Read More
                           </p>
