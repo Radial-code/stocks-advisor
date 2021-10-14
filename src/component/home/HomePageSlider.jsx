@@ -7,8 +7,11 @@ import BubblesLoader from "../common/BubblesLoader";
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
@@ -46,7 +49,13 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     alt=""
                   />
                   <p className="text-end stock-paragraph mt-3">
-                    <span className="d-flex justify-content-end align-items-center">
+                    <span
+                      className={` ${
+                        layoutClickChanger
+                          ? "d-flex justify-content-end align-items-center"
+                          : "d-flex align-items-center"
+                      }  `}
+                    >
                       <span className="d-flex justify-content-end px-2">
                         <img className="w-19 h-19" src={img_1} alt="" />
                       </span>
@@ -55,29 +64,63 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                       </span>
                     </span>
                   </p>
-                  <h6 className="text-end heading-stock">
+                  <h6
+                    className={` ${
+                      layoutClickChanger
+                        ? "heading-stock text-end "
+                        : "heading-stock"
+                    } `}
+                  >
                     {value.title ? value.title : "N/A"}
                   </h6>
-                  <p className="text-end parargraph-stock pt-sm-2  ps-sm-5">
+                  <p
+                    className={` ${
+                      layoutClickChanger
+                        ? "text-end parargraph-stock pt-sm-2  ps-sm-5"
+                        : "parargraph-stock pt-sm-2"
+                    } `}
+                  >
                     {value.description}
                   </p>
                   <p
                     onClick={() => history.push(`/news/details/${value._id}`)}
-                    className="text-end read-more cursor-pointer"
+                    className={` ${
+                      layoutClickChanger
+                        ? "text-end read-more cursor-pointer"
+                        : "read-more cursor-pointer"
+                    } `}
                   >
                     Read More...
                   </p>
                   <p
-                    className="small-paragraph text-end"
+                    className={` ${
+                      layoutClickChanger
+                        ? "small-paragraph text-end"
+                        : "small-paragraph"
+                    } `}
                     onClick={() =>
                       history.push(
                         `/stock/news/${value.stock._id}/${value.tags}`
                       )
                     }
                   >
-                    <span className="cursor-pointer fw-bold">{value.tags}</span>
+                    <span
+                      className={` ${
+                        layoutClickChanger
+                          ? "cursor-pointer fw-bold"
+                          : "cursor-pointer fw-bold"
+                      } `}
+                    >
+                      {value.tags}
+                    </span>
                   </p>
-                  <p className="small-paragraph text-end">
+                  <p
+                    className={` ${
+                      layoutClickChanger
+                        ? "small-paragraph text-end"
+                        : "small-paragraph mb-5 "
+                    } `}
+                  >
                     <span
                       className="fw-bold cursor-pointer"
                       onClick={() =>

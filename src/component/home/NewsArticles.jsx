@@ -3,9 +3,12 @@ import Slider from "react-slick";
 import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 import NewsArticlesListItem from "./NewsArticlesListItem";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NewsArticles = ({ history }) => {
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
 
   var settings = {
     dots: false,

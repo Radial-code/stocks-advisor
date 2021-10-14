@@ -2,8 +2,11 @@ import moment from "moment";
 import React from "react";
 import { withRouter } from "react-router";
 import img_1 from "../../assets/img/calendar-icon.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NewsArticlesListItem = ({ value, history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   return (
     <>
       <div className="pr-15">
@@ -12,7 +15,13 @@ const NewsArticlesListItem = ({ value, history }) => {
           <div className="p-3">
             <p className="text-end stock-paragraph">
               {" "}
-              <span className="d-flex justify-content-end align-items-center">
+              <span
+                className={` ${
+                  layoutClickChanger
+                    ? "d-flex justify-content-end align-items-center"
+                    : "d-flex  align-items-center"
+                } `}
+              >
                 <span className="d-flex justify-content-end px-2">
                   <img className="w-19 h-19" src={img_1} alt="" />
                 </span>{" "}
@@ -29,7 +38,11 @@ const NewsArticlesListItem = ({ value, history }) => {
             </p>
             <p
               onClick={() => history.push(`/news/details/${value._id}`)}
-              className="read-more text-end cursor-pointer"
+              className={` ${
+                layoutClickChanger
+                  ? "read-more text-end cursor-pointer"
+                  : "read-more  cursor-pointer"
+              } `}
             >
               Read More...
             </p>
@@ -41,8 +54,14 @@ const NewsArticlesListItem = ({ value, history }) => {
             >
               <span>{value.tags}</span>
             </p>
-            <p className="small-paragraph text-end">
-              <span className="ps-1 cursor-pointer fw-bold">Stock :</span>
+            <p
+              className={` ${
+                layoutClickChanger
+                  ? "small-paragraph text-end"
+                  : "small-paragraph "
+              } `}
+            >
+              <span className=" cursor-pointer fw-bold">Stock :</span>
               <span
                 onClick={() =>
                   history.push(`/stock/news/${value.stock._id}/stock-tags`)
