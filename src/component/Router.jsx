@@ -76,6 +76,10 @@ const Router = () => {
           path="/content/manager/edit/stock/:id"
           component={CmPanelRoutes}
         />
+        <Route
+          path="/content/manager/edit/news/:id"
+          component={CmPanelRoutes}
+        />
         <Route path="/content/manager/news" component={CmPanelRoutes} />
         <Route path="/content/manager/add/news" component={CmPanelRoutes} />
         <Route path="/content/manager/users" component={CmPanelRoutes} />

@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
+import { withRouter } from "react-router";
 
-const NewsTable = () => {
+const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const adminNewsList = useSelector((state) => state.cmPanel.adminNewsList);
@@ -42,7 +43,12 @@ const NewsTable = () => {
             {adminNewsList && !!adminNewsList.length
               ? adminNewsList.map((value, index) => {
                   return (
-                    <tr key={index}>
+                    <tr
+                      key={index}
+                      onClick={() =>
+                        history.push(`/content/manager/edit/news/${value._id}`)
+                      }
+                    >
                       <td className="whitespace Ellipse">
                         {" "}
                         {moment(value.createdAt).format("MM/ddd")}
@@ -61,4 +67,4 @@ const NewsTable = () => {
     </>
   );
 };
-export default NewsTable;
+export default withRouter(NewsTable);

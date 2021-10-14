@@ -64,13 +64,13 @@ const AddNewNews = ({ edit, match, history }) => {
     }
   };
 
-  const deleteStock = () => {
+  const deleteNews = () => {
     if (!!id) {
       dispatch(DeleteNewsDetailsAction(id, history));
     }
   };
 
-  const updateStockDetails = () => {
+  const updateNewsDetails = () => {
     if (!!id) {
       setError(true);
       if (
@@ -90,7 +90,7 @@ const AddNewNews = ({ edit, match, history }) => {
       <div className="manger-panel-shadow p-sm-5 w-xl-1000 mt-5">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="heading-stock d-none d-sm-block fs-sm-20">
-            Add New News
+            {edit ? "Update News" : "Add New News"}
           </p>
           <p className="heading-stock d-block d-sm-none">Add News</p>
           <Link to="/content/manager/news">
@@ -381,14 +381,35 @@ const AddNewNews = ({ edit, match, history }) => {
           </div>
         </div>
         <div className=" ">
-          <button
-            className="add-btn"
-            type="button"
-            disabled={addStockLoading}
-            onClick={() => AddNewNewsDetails()}
-          >
-            {addStockLoading ? <Loader /> : "Add"}
-          </button>
+          {edit ? (
+            <>
+              <button
+                className="add-btn"
+                type="button"
+                disabled={addStockLoading}
+                onClick={() => updateNewsDetails()}
+              >
+                {addStockLoading ? <Loader /> : "Update"}
+              </button>
+              <button
+                className="add-btn m-2"
+                type="button"
+                disabled={addStockLoading}
+                onClick={() => deleteNews()}
+              >
+                {"Delete"}
+              </button>
+            </>
+          ) : (
+            <button
+              className="add-btn"
+              type="button"
+              disabled={addStockLoading}
+              onClick={() => AddNewNewsDetails()}
+            >
+              {addStockLoading ? <Loader /> : "Add"}
+            </button>
+          )}
         </div>
       </div>
     </Col>

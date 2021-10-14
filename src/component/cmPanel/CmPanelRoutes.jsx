@@ -73,6 +73,14 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
+
+          <Route path="/content/manager/edit/news/:id">
+            <AddNews
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
           <Route path="/content/manager/edit/user">
             <EditUser
               sideBarHandler={sideBarHandler}
