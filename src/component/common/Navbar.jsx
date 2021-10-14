@@ -16,8 +16,14 @@ import {
 } from "./icons/Icons";
 import "./NavBar.css";
 import { Drop } from "../common/icons/Icons";
+import { useLayout, LayoutProvider } from "../../redux/LayoutChanger";
 
 const Navbar = () => {
+  const { layoutValue } = useLayout();
+  const dataflow = () => {
+    console.log(layoutValue);
+  };
+
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const [student, setStudent] = useState(false);
@@ -134,6 +140,7 @@ const Navbar = () => {
 
   return (
     <>
+      <button onClick={dataflow}>click to test</button>
       <div className={click ? "main-container" : ""} onClick={() => Close()}>
         <nav className="navbar" onClick={(e) => e.stopPropagation()}>
           <div className="container mx-4 mx-sm-auto justify-content-between">

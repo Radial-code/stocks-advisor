@@ -17,6 +17,7 @@ import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
+import { LayoutProvider } from "./redux/LayoutChanger";
 
 function App({ history }) {
   const stripePromise = loadStripe(
@@ -30,15 +31,6 @@ function App({ history }) {
   const userData = useSelector((state) => state.auth.userData);
   const { isScreenFixed } = useFixedScreenProvider();
   const token = localStorage.getItem("stock-advisor");
-  const [layoutChanger, setLayoutChanger] = useState(true);
-
-  const layoutleftChangeHandler = () => {
-    setLayoutChanger((document.dir = "ltr"));
-  };
-
-  const layoutrightChangeHandler = () => {
-    setLayoutChanger((document.dir = "rtl"));
-  };
 
   useEffect(() => {
     if (!!token) {
@@ -54,48 +46,45 @@ function App({ history }) {
   }, []);
 
   return (
-    <div
-      className={`${
-        isScreenFixed ? "overflow-hidden  h-100vh" : ""
-      } d-flex justify-content-between flex-column h-100vh `}
-    >
-      <button onClick={layoutleftChangeHandler}>
-        change in english layout
-      </button>
-      <button onClick={layoutrightChangeHandler}>change to arabic</button>
-
-      {!!auth && !!token ? (
-        <>
-          {loading ? (
-            <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
-              <div className="mb-5">
-                <img src={LogoImage} />
+    <LayoutProvider>
+      <div
+        className={`${
+          isScreenFixed ? "overflow-hidden  h-100vh" : ""
+        } d-flex justify-content-between flex-column h-100vh `}
+      >
+        {!!auth && !!token ? (
+          <>
+            {loading ? (
+              <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
+                <div className="mb-5">
+                  <img src={LogoImage} />
+                </div>
+                <BubblesLoader />
               </div>
-              <BubblesLoader />
-            </div>
-          ) : userData !== {} ? (
-            !userData.isEmailConfirmed ? (
-              <IsEmailMessage />
-            ) : !userData.isMobileNumberConfirmed ? (
-              <IsPhoneConfirmed />
+            ) : userData !== {} ? (
+              !userData.isEmailConfirmed ? (
+                <IsEmailMessage />
+              ) : !userData.isMobileNumberConfirmed ? (
+                <IsPhoneConfirmed />
+              ) : (
+                <Router />
+              )
             ) : (
-              <Router />
-            )
-          ) : (
-            <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
-              <div className="mb-5">
-                <img src={LogoImage} />
+              <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
+                <div className="mb-5">
+                  <img src={LogoImage} />
+                </div>
+                <BubblesLoader />
               </div>
-              <BubblesLoader />
-            </div>
-          )}
-        </>
-      ) : (
-        <Elements stripe={stripePromise}>
-          <Router />
-        </Elements>
-      )}
-    </div>
+            )}
+          </>
+        ) : (
+          <Elements stripe={stripePromise}>
+            <Router />
+          </Elements>
+        )}
+      </div>
+    </LayoutProvider>
   );
 }
 
