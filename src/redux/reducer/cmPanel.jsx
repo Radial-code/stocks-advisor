@@ -10,6 +10,7 @@ import {
   UPDATE_PORTFOLIO_DETAILS,
 } from "../action/cmPanel/OurServices";
 import {
+  GET_STOCK_DETAILS_BY_ID,
   GET_STOCK_LIST,
   GET_USER_LIST_FOR_ADMIN,
 } from "../action/cmPanel/stock";
@@ -31,6 +32,7 @@ const initialState = {
   homeNewsList: [],
   allNews: [],
   allRelatedNews: [],
+  newsDetails: {},
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -140,6 +142,14 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         adminNewsList: action.data,
+      };
+    }
+
+    // Get news details by id
+    case GET_STOCK_DETAILS_BY_ID: {
+      return {
+        ...state,
+        newsDetails: action.data,
       };
     }
 
