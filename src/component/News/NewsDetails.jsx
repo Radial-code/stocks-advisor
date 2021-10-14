@@ -23,7 +23,7 @@ const NewsDetails = ({ match }) => {
       <section>
         <div className="container py-4 p-left-right">
           <div className="row d-flex justify-content-center">
-            {loading ? <BubblesLoader /> : <NewsDetailsPage />}
+            <NewsDetailsPage loading={loading} />
             <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
               <div className="profile-box">
                 <Chart />

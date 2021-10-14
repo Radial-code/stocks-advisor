@@ -352,7 +352,11 @@
 .nav-item :hover {
   color: #4870b3;
 }
-.nav-item:hover svg path {
+
+.drop-down:hover {
+  color: #4870b3;
+}
+.drop-down:hover svg path {
   stroke: #4870b3;
 }
 .nav-item .active:after {

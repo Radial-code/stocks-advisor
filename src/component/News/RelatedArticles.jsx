@@ -28,35 +28,42 @@ const RelatedArticles = () => {
         </Col>
         <Col xs={12}>
           {relatedLoading ? (
-            <BubblesLoader />
+            <div className="d-flex justify-content-center align-items-center">
+              <BubblesLoader />
+            </div>
           ) : (
             <Row className="mt-5">
-              {allRelatedNews && !!allRelatedNews.length
-                ? allRelatedNews.map((value, index) => {
-                    return (
-                      <Col
-                        xl={4}
-                        lg={6}
-                        className="d-flex justify-content-center"
-                      >
-                        <section key={index} className="articles-card ">
-                          <div className="related-articles-img">
-                            <img
-                              className="w-100 h-100"
-                              src={value.imagePath}
-                              alt=""
-                            />
-                          </div>
-                          <div className="d-flex justify-content-center align-items-center mt-4">
-                            <p className="news-heading-font max-w-articles pr-15 Ellipse">
-                              {value.title}
-                            </p>
-                          </div>
-                        </section>
-                      </Col>
-                    );
-                  })
-                : "You don't have any related news"}
+              {allRelatedNews && !!allRelatedNews.length ? (
+                allRelatedNews.map((value, index) => {
+                  return (
+                    <Col
+                      xl={4}
+                      lg={6}
+                      className="d-flex justify-content-center"
+                    >
+                      <section key={index} className="articles-card ">
+                        <div className="related-articles-img">
+                          <img
+                            className="w-100 h-100"
+                            src={value.imagePath}
+                            alt=""
+                          />
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center mt-4">
+                          <p
+                            className="news-heading-font max-w-articles p-2 Slider-Ellipse"
+                            dir="ltr"
+                          >
+                            {value.title}
+                          </p>
+                        </div>
+                      </section>
+                    </Col>
+                  );
+                })
+              ) : (
+                <p>You don't have any related news</p>
+              )}
             </Row>
           )}
         </Col>

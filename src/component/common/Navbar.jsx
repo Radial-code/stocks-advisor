@@ -121,16 +121,6 @@ const Navbar = () => {
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(true);
-    } else if (pathName === "/lang") {
-      setHomeActive(false);
-      setAboutActive(false);
-      setNewsActive(false);
-      setPlansActive(false);
-      setLangActive(true);
-      setContactActive(false);
-      setPortfolioActive(false);
-      setDashboardActive(false);
-      setLoginActive(false);
     }
   }, [pathName]);
 
@@ -267,20 +257,14 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <span>
-                    <li
-                      onClick={() => setLang(!Lang)}
-                      className={`${
-                        LangActive ? "green-bg-active" : ""
-                      } nav-item `}
-                    >
+                    <li onClick={() => setLang(!Lang)}>
                       <NavLink
                         exact
-                        to="/lang"
+                        to="#"
                         activeClassName="active"
-                        className="nav-links"
-                        onClick={click ? handleClick : null}
+                        className="nav-links drop-down"
                       >
-                        <span className="ps-1">
+                        <span className="ps-1 ">
                           {" "}
                           <Drop />
                         </span>
@@ -290,7 +274,7 @@ const Navbar = () => {
                     {Lang ? (
                       <div className="bg-white shadow p-2 rounded position-absolute">
                         {" "}
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-bold">
+                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
                           English{" "}
                           <img
                             className="flag-img  mx-2 "
@@ -298,7 +282,7 @@ const Navbar = () => {
                             alt="England"
                           />
                         </span>
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-bold">
+                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
                           Arabic{" "}
                           <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
                         </span>
