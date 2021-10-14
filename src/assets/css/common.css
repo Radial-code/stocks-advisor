@@ -209,7 +209,8 @@
   color: var(--color-44464A);
 }
 .slider-img {
-  height: 415px;
+  height: 500px;
+  width: 500px;
 }
 
 @media (max-width: 567px) {

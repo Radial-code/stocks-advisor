@@ -9,7 +9,7 @@ const Hero = ({ loading, setRelatedLoading }) => {
         <div className="row  justify-content-between">
           <div className="col-xl-8 col-lg-7 ">
             <div className="profile-box p-3 homePageSlider">
-              <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
+              <h1 className="profile-heading   pr-15">Featured News</h1>
               {loading ? (
                 <div className="mt-5 d-flex justify-content-center align-items-center">
                   <BubblesLoader />
