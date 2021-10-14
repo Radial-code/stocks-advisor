@@ -2,12 +2,14 @@ import Swal from "sweetalert2";
 import {
   addNewStockDetailsApi,
   createNewTeamMemberApi,
+  getStockDetailsApi,
   getStockListApi,
   getTeamMemberListApi,
   getUserListForAdminApi,
 } from "../../api/cmPanel/stock";
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
+export const GET_STOCK_DETAILS_BY_ID = "GET_STOCK_DETAILS_BY_ID";
 export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
 export const GET_TEAM_LIST = "GET_TEAM_LIST";
 
@@ -58,6 +60,36 @@ export const getStockListAction = (setLoading) => async (dispatch) => {
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to Load stock list", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get stock details list action
+ * @param {Object} data
+ * @returns
+ */
+
+const getStockDetails = (data) => ({
+  type: GET_STOCK_DETAILS_BY_ID,
+  data,
+});
+
+export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getStockDetailsApi(id);
+    if (response.success) {
+      dispatch(getStockDetails(response.stock));
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to stock details list", "error");
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {

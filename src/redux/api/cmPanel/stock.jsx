@@ -10,6 +10,14 @@ export const addNewStockDetailsApi = async (data) => {
 };
 
 /**
+ *  get Stock details api
+ * @returns
+ */
+export const getStockDetailsApi = async (id) => {
+  return await axiosRequest("GET", `/stock/${id}`);
+};
+
+/**
  *  stock list api
  * @returns
  */
