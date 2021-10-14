@@ -17,7 +17,7 @@ import Netflix from "./netflixinc/Netflix";
 import News from "../component/News/News";
 import Portfolio from "./portfolio/Portfolio";
 import Contact from "./contact/Contact";
-import NewsDetails from "../view/NewsDetails";
+import NewsDetails from "./News/NewsDetails";
 import ChangePassword from "./form/ChangePassword";
 import CreateNewPassword from "./form/CreateNewPassword";
 import OtpInputs from "./stocksotpinput/OtpInputs";

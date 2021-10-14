@@ -1,10 +1,10 @@
 import React from "react";
-import NewsPage from "../component/News/NewsPage";
+import NewsDetailsPage from "./NewsDetailsPage";
 
 const NewsDetails = () => {
   return (
     <div>
-      <NewsPage />
+      <NewsDetailsPage />
     </div>
   );
 };

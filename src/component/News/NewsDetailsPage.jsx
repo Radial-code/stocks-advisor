@@ -5,7 +5,7 @@ import Chart from "../home/Chart";
 import RelatedArticles from "./RelatedArticles";
 import Plans from "../plan/Plans";
 
-const NewsPage = () => (
+const NewsDetailsPage = () => (
   <>
     <section>
       <div className="container py-4 p-left-right">
@@ -110,5 +110,4 @@ const NewsPage = () => (
     </section>
   </>
 );
-
-export default NewsPage;
+export default NewsDetailsPage;
