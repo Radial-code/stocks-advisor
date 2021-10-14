@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import UserDropDown from "./UserDropDown";
+import England from "../../assets/img/england.png";
+import Arbic from "../../assets/img/arbic.png";
 import { LogoutAction } from "../../redux/action/auth";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
@@ -13,6 +15,7 @@ import {
   SearchMagnifyIcon,
 } from "./icons/Icons";
 import "./NavBar.css";
+import { Drop } from "../common/icons/Icons";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -22,6 +25,9 @@ const Navbar = () => {
   const [HomeActive, setHomeActive] = useState(false);
   const [AboutActive, setAboutActive] = useState(false);
   const [NewsActive, setNewsActive] = useState(false);
+  const [LangActive, setLangActive] = useState(false);
+  const [Lang, setLang] = useState(false);
+
   const [PlansActive, setPlansActive] = useState(false);
   const [ContactActive, setContactActive] = useState(false);
   const [PortfolioActive, setPortfolioActive] = useState(false);
@@ -43,73 +49,90 @@ const Navbar = () => {
   let history = useHistory();
 
   // ACTIVE HEADER AS PATH
-  const pathNane = window.location.pathname;
+  const pathName = window.location.pathname;
   useEffect(() => {
-    if (pathNane === "/") {
+    if (pathName === "/") {
       setHomeActive(true);
       setAboutActive(false);
       setNewsActive(false);
       setPlansActive(false);
       setContactActive(false);
       setPortfolioActive(false);
+      setLangActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/about") {
+    } else if (pathName === "/about") {
       setHomeActive(false);
       setAboutActive(true);
       setNewsActive(false);
       setPlansActive(false);
       setContactActive(false);
+      setLangActive(false);
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/news") {
+    } else if (pathName === "/news") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(true);
       setPlansActive(false);
       setContactActive(false);
+      setLangActive(false);
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/our-plan") {
+    } else if (pathName === "/our-plan") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
       setPlansActive(true);
+      setLangActive(false);
       setContactActive(false);
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/contact-us") {
+    } else if (pathName === "/contact-us") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
       setPlansActive(false);
       setContactActive(true);
+      setLangActive(false);
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === `/protfolios/stock/${dashboardPortfoliosListId}`) {
+    } else if (pathName === `/protfolios/stock/${dashboardPortfoliosListId}`) {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
       setPlansActive(false);
+      setLangActive(false);
       setContactActive(false);
       setPortfolioActive(true);
       setDashboardActive(false);
       setLoginActive(false);
-    } else if (pathNane === "/login") {
+    } else if (pathName === "/login") {
       setHomeActive(false);
       setAboutActive(false);
       setNewsActive(false);
       setPlansActive(false);
+      setLangActive(false);
       setContactActive(false);
       setPortfolioActive(false);
       setDashboardActive(false);
       setLoginActive(true);
+    } else if (pathName === "/") {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setLangActive(true);
+      setContactActive(false);
+      setPortfolioActive(false);
+      setDashboardActive(false);
+      setLoginActive(false);
     }
-  }, [pathNane]);
+  }, [pathName]);
 
   const [click, setClick] = useState(false);
 
@@ -227,6 +250,47 @@ const Navbar = () => {
                       Our Plans
                     </NavLink>
                   </li>
+                  <span>
+                    <li
+                      onClick={() => setLang(!Lang)}
+                      className={`${
+                        LangActive ? "green-bg-active" : ""
+                      } nav-item `}
+                    >
+                      <NavLink
+                        exact
+                        to="/"
+                        activeClassName="active"
+                        className="nav-links"
+                        onClick={click ? handleClick : null}
+                      >
+                        <span className="ps-1">
+                          {" "}
+                          <Drop />
+                        </span>
+                        Lang
+                      </NavLink>
+                    </li>
+                    {Lang ? (
+                      <div className="bg-white shadow p-2 rounded position-absolute">
+                        {" "}
+                        <span className="d-flex px-2 py-1 cursor-pointer">
+                          English{" "}
+                          <img
+                            className="flag-img  mx-2 "
+                            src={England}
+                            alt="England"
+                          />
+                        </span>
+                        <span className="d-flex px-2 py-1 cursor-pointer">
+                          Arabic{" "}
+                          <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
+                        </span>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </span>
 
                   <li
                     className={`${

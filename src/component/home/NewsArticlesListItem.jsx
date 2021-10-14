@@ -22,7 +22,7 @@ const NewsArticlesListItem = ({ value, history }) => {
               </span>
             </p>
             <h3 className="news-heading-font text-end Slider-Ellipse" dir="ltr">
-              {value.title}
+              {value.title ? value.title : "N/A"}
             </h3>
             <p className="stock-paragraph text-end Slider-Ellipse" dir="ltr">
               {value.description}

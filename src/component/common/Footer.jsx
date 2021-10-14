@@ -8,9 +8,10 @@ import {
   FacebookIcon,
   LinkedinIcon,
 } from "../common/icons/Icons";
+import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 
-const Footer = () => {
+const Footer = ({ history }) => {
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -38,7 +39,7 @@ const Footer = () => {
             <span className="d-flex justify-content-center mt-3">
               <button
                 className="text-decoration-none text-white footer-btn"
-                to="/contact-us"
+                onClick={() => history.push("/contact-us")}
               >
                 Contact Us
               </button>
@@ -157,4 +158,4 @@ const Footer = () => {
     </section>
   );
 };
-export default Footer;
+export default withRouter(Footer);
