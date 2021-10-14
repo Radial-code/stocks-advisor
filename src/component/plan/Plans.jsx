@@ -32,7 +32,7 @@ function Plans({ history }) {
                 return (
                   <div
                     key={index}
-                    className="subs-border d-flex justify-content-between align-items-center p-3 my-2"
+                    className="subs-border d-flex justify-content-between align-items-center p-3 my-4 "
                   >
                     <div>
                       <p className="ff-popins plan-text mb-0">

@@ -76,7 +76,7 @@ const ContactForm = () => {
           <select
             id="cars"
             name="cars"
-            className="  w-100 border-0 bg-white input-text border-A3A3A3 dropdown-toggle"
+            className="  w-100 border-0 bg-white input-text border-A3A3A3 dropdown-toggle cursor-pointer"
             type="text"
             id="cars"
             placeholder="Select Contact Reason"
