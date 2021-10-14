@@ -15,7 +15,7 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             <div className="border-b-1 content-manager mb-3">
               <div className="d-flex justify-content-between">
                 <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
-                <span onClick={sideBarHandler}>
+                <span className="cursor-pointer" onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="54"

@@ -14,7 +14,7 @@ const Team = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               <p className="heading-stock pr-15 fs-sm-20 mb-0">
                 Content Manager
               </p>
-              <span onClick={sideBarHandler}>
+              <span className="cursor-pointer" onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="54"
