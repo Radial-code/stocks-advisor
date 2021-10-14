@@ -6,6 +6,7 @@ import {
   getStockDetailsApi,
   getStockListApi,
   getTeamMemberListApi,
+  updateStockDetailsApi,
   getUserListForAdminApi,
 } from "../../api/cmPanel/stock";
 
@@ -206,6 +207,31 @@ export const getTeamMemberListAction = (setLoading) => async (dispatch) => {
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to team list", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Update stock details
+ * @param {String} id
+ * @param {Object} data
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const updateStockDetailsAction = (id, data, setLoading) => async () => {
+  setLoading(true);
+  try {
+    const response = await updateStockDetailsApi(id, data);
+    if (response.success) {
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to Update stock", "error");
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {

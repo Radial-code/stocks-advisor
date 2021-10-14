@@ -1,19 +1,26 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 import { Col, Form, FormGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
-import { addNewNewsDetailsAction } from "../../../redux/action/news";
+import {
+  addNewNewsDetailsAction,
+  DeleteNewsDetailsAction,
+  updateNewsDetailsAction,
+} from "../../../redux/action/news";
 import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import { uploadImageAction } from "../../../redux/uploadImage";
 
-const AddNewNews = () => {
+const AddNewNews = ({ edit, match, history }) => {
+  const { id } = match.params;
   const dispatch = useDispatch();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [tags, setTags] = useState([]);
+  const [updateLoading, setUpdateLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loadingImage, setLoadingImage] = useState(false);
   const [error, setError] = useState(false);
@@ -54,6 +61,27 @@ const AddNewNews = () => {
         stock: "",
         tags: "",
       });
+    }
+  };
+
+  const deleteStock = () => {
+    if (!!id) {
+      dispatch(DeleteNewsDetailsAction(id, history));
+    }
+  };
+
+  const updateStockDetails = () => {
+    if (!!id) {
+      setError(true);
+      if (
+        newsDetails.title !== "" &&
+        newsDetails.description !== "" &&
+        newsDetails.stock !== "" &&
+        newsDetails.tags !== "" &&
+        newsDetails.media
+      ) {
+        dispatch(updateNewsDetailsAction(id, newsDetails, setUpdateLoading));
+      }
     }
   };
 
@@ -366,4 +394,4 @@ const AddNewNews = () => {
     </Col>
   );
 };
-export default AddNewNews;
+export default withRouter(AddNewNews);

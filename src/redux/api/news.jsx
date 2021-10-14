@@ -10,6 +10,25 @@ export const addNewNewsDetailsApi = async (data) => {
 };
 
 /**
+ * Update stock api
+ * @param {String} id
+ * @param {Object} data
+ * @returns
+ */
+export const updateNewsDetailsApi = async (id, data) => {
+  return await axiosRequest("PUT", `/news/${id}`, data);
+};
+
+/**
+ * delete news details api
+ * @param {string} id
+ * @returns
+ */
+export const DeleteNewsDetailsApi = async (id) => {
+  return await axiosRequest("DELETE", `/news/${id}`);
+};
+
+/**
  *  News list api
  * @returns
  */

@@ -13,9 +13,11 @@ import {
 import {
   addNewStockDetailsAction,
   DeleteStockDetailsAction,
+  updateStockDetailsAction,
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
+import { DeleteNewsDetailsAction } from "../../../redux/action/news";
 
 const AddStockForm = ({ edit, match, history }) => {
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ const AddStockForm = ({ edit, match, history }) => {
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const stockDetailsList = useSelector((state) => state.cmPanel.stockDetails);
   const [loading, setLoading] = useState(false);
+  const [updateLoading, setUpdateLoading] = useState(false);
   const [error, setError] = useState(false);
   const [exchangeLoading, setExchangeLoading] = useState(false);
   const [portfolioLoading, setPortfolioLoading] = useState(false);
@@ -32,12 +35,21 @@ const AddStockForm = ({ edit, match, history }) => {
   const [stockDetails, setStockDetails] = useState({
     joinDate: "",
     joinPrice: stockDetailsList ? stockDetailsList.joinPrice : "",
-    category: stockDetailsList ? stockDetailsList.joinPrice : "",
-    exchange: stockDetailsList ? stockDetailsList.joinPrice : "",
-    portfolio: stockDetailsList ? stockDetailsList.joinPrice : "",
-    soldDate: stockDetailsList ? stockDetailsList.joinPrice : "",
-    soldPrice: stockDetailsList ? stockDetailsList.joinPrice : "",
-    symbol: stockDetailsList ? stockDetailsList.joinPrice : "",
+    category:
+      stockDetailsList && stockDetailsList.category
+        ? stockDetailsList.category.title
+        : "",
+    exchange:
+      stockDetailsList && stockDetailsList.exchange
+        ? stockDetailsList.exchange.title
+        : "",
+    portfolio:
+      stockDetailsList && stockDetailsList.portfolio
+        ? stockDetailsList.portfolio.title
+        : "",
+    soldDate: "",
+    soldPrice: stockDetailsList ? stockDetailsList.soldPrice : "",
+    symbol: stockDetailsList ? stockDetailsList.symbol : "",
     currentPrice: 0,
   });
 
@@ -81,7 +93,23 @@ const AddStockForm = ({ edit, match, history }) => {
 
   const deleteStock = () => {
     if (!!id) {
-      dispatch(DeleteStockDetailsAction(id, history));
+      dispatch(DeleteNewsDetailsAction(id, history));
+    }
+  };
+
+  const updateStockDetails = () => {
+    if (!!id) {
+      setError(true);
+      if (
+        stockDetails.joinDate !== "" &&
+        stockDetails.joinPrice !== "" &&
+        stockDetails.category !== "" &&
+        stockDetails.exchange !== "" &&
+        stockDetails.portfolio !== "" &&
+        stockDetails.symbol !== ""
+      ) {
+        dispatch(updateStockDetailsAction(id, stockDetails, setUpdateLoading));
+      }
     }
   };
 
@@ -90,7 +118,7 @@ const AddStockForm = ({ edit, match, history }) => {
       <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
         <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
-            Add New Stock
+            {edit ? "Update Stock" : "Add New Stock"}
           </p>
           <Link to="/content/manager/stocks">
             <button className="update-btn-2 ">Back</button>
@@ -316,9 +344,9 @@ const AddStockForm = ({ edit, match, history }) => {
                   type="button"
                   disabled={addStockLoading}
                   className="update-btn my-3 ff-popins"
-                  onClick={() => submitStockDetails()}
+                  onClick={() => updateStockDetails()}
                 >
-                  {addStockLoading ? <Loader /> : "Update"}
+                  {updateLoading ? <Loader /> : "Update"}
                 </button>
                 <button
                   type="button"

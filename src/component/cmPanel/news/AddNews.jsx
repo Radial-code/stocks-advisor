@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import AddNewNews from "./AddNewNews";
 import "../../cmPanelCss/News.css";
+import { withRouter } from "react-router";
+import { useDispatch } from "react-redux";
+import { getNewsDetailsAction } from "../../../redux/action/news";
 
-const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+const AddNews = ({
+  sideBarHandler,
+  setSidebarActive,
+  sidebarActive,
+  match,
+}) => {
+  const dispatch = useDispatch();
+  const { id } = match.params;
+  const [loading, setLoading] = useState(false);
+  const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    if (!!id) {
+      setEdit(true);
+      dispatch(getNewsDetailsAction(id, setLoading));
+    }
+  }, [id]);
+
   return (
     <div>
       <Container>
@@ -34,11 +54,11 @@ const AddNews = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </div>
             </div>
           </Col>
-          <AddNewNews />
+          <AddNewNews edit={edit} />
         </Row>
       </Container>
     </div>
   );
 };
 
-export default AddNews;
+export default withRouter(AddNews);

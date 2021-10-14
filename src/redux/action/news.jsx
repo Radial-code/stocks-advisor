@@ -7,9 +7,12 @@ import {
   getNewsDetailsApi,
   getNewsForAdminApi,
   getRelatedNewsApi,
+  updateNewsDetailsApi,
+  DeleteNewsDetailsApi,
 } from "../api/news";
 
 export const GET_NEWS_LIST = "GET_NEWS_LIST";
+export const DELETE_NEWS_LIST = "DELETE_NEWS_LIST";
 export const GET_NEWS_FOR_ADMIN = "GET_NEWS_FOR_ADMIN";
 export const GET_HOME_PAGE_NEWS = "GET_HOME_PAGE_NEWS";
 export const GET_NEWS_BY_STOCK_PAGE = "GET_NEWS_BY_STOCK_PAGE";
@@ -218,6 +221,60 @@ export const getNewsDetailsAction = (id, setLoading) => async (dispatch) => {
     }
   } catch (error) {
     setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Update News details
+ * @param {String} id
+ * @param {Object} data
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const updateNewsDetailsAction = (id, data, setLoading) => async () => {
+  setLoading(true);
+  try {
+    const response = await updateNewsDetailsApi(id, data);
+    if (response.success) {
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to Update News", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * delete news  action
+ * @param {Object} data
+ * @returns
+ */
+
+const DeleteNewsDetails = (data) => ({
+  type: DELETE_NEWS_LIST,
+  data,
+});
+
+export const DeleteNewsDetailsAction = (id, history) => async (dispatch) => {
+  try {
+    const response = await DeleteNewsDetailsApi(id);
+    if (response.success) {
+      dispatch(DeleteNewsDetails(id));
+      history.push("/content/manager/stocks");
+      Swal.fire("success", "Stock deleted successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      Swal.fire("Error", "Failed to delete Stock", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }

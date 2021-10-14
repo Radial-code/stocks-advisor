@@ -16,6 +16,7 @@ import {
   GET_USER_LIST_FOR_ADMIN,
 } from "../action/cmPanel/stock";
 import {
+  DELETE_NEWS_LIST,
   GET_HOME_PAGE_NEWS,
   GET_NEWS_BY_STOCK_PAGE,
   GET_NEWS_FOR_ADMIN,
@@ -178,6 +179,18 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         allNews: action.data,
+      };
+    }
+
+    // delete portfolio list
+    case DELETE_NEWS_LIST: {
+      const deleteNewsList = [...state.allNews];
+      const deleteList = deleteNewsList.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        allNews: deleteList,
       };
     }
 
