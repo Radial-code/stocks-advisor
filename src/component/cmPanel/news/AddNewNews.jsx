@@ -48,8 +48,7 @@ const AddNewNews = ({ edit, match, history }) => {
       newsDetails.title !== "" &&
       newsDetails.description !== "" &&
       newsDetails.stock !== "" &&
-      newsDetails.tags !== "" &&
-      newsDetails.media
+      newsDetails.tags !== ""
     ) {
       dispatch(
         addNewNewsDetailsAction(newsDetails, setAddStockLoading, setNewsDetails)
@@ -77,8 +76,7 @@ const AddNewNews = ({ edit, match, history }) => {
         newsDetails.title !== "" &&
         newsDetails.description !== "" &&
         newsDetails.stock !== "" &&
-        newsDetails.tags !== "" &&
-        newsDetails.media
+        newsDetails.tags !== ""
       ) {
         dispatch(updateNewsDetailsAction(id, newsDetails, setUpdateLoading));
       }
@@ -94,7 +92,7 @@ const AddNewNews = ({ edit, match, history }) => {
           </p>
           <p className="heading-stock d-block d-sm-none">Add News</p>
           <Link to="/content/manager/news">
-            <button className="update-btn-2 ">Back</button>
+            <button className="update-btn-2">Back</button>
           </Link>
         </div>
 
