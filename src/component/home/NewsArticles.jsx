@@ -78,7 +78,7 @@ const NewsArticles = ({ history }) => {
             </Slider>
           </div>
         </div>
-        <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
+        <div className="d-flex pt-3 pb-5 mt-4 justify-content-center cursor-pointer">
           <p className="default-btn" onClick={() => history.push("/news")}>
             View All News
           </p>

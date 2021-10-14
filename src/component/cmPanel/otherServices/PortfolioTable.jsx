@@ -114,11 +114,9 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                 );
               })
             ) : (
-              <div className="h-100">
-                <p className="table-text text-end">
-                  You don't have any Category list
-                </p>
-              </div>
+              <td colSpan={5} className="text-center table-text">
+                You don't have any Portfolio list
+              </td>
             )}
           </tbody>
         </table>
