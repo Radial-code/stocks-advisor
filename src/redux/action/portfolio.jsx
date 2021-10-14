@@ -33,8 +33,6 @@ export const getPortfolioListForDashBoardAction =
         setSideBarLoading(false);
       } else {
         setSideBarLoading(false);
-        Swal.fire("Error", "Failed to Load  Portfolios list", "error");
-        setTimeout(Swal.close, 2000);
       }
     } catch (error) {
       setSideBarLoading(false);

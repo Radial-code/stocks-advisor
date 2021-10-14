@@ -2,8 +2,15 @@ import React from "react";
 import "./portfolios.css";
 import SoldStock from "./SoldStock";
 import CurrentStock from "./CurrentStock";
+import BubblesLoader from "../common/BubblesLoader";
 
-function PortfolioStock({ sideBarHandler, setSidebarActive, sidebarActive }) {
+function PortfolioStock({
+  sideBarHandler,
+  setSidebarActive,
+  sidebarActive,
+  loading,
+}) {
+  console.log("/protfolios/stock/");
   return (
     <div className="container mr-lg-30 ">
       <div
@@ -39,9 +46,9 @@ function PortfolioStock({ sideBarHandler, setSidebarActive, sidebarActive }) {
             <h1 className="current-stock-text ff-popins mt-md-5 mt-2">
               Current Stocks
             </h1>
-            <CurrentStock />
+            {loading ? <BubblesLoader /> : <CurrentStock />}
             <div className="border-b-1-16191E mt-4"></div>
-            <SoldStock />
+            <SoldStock loading={loading} />
           </div>
         </div>
       </div>

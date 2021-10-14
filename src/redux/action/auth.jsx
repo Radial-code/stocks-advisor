@@ -22,7 +22,7 @@ export const REMOVE_LOCAL_STORAGE_TOKEN = "REMOVE_LOCAL_STORAGE_TOKEN";
  * get Local Storage Token
  * @returns
  */
-export const getLocalStorageToken = () => ({
+export const getLocalStorageToken = (value) => ({
   type: GET_LOCAL_STORAGE_TOKEN,
   token: localStorage.getItem("stock-advisor"),
 });
@@ -39,7 +39,7 @@ export const LogoutAction = (history) => async (dispatch) => {
   try {
     dispatch(Logout);
     localStorage.setItem("stock-advisor", null);
-    history.push("/our-plan");
+    history.push("/");
     window.location.reload();
   } catch (error) {}
 };
@@ -69,7 +69,7 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
           history.push("/our-plan");
         }
       } else {
-        history.push("/content/manager/stocks");
+        history.push("/");
       }
     } else {
       setLoading(false);
@@ -143,20 +143,30 @@ const getUserProfile = (data, token) => ({
   },
 });
 
-export const getUserProfileAction = (setLoading, token) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getUserProfileApi();
-    if (response.success) {
-      dispatch(getUserProfile(response.data, token));
-      setLoading(false);
-    } else {
+export const getUserProfileAction =
+  (setLoading, history, token) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getUserProfileApi();
+      if (response.success) {
+        dispatch(getUserProfile(response.data, token));
+        setLoading(false);
+        if (!response.data.isAdmin) {
+          // if (response.data.isPaidPlan) {
+          //   history.push("/");
+          // } else {
+          //   history.push("/");
+          // }
+        } else {
+          history.push("/");
+        }
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
       setLoading(false);
     }
-  } catch (error) {
-    setLoading(false);
-  }
-};
+  };
 
 /**
  * username action*

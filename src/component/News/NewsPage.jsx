@@ -4,6 +4,7 @@ import newsView from "../../assets/img/newsView.png";
 import Chart from "../home/Chart";
 import RelatedArticles from "./RelatedArticles";
 import Plans from "../plan/Plans";
+
 const NewsPage = () => (
   <>
     <section>

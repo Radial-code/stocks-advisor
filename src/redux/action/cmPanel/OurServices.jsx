@@ -289,8 +289,6 @@ export const getPortfolioListAction =
         setPortfolioLoading(false);
       } else {
         setPortfolioLoading(false);
-        Swal.fire("Error", "Failed to Load Portfolio list", "error");
-        setTimeout(Swal.close, 2000);
       }
     } catch (error) {
       setPortfolioLoading(false);

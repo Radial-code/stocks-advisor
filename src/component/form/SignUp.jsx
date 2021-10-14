@@ -135,7 +135,9 @@ function SignUp({ history }) {
                     ? "UserName is required"
                     : error}
                 </span>
-                {userNameError ? "User Name already exist" : null}
+                <span className="text-danger">
+                  {userNameError ? "User Name already exist" : null}
+                </span>
               </Form.Group>
               {/* email */}
               <Form.Group

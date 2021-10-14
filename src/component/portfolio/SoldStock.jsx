@@ -1,86 +1,91 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Sortarrow from "../../assets/img/sortarrow.png";
+import BubblesLoader from "../common/BubblesLoader";
 
-function SoldStock() {
+function SoldStock({ loading }) {
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   return (
     <div className="mt-5">
       <h1 className="sold-stock-text ff-popins pt-md-4 ">Sold Stocks</h1>
-      <div className="table-responsive scroll-bar-1  sold-stock-scrollbar">
-        {soldStockList && soldStockList.length ? (
-          <table className="table table-borderless table-hover">
-            <thead className="portfolio-sticky">
-              <tr className="sold-stock-table-head table-border-bottom table-border-top">
-                <th scope="col" className="text-center">
-                  Date Bought
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
+      {loading ? (
+        <BubblesLoader />
+      ) : (
+        <div className="table-responsive scroll-bar-1  sold-stock-scrollbar">
+          {soldStockList && soldStockList.length ? (
+            <table className="table table-borderless table-hover">
+              <thead className="portfolio-sticky">
+                <tr className="sold-stock-table-head table-border-bottom table-border-top">
+                  <th scope="col" className="text-center">
+                    Date Bought
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
 
-                <th scope="col" className="text-center">
-                  Date Sold
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-                <th scope="col" className="text-center">
-                  Name
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-                <th scope="col" className="text-center">
-                  Symbol
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-                <th scope="col" className="text-center">
-                  Category
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-                <th scope="col" className="text-center">
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                  Join Price
-                </th>
-                <th scope="col" className="text-center">
-                  sell Price
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-                <th scope="col" className="text-center">
-                  Profit/Loss
-                  <span>
-                    <img className="pe-1" src={Sortarrow} alt="sort arrow" />
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="table-hover-scale">
-              <tr className="sold-stock-data table-border-bottom">
-                <td className="text-center">15/07/2021</td>
-                <td className="text-center">Netflix Inc</td>
-                <td className="text-center">NFLX</td>
-                <td className="text-center">Portfolio</td>
-                <td className="text-center">Common</td>
-                <td className="text-center">$125</td>
-                <td className="text-center">$150</td>
-                <td className="text-center profitloss-text">25</td>
-              </tr>
-            </tbody>
-          </table>
-        ) : (
-          <p className="text-center">You don't have any sold stocks</p>
-        )}
-      </div>
+                  <th scope="col" className="text-center">
+                    Date Sold
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                  <th scope="col" className="text-center">
+                    Name
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                  <th scope="col" className="text-center">
+                    Symbol
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                  <th scope="col" className="text-center">
+                    Category
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                  <th scope="col" className="text-center">
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                    Join Price
+                  </th>
+                  <th scope="col" className="text-center">
+                    sell Price
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                  <th scope="col" className="text-center">
+                    Profit/Loss
+                    <span>
+                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="table-hover-scale">
+                <tr className="sold-stock-data table-border-bottom">
+                  <td className="text-center">15/07/2021</td>
+                  <td className="text-center">Netflix Inc</td>
+                  <td className="text-center">NFLX</td>
+                  <td className="text-center">Portfolio</td>
+                  <td className="text-center">Common</td>
+                  <td className="text-center">$125</td>
+                  <td className="text-center">$150</td>
+                  <td className="text-center profitloss-text">25</td>
+                </tr>
+              </tbody>
+            </table>
+          ) : (
+            <p className="text-center">You don't have any sold stocks</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

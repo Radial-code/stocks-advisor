@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, withRouter } from "react-router";
+import { withRouter } from "react-router";
 import PortfolioStock from "./PortfolioStock";
 import PortfoliosSidebar from "./PortfoliosSidebar";
 import { useDispatch } from "react-redux";
@@ -32,13 +32,12 @@ const Portfolio = ({ match }) => {
             setSidebarActive={setSidebarActive}
             setPortfoliosId={setPortfoliosId}
           />
-          <Route exact path={`/protfolios/stock/${portfoliosId}`}>
-            <PortfolioStock
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
-            />
-          </Route>
+          <PortfolioStock
+            sideBarHandler={sideBarHandler}
+            sidebarActive={sidebarActive}
+            setSidebarActive={setSidebarActive}
+            loading={loading}
+          />
         </div>
       </div>
     </>

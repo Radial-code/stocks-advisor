@@ -26,16 +26,19 @@ function App({ history }) {
   const [loading, setLoading] = useState(false);
   const [sideBarLoading, setSideBarLoading] = useState(false);
   const auth = useSelector((state) => state.auth.auth);
+  const stateToken = useSelector((state) => state.auth.token);
   const userData = useSelector((state) => state.auth.userData);
   const { isScreenFixed } = useFixedScreenProvider();
   const token = localStorage.getItem("stock-advisor");
 
   useEffect(() => {
-    dispatch(getLocalStorageToken());
-    if (auth) {
-      dispatch(getUserProfileAction(setLoading, history, token));
+    if (!!token) {
+      dispatch(getLocalStorageToken());
+      if (auth && token) {
+        dispatch(getUserProfileAction(setLoading, history, token));
+      }
     }
-  }, [auth]);
+  }, [auth, token]);
 
   useEffect(() => {
     dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));

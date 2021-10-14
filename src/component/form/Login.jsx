@@ -76,6 +76,11 @@ function Login({ history }) {
                   type="password"
                   placeholder="Password"
                 />
+                <span className="text-danger">
+                  {error && logInDetails.password === ""
+                    ? "Password is required"
+                    : null}
+                </span>
               </Form.Group>
 
               <div className=" my-sm-3">

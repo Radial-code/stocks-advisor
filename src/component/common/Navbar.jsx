@@ -278,7 +278,11 @@ const Navbar = () => {
                   {/*start here drop down  */}
                   {auth && !!token ? (
                     <li
-                      onClick={dropHandler}
+                      onClick={() =>
+                        history.push(
+                          `/protfolios/stock/${dashboardPortfoliosListId}`
+                        )
+                      }
                       className={` nav-item  d-md-none ${
                         student ? "drop-down-active" : ""
                       }`}
@@ -320,7 +324,7 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  <li className=" drop-item d-md-none mr-0">
+                  {/* <li className=" drop-item d-md-none mr-0">
                     <div
                       className={`drop-none w-100   ${
                         student ? "sidebardropdown" : ""
@@ -370,7 +374,7 @@ const Navbar = () => {
                         </li>
                       </ul>
                     </div>
-                  </li>
+                  </li> */}
                   {auth && !!token ? (
                     <div className="d-flex d-xl-none  flex-lg-row flex-column  align-items-sm-start  align-items-center">
                       <div className="d-md-none d-flex">

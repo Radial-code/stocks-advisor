@@ -25,6 +25,12 @@ const ContactForm = () => {
       EmailRegex.test(contactDetails.email) === true
     ) {
       dispatch(addContactAction(contactDetails, setSetLoading));
+      setContactDetails({
+        name: "",
+        message: "",
+        reason: "",
+        email: "",
+      });
     }
   };
   return (
