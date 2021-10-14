@@ -10,7 +10,6 @@ function PortfolioStock({
   sidebarActive,
   loading,
 }) {
-  console.log("/protfolios/stock/");
   return (
     <div className="container mr-lg-30 ">
       <div
@@ -46,7 +45,13 @@ function PortfolioStock({
             <h1 className="current-stock-text ff-popins mt-md-5 mt-2">
               Current Stocks
             </h1>
-            {loading ? <BubblesLoader /> : <CurrentStock />}
+            {loading ? (
+              <div className="d-flex justify-content-center">
+                <BubblesLoader />
+              </div>
+            ) : (
+              <CurrentStock />
+            )}
             <div className="border-b-1-16191E mt-4"></div>
             <SoldStock loading={loading} />
           </div>

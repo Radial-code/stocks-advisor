@@ -76,6 +76,15 @@
   top: 7px;
   left: 12px;
 }
+.upload-img-btn2 {
+  background: var(--color-88BEFC);
+  font-weight: 500;
+  font-size: 17px;
+  color: #fff;
+  border: 2px solid var(--color-88BEFC);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
 @media (max-width: 575.98px) {
   .manger-panel-shadow {
     padding-top: 16.3px;

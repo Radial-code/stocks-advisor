@@ -11,7 +11,10 @@ function SoldStock({ loading }) {
     <div className="mt-5">
       <h1 className="sold-stock-text ff-popins pt-md-4 ">Sold Stocks</h1>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center">
+          {" "}
+          <BubblesLoader />
+        </div>
       ) : (
         <div className="table-responsive scroll-bar-1  sold-stock-scrollbar">
           {soldStockList && soldStockList.length ? (

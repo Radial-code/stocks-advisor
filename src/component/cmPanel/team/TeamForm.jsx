@@ -37,7 +37,7 @@ const TeamForm = () => {
 
                   <input type="file" value="" id="my-file" hidden />
 
-                  <button className="upload-img-btn d-none d-sm-block cursor-pointer">
+                  <button className="upload-img-btn2 d-none d-sm-block cursor-pointer">
                     <label className="cursor-pointer" for="my-file">
                       Upload Image
                     </label>

@@ -143,10 +143,18 @@ const Footer = ({ history }) => {
               Copyright @ 2021 Nala's Mane
             </p>
             <span className="d-flex justify-content-center">
-              <InstagramIcon />
-              <TwitterIcon />
-              <LinkedinIcon />
-              <FacebookIcon />
+              <a target="_blank" href="https://www.instagram.com">
+                <InstagramIcon />
+              </a>
+              <a target="_blank" href="https://ads.twitter.com">
+                <TwitterIcon />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/notifications/">
+                <LinkedinIcon />
+              </a>
+              <a target="_blank" href="https://www.facebook.com/">
+                <FacebookIcon />
+              </a>
             </span>
           </div>
         </div>

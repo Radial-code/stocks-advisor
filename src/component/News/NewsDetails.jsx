@@ -23,7 +23,7 @@ const NewsDetails = ({ match }) => {
           <div className="row d-flex justify-content-center">
             <NewsDetailsPage loading={loading} />
             <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
-              <div className="profile-box">
+              <div className="profile-box py-4">
                 <Chart />
                 <div className="mt-5">
                   <Plans />
