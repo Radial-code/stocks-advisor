@@ -59,7 +59,7 @@ const AddNewNews = () => {
 
   return (
     <Col xs={12}>
-      <div className="manger-panel-shadow p-5 w-xl-1000 mt-5">
+      <div className="manger-panel-shadow p-sm-5 w-xl-1000 mt-5">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="heading-stock d-none d-sm-block fs-sm-20">
             Add New News
@@ -78,7 +78,7 @@ const AddNewNews = () => {
             >
               <Form.Control
                 type="text"
-                placeholder="Title"
+                placeholder="Arabic Title"
                 onChange={(e) => {
                   setNewsDetails({
                     ...newsDetails,
@@ -91,8 +91,124 @@ const AddNewNews = () => {
               </span>
             </Form.Group>
           </div>
+          <div className="col-12 col-lg-6 mb-3" dir="ltr">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control
+                type="text"
+                placeholder="English Title"
+                onChange={(e) => {
+                  setNewsDetails({
+                    ...newsDetails,
+                    title: e.target.value,
+                  });
+                }}
+              />
+              <span className="text-danger">
+                {error && newsDetails.title === "" ? "Title is required" : null}
+              </span>
+            </Form.Group>
+          </div>
+          <div className="col-12 col-lg-6 mb-3">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control
+                placeholder={
+                  userDetails
+                    ? `${userDetails.firstName} ${userDetails.lastName}`
+                    : "N/A"
+                }
+                disabled
+              />
+            </Form.Group>
+          </div>
+          <div className="col-12 col-lg-6 mb-3">
+            <Form.Group
+              className="mb-3 add-new-stock-field "
+              controlId="formBasicEmail"
+            >
+              <Form.Control
+                type="number"
+                placeholder={
+                  userDetails
+                    ? `${userDetails.firstName} ${userDetails.lastName}`
+                    : "N/A"
+                }
+                disabled
+              />
+            </Form.Group>
+          </div>{" "}
+          <div className="col-12 col-lg-6 mb-3">
+            <div className="col-md-6 input-tag w-100">
+              <ReactTagInput
+                tags={tags}
+                placeholder="Arabic Details"
+                maxTags={5}
+                editable={true}
+                readOnly={false}
+                removeOnBackspace={true}
+                onChange={(newTags) => setTags(newTags)}
+              />
+              {console.log("tags", tags.length)}
+              <span className="text-danger">
+                {error && tags.length < 0 ? "Details is required" : null}
+              </span>
+            </div>
+          </div>
+          <div className="col-12 col-lg-6 mb-3" dir="ltr">
+            <div className="col-md-6 input-tag w-100">
+              <ReactTagInput
+                tags={tags}
+                placeholder="English Details"
+                maxTags={5}
+                editable={true}
+                readOnly={false}
+                removeOnBackspace={true}
+                onChange={(newTags) => setTags(newTags)}
+              />
+              {console.log("tags", tags.length)}
+              <span className="text-danger">
+                {error && tags.length < 0 ? "Details is required" : null}
+              </span>
+            </div>
+          </div>
           <div className="col-12 col-lg-6 mb-3 ">
-            <div className="inputs-border   d-flex justify-content-between align-items-center py-1 ps-1 pe_12">
+            <Form.Group
+              className="mb-3 add-new-stock-field position-relative "
+              controlId="formBasicEmail"
+            >
+              <Form.Control type="text" placeholder="YouTube / Image Link" />
+
+              <input
+                onChange={(e) => setInput(e.target.value)}
+                type="file"
+                value={uploadImageUrl ? uploadImageUrl : null}
+                id="my-file"
+                onChange={(e) =>
+                  dispatch(uploadImageAction(e, setLoadingImage, "news"))
+                }
+                hidden
+              />
+              <button className="upload-img-btn d-none d-sm-block cursor-pointer ">
+                {loadingImage ? (
+                  <Loader />
+                ) : (
+                  <label className="cursor-pointer" for="my-file">
+                    Upload Image
+                  </label>
+                )}
+              </button>
+              <button className="upload-img-btn d-block d-sm-none cursor-pointer">
+                <label className="cursor-pointer" for="my-file">
+                  Upload
+                </label>
+              </button>
+            </Form.Group>
+            {/* <div className="inputs-border   d-flex justify-content-between align-items-center py-2 ps-1 pe_12">
               {input !== "" ? (
                 <span className="small-paragraph d-none d-sm-block Ellipse">
                   {input}
@@ -137,59 +253,10 @@ const AddNewNews = () => {
                   Upload
                 </label>
               </button>
-            </div>
+            </div> */}
             <span className="text-danger">
               {error && uploadImageUrl === "" ? "Media link is required" : null}
             </span>
-          </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <Form.Group
-              className="mb-3 add-new-stock-field "
-              controlId="formBasicEmail"
-            >
-              <Form.Control
-                placeholder={
-                  userDetails
-                    ? `${userDetails.firstName} ${userDetails.lastName}`
-                    : "N/A"
-                }
-                disabled
-              />
-            </Form.Group>
-          </div>
-          <div className="col-12 col-lg-6 mb-3">
-            <Form.Group
-              className="mb-3 add-new-stock-field "
-              controlId="formBasicEmail"
-            >
-              <Form.Control
-                type="number"
-                placeholder={
-                  userDetails
-                    ? `${userDetails.firstName} ${userDetails.lastName}`
-                    : "N/A"
-                }
-                disabled
-              />
-            </Form.Group>
-          </div>
-
-          <div className="col-12 col-lg-6 mb-3">
-            <div className="col-md-6 input-tag w-100">
-              <ReactTagInput
-                tags={tags}
-                placeholder="Details"
-                maxTags={5}
-                editable={true}
-                readOnly={false}
-                removeOnBackspace={true}
-                onChange={(newTags) => setTags(newTags)}
-              />
-              {console.log("tags", tags.length)}
-              <span className="text-danger">
-                {error && tags.length < 0 ? "Details is required" : null}
-              </span>
-            </div>
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
@@ -228,7 +295,28 @@ const AddNewNews = () => {
               id=""
               cols=""
               rows="6"
-              placeholder="Description "
+              placeholder="Arabic Description "
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  description: e.target.value,
+                });
+              }}
+            ></textarea>
+            <span className="text-danger">
+              {error && newsDetails.description === ""
+                ? "Description is required"
+                : null}
+            </span>
+          </div>
+          <div className="col-12 mb-3" dir="ltr">
+            <textarea
+              className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+              name=""
+              id=""
+              cols=""
+              rows="6"
+              placeholder="English Description "
               onChange={(e) => {
                 setNewsDetails({
                   ...newsDetails,

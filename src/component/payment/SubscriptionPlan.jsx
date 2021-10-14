@@ -11,7 +11,10 @@ const SubscriptionPlan = ({ loading }) => {
           Selected Subscription Plan
         </p>
         {loading ? (
-          <BubblesLoader />
+          <div className="d-flex justify-content-center align-items-center h-100">
+            {" "}
+            <BubblesLoader />
+          </div>
         ) : (
           <>
             <div className="d-flex justify-content-between payment-border pb-2">
