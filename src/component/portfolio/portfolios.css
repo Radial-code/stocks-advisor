@@ -4,6 +4,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.blank-data {
+  font-size: 23px;
+  font-weight: bold;
+}
 .current-stock-text {
   font-size: 31px;
   font-weight: 500;

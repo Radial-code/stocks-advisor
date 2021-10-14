@@ -82,7 +82,9 @@ function SoldStock({ loading }) {
               </tbody>
             </table>
           ) : (
-            <p className="text-center">You don't have any sold stocks</p>
+            <p className="blank-data text-center mt-5">
+              You don't have any sold stocks
+            </p>
           )}
         </div>
       )}

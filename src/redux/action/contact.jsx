@@ -43,7 +43,7 @@ export const getContactListAction = (setLoading) => async (dispatch) => {
   try {
     const response = await getContactListApi();
     if (response.success) {
-      dispatch(getContactList(response.data));
+      dispatch(getContactList(response.allContact));
       setLoading(false);
     } else {
       setLoading(false);

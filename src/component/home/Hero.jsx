@@ -11,7 +11,7 @@ const Hero = ({ loading, setRelatedLoading }) => {
             <div className="profile-box p-3 homePageSlider">
               <h1 className="profile-heading  mt-3 pr-15">Featured News</h1>
               {loading ? (
-                <div className="d-flex justify-content-center align-items-center">
+                <div className="mt-5 d-flex justify-content-center align-items-center">
                   <BubblesLoader />
                 </div>
               ) : (

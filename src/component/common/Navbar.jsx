@@ -51,7 +51,17 @@ const Navbar = () => {
   // ACTIVE HEADER AS PATH
   const pathName = window.location.pathname;
   useEffect(() => {
-    if (pathName === "/") {
+    if (window.location.pathname.includes("protfolios/stock")) {
+      setHomeActive(false);
+      setAboutActive(false);
+      setNewsActive(false);
+      setPlansActive(false);
+      setLangActive(false);
+      setContactActive(false);
+      setPortfolioActive(true);
+      setDashboardActive(false);
+      setLoginActive(false);
+    } else if (pathName === "/") {
       setHomeActive(true);
       setAboutActive(false);
       setNewsActive(false);
@@ -99,16 +109,6 @@ const Navbar = () => {
       setContactActive(true);
       setLangActive(false);
       setPortfolioActive(false);
-      setDashboardActive(false);
-      setLoginActive(false);
-    } else if (pathName === `/protfolios/stock/${dashboardPortfoliosListId}`) {
-      setHomeActive(false);
-      setAboutActive(false);
-      setNewsActive(false);
-      setPlansActive(false);
-      setLangActive(false);
-      setContactActive(false);
-      setPortfolioActive(true);
       setDashboardActive(false);
       setLoginActive(false);
     } else if (pathName === "/login") {

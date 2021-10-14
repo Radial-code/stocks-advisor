@@ -73,16 +73,21 @@ const SubscriptionDetails = () => {
                 </p>
               </section>
             </Col>
-
+            {/* 
             <Col xs={12} className="mt-5 d-flex justify-content-center mx-auto">
               <div className="cancel-change-btn">
-                <button className="cancel-btn fs-sm-14">Cancel Plan</button>
+                <button disabled className="cancel-btn fs-sm-14">
+                  Cancel Plan
+                </button>
 
-                <button className="update-btn-2 fs-sm-14  change-btn mr-15 mr-xs-0">
+                <button
+                  disabled
+                  className="update-btn-2 fs-sm-14  change-btn mr-15 mr-xs-0"
+                >
                   Change Plan
                 </button>
               </div>
-            </Col>
+            </Col> */}
           </Row>
         ) : (
           "You don't have any plan"

@@ -13,6 +13,7 @@ import Plans from "../cmPanel/plans/Plans";
 import PlansSection from "./plans/PlansSection";
 import TeamCards from "./team/TeamCards";
 import TeamForm from "./team/TeamForm";
+import Enquiry from "./enquiry/Enquiry";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -117,6 +118,13 @@ const CmPanelRoutes = () => {
           </Route>
           <Route path="/content/manager/team/form">
             <TeamForm
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/enquiry/list">
+            <Enquiry
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
