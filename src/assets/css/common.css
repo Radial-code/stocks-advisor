@@ -143,6 +143,11 @@
 .home-slider {
   height: 400px;
 }
+@media (max-width: 1200px) {
+  .home-slider {
+    height: 281px !important;
+  }
+}
 
 /* UTILITY CSS */
 .text-5CBD4C {
@@ -208,9 +213,16 @@
   font-size: var(--font-xs);
   color: var(--color-44464A);
 }
+
+@media (min-width: 768px) {
+  .slider-img {
+    height: 500px;
+    width: 500px !important;
+  }
+}
 .slider-img {
-  height: 500px;
-  width: 500px;
+  height: 300px;
+  width: 100%;
 }
 
 @media (max-width: 567px) {
