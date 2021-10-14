@@ -48,8 +48,6 @@ const Router = () => {
         <Route exact path="/resend-otp" component={ResendOtp} />
         {/** */}
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/lang" component={Homepage} />
-
         <Route exact path="/about" component={About} />
         <Route exact path="/contact-us" component={Contact} />
         <Route exact path="/payment/:id" component={Stripe} />

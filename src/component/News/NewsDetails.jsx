@@ -3,11 +3,9 @@ import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import { getNewsDetailsAction } from "../../redux/action/news";
 import NewsDetailsPage from "./NewsDetailsPage";
-import newsView from "../../assets/img/newsView.png";
 import Chart from "../home/Chart";
 import RelatedArticles from "./RelatedArticles";
 import Plans from "../plan/Plans";
-import BubblesLoader from "../common/BubblesLoader";
 
 const NewsDetails = ({ match }) => {
   const dispatch = useDispatch();
@@ -23,7 +21,7 @@ const NewsDetails = ({ match }) => {
       <section>
         <div className="container py-4 p-left-right">
           <div className="row d-flex justify-content-center">
-            {loading ? <BubblesLoader /> : <NewsDetailsPage />}
+            <NewsDetailsPage loading={loading} />
             <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
               <div className="profile-box">
                 <Chart />
