@@ -17,7 +17,7 @@ import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
-import { LayoutProvider } from "./redux/LayoutChanger";
+import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 
 function App({ history }) {
   const stripePromise = loadStripe(
@@ -46,7 +46,7 @@ function App({ history }) {
   }, []);
 
   return (
-    <LayoutProvider>
+    <LayoutChangerProvider>
       <div
         className={`${
           isScreenFixed ? "overflow-hidden  h-100vh" : ""
@@ -84,7 +84,7 @@ function App({ history }) {
           </Elements>
         )}
       </div>
-    </LayoutProvider>
+    </LayoutChangerProvider>
   );
 }
 

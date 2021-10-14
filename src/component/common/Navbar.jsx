@@ -16,12 +16,24 @@ import {
 } from "./icons/Icons";
 import "./NavBar.css";
 import { Drop } from "../common/icons/Icons";
-import { useLayout, LayoutProvider } from "../../redux/LayoutChanger";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Navbar = () => {
-  const { layoutValue } = useLayout();
-  const dataflow = () => {
-    console.log(layoutValue);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+
+  if (layoutClickChanger) {
+    document.dir = "rtl";
+  } else {
+    document.dir = "ltr";
+  }
+
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
+  };
+
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
   };
 
   const dispatch = useDispatch();
@@ -140,7 +152,6 @@ const Navbar = () => {
 
   return (
     <>
-      <button onClick={dataflow}>click to test</button>
       <div className={click ? "main-container" : ""} onClick={() => Close()}>
         <nav className="navbar" onClick={(e) => e.stopPropagation()}>
           <div className="container mx-4 mx-sm-auto justify-content-between">
@@ -281,7 +292,10 @@ const Navbar = () => {
                     {Lang ? (
                       <div className="bg-white shadow p-2 rounded position-absolute">
                         {" "}
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
+                        <span
+                          onClick={layoutrightChangeHandler}
+                          className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                        >
                           English{" "}
                           <img
                             className="flag-img  mx-2 "
@@ -289,7 +303,10 @@ const Navbar = () => {
                             alt="England"
                           />
                         </span>
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
+                        <span
+                          onClick={layoutleftChangeHandler}
+                          className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                        >
                           Arabic{" "}
                           <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
                         </span>
