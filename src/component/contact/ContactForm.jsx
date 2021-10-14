@@ -3,8 +3,11 @@ import { useDispatch } from "react-redux";
 import { addContactAction } from "../../redux/action/contact";
 import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ContactForm = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [contactDetails, setContactDetails] = useState({
     name: "",
@@ -38,7 +41,11 @@ const ContactForm = () => {
       <div className="d-flex flex-column justify-content-center d-sm-block  pt-lg-3  pe-sm-0 pt-md-4 px-md-3">
         {/* NAME */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+          className={`${
+            layoutClickChanger
+              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
+          }`}
           type="text"
           placeholder="Name"
           onChange={(e) => {
@@ -53,7 +60,11 @@ const ContactForm = () => {
         ) : null}
         {/* EMAIL */}
         <input
-          className=" input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+          className={`${
+            layoutClickChanger
+              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
+          }`}
           type="email"
           placeholder="Email"
           required
@@ -98,7 +109,11 @@ const ContactForm = () => {
         ) : null}
         {/* MESSAGE */}
         <textarea
-          className=" input-border py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+          className={`${
+            layoutClickChanger
+              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
+          }`}
           rows="6"
           placeholder="Message..."
           required

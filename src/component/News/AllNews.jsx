@@ -4,8 +4,10 @@ import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import img_2 from "../../assets/img/calendar-icon.png";
-
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const AllNews = ({ history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
 
   return (
@@ -38,7 +40,11 @@ const AllNews = ({ history }) => {
                         <div className="w-lg-518">
                           <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
                             {moment(value.createdAt).format("ddd/MM/yyyy")}
-                            <span className="pr-15">
+                            <span
+                              className={`${
+                                layoutClickChanger ? "pr-15" : "px-3"
+                              }`}
+                            >
                               <img src={img_2} alt="" />{" "}
                             </span>{" "}
                           </p>

@@ -44,7 +44,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
               return (
                 <div key={index}>
                   <img
-                    className="w-100 slider-img"
+                    className=" slider-img d-block mx-auto"
                     src={value.imagePath}
                     alt=""
                   />
