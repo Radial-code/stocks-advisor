@@ -2,6 +2,7 @@ import React from "react";
 import HomepageSlider from "../../assets/img/HomepageSlider.png";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
+import moment from "moment";
 
 const NewsDetailsPage = ({ history }) => {
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
@@ -42,7 +43,9 @@ const NewsDetailsPage = ({ history }) => {
                 : "N/A"}
             </span>
           </p>
-          <p className="text-end stock-paragraph mt-4 fs-sm-13">16/07/2021</p>
+          <p className="text-end stock-paragraph mt-4 fs-sm-13">
+            {moment(newsDetails.createdAt).format("DD/MMM/YYYY")}
+          </p>
         </div>
         <div className="row">
           <div className="col-xl-6 col-xxl-7">
