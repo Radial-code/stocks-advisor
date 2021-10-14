@@ -37,7 +37,7 @@ const TeamCards = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
           <Col className="d-flex justify-content-lg-end">
-            <section className="user-panel-card w-xl-1000 p-4 mt-5 pt-5">
+            <section className="user-panel-card w-xl-1000 p-4 margin-top-1264px   pt-5">
               <div className="d-flex justify-content-sm-between align-items-center flex-sm-row flex-column">
                 <p className="heading-stock fs-sm-20 fs-sm-20">Team</p>
                 <div>
