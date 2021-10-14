@@ -16,8 +16,26 @@ import {
 } from "./icons/Icons";
 import "./NavBar.css";
 import { Drop } from "../common/icons/Icons";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Navbar = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+
+  if (layoutClickChanger) {
+    document.dir = "rtl";
+  } else {
+    document.dir = "ltr";
+  }
+
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
+  };
+
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
+  };
+
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const [student, setStudent] = useState(false);
@@ -274,7 +292,10 @@ const Navbar = () => {
                     {Lang ? (
                       <div className="bg-white shadow p-2 rounded position-absolute">
                         {" "}
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
+                        <span
+                          onClick={layoutrightChangeHandler}
+                          className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                        >
                           English{" "}
                           <img
                             className="flag-img  mx-2 "
@@ -282,7 +303,10 @@ const Navbar = () => {
                             alt="England"
                           />
                         </span>
-                        <span className="d-flex px-2 py-1 cursor-pointer fw-normal">
+                        <span
+                          onClick={layoutleftChangeHandler}
+                          className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                        >
                           Arabic{" "}
                           <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
                         </span>
