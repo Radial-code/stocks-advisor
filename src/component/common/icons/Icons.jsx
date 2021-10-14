@@ -736,3 +736,25 @@ export const TeamIcon = () => {
     </svg>
   );
 };
+
+export const Drop = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="13.011"
+      height="7.919"
+      viewBox="0 0 13.011 7.919"
+    >
+      <path
+        id="Path_20"
+        data-name="Path 20"
+        d="M-4779.6-6430.429l5.8,5.8-5.8,5.8"
+        transform="translate(-6418.125 4780.31) rotate(90)"
+        fill="none"
+        stroke="#16191e"
+        stroke-width="2"
+        opacity="0.7"
+      />
+    </svg>
+  );
+};

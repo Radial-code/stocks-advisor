@@ -22,9 +22,9 @@ const News = () => {
         <Row>
           <Col xl={8}>
             <AllNews />
-            <div>
+            {/* <div>
               <PagiNation />
-            </div>
+            </div> */}
           </Col>
           <Col
             xl={4}
