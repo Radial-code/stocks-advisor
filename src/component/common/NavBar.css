@@ -446,12 +446,12 @@ input::-webkit-search-cancel-button {
   background-color: #fff;
 }
 .search-icon-input-header:focus {
-  width: 150px;
+  width: 90px;
   padding-left: 32px;
   color: #000;
   background-color: #fff;
   cursor: auto;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .search-icon input:-moz-placeholder {

@@ -39,6 +39,7 @@ const OurPlans = ({ homepage, history }) => {
               <div className="row mt-sm-5 ">
                 {planList && planList.length
                   ? planList.map((value, index) => {
+                      console.log("planList", planList);
                       return (
                         <Col
                           key={index}
@@ -52,7 +53,13 @@ const OurPlans = ({ homepage, history }) => {
                             <p className="plan-card d-flex justify-content-center pt-5">
                               Plan - {value.title}
                             </p>
-                            <div className="card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4">
+                            <div
+                              className={`${
+                                value.type === "Week"
+                                  ? "week-plan"
+                                  : "card-amount"
+                              } card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4`}
+                            >
                               <p className="amount-card-month align-items-center d-flex  mb-0">
                                 <span className="d-none d-sm-block month">
                                   {value.type}/
@@ -63,7 +70,9 @@ const OurPlans = ({ homepage, history }) => {
                             </div>
                             <p className="card-paragraph  mt-4">
                               {value.details
-                                ? value.details.map((val) => <li>{val}</li>)
+                                ? value.details.map((val) => (
+                                    <li className="list-unstyled">{val}</li>
+                                  ))
                                 : "N/A"}
                             </p>
                             <div className="d-flex justify-content-center mt-5 pb-5">
@@ -73,7 +82,11 @@ const OurPlans = ({ homepage, history }) => {
                                   onClick={() =>
                                     history.push(`/payment/${value._id}`)
                                   }
-                                  className="join-now-btn text-white"
+                                  className={`${
+                                    value.type === "Week"
+                                      ? "join-now-btn-2"
+                                      : "join-now-btn"
+                                  } join-now-btn `}
                                 >
                                   Buy now
                                 </button>
@@ -81,7 +94,11 @@ const OurPlans = ({ homepage, history }) => {
                                 <button
                                   type="button"
                                   onClick={() => history.push("/login")}
-                                  className="join-now-btn text-white"
+                                  className={`${
+                                    value.type === "Week"
+                                      ? "join-now-btn-2"
+                                      : "join-now-btn"
+                                  } join-now-btn`}
                                 >
                                   Join Now
                                 </button>
