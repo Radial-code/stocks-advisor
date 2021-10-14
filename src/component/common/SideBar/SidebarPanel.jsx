@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import {
+  Enquiry,
   News,
   PlansIcon,
   ServiceIcon,
@@ -85,7 +86,7 @@ const SidebarPanel = ({ sidebarActive }) => {
               >
                 <li className={`pt-13 pb-13 mt-15 `}>
                   <span className="svg-image pl-15">
-                    <TeamIcon />
+                    <Enquiry />
                   </span>
                   <span>Enquiry</span>
                 </li>

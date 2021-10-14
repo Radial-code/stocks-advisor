@@ -52,32 +52,36 @@ const EnquiryTable = () => {
             </tr>
           </thead>
           <tbody className="user-details">
-            {contactList && contactList.length
-              ? contactList.map((value, index) => {
-                  return (
-                    <tr key={index}>
-                      <td className="text-end whitespace Ellipse">
-                        {moment(value.createdAt).format("MM/ddd")}
-                      </td>
-                      <td className="text-end whitespace Ellipse" dir="ltr">
-                        {value.name}
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        {value.reason}
-                      </td>
-                      <td className="text-end whitespace Ellipse" dir="ltr">
-                        {value.email}
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        {value.message}
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        {value.status}
-                      </td>
-                    </tr>
-                  );
-                })
-              : "You don't have any user"}
+            {contactList && contactList.length ? (
+              contactList.map((value, index) => {
+                return (
+                  <tr key={index}>
+                    <td className="text-end whitespace Ellipse">
+                      {moment(value.createdAt).format("MM/ddd")}
+                    </td>
+                    <td className="text-end whitespace Ellipse" dir="ltr">
+                      {value.name}
+                    </td>
+                    <td className="text-end whitespace Ellipse">
+                      {value.reason}
+                    </td>
+                    <td className="text-end whitespace Ellipse" dir="ltr">
+                      {value.email}
+                    </td>
+                    <td className="text-end whitespace Ellipse">
+                      {value.message}
+                    </td>
+                    <td className="text-end whitespace Ellipse">
+                      {value.status}
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <td colSpan={6} className="table-text text-center">
+                You don't have any user
+              </td>
+            )}
           </tbody>
         </Table>
       )}
