@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import {
   addNewStockDetailsApi,
   createNewTeamMemberApi,
+  DeleteStockDetailsApi,
   getStockDetailsApi,
   getStockListApi,
   getTeamMemberListApi,
@@ -10,6 +11,7 @@ import {
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
 export const GET_STOCK_DETAILS_BY_ID = "GET_STOCK_DETAILS_BY_ID";
+export const DELETE_STOCK_LIST = "DELETE_STOCK_LIST";
 export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
 export const GET_TEAM_LIST = "GET_TEAM_LIST";
 
@@ -85,7 +87,7 @@ export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
   try {
     const response = await getStockDetailsApi(id);
     if (response.success) {
-      dispatch(getStockDetails(response.stock));
+      dispatch(getStockDetails(response.details));
       setLoading(false);
     } else {
       setLoading(false);
@@ -94,6 +96,35 @@ export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
     }
   } catch (error) {
     setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * delete Stock  action
+ * @param {Object} data
+ * @returns
+ */
+
+const DeleteStockDetails = (data) => ({
+  type: DELETE_STOCK_LIST,
+  data,
+});
+
+export const DeleteStockDetailsAction = (id, history) => async (dispatch) => {
+  try {
+    const response = await DeleteStockDetailsApi(id);
+    if (response.success) {
+      dispatch(DeleteStockDetails(id));
+      history.push("/content/manager/stocks");
+      Swal.fire("success", "Stock deleted successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      Swal.fire("Error", "Failed to delete Stock", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }

@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { useSelector } from "react-redux";
 import Sortarrow from "../../assets/img/sortarrow.png";
@@ -30,12 +31,12 @@ function SoldStock({ loading }) {
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
-                  <th scope="col" className="text-center">
+                  {/* <th scope="col" className="text-center">
                     Name
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
-                  </th>
+                  </th> */}
                   <th scope="col" className="text-center">
                     Symbol
                     <span>
@@ -68,18 +69,30 @@ function SoldStock({ loading }) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="table-hover-scale">
-                <tr className="sold-stock-data table-border-bottom">
-                  <td className="text-center">15/07/2021</td>
-                  <td className="text-center">Netflix Inc</td>
-                  <td className="text-center">NFLX</td>
-                  <td className="text-center">Portfolio</td>
-                  <td className="text-center">Common</td>
-                  <td className="text-center">$125</td>
-                  <td className="text-center">$150</td>
-                  <td className="text-center profitloss-text">25</td>
-                </tr>
-              </tbody>
+              {soldStockList &&
+                soldStockList.map((value) => {
+                  return (
+                    <tbody className="table-hover-scale">
+                      <tr className="sold-stock-data table-border-bottom">
+                        <td className="text-center">
+                          {moment(value.createdAt).format("DD/MMM/YYYY")}
+                        </td>
+                        <td className="text-center">
+                          {" "}
+                          {moment(value.soldDate).format("DD/MMM/YYYY")}
+                        </td>
+                        {/* <td className="text-center">NFLX</td> */}
+                        <td className="text-center">{value.symbol}</td>
+                        <td className="text-center">{value.category.title}</td>
+                        <td className="text-center">${value.joinPrice}</td>
+                        <td className="text-center">${value.soldPrice}</td>
+                        <td className="text-center profitloss-text">
+                          {value.profitOrLoss.percentage}
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
             </table>
           ) : (
             <p className="blank-data text-center mt-5">

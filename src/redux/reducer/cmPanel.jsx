@@ -10,6 +10,7 @@ import {
   UPDATE_PORTFOLIO_DETAILS,
 } from "../action/cmPanel/OurServices";
 import {
+  DELETE_STOCK_LIST,
   GET_STOCK_DETAILS_BY_ID,
   GET_STOCK_LIST,
   GET_USER_LIST_FOR_ADMIN,
@@ -32,7 +33,7 @@ const initialState = {
   homeNewsList: [],
   allNews: [],
   allRelatedNews: [],
-  newsDetails: {},
+  stockDetails: {},
 };
 
 export default function cmPanel(state = initialState, action) {
@@ -45,6 +46,17 @@ export default function cmPanel(state = initialState, action) {
       };
     }
 
+    // delete category list
+    case DELETE_STOCK_LIST: {
+      const deleteStockList = [...state.stockList];
+      const deleteList = deleteStockList.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        stockList: deleteList,
+      };
+    }
     // Get category list
     case GET_CATEGORY_LIST: {
       return {
@@ -149,7 +161,7 @@ export default function cmPanel(state = initialState, action) {
     case GET_STOCK_DETAILS_BY_ID: {
       return {
         ...state,
-        newsDetails: action.data,
+        stockDetails: action.data,
       };
     }
 

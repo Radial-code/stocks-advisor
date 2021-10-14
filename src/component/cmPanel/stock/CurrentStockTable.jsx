@@ -2,11 +2,12 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { withRouter } from "react-router";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
 
-const CurrentStockTable = () => {
+const CurrentStockTable = ({ history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const stockList = useSelector((state) => state.cmPanel.stockList);
@@ -112,6 +113,9 @@ const CurrentStockTable = () => {
                   return (
                     <tr
                       key={index}
+                      onClick={() =>
+                        history.push(`/content/manager/edit/stock/${value._id}`)
+                      }
                       className="current-stock-data table-border-bottom"
                     >
                       <td className="text-end whitespace Ellipse">
@@ -165,4 +169,4 @@ const CurrentStockTable = () => {
     </>
   );
 };
-export default CurrentStockTable;
+export default withRouter(CurrentStockTable);

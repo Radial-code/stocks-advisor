@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
+import { withRouter } from "react-router";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,12 +10,20 @@ import {
   getExchangeListAction,
   getPortfolioListAction,
 } from "../../../redux/action/cmPanel/OurServices";
-import { addNewStockDetailsAction } from "../../../redux/action/cmPanel/stock";
+import {
+  addNewStockDetailsAction,
+  DeleteStockDetailsAction,
+} from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
 
-const AddStockForm = () => {
+const AddStockForm = ({ edit, match, history }) => {
   const dispatch = useDispatch();
+  const { id } = match.params;
+  const categoryList = useSelector((state) => state.cmPanel.categoryList);
+  const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
+  const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
+  const stockDetailsList = useSelector((state) => state.cmPanel.stockDetails);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [exchangeLoading, setExchangeLoading] = useState(false);
@@ -22,19 +31,15 @@ const AddStockForm = () => {
   const [addStockLoading, setAddStockLoading] = useState(false);
   const [stockDetails, setStockDetails] = useState({
     joinDate: "",
-    joinPrice: "",
-    category: "",
-    exchange: "",
-    portfolio: "",
-    soldDate: "",
-    soldPrice: "",
-    symbol: "",
+    joinPrice: stockDetailsList ? stockDetailsList.joinPrice : "",
+    category: stockDetailsList ? stockDetailsList.joinPrice : "",
+    exchange: stockDetailsList ? stockDetailsList.joinPrice : "",
+    portfolio: stockDetailsList ? stockDetailsList.joinPrice : "",
+    soldDate: stockDetailsList ? stockDetailsList.joinPrice : "",
+    soldPrice: stockDetailsList ? stockDetailsList.joinPrice : "",
+    symbol: stockDetailsList ? stockDetailsList.joinPrice : "",
     currentPrice: 0,
   });
-
-  const categoryList = useSelector((state) => state.cmPanel.categoryList);
-  const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
-  const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
 
   useEffect(() => {
     dispatch(getCategoryListAction(setLoading));
@@ -71,6 +76,12 @@ const AddStockForm = () => {
         symbol: "",
         currentPrice: 0,
       });
+    }
+  };
+
+  const deleteStock = () => {
+    if (!!id) {
+      dispatch(DeleteStockDetailsAction(id, history));
     }
   };
 
@@ -299,18 +310,39 @@ const AddStockForm = () => {
           </div>
 
           <div className="d-flex flex-sm-row flex-column">
-            <button
-              type="button"
-              disabled={addStockLoading}
-              className="update-btn my-3 ff-popins"
-              onClick={() => submitStockDetails()}
-            >
-              {addStockLoading ? <Loader /> : "Add"}
-            </button>
+            {edit ? (
+              <>
+                <button
+                  type="button"
+                  disabled={addStockLoading}
+                  className="update-btn my-3 ff-popins"
+                  onClick={() => submitStockDetails()}
+                >
+                  {addStockLoading ? <Loader /> : "Update"}
+                </button>
+                <button
+                  type="button"
+                  disabled={addStockLoading}
+                  className="m-2 update-btn my-3 ff-popins"
+                  onClick={() => deleteStock()}
+                >
+                  Delete
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                disabled={addStockLoading}
+                className="update-btn my-3 ff-popins"
+                onClick={() => submitStockDetails()}
+              >
+                {addStockLoading ? <Loader /> : "Add"}
+              </button>
+            )}
           </div>
         </Form>
       </div>
     </div>
   );
 };
-export default AddStockForm;
+export default withRouter(AddStockForm);

@@ -14,7 +14,16 @@ export const addNewStockDetailsApi = async (data) => {
  * @returns
  */
 export const getStockDetailsApi = async (id) => {
-  return await axiosRequest("GET", `/stock/${id}`);
+  return await axiosRequest("GET", `/stock/details/${id}`);
+};
+
+/**
+ * delete stock details api
+ * @param {string} id
+ * @returns
+ */
+export const DeleteStockDetailsApi = async (id) => {
+  return await axiosRequest("DELETE", `/stock/${id}`);
 };
 
 /**

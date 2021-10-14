@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../cmPanelCss/addnewstock.css";
 import { Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { withRouter } from "react-router";
 import AddStockForm from "./AddStockForm";
+import { getStockDetailsAction } from "../../../redux/action/cmPanel/stock";
 
-const AddStock = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+const AddStock = ({
+  sideBarHandler,
+  setSidebarActive,
+  sidebarActive,
+  match,
+}) => {
+  const dispatch = useDispatch();
+  const { id } = match.params;
+  const [loading, setLoading] = useState(false);
+  const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    if (!!id) {
+      setEdit(true);
+      dispatch(getStockDetailsAction(id, setLoading));
+    }
+  }, [id]);
+
   return (
     <div className="container">
       <div
@@ -33,9 +53,9 @@ const AddStock = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
             </div>
           </div>
         </Col>
-        <AddStockForm />
+        <AddStockForm edit={edit} />
       </div>
     </div>
   );
 };
-export default AddStock;
+export default withRouter(AddStock);
