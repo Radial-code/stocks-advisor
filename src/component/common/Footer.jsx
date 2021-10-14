@@ -10,8 +10,11 @@ import {
 } from "../common/icons/Icons";
 import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Footer = ({ history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -31,7 +34,13 @@ const Footer = ({ history }) => {
               <img className="filter-img" src={logo} alt="" />
             </Link>
 
-            <p className="text-white text-center stock-paragraph mw-480 d-lg-none my-4 my-lg-0">
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "text-white text-center stock-paragraph mw-480 d-lg-none my-4 my-lg-0"
+                  : "text-white text-center stock-paragraph   d-lg-none my-4 my-lg-0"
+              } `}
+            >
               Duis venenatis aliquet eros, non feugiat tortor semper sed. In
               diam risus, efficitur sit amet dolor vitae, finibus tristique arcu
               finibus tristique arcu finibus tristique arcu finibus
@@ -47,7 +56,13 @@ const Footer = ({ history }) => {
           </div>
 
           <div className="col-lg-5 col-12 mt-5 mt-md-0 d-none d-lg-block">
-            <p className="text-white text-center stock-paragraph mw-480 ">
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "text-white text-center stock-paragraph mw-480"
+                  : "text-white text-center  stock-paragraph mw-480 "
+              }`}
+            >
               Duis venenatis aliquet eros, non feugiat tortor semper sed. In
               diam risus, efficitur sit amet dolor vitae, finibus tristique arcu
               finibus tristique arcu finibus tristique arcu finibus
