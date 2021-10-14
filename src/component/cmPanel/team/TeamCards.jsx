@@ -13,8 +13,8 @@ const TeamCards = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         ></div>
         <div className="row">
           <div className="col-12">
-            <div className="border-b-1 mt-5 content-manager mb-3">
-              <div className="d-flex justify-content-between align-items-center">
+            <div className=" mt-5 pb-4 content-manager mb-3">
+              <div className="d-flex border-b-1 justify-content-between ">
                 <p className="heading-stock pr-15 fs-sm-20 mb-0">
                   Content Manager
                 </p>

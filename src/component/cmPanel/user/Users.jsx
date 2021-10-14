@@ -13,9 +13,11 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         ></div>
         <Row>
           <Col xs={12}>
-            <div className="border-b-1 content-manager mb-3">
-              <div className="d-flex justify-content-between">
-                <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
+            <div className=" pb-4 content-manager mb-3">
+              <div className="d-flex border-b-1 justify-content-between">
+                <p className="heading-stock pr-15 mb-0 fs-sm-20">
+                  Content Manager
+                </p>
                 <span className="cursor-pointer" onClick={sideBarHandler}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
