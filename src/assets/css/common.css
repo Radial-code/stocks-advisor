@@ -321,15 +321,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-@media (min-width: 1275px) {
+/* @media (min-width: 1275px) {
   .about-slider-2 {
     display: block !important;
   }
-}
+} */
 
 .about-slider-2 {
   display: flex;
   align-items: center;
+  direction: ltr;
 }
 
 .profile-heading {
