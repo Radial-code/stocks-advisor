@@ -83,8 +83,15 @@ const Router = () => {
         <Route path="/content/manager/news" component={CmPanelRoutes} />
         <Route path="/content/manager/add/news" component={CmPanelRoutes} />
         <Route path="/content/manager/users" component={CmPanelRoutes} />
-        <Route path="/content/manager/edit/user" component={CmPanelRoutes} />
+        <Route
+          path="/content/manager/edit/user/:userId"
+          component={CmPanelRoutes}
+        />
         <Route path="/content/manager/plan/form" component={CmPanelRoutes} />
+        <Route
+          path="/content/manager/edit/plan/:id"
+          component={CmPanelRoutes}
+        />
 
         <Route
           path="/content/manager/other/services"

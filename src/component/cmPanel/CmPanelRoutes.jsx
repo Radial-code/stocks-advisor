@@ -81,7 +81,7 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/edit/user">
+          <Route path="/content/manager/edit/user/:userId">
             <EditUser
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -111,6 +111,13 @@ const CmPanelRoutes = () => {
             />
           </Route>
           <Route path="/content/manager/plan/form">
+            <PlansSection
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route path="/content/manager/edit/plan/:id">
             <PlansSection
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}

@@ -25,18 +25,26 @@ export const UPDATE_PORTFOLIO_DETAILS = "UPDATE_PORTFOLIO_DETAILS";
 export const GET_PORTFOLIO_LIST = "GET_PORTFOLIO_LIST";
 export const DELETE_PORTFOLIOS_LIST = "DELETE_PORTFOLIOS_LIST";
 export const ADD_NEW_PORTFOLIOS_DETAILS = "ADD_NEW_PORTFOLIOS_DETAILS";
+export const ADD_NEW_CATEGORY_DETAILS = "ADD_NEW_CATEGORY_DETAILS";
 
 /**
  * add new Category details action
  * @param {Object} data
  * @returns
  */
+
+const addNewCategoryDetails = (data) => ({
+  type: ADD_NEW_CATEGORY_DETAILS,
+  data,
+});
+
 export const addNewCategoryDetailsAction =
-  (data, setLoading, handleClose) => async () => {
+  (data, setLoading, handleClose) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await addNewCategoryDetailsApi(data);
       if (response.success) {
+        dispatch(addNewCategoryDetails(response.category));
         setLoading(false);
         handleClose();
         Swal.fire("Success", "Category submitted successfully", "success");
@@ -180,21 +188,25 @@ export const getExchangeListAction =
  * @returns
  */
 
-const updateExchangeDetails = (data) => ({
+const updateExchangeDetails = (id, data) => ({
   type: UPDATE_EXCHANGE_DETAILS,
-  data,
+  payload: {
+    data: data,
+    id: id,
+  },
 });
 
 export const updateExchangeDetailsAction =
-  (data, id, setExchangeLoading) => async (dispatch) => {
+  (id, data, setExchangeLoading, handleClose) => async (dispatch) => {
     setExchangeLoading(true);
     try {
-      const response = await updateExchangeDetailsApi(data, id);
+      const response = await updateExchangeDetailsApi(id, data);
       if (response.success) {
-        dispatch(updateExchangeDetails(response.exchange));
+        dispatch(updateExchangeDetails(id, data));
         setExchangeLoading(false);
         Swal.fire("Success", "Exchange Details Update successfully", "Success");
         setTimeout(Swal.close, 2000);
+        handleClose();
       } else {
         setExchangeLoading(false);
         Swal.fire("Error", "Failed to Update Exchange Details", "error");

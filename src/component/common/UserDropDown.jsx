@@ -2,8 +2,11 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const UserDropDown = ({ history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const firstname = useSelector((state) => state.auth.userData.firstName);
   const userData = useSelector((state) => state.auth.userData);
   const lastname = useSelector((state) => state.auth.userData.lastName);
@@ -23,12 +26,26 @@ const UserDropDown = ({ history }) => {
           id="dropdown-basic"
         >
           <div className="header-username-char">
-            <span className="first-char">
-              {firstname && firstname.toUpperCase().charAt(0)}
-            </span>
-            <span className="first-char">
-              {lastname && lastname.toUpperCase().charAt(0)}
-            </span>
+            {layoutClickChanger ? (
+              <>
+                {" "}
+                <span className="first-char">
+                  {firstname && firstname.toUpperCase().charAt(0)}
+                </span>
+                <span className="first-char">
+                  {lastname && lastname.toUpperCase().charAt(0)}
+                </span>{" "}
+              </>
+            ) : (
+              <>
+                <span className="first-char">
+                  {lastname && lastname.toUpperCase().charAt(0)}
+                </span>
+                <span className="first-char">
+                  {firstname && firstname.toUpperCase().charAt(0)}
+                </span>
+              </>
+            )}
           </div>
         </Dropdown.Toggle>
       </Dropdown>

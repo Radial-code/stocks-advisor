@@ -140,6 +140,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   placeholderText="Join Date"
                   className="mb-md-0 mb-3"
                   // selected
+                  value={moment(stockDetails.joinDate).format(`YYYY/MM/DD`)}
                   // selected={stockDetails.joinDate}
                   onChange={(e) => {
                     console.log("date format", e);
@@ -340,7 +341,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <DatePicker
                   placeholderText="Sold Date"
                   className="mb-3"
-                  // selected={stockDetails.soldDate}
+                  value={moment(stockDetails.soldDate).format(`YYYY/MM/DD`)}
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,

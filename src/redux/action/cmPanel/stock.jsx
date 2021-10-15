@@ -8,6 +8,7 @@ import {
   getTeamMemberListApi,
   updateStockDetailsApi,
   getUserListForAdminApi,
+  getUserProfileDataApi,
 } from "../../api/cmPanel/stock";
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
@@ -17,6 +18,9 @@ export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
 export const GET_TEAM_LIST = "GET_TEAM_LIST";
 export const REMOVE_STOCK_DETAIL_DATA = "REMOVE_STOCK_DETAIL_DATA";
 
+export const GET_USER_PROFILE_DATA = "GET_USER_PROFILE_DATA";
+export const REMOVE_USER_PROFILE_DETAILS_DATA =
+  "REMOVE_USER_PROFILE_DETAILS_DATA";
 
 /**
  * add new stock details action
@@ -90,18 +94,18 @@ const getStockDetails = (data) => ({
 export const removeStockDetailData = () => (
   console.log("remove"),
   {
-  type: REMOVE_STOCK_DETAIL_DATA
-    
-})
+    type: REMOVE_STOCK_DETAIL_DATA,
+  }
+);
 
 export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
   setLoading(true);
-  console.log(id)
+  console.log(id);
   try {
     const response = await getStockDetailsApi(id);
     if (response.success) {
       dispatch(getStockDetails(response.details));
-      console.log(response.details , "detail");
+      console.log(response.details, "detail");
       setLoading(false);
     } else {
       setLoading(false);
@@ -252,4 +256,66 @@ export const updateStockDetailsAction = (id, data, setLoading) => async () => {
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }
+};
+
+/**
+ * Get user details action
+ * @param {Object} data
+ * @returns
+ */
+
+const getUserDetails = (data) => ({
+  type: GET_USER_PROFILE_DATA,
+  data,
+});
+
+/**
+ * get user profile details
+ * @param {String} userId
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const getUserProfileDetailsAction =
+  (userId, setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getUserProfileDataApi(userId);
+      if (response.success) {
+        console.log(response);
+        dispatch(getUserDetails(response.data));
+
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load user details", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setLoading(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * remove user details action
+ * @param {Object} data
+ * @returns
+ */
+
+const removeUserDetails = (data) => ({
+  type: REMOVE_USER_PROFILE_DETAILS_DATA,
+  data,
+});
+
+/**
+ * remove user details
+ * @param {String} userId
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const removeUserProfileDetailsAction = () => async (dispatch) => {
+  try {
+    dispatch(removeUserDetails());
+  } catch (error) {}
 };

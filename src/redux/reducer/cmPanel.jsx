@@ -1,4 +1,5 @@
 import {
+  ADD_NEW_CATEGORY_DETAILS,
   ADD_NEW_EXCHANGE_DETAILS,
   ADD_NEW_PORTFOLIOS_DETAILS,
   DELETE_CATEGORY_LIST,
@@ -7,6 +8,8 @@ import {
   GET_CATEGORY_LIST,
   GET_EXCHANGE_LIST,
   GET_PORTFOLIO_LIST,
+  UPDATE_CATEGORY_DETAILS,
+  UPDATE_EXCHANGE_DETAILS,
   UPDATE_PORTFOLIO_DETAILS,
 } from "../action/cmPanel/OurServices";
 import {
@@ -136,17 +139,13 @@ export default function cmPanel(state = initialState, action) {
         exchangeList: addNewexchangeListDetails,
       };
     }
-
-    //update portfolios details on list
-    case UPDATE_PORTFOLIO_DETAILS: {
-      const updatePortfolioDetails = [...state.portfolioList];
-      const updatePortfolioDetailsData = updatePortfolioDetails.filter(
-        (value) => value._id === action.payload.id
-      );
-      updatePortfolioDetailsData.title = action.payload.data.title;
+    //Add new category details on list
+    case ADD_NEW_CATEGORY_DETAILS: {
+      const addNewCategoryListDetails = [...state.categoryList];
+      addNewCategoryListDetails.push(action.data);
       return {
         ...state,
-        portfolioList: updatePortfolioDetails,
+        categoryList: addNewCategoryListDetails,
       };
     }
 
@@ -220,6 +219,46 @@ export default function cmPanel(state = initialState, action) {
       return {
         ...state,
         adminUserList: action.data,
+      };
+    }
+
+    // update category list for admin
+    case UPDATE_CATEGORY_DETAILS: {
+      const UpdateCategoryList = [...state.categoryList];
+      const UpdateObjectList = UpdateCategoryList.filter(
+        (value) => value._id === action.payload.id
+      );
+      UpdateObjectList[0].title = action.payload.data.title;
+      return {
+        ...state,
+        categoryList: UpdateCategoryList,
+      };
+    }
+
+    // update protfolios list for admin
+    case UPDATE_PORTFOLIO_DETAILS: {
+      const UpdatePortfoliosList = [...state.portfolioList];
+      const UpdateObjectList = UpdatePortfoliosList.filter(
+        (value) => value._id === action.payload.id
+      );
+      UpdateObjectList[0].title = action.payload.data.title;
+      return {
+        ...state,
+        portfolioList: UpdatePortfoliosList,
+      };
+    }
+
+    // update exchange list for admin
+    case UPDATE_EXCHANGE_DETAILS: {
+      const UpdateExchangeDetails = [...state.exchangeList];
+      console.log("UPDATE_EXCHANGE_DETAILS", action.payload);
+      const UpdateObjectList = UpdateExchangeDetails.filter(
+        (value) => value._id === action.payload.id
+      );
+      UpdateObjectList[0].title = action.payload.data.title;
+      return {
+        ...state,
+        exchangeList: UpdateExchangeDetails,
       };
     }
 

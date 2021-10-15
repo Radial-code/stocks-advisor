@@ -24,7 +24,7 @@ export const getPlansListApi = async () => {
  * @returns
  */
 export const updatePlansDetailsApi = async (data, id) => {
-  return await axiosRequest("PATCH", `/plans/${id}`, data);
+  return await axiosRequest("PUT", `/plans/${id}`, data);
 };
 
 /**
@@ -34,4 +34,13 @@ export const updatePlansDetailsApi = async (data, id) => {
  */
 export const deletePlansApi = async (id) => {
   return await axiosRequest("DELETE", `/plans/${id}`);
+};
+
+/**
+ * get Plans details by id api
+ * @param {String} id
+ * @returns
+ */
+export const getPlanDetailsByIdApi = async (id) => {
+  return await axiosRequest("GET", `/plans/${id}`);
 };

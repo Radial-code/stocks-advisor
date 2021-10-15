@@ -5,6 +5,7 @@ import {
   getPlansListApi,
   updatePlansDetailsApi,
 } from "../../api/cmPanel/plans";
+import { getPlanDetailsByIdApi } from "../../api/payment";
 
 export const GET_PLANS_LIST = "GET_PLANS_LIST";
 export const UPDATE_PLANS_DETAILS = "UPDATE_PLANS_DETAILS";
@@ -16,7 +17,7 @@ export const DELETE_PLANS_SUCCESS = "DELETE_PLANS_SUCCESS";
  * @returns
  */
 export const addNewPlansDetailsAction =
-  (data, setAddPlansLoading) => async () => {
+  (data, setAddPlansLoading, history) => async () => {
     setAddPlansLoading(true);
     try {
       const response = await addNewPlansDetailsApi(data);
@@ -24,6 +25,7 @@ export const addNewPlansDetailsAction =
         setAddPlansLoading(false);
         Swal.fire("Success", "Plans submitted successfully", "success");
         setTimeout(Swal.close, 2000);
+        history.push("/content/manager/our/plans/details");
       } else {
         setAddPlansLoading(false);
         Swal.fire("Error", "Failed to add Plans", "error");
@@ -78,7 +80,7 @@ const updatePlansDetails = (data) => ({
 });
 
 export const updatePlansDetailsAction =
-  (data, id, setPlansLoading) => async (dispatch) => {
+  (data, id, setPlansLoading, history) => async (dispatch) => {
     setPlansLoading(true);
     try {
       const response = await updatePlansDetailsApi(data, id);

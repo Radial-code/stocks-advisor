@@ -13,8 +13,10 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
     !!updateValue ? updateValue.title : ""
   );
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const submitCategoryDetails = () => {
+    setError(true);
     if (category !== "") {
       const data = { title: category };
       dispatch(addNewCategoryDetailsAction(data, setLoading, handleClose));
@@ -22,6 +24,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
   };
 
   const updateCategory = () => {
+    setError(true);
     if (category !== "") {
       const data = { title: category };
       dispatch(
@@ -53,6 +56,9 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
             className="py-2 px-3 w-100"
             onChange={(e) => setCategory(e.target.value)}
           />
+          <span className="text-danger">
+            {error && category === "" ? "Category is required" : null}
+          </span>
         </div>
       </Modal.Body>
       <Modal.Footer className="d-block text-center">

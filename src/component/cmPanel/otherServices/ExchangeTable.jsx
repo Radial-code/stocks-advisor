@@ -97,7 +97,6 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                       <button
                         className="px-3 py-1 edit-button "
                         onClick={() => editCategory(value)}
-                        onClick={() => setShow(true)}
                       >
                         Edit
                       </button>

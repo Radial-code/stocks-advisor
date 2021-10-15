@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../cmPanelCss/userEdit.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getUserProfileDetailsAction,
+  removeUserProfileDetailsAction,
+} from "../../redux/action/cmPanel/stock";
+import { withRouter } from "react-router";
 
-const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+const EditUser = ({
+  sideBarHandler,
+  setSidebarActive,
+  sidebarActive,
+  match,
+}) => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const { userId } = match.params;
+
+  console.log(match.params, "match.params");
+  const userProfileDetails = useSelector(
+    (state) => state.list.userProfileDetails
+  );
+  useEffect(() => {
+    dispatch(getUserProfileDetailsAction(userId, setLoading));
+
+    return () => {
+      dispatch(removeUserProfileDetailsAction());
+    };
+  }, []);
+
+  const { email, firstName, lastName, phone, isPaidPlan } = userProfileDetails;
+  console.log(userProfileDetails, "userProfileDetails");
   return (
     <Container>
       <div
@@ -15,7 +44,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between align-items-center">
               <p className="heading-stock pr-15 fs-sm-20 mb-0">
-                Content Manager 
+                Content Manager
               </p>
               <span className="cursor-pointer" onClick={sideBarHandler}>
                 <svg
@@ -38,7 +67,9 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
         <Col className="d-flex justify-content-sm-end justify-content-center ">
           <section className="edituser-card p-3 p-sm-5 mt-5">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
-              <p className="heading-stock fs-sm-20">Jhone Doe</p>
+              <p className="heading-stock fs-sm-20">
+                {firstName}&nbsp;{lastName}
+              </p>
               <Link to="/content/manager/users">
                 <button className="update-btn-2 ">Back</button>
               </Link>
@@ -54,7 +85,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     <div className="edit-user">
                       <input
                         className="input-edit-user"
-                        placeholder="Jhone Doe"
+                        placeholder={`${firstName} ${lastName}`}
                         type="text"
                       />
                     </div>
@@ -65,7 +96,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     <div className="edit-user">
                       <input
                         className="input-edit-user"
-                        placeholder="1234567890"
+                        placeholder={phone}
                         type="number"
                       />
                     </div>
@@ -76,7 +107,7 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                     <div className="edit-user">
                       <input
                         className="input-edit-user"
-                        placeholder="Jhondoe@gmail.com"
+                        placeholder={email}
                         type="email"
                       />
                     </div>
@@ -285,4 +316,4 @@ const EditUser = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   );
 };
 
-export default EditUser;
+export default withRouter(EditUser);
