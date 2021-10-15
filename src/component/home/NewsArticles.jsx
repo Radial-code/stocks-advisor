@@ -1,145 +1,77 @@
 import React from "react";
 import Slider from "react-slick";
-import { withRouter } from "react-router";
-import { useSelector } from "react-redux";
-import NewsArticlesListItem from "./NewsArticlesListItem";
-import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-
-const NewsArticles = ({ history }) => {
-  const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
-
+function NewsArticles() {
   var settings = {
-    dots: false,
-    infinite: true,
+    dots: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplaySpeed: 2000,
-    centerMode: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
     responsive: [
-      {
-        breakpoint: 1500,
-        settings: {
-          innerWidth: 200,
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          innerWidth: 200,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           infinite: true,
-          dots: false,
+          dots: true,
         },
       },
       {
-        breakpoint: 900,
+        breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
       {
-        breakpoint: 576,
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: false,
         },
       },
     ],
-    nextArrow: <Next />,
-    prevArrow: <Prev />,
   };
   return (
-    <>
-      <div className="container p-left-right">
-        <h1 className="profile-heading pt-3">Other News Articles</h1>
-
-        <div className="row">
-          <div className="col-12">
-            <Slider className="about-slider-2 " {...settings}>
-              {allRelatedNews && allRelatedNews.length
-                ? allRelatedNews.map((value, index) => {
-                    return <NewsArticlesListItem value={value} index={index} />;
-                  })
-                : null}
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <div>
+            <h2> Responsive </h2>
+            <Slider {...settings}>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+              <div>
+                <h3>3</h3>
+              </div>
+              <div>
+                <h3>4</h3>
+              </div>
+              <div>
+                <h3>5</h3>
+              </div>
+              <div>
+                <h3>6</h3>
+              </div>
+              <div>
+                <h3>7</h3>
+              </div>
+              <div>
+                <h3>8</h3>
+              </div>
             </Slider>
           </div>
         </div>
-        <div className="d-flex pt-3 pb-5 mt-4 justify-content-center cursor-pointer">
-          <p className="default-btn" onClick={() => history.push("/news")}>
-            View All News
-          </p>
-        </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
-export default withRouter(NewsArticles);
-
-const Next = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <button style={{ ...style }} onClick={onClick} className={`next`}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.681"
-        height="16.533"
-        viewBox="0 0 9.681 16.533"
-      >
-        <path
-          id="Path_6"
-          data-name="Path 6"
-          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
-          transform="translate(-276.961 -1333.363)"
-          fill="none"
-          stroke="#16191e"
-          strokeWidth="2"
-          opacity="0.6"
-        />
-      </svg>
-    </button>
-  );
-};
-const Prev = (props) => {
-  return (
-    <button
-      onClick={props.onClick}
-      className="prev d-sm-flex justify-content-center d-none d-sm-block align-items-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.681"
-        height="16.533"
-        viewBox="0 0 9.681 16.533"
-      >
-        <path
-          id="Path_6"
-          data-name="Path 6"
-          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
-          transform="translate(-276.961 -1333.363)"
-          fill="none"
-          stroke="#16191e"
-          strokeWidth="2"
-          opacity="0.6"
-        />
-      </svg>
-    </button>
-  );
-};
+export default NewsArticles;
