@@ -22,25 +22,6 @@ import Loader from "./Loader";
 const Navbar = () => {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
-
-  if (layoutClickChanger) {
-    document.dir = "rtl";
-  } else {
-    document.dir = "ltr";
-  }
-
-  const layoutleftChangeHandler = () => {
-    setLayoutClickChanger(true);
-    setLanguage("Arabic");
-    setLang(false);
-  };
-
-  const layoutrightChangeHandler = () => {
-    setLayoutClickChanger(false);
-    setLanguage("English");
-    setLang(false);
-  };
-
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
   const [student, setStudent] = useState(false);
@@ -57,7 +38,9 @@ const Navbar = () => {
   const [PortfolioActive, setPortfolioActive] = useState(false);
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
-  const [Language, setLanguage] = useState("Arabic");
+  const [Language, setLanguage] = useState(
+    localStorage.getItem("stock-advisor-lang")
+  );
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -73,6 +56,25 @@ const Navbar = () => {
   };
   let history = useHistory();
 
+  if (layoutClickChanger) {
+    document.dir = "rtl";
+  } else {
+    document.dir = "ltr";
+  }
+
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
+    setLanguage("Arabic");
+    localStorage.setItem("stock-advisor-lang", "Arabic");
+    setLang(false);
+  };
+
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
+    setLanguage("English");
+    localStorage.setItem("stock-advisor-lang", "English");
+    setLang(false);
+  };
   // ACTIVE HEADER AS PATH
   const pathName = window.location.pathname;
   useEffect(() => {

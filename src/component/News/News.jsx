@@ -29,7 +29,7 @@ const News = () => {
             xl={4}
             className=" mt-3 d-flex justify-content-center d-sm-block"
           >
-            <div className="profile-box py-5  w-xs-303">
+            <div className="profile-box py-2  w-xs-303">
               <Chart />
               <div className="mt-5">
                 <Plans />

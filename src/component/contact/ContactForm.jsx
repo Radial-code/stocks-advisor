@@ -83,27 +83,22 @@ const ContactForm = () => {
 
         {/* DROPDOWN */}
 
-        <div className="input-border py-2 py-md-3 pe-3 pe-md-4 mt-3 pl-15 w-100">
-          <select
-            id="cars"
-            name="cars"
-            className="  w-100 border-0 bg-white input-text border-A3A3A3 dropdown-toggle cursor-pointer"
-            type="text"
-            id="cars"
-            placeholder="Select Contact Reason"
-            onChange={(e) => {
-              setContactDetails({
-                ...contactDetails,
-                reason: e.target.value,
-              });
-            }}
-          >
-            <option value="Select Contact Reason">Select Contact Reason</option>
-            <option value="Select Contact Reason">Select Contact Reason</option>
-            <option value="Select Contact Reason">Select Contact Reason</option>
-            <option value="Select Contact Reason">Select Contact Reason</option>
-          </select>
-        </div>
+        <input
+          className={`${
+            layoutClickChanger
+              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
+              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
+          }`}
+          type="text"
+          placeholder="Select Contact Reason"
+          required
+          onChange={(e) => {
+            setContactDetails({
+              ...contactDetails,
+              reason: e.target.value,
+            });
+          }}
+        />
         {error && contactDetails.reason === "" ? (
           <span className="text-danger">Reason is required</span>
         ) : null}
