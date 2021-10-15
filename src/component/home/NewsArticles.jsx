@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const NewsArticles = ({ history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
-  console.log(newsListData, "newsListData");
+
   var settings = {
     dots: false,
     infinite: true,
@@ -66,7 +66,7 @@ const NewsArticles = ({ history }) => {
   return (
     <>
       <div className="container p-left-right">
-        <h1 className="profile-heading pt-3">Other News Articles</h1>
+        <h1 className="profile-heading ">Other News Articles</h1>
 
         <div className="row ">
           <div className="col-12">
