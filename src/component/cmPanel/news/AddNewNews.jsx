@@ -20,6 +20,7 @@ const AddNewNews = ({ edit, match, history }) => {
   const userDetails = useSelector((state) => state.auth.userData);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [tags, setTags] = useState([]);
+  const [atags, setATags] = useState([]);
   const [updateLoading, setUpdateLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loadingImage, setLoadingImage] = useState(false);
@@ -28,10 +29,13 @@ const AddNewNews = ({ edit, match, history }) => {
   const [input, setInput] = useState("");
   const [newsDetails, setNewsDetails] = useState({
     title: "",
+    atitle: "",
     description: "",
+    adescription: "",
     showOnHomePage: false,
     stock: "",
     tags: "",
+    atags: "",
     media: uploadImageUrl,
   });
 
@@ -44,11 +48,17 @@ const AddNewNews = ({ edit, match, history }) => {
     tags.map((item) => {
       newsDetails.tags += `${item},`;
     });
+    atags.map((item) => {
+      newsDetails.atags += `${item},`;
+    });
     if (
       newsDetails.title !== "" &&
       newsDetails.description !== "" &&
       newsDetails.stock !== "" &&
-      newsDetails.tags !== ""
+      newsDetails.tags !== "" &&
+      newsDetails.atitle !== "" &&
+      newsDetails.adescription !== "" &&
+      newsDetails.atags !== ""
     ) {
       dispatch(
         addNewNewsDetailsAction(newsDetails, setAddStockLoading, setNewsDetails)
@@ -56,9 +66,13 @@ const AddNewNews = ({ edit, match, history }) => {
       setError(false);
       setNewsDetails({
         title: "",
+        atitle: "",
         description: "",
+        adescription: "",
+        showOnHomePage: false,
         stock: "",
         tags: "",
+        atags: "",
       });
     }
   };
@@ -71,7 +85,12 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const updateNewsDetails = () => {
     if (!!id) {
-      setError(true);
+      tags.map((item) => {
+        newsDetails.tags += `${item},`;
+      });
+      atags.map((item) => {
+        newsDetails.atags += `${item},`;
+      });
       if (
         newsDetails.title !== "" &&
         newsDetails.description !== "" &&
@@ -108,12 +127,14 @@ const AddNewNews = ({ edit, match, history }) => {
                 onChange={(e) => {
                   setNewsDetails({
                     ...newsDetails,
-                    title: e.target.value,
+                    atitle: e.target.value,
                   });
                 }}
               />
               <span className="text-danger">
-                {error && newsDetails.title === "" ? "Title is required" : null}
+                {error && newsDetails.atitle === ""
+                  ? "Arabic Title is required"
+                  : null}
               </span>
             </Form.Group>
           </div>
@@ -171,17 +192,16 @@ const AddNewNews = ({ edit, match, history }) => {
           <div className="col-12 col-lg-6 mb-3">
             <div className="col-md-6 input-tag w-100">
               <ReactTagInput
-                tags={tags}
+                tags={atags}
                 placeholder="Arabic Details"
                 maxTags={5}
                 editable={true}
                 readOnly={false}
                 removeOnBackspace={true}
-                onChange={(newTags) => setTags(newTags)}
+                onChange={(newTags) => setATags(newTags)}
               />
-              {console.log("tags", tags.length)}
               <span className="text-danger">
-                {error && tags.length < 0 ? "Details is required" : null}
+                {error && tags.length < 0 ? "Arabic Details is required" : null}
               </span>
             </div>
           </div>
@@ -196,7 +216,6 @@ const AddNewNews = ({ edit, match, history }) => {
                 removeOnBackspace={true}
                 onChange={(newTags) => setTags(newTags)}
               />
-              {console.log("tags", tags.length)}
               <span className="text-danger">
                 {error && tags.length < 0 ? "Details is required" : null}
               </span>
@@ -325,13 +344,13 @@ const AddNewNews = ({ edit, match, history }) => {
               onChange={(e) => {
                 setNewsDetails({
                   ...newsDetails,
-                  description: e.target.value,
+                  adescription: e.target.value,
                 });
               }}
             ></textarea>
             <span className="text-danger">
-              {error && newsDetails.description === ""
-                ? "Description is required"
+              {error && newsDetails.adescription === ""
+                ? "Arabic Description is required"
                 : null}
             </span>
           </div>
@@ -387,7 +406,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 disabled={addStockLoading}
                 onClick={() => updateNewsDetails()}
               >
-                {addStockLoading ? <Loader /> : "Update"}
+                {updateLoading ? <Loader /> : "Update"}
               </button>
               <button
                 className="add-btn m-2"
