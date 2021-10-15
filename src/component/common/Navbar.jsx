@@ -174,7 +174,7 @@ const Navbar = () => {
               <div className="d-md-flex align-items-xl-center mt-md-4 w-100 justify-content-xl-between justify-content-around ">
                 <li className=" d-md-none d-flex justify-content-between mt-4">
                   <div className="d-flex justify-content-start">
-                    <li className="items-nav mt-0 d-xl-none d-block mr-0">
+                    <li className="items-nav  d-xl-none my-auto d-block mr-0">
                       <div
                         onClick={handleClick}
                         className="cursor-pointer close-btn-nav"
@@ -674,7 +674,13 @@ const Navbar = () => {
                           )
                         }
                       />
-                      <div className="w-100 me-2 me-sm-0 mt-2 text-sm-end text-center">
+                      <div
+                        className={`${
+                          layoutClickChanger
+                            ? "w-100 me-2 me-sm-0 mt-2 text-sm-end text-center"
+                            : "w-100  mt-2 text-sm-end text-center"
+                        }`}
+                      >
                         <button
                           type="button"
                           onClick={() => dispatch(LogoutAction(history))}
