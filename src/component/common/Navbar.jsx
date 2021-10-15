@@ -39,9 +39,12 @@ const Navbar = () => {
   const [PortfolioActive, setPortfolioActive] = useState(false);
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
-  const [Language, setLanguage] = useState(
-    localStorage.getItem("stock-advisor-lang")
-  );
+
+
+  const initialLanguage = localStorage.getItem("stock-advisor-lang")
+    ? localStorage.getItem("stock-advisor-lang")
+    : "Arabic";  ;
+  const [Language, setLanguage] = useState(initialLanguage);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(

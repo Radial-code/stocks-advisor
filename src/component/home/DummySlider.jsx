@@ -17,6 +17,7 @@ const DummySlider = ({ history }) => {
     slidesToShow: 3.2,
     slidesToScroll: 1,
     initialSlide: 0,
+    centerMode: true,
     responsive: [
       {
         breakpoint: 1400,
