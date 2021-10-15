@@ -10,31 +10,31 @@ import Loader from "../../common/Loader";
 function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
   const dispatch = useDispatch();
   const [portfolios, setPortfolios] = useState(
-    !!updateValue && !!updateValue.title ? updateValue.title : ""
+    !!updateValue ? updateValue.title : ""
   );
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const submitPortfoliosDetails = () => {
-    if (portfolios !== "") {
+    setError(true);
+    if (portfolios !== "" && portfolios !== undefined) {
       const data = { title: portfolios };
       dispatch(addNewPortfolioDetailsAction(data, setLoading, handleClose));
     }
   };
 
   const updatePortfolios = () => {
-    if (updateValue._id) {
-      if (portfolios !== "") {
-        const data = { title: portfolios };
-        dispatch(
-          updatePortfolioDetailsAction(
-            updateValue._id,
-            data,
-            setLoading,
-            handleClose
-          )
-        );
-      }
-      setPortfolios("");
+    setError(true);
+    if (portfolios !== "") {
+      const data = { title: portfolios };
+      dispatch(
+        updatePortfolioDetailsAction(
+          updateValue._id,
+          data,
+          setLoading,
+          handleClose
+        )
+      );
     }
   };
 
@@ -43,7 +43,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
       <Modal.Header className="d-block">
         <Modal.Title>
           <p className="mb-0 text-center fw-bold">
-            {edit ? "Update Portfolio" : "Add Portfolio"}
+            {edit ? "Update Portfolio" : ""}
           </p>
         </Modal.Title>
       </Modal.Header>
@@ -56,6 +56,11 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
             className="py-2 px-3 w-100"
             onChange={(e) => setPortfolios(e.target.value)}
           />
+          <span className="text-danger">
+            {error && portfolios === undefined
+              ? "Portfolios is required"
+              : null}
+          </span>
         </div>
       </Modal.Body>
       <Modal.Footer className="d-block text-center">

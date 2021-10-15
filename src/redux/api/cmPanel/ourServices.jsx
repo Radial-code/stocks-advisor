@@ -56,7 +56,7 @@ export const getExchangeListApi = async () => {
  * @param {Object} data
  * @returns
  */
-export const updateExchangeDetailsApi = async (data, id) => {
+export const updateExchangeDetailsApi = async (id, data) => {
   return await axiosRequest("PUT", `/exchange/${id}`, data);
 };
 

@@ -50,7 +50,7 @@ export const uploadImageAction =
         form.append("file", file);
         const response = await uploadImageApi(type, form);
         if (response.success) {
-          //   dispatch(uploadImageSuccess(response));
+          dispatch(uploadImageSuccess(response.file));
           setLoadingImage(false);
         } else {
           setLoadingImage(false);

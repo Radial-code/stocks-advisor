@@ -117,6 +117,13 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
+          <Route path="/content/manager/edit/plan/:id">
+            <PlansSection
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
 
           <Route path="/content/manager/add/other/services">
             <OtherServicesForm

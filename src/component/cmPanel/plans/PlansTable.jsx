@@ -116,7 +116,9 @@ function PlansTable({ history }) {
                         <button
                           className="px-3 py-1 edit-button"
                           onClick={() =>
-                            history.push("/content/manager/plan/form")
+                            history.push(
+                              `/content/manager/edit/plan/${value._id}`
+                            )
                           }
                         >
                           Edit
