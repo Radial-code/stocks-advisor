@@ -409,57 +409,7 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  {/* <li className=" drop-item d-md-none mr-0">
-                    <div
-                      className={`drop-none w-100   ${
-                        student ? "sidebardropdown" : ""
-                      }`}
-                    >
-                      <ul className="py-2 w-100 drop-down-list">
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio1"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-1</span>
-                            </div>
-                          </NavLink>
-                        </li>
 
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio2"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-2</span>
-                            </div>
-                          </NavLink>
-                        </li>
-
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio3"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-3</span>
-                            </div>
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </div>
-                  </li> */}
                   {auth && !!token ? (
                     <div className="d-flex d-xl-none  flex-lg-row flex-column  align-items-sm-start  align-items-center">
                       <div className="d-md-none d-flex">
@@ -492,7 +442,13 @@ const Navbar = () => {
                       </button>
                     </div>
                   )}
-                  <div className="d-flex flex-sm-row flex-column justify-content-start-end ">
+                  <div
+                    className={`${
+                      layoutClickChanger
+                        ? "d-flex flex-sm-row flex-column justify-content-start-end "
+                        : "d-flex flex-sm-row flex-column justify-content-end "
+                    }`}
+                  >
                     <li className=" d-flex d-xl-none flex-column align-items-center">
                       <NavLink
                         exact
