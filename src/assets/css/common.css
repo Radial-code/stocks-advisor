@@ -631,3 +631,12 @@ input::-webkit-inner-spin-button {
     margin-top: 3rem !important ;
   }
 }
+
+.d-none-el {
+  display: none;
+}
+@media (min-width: 1266px) {
+  .d-1297-flex {
+    display: flex !important;
+  }
+}
