@@ -17,6 +17,7 @@ import {
 import "./NavBar.css";
 import { Drop } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import Loader from "./Loader";
 
 const Navbar = () => {
   const { setLayoutClickChanger, layoutClickChanger } =
@@ -45,6 +46,7 @@ const Navbar = () => {
   const [student, setStudent] = useState(false);
   const { setScreenFixed } = useFixedScreenProvider();
   const [HomeActive, setHomeActive] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [AboutActive, setAboutActive] = useState(false);
   const [NewsActive, setNewsActive] = useState(false);
   const [LangActive, setLangActive] = useState(false);
@@ -488,103 +490,6 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  {/*start here drop down  */}
-                  {/* {auth && !!token ? (
-                    <li
-                      onClick={dropHandler}
-                      className={` nav-item  d-md-none ${
-                        student ? "drop-down-active" : ""
-                      }`}
-                    >
-                      <a className="d-flex  nav-links justify-content-between align-items-center">
-                        Portfolios
-                        <span
-                          className={`ml-20 ${
-                            student ? "sidebardropdown" : ""
-                          }`}
-                        >
-                          <span className="plus">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-plus"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                            </svg>
-                          </span>
-                          <span className="subs">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-dash bg-5CBD4C"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
-                            </svg>{" "}
-                          </span>
-                        </span>
-                      </a>
-                    </li>
-                  ) : (
-                    ""
-                  )}
-                  <li className=" drop-item d-md-none">
-                    <div
-                      className={`drop-none w-100   ${
-                        student ? "sidebardropdown" : ""
-                      }`}
-                    >
-                      <ul className="py-2 w-100 drop-down-list">
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio1"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-1</span>
-                            </div>
-                          </NavLink>
-                        </li>
-
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio2"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-2</span>
-                            </div>
-                          </NavLink>
-                        </li>
-
-                        <li>
-                          <NavLink
-                            exact
-                            to="/portfolio/portfolio3"
-                            activeClassName=""
-                            className=""
-                            onClick={click ? handleClick : null}
-                          >
-                            <div className="all-student">
-                              <span>Portfolio-3</span>
-                            </div>
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </div>
-                  </li> */}
-                  {/* Drop down end here */}
                   {auth && !!token ? (
                     <li className="nav-item d-xl-flex d-none">
                       <NavLink
@@ -604,21 +509,6 @@ const Navbar = () => {
                   ) : (
                     ""
                   )}
-                  {/* <li
-                    className={`${
-                      LoginActive ? "green-bg-active" : ""
-                    } nav-item `}
-                  >
-                <NavLink
-                      exact
-                      to="/login"
-                      activeClassName="active"
-                      className="nav-links"
-                      onClick={click ? handleClick : null}
-                    >
-                      Login
-                    </NavLink> 
-                  </li> */}
                   {auth && !!token ? (
                     <div className="d-xl-flex flex-lg-row flex-column d-none align-items-sm-start  align-items-center">
                       <UserDropDown
@@ -639,10 +529,12 @@ const Navbar = () => {
                       >
                         <button
                           type="button"
-                          onClick={() => dispatch(LogoutAction(history))}
+                          onClick={() =>
+                            dispatch(LogoutAction(setLoading, history))
+                          }
                           className="update-btn "
                         >
-                          Log Out
+                          {loading ? <Loader /> : "Log Out"}
                         </button>
                       </div>
                     </div>
@@ -664,22 +556,7 @@ const Navbar = () => {
                   )}
                 </div>
               </div>
-
-              {/* <div className="d-flex flex-sm-row flex-column justify-content-center ">
-                <li className=" d-flex d-xl-none flex-column align-items-center">
-                  <NavLink
-                    exact
-                    to="/signup"
-                    activeClassName="active"
-                    className="nav-links d-flex justify-content-center"
-                    onClick={click ? handleClick : null}
-                  >
-                    <button className="update-btn">Join Now</button>
-                  </NavLink>
-                </li>
-              </div> */}
             </ul>
-
             <div className="nav-icon d-flex d-xl-none   align-items-center">
               <li className=" d-md-flex d-none">
                 <input
@@ -688,16 +565,6 @@ const Navbar = () => {
                   placeholder="search"
                 />
               </li>
-              {/* <div className="search-input d-md-flex d-none">
-                <input
-                  type="text"
-                  className="border-0 w-100"
-                  placeholder="Search"
-                />
-                <button className="btn-search-input">
-                  <SearchMagnifyIcon />
-                </button>
-              </div> */}
               <div className="d-md-flex d-none">
                 <UserDropDown />
               </div>
@@ -712,5 +579,4 @@ const Navbar = () => {
     </>
   );
 };
-
 export default Navbar;

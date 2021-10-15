@@ -10,6 +10,15 @@ export const LoginApi = async (data) => {
 };
 
 /**
+ * Logout Api
+ * @param {Object} data
+ * @returns
+ */
+export const LogoutApi = async (data) => {
+  return await axiosRequest("POST", `/logout`, data);
+};
+
+/**
  * Sign up Api
  * @param {Object} data
  * @returns

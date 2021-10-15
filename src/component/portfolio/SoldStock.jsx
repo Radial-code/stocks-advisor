@@ -1,10 +1,11 @@
 import moment from "moment";
 import React from "react";
 import { useSelector } from "react-redux";
+import { withRouter } from "react-router";
 import Sortarrow from "../../assets/img/sortarrow.png";
 import BubblesLoader from "../common/BubblesLoader";
 
-function SoldStock({ loading }) {
+function SoldStock({ loading, history }) {
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   return (
@@ -34,12 +35,12 @@ function SoldStock({ loading }) {
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
-                  {/* <th scope="col" className="text-center">
+                  <th scope="col" className="text-center">
                     Name
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
-                  </th> */}
+                  </th>
                   <th scope="col" className="text-center">
                     Symbol
                     <span>
@@ -84,8 +85,22 @@ function SoldStock({ loading }) {
                           {" "}
                           {moment(value.soldDate).format("DD/MMM/YYYY")}
                         </td>
-                        {/* <td className="text-center">NFLX</td> */}
-                        <td className="text-center">{value.symbol}</td>
+                        <td
+                          className="text-center"
+                          onClick={() =>
+                            history.push(`/stock/news/${value._id}/stock-tags`)
+                          }
+                        >
+                          {value.name ? value.name : value.symbol}
+                        </td>
+                        <td
+                          className="text-center"
+                          onClick={() =>
+                            history.push(`/stock/news/${value._id}/stock-tags`)
+                          }
+                        >
+                          {value.symbol}
+                        </td>
                         <td className="text-center">{value.category.title}</td>
                         <td className="text-center">${value.joinPrice}</td>
                         <td className="text-center">${value.soldPrice}</td>
@@ -108,4 +123,4 @@ function SoldStock({ loading }) {
   );
 }
 
-export default SoldStock;
+export default withRouter(SoldStock);
