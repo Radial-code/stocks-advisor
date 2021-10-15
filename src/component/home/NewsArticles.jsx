@@ -1,77 +1,144 @@
 import React from "react";
 import Slider from "react-slick";
-function NewsArticles() {
+import NewsArticlesListItem from "./NewsArticlesListItem";
+import { withRouter } from "react-router";
+import { useSelector } from "react-redux";
+
+const NewsArticles = ({ history }) => {
+  const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
+  console.log(newsListData, "newsListData");
   var settings = {
-    dots: true,
-    infinite: false,
+    dots: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    centerMode: true,
     responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          innerWidth: 200,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          innerWidth: 200,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+        },
+      },
     ],
+    nextArrow: <Next />,
+    prevArrow: <Prev />,
   };
+
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <div>
-            <h2> Responsive </h2>
-            <Slider {...settings}>
-              <div>
-                <h3>1</h3>
-              </div>
-              <div>
-                <h3>2</h3>
-              </div>
-              <div>
-                <h3>3</h3>
-              </div>
-              <div>
-                <h3>4</h3>
-              </div>
-              <div>
-                <h3>5</h3>
-              </div>
-              <div>
-                <h3>6</h3>
-              </div>
-              <div>
-                <h3>7</h3>
-              </div>
-              <div>
-                <h3>8</h3>
-              </div>
+    <>
+      <div className="container p-left-right">
+        <h1 className="profile-heading pt-3">Other News Articles</h1>
+
+        <div className="row ">
+          <div className="col-12">
+            <Slider
+              className="about-slider-2 d-flex align-items-center"
+              {...settings}
+            >
+              {newsListData &&
+                newsListData.length &&
+                newsListData.map((obj) => <NewsArticlesListItem news={obj} />)}
             </Slider>
           </div>
         </div>
+        <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
+          <button className="default-btn" onClick={() => history.push("/news")}>
+            View All News
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
-}
+};
 
-export default NewsArticles;
+export default withRouter(NewsArticles);
+
+const Next = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <button style={{ ...style }} onClick={onClick} className={`next`}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="9.681"
+        height="16.533"
+        viewBox="0 0 9.681 16.533"
+      >
+        <path
+          id="Path_6"
+          data-name="Path 6"
+          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
+          transform="translate(-276.961 -1333.363)"
+          fill="none"
+          stroke="#16191e"
+          strokeWidth="2"
+          opacity="0.6"
+        />
+      </svg>
+    </button>
+  );
+};
+const Prev = (props) => {
+  return (
+    <button
+      onClick={props.onClick}
+      className="prev d-sm-flex justify-content-center d-none d-sm-block align-items-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="9.681"
+        height="16.533"
+        viewBox="0 0 9.681 16.533"
+      >
+        <path
+          id="Path_6"
+          data-name="Path 6"
+          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
+          transform="translate(-276.961 -1333.363)"
+          fill="none"
+          stroke="#16191e"
+          strokeWidth="2"
+          opacity="0.6"
+        />
+      </svg>
+    </button>
+  );
+};
