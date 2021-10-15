@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "../cmPanelCss/userEdit.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  getUserPlanDetailAction,
   getUserProfileDetailsAction,
+  removeUserPlanDetailsAction,
   removeUserProfileDetailsAction,
 } from "../../redux/action/cmPanel/stock";
 import { withRouter } from "react-router";
+import BubblesLoader from "../common/BubblesLoader";
+import "../cmPanelCss/userEdit.css";
 
 const EditUser = ({
   sideBarHandler,
@@ -19,20 +22,36 @@ const EditUser = ({
   const [loading, setLoading] = useState(false);
   const { userId } = match.params;
 
-  console.log(match.params, "match.params");
+  // GET DATA FROM REDUX
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
   );
+  const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
+  const { email, firstName, lastName, phone, isPaidPlan } = userProfileDetails;
+  const { createdAt, expiresOn, details, price, title } = userPlanDetails
+    ? userPlanDetails
+    : "";
+  // DISPATCH USER PROFILE DETAILS API HERE
   useEffect(() => {
     dispatch(getUserProfileDetailsAction(userId, setLoading));
-
     return () => {
       dispatch(removeUserProfileDetailsAction());
     };
   }, []);
 
-  const { email, firstName, lastName, phone, isPaidPlan } = userProfileDetails;
-  console.log(userProfileDetails, "userProfileDetails");
+  // DISPATCH USER PLAN DETAILS API HERE
+  useEffect(() => {
+    if (isPaidPlan) {
+      dispatch(getUserPlanDetailAction(userId, setLoading));
+    }
+
+    return () => {
+      if (isPaidPlan) {
+        dispatch(removeUserPlanDetailsAction());
+      }
+    };
+  }, [isPaidPlan]);
+  console.log(createdAt && createdAt.split(","));
   return (
     <Container>
       <div
@@ -78,123 +97,139 @@ const EditUser = ({
             <div className="border-b-1 mt-5">
               <p className="fs-22 fw-500 fs-sm-14">Contact Info</p>
             </div>
-            <Row>
-              <Col lg={6} xs={12}>
-                <Row className="mt-4">
-                  <Col lg={6}>
-                    <div className="edit-user">
-                      <input
-                        className="input-edit-user"
-                        placeholder={`${firstName} ${lastName}`}
-                        type="text"
-                      />
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col lg={6} className="mt-3">
-                    <div className="edit-user">
-                      <input
-                        className="input-edit-user"
-                        placeholder={phone}
-                        type="number"
-                      />
-                    </div>
-                  </Col>
-                </Row>{" "}
-                <Row>
-                  <Col lg={6} className="mt-3 ">
-                    <div className="edit-user">
-                      <input
-                        className="input-edit-user"
-                        placeholder={email}
-                        type="email"
-                      />
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-              <Col lg={6} xs={12}>
-                <Row>
-                  <Col lg={6} xs={12} className=" mt-5 mt-lg-0 ">
-                    <section className="current-para my-4">
-                      <div className="d-none">
-                        <p className="fs-14 fw-500 ">:Plan Description</p>
+
+            {loading ? (
+              <div className="d-flex justify-content-center align-items-center w-100 h-300">
+                <BubblesLoader />
+              </div>
+            ) : (
+              <Row>
+                <Col lg={6} xs={12}>
+                  <Row className="mt-4">
+                    <Col lg={6}>
+                      <div className="edit-user">
+                        <input
+                          className="input-edit-user"
+                          placeholder={`${firstName} ${lastName}`}
+                          type="text"
+                        />
                       </div>
-                      <p className="stock-paragraph fs-sm-14">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown
-                      </p>
-                    </section>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col
-                    lg={5}
-                    xs={12}
-                    className="d-flex justify-content-center d-lg-block"
-                  >
-                    <section className="plan-card-edituser p-4">
-                      <div className="d-flex justify-content-between border-b-1">
-                        <p className="edituser-amount d-none d-sm-block">
-                          $299.99
-                        </p>
-                        <p className="profile-heading fs-sm-16">Plan-1</p>
-                        <p className="edituser-amount d-sm-none fs-sm-16">
-                          $299.99
-                        </p>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg={6} className="mt-3">
+                      <div className="edit-user">
+                        <input
+                          className="input-edit-user"
+                          placeholder={phone}
+                          type="number"
+                        />
                       </div>
-                      <div className="d-flex justify-content-sm-end mt-2">
-                        <span className="stock-paragraph fs-sm-11">
-                          17/07/2021
-                        </span>
-                        <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                          :Purchase Date
-                        </span>
+                    </Col>
+                  </Row>{" "}
+                  <Row>
+                    <Col lg={6} className="mt-3 ">
+                      <div className="edit-user">
+                        <input
+                          className="input-edit-user"
+                          placeholder={email}
+                          type="email"
+                        />
                       </div>
-                      <div className="d-flex justify-content-between mt-2 mb-2">
-                        <div className="d-none d-sm-block">
-                          <span className="float-md-end me-auto ">
-                            <label className="switch" for="checkbox">
-                              <input type="checkbox" id="checkbox" />
-                              <div className="slider round"></div>
-                            </label>
-                          </span>
-                        </div>
-                        <div className="d-flex justify-content-end">
-                          <span className="stock-paragraph fs-sm-11">
-                            Enable
-                          </span>
-                          <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                            :Auto Renew
-                          </span>
-                        </div>
-                        <div className="d-sm-none">
-                          <span className="float-md-end me-auto ">
-                            <label className="switch-2" for="checkbox-2">
-                              <input type="checkbox" id="checkbox-2" />
-                              <div className="slider-2 round"></div>
-                            </label>
-                          </span>
-                        </div>
-                      </div>
-                    </section>
+                    </Col>
+                  </Row>
+                </Col>
+
+                {isPaidPlan ? (
+                  <Col lg={6} xs={12}>
+                    <Row>
+                      <Col className=" mt-5 mt-lg-0 ">
+                        <section className="current-para my-4">
+                          <div className="d-none">
+                            <p className="fs-14 fw-500 ">:Plan Description</p>
+                          </div>
+                          <p className="stock-paragraph fs-sm-14">{details}</p>
+                        </section>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col
+                        lg={5}
+                        xs={12}
+                        className="d-flex justify-content-center d-lg-block"
+                      >
+                        <section className="plan-card-edituser p-4">
+                          <div className="d-flex justify-content-between border-b-1">
+                            <p className="edituser-amount d-none d-sm-block">
+                              ${price}
+                            </p>
+                            <p className="profile-heading fs-sm-16">{title}</p>
+                            <p className="edituser-amount d-sm-none fs-sm-16">
+                              ${price}
+                            </p>
+                          </div>
+                          <div className="d-flex justify-content-sm-end mt-2">
+                            <span className="stock-paragraph fs-sm-11">
+                              {createdAt && createdAt.split(",")[0]}
+                            </span>
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              :Purchase Date
+                            </span>
+                          </div>
+                          <div className="d-flex justify-content-sm-end mt-2">
+                            <span className="stock-paragraph fs-sm-11">
+                              {createdAt && expiresOn.split(",")[0]}
+                            </span>
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              :Expiry Date
+                            </span>
+                          </div>
+                          <div className="d-flex justify-content-between mt-2 mb-2">
+                            <div className="d-none d-sm-block">
+                              <span className="float-md-end me-auto ">
+                                <label className="switch" for="checkbox">
+                                  <input type="checkbox" id="checkbox" />
+                                  <div className="slider round"></div>
+                                </label>
+                              </span>
+                            </div>
+                            <div className="d-flex justify-content-end">
+                              <span className="stock-paragraph fs-sm-11">
+                                Enable
+                              </span>
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                :Auto Renew
+                              </span>
+                            </div>
+                            <div className="d-sm-none">
+                              <span className="float-md-end me-auto ">
+                                <label className="switch-2" for="checkbox-2">
+                                  <input type="checkbox" id="checkbox-2" />
+                                  <div className="slider-2 round"></div>
+                                </label>
+                              </span>
+                            </div>
+                          </div>
+                        </section>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col
+                        xs={12}
+                        className="mt-5 d-flex justify-content-center d-sm-block"
+                      >
+                        <button className="update-btn fs-sm-14">
+                          Cancel Subscription
+                        </button>
+                      </Col>
+                    </Row>
                   </Col>
-                </Row>
-                <Row>
-                  <Col
-                    xs={12}
-                    className="mt-5 d-flex justify-content-center d-sm-block"
-                  >
-                    <button className="update-btn fs-sm-14">
-                      Cancel Subscription
-                    </button>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
+                ) : (
+                  ""
+                )}
+              </Row>
+            )}
+
             {/* asdfghjkl */}
 
             {/* <Row className="mt-5">

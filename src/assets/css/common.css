@@ -256,7 +256,9 @@
 .h-19 {
   height: 19px;
 }
-
+.h-300 {
+  height: 300px;
+}
 .w-19 {
   width: 19px;
 }
