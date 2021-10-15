@@ -16,7 +16,7 @@ export const REMOVE_FILE_URL_LINK = "REMOVE_FILE_URL_LINK";
 
 const uploadImageSuccess = (file) => ({
   type: UPLOAD_IAMGE,
-  file,
+  file: file,
 });
 
 //Remove File Url Link
@@ -32,7 +32,7 @@ export const RemoveFileUrlLink = () => ({
  * @returns
  */
 export const uploadImageAction =
-  (e, setLoadingImage, type) => async (dispatch) => {
+  (e, setLoadingImage, type, setUploadImageUrl) => async (dispatch) => {
     setLoadingImage(true);
     try {
       if (e.target.files[0]) {
@@ -50,6 +50,7 @@ export const uploadImageAction =
         form.append("file", file);
         const response = await uploadImageApi(type, form);
         if (response.success) {
+          console.log("setUploadImageUrl", response.file);
           dispatch(uploadImageSuccess(response.file));
           setLoadingImage(false);
         } else {

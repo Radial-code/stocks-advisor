@@ -30,7 +30,7 @@ const initialState = {
   soldStockList: [],
   paymentList: [],
   myPlanDetails: [],
-  uploadImageUrl: null,
+  uploadImageUrl: "",
   stripeID: "",
   planDetails: {},
   userProfileDetails: {},

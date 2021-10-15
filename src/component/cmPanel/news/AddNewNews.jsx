@@ -16,9 +16,12 @@ import { uploadImageAction } from "../../../redux/uploadImage";
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
   const dispatch = useDispatch();
+
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
+  const newsDetailsList = useSelector((state) => state.userPanel.newsDetails);
+
   const [tags, setTags] = useState([]);
   const [atags, setATags] = useState([]);
   const [updateLoading, setUpdateLoading] = useState(false);
@@ -36,8 +39,39 @@ const AddNewNews = ({ edit, match, history }) => {
     stock: "",
     tags: "",
     atags: "",
-    media: uploadImageUrl,
+    media: uploadImageUrl ? uploadImageUrl : "",
+    link: "",
   });
+
+  useEffect(() => {
+    if (newsDetailsList) {
+      console.log("newsDetailsList", newsDetailsList);
+      setNewsDetails({
+        title: newsDetails.title ? newsDetails.title : newsDetailsList.title,
+        atitle: newsDetails.atitle
+          ? newsDetails.atitle
+          : newsDetailsList.atitle,
+        description: newsDetails.description
+          ? newsDetails.description
+          : newsDetailsList.description,
+        adescription: newsDetails.adescription
+          ? newsDetails.adescription
+          : newsDetailsList.adescription,
+        showOnHomePage: newsDetails.showOnHomePage
+          ? newsDetails.showOnHomePage
+          : newsDetailsList.showOnHomePage,
+        stock: newsDetails.stock
+          ? newsDetails.stock
+          : newsDetailsList &&
+            newsDetailsList.stock &&
+            newsDetailsList.stock.symbol,
+        tags: newsDetails.title ? newsDetails.title : newsDetailsList.title,
+        atags: newsDetails.title ? newsDetails.title : newsDetailsList.title,
+        media: uploadImageUrl ? uploadImageUrl : "",
+        link: newsDetails.media ? newsDetails.media : newsDetailsList.media,
+      });
+    }
+  }, [newsDetailsList]);
 
   useEffect(() => {
     dispatch(getStockListAction(setLoading));
@@ -226,12 +260,20 @@ const AddNewNews = ({ edit, match, history }) => {
               className="mb-3 add-new-stock-field position-relative "
               controlId="formBasicEmail"
             >
-              <Form.Control type="text" placeholder="YouTube / Image Link" />
+              <Form.Control
+                onChange={(e) => {
+                  setNewsDetails({
+                    ...newsDetails,
+                    link: e.target.value,
+                  });
+                }}
+                type="text"
+                placeholder="YouTube / Image Link"
+              />
 
               <input
                 onChange={(e) => setInput(e.target.value)}
                 type="file"
-                value={uploadImageUrl ? uploadImageUrl : null}
                 id="my-file"
                 onChange={(e) =>
                   dispatch(uploadImageAction(e, setLoadingImage, "news"))
@@ -243,13 +285,13 @@ const AddNewNews = ({ edit, match, history }) => {
                   <Loader />
                 ) : (
                   <label className="cursor-pointer" for="my-file">
-                    Upload Image
+                    {uploadImageUrl ? "Image Uploaded" : "Upload Image"}
                   </label>
                 )}
               </button>
               <button className="upload-img-btn d-block d-sm-none cursor-pointer">
                 <label className="cursor-pointer" for="my-file">
-                  Upload
+                  {uploadImageUrl ? "Image Uploaded" : "Upload Image"}
                 </label>
               </button>
             </Form.Group>
