@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../common/icons/Icons";
-import ProfileImage from "../../../assets/img/Profile-img.png";
+import ProfileImage from "../../../assets/img/user-img.png";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import ProfileForm from "./ProfileForm";
@@ -9,6 +9,7 @@ import Loader from "../../common/Loader";
 
 function ViewProfile() {
   const userDetails = useSelector((state) => state.userPanel.userDetails);
+  const [Upload, setUpload] = useState("");
   const dispatch = useDispatch();
   const [inputDisable, setInputDisable] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -31,6 +32,10 @@ function ViewProfile() {
     };
     dispatch(updateUserDetailsAction(data, setLoading));
     setInputDisable(true);
+  };
+  const onImageChange = (event) => {
+    let img = event.target.files[0];
+    setUpload(URL.createObjectURL(img));
   };
 
   return (
@@ -72,11 +77,20 @@ function ViewProfile() {
       </div>
       <div className="my-sm-5 my-3 img-size  d-flex justify-content-center">
         <div className="position-relative d-flex flex-column align-items-md-end justify-content-end">
-          <img className="profile-img" src={ProfileImage} alt="img" />
+          {Upload ? (
+            <img className="profile-img" src={Upload} alt="img" />
+          ) : (
+            <img className="profile-img" src={ProfileImage} alt="img" />
+          )}
 
-          <div className="position-absolute pb-sm-2 cursor-pointer edit-icon">
+          <input type="file" id="my-file" hidden onChange={onImageChange} />
+
+          <label
+            for="my-file"
+            className="position-absolute pb-sm-2 cursor-pointer edit-icon"
+          >
             <EditIcon />
-          </div>
+          </label>
         </div>
       </div>
       <div className="d-flex flex-row justify-content-center   d-block d-md-none mb-5">
