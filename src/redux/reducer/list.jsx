@@ -1,6 +1,10 @@
 import { DELETE_EXCHANGE_LIST } from "../action/cmPanel/OurServices";
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
-import { GET_TEAM_LIST } from "../action/cmPanel/stock";
+import {
+  GET_TEAM_LIST,
+  GET_USER_PROFILE_DATA,
+  REMOVE_USER_PROFILE_DETAILS_DATA,
+} from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
 import {
   ADD_PAYMENT_STRIPE_ID,
@@ -29,6 +33,7 @@ const initialState = {
   uploadImageUrl: null,
   stripeID: "",
   planDetails: {},
+  userProfileDetails: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -141,6 +146,21 @@ export default function ListReducer(state = initialState, action) {
       };
     }
 
+    // get user details by id
+    case GET_USER_PROFILE_DATA: {
+      return {
+        ...state,
+        userProfileDetails: action.data,
+      };
+    }
+
+    // get user details by id
+    case REMOVE_USER_PROFILE_DETAILS_DATA: {
+      return {
+        ...state,
+        userProfileDetails: {},
+      };
+    }
     default:
       return state;
   }

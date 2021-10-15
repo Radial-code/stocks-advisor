@@ -5,9 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserListForAdminAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const UserListTable = () => {
   const dispatch = useDispatch();
+  let history = useHistory();
+
   const [loading, setLoading] = useState(false);
   const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
 
@@ -50,23 +53,34 @@ const UserListTable = () => {
           <tbody className="user-details">
             {adminUserList && adminUserList.length ? (
               adminUserList.map((value, index) => {
+                const {
+                  phone,
+                  createdAt,
+                  firstName,
+                  lastName,
+                  email,
+                  plan,
+                  _id,
+                } = value;
                 return (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                    className="cursor-pointer"
+                    onClick={() =>
+                      history.push(`/content/manager/edit/user/${_id}`)
+                    }
+                  >
                     <td className="text-end whitespace Ellipse">
-                      {moment(value.createdAt).format("MM/ddd")}
+                      {moment(createdAt).format("MM/ddd")}
                     </td>
                     <td className="text-end whitespace Ellipse" dir="ltr">
-                      {value.firstName} {value.lastName}
+                      {firstName} {lastName}
                     </td>
-                    <td className="text-end whitespace Ellipse">
-                      {value.phone}
-                    </td>
+                    <td className="text-end whitespace Ellipse">{phone}</td>
                     <td className="text-end whitespace Ellipse" dir="ltr">
-                      {value.email}
+                      {email}
                     </td>
-                    <td className="text-end whitespace Ellipse">
-                      {value.plan}
-                    </td>
+                    <td className="text-end whitespace Ellipse">{plan}</td>
                   </tr>
                 );
               })

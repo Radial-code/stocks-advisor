@@ -67,3 +67,11 @@ export const createNewTeamMemberApi = async (data) => {
 export const getTeamMemberListApi = async () => {
   return await axiosRequest("GET", `/team`);
 };
+
+/**
+ *  get user profile data api
+ * @returns
+ */
+export const getUserProfileDataApi = async (userId) => {
+  return await axiosRequest("GET", `/profile/${userId}`);
+};

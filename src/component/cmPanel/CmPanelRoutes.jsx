@@ -81,7 +81,7 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/edit/user">
+          <Route path="/content/manager/edit/user/:userId">
             <EditUser
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
