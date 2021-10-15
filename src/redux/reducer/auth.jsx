@@ -26,7 +26,6 @@ export default function AuthReducer(state = initialState, action) {
 
     // LOGIN REDUCER TO SAVE USER DATA
     case LOGIN_SUCCESSFULLY: {
-      console.log("data", action.data);
       return {
         ...state,
         token: action.data,

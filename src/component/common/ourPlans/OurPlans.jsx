@@ -39,7 +39,6 @@ const OurPlans = ({ homepage, history }) => {
               <div className="row mt-sm-5 ">
                 {planList && planList.length
                   ? planList.map((value, index) => {
-                      console.log("planList", planList);
                       return (
                         <Col
                           key={index}

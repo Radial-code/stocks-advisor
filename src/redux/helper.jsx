@@ -10,7 +10,6 @@ export async function axiosRequest(method, url, data = null) {
     const token = localStorage.getItem("stock-advisor");
     let response;
     if (token) {
-      console.log(`${PUBLIC_URL}${url}`);
       response = await Axios({
         method: method,
         url: `${PUBLIC_URL}${url}`,

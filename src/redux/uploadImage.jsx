@@ -38,7 +38,6 @@ export const uploadImageAction =
       if (e.target.files[0]) {
         const file = e.target.files[0];
         const fileSize = file.size / 1024 / 1024;
-        console.log("file", file);
 
         if (fileSize > 20) {
           Swal.fire("Opps!", "File must be less than 20 MB", "error");
@@ -51,7 +50,6 @@ export const uploadImageAction =
         form.append("file", file);
         const response = await uploadImageApi(type, form);
         if (response.success) {
-          console.log("success", response);
           //   dispatch(uploadImageSuccess(response));
           setLoadingImage(false);
         } else {
