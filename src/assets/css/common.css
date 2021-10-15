@@ -651,6 +651,7 @@ input::-webkit-inner-spin-button {
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.5s ease;
 }
 .news-slider-wrapper .news-wrapper-bottom-section {
   padding: 12px;
@@ -675,4 +676,9 @@ input::-webkit-inner-spin-button {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.news-slider-wrapper:hover {
+  transform: translateY(-20px);
+  box-shadow: 0px 10px 15px rgb(0 0 0 / 15%);
 }
