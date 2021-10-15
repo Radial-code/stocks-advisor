@@ -30,10 +30,14 @@ const Navbar = () => {
 
   const layoutleftChangeHandler = () => {
     setLayoutClickChanger(true);
+    setLanguage("Arabic");
+    setLang(false);
   };
 
   const layoutrightChangeHandler = () => {
     setLayoutClickChanger(false);
+    setLanguage("English");
+    setLang(false);
   };
 
   const dispatch = useDispatch();
@@ -51,6 +55,7 @@ const Navbar = () => {
   const [PortfolioActive, setPortfolioActive] = useState(false);
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
+  const [Language, setLanguage] = useState("Arabic");
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -288,7 +293,7 @@ const Navbar = () => {
                             <Drop />
                           </span>
                         ) : null}
-                        Lang
+                        {Language}
                         {layoutClickChanger ? null : (
                           <span className="px-1 ">
                             {" "}
