@@ -282,11 +282,19 @@ const Navbar = () => {
                         activeClassName="active"
                         className="nav-links drop-down"
                       >
-                        <span className="ps-1 ">
-                          {" "}
-                          <Drop />
-                        </span>
+                        {layoutClickChanger ? (
+                          <span className="px-1 ">
+                            {" "}
+                            <Drop />
+                          </span>
+                        ) : null}
                         Lang
+                        {layoutClickChanger ? null : (
+                          <span className="px-1 ">
+                            {" "}
+                            <Drop />
+                          </span>
+                        )}
                       </NavLink>
                     </li>
                     {Lang ? (
