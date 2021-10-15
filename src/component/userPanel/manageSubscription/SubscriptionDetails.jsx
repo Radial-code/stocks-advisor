@@ -66,7 +66,7 @@ const SubscriptionDetails = () => {
               className="d-flex justify-content-center mt-5 mt-lg-0"
             >
               <section className="current-para">
-                <p className="fs-14 fw-500 ">:Plan Description</p>
+                <p className="fs-14 fw-500 ">Plan Description:</p>
 
                 <p className="stock-paragraph fs-sm-14">
                   {myPlanDetails.details}

@@ -50,7 +50,7 @@ function ViewProfile() {
         <div className="d-flex flex-sm-row flex-column d-none d-md-block">
           {inputDisable ? (
             <Link to="/change-password">
-              <button className="from-edit-profile-btn px-14 ">
+              <button className="from-edit-profile-btn mx-3 px-14 ">
                 Change Password
               </button>
             </Link>

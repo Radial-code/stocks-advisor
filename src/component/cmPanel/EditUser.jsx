@@ -119,7 +119,7 @@ const EditUser = ({
                   <Col lg={6} xs={12} className=" mt-5 mt-lg-0 ">
                     <section className="current-para my-4">
                       <div className="d-none">
-                        <p className="fs-14 fw-500 ">:Plan Description</p>
+                        <p className="fs-14 fw-500 ">Plan Description:</p>
                       </div>
                       <p className="stock-paragraph fs-sm-14">
                         Lorem Ipsum is simply dummy text of the printing and

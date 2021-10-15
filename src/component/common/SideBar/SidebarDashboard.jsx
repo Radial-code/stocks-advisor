@@ -29,7 +29,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                   <span className="pl-15">
                     <Manage />
                   </span>
-                  <span>Manage Subscription</span>
+                  <span className="ms-2">Manage Subscription</span>
                 </li>
               </NavLink>
 
@@ -48,7 +48,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                   <span className="pl-15">
                     <Notify />
                   </span>
-                  <span>Notification</span>
+                  <span className="ms-2">Notification</span>
                 </li>
               </NavLink>
               <NavLink activeClassName="active" to="/dashboard/view/profile">
@@ -56,7 +56,7 @@ const SidebarDashboard = ({ sidebarActive }) => {
                   <span className="pl-15">
                     <ProfileIcon />
                   </span>
-                  <span>Profile</span>
+                  <span className="ms-2">Profile</span>
                 </li>
               </NavLink>
               <NavLink activeClassName="active" to="/dashboard/payment">
