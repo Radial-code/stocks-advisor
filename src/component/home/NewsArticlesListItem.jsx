@@ -12,9 +12,9 @@ const NewsArticlesListItem = ({ news, history }) => {
     <>
       <div className="d-flex justify-content-center d-md-block pr-15">
         <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-          <img className="w-100" src={NewsSlider} alt="" />
+          <img className="w-100" src={imagePath} alt="" />
           <div className="p-3">
-            <p className="text-end stock-paragraph">
+            <p className="text-end stock-paragraph Slider-Ellipse">
               {" "}
               <span className="d-flex justify-content-end align-items-center">
                 <span className="d-flex justify-content-end px-2">
@@ -38,8 +38,8 @@ const NewsArticlesListItem = ({ news, history }) => {
             >
               Read More...
             </p>
-            <p class="small-paragraph text-end">{tags}</p>
-            <p className={`small-paragraph`}>
+            <p class="small-paragraph text-end Slider-Ellipse">{tags}</p>
+            <p className={`small-paragraph text-end Slider-Ellipse`}>
               <span className=" cursor-pointer fw-bold">Stock :</span>
               <span
                 onClick={() =>

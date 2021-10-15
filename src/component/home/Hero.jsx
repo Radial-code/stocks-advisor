@@ -4,7 +4,7 @@ import HomePageSlider from "./HomePageSlider";
 
 const Hero = ({ loading, setRelatedLoading }) => {
   return (
-    <section className="py-sm-5 py-3">
+    <section className="pt-sm-5 pt-3">
       <div className="container p-left-right">
         <div className="row  justify-content-between">
           <div className="col-xl-8 col-lg-7 ">
