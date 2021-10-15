@@ -54,7 +54,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
     dispatch(getExchangeListAction(setExchangeLoading));
     dispatch(getPortfolioListAction(setPortfolioLoading));
   }, []);
-  console.log(stockDetailsList, "edit");
   useEffect(() => {
     if (!detailLoading) {
       setStockDetails(stockDetailsList);
@@ -114,8 +113,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       }
     }
   };
-  console.log(stockDetails, "stockDetails========>");
-
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
@@ -172,7 +169,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 >
                   <Form.Control
                     type="number"
-                    value={stockDetails.joinPrice}
+                    value={
+                      stockDetails && stockDetails.joinPrice
+                        ? stockDetails.joinPrice
+                        : ""
+                    }
                     placeholder="Join Price"
                     onChange={(e) => {
                       setStockDetails((pre) => ({
@@ -199,7 +200,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   <Form.Control
                     type="text"
                     placeholder="Symbol"
-                    value={stockDetails.symbol}
+                    value={stockDetails && stockDetails.symbol}
                     onChange={(e) => {
                       setStockDetails({
                         ...stockDetails,
@@ -216,7 +217,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               </div>
               <div className="col-md-6">
                 <FormGroup
-                  value={stockDetails.category}
+                  value={stockDetails && stockDetails.category}
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
@@ -226,7 +227,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   className=" add-new-stock-select mb-3"
                 >
                   <select
-                    value={stockDetails.category && stockDetails.category._id}
+                    value={
+                      stockDetails &&
+                      stockDetails.category &&
+                      stockDetails.category._id
+                    }
                     className="form-select text-end cursor-pointer"
                   >
                     <option>Category</option>
@@ -253,7 +258,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
             <div className="row">
               <div className="col-md-6">
                 <FormGroup
-                  value={stockDetails.portfolio}
+                  value={stockDetails && stockDetails.portfolio}
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
@@ -263,7 +268,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   className=" add-new-stock-select mb-3"
                 >
                   <select
-                    value={stockDetails.portfolio && stockDetails.portfolio._id}
+                    value={
+                      stockDetails &&
+                      stockDetails.portfolio &&
+                      stockDetails.portfolio._id
+                    }
                     className="form-select text-end cursor-pointer"
                   >
                     <option>Portfolio</option>
@@ -288,7 +297,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               </div>
               <div className="col-md-6">
                 <FormGroup
-                  value={stockDetails.exchange}
+                  value={stockDetails && stockDetails.exchange}
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
@@ -298,7 +307,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   className=" add-new-stock-select mb-3"
                 >
                   <select
-                    value={stockDetails.exchange && stockDetails.exchange._id}
+                    value={
+                      stockDetails &&
+                      stockDetails.exchange &&
+                      stockDetails.exchange._id
+                    }
                     className="form-select text-end cursor-pointer"
                   >
                     <option>Exchange</option>
@@ -329,7 +342,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   controlId="formBasicEmail"
                 >
                   <Form.Control
-                    value={stockDetails.soldPrice}
+                    value={stockDetails && stockDetails.soldPrice}
                     type="text"
                     placeholder="Sold Price"
                     onChange={(e) => {
@@ -345,7 +358,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <DatePicker
                   placeholderText="Sold Date"
                   className="mb-3"
-                  value={moment(stockDetails.soldDate).format(`YYYY/MM/DD`)}
+                  value={
+                    stockDetails &&
+                    stockDetails.joinDate &&
+                    moment(stockDetails.soldDate).format(`YYYY/MM/DD`)
+                  }
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,

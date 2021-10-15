@@ -32,6 +32,7 @@ const Navbar = () => {
   const [NewsActive, setNewsActive] = useState(false);
   const [LangActive, setLangActive] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [dropdown, setdropdown] = useState(false);
 
   const [PlansActive, setPlansActive] = useState(false);
   const [ContactActive, setContactActive] = useState(false);
@@ -346,12 +347,30 @@ const Navbar = () => {
                         className="nav-links"
                         onClick={click ? handleClick : null}
                       >
-                        Dashboard
+                        <span>Dashboard</span>
                       </NavLink>
                     </li>
                   ) : (
                     ""
                   )}
+                  {console.log("dropdown", dropdown)}
+                  {dropdown ? (
+                    <div
+                      className="bg-white shadow p-2  rounded position-absolute"
+                      style={{ bottom: "-95px" }}
+                    >
+                      {" "}
+                      <p className=" px-2 py-1 cursor-pointer fw-normal text-center mb-0">
+                        User Profile
+                      </p>
+                      <p className=" px-2 py-1 cursor-pointer fw-normal text-center">
+                        Admin DashBoard
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   <li className="nav-item d-md-block d-none d-xl-none">
                     <NavLink
                       exact
