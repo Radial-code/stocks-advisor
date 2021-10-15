@@ -9,6 +9,7 @@ import {
   updateStockDetailsApi,
   getUserListForAdminApi,
   getUserProfileDataApi,
+  UserPlanDetailApi,
 } from "../../api/cmPanel/stock";
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
@@ -19,6 +20,8 @@ export const GET_TEAM_LIST = "GET_TEAM_LIST";
 export const GET_USER_PROFILE_DATA = "GET_USER_PROFILE_DATA";
 export const REMOVE_USER_PROFILE_DETAILS_DATA =
   "REMOVE_USER_PROFILE_DETAILS_DATA";
+export const GET_PLAN_DETAILS = "GET_PLAN_DETAILS";
+export const REMOVE_PLAN_DETAILS = "REMOVE_PLAN_DETAILS";
 
 /**
  * add new stock details action
@@ -304,5 +307,70 @@ const removeUserDetails = (data) => ({
 export const removeUserProfileDetailsAction = () => async (dispatch) => {
   try {
     dispatch(removeUserDetails());
+  } catch (error) {}
+};
+
+/**
+ * Get user plan action
+ * @param {Object} data
+ * @returns
+ */
+
+const getUserPlanDetails = (data) => ({
+  type: GET_PLAN_DETAILS,
+  data,
+});
+
+/**
+ * get user plan details
+ * @param {String} userId
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const getUserPlanDetailAction =
+  (userId, setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await UserPlanDetailApi(userId);
+      if (response.success) {
+        console.log(response.plan, "response");
+        dispatch(getUserPlanDetails(response.plan));
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load plan details", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setLoading(false);
+      Swal.fire(
+        "Error!",
+        "Something went wrong, Check your internet connection",
+        "error"
+      );
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * remove user plan details action
+ * @param {Object} data
+ * @returns
+ */
+
+const removeUserPlanDetail = (data) => ({
+  type: REMOVE_PLAN_DETAILS,
+  data,
+});
+
+/**
+ *remove user plan details action
+ * @param {String} userId
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const removeUserPlanDetailsAction = () => async (dispatch) => {
+  try {
+    dispatch(removeUserPlanDetail());
   } catch (error) {}
 };

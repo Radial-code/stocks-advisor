@@ -4,6 +4,8 @@ import {
   GET_TEAM_LIST,
   GET_USER_PROFILE_DATA,
   REMOVE_USER_PROFILE_DETAILS_DATA,
+  GET_PLAN_DETAILS,
+  REMOVE_PLAN_DETAILS,
 } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
 import {
@@ -34,6 +36,7 @@ const initialState = {
   stripeID: "",
   planDetails: {},
   userProfileDetails: {},
+  userPlanDetails: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -147,6 +150,20 @@ export default function ListReducer(state = initialState, action) {
     }
 
     // get user details by id
+    case GET_PLAN_DETAILS: {
+      return {
+        ...state,
+        userPlanDetails: action.data,
+      };
+    }
+    // get user details by id
+    case REMOVE_PLAN_DETAILS: {
+      return {
+        ...state,
+        userPlanDetails: {},
+      };
+    }
+    // get user details by id
     case GET_USER_PROFILE_DATA: {
       return {
         ...state,
@@ -161,6 +178,7 @@ export default function ListReducer(state = initialState, action) {
         userProfileDetails: {},
       };
     }
+
     default:
       return state;
   }
