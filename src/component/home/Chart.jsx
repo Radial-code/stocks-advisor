@@ -13,7 +13,7 @@ const Chart = () => {
           </p>
         </div>
       </div>
-      <div className="my-5 py-3">
+      <div>
         <LineChart2 />
         <LineChart />
         <LineChart3 />
