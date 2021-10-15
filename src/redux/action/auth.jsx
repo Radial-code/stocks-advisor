@@ -10,6 +10,7 @@ import {
   verfiyMobileOtpApi,
   resendOtpApi,
   ChangePasswordApi,
+  LogoutApi,
 } from "../api/auth";
 
 export const LOGIN_SUCCESSFULLY = "LOGIN_SUCCESSFULLY";
@@ -35,14 +36,58 @@ export const Logout = () => ({
   type: REMOVE_LOCAL_STORAGE_TOKEN,
 });
 
-export const LogoutAction = (history) => async (dispatch) => {
+export const LogoutAction = (setLoading, history) => async (dispatch) => {
+  setLoading(true);
   try {
-    dispatch(Logout);
-    localStorage.setItem("stock-advisor", null);
-    history.push("/");
-    window.location.reload();
-  } catch (error) {}
+    const response = await LogoutApi();
+    if (response.success) {
+      dispatch(Logout);
+      localStorage.setItem("stock-advisor", null);
+      setLoading(false);
+      history.push("/");
+      window.location.reload();
+    }
+  } catch (error) {
+    setLoading(false);
+  }
 };
+
+// export const LogoutAction = (data, setLoading, history) => async (dispatch) => {
+//   setLoading(true);
+//   try {
+//     const response = await LogoutApi(data);
+//     if (response.success) {
+//       dispatch(LoginSuccess(response["x-api-key"]));
+//       localStorage.setItem("stock-advisor", response["x-api-key"]);
+//       setLoading(false);
+//       if (!response.user.isAdmin) {
+//         if (response.user.isPaidPlan) {
+//           history.push("/portfolio/portfolio1");
+//         } else {
+//           history.push("/our-plan");
+//         }
+//       } else {
+//         history.push("/");
+//       }
+//     } else {
+//       setLoading(false);
+//       Swal.fire(
+//         "Error!",
+//         `${
+//           response && response.response && response.response.data
+//             ? response.response.data.message
+//             : "You have entered wrong email or password"
+//         }`,
+//         "error"
+//       );
+//       setTimeout(Swal.close, 2000);
+//     }
+//   } catch (error) {
+//     setLoading(false);
+//     Swal.fire("Error!", "Something went wrong", "error");
+//     setTimeout(Swal.close, 2000);
+//   }
+// };
 
 /**
  * Login action
@@ -151,15 +196,6 @@ export const getUserProfileAction =
       if (response.success) {
         dispatch(getUserProfile(response.data, token));
         setLoading(false);
-        if (!response.data.isAdmin) {
-          // if (response.data.isPaidPlan) {
-          //   history.push("/");
-          // } else {
-          //   history.push("/");
-          // }
-        } else {
-          history.push("/");
-        }
       } else {
         setLoading(false);
       }

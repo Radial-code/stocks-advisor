@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
-function CurrentStock() {
+function CurrentStock({ history }) {
   const currentStockList = useSelector((state) => state.list.currentStockList);
   return (
     <div className="table-responsive scroll-bar current-stock-scrollbar">
@@ -16,6 +16,12 @@ function CurrentStock() {
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Date
+              </th>
+              <th scope="col" className="text-center">
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Name
               </th>
               <th scope="col" className="text-center">
                 <span>
@@ -63,7 +69,22 @@ function CurrentStock() {
                     <td className="text-center">
                       {moment(value.createdAt).format("DD/MMM/YYYY")}
                     </td>
-                    <td className="text-center">{value.symbol}</td>
+                    <td
+                      className="text-center"
+                      onClick={() =>
+                        history.push(`/stock/news/${value._id}/stock-tags`)
+                      }
+                    >
+                      {value.name ? value.name : value.symbol}
+                    </td>
+                    <td
+                      className="text-center"
+                      onClick={() =>
+                        history.push(`/stock/news/${value._id}/stock-tags`)
+                      }
+                    >
+                      {value.symbol}
+                    </td>
                     <td className="text-center">{value.portfolio.title}</td>
                     <td className="text-center">{value.category.title}</td>
                     <td className="text-center">${value.joinPrice}</td>

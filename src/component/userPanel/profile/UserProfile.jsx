@@ -25,7 +25,7 @@ function UserProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
         </div>
-        <div className="col-12 pe-xl-5 px-0 px-sm-auto">
+        <div className="col-12 ">
           <ViewProfile loading={loading} />
         </div>
       </div>

@@ -84,13 +84,24 @@ function ViewProfile() {
           )}
 
           <input type="file" id="my-file" hidden onChange={onImageChange} />
-
-          <label
+          {inputDisable ? (
+            <label className="position-absolute pb-sm-2 edit-icon">
+              <EditIcon />
+            </label>
+          ) : (
+            <label
+              for="my-file"
+              className="position-absolute pb-sm-2 cursor-pointer edit-icon"
+            >
+              <EditIcon />
+            </label>
+          )}
+          {/* <label
             for="my-file"
             className="position-absolute pb-sm-2 cursor-pointer edit-icon"
           >
             <EditIcon />
-          </label>
+          </label> */}
         </div>
       </div>
       <div className="d-flex flex-row justify-content-center   d-block d-md-none mb-5">
