@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const NewsArticles = ({ history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
-  console.log(newsListData, "newsListData");
+
   var settings = {
     dots: false,
     infinite: true,
