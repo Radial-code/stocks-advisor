@@ -453,7 +453,7 @@ const Navbar = () => {
                         : "d-flex flex-sm-row flex-column justify-content-end "
                     }`}
                   >
-                    <li className=" d-flex d-xl-none flex-column align-items-center">
+                    {/* <li className=" d-flex d-xl-none flex-column align-items-center">
                       <NavLink
                         exact
                         to="/signup"
@@ -463,7 +463,7 @@ const Navbar = () => {
                       >
                         <button className="update-btn">Join Now</button>
                       </NavLink>
-                    </li>
+                    </li> */}
                   </div>
                 </div>
 
