@@ -440,7 +440,7 @@ const Navbar = () => {
                       </button>
                       <button
                         onClick={() => history.push("/signup")}
-                        className="update-btn me-md-3 mt-2"
+                        className="update-btn ms-md-3 mt-2"
                       >
                         Join Now
                       </button>
@@ -550,7 +550,7 @@ const Navbar = () => {
                       </button>
                       <button
                         onClick={() => history.push("/signup")}
-                        className="update-btn me-3"
+                        className="update-btn mx-3"
                       >
                         Join Now
                       </button>
