@@ -17,6 +17,8 @@ export const GET_STOCK_DETAILS_BY_ID = "GET_STOCK_DETAILS_BY_ID";
 export const DELETE_STOCK_LIST = "DELETE_STOCK_LIST";
 export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
 export const GET_TEAM_LIST = "GET_TEAM_LIST";
+export const REMOVE_STOCK_DETAIL_DATA = "REMOVE_STOCK_DETAIL_DATA";
+
 export const GET_USER_PROFILE_DATA = "GET_USER_PROFILE_DATA";
 export const REMOVE_USER_PROFILE_DETAILS_DATA =
   "REMOVE_USER_PROFILE_DETAILS_DATA";
@@ -90,12 +92,23 @@ const getStockDetails = (data) => ({
   data,
 });
 
+// REMOVE STOCK DETAILS DATA
+
+export const removeStockDetailData = () => (
+  console.log("remove"),
+  {
+    type: REMOVE_STOCK_DETAIL_DATA,
+  }
+);
+
 export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
   setLoading(true);
+  console.log(id);
   try {
     const response = await getStockDetailsApi(id);
     if (response.success) {
       dispatch(getStockDetails(response.details));
+      console.log(response.details, "detail");
       setLoading(false);
     } else {
       setLoading(false);

@@ -16,7 +16,7 @@ import {
   DELETE_STOCK_LIST,
   GET_STOCK_DETAILS_BY_ID,
   GET_STOCK_LIST,
-  GET_USER_LIST_FOR_ADMIN,
+  GET_USER_LIST_FOR_ADMIN,REMOVE_STOCK_DETAIL_DATA
 } from "../action/cmPanel/stock";
 import {
   DELETE_NEWS_LIST,
@@ -164,7 +164,12 @@ export default function cmPanel(state = initialState, action) {
         stockDetails: action.data,
       };
     }
-
+    case REMOVE_STOCK_DETAIL_DATA: {
+      return {
+        ...state,
+        stockDetails: {}
+      }
+}
     // Get news list for home
     case GET_HOME_PAGE_NEWS: {
       return {

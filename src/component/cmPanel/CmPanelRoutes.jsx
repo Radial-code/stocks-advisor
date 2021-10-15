@@ -27,7 +27,7 @@ const CmPanelRoutes = () => {
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
           />
-          <Route path="/content/manager/stocks">
+          <Route exect path="/content/manager/stocks">
             <Stocks
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -35,7 +35,7 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/add/stock">
+          <Route exect path="/content/manager/add/stock">
             <AddStock
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -51,14 +51,14 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/add/news">
+          <Route exect path="/content/manager/add/news">
             <AddNews
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/users">
+          <Route exect path="/content/manager/users">
             <Users
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -66,7 +66,7 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/news">
+          <Route exect path="/content/manager/news">
             <News
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -74,14 +74,14 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/edit/news/:id">
+          <Route exect path="/content/manager/edit/news/:id">
             <AddNews
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/edit/user/:userId">
+          <Route exect path="/content/manager/edit/user/:userId">
             <EditUser
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -95,7 +95,7 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/add/services">
+          <Route exect path="/content/manager/add/services">
             <OtherServicesForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -103,21 +103,21 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/our/plans/details">
+          <Route exect path="/content/manager/our/plans/details">
             <Plans
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/plan/form">
+          <Route exect path="/content/manager/plan/form">
             <PlansSection
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/edit/plan/:id">
+          <Route exect path="/content/manager/edit/plan/:id">
             <PlansSection
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -125,28 +125,28 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route path="/content/manager/add/other/services">
+          <Route exect path="/content/manager/add/other/services">
             <OtherServicesForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/team/cards">
+          <Route exect path="/content/manager/team/cards">
             <TeamCards
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/team/form">
+          <Route exect path="/content/manager/team/form">
             <TeamForm
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route path="/content/manager/enquiry/list">
+          <Route exect path="/content/manager/enquiry/list">
             <Enquiry
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}

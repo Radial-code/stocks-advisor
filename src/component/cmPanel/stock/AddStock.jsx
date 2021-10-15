@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../cmPanelCss/addnewstock.css";
 import { Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import AddStockForm from "./AddStockForm";
-import { getStockDetailsAction } from "../../../redux/action/cmPanel/stock";
+import {
+  getStockDetailsAction,
+  removeStockDetailData,
+} from "../../../redux/action/cmPanel/stock";
 
 const AddStock = ({
   sideBarHandler,
@@ -16,13 +19,19 @@ const AddStock = ({
   const { id } = match.params;
   const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(false);
-
+  // const stockListData = useSelector(state => state.cmPanel.stockList)
+  console.log(id);
   useEffect(() => {
-    if (!!id) {
+    if (id) {
       setEdit(true);
+      console.log("id ======>", id);
       dispatch(getStockDetailsAction(id, setLoading));
     }
-  }, [id]);
+    return () => {
+      console.log("clean");
+      dispatch(removeStockDetailData());
+    };
+  }, []);
 
   return (
     <div className="container">
@@ -53,7 +62,7 @@ const AddStock = ({
             </div>
           </div>
         </Col>
-        <AddStockForm edit={edit} />
+        <AddStockForm detailLoading={loading} edit={edit} />
       </div>
     </div>
   );
