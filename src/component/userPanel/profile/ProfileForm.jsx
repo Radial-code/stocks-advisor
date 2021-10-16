@@ -6,7 +6,7 @@ const ProfileForm = ({
 }) => {
   return (
     <div className="row">
-      <div className="col-6 ">
+      <div className="col-lg-6 ">
         <div className="mb-md-4 mb-3 profile-field">
           {inputDisable ? (
             ""
@@ -39,7 +39,7 @@ const ProfileForm = ({
           />
         </div>
       </div>
-      <div className="col-6">
+      <div className="col-lg-6">
         <div className="mb-md-4 mb-3 profile-field">
           {inputDisable ? (
             ""

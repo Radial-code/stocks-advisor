@@ -10,11 +10,11 @@ const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
       ></div>
       <section>
         <div className="row">
-          <div className="col-12 dashboard">
+          {/* <div className="col-12 dashboard">
             <div className="border-b-1  mb-3">
               <DashboardDropDown sideBarHandler={sideBarHandler} />
             </div>
-          </div>
+          </div> */}
           <div className=" col-12 d-flex justify-content-end ">
             <div className="p-md-5 p-3 p-xxl-5 mx-1000 w-100 box">
               <h1 className="heading-stock mb-4 fs-sm-20">

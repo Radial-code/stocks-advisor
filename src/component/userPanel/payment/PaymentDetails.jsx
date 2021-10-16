@@ -25,11 +25,11 @@ const PaymentDetails = ({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <Row>
-        <Col xs={12} className="dashboard">
+        {/* <Col xs={12} className="dashboard">
           <div className="border-b-1  mb-3">
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
-        </Col>
+        </Col> */}
         <Col xs={12}>
           <section className="notification-card p-lg-5 p-2 ">
             <div className="border-b-1">

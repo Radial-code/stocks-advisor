@@ -186,7 +186,7 @@
   color: var(--color-16191e);
   font-family: "Poppins", sans-serif;
 }
-@media (max-width: 567px) {
+@media (max-width: 991px) {
   .from-heading {
     --font-lg: 22px;
   }
@@ -262,7 +262,11 @@
   transition: 0.6s;
   border: 1px solid var(--color-4870b3) !important;
 }
-
+@media (max-width: 1200px) {
+  .from-edit-profile-btn {
+    --font-18: 14px !important;
+  }
+}
 .from-edit-profile-btn:hover {
   background: var(--color-ffffff);
   color: var(--color-4870b3);
@@ -279,6 +283,7 @@
   width: 192px;
   height: 192px;
   border-radius: 50%;
+  border: 1px solid rgba(19, 3, 3, 0.336);
 }
 
 .form-control:focus {

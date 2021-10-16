@@ -1,14 +1,151 @@
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom";
+// import { EditIcon } from "../../common/icons/Icons";
+// import { useDispatch, useSelector } from "react-redux";
+// import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
+// import ProfileForm from "./ProfileForm";
+// import Loader from "../../common/Loader";
+
+// function ViewProfile() {
+//   const userDetails = useSelector((state) => state.userPanel.userDetails);
+//   console.log("userDetails", userDetails.profileImagePath);
+//   const [Upload, setUpload] = useState("");
+//   const dispatch = useDispatch();
+//   const [inputDisable, setInputDisable] = useState(true);
+//   const [loading, setLoading] = useState(false);
+//   const [UpdateUserDetailsData, setUpdateUserDetailsData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     phone: "",
+//   });
+
+// const UpdateUserProfile = () => {
+//   const data = {
+//     firstName: UpdateUserDetailsData.firstName
+//       ? UpdateUserDetailsData.firstName
+//       : userDetails.firstName,
+//     lastName: UpdateUserDetailsData.lastName
+//       ? UpdateUserDetailsData.lastName
+//       : userDetails.lastName,
+//     isAdmin: true,
+//   };
+//   dispatch(updateUserDetailsAction(data, setLoading));
+//   setInputDisable(true);
+// };
+// const onImageChange = (event) => {
+//   let img = event.target.files[0];
+//   setUpload(URL.createObjectURL(img));
+// };
+
+// return (
+// <div className="px-xxl-5 px-4 py-4 form-box-shadow container h-100">
+//   <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
+//     <div>
+//       <p className="from-heading mb-0 text-md-end text-center">
+//         {" "}
+//         My Profile
+//       </p>
+//     </div>
+//     <div className="  d-none d-md-flex">
+//       {inputDisable ? (
+//         <Link to="/change-password">
+//           <button className="from-edit-profile-btn mx-xl-3 px-14 ">
+//             Change Password
+//           </button>
+//         </Link>
+//       ) : (
+//         ""
+//       )}
+//       {inputDisable ? (
+//         <button
+//           onClick={() => setInputDisable(false)}
+//           className="from-edit-profile-btn  me-xl-3 mt-3 mt-sm-0"
+//         >
+//           Edit Profile
+//         </button>
+//       ) : (
+//         <button
+//           onClick={() => UpdateUserProfile()}
+//           disabled={loading}
+//           className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
+//         >
+//           {loading ? <Loader /> : "Save"}
+//         </button>
+//       )}
+//     </div>
+//   </div>
+//   <div className="my-sm-5 my-3 img-size  d-flex justify-content-center">
+//     <div className="position-relative d-flex flex-column align-items-md-end justify-content-end">
+//       {Upload ? (
+//         <img className="profile-img" src={Upload} alt="img" />
+//       ) : (
+//         <img
+//           className="profile-img"
+//           src={userDetails.profileImagePath}
+//           alt="img"
+//         />
+//       )}
+
+//       <input type="file" id="my-file" hidden onChange={onImageChange} />
+//       {inputDisable ? (
+//         <label className="position-absolute pb-sm-2 edit-icon">
+//           <EditIcon />
+//         </label>
+//       ) : (
+//         <label
+//           for="my-file"
+//           className="position-absolute pb-sm-2 cursor-pointer edit-icon"
+//         >
+//           <EditIcon />
+//         </label>
+//       )}
+//     </div>
+//   </div>
+//   <div className="d-flex flex-row justify-content-center   d-block d-md-none mb-5">
+//     {inputDisable ? (
+//       <Link to="/change-password">
+//         <button className="from-edit-profile-btn px-2 ">
+//           Change Password
+//         </button>
+//       </Link>
+//     ) : (
+//       ""
+//     )}
+//     <button
+//       onClick={() => setInputDisable(false)}
+//       className={
+//         inputDisable
+//           ? "from-edit-profile-btn px-2  me-2 me-sm-3  "
+//           : "from-edit-profile-btn  mx-auto px-4"
+//       }
+//     >
+//       {inputDisable ? "Edit Profile" : "Save"}
+//     </button>
+//   </div>
+
+/* <ProfileForm
+        userDetails={userDetails}
+        setUpdateUserDetailsData={setUpdateUserDetailsData}
+        inputDisable={inputDisable}
+        UpdateUserDetailsData={UpdateUserDetailsData}
+      /> */
+
+// </div>
+//   );
+// }
+// export default ViewProfile;
+
+import ProfileForm from "./ProfileForm";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../common/icons/Icons";
-import ProfileImage from "../../../assets/img/user-img.png";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
-import ProfileForm from "./ProfileForm";
 import Loader from "../../common/Loader";
-
-function ViewProfile() {
+const ViewProfile = () => {
   const userDetails = useSelector((state) => state.userPanel.userDetails);
+  console.log("userDetails", userDetails.profileImagePath);
   const [Upload, setUpload] = useState("");
   const dispatch = useDispatch();
   const [inputDisable, setInputDisable] = useState(true);
@@ -28,7 +165,7 @@ function ViewProfile() {
       lastName: UpdateUserDetailsData.lastName
         ? UpdateUserDetailsData.lastName
         : userDetails.lastName,
-      // isAdmin: true,
+      isAdmin: true,
     };
     dispatch(updateUserDetailsAction(data, setLoading));
     setInputDisable(true);
@@ -37,9 +174,8 @@ function ViewProfile() {
     let img = event.target.files[0];
     setUpload(URL.createObjectURL(img));
   };
-
   return (
-    <div className="px-xxl-5 px-4 py-4 form-box-shadow container">
+    <div className="px-xxl-5 px-2 py-4 form-box-shadow container h-100">
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
           <p className="from-heading mb-0 text-md-end text-center">
@@ -47,10 +183,10 @@ function ViewProfile() {
             My Profile
           </p>
         </div>
-        <div className="d-flex flex-sm-row flex-column d-none d-md-block">
+        <div className="  d-none d-md-flex">
           {inputDisable ? (
             <Link to="/change-password">
-              <button className="from-edit-profile-btn mx-3 px-14 ">
+              <button className="from-edit-profile-btn mx-xl-3 px-14 ">
                 Change Password
               </button>
             </Link>
@@ -60,7 +196,7 @@ function ViewProfile() {
           {inputDisable ? (
             <button
               onClick={() => setInputDisable(false)}
-              className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
+              className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
             >
               Edit Profile
             </button>
@@ -80,7 +216,11 @@ function ViewProfile() {
           {Upload ? (
             <img className="profile-img" src={Upload} alt="img" />
           ) : (
-            <img className="profile-img" src={ProfileImage} alt="img" />
+            <img
+              className="profile-img"
+              src={userDetails.profileImagePath}
+              alt="img"
+            />
           )}
 
           <input type="file" id="my-file" hidden onChange={onImageChange} />
@@ -96,12 +236,6 @@ function ViewProfile() {
               <EditIcon />
             </label>
           )}
-          {/* <label
-            for="my-file"
-            className="position-absolute pb-sm-2 cursor-pointer edit-icon"
-          >
-            <EditIcon />
-          </label> */}
         </div>
       </div>
       <div className="d-flex flex-row justify-content-center   d-block d-md-none mb-5">
@@ -125,13 +259,9 @@ function ViewProfile() {
           {inputDisable ? "Edit Profile" : "Save"}
         </button>
       </div>
-      <ProfileForm
-        userDetails={userDetails}
-        setUpdateUserDetailsData={setUpdateUserDetailsData}
-        inputDisable={inputDisable}
-        UpdateUserDetailsData={UpdateUserDetailsData}
-      />
+      <ProfileForm />
     </div>
   );
-}
+};
+
 export default ViewProfile;

@@ -40,10 +40,9 @@ const Navbar = () => {
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
 
-
   const initialLanguage = localStorage.getItem("stock-advisor-lang")
     ? localStorage.getItem("stock-advisor-lang")
-    : "Arabic";  ;
+    : "Arabic";
   const [Language, setLanguage] = useState(initialLanguage);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
@@ -604,3 +603,11 @@ const Navbar = () => {
   );
 };
 export default Navbar;
+
+// import React from "react";
+
+// function Navbar() {
+//   return <div></div>;
+// }
+
+// export default Navbar;
