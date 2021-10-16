@@ -12,16 +12,20 @@ const UserDropDown = ({ history }) => {
   const [dropdown, setdropdown] = useState(false);
   const lastname = useSelector((state) => state.auth.userData.lastName);
 
+  const admin = () => {
+    setdropdown(false);
+    history.push("/content/manager/stocks");
+  };
+  const user = () => {
+    setdropdown(false);
+    history.push("/view/profile");
+  };
   return (
     <>
       <Dropdown className="user-profile-dropdown">
         <Dropdown.Toggle
           onClick={() =>
-            history.push(
-              userData.isAdmin
-                ? "/content/manager/stocks"
-                : "/dashboard/view/profile"
-            )
+            history.push(userData.isAdmin ? "" : "/dashboard/view/profile")
           }
           className="border-0 profile-dropdown d-flex justify-content-center align-items-center"
           id="dropdown-basic"
@@ -53,7 +57,7 @@ const UserDropDown = ({ history }) => {
           </div>
         </Dropdown.Toggle>
       </Dropdown>
-      {dropdown ? (
+      {dropdown && userData.isAdmin ? (
         <div
           className="bg-white shadow p-2  rounded position-absolute"
           style={{ bottom: "-95px" }}
@@ -61,15 +65,15 @@ const UserDropDown = ({ history }) => {
           {" "}
           <p
             className=" px-2 py-1 cursor-pointer fw-normal text-center mb-0"
-            onClick={() => setdropdown(false)}
+            onClick={() => user()}
           >
             User Profile
           </p>
           <p
             className=" px-2 py-1 cursor-pointer fw-normal text-center"
-            onClick={() => setdropdown(false)}
+            onClick={() => admin()}
           >
-            Admin
+            Admin DashBoard
           </p>
         </div>
       ) : (
