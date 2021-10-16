@@ -10,7 +10,7 @@ const NewsArticlesListItem = ({ news, history }) => {
     <>
       <div className="d-flex justify-content-center d-md-block pr-15">
         <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-          <img className="w-100 h-100" src={imagePath} alt="" />
+          {/* <img className="w-100 h-100" src={NewsSlider} alt="" /> */}
           <div className="p-3">
             <p className="text-end stock-paragraph Slider-Ellipse">
               {" "}

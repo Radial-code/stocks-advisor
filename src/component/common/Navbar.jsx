@@ -32,15 +32,19 @@ const Navbar = () => {
   const [NewsActive, setNewsActive] = useState(false);
   const [LangActive, setLangActive] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [dropdown, setdropdown] = useState(false);
 
   const [PlansActive, setPlansActive] = useState(false);
   const [ContactActive, setContactActive] = useState(false);
   const [PortfolioActive, setPortfolioActive] = useState(false);
   const [DashboardActive, setDashboardActive] = useState(false);
   const [LoginActive, setLoginActive] = useState(false);
-  const [Language, setLanguage] = useState(
-    localStorage.getItem("stock-advisor-lang")
-  );
+
+
+  const initialLanguage = localStorage.getItem("stock-advisor-lang")
+    ? localStorage.getItem("stock-advisor-lang")
+    : "Arabic";  ;
+  const [Language, setLanguage] = useState(initialLanguage);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -346,12 +350,30 @@ const Navbar = () => {
                         className="nav-links"
                         onClick={click ? handleClick : null}
                       >
-                        Dashboard
+                        <span>Dashboard</span>
                       </NavLink>
                     </li>
                   ) : (
                     ""
                   )}
+                  {console.log("dropdown", dropdown)}
+                  {dropdown ? (
+                    <div
+                      className="bg-white shadow p-2  rounded position-absolute"
+                      style={{ bottom: "-95px" }}
+                    >
+                      {" "}
+                      <p className=" px-2 py-1 cursor-pointer fw-normal text-center mb-0">
+                        User Profile
+                      </p>
+                      <p className=" px-2 py-1 cursor-pointer fw-normal text-center">
+                        Admin DashBoard
+                      </p>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   <li className="nav-item d-md-block d-none d-xl-none">
                     <NavLink
                       exact

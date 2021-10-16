@@ -39,7 +39,7 @@ function ViewProfile() {
   };
 
   return (
-    <div className="px-xxl-5 px-4 py-4 form-box-shadow">
+    <div className="px-xxl-5 px-4 py-4 form-box-shadow container">
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
           <p className="from-heading mb-0 text-md-end text-center">

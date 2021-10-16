@@ -14,7 +14,7 @@ const NewsArticles = ({ history }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplaySpeed: 2000,
-    centerMode: true,
+    centerMode: false,
     responsive: [
       {
         breakpoint: 1500,

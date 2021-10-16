@@ -29,6 +29,7 @@ import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
 import Stripe from "./payment/Stripe";
+import ViewProfile from "./userPanel/profile/ViewProfile";
 
 const Router = () => {
   return (
@@ -68,6 +69,7 @@ const Router = () => {
 
         {/** User Portfolios routes */}
         <Route path="/protfolios/stock/:id" component={Portfolio} />
+        <Route path="/view/profile" component={ViewProfile} />
 
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />
