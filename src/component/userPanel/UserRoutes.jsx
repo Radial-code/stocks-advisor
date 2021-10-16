@@ -14,7 +14,7 @@ const UserRoutes = () => {
   return (
     <>
       <div className="container py-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between flex-lg-row flex-column">
           <SidebarDashboard
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}

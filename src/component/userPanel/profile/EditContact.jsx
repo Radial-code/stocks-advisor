@@ -24,11 +24,11 @@ function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row h-100 ">
-        <div className="col-12   dashboard">
+        {/* <div className="col-12   dashboard">
           <div className="border-b-1  mb-3">
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
-        </div>
+        </div> */}
         <div className="col-12  d-flex justify-content-end ">
           <div className="form-background w-xl-1000 w-xlg-100 p-sm-5 p-2 ">
             <p className="mb-0 edit-contact-text ff-popins fs-sm-20">

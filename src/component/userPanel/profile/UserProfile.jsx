@@ -14,21 +14,16 @@ function UserProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
   }, []);
 
   return (
-    <div className="container-fluid">
-      <div
-        onClick={() => setSidebarActive((preState) => !preState)}
-        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-      ></div>
-      <div className="row h-100 ">
-        <div className="col-12  dashboard">
+    <div>
+      {/* <div className="col-12  dashboard">
           <div className="border-b-1  mb-3">
             <DashboardDropDown sideBarHandler={sideBarHandler} />
           </div>
-        </div>
-        <div className="col-12 ">
+        </div> */}
+      {/* <div className="col-12 ">
           <ViewProfile loading={loading} />
-        </div>
-      </div>
+        </div> */}
+      <ViewProfile loading={loading} />
     </div>
   );
 }

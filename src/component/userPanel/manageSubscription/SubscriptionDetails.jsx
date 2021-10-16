@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 const SubscriptionDetails = () => {
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   return (
-    <Col xs={12} className="d-flex justify-content-end ">
-      <div className="w-xl-1000 box p-md-5 p-4">
+    <Col xs={12} className="d-flex justify-content-end flex-column">
+      <div className="w-xl-1000 box p-md-5 p-4 h-100">
         <h2 className="heading-stock fs-sm-20">Manage Subscription</h2>
         <div className="border-b-1 mt-md-5 mt-3">
           <p className="news-heading-font fs-sm-14">
