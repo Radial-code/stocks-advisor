@@ -608,10 +608,24 @@ import "./NavBar.css";
 import React from "react";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [searchshow, setSearchShow] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
+  const userData = useSelector((state) => state.auth.userData);
+  const [Language, setLanguage] = useState(
+    localStorage.getItem("stock-advisor-lang")
+  );
+  const auth = useSelector((state) => state.auth.auth);
+  const token = useSelector((state) => state.auth.token);
+  const dashboardPortfoliosList = useSelector(
+    (state) => state.list.dashboardPortfoliosList
+  );
+  const dashboardPortfoliosListId =
+    dashboardPortfoliosList &&
+    dashboardPortfoliosList.length &&
+    dashboardPortfoliosList[0]._id;
 
   return (
     <>
@@ -722,17 +736,21 @@ const Navbar = () => {
               </span>
               <NavLink
                 exact
-                to="/"
+                to={`/protfolios/stock/${dashboardPortfoliosListId}`}
                 className="navbar_Links_text  my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom"
               >
-                Dashboard
+                Portfolio
               </NavLink>
               <NavLink
                 exact
-                to="/"
+                to={
+                  userData.isAdmin
+                    ? "/content/manager/stocks"
+                    : "/dashboard/view/profile"
+                }
                 className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3 "
               >
-                Portfolio
+                Dashboard
               </NavLink>
               <div className="mx-xl-0 mx-auto my-auto ">
                 <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
