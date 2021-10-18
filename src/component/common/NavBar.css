@@ -213,13 +213,13 @@
 }
 
 .cross-icon-style {
-  background-color: var(--color-127CF9);
+  background-color: var(--color-88BEFC);
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
-  height: 20px !important;
-  display: flex;
-  font-size: 14px;
+  height: 15px !important;
+  display: block;
+  font-size: 10px;
   color: var(--color-ffffff);
-  width: 20px !important ;
+  width: 15px !important ;
 }
