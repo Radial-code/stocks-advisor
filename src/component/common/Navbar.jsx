@@ -700,31 +700,31 @@ const Navbar = ({ history }) => {
       <div
         className={`${
           navbarCollapsed
-            ? "bg-white shadow py-3  d-none d-xl-block border-bottom-2px"
+            ? "bg-white shadow py-3  d-none d-xxl-block border-bottom-2px"
             : "stock-sidebar-navbar d-block "
         }`}
       >
         <div className="container">
-          <div className="d-flex flex-xl-row flex-column align-items-xl-center justify-content-between">
-            <div className="d-flex flex-xl-row flex-column">
+          <div className="d-flex flex-xxl-row flex-column align-items-xxl-center justify-content-between">
+            <div className="d-flex flex-xxl-row flex-column">
               <NavLink
                 exact
                 to="/"
-                className="nav-logo d-none d-xl-block logo-img-navbar"
+                className="nav-logo d-none d-xxl-block logo-img-navbar"
               >
                 <img className="logo-img-navbar" src={logo} alt="" />
               </NavLink>
               <div
-                className="d-block mt-3 d-xl-none"
+                className="d-block mt-3 d-xxl-none"
                 onClick={sidebarClosedHandler}
                 // () =>
               >
                 <HamburgerCrossIcon />
               </div>
-              <div className="position-relative  mt-3 d-xl-none d-block ">
+              <div className="position-relative  mt-3 d-xxl-none d-block ">
                 <input
                   type="search"
-                  className="search-box-nav py-2 w-100  px-xxl-3"
+                  className="search-box-nav py-2 w-100 pe-3"
                   id="search"
                   placeholder="Search..."
                 />
@@ -736,7 +736,7 @@ const Navbar = ({ history }) => {
                 exact
                 to="/"
                 activeClassName="active_underline_navbar "
-                className="navbar_Links_text nav-text-border-bottom  py-2  py-xl-3 mt-3 my-xl-auto mx-xl-4 "
+                className="navbar_Links_text nav-text-border-bottom  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
                 Home
               </NavLink>
@@ -744,7 +744,7 @@ const Navbar = ({ history }) => {
                 exact
                 to="/about"
                 activeClassName="active_underline_navbar"
-                className="navbar_Links_text nav-text-border-bottom  py-2   py-xl-3 mt-3 my-xl-auto"
+                className="navbar_Links_text nav-text-border-bottom  py-2   py-xxl-3 mt-3 my-xxl-auto"
               >
                 About
               </NavLink>
@@ -752,7 +752,7 @@ const Navbar = ({ history }) => {
                 activeClassName="active_underline_navbar"
                 exact
                 to="/news"
-                className="navbar_Links_text nav-text-border-bottom py-2  py-xl-3 mx-xl-4 mt-3 my-xl-auto "
+                className="navbar_Links_text nav-text-border-bottom py-2  py-xxl-3 mx-xxl-4 mt-3 my-xxl-auto "
               >
                 News
               </NavLink>
@@ -760,7 +760,7 @@ const Navbar = ({ history }) => {
                 exact
                 activeClassName="active_underline_navbar"
                 to="/our-plan"
-                className="navbar_Links_text nav-text-border-bottom py-2  py-xl-3 mt-3 my-xl-auto"
+                className="navbar_Links_text nav-text-border-bottom py-2  py-xxl-3 mt-3 my-xxl-auto"
               >
                 Our Plans
               </NavLink>
@@ -769,11 +769,11 @@ const Navbar = ({ history }) => {
                 exact
                 to="/contact-us"
                 activeClassName="active_underline_navbar"
-                className="navbar_Links_text nav-text-border-bottom mx-xl-4 py-2  py-xl-3 mt-3 my-xl-auto "
+                className="navbar_Links_text nav-text-border-bottom mx-xxl-4 py-2  py-xxl-3 mt-3 my-xxl-auto "
               >
                 Contact Us
               </NavLink>
-              <span className="d-flex align-items-center lang-dropddown  py-2  py-xl-3 mt-3 my-xl-auto">
+              <span className="d-flex align-items-center lang-dropddown  py-2  py-xxl-3 mt-3 my-xxl-auto">
                 <li onClick={() => setLang(!Lang)}>
                   <NavLink
                     exact
@@ -824,8 +824,8 @@ const Navbar = ({ history }) => {
               </span>
             </div>
 
-            <div className="d-flex  flex-xl-row flex-column">
-              <span class="icon d-none d-xl-block my-auto mx-3">
+            <div className="d-flex  flex-xxl-row flex-column">
+              <span class="icon d-none d-xxl-block my-auto mx-3">
                 {searchshow ? (
                   <div className="position-relative">
                     <input
@@ -845,7 +845,9 @@ const Navbar = ({ history }) => {
                 )}
 
                 {searchshow ? (
-                  ""
+                  <span class="cross-icon-style" onClick={() => searchPage()}>
+                    X
+                  </span>
                 ) : (
                   <span
                     class="icon cursor-pointer"
@@ -861,12 +863,12 @@ const Navbar = ({ history }) => {
                   <NavLink
                     exact
                     to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                    className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-0 mx-xl-2"
+                    className="navbar_Links_text my-auto my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
                   >
                     Portfolio
                   </NavLink>
 
-                  <Dropdown className="d-flex mx-0 mx-xl-2  stock-dashboard-dropdown  align-items-center">
+                  <Dropdown className="d-flex mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
                     <Dropdown.Toggle id="dropdown-basic">
                       Dashboard
                     </Dropdown.Toggle>
@@ -881,7 +883,7 @@ const Navbar = ({ history }) => {
                 ""
               )}
               {auth ? (
-                <div className="d-none d-xl-block my-auto">
+                <div className="d-none d-xxl-block my-auto">
                   <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
                     <div className="">
                       <span className="first-char">
@@ -897,14 +899,14 @@ const Navbar = ({ history }) => {
                 ""
               )}
               {auth ? (
-                <div className="mx-xl-2 mx-0  mx-auto  my-auto ">
-                  <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
+                <div className="mx-xxl-2 mx-0  mx-auto  my-auto ">
+                  <button className="mt-4 mt-xxl-0 py-2  btn join_now_btn ">
                     Log Out
                   </button>
                 </div>
               ) : (
-                <div className="mx-xl-2 mx-0 mx-auto    my-auto ">
-                  <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
+                <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
+                  <button className="mt-4 mt-xxl-0 py-2  btn join_now_btn ">
                     Join Now
                   </button>
                 </div>
@@ -913,7 +915,7 @@ const Navbar = ({ history }) => {
           </div>
         </div>
       </div>
-      <div className={`shadow  py-2 d-block d-xl-none`}>
+      <div className={`shadow  py-2 d-block d-xxl-none`}>
         <div className="container ">
           <div className="row">
             <div className="col-6">

@@ -62,7 +62,7 @@
   border-bottom: 3px solid var(--color-127CF9);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .stock-sidebar-navbar {
     min-height: 100vh;
     position: fixed;
@@ -82,7 +82,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .border-bottom-2px {
     border-bottom: 2px solid var(--color-88BEFC);
   }
@@ -107,7 +107,7 @@
 .search-green-icon {
   background-color: var(--color-127CF9);
   border-radius: 5px;
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
 
 .top-10 {
@@ -199,7 +199,7 @@
   font-weight: 500;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .over-lay-navbar {
     opacity: 0.5;
     background: #000;
@@ -210,4 +210,16 @@
     left: 0;
     position: fixed;
   }
+}
+
+.cross-icon-style {
+  background-color: var(--color-127CF9);
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  height: 20px !important;
+  display: flex;
+  font-size: 14px;
+  color: var(--color-ffffff);
+  width: 20px !important ;
 }
