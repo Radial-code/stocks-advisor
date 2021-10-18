@@ -98,7 +98,7 @@ const PortfoliosSidebar = ({ history }) => {
           <div className="d-flex align-items-center mb-3 justify-content-between">
             <p className="cn-sidebar-text text-end mb-0">Portfolios</p>
             <span
-              className="rotate-back-icon cursor-pointer"
+              className="cursor-pointer"
               onClick={() => setShowSidebar(true)}
             >
               {" "}

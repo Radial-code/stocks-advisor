@@ -122,9 +122,10 @@ function SidebarDashboard({ history }) {
   };
   const openRoutes = (value) => {
     setShowSidebar(false);
-    if (value === "editcontact") {
-      history.push("/dashboard/edit/contact");
-    } else if (value === "manage") {
+    // if (value === "editcontact") {
+    //   history.push("/dashboard/edit/contact");
+    // }
+    if (value === "manage") {
       history.push("/dashboard/manage/subscription");
     } else if (value === "update") {
       history.push("/dashboard/update/payment");
@@ -159,7 +160,7 @@ function SidebarDashboard({ history }) {
           </div>
           <div className="cn-sidebar-border"></div>
 
-          <div
+          {/* <div
             className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
             onClick={() => openRoutes("editcontact")}
           >
@@ -168,7 +169,7 @@ function SidebarDashboard({ history }) {
               <EditPencilIcon />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Edit Contact</p>
-          </div>
+          </div> */}
           <div
             className="cn-sidebar-active-tag align-items-center d-flex my-4 whitespace"
             onClick={() => openRoutes("manage")}
@@ -230,7 +231,7 @@ function SidebarDashboard({ history }) {
           <div className="d-flex align-items-center mb-3 justify-content-between">
             <p className="cn-sidebar-text text-end mb-0">Dashboard</p>
             <span
-              className="rotate-back-icon cursor-pointer"
+              className=" cursor-pointer"
               onClick={() => setShowSidebar(true)}
             >
               {" "}

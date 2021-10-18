@@ -682,7 +682,7 @@ const Navbar = () => {
               <NavLink
                 activeClassName="active_underline_navbar"
                 exact
-                to="/new"
+                to="/news"
                 className="navbar_Links_text nav-text-border-bottom py-2  py-xl-3 mx-xl-4 mt-3 my-xl-auto "
               >
                 News
