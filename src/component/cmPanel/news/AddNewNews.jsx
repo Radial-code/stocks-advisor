@@ -138,7 +138,7 @@ const AddNewNews = ({ edit, match, history }) => {
 
   return (
     <Col xs={12}>
-      <div className="manger-panel-shadow p-sm-5 w-xl-1000 mt-5">
+      <div className="manger-panel-shadow p-sm-5 w-xl-1000 ">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="heading-stock d-none d-sm-block fs-sm-20">
             {edit ? "Update News" : "Add New News"}
@@ -257,7 +257,7 @@ const AddNewNews = ({ edit, match, history }) => {
           </div>
           <div className="col-12 col-lg-6 mb-3 ">
             <Form.Group
-              className="mb-3 add-new-stock-field position-relative "
+              className="mb-3 add-new-stock-field upload-field position-relative "
               controlId="formBasicEmail"
             >
               <Form.Control
@@ -268,7 +268,7 @@ const AddNewNews = ({ edit, match, history }) => {
                   });
                 }}
                 type="text"
-                placeholder="YouTube / Image Link"
+                placeholder="YouTube / Image Link "
               />
 
               <input

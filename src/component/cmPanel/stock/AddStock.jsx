@@ -40,7 +40,7 @@ const AddStock = ({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row h-100">
-        <Col xs={12}>
+        {/* <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
@@ -61,7 +61,7 @@ const AddStock = ({
               </span>
             </div>
           </div>
-        </Col>
+        </Col> */}
         <AddStockForm detailLoading={loading} edit={edit} />
       </div>
     </div>

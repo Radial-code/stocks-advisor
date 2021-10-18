@@ -30,22 +30,22 @@ const EnquiryTable = () => {
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Date
               </th>
-              <th className="text-end">
+              <th className="text-end whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
               </th>
-              <th className="text-end">
+              <th className="text-end whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Reason
               </th>
-              <th className="text-end">
+              <th className="text-end whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 E-mail
               </th>
-              <th className="text-end">
+              <th className="text-end whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Message
               </th>
-              <th className="text-end">
+              <th className="text-end whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Status
               </th>

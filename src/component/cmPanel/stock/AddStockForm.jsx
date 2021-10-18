@@ -115,7 +115,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   };
   return (
     <div className="col-12 h-100 stock-add-new">
-      <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
+      <div className="add-stock-bg p-sm-5 p-3  w-xl-1000">
         <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
             {edit ? "Update Stock" : "Add New Stock"}

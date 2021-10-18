@@ -91,9 +91,20 @@
 .join_now_btn {
   font-weight: 500;
   color: var(--color-ffffff) !important ;
-  background-color: var(--color-88BEFC) !important;
+  border: 1px solid var(--color-127CF9);
+  background-color: var(--color-127CF9) !important;
 }
 
+.log_in_btn {
+  font-weight: 500;
+  color: var(--color-ffffff) !important ;
+  background-color: var(--color-88BEFC) !important;
+}
+.log_in_btn:hover {
+  color: var(--color-127CF9) !important ;
+  border: 1px solid var(--color-127CF9);
+  background-color: white !important;
+}
 .join_now_btn:hover {
   background-color: transparent !important;
   color: var(--color-88BEFC) !important ;
@@ -189,8 +200,15 @@
   background-color: #5cbd4c;
   height: 40px;
   width: 40px;
+  border: 1px solid #5cbd4c;
   border-radius: 50%;
   text-align: center;
+}
+.bg-green-circle:hover {
+  background-color: white;
+}
+.bg-green-circle:hover .first-char {
+  color: #5cbd4c;
 }
 
 .first-char {
