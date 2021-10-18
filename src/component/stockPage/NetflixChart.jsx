@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   AreaChart,
@@ -12,28 +13,44 @@ import {
 } from "recharts";
 import DropDown from "../../assets/img/btnarrow.png";
 
-const NetflixChart = ({ setType, typeData }) => {
+const NetflixChart = ({ setType, type }) => {
   const stockChatList = useSelector((state) => state.list.stockChatList);
 
   const getMonth = (date) => {
     let m = date.split("-");
     return m[1] + "/" + m[0];
   };
-  const data = [];
-  stockChatList && stockChatList.yearData && stockChatList.yearData.values
-    ? stockChatList.yearData.values.map((value) => {
-        data.push({ name: getMonth(value.datetime), uv: value.high });
-      })
-    : console.log("value");
-  data.reverse();
 
+  const getKey = (type) => {
+    if (type === "1m") {
+      return "minuteData";
+    } else if (type === "1h") {
+      return "hourData";
+    } else {
+      return "yearData";
+    }
+  };
+  const data = [];
+  useEffect(() => {
+    if (
+      stockChatList !== {} ||
+      stockChatList !== null ||
+      stockChatList !== undefined
+    ) {
+      stockChatList[getKey(type)].values.map((value) => {
+        data.push({ name: getMonth(value.datetime), uv: value.high });
+      });
+    }
+  }, [type, stockChatList]);
+
+  data.reverse();
   return (
     <div className="container">
       <div className="netflix-chart mt-5">
         <div className="d-sm-flex  d-none align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4 ps-xl-5 pt-2">
           <div className="mx-sm-3">
             <button
-              onClick={() => setType("1m")}
+              onClick={() => setType("1y")}
               className="chart-btn ff-popins mx-1 border-0"
             >
               1 Month
@@ -59,7 +76,7 @@ const NetflixChart = ({ setType, typeData }) => {
             </button>
 
             <button
-              onClick={() => setType("1min")}
+              onClick={() => setType("1m")}
               className="chart-btn ff-popins mx-1 border-0"
             >
               1 Min

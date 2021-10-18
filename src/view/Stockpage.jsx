@@ -14,7 +14,6 @@ const Stockpage = ({ match }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState(null);
-  const [typeData, setTypeData] = useState("yearData");
   const [relatedNewsApi, getRelatedNewsApi] = useState(false);
   const { id, tags } = match.params;
 
@@ -51,23 +50,12 @@ const Stockpage = ({ match }) => {
         );
       }
     }
-    if (type === "1m") {
-      setTypeData("minuteData");
-    } else if (type === "1min") {
-      setTypeData("yearData");
-    } else if (type === "1h") {
-      setTypeData("hourData");
-    } else if (type === "1d") {
-      setTypeData("dayData");
-    } else if (type === "1w") {
-      setTypeData("weekData");
-    }
   }, [type]);
 
   return (
     <div className="bg-f9f9f9">
       {tags === "stock-tags" ? (
-        <NetflixChart setType={setType} typeData={typeData} />
+        <NetflixChart setType={setType} type={type} />
       ) : null}
       <div className="mt-5">
         <StockArticles />
