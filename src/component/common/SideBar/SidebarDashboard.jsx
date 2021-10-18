@@ -103,9 +103,10 @@ function SidebarDashboard({
 
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
+  const [activeClass, setActiveClass] = useState(false);
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [activeLink, setActiveLink] = useState("stock");
+  const [activeLink, setActiveLink] = useState("manage");
   const layoutleftChangeHandler = () => {
     setLayoutClickChanger(true);
 

@@ -8,9 +8,9 @@
   color: var(--color-127CF9);
 }
 
-@media (max-width:567px) {
+@media (max-width: 567px) {
   .read-more {
-    --font-xs: 14px
+    --font-xs: 14px;
   }
 }
 
@@ -87,4 +87,8 @@
   .news-articles-card {
     width: 303px;
   }
+}
+.searchnews {
+  height: 300px;
+  width: 300px;
 }

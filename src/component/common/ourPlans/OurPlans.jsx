@@ -37,7 +37,7 @@ const OurPlans = ({ homepage, history }) => {
             </div>
           ) : (
             <Col xs={12}>
-              <div className="row mt-sm-5 flex-column ">
+              <div className="row mt-sm-5">
                 {planList && planList.length ? (
                   planList.map((value, index) => {
                     return (
