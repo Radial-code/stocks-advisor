@@ -201,5 +201,8 @@
 
 .over-lay-navbar {
   background-color: rgba(0, 0, 0, 0.5);
-  min-height: 100vh;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
