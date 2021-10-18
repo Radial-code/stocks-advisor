@@ -13,7 +13,7 @@ import { getStockChatDetailsAction } from "../redux/action/cmPanel/stock";
 const Stockpage = ({ match }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [type, setType] = useState(null);
+  const [type, setType] = useState("1y");
   const [relatedNewsApi, getRelatedNewsApi] = useState(false);
   const { id, tags } = match.params;
 

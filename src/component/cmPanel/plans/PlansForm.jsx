@@ -63,10 +63,23 @@ function PlansForm({ history, edit, id }) {
     dispatch(getPortfolioListAction(setPortfoliosLoader));
   }, []);
 
+  const data = [];
+  const valueId = [];
   const selectPortfolio = (id) => {
-    if (id) {
-      planDetails.portfolios.push({ portfolioId: id });
+    const ValidId = valueId.includes(id);
+    if (data === []) {
+      data.push({ portfolioId: id });
+      valueId.push(id);
+    } else if (!ValidId) {
+      data.push({ portfolioId: id });
+      valueId.push(id);
+    } else {
+      var index = data.indexOf({ portfolioId: id });
+      data.splice(index, 1);
+      var indexvalueId = valueId.indexOf({ portfolioId: id });
+      valueId.splice(indexvalueId, 1);
     }
+    planDetails.portfolios = data;
   };
 
   const UpdatePlanDetails = () => {
