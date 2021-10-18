@@ -103,7 +103,6 @@ function SidebarDashboard({
 
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
-  const [activeClass, setActiveClass] = useState(false);
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [activeLink, setActiveLink] = useState("stock");
@@ -127,7 +126,6 @@ function SidebarDashboard({
   };
   const openRoutes = (value) => {
     setShowSidebar(false);
-    console.log(value);
     setActiveLink(value);
     // if (value === "editcontact") {
     //   history.push("/dashboard/edit/contact");
@@ -182,7 +180,7 @@ function SidebarDashboard({
           </div> */}
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "manage" ? "bg-warning" : ""
+              activeLink == "manage" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("manage")}
           >
@@ -195,7 +193,9 @@ function SidebarDashboard({
             </p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "update" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("update")}
           >
             <span className="px-2">
@@ -208,7 +208,9 @@ function SidebarDashboard({
           </div>
 
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "notification" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("notification")}
           >
             <span className="px-2">
@@ -217,7 +219,9 @@ function SidebarDashboard({
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Notification</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "profile" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("profile")}
           >
             <span className="px-2">
@@ -226,7 +230,9 @@ function SidebarDashboard({
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Profile</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "payment" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("payment")}
           >
             <span className="px-2">
