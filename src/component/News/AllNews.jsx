@@ -45,7 +45,7 @@ const AllNews = ({ history }) => {
                                 layoutClickChanger ? "pr-15" : "px-3"
                               }`}
                             >
-                              <img src={img_2} alt="" />{" "}
+                              <img src={img_2} className="px-2" alt="" />{" "}
                             </span>{" "}
                           </p>
                           <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title ps-sm-5 ">

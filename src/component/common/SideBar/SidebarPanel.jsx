@@ -102,6 +102,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 import Cancel from "../../../assets/img/cancel.png";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import {
   Stocks,
   News,
@@ -114,7 +115,23 @@ import {
 } from "../icons/Icons";
 const SidebarPanel = ({ history }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
 
+    localStorage.setItem("stock-advisor-lang", "Arabic");
+  };
+  if (layoutClickChanger) {
+    document.dir = "rtl";
+  } else {
+    document.dir = "ltr";
+  }
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
+
+    localStorage.setItem("stock-advisor-lang", "English");
+  };
   const openRoutes = (value) => {
     setShowSidebar(false);
     if (value === "stocks") {
@@ -141,8 +158,10 @@ const SidebarPanel = ({ history }) => {
       ></div>
       <div className="col">
         <div
-          className={`${showSidebar ? "right-0" : "right-350"} 
-          }  bg-white content-manager-sidebar shadow px-3 pt-4`}
+          className={`${showSidebar ? "right-0" : "right-350"} ${
+            layoutClickChanger ? "left-350" : "left-0 "
+          }${showSidebar ? "left-0" : "left-350"}
+           bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
             <p className="cn-sidebar-text mb-0 pt-4">Content Manager</p>
