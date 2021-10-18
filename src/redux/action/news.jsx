@@ -298,7 +298,7 @@ export const getSearchResultAction = (data, setLoading) => async (dispatch) => {
   try {
     const response = await getSearchResultListApi(data);
     if (response.success) {
-      dispatch(getSearchResult(response.news));
+      dispatch(getSearchResult(response.data));
       setLoading(false);
     } else {
       setLoading(false);
