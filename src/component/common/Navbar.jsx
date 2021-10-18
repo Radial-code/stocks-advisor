@@ -246,17 +246,8 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
-                      <p
-                        onClick={() => history.push("/dashboard/edit/contact")}
-                      >
-                        User Dashboard
-                      </p>
-                      <p
-                        onClick={() => history.push("/dashboard/edit/contact")}
-                      >
-                        {" "}
-                        Admin Dashboard
-                      </p>
+                      <p>User Dashboard</p>
+                      <p> Admin Dashboard</p>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
@@ -318,8 +309,18 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Dropdown.Item>User Dashboard</Dropdown.Item>
-                      <Dropdown.Item>Admin Dashboard</Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() =>
+                          history.push("/dashboard/manage/subscription")
+                        }
+                      >
+                        User Dashboard
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => history.push("/content/manager/stocks")}
+                      >
+                        Admin Dashboard
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </>
