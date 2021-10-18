@@ -25,7 +25,7 @@ const PortfoliosSidebar = ({ history }) => {
       <div className="col">
         <div
           className={`${showSidebar ? "right-0" : "right-350"} 
-          }  bg-white content-manager-sidebar shadow px-3 pt-4`}
+            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
             <p className="cn-sidebar-text mb-0">Portfolios</p>
