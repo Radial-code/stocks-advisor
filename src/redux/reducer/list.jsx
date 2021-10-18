@@ -6,6 +6,7 @@ import {
   REMOVE_USER_PROFILE_DETAILS_DATA,
   GET_PLAN_DETAILS,
   REMOVE_PLAN_DETAILS,
+  GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
 import {
@@ -37,6 +38,7 @@ const initialState = {
   planDetails: {},
   userProfileDetails: {},
   userPlanDetails: {},
+  stockChatList: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -98,6 +100,13 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         soldStockList: action.data,
+      };
+    }
+    //Get stock chat list
+    case GET_STOCK_CHAT_LIST: {
+      return {
+        ...state,
+        stockChatList: action.data,
       };
     }
 

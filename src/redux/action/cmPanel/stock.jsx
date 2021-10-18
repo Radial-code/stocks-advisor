@@ -10,15 +10,16 @@ import {
   getUserListForAdminApi,
   getUserProfileDataApi,
   UserPlanDetailApi,
+  getStockChatDetailsApi,
 } from "../../api/cmPanel/stock";
 
 export const GET_STOCK_LIST = "GET_STOCK_LIST";
+export const GET_STOCK_CHAT_LIST = "GET_STOCK_CHAT_LIST";
 export const GET_STOCK_DETAILS_BY_ID = "GET_STOCK_DETAILS_BY_ID";
 export const DELETE_STOCK_LIST = "DELETE_STOCK_LIST";
 export const GET_USER_LIST_FOR_ADMIN = "GET_USER_LIST_FOR_ADMIN";
 export const GET_TEAM_LIST = "GET_TEAM_LIST";
 export const REMOVE_STOCK_DETAIL_DATA = "REMOVE_STOCK_DETAIL_DATA";
-
 export const GET_USER_PROFILE_DATA = "GET_USER_PROFILE_DATA";
 export const REMOVE_USER_PROFILE_DETAILS_DATA =
   "REMOVE_USER_PROFILE_DETAILS_DATA";
@@ -346,12 +347,46 @@ export const getUserPlanDetailAction =
     try {
       const response = await UserPlanDetailApi(userId);
       if (response.success) {
-        console.log(response.plan, "response");
         dispatch(getUserPlanDetails(response.plan));
         setLoading(false);
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to Load plan details", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setLoading(false);
+      Swal.fire(
+        "Error!",
+        "Something went wrong, Check your internet connection",
+        "error"
+      );
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * Get user plan action
+ * @param {Object} data
+ * @returns
+ */
+
+const getStockChatDetails = (data) => ({
+  type: GET_STOCK_CHAT_LIST,
+  data,
+});
+
+export const getStockChatDetailsAction =
+  (stockId, setLoading, type) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getStockChatDetailsApi(stockId, type);
+      if (response.success) {
+        dispatch(getStockChatDetails(response.data));
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to stock chat list details", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {

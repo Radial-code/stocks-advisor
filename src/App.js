@@ -37,13 +37,10 @@ function App({ history }) {
       dispatch(getLocalStorageToken());
       if (auth && token) {
         dispatch(getUserProfileAction(setLoading, history, token));
+        dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
       }
     }
   }, [auth, token]);
-
-  useEffect(() => {
-    dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
-  }, []);
 
   return (
     <LayoutChangerProvider>

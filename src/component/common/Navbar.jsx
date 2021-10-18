@@ -626,7 +626,7 @@ const Navbar = () => {
     dashboardPortfoliosList &&
     dashboardPortfoliosList.length &&
     dashboardPortfoliosList[0]._id;
-
+  console.log("dashboardPortfoliosListId", dashboardPortfoliosListId);
   return (
     <>
       <div

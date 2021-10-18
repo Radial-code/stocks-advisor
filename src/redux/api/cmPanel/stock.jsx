@@ -75,10 +75,22 @@ export const getTeamMemberListApi = async () => {
 export const getUserProfileDataApi = async (userId) => {
   return await axiosRequest("GET", `/profile/${userId}`);
 };
+
 /**
  *  get user paln details data api
  * @returns
  */
 export const UserPlanDetailApi = async (userId) => {
   return await axiosRequest("GET", `/user-plan/${userId}`);
+};
+
+/**
+ *  get stock chat details list api
+ * @returns
+ */
+export const getStockChatDetailsApi = async (stockId, type) => {
+  return await axiosRequest(
+    "GET",
+    `/stock/chart-data/${stockId}?interval=${type}`
+  );
 };

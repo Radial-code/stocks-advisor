@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   AreaChart,
   Area,
@@ -9,104 +10,58 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import { subDays } from "date-fns";
 import DropDown from "../../assets/img/btnarrow.png";
-function NetflixChart() {
-  const data = [
-    {
-      name: "JAN",
-      uv: 4000,
-      pv: 1982,
-      amt: 2400,
-    },
-    {
-      name: "FEB",
-      uv: 3000,
-      pv: 1398,
-      amt: 4739,
-    },
-    {
-      name: "MAR",
-      uv: 2000,
-      pv: 9800,
-      amt: 9056,
-    },
-    {
-      name: "APR",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "MAY",
-      uv: 1890,
-      pv: 4678,
-      amt: 2181,
-    },
-    {
-      name: "JUN",
-      uv: 2390,
-      pv: 3800,
-      amt: 2873,
-    },
-    {
-      name: "JUL",
-      uv: 2000,
-      pv: 9800,
-      amt: 9056,
-    },
-    {
-      name: "AUG",
-      uv: 2390,
-      pv: 3800,
-      amt: 2873,
-    },
-    {
-      name: "SEP",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "OCT",
-      uv: 4000,
-      pv: 1982,
-      amt: 2400,
-    },
-    {
-      name: "NOV",
-      uv: 5000,
-      pv: 1982,
-      amt: 2400,
-    },
-    {
-      name: "DEC",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-  ];
+
+const NetflixChart = ({ setType, typeData }) => {
+  const stockChatList = useSelector((state) => state.list.stockChatList);
+
+  const getMonth = (date) => {
+    let m = date.split("-");
+    return m[1] + "/" + m[0];
+  };
+  const data = [];
+  stockChatList && stockChatList.yearData && stockChatList.yearData.values
+    ? stockChatList.yearData.values.map((value) => {
+        data.push({ name: getMonth(value.datetime), uv: value.high });
+      })
+    : console.log("value");
+  data.reverse();
 
   return (
     <div className="container">
       <div className="netflix-chart mt-5">
         <div className="d-sm-flex  d-none align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4 ps-xl-5 pt-2">
           <div className="mx-sm-3">
-            <button className="chart-btn ff-popins mx-1 border-0">
-              1 Year
-            </button>
-            <button className="chart-btn ff-popins mx-1 border-0">
+            <button
+              onClick={() => setType("1m")}
+              className="chart-btn ff-popins mx-1 border-0"
+            >
               1 Month
             </button>
-            <button className="chart-btn ff-popins mx-1 border-0">
+            <button
+              onClick={() => setType("1w")}
+              className="chart-btn ff-popins mx-1 border-0"
+            >
               1 Week
             </button>
-            <button className="chart-btn ff-popins mx-1 border-0">1 Day</button>
+            <button
+              className="chart-btn ff-popins mx-1 border-0"
+              onClick={() => setType("1d")}
+            >
+              1 Day
+            </button>
 
-            <button className="chart-btn ff-popins mx-1 border-0">1 Hr</button>
+            <button
+              className="chart-btn ff-popins mx-1 border-0"
+              onClick={() => setType("1h")}
+            >
+              1 Hr
+            </button>
 
-            <button className="chart-btn ff-popins mx-1 border-0">
-              {" "}
+            <button
+              onClick={() => setType("1min")}
+              className="chart-btn ff-popins mx-1 border-0"
+            >
               1 Min
             </button>
           </div>
@@ -179,6 +134,6 @@ function NetflixChart() {
       </div>
     </div>
   );
-}
+};
 
 export default NetflixChart;
