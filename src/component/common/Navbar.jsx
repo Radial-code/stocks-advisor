@@ -609,11 +609,13 @@ import React from "react";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Dropdown } from "react-bootstrap";
 
 const Navbar = () => {
   const [searchshow, setSearchShow] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
+
   const [Language, setLanguage] = useState(
     localStorage.getItem("stock-advisor-lang")
   );
@@ -734,29 +736,56 @@ const Navbar = () => {
                   </span>
                 )}
               </span>
-              <NavLink
-                exact
-                to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                className="navbar_Links_text  my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom"
-              >
-                Portfolio
-              </NavLink>
-              <NavLink
-                exact
-                to={
-                  userData.isAdmin
-                    ? "/content/manager/stocks"
-                    : "/dashboard/view/profile"
-                }
-                className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3 "
-              >
-                Dashboard
-              </NavLink>
-              <div className="mx-xl-0 mx-auto my-auto ">
-                <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
-                  Join Now
-                </button>
-              </div>
+              {auth ? (
+                <>
+                  <NavLink
+                    exact
+                    to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                    className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3"
+                  >
+                    Portfolio
+                  </NavLink>
+
+                  {/* <NavLink
+                    exact
+                    to={
+                      userData.isAdmin
+                        ? "/content/manager/stocks"
+                        : "/dashboard/view/profile"
+                    }
+                    data-toggle="dropdown"
+                    className="dropdown-toggle navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3 "
+                  >
+                    Dashboard
+                  </NavLink> */}
+
+                  <Dropdown className="d-flex stock-dashboard-dropdown justify-content-center align-items-center">
+                    <Dropdown.Toggle id="dropdown-basic">
+                      Dashboard
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item>User Dashboard</Dropdown.Item>
+                      <Dropdown.Item>Admin Dashboard</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </>
+              ) : (
+                ""
+              )}
+              {auth ? (
+                <div className="mx-xl-0 mx-auto my-auto ">
+                  <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <div className="mx-xl-0 mx-auto my-auto ">
+                  <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
+                    Join Now
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -132,3 +132,24 @@
     left: 61px;
   }
 }
+
+.stock-dashboard-dropdown button:after {
+  display: none !important;
+}
+.stock-dashboard-dropdown button {
+  color: var(--color-16191e);
+  font-size: 16px;
+  font-weight: normal;
+  opacity: 0.7 !important;
+  text-decoration: none;
+  border: 0;
+  background-color: transparent !important;
+}
+.stock-dashboard-dropdown button:hover {
+  color: var(--color-16191e) !important;
+  opacity: 0.7 !important;
+}
+.stock-dashboard-dropdown button.btn-primary:focus {
+  color: var(--color-16191e) !important;
+  opacity: 0.7 !important;
+}
