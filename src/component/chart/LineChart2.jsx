@@ -15,7 +15,7 @@ function LineChart2() {
       uv: 4,
     },
     {
-      name: "2107",
+      name: "2017",
       uv: 6,
     },
     {

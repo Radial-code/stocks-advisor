@@ -118,9 +118,7 @@
     width: 100%;
   }
 }
-.rotate-back-icon {
-  transform: rotate(170deg);
-}
+
 .right-0 {
   right: 0px;
 }
