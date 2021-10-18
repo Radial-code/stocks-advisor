@@ -156,7 +156,7 @@ export const getRelatedSoldStockNewsAction =
     try {
       const response = await getRelatedSoldStockNewsApi(data);
       if (response.success) {
-        dispatch(getRelatedSoldStockNews(response.news));
+        dispatch(getRelatedSoldStockNews(response.allNews));
         setSoldLoading(false);
       } else {
         setSoldLoading(false);

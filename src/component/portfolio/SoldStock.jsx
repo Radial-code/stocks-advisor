@@ -1,5 +1,6 @@
 import moment from "moment";
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -8,9 +9,9 @@ import Sortarrow from "../../assets/img/sortarrow.png";
 import { getRelatedSoldStockNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 
-const data = [];
 function SoldStock({ loading, history, setSoldLoading }) {
   const dispatch = useDispatch();
+  const [data, setData] = useState([]);
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   useEffect(() => {
@@ -21,9 +22,13 @@ function SoldStock({ loading, history, setSoldLoading }) {
       soldStockList.length,
       data.length
     );
-    if (soldStockList.length === data.length) {
-      console.log("datade", data.length);
-      dispatch(getRelatedSoldStockNewsAction(data, setSoldLoading));
+    if (!!soldStockList.length) {
+      if (soldStockList.length === data.length) {
+        console.log("datade", data.length);
+        dispatch(
+          getRelatedSoldStockNewsAction({ stockIds: data }, setSoldLoading)
+        );
+      }
     }
   }, [data]);
 
@@ -94,7 +99,6 @@ function SoldStock({ loading, history, setSoldLoading }) {
               {soldStockList &&
                 soldStockList.map((value) => {
                   data.push(value._id);
-
                   return (
                     <tbody className="table-hover-scale">
                       <tr className="sold-stock-data table-border-bottom">
