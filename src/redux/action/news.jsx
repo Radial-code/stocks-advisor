@@ -9,6 +9,7 @@ import {
   getRelatedNewsApi,
   updateNewsDetailsApi,
   DeleteNewsDetailsApi,
+  getSearchResultListApi,
 } from "../api/news";
 
 export const GET_NEWS_LIST = "GET_NEWS_LIST";
@@ -18,6 +19,7 @@ export const GET_HOME_PAGE_NEWS = "GET_HOME_PAGE_NEWS";
 export const GET_NEWS_BY_STOCK_PAGE = "GET_NEWS_BY_STOCK_PAGE";
 export const GET_RELATED_NEWS = "GET_RELATED_NEWS";
 export const GET_NEWS_DETAILS_BY_ID = "GET_NEWS_DETAILS_BY_ID";
+export const GET_SEARCH_RESULT_LIST = "GET_SEARCH_RESULT_LIST";
 
 /**
  * add new News details action
@@ -275,6 +277,36 @@ export const DeleteNewsDetailsAction = (id, history) => async (dispatch) => {
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get search result news action
+ * @param {Object} data
+ * @returns
+ */
+
+const getSearchResult = (data) => ({
+  type: GET_SEARCH_RESULT_LIST,
+  data,
+});
+
+export const getSearchResultAction = (data, setLoading) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getSearchResultListApi(data);
+    if (response.success) {
+      dispatch(getSearchResult(response.news));
+      setLoading(false);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to Load News list", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }

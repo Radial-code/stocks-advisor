@@ -606,6 +606,7 @@ import "./NavBar.css";
 // export default Navbar;
 
 import React from "react";
+import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useState } from "react";
 import England from "../../assets/img/england.png";
@@ -614,7 +615,8 @@ import { useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
 import { Drop } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-const Navbar = () => {
+
+const Navbar = ({ history }) => {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
@@ -661,6 +663,10 @@ const Navbar = () => {
     setOverlayActive(true);
   };
 
+  const searchPage = () => {
+    setSearchShow(!searchshow);
+    history.push("/search/news");
+  };
   return (
     <>
       {overlayActive ? "" : <div className="over-lay-navbar"></div>}
@@ -817,7 +823,7 @@ const Navbar = () => {
                 ) : (
                   <span
                     class="icon cursor-pointer"
-                    onClick={() => setSearchShow(!searchshow)}
+                    onClick={() => searchPage()}
                   >
                     <i class="fa fa-search"></i>
                   </span>
@@ -940,7 +946,7 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
 
 // import React from "react";
 

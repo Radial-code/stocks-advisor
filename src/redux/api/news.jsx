@@ -75,3 +75,14 @@ export const getNewsByStockApi = async (id) => {
 export const getRelatedNewsApi = async (data) => {
   return await axiosRequest("POST", `/news/related?page=0&limit=10`, data);
 };
+
+/**
+ *  get search Result News api
+ * @returns
+ */
+export const getSearchResultListApi = async (data) => {
+  return await axiosRequest(
+    "GET",
+    `/news-search?query=${data}&page=0&limit=10`
+  );
+};
