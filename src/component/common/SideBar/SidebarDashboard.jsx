@@ -106,7 +106,7 @@ function SidebarDashboard({
   const [activeClass, setActiveClass] = useState(false);
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
-
+  const [activeLink, setActiveLink] = useState("stock");
   const layoutleftChangeHandler = () => {
     setLayoutClickChanger(true);
 
@@ -127,6 +127,8 @@ function SidebarDashboard({
   };
   const openRoutes = (value) => {
     setShowSidebar(false);
+    console.log(value);
+    setActiveLink(value);
     // if (value === "editcontact") {
     //   history.push("/dashboard/edit/contact");
     // }
@@ -179,7 +181,9 @@ function SidebarDashboard({
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Edit Contact</p>
           </div> */}
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "manage" ? "bg-warning" : ""
+            }`}
             onClick={() => openRoutes("manage")}
           >
             <span className="px-2">
