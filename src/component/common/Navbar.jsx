@@ -121,9 +121,8 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <img className="logo-img-navbar" src={logo} alt="" />
               </NavLink>
               <div
-                className="d-block mt-3 d-xxl-none"
+                className="d-block cursor-pointer mt-3 d-xxl-none"
                 onClick={sidebarClosedHandler}
-                // () =>
               >
                 <HamburgerCrossIcon />
               </div>
@@ -180,7 +179,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 Contact Us
               </NavLink>
               <span className="d-flex align-items-center lang-dropddown  py-2  py-xxl-3 mt-3 my-xxl-auto">
-                <li onClick={() => setLang(!Lang)}>
+                <li
+                  className="d-none d-xxl-block"
+                  onClick={() => setLang(!Lang)}
+                >
                   <NavLink
                     exact
                     to="#"
@@ -202,6 +204,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     )}
                   </NavLink>
                 </li>
+
                 {Lang ? (
                   <div className="bg-white shadow p-2 rounded position-absolute top-72 ">
                     {" "}
@@ -229,6 +232,41 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 )}
               </span>
             </div>
+            {/* languaage accordian  */}
+            <div className="d-xxl-none my-3 d-block ">
+              <Accordion>
+                <Card>
+                  <Card.Header className="bg-accordian ">
+                    <Accordion.Toggle
+                      className="w-100 dashboard-accordian my-auto "
+                      eventKey="1"
+                    >
+                      <div className="d-flex py-2 w-100 justify-content-between ">
+                        <p className="mb-0">Lang</p>
+                        <p className="mb-0">+</p>
+                      </div>
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body>
+                      <p
+                        onClick={layoutrightChangeHandler}
+                        className="cursor-pointer"
+                      >
+                        English
+                      </p>
+                      <p
+                        onClick={layoutleftChangeHandler}
+                        className="cursor-pointer"
+                      >
+                        Hindi
+                      </p>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
+            {/* ends here ............. language accordian */}
 
             <div className="d-xxl-none d-block ">
               <Accordion>
@@ -246,8 +284,8 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
-                      <p>User Dashboard</p>
-                      <p>Admin Dashboard</p>
+                      <p className="cursor-pointer">User Dashboard</p>
+                      <p className="cursor-pointer">Admin Dashboard</p>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
@@ -304,7 +342,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </NavLink>
 
                   <Dropdown className="d-flex mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
-                    <Dropdown.Toggle id="dropdown-basic">
+                    <Dropdown.Toggle
+                      className="d-none d-xxl-block"
+                      id="dropdown-basic"
+                    >
                       Dashboard
                     </Dropdown.Toggle>
 
