@@ -94,7 +94,7 @@ function SidebarDashboard({
             onClick={() => openRoutes("editcontact")}
           >
             <span className="px-2">
-              {" "}
+              
               <EditPencilIcon />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Edit Contact</p>
@@ -106,7 +106,6 @@ function SidebarDashboard({
             onClick={() => openRoutes("manage")}
           >
             <span className="px-2">
-              {" "}
               <Manage />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
@@ -120,7 +119,6 @@ function SidebarDashboard({
             onClick={() => openRoutes("update")}
           >
             <span className="px-2">
-              {" "}
               <Update />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
@@ -173,7 +171,6 @@ function SidebarDashboard({
               className=" cursor-pointer"
               onClick={() => setShowSidebar(true)}
             >
-              {" "}
               <Back />
             </span>
           </div>
