@@ -1,7 +1,7 @@
 import UserImg from "../../assets/img/team_1.png";
 import CalenderIcon from "../../assets/img/calendar-icon.png";
 
-export const SoldStockSlider = ({ soldValue }) => {
+const StockSliderCard = ({ soldValue }) => {
   return (
     <>
       <div className="my-3 ">
@@ -45,3 +45,4 @@ export const SoldStockSlider = ({ soldValue }) => {
     </>
   );
 };
+export default StockSliderCard;

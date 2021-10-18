@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
-import { SoldStockSlider } from "./SoldStockSlider";
+import StockSliderCard from "./StockSliderCard";
 
 const StockSoldSlider = () => {
   const soldStockNewsList = useSelector(
@@ -64,22 +64,16 @@ const StockSoldSlider = () => {
           soldStockNewsList.map((value) => {
             return (
               <>
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
-                <SoldStockSlider soldValue={value} />
+                <StockSliderCard soldValue={value} />
               </>
             );
           })} */}
-        <SoldStockSlider />
-        <SoldStockSlider />
-        <SoldStockSlider />
-        <SoldStockSlider />
-        <SoldStockSlider />
-        <SoldStockSlider />
+        <StockSliderCard />
+        <StockSliderCard />
+        <StockSliderCard />
+        <StockSliderCard />
+        <StockSliderCard />
+        <StockSliderCard />
       </Slider>
     </>
   );

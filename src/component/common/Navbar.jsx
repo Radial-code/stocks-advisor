@@ -1,31 +1,27 @@
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import UserDropDown from "./UserDropDown";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { withRouter } from "react-router";
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
+import { useSelector } from "react-redux";
+import { Dropdown } from "react-bootstrap";
+import logo from "../../assets/img/Navbar-logo-img.png";
+import England from "../../assets/img/england.png";
+import Arbic from "../../assets/img/arbic.png";
+import { Drop } from "../common/icons/Icons";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { getSearchResultAction } from "../../redux/action/news";
 import {
   HamburgerIcon,
   HamburgerCrossIcon,
-  SearchMagnifyIcon,
   SearchWhiteIcon,
 } from "./icons/Icons";
 import "./NavBar.css";
-import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import React from "react";
-import { withRouter } from "react-router";
-import logo from "../../assets/img/Navbar-logo-img.png";
-import { useState } from "react";
-import England from "../../assets/img/england.png";
-import Arbic from "../../assets/img/arbic.png";
-import { useSelector } from "react-redux";
-import { Dropdown } from "react-bootstrap";
-import { Drop } from "../common/icons/Icons";
-import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-import { useEffect } from "react";
-import { getSearchResultAction } from "../../redux/action/news";
-import { useDispatch } from "react-redux";
+import { LogoutAction } from "../../redux/action/auth";
+import Loader from "../common/Loader";
 
 const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const dispatch = useDispatch();
@@ -33,6 +29,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
 
@@ -267,30 +264,54 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               </Accordion>
             </div>
             {/* ends here ............. language accordian */}
-
-            <div className="d-xxl-none d-block ">
-              <Accordion>
-                <Card>
-                  <Card.Header className="bg-accordian ">
-                    <Accordion.Toggle
-                      className="w-100 dashboard-accordian my-auto "
-                      eventKey="1"
-                    >
-                      <div className="d-flex py-2 w-100 justify-content-between ">
-                        <p className="mb-0">Dashboard</p>
-                        <p className="mb-0">+</p>
-                      </div>
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body>
-                      <p className="cursor-pointer">User Dashboard</p>
-                      <p className="cursor-pointer">Admin Dashboard</p>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
+            {userData && !!userData.isAdmin ? (
+              <div className="d-xxl-none d-block ">
+                <Accordion>
+                  <Card>
+                    <Card.Header className="bg-accordian ">
+                      <Accordion.Toggle
+                        className="w-100 dashboard-accordian my-auto "
+                        eventKey="1"
+                      >
+                        <div className="d-flex py-2 w-100 justify-content-between ">
+                          <p className="mb-0">Dashboard</p>
+                          <p className="mb-0">+</p>
+                        </div>
+                      </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="1">
+                      <Card.Body>
+                        <p
+                          className="cursor-pointer"
+                          onClick={() =>
+                            history.push("/dashboard/view/profile")
+                          }
+                        >
+                          User Dashboard
+                        </p>
+                        <p
+                          className="cursor-pointer"
+                          onClick={() =>
+                            history.push("/content/manager/stocks")
+                          }
+                        >
+                          Admin Dashboard
+                        </p>
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                </Accordion>
+              </div>
+            ) : (
+              <NavLink
+                exact
+                activeClassName="active_underline_navbar"
+                to="/dashboard/view/profile"
+                className="navbar_Links_text nav-text-border-bottom py-2  py-xxl-3 mt-3 my-xxl-auto"
+              >
+                Dashboard
+              </NavLink>
+            )}
             <div className="d-flex  flex-xxl-row flex-column">
               <span className="icon d-none d-xxl-block my-auto ms-3">
                 {searchshow ? (
@@ -333,34 +354,64 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
 
               {auth ? (
                 <>
-                  <NavLink
-                    exact
-                    to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                    className="navbar_Links_text my-auto my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
-                  >
-                    Portfolio
-                  </NavLink>
+                  {!!userData && !!userData.isPaidPlan ? (
+                    <NavLink
+                      exact
+                      to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                      className="navbar_Links_text my-auto my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
+                    >
+                      Portfolio
+                    </NavLink>
+                  ) : null}
+                  {userData.isAdmin ? (
+                    <Dropdown className="d-flex mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
+                      <Dropdown.Toggle
+                        className="d-none d-xxl-block"
+                        id="dropdown-basic"
+                      >
+                        Dashboard
+                      </Dropdown.Toggle>
 
-                  <Dropdown className="d-flex mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
-                    <Dropdown.Toggle
-                      className="d-none d-xxl-block"
-                      id="dropdown-basic"
+                      <Dropdown.Menu>
+                        <Dropdown.Item
+                          onClick={() =>
+                            history.push("/dashboard/view/profile")
+                          }
+                        >
+                          User Dashboard
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() =>
+                            history.push("/content/manager/stocks")
+                          }
+                        >
+                          Admin Dashboard
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  ) : (
+                    <NavLink
+                      exact
+                      to={`/content/manager/stocks`}
+                      className="navbar_Links_text my-auto my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
                     >
                       Dashboard
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item>User Dashboard</Dropdown.Item>
-                      <Dropdown.Item>Admin Dashboard</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                    </NavLink>
+                  )}
                 </>
               ) : (
                 ""
               )}
               {auth ? (
                 <div className="d-none d-xxl-block my-auto">
-                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                  <div
+                    onClick={() => {
+                      userData.isAdmin
+                        ? history.push("/content/manager/stocks")
+                        : history.push("/dashboard/view/profile");
+                    }}
+                    className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
+                  >
                     <div className="">
                       <span className="first-char">
                         {firstname && firstname.toUpperCase().charAt(0)}
@@ -374,15 +425,23 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               ) : (
                 ""
               )}
-              {auth ? (
+              {auth && token ? (
                 <div className="mx-xxl-2 mx-0  mx-auto  my-auto ">
-                  <button className="mt-4 mt-xxl-0 py-2  btn join_now_btn ">
-                    Log Out
+                  <button
+                    onClick={() =>
+                      dispatch(LogoutAction(setLoadingLogOut, history))
+                    }
+                    className="mt-4 mt-xxl-0 py-2  btn join_now_btn "
+                  >
+                    {loadingLogOut ? <Loader /> : "Log Out"}
                   </button>
                 </div>
               ) : (
                 <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
-                  <button className="mt-4 mt-xxl-0 py-2 ms-3  btn join_now_btn ">
+                  <button
+                    onClick={() => history.push("/login")}
+                    className="mt-4 mt-xxl-0 py-2 ms-3  btn join_now_btn "
+                  >
                     Login In
                   </button>
                   <button
@@ -407,7 +466,14 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <div className="d-flex justify-content-end ">
                 <div className="d-block my-auto d-xxl-none">
                   {auth ? (
-                    <div className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                    <div
+                      onClick={() => {
+                        userData.isAdmin
+                          ? history.push("/content/manager/stocks")
+                          : history.push("/dashboard/view/profile");
+                      }}
+                      className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
+                    >
                       <div className="">
                         <span className="first-char">
                           {firstname && firstname.toUpperCase().charAt(0)}
