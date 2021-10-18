@@ -115,6 +115,7 @@ import {
 } from "../icons/Icons";
 const SidebarPanel = ({ history }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [activeLink, setActiveLink] = useState("stocks");
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const layoutleftChangeHandler = () => {
@@ -134,6 +135,7 @@ const SidebarPanel = ({ history }) => {
   };
   const openRoutes = (value) => {
     setShowSidebar(false);
+    setActiveLink(value);
     if (value === "stocks") {
       history.push("/content/manager/stocks");
     } else if (value === "news") {
@@ -175,7 +177,9 @@ const SidebarPanel = ({ history }) => {
           </div>
           <div className="cn-sidebar-border"></div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "stocks" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("stocks")}
           >
             <span className="px-2">
@@ -185,7 +189,9 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Stocks</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "news" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("news")}
           >
             <span className="px-2">
@@ -195,7 +201,9 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">News</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "user" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("user")}
           >
             <span className="px-2">
@@ -205,7 +213,9 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Users</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "services" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("services")}
           >
             <span className="px-2">
@@ -216,7 +226,9 @@ const SidebarPanel = ({ history }) => {
           </div>
 
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "details" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("details")}
           >
             <span className="px-2">
@@ -225,7 +237,9 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Our Plans</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "team" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("team")}
           >
             <span className="px-2">
@@ -234,7 +248,9 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Team</p>
           </div>
           <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "enquiry" ? "cn-sidebar-active" : ""
+            }`}
             onClick={() => openRoutes("enquiry")}
           >
             <span className="px-2">

@@ -606,6 +606,7 @@ import "./NavBar.css";
 // export default Navbar;
 
 import React from "react";
+import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useState } from "react";
 import England from "../../assets/img/england.png";
@@ -614,11 +615,18 @@ import { useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
 import { Drop } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-const Navbar = () => {
+import { useEffect } from "react";
+import { getSearchResultAction } from "../../redux/action/news";
+import { useDispatch } from "react-redux";
+
+const Navbar = ({ history }) => {
+  const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [searchData, setSearchData] = useState("");
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
 
@@ -661,10 +669,21 @@ const Navbar = () => {
     setOverlayActive(true);
   };
 
+  const searchPage = () => {
+    setSearchShow(!searchshow);
+    history.push("/search/news");
+  };
+
   const overLayClickHandlerClose = () => {
     setNavbarCollapsed(true);
     setOverlayActive(true);
   };
+
+  useEffect(() => {
+    if (searchData) {
+      dispatch(getSearchResultAction(searchData, setLoading));
+    }
+  }, [searchData]);
 
   return (
     <>
@@ -814,6 +833,7 @@ const Navbar = () => {
                       className="mx-3 search-box-nav py-2 px-xxl-3"
                       id="search"
                       placeholder="Search..."
+                      onChange={(e) => setSearchData(e.target.value)}
                     />
 
                     <div className="search-green-icon cursor-pointer  top-10 left-20 position-absoulte">
@@ -829,7 +849,7 @@ const Navbar = () => {
                 ) : (
                   <span
                     class="icon cursor-pointer"
-                    onClick={() => setSearchShow(!searchshow)}
+                    onClick={() => searchPage()}
                   >
                     <i class="fa fa-search"></i>
                   </span>
@@ -931,5 +951,4 @@ const Navbar = () => {
     </>
   );
 };
-
-export default Navbar;
+export default withRouter(Navbar);

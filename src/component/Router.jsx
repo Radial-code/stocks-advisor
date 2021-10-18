@@ -30,6 +30,7 @@ import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
 import Stripe from "./payment/Stripe";
 import ViewProfile from "./userPanel/profile/ViewProfile";
+import Search from "./search/Search";
 
 const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
   return (
@@ -54,6 +55,7 @@ const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
         <Route exact path="/payment/:id" component={Stripe} />
         <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
         <Route exact path="/our-plan" component={OurPlanspage} />
+        <Route exact path="/search/news" component={Search} />
         <Route exact path="/news" component={News} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />
