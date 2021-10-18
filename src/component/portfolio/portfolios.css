@@ -181,9 +181,9 @@
   z-index: 2;
 }
 
-@media (min-width: 1280.98px) and (max-width: 1399.98px) {
+@media (min-width: 1280.98px) and (max-width: 139.98px) {
   .current-stock-bg {
-    width: 750px;
+    width: 650px;
   }
 }
 

@@ -24,13 +24,13 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
     }
   };
   return (
-    <div className="container mt-5">
-      <div
+    <div className="container ">
+      {/* <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-      ></div>
+      ></div> */}
       <div className="row">
-        <div className="col-12">
+        {/* <div className="col-12">
           <div className="content-manager pb-4 mb-3">
             <div className="d-flex  border-b-1  justify-content-between ">
               <p className="heading-stock pr-15 fs-sm-20 mb-0">
@@ -53,10 +53,10 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="col-12 ">
           <div className="other-services bg-white  p-sm-3 p-2">
-            <div className="row justify-content-between flex-md-row flex-column align-items-center">
+            <div className="row justify-content-between flex-md-row flex-column align-items-center pt-4">
               <div className="col-md-3 col-12 ">
                 <p className="mb-0 text-md-end text-center other-services-text">
                   Other Services
@@ -66,7 +66,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 <button
                   className={`${
                     exchangeTable ? "services-btn-active" : "services-btn"
-                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  } px-4 py-2 my-md-0 my-2 ms-xl-3 ms-1`}
                   onClick={() => showTable("exchange")}
                 >
                   Exchange
@@ -74,7 +74,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 <button
                   className={`${
                     portfolioTable ? "services-btn-active" : "services-btn"
-                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  } px-4 py-2 my-md-0 my-2  ms-xl-3 ms-1`}
                   onClick={() => showTable("portfolio")}
                 >
                   Portfolio
@@ -82,7 +82,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 <button
                   className={`${
                     categoryTable ? "services-btn-active" : "services-btn"
-                  } px-4 py-2 my-md-0 my-2 ms-md-3`}
+                  } px-4 py-2 my-md-0 my-2  ms-xl-3 ms-1`}
                   onClick={() => showTable("category")}
                 >
                   Category

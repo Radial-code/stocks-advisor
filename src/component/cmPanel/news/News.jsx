@@ -6,12 +6,12 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <>
       <Container>
-        <div
+        {/* <div
           onClick={() => setSidebarActive((preState) => !preState)}
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-        ></div>
+        ></div> */}
         <Row>
-          <Col xs={12}>
+          {/* <Col xs={12}>
             <div className=" content-manager mb-3">
               <div className="d-flex border-b-1 justify-content-between">
                 <p className="heading-stock pr-15 fs-sm-20 mb-0">
@@ -34,7 +34,7 @@ const News = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 </span>
               </div>
             </div>
-          </Col>
+          </Col> */}
           <NewsList />
         </Row>
       </Container>

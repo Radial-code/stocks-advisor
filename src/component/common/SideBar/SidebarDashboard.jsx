@@ -97,6 +97,7 @@ function SidebarDashboard({ history }) {
     useLayoutChangerProvider();
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
+
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -143,11 +144,11 @@ function SidebarDashboard({ history }) {
       ></div>
       <div className="col">
         <div
-          className={`${showSidebar ? "right-0" : "right-350"} 
+          className={`${showSidebar ? "right-0" : "right-350"}
           }  bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
-            <p className="cn-sidebar-text mb-0">Dashboard</p>
+            <p className="cn-sidebar-text mb-0 pt-4">Dashboard</p>
 
             <img
               className="cancel-icon cursor-pointer"

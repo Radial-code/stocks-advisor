@@ -26,7 +26,7 @@ const Portfolio = ({ match }) => {
   return (
     <>
       <div className="container my-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between flex-lg-row flex-column">
           <PortfoliosSidebar
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}

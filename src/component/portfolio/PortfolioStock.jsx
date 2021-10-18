@@ -12,12 +12,8 @@ function PortfolioStock({
 }) {
   return (
     <div className="container mr-lg-30 ">
-      <div
-        onClick={() => setSidebarActive((preState) => !preState)}
-        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-      ></div>
       <div className="row">
-        <div className="col-12">
+        {/* <div className="col-12">
           <div className="border-b-1 content-manager-2">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15">Portfolios</p>
@@ -38,9 +34,9 @@ function PortfolioStock({
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="col-12 mt-3 mt-xxl-0">
+        <div className="col-12 ">
           <div className="current-stock-bg p-sm-3 p-2">
             <h1 className="current-stock-text ff-popins mt-md-5 mt-2">
               Current Stocks

@@ -22,7 +22,7 @@ const CmPanelRoutes = () => {
   return (
     <>
       <div className="container my-5">
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between flex-lg-row flex-column">
           <SidebarPanel
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}

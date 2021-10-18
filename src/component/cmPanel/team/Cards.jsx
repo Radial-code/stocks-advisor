@@ -19,7 +19,7 @@ const Cards = () => {
           {teamList && teamList.length
             ? teamList.map((value, index) => {
                 return (
-                  <div key={index} className="col-md-4">
+                  <div key={index} className="col-xl-4 col-md-6">
                     <div className="team-cards p-sm-3 p-1 my-3">
                       <img
                         className="d-block mx-auto cards-image"

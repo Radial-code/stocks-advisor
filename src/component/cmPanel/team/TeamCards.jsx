@@ -7,12 +7,12 @@ const TeamCards = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <>
       <div className="container">
-        <div
+        {/* <div
           onClick={() => setSidebarActive((preState) => !preState)}
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-        ></div>
+        ></div> */}
         <div className="row">
-          <div className="col-12">
+          {/* <div className="col-12">
             <div className=" mt-5 pb-4 content-manager mb-3">
               <div className="d-flex border-b-1 justify-content-between ">
                 <p className="heading-stock pr-15 fs-sm-20 mb-0">
@@ -35,9 +35,9 @@ const TeamCards = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           <Col className="d-flex justify-content-lg-end">
-            <section className="user-panel-card w-xl-1000 p-4 margin-top-1264px   pt-5">
+            <section className="user-panel-card w-xl-1000 p-4  pt-5">
               <div className="d-flex justify-content-sm-between align-items-center flex-sm-row flex-column">
                 <p className="heading-stock fs-sm-20 fs-sm-20">Team</p>
                 <div>
