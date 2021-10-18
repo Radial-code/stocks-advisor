@@ -382,7 +382,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 </div>
               ) : (
                 <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
-                  <button className="mt-4 mt-xxl-0 py-2  btn join_now_btn ">
+                  <button className="mt-4 mt-xxl-0 py-2 ms-3  btn join_now_btn ">
+                    Login In
+                  </button>
+                  <button
+                    onClick={() => history.push("/signup")}
+                    className="mt-4 mt-xxl-0 py-2  btn join_now_btn "
+                  >
                     Join Now
                   </button>
                 </div>
