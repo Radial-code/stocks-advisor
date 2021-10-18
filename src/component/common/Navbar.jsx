@@ -641,11 +641,11 @@ const Navbar = () => {
               <div className="position-relative  mt-3 d-xl-none d-block ">
                 <input
                   type="search"
-                  className="search-box-nav py-2 w-100  px-xxl-3"
+                  className="search-box-nav py-2   px-xxl-3"
                   id="search"
                   placeholder="Search..."
                 />
-                <div className="search-green-icon cursor-pointer  top-0 left-0 position-absoulte">
+                <div className="search-green-icon cursor-pointer top-0 left-80 left-374-61   position-absoulte">
                   <SearchWhiteIcon />
                 </div>
               </div>
