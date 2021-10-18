@@ -107,10 +107,10 @@ function PlansTable({ history }) {
                       </td>
 
                       <td className="text-end whitespace Ellipse">
-                        {value.price}
+                        ${value.price}
                       </td>
                       <td className="text-end whitespace Ellipse">
-                        ${value.type}
+                        {value.type}
                       </td>
                       <td className="text-end whitespace Ellipse">
                         <button

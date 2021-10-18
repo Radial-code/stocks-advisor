@@ -9,6 +9,7 @@ import {
   GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
+import { GET_SEARCH_RESULT_LIST } from "../action/news";
 import {
   ADD_PAYMENT_STRIPE_ID,
   GET_PLAN_DETAILS_BY_ID,
@@ -39,6 +40,7 @@ const initialState = {
   userProfileDetails: {},
   userPlanDetails: {},
   stockChatList: {},
+  searchNewsList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -147,6 +149,13 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         stripeID: action.id,
+      };
+    }
+    // search result list
+    case GET_SEARCH_RESULT_LIST: {
+      return {
+        ...state,
+        searchNewsList: action.data,
       };
     }
 
