@@ -724,7 +724,7 @@ const Navbar = ({ history }) => {
               <div className="position-relative  mt-3 d-xxl-none d-block ">
                 <input
                   type="search"
-                  className="search-box-nav py-2 w-100  px-xxl-3"
+                  className="search-box-nav py-2 w-100 pe-3"
                   id="search"
                   placeholder="Search..."
                 />
@@ -845,7 +845,9 @@ const Navbar = ({ history }) => {
                 )}
 
                 {searchshow ? (
-                  ""
+                  <span class="cross-icon-style" onClick={() => searchPage()}>
+                    X
+                  </span>
                 ) : (
                   <span
                     class="icon cursor-pointer"

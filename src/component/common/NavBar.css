@@ -107,7 +107,7 @@
 .search-green-icon {
   background-color: var(--color-127CF9);
   border-radius: 5px;
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
 
 .top-10 {
@@ -210,4 +210,16 @@
     left: 0;
     position: fixed;
   }
+}
+
+.cross-icon-style {
+  background-color: var(--color-127CF9);
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  height: 20px !important;
+  display: flex;
+  font-size: 14px;
+  color: var(--color-ffffff);
+  width: 20px !important ;
 }
