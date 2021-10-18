@@ -615,12 +615,18 @@ import { useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
 import { Drop } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { useEffect } from "react";
+import { getSearchResultAction } from "../../redux/action/news";
+import { useDispatch } from "react-redux";
 
 const Navbar = ({ history }) => {
+  const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [searchData, setSearchData] = useState("");
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
 
@@ -667,9 +673,28 @@ const Navbar = ({ history }) => {
     setSearchShow(!searchshow);
     history.push("/search/news");
   };
+
+  const overLayClickHandlerClose = () => {
+    setNavbarCollapsed(true);
+    setOverlayActive(true);
+  };
+
+  useEffect(() => {
+    if (searchData) {
+      dispatch(getSearchResultAction(searchData, setLoading));
+    }
+  }, [searchData]);
+
   return (
     <>
-      {overlayActive ? "" : <div className="over-lay-navbar"></div>}
+      {overlayActive ? (
+        ""
+      ) : (
+        <div
+          onClick={overLayClickHandlerClose}
+          className="over-lay-navbar"
+        ></div>
+      )}
 
       {/* <div className="over-lay-navbar"></div> */}
       <div
@@ -699,11 +724,11 @@ const Navbar = ({ history }) => {
               <div className="position-relative  mt-3 d-xl-none d-block ">
                 <input
                   type="search"
-                  className="search-box-nav py-2   px-xxl-3"
+                  className="search-box-nav py-2 w-100  px-xxl-3"
                   id="search"
                   placeholder="Search..."
                 />
-                <div className="search-green-icon cursor-pointer top-0 left-80 left-374-61   position-absoulte">
+                <div className="search-green-icon cursor-pointer top-0 left-0    position-absoulte">
                   <SearchWhiteIcon />
                 </div>
               </div>
@@ -808,6 +833,7 @@ const Navbar = ({ history }) => {
                       className="mx-3 search-box-nav py-2 px-xxl-3"
                       id="search"
                       placeholder="Search..."
+                      onChange={(e) => setSearchData(e.target.value)}
                     />
 
                     <div className="search-green-icon cursor-pointer  top-10 left-20 position-absoulte">
@@ -829,30 +855,7 @@ const Navbar = ({ history }) => {
                   </span>
                 )}
               </span>
-              {auth ? (
-                <div className="d-none d-xl-block my-auto">
-                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
-                    <div className="">
-                      <span className="first-char">
-                        {firstname && firstname.toUpperCase().charAt(0)}
-                      </span>
-                      <span className="first-char">
-                        {lastname && lastname.toUpperCase().charAt(0)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
-              <Dropdown className="d-flex mx-0 mx-xl-2  stock-dashboard-dropdown  align-items-center">
-                <Dropdown.Toggle id="dropdown-basic">Lang</Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item>Arbic</Dropdown.Item>
-                  <Dropdown.Item>English</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
               {auth ? (
                 <>
                   <NavLink
@@ -862,19 +865,6 @@ const Navbar = ({ history }) => {
                   >
                     Portfolio
                   </NavLink>
-
-                  {/* <NavLink
-                    exact
-                    to={
-                      userData.isAdmin
-                        ? "/content/manager/stocks"
-                        : "/dashboard/view/profile"
-                    }
-                    data-toggle="dropdown"
-                    className="dropdown-toggle navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3 "
-                  >
-                    Dashboard
-                  </NavLink> */}
 
                   <Dropdown className="d-flex mx-0 mx-xl-2  stock-dashboard-dropdown  align-items-center">
                     <Dropdown.Toggle id="dropdown-basic">
@@ -891,13 +881,29 @@ const Navbar = ({ history }) => {
                 ""
               )}
               {auth ? (
-                <div className="mx-xl-2 mx-0    my-auto ">
+                <div className="d-none d-xl-block my-auto">
+                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                    <div className="">
+                      <span className="first-char">
+                        {firstname && firstname.toUpperCase().charAt(0)}
+                      </span>
+                      <span className="first-char">
+                        {lastname && lastname.toUpperCase().charAt(0)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              {auth ? (
+                <div className="mx-xl-2 mx-0  mx-auto  my-auto ">
                   <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
                     Log Out
                   </button>
                 </div>
               ) : (
-                <div className="mx-xl-2 mx-0    my-auto ">
+                <div className="mx-xl-2 mx-0 mx-auto    my-auto ">
                   <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
                     Join Now
                   </button>
@@ -945,13 +951,4 @@ const Navbar = ({ history }) => {
     </>
   );
 };
-
 export default withRouter(Navbar);
-
-// import React from "react";
-
-// function Navbar() {
-//   return <div></div>;
-// }
-
-// export default Navbar;
