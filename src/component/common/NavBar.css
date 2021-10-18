@@ -223,3 +223,14 @@
   color: var(--color-ffffff);
   width: 15px !important ;
 }
+
+.dashboard-accordian {
+  background-color: var(--color-127CF9);
+  border: none;
+  font-size: 16px;
+  color: var(--color-ffffff);
+}
+
+.bg-accordian {
+  background-color: var(--color-127CF9) !important;
+}

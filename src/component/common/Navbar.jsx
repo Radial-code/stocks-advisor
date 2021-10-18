@@ -7,7 +7,12 @@ import {
   SearchWhiteIcon,
 } from "./icons/Icons";
 import "./NavBar.css";
-import { Accordion } from "react-bootstrap";
+import Accordion from "react-bootstrap/Accordion";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import React from "react";
 import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
@@ -225,13 +230,36 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               </span>
             </div>
 
+            <div className="d-xxl-none d-block ">
+              <Accordion>
+                <Card>
+                  <Card.Header className="bg-accordian ">
+                    <Accordion.Toggle
+                      className="w-100 dashboard-accordian my-auto "
+                      eventKey="1"
+                    >
+                      <div className="d-flex py-2 w-100 justify-content-between ">
+                        <p className="mb-0">Dashboard</p>
+                        <p className="mb-0">+</p>
+                      </div>
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="1">
+                    <Card.Body>
+                      <p>User Dashboard</p>
+                      <p>Admin Dashboard</p>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion>
+            </div>
             <div className="d-flex  flex-xxl-row flex-column">
-              <span class="icon d-none d-xxl-block my-auto ms-3">
+              <span className="icon d-none d-xxl-block my-auto ms-3">
                 {searchshow ? (
                   <div className="position-relative">
                     <div className="d-flex">
                       <span
-                        class="cross-icon-style my-auto "
+                        className="cross-icon-style my-auto "
                         onClick={() => searchPage()}
                       >
                         X
@@ -257,10 +285,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   ""
                 ) : (
                   <span
-                    class="icon cursor-pointer"
+                    className="icon cursor-pointer"
                     onClick={() => searchPage()}
                   >
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </span>
                 )}
               </span>
