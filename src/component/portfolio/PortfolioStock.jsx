@@ -11,7 +11,7 @@ function PortfolioStock({
   loading,
 }) {
   return (
-    <div className="container mr-lg-30 ">
+    <div className="width-table mr-lg-30 ">
       <div className="row">
         {/* <div className="col-12">
           <div className="border-b-1 content-manager-2">
