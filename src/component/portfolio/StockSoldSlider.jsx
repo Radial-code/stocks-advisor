@@ -72,8 +72,6 @@ const StockSoldSlider = () => {
         <StockSliderCard />
         <StockSliderCard />
         <StockSliderCard />
-        <StockSliderCard />
-        <StockSliderCard />
       </Slider>
     </>
   );

@@ -121,7 +121,7 @@ const Footer = ({ history }) => {
                   <li>
                     <Link
                       className="text-decoration-none text-white fs-15"
-                      to="/dashboard/edit/contact"
+                      to="/dashboard/manage/subscription"
                     >
                       Dashboard
                     </Link>

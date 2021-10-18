@@ -6,7 +6,7 @@ import moment from "moment";
 function CurrentStock({ history }) {
   const currentStockList = useSelector((state) => state.list.currentStockList);
   return (
-    <div className="table-responsive scroll-bar current-stock-scrollbar">
+    <div className="table-responsive scroll-bar current-stock-scrollbar ">
       {currentStockList && currentStockList.length ? (
         <table className="table table-borderless table-hover ml-10">
           <thead className="portfolio-sticky">

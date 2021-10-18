@@ -6,7 +6,7 @@ import Sortarrow from "../../assets/img/sortarrow.png";
 
 const SearchTable = ({ history, searchNewsList }) => {
   return (
-    <Table hover>
+    <Table hover className="mt-sm-0 mt-3">
       <thead className="portfolio-sticky">
         <tr className="user-list-panel">
           <th className="whitespace table-width">

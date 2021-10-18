@@ -18,9 +18,11 @@ const StockSliderCard = ({ soldValue }) => {
             </p>
 
             <h4 className="news-heading-font text-end">
-              <span className=" ">Is Netflix basic plan good</span>
+              <span className="text-ellipsis-dots">
+                Is Netflix basic plan good
+              </span>
             </h4>
-            <p className=" stock-paragraph text-end">
+            <p className="text-ellipsis-three-line stock-paragraph text-end">
               <span>
                 Is Netflix basic plan good? If you won't use Netflix much, or
                 want to subscribe in tandem with some other streaming services,
