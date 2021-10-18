@@ -100,6 +100,7 @@ function SidebarDashboard({
 }) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
+  console.log("layoutClickChanger", layoutClickChanger);
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
 

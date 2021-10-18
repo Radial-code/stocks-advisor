@@ -14,10 +14,10 @@ const DummySlider = ({ history }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    centerMode: true,
+
     responsive: [
       {
         breakpoint: 1400,
@@ -31,7 +31,7 @@ const DummySlider = ({ history }) => {
       {
         breakpoint: 1025,
         settings: {
-          slidesToShow: 2.2,
+          slidesToShow: 2,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -40,8 +40,8 @@ const DummySlider = ({ history }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1.2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -94,7 +94,7 @@ export const NewsArticlesList = ({ news, history }) => {
 
   return (
     <>
-      <div className="my-3">
+      <div className="my-3 ">
         <div className="news-slider-wrapper">
           <img className="w-100 h-100" src={imagePath} alt="newsImg" />
           <div className="news-wrapper-bottom-section">
