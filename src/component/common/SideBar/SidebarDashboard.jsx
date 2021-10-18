@@ -100,10 +100,10 @@ function SidebarDashboard({
 }) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
-  console.log("layoutClickChanger", layoutClickChanger);
+
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
-
+  const [activeClass, setActiveClass] = useState(false);
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
 
@@ -142,6 +142,7 @@ function SidebarDashboard({
       history.push("/dashboard/payment");
     }
   };
+
   return (
     <div className="row flex-column  justify-content-between mx-lg-2">
       <div
@@ -150,8 +151,10 @@ function SidebarDashboard({
       ></div>
       <div className="col">
         <div
-          className={`${showSidebar ? "right-0" : "right-350"}
-          }  bg-white content-manager-sidebar shadow px-3 pt-4`}
+          className={`${showSidebar ? "right-0" : "right-350"} ${
+            layoutClickChanger ? "left-350" : "left-0 "
+          }${showSidebar ? "left-0" : "left-350"}
+           bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
             <p className="cn-sidebar-text mb-0 pt-4">Dashboard</p>

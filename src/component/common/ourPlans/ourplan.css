@@ -166,3 +166,8 @@
     line-height: 23px;
   }
 }
+.not-found-img {
+  height: 500px;
+  border-radius: 30px;
+  width: 500px !important;
+}

@@ -126,10 +126,10 @@
   right: -376px;
 }
 .left-0 {
-  right: 0px;
+  left: 0px;
 }
 .left-350 {
-  right: -376px;
+  left: -376px;
 }
 
 @media (max-width: 992px) {
