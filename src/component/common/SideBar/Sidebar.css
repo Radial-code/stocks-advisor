@@ -73,18 +73,26 @@
 .cn-sidebar-active-tag:hover {
   border-radius: 17px;
   padding: 14px 0px;
-  background: #5cbd4c;
+  background: #16191e4a;
 }
 .cn-sidebar-active {
   border-radius: 17px;
   padding: 14px 0px;
   background: #5cbd4c;
 }
+.cn-sidebar-active .cn-sidebar-texts {
+  color: white;
+}
+.cn-sidebar-active svg path {
+  fill: white;
+  stroke: white;
+}
 .cn-sidebar-active-tag {
   border-radius: 17px;
   padding: 14px 0px;
   cursor: pointer;
 }
+
 .cn-sidebar-active-tag:hover .cn-sidebar-texts {
   color: white;
 }
