@@ -646,7 +646,7 @@ const Navbar = () => {
 
   const overlayActiveHandler = () => {
     setNavbarCollapsed(!navbarCollapsed);
-    setOverlayActive(true);
+    setOverlayActive(false);
   };
 
   const layoutrightChangeHandler = () => {
@@ -655,6 +655,12 @@ const Navbar = () => {
     localStorage.setItem("stock-advisor-lang", "English");
     setLang(false);
   };
+
+  const sidebarClosedHandler = () => {
+    setNavbarCollapsed(true);
+    setOverlayActive(true);
+  };
+
   return (
     <>
       {overlayActive ? "" : <div className="over-lay-navbar"></div>}
@@ -679,7 +685,8 @@ const Navbar = () => {
               </NavLink>
               <div
                 className="d-block mt-3 d-xl-none"
-                onClick={() => setNavbarCollapsed(true)}
+                onClick={sidebarClosedHandler}
+                // () =>
               >
                 <HamburgerCrossIcon />
               </div>
