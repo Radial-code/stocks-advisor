@@ -31,21 +31,26 @@ const PaymentTable = () => {
         </tr>
       </thead>
       <tbody>
-        {paymentList && paymentList.length
-          ? paymentList.map((obj, index) => {
-              return (
-                <tr key={index} className="tb-text border-b-1">
-                  <td className="py-3">{obj.status}</td>
-                  <td className="py-3">{obj.card}*******</td>
-                  <td className="py-3">{obj.plan.title}</td>
-                  <td className="py-3">${obj.amount}</td>
-                  <td className="py-3">
-                    {moment(obj.createdAt).format("DD/MMM/YYYY")}
-                  </td>
-                </tr>
-              );
-            })
-          : "You don't have any payment list"}
+        {paymentList && paymentList.length ? (
+          paymentList.map((obj, index) => {
+            return (
+              <tr key={index} className="tb-text border-b-1">
+                <td className="py-3">{obj.status}</td>
+                <td className="py-3">{obj.card}*******</td>
+                <td className="py-3">{obj.plan.title}</td>
+                <td className="py-3">${obj.amount}</td>
+                <td className="py-3">
+                  {moment(obj.createdAt).format("DD/MMM/YYYY")}
+                </td>
+              </tr>
+            );
+          })
+        ) : (
+          <td colspan="5" className="text-center fw-bold">
+            {" "}
+            You don't have any payment list
+          </td>
+        )}
       </tbody>
     </table>
   );

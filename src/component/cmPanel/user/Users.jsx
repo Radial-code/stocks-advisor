@@ -6,7 +6,7 @@ import UsersList from "./UsersList";
 const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <>
-      <Container>
+      <div className="width-table">
         {/* <div
           onClick={() => setSidebarActive((preState) => !preState)}
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -38,7 +38,7 @@ const Users = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           </Col> */}
           <UsersList />
         </Row>
-      </Container>
+      </div>
     </>
   );
 };

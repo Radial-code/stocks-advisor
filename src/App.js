@@ -20,6 +20,8 @@ import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 
 function App({ history }) {
+  const [showSidebar, setShowSidebar] = useState(false);
+  const sideBarHandler = () => setShowSidebar(!showSidebar);
   const stripePromise = loadStripe(
     "pk_test_51Ix50ySAXA6ohppa6sCSbgt2LbGnFl07UlO5v7HnRza0NT0idMwCYas5ouQBR8GEmv4l2SeR3lfwJXKzVUxmkghh00fs3EjdLI"
   );
@@ -49,7 +51,11 @@ function App({ history }) {
     <LayoutChangerProvider>
       <div
         className={`${
-          isScreenFixed ? "overflow-hidden  h-100vh" : ""
+          isScreenFixed
+            ? "overflow-hidden  h-100vh"
+            : showSidebar
+            ? "overflow-hidden"
+            : ""
         } d-flex justify-content-between flex-column h-100vh `}
       >
         {!!auth && !!token ? (
@@ -67,7 +73,11 @@ function App({ history }) {
               ) : !userData.isMobileNumberConfirmed ? (
                 <IsPhoneConfirmed />
               ) : (
-                <Router />
+                <Router
+                  showSidebar={showSidebar}
+                  sideBarHandler={sideBarHandler}
+                  setShowSidebar={setShowSidebar}
+                />
               )
             ) : (
               <div className="h-100vh d-flex justify-content-center align-items-center flex-column">

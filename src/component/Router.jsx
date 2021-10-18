@@ -31,7 +31,7 @@ import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
 import Stripe from "./payment/Stripe";
 import ViewProfile from "./userPanel/profile/ViewProfile";
 
-const Router = () => {
+const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
   return (
     <BrowserRouter>
       <Navbar />
@@ -65,12 +65,23 @@ const Router = () => {
         <Route exact path="/otpinputs" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
         {/** User dashboard routes */}
-        <Route path="/dashboard" component={UserRoutes} />
-
+        {/* <Route
+          path="/dashboard"
+          component={UserRoutes}
+          sideBarHandler={sideBarHandler}
+          showSidebar={showSidebar}
+          setShowSidebar={setShowSidebar} */}
+        {/* /> */}
+        <Route path="/dashboard">
+          <UserRoutes
+            showSidebar={showSidebar}
+            sideBarHandler={sideBarHandler}
+            setShowSidebar={setShowSidebar}
+          />
+        </Route>
         {/** User Portfolios routes */}
         <Route path="/protfolios/stock/:id" component={Portfolio} />
         <Route path="/view/profile" component={ViewProfile} />
-
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks" component={CmPanelRoutes} />
         <Route path="/content/manager/add/stock" component={CmPanelRoutes} />
@@ -94,7 +105,6 @@ const Router = () => {
           path="/content/manager/edit/plan/:id"
           component={CmPanelRoutes}
         />
-
         <Route
           path="/content/manager/other/services"
           component={CmPanelRoutes}
@@ -103,7 +113,6 @@ const Router = () => {
           path="/content/manager/add/other/services"
           component={OtherServicesForm}
         />
-
         <Route
           path="/content/manager/our/plans/details"
           component={CmPanelRoutes}

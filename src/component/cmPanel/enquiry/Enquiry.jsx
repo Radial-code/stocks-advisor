@@ -6,7 +6,7 @@ import "../../cmPanelCss/userList.css";
 const Enquiry = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
     <>
-      <Container>
+      <div className="width-table">
         {/* <div
           onClick={() => setSidebarActive((preState) => !preState)}
           className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -38,7 +38,7 @@ const Enquiry = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
           </Col> */}
           <EnquiryList />
         </Row>
-      </Container>
+      </div>
     </>
   );
 };

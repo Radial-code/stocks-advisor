@@ -92,7 +92,12 @@ import {
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
-function SidebarDashboard({ history }) {
+function SidebarDashboard({
+  history,
+  showSidebar,
+  setShowSidebar,
+  sideBarHandler,
+}) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [active, setActive] = useState(false);
@@ -100,7 +105,6 @@ function SidebarDashboard({ history }) {
 
   const [showemoji, setShowEmoji] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [showSidebar, setShowSidebar] = useState(false);
 
   const layoutleftChangeHandler = () => {
     setLayoutClickChanger(true);
