@@ -70,13 +70,17 @@
   }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {}
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
 
-@media (min-width: 768px) and (max-width: 991.98px) {}
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
 
-@media (min-width: 992px) and (max-width: 1199.98px) {}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
 
-@media (min-width: 1200px) and (max-width: 1399.98px) {}
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+}
 
 @media (min-width: 1400px) {
   .height {
@@ -116,5 +120,13 @@
 
   .us-contact {
     width: 303px;
+  }
+}
+@media (min-width: 768px) {
+  .contact-ellipse {
+    white-space: nowrap;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

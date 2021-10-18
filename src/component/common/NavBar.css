@@ -166,3 +166,21 @@
   font-weight: bold;
   color: white;
 }
+.lang-dropddown a {
+  color: var(--color-16191e);
+  opacity: 0.7;
+  text-decoration: none;
+}
+.lang-dropddown li {
+  list-style: none;
+}
+.flag-img {
+  width: 30px;
+  height: 30px;
+}
+.top-72 {
+  top: 72px;
+}
+.lang-dropddown:hover svg path {
+  stroke: var(--color-88BEFC);
+}

@@ -608,11 +608,17 @@ import "./NavBar.css";
 import React from "react";
 import logo from "../../assets/img/Navbar-logo-img.png";
 import { useState } from "react";
+import England from "../../assets/img/england.png";
+import Arbic from "../../assets/img/arbic.png";
 import { useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
-
+import { Drop } from "../common/icons/Icons";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const Navbar = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
+  const [Lang, setLang] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
 
@@ -628,7 +634,19 @@ const Navbar = () => {
     dashboardPortfoliosList &&
     dashboardPortfoliosList.length &&
     dashboardPortfoliosList[0]._id;
-  console.log("dashboardPortfoliosListId", dashboardPortfoliosListId);
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
+    setLanguage("Arabic");
+    localStorage.setItem("stock-advisor-lang", "Arabic");
+    setLang(false);
+  };
+
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
+    setLanguage("English");
+    localStorage.setItem("stock-advisor-lang", "English");
+    setLang(false);
+  };
   return (
     <>
       <div
@@ -697,6 +715,7 @@ const Navbar = () => {
               >
                 Our Plans
               </NavLink>
+
               <NavLink
                 exact
                 to="/contact-us"
@@ -705,6 +724,55 @@ const Navbar = () => {
               >
                 Contact Us
               </NavLink>
+              <span className="d-flex align-items-center lang-dropddown  py-2  py-xl-3 mt-3 my-xl-auto">
+                <li onClick={() => setLang(!Lang)}>
+                  <NavLink
+                    exact
+                    to="#"
+                    activeClassName="active"
+                    className="nav-links drop-down"
+                  >
+                    {layoutClickChanger ? (
+                      <span className="px-1 ">
+                        {" "}
+                        <Drop />
+                      </span>
+                    ) : null}
+                    {Language}
+                    {layoutClickChanger ? null : (
+                      <span className="px-1 ">
+                        {" "}
+                        <Drop />
+                      </span>
+                    )}
+                  </NavLink>
+                </li>
+                {Lang ? (
+                  <div className="bg-white shadow p-2 rounded position-absolute top-72 ">
+                    {" "}
+                    <span
+                      onClick={layoutrightChangeHandler}
+                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                    >
+                      English{" "}
+                      <img
+                        className="flag-img  mx-2 "
+                        src={England}
+                        alt="England"
+                      />
+                    </span>
+                    <span
+                      onClick={layoutleftChangeHandler}
+                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                    >
+                      Arabic{" "}
+                      <img className="flag-img mx-2" src={Arbic} alt="" />{" "}
+                    </span>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </span>
             </div>
 
             <div className="d-flex  flex-xl-row flex-column">

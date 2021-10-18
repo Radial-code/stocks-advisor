@@ -8,7 +8,7 @@ const Contact = () => {
       <div className="row  justify-content-center align-items-center h-100 ">
         <div className="col">
           <div className="row d-flex justify-content-between">
-            <div className="col-12 col-lg-7 d-flex justify-content-center d-sm-block mt-5 pt-4  ">
+            <div className="col-12 col-lg-7 d-flex justify-content-center d-sm-block  pt-3  ">
               <div className="p-xl-5 p-3 us-contact">
                 <h1 className=" mb-2 mb-md-3  section-heading fs-sm-24">
                   Contact Us
@@ -17,7 +17,10 @@ const Contact = () => {
                 <div className="row mt-4 mt-md-5 pt-2 ">
                   <div className=" col-12 col-md-4 order-3 mt-5 mt-md-0  order-md-1 px-auto ">
                     <p className=" email-heading pb-2 m-0">Email</p>
-                    <p className="email-para Ellipse" dir="ltr">
+                    <p
+                      className="email-para contact-ellipse text-end"
+                      dir="ltr"
+                    >
                       stockadvisor@email.com
                     </p>
                   </div>
