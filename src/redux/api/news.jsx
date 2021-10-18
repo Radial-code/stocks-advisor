@@ -86,3 +86,12 @@ export const getSearchResultListApi = async (data) => {
     `/news-search?query=${data}&page=0&limit=10`
   );
 };
+
+/**
+ * get Related Sold Stock News Api
+ * @param {Array} data
+ * @returns
+ */
+export const getRelatedSoldStockNewsApi = async (data) => {
+  return await axiosRequest("POST", `/news-sold-stock`, data);
+};

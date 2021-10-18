@@ -19,7 +19,7 @@ function Search({ searchData, loading }) {
             <BubblesLoader />
           ) : (
             <>
-              {!!searchNewsList.length ? (
+              {!!searchNewsList.length && searchData !== "" ? (
                 <SearchTable searchNewsList={searchNewsList} />
               ) : (
                 "No result found"

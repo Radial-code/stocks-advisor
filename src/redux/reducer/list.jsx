@@ -1,4 +1,3 @@
-import { DELETE_EXCHANGE_LIST } from "../action/cmPanel/OurServices";
 import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
 import {
   GET_TEAM_LIST,
@@ -9,7 +8,10 @@ import {
   GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST } from "../action/contact";
-import { GET_SEARCH_RESULT_LIST } from "../action/news";
+import {
+  GET_RELETED_SOLD_STOCK_NEWS,
+  GET_SEARCH_RESULT_LIST,
+} from "../action/news";
 import {
   ADD_PAYMENT_STRIPE_ID,
   GET_PLAN_DETAILS_BY_ID,
@@ -41,6 +43,7 @@ const initialState = {
   userPlanDetails: {},
   stockChatList: {},
   searchNewsList: [],
+  soldStockNewsList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -151,11 +154,19 @@ export default function ListReducer(state = initialState, action) {
         stripeID: action.id,
       };
     }
+
     // search result list
     case GET_SEARCH_RESULT_LIST: {
       return {
         ...state,
         searchNewsList: action.data,
+      };
+    }
+    // sold Stock News List
+    case GET_RELETED_SOLD_STOCK_NEWS: {
+      return {
+        ...state,
+        soldStockNewsList: action.data,
       };
     }
 
@@ -174,6 +185,7 @@ export default function ListReducer(state = initialState, action) {
         userPlanDetails: action.data,
       };
     }
+
     // get user details by id
     case REMOVE_PLAN_DETAILS: {
       return {
@@ -181,6 +193,7 @@ export default function ListReducer(state = initialState, action) {
         userPlanDetails: {},
       };
     }
+
     // get user details by id
     case GET_USER_PROFILE_DATA: {
       return {

@@ -11,6 +11,7 @@ import {
 const Portfolio = ({ match }) => {
   const dispatch = useDispatch();
   const [sidebarActive, setSidebarActive] = useState(false);
+  const [soldLoading, setSoldLoading] = useState(false);
   const [portfoliosId, setPortfoliosId] = useState(null);
   const [loading, setLoading] = useState(false);
   const sideBarHandler = () => setSidebarActive(!sidebarActive);
@@ -37,6 +38,7 @@ const Portfolio = ({ match }) => {
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
             loading={loading}
+            setSoldLoading={setSoldLoading}
           />
         </div>
       </div>

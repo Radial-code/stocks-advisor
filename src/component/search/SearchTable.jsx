@@ -28,12 +28,9 @@ const SearchTable = ({ history, searchNewsList }) => {
               return (
                 <tr
                   key={index}
-                  onClick={() =>
-                    history.push(`/content/manager/edit/news/${value._id}`)
-                  }
+                  onClick={() => history.push(`/news/details/${value._id}`)}
                 >
                   <td className="whitespace Ellipse">
-                    {" "}
                     {moment(value.createdAt).format("MM/ddd")}
                   </td>
                   <td className="whitespace Ellipse" dir="ltr">
