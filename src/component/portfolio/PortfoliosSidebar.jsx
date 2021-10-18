@@ -62,7 +62,6 @@ const PortfoliosSidebar = ({ history }) => {
               className="cursor-pointer"
               onClick={() => setShowSidebar(true)}
             >
-              {" "}
               <Back />
             </span>
           </div>
@@ -72,5 +71,4 @@ const PortfoliosSidebar = ({ history }) => {
     </div>
   );
 };
-
 export default withRouter(PortfoliosSidebar);

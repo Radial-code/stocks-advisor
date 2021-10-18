@@ -31,11 +31,18 @@ import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
 import Stripe from "./payment/Stripe";
 import ViewProfile from "./userPanel/profile/ViewProfile";
 import Search from "./search/Search";
+import { useState } from "react";
 
 const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
+  const [loading, setLoading] = useState(false);
+  const [searchData, setSearchData] = useState("");
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar
+        setSearchData={setSearchData}
+        setLoading={setLoading}
+        searchData={searchData}
+      />
       <Switch>
         {/**Auth routes */}
         <Route exact path="/login" component={Login} />
@@ -55,7 +62,9 @@ const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
         <Route exact path="/payment/:id" component={Stripe} />
         <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
         <Route exact path="/our-plan" component={OurPlanspage} />
-        <Route exact path="/search/news" component={Search} />
+        <Route exact path="/search/news">
+          <Search loading={loading} searchData={searchData} />
+        </Route>
         <Route exact path="/news" component={News} />
         <Route exact path="/loginmodal" component={LogInModal} />
         <Route exact path="/subsmodal" component={Subscription} />

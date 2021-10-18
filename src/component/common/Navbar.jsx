@@ -619,14 +619,12 @@ import { useEffect } from "react";
 import { getSearchResultAction } from "../../redux/action/news";
 import { useDispatch } from "react-redux";
 
-const Navbar = ({ history }) => {
+const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
   const [Lang, setLang] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [searchData, setSearchData] = useState("");
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
 

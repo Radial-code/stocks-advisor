@@ -1,10 +1,33 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import SearchNews from "../../assets/img/searchnews.png";
-function Search() {
+import BubblesLoader from "../common/BubblesLoader";
+import SearchTable from "./SearchTable";
+
+function Search({ searchData, loading }) {
+  const searchNewsList = useSelector((state) => state.list.searchNewsList);
   return (
     <div>
-      <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
-      <h4 className="text-center">Type to Search</h4>
+      {searchData === "" ? (
+        <>
+          <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
+          <h4 className="text-center">...Type to Search News Result</h4>
+        </>
+      ) : (
+        <>
+          {loading ? (
+            <BubblesLoader />
+          ) : (
+            <>
+              {!!searchNewsList.length ? (
+                <SearchTable searchNewsList={searchNewsList} />
+              ) : (
+                "No result found"
+              )}
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 }

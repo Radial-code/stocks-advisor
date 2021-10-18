@@ -8,6 +8,7 @@ import { withRouter } from "react-router";
 const IsEmailMessage = ({ history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [logOut, setLogout] = useState(false);
 
   const verfiyEmailToken = () => {
     dispatch(verfiyEmailAction(setLoading));
@@ -44,11 +45,11 @@ const IsEmailMessage = ({ history }) => {
             <p className="text-center orr pt-3">or</p>
             <div className="d-flex justify-content-center mt-4 ">
               <span
-                onClick={() => dispatch(LogoutAction(history))}
+                onClick={() => dispatch(LogoutAction(setLogout, history))}
                 type="button"
                 disabled={loading}
               >
-                Logout
+                {logOut ? "Loading..." : "Logout"}
               </span>
             </div>
           </div>
