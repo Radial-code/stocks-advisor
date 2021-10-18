@@ -8,57 +8,56 @@ import SidebarDashboard from "../common/SideBar/SidebarDashboard";
 import UserProfile from "./profile/UserProfile";
 import PaymentDetails from "./payment/PaymentDetails";
 
-const UserRoutes = () => {
-  const [sidebarActive, setSidebarActive] = useState(false);
-  const sideBarHandler = () => setSidebarActive(!sidebarActive);
+const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
   return (
     <>
       <div className="container py-5">
-        <div className="d-flex justify-content-between flex-lg-row flex-column">
+        <div className=" d-flex justify-content-between flex-lg-row flex-column">
           <SidebarDashboard
-            sidebarActive={sidebarActive}
-            setSidebarActive={setSidebarActive}
+            showSidebar={showSidebar}
+            sideBarHandler={sideBarHandler}
+            setShowSidebar={setShowSidebar}
           />
           <Route exact path="/dashboard/edit/contact">
             <EditContact
+              showSidebar={showSidebar}
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
           <Route exact path="/dashboard/update/payment">
             <UpdatePayment
+              showSidebar={showSidebar}
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
           <Route exact path="/dashboard/notification">
             <Notification
+              showSidebar={showSidebar}
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
           <Route exact path="/dashboard/manage/subscription">
             <ManageSubscription
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar={showSidebar}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
           <Route exact path="/dashboard/view/profile">
             <UserProfile
+              showSidebar={showSidebar}
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
           <Route exact path="/dashboard/payment">
             <PaymentDetails
               sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar={showSidebar}
+              setShowSidebar={setShowSidebar}
             />
           </Route>
         </div>

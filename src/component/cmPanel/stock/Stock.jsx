@@ -5,7 +5,7 @@ import CurrentStockTable from "./CurrentStockTable";
 
 const Stocks = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
-    <div className="container ">
+    <div className="width-table">
       <div className="row">
         {/* <div className="col-12">
           <div className=" pb-4 content-manager mb-3">

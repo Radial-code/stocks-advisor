@@ -3,7 +3,7 @@ import "../dashboardCss/Payment.css";
 import DashboardDropDown from "./DashboardDropDown";
 const UpdatePayment = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   return (
-    <div className="container my-5 my-xl-0">
+    <div className="container ">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}

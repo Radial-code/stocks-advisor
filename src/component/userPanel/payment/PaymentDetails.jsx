@@ -19,7 +19,7 @@ const PaymentDetails = ({
   }, []);
 
   return (
-    <Container className="mr-lg-30">
+    <div className="mr-lg-30 width-table">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -50,7 +50,7 @@ const PaymentDetails = ({
           </section>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

@@ -27,44 +27,44 @@ function Plans({ history }) {
         </div>
       ) : (
         <>
-          {!!planList && !!planList.length
-            ? planList.map((value, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="subs-border d-flex justify-content-between align-items-center p-3 my-4 "
-                  >
-                    <div>
-                      <p className="ff-popins plan-text mb-0">
-                        Plan-{index + 1}
-                      </p>
-                      <p className="ff-popins mb-0 plan-price-text">
-                        ${value.price}
-                      </p>
-                    </div>
-                    <div>
-                      {auth && !!token ? (
-                        <button
-                          type="button"
-                          onClick={() => history.push("/our-plan")}
-                          className="ff-popins join-now ff-popins "
-                        >
-                          Buy now
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => history.push("/login")}
-                          className="ff-popins join-now ff-popins "
-                        >
-                          Join Now
-                        </button>
-                      )}
-                    </div>
+          {!!planList && !!planList.length ? (
+            planList.map((value, index) => {
+              return (
+                <div
+                  key={index}
+                  className="subs-border d-flex justify-content-between align-items-center p-3 my-4 "
+                >
+                  <div>
+                    <p className="ff-popins plan-text mb-0">Plan-{index + 1}</p>
+                    <p className="ff-popins mb-0 plan-price-text">
+                      ${value.price}
+                    </p>
                   </div>
-                );
-              })
-            : "You don't have any plan list"}
+                  <div>
+                    {auth && !!token ? (
+                      <button
+                        type="button"
+                        onClick={() => history.push("/our-plan")}
+                        className="ff-popins join-now ff-popins "
+                      >
+                        Buy now
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => history.push("/login")}
+                        className="ff-popins join-now ff-popins "
+                      >
+                        Join Now
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <p className="text-center fw-bold">You don't have any plan list</p>
+          )}
         </>
       )}
     </div>
