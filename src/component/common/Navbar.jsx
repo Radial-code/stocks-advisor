@@ -3,7 +3,7 @@
 import { NavLink } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 // import { useHistory } from "react-router-dom";
-// import UserDropDown from "./UserDropDown";
+import UserDropDown from "./UserDropDown";
 // import England from "../../assets/img/england.png";
 // import Arbic from "../../assets/img/arbic.png";
 // import { LogoutAction } from "../../redux/action/auth";
@@ -706,6 +706,7 @@ const Navbar = () => {
                 Contact Us
               </NavLink>
             </div>
+
             <div className="d-flex  flex-xl-row flex-column">
               <span class="icon d-none d-xl-block my-auto mx-3">
                 {searchshow ? (
@@ -737,11 +738,28 @@ const Navbar = () => {
                 )}
               </span>
               {auth ? (
+                <div className="d-flex profile-box-name mx-0 mx-xl-2 justify-content-center align-items-center">
+                  {" "}
+                  <span className="first-char">P</span>
+                  <span className="first-char">P</span>{" "}
+                </div>
+              ) : (
+                ""
+              )}
+              <Dropdown className="d-flex mx-0 mx-xl-2  stock-dashboard-dropdown  align-items-center">
+                <Dropdown.Toggle id="dropdown-basic">Lang</Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item>Arbic</Dropdown.Item>
+                  <Dropdown.Item>English</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              {auth ? (
                 <>
                   <NavLink
                     exact
                     to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                    className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-xxl-4 mx-xl-3"
+                    className="navbar_Links_text my-auto my-xl-auto mt-3 py-2 py-xl-3 nav-text-border-bottom mx-0 mx-xl-2"
                   >
                     Portfolio
                   </NavLink>
@@ -759,7 +777,7 @@ const Navbar = () => {
                     Dashboard
                   </NavLink> */}
 
-                  <Dropdown className="d-flex stock-dashboard-dropdown justify-content-center align-items-center">
+                  <Dropdown className="d-flex mx-0 mx-xl-2  stock-dashboard-dropdown  align-items-center">
                     <Dropdown.Toggle id="dropdown-basic">
                       Dashboard
                     </Dropdown.Toggle>
@@ -774,13 +792,13 @@ const Navbar = () => {
                 ""
               )}
               {auth ? (
-                <div className="mx-xl-0 mx-auto my-auto ">
+                <div className="mx-xl-2 mx-0    my-auto ">
                   <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
                     Log Out
                   </button>
                 </div>
               ) : (
-                <div className="mx-xl-0 mx-auto my-auto ">
+                <div className="mx-xl-2 mx-0    my-auto ">
                   <button className="mt-4 mt-xl-0 py-2  btn join_now_btn ">
                     Join Now
                   </button>
