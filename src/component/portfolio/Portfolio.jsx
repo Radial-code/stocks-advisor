@@ -7,6 +7,8 @@ import {
   getCurrentPortfolioListForDashBoardAction,
   getSoldPortfolioListForDashBoardAction,
 } from "../../redux/action/portfolio";
+import DummySlider from "../home/DummySlider";
+import StockSoldSlider from "./StockSoldSlider";
 
 const Portfolio = ({ match }) => {
   const dispatch = useDispatch();
@@ -40,6 +42,9 @@ const Portfolio = ({ match }) => {
             loading={loading}
             setSoldLoading={setSoldLoading}
           />
+        </div>
+        <div className="my-4">
+          <StockSoldSlider />
         </div>
       </div>
     </>
