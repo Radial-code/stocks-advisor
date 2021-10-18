@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -15,10 +16,22 @@ import DropDown from "../../assets/img/btnarrow.png";
 
 const NetflixChart = ({ setType, type }) => {
   const stockChatList = useSelector((state) => state.list.stockChatList);
-
-  const getMonth = (date) => {
-    let m = date.split("-");
-    return m[1] + "/" + m[0];
+  const [chatList, setChatList] = useState([]);
+  const getMonth = (date, index) => {
+    if (type === "1m") {
+      return "minuteData";
+    } else if (type === "1h") {
+      return "hourData";
+    } else if (type === "1d") {
+      return "dayData";
+    } else if (type === "1w") {
+      let m = date.split("-");
+      console.log("index", index);
+      return "W"[index + 1];
+    } else {
+      let m = date.split("-");
+      return m[1] + "/" + m[0];
+    }
   };
 
   const getKey = (type) => {
@@ -26,24 +39,32 @@ const NetflixChart = ({ setType, type }) => {
       return "minuteData";
     } else if (type === "1h") {
       return "hourData";
+    } else if (type === "1d") {
+      return "dayData";
+    } else if (type === "1w") {
+      return "weekData";
     } else {
       return "yearData";
     }
   };
-  const data = [];
+
   useEffect(() => {
+    const data = [];
     if (
       stockChatList !== {} ||
       stockChatList !== null ||
       stockChatList !== undefined
     ) {
-      stockChatList[getKey(type)].values.map((value) => {
-        data.push({ name: getMonth(value.datetime), uv: value.high });
-      });
+      stockChatList &&
+        stockChatList[getKey(type)] &&
+        stockChatList[getKey(type)].values.map((value) => {
+          data.push({ name: getMonth(value.datetime), uv: value.high });
+          setChatList(data);
+        });
     }
-  }, [type, stockChatList]);
+  }, [type, stockChatList, getKey(type)]);
 
-  data.reverse();
+  chatList.reverse();
   return (
     <div className="container">
       <div className="netflix-chart mt-5">
@@ -82,7 +103,13 @@ const NetflixChart = ({ setType, type }) => {
               1 Min
             </button>
           </div>
-          <p className="chart-text ff-popins text-white mb-0">.Netflix Inc</p>
+          <p className="chart-text ff-popins text-white mb-0">
+            .{" "}
+            {stockChatList &&
+              stockChatList[getKey(type)] &&
+              stockChatList[getKey(type)].meta &&
+              stockChatList[getKey(type)].meta.symbol}
+          </p>
         </div>
         <div className="d-sm-none d-flex align-items-center justify-content-between ms-xl-5 ms-4 ps-4 ps-xl-5 pt-2">
           <div className="mx-3">
@@ -93,11 +120,17 @@ const NetflixChart = ({ setType, type }) => {
               1 Hr
             </button>
           </div>
-          <p className="chart-text ff-popins text-white mb-0">.Netflix Inc</p>
+          <p className="chart-text ff-popins text-white mb-0">
+            .
+            {stockChatList &&
+              stockChatList[getKey(type)] &&
+              stockChatList[getKey(type)].meta &&
+              stockChatList[getKey(type)].meta.symbol}
+          </p>
         </div>
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
-            data={data}
+            data={chatList}
             margin={{
               top: 0,
               right: 40,

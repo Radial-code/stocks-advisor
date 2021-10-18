@@ -68,7 +68,7 @@
     position: fixed;
     top: 0;
     width: 310px;
-    z-index: 1;
+    z-index: 30;
     background: var(--color-ffffff);
   }
   .nav-text-border-bottom {
@@ -183,4 +183,26 @@
 }
 .lang-dropddown:hover svg path {
   stroke: var(--color-88BEFC);
+}
+
+.bg-green-circle {
+  background-color: #5cbd4c;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.first-char {
+  font-size: 16px;
+  color: var(--color-ffffff);
+  font-weight: 500;
+}
+
+.over-lay-navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
 }

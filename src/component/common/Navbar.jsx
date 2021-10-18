@@ -625,6 +625,9 @@ const Navbar = () => {
   const [Language, setLanguage] = useState(
     localStorage.getItem("stock-advisor-lang")
   );
+  const firstname = useSelector((state) => state.auth.userData.firstName);
+  const lastname = useSelector((state) => state.auth.userData.lastName);
+  const [overlayActive, setOverlayActive] = useState(true);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -641,14 +644,28 @@ const Navbar = () => {
     setLang(false);
   };
 
+  const overlayActiveHandler = () => {
+    setNavbarCollapsed(!navbarCollapsed);
+    setOverlayActive(false);
+  };
+
   const layoutrightChangeHandler = () => {
     setLayoutClickChanger(false);
     setLanguage("English");
     localStorage.setItem("stock-advisor-lang", "English");
     setLang(false);
   };
+
+  const sidebarClosedHandler = () => {
+    setNavbarCollapsed(true);
+    setOverlayActive(true);
+  };
+
   return (
     <>
+      {overlayActive ? "" : <div className="over-lay-navbar"></div>}
+
+      {/* <div className="over-lay-navbar"></div> */}
       <div
         className={`${
           navbarCollapsed
@@ -668,7 +685,8 @@ const Navbar = () => {
               </NavLink>
               <div
                 className="d-block mt-3 d-xl-none"
-                onClick={() => setNavbarCollapsed(true)}
+                onClick={sidebarClosedHandler}
+                // () =>
               >
                 <HamburgerCrossIcon />
               </div>
@@ -806,10 +824,17 @@ const Navbar = () => {
                 )}
               </span>
               {auth ? (
-                <div className="d-flex profile-box-name mx-0 mx-xl-2 justify-content-center align-items-center">
-                  {" "}
-                  <span className="first-char">P</span>
-                  <span className="first-char">P</span>{" "}
+                <div className="d-none d-xl-block my-auto">
+                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                    <div className="">
+                      <span className="first-char">
+                        {firstname && firstname.toUpperCase().charAt(0)}
+                      </span>
+                      <span className="first-char">
+                        {lastname && lastname.toUpperCase().charAt(0)}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 ""
@@ -876,18 +901,36 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="shadow py-2 d-block d-xl-none ">
+      <div className={`shadow  py-2 d-block d-xl-none`}>
         <div className="container ">
           <div className="row">
             <div className="col-6">
               <img src={logo} className=" w-sm-80 h-sm-80" alt="" />
             </div>
             <div className="col-6 my-auto">
-              <div
-                className="cursor-pointer  text-start "
-                onClick={() => setNavbarCollapsed(!navbarCollapsed)}
-              >
-                <HamburgerIcon />
+              <div className="d-flex justify-content-end ">
+                <div className="d-block my-auto d-xl-none">
+                  {auth ? (
+                    <div className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                      <div className="">
+                        <span className="first-char">
+                          {firstname && firstname.toUpperCase().charAt(0)}
+                        </span>
+                        <span className="first-char">
+                          {lastname && lastname.toUpperCase().charAt(0)}
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div
+                  className="cursor-pointer me-3  text-start "
+                  onClick={overlayActiveHandler}
+                >
+                  <HamburgerIcon />
+                </div>
               </div>
             </div>
           </div>
