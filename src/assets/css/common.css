@@ -716,52 +716,52 @@ input::-webkit-inner-spin-button {
     width: 40px !important;
   }
 
-@media (min-width: 798px) and (max-width: 1200px) {
-  .w-sm-lg-90 {
-    width: 90px;
+  @media (min-width: 798px) and (max-width: 1200px) {
+    .w-sm-lg-90 {
+      width: 90px;
+    }
+    .other_new_articles .slick-next {
+      height: 93px !important;
+      background-color: #5cbd4c;
+      border-radius: 7px;
+      width: 40px !important;
+    }
   }
-  .other_new_articles .slick-next {
-    height: 93px !important;
-    background-color: #5cbd4c;
-    border-radius: 7px;
-    width: 40px !important;
-  }
-}
-@media (max-width: 375px) {
-  .other_new_articles .slick-next {
-    left: -17px !important;
-  }
-  .other_new_articles .slick-prev {
-    right: -17px !important;
-  }
-  .other_new_articles .slick-prev {
-    height: 75px !important;
-    background-color: #5cbd4c;
-    border-radius: 7px;
-    width: 33px !important;
-  }
+  @media (max-width: 375px) {
+    .other_new_articles .slick-next {
+      left: -17px !important;
+    }
+    .other_new_articles .slick-prev {
+      right: -17px !important;
+    }
+    .other_new_articles .slick-prev {
+      height: 75px !important;
+      background-color: #5cbd4c;
+      border-radius: 7px;
+      width: 33px !important;
+    }
 
+    .other_new_articles .slick-next {
+      height: 75px !important;
+      background-color: #5cbd4c;
+      border-radius: 7px;
+      width: 33px !important;
+    }
+  }
   .other_new_articles .slick-next {
-    height: 75px !important;
+    left: -5px;
+  }
+  .other_new_articles .slick-prev {
+    right: -5px;
+  }
+  .other_new_articles .slick-prev {
+    height: 50px;
     background-color: #5cbd4c;
     border-radius: 7px;
-    width: 33px !important;
+    width: 23px;
+    z-index: 32;
   }
-}
-.other_new_articles .slick-next {
-  left: -5px;
-}
-.other_new_articles .slick-prev {
-  right: -5px;
-}
-.other_new_articles .slick-prev {
-  height: 50px;
-  background-color: #5cbd4c;
-  border-radius: 7px;
-  width: 23px;
-  z-index: 32;
-}
-/* .other_new_articles .slick-prev::before {
+  /* .other_new_articles .slick-prev::before {
   background-image: url("../img/arrow.svg");
   background-repeat: no-repeat;
   color: transparent !important;
@@ -774,10 +774,11 @@ input::-webkit-inner-spin-button {
   background-position: center;
 } */
 
-.other_new_articles .slick-next {
-  height: 50px;
-  background-color: #5cbd4c;
-  border-radius: 7px;
-  z-index: 32;
-  width: 23px;
+  .other_new_articles .slick-next {
+    height: 50px;
+    background-color: #5cbd4c;
+    border-radius: 7px;
+    z-index: 32;
+    width: 23px;
+  }
 }
