@@ -761,18 +761,20 @@ input::-webkit-inner-spin-button {
     width: 23px;
     z-index: 32;
   }
-  /* .other_new_articles .slick-prev::before {
-  background-image: url("../img/arrow.svg");
-  background-repeat: no-repeat;
-  color: transparent !important;
-  background-position: center;
 }
-.other_new_articles .slick-next::before {
-  background-image: url("../img/arrow.svg");
-  background-repeat: no-repeat;
-  color: transparent !important;
-  background-position: center;
-} */
+.other_new_articles .slick-next {
+  left: -5px;
+}
+.other_new_articles .slick-prev {
+  right: -5px;
+}
+.other_new_articles .slick-prev {
+  height: 50px;
+  background-color: #5cbd4c;
+  border-radius: 7px;
+  width: 23px;
+  z-index: 32;
+}
 
   .other_new_articles .slick-next {
     height: 50px;

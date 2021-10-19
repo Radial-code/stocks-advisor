@@ -21,6 +21,7 @@ import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 
 function App({ history }) {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar2, setShowSidebar2] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
   const stripePromise = loadStripe(
     "pk_test_51Ix50ySAXA6ohppa6sCSbgt2LbGnFl07UlO5v7HnRza0NT0idMwCYas5ouQBR8GEmv4l2SeR3lfwJXKzVUxmkghh00fs3EjdLI"
@@ -53,6 +54,8 @@ function App({ history }) {
             : showSidebar
             ? "overflow-hidden"
             : ""
+        } ${
+          showSidebar2 ? "overflow-hidden" : ""
         } d-flex justify-content-between flex-column h-100vh `}
       >
         {!!auth && !!token ? (
@@ -74,6 +77,8 @@ function App({ history }) {
                   showSidebar={showSidebar}
                   sideBarHandler={sideBarHandler}
                   setShowSidebar={setShowSidebar}
+                  showSidebar2={showSidebar2}
+                  setShowSidebar2={setShowSidebar2}
                 />
               )
             ) : (

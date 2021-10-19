@@ -195,3 +195,21 @@
     width: calc(100% - 393px);
   }
 }
+@media (min-width: 375px) {
+  .stock-slider .slick-prev {
+    right: -10px !important;
+    z-index: 13;
+  }
+  .stock-slider .slick-next {
+    left: -10px !important;
+    z-index: 13;
+  }
+}
+.stock-slider .slick-prev {
+  right: -20px;
+  z-index: 13;
+}
+.stock-slider .slick-next {
+  left: -20px;
+  z-index: 13;
+}

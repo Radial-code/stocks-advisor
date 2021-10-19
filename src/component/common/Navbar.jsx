@@ -98,7 +98,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
           className="over-lay-navbar"
         ></div>
       )}
-      {/* <div className="over-lay-navbar"></div> */}
+
       <div
         className={`${
           navbarCollapsed

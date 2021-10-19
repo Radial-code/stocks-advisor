@@ -8,8 +8,17 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 function LineChart({ chatValue }) {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+  const layoutrightChangeHandler = () => {
+    setLayoutClickChanger(false);
+  };
+  const layoutleftChangeHandler = () => {
+    setLayoutClickChanger(true);
+  };
   const data = [];
   chatValue &&
     chatValue.values &&
@@ -51,7 +60,7 @@ function LineChart({ chatValue }) {
             <XAxis dataKey="Year" axisLine={false} tickLine={false} />
             <YAxis
               dataKey="Profite"
-              dx={-30}
+              dx={layoutClickChanger ? -30 : -10}
               axisLine={false}
               tickLine={false}
               tickFormatter={(number) => `${number}%`}

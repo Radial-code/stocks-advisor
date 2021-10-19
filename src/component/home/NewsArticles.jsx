@@ -93,7 +93,7 @@ const NewsArticles = ({ history }) => {
 export default withRouter(NewsArticles);
 
 const Next = (props) => {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <button style={{ ...style }} onClick={onClick} className={`next`}>
       <svg
