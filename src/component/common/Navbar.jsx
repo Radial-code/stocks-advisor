@@ -1,15 +1,12 @@
 import { NavLink } from "react-router-dom";
-import UserDropDown from "./UserDropDown";
 import {
   HamburgerIcon,
   HamburgerCrossIcon,
-  SearchMagnifyIcon,
   SearchWhiteIcon,
 } from "./icons/Icons";
 import "./NavBar.css";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { withRouter } from "react-router";
@@ -24,12 +21,16 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { useEffect } from "react";
 import { getSearchResultAction } from "../../redux/action/news";
 import { useDispatch } from "react-redux";
+import { LogoutAction } from "../../redux/action/auth";
+import Loader from "../common/Loader";
+
 const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [searchshow, setSearchShow] = useState(false);
   const [Lang, setLang] = useState(false);
+  const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
   const [Language, setLanguage] = useState(
@@ -373,7 +374,14 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               )}
               {auth ? (
                 <div className="d-none d-xxl-block my-auto">
-                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
+                  <div
+                    onClick={() => {
+                      userData.isAdmin
+                        ? history.push("/content/manager/stocks")
+                        : history.push("/dashboard/view/profile");
+                    }}
+                    className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
+                  >
                     <div>
                       <span className="first-char">
                         {firstname && firstname.toUpperCase().charAt(0)}
@@ -389,8 +397,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               )}
               {auth ? (
                 <div className="mx-xxl-2 mx-0  mx-auto  my-auto ">
-                  <button className="mt-4 mt-xxl-0 py-2  btn log_in_btn ">
-                    Log Out
+                  <button
+                    onClick={() =>
+                      dispatch(LogoutAction(setLoadingLogOut, history))
+                    }
+                    className="mt-4 mt-xxl-0 py-2  btn log_in_btn "
+                  >
+                    {loadingLogOut ? <Loader /> : "Log Out"}
                   </button>
                 </div>
               ) : (
@@ -423,8 +436,15 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <div className="d-flex justify-content-end ">
                 <div className="d-block my-auto d-xxl-none">
                   {auth ? (
-                    <div className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
-                      <div className="">
+                    <div
+                      onClick={() => {
+                        userData.isAdmin
+                          ? history.push("/content/manager/stocks")
+                          : history.push("/dashboard/view/profile");
+                      }}
+                      className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
+                    >
+                      <div>
                         <span className="first-char">
                           {firstname && firstname.toUpperCase().charAt(0)}
                         </span>
