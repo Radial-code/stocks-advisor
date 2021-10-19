@@ -27,10 +27,6 @@ const AddNews = ({
   return (
     <div>
       <Container>
-        <div
-          onClick={() => setSidebarActive((preState) => !preState)}
-          className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-        ></div>
         <Row>
           {/* <Col xs={12}>
             <div className="border-b-1 content-manager mb-3">
