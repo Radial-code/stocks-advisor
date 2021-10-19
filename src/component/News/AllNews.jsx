@@ -15,7 +15,7 @@ const AllNews = ({ history }) => {
       <Row className="h-100">
         <Col
           xs={12}
-          className="mt-sm-3 h-100 d-flex justify-content-center d-sm-block"
+          className="mt-sm-3 h-100  justify-content-center d-sm-block"
         >
           {allNewsList && allNewsList.length
             ? allNewsList.map((value, index) => {
@@ -35,7 +35,11 @@ const AllNews = ({ history }) => {
                         xl={8}
                         sm={8}
                         xs={8}
-                        className="d-flex justify-content-center h-100"
+                        className={`${
+                          layoutClickChanger
+                            ? "d-flex justify-content-center h-100"
+                            : "d-flex h-100"
+                        }  `}
                       >
                         <div className="w-lg-518">
                           <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
@@ -48,7 +52,13 @@ const AllNews = ({ history }) => {
                               <img src={img_2} className="px-2" alt="" />{" "}
                             </span>{" "}
                           </p>
-                          <p className="heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title ps-sm-5 ">
+                          <p
+                            className={` ${
+                              layoutClickChanger
+                                ? "heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title ps-sm-5 "
+                                : "heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title"
+                            } `}
+                          >
                             {value && value.title ? value.title : "N/A"}
                           </p>
                           <p className="stock-paragraph max-w-para d-none  d-md-block">
@@ -77,7 +87,13 @@ const AllNews = ({ history }) => {
                           >
                             {value && value.tags ? value.tags : "N/A"}
                           </p>
-                          <p className="small-paragraph text-end">
+                          <p
+                            className={`${
+                              layoutClickChanger
+                                ? "small-paragraph text-end"
+                                : "small-paragraph"
+                            }`}
+                          >
                             <span className="cursor-pointer small-paragraph fw-bold">
                               Stock:
                             </span>
