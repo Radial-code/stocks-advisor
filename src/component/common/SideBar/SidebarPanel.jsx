@@ -17,7 +17,12 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
   const [activeLink, setActiveLink] = useState("stocks");
   const { layoutClickChanger } = useLayoutChangerProvider();
   console.log(match.path);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const path = match.path.split("/");
+    if (path.includes("our")) {
+      setActiveLink("our");
+    }
+  }, []);
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
