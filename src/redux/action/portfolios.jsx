@@ -1,5 +1,9 @@
 import Swal from "sweetalert2";
-import { addPortfolioApi, getPortfolioListApi } from "../api/portfolios";
+import {
+  addPortfolioApi,
+  getPortfolioListApi,
+  userUpdateByAdminApi,
+} from "../api/portfolios";
 
 export const GET_ALL_PORTFOLIOS_LIST_SUCCESS =
   "GET_ALL_PORTFOLIOS_LIST_SUCCESS";
@@ -47,6 +51,33 @@ export const addPortfolioAction = (data, setLoading) => async () => {
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to add Protfolio", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ *
+ * @param {Boolen} setLoading
+ * @param {Object} data
+ * @returns
+ */
+export const userUpdateByAdminAction = (data, setLoading) => async () => {
+  setLoading(true);
+  try {
+    const response = await userUpdateByAdminApi(data);
+
+    if (response.success) {
+      setLoading(false);
+      Swal.fire("Success", "User Updated successfully", "success");
+      setTimeout(Swal.close, 2000);
+    } else {
+      setLoading(false);
+      Swal.fire("Error", "Failed to update user details", "error");
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {
