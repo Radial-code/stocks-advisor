@@ -69,8 +69,8 @@ const Footer = ({ history }) => {
             </p>
           </div>
 
-          <div className="col-xl-2 col-lg-3 col-12">
-            <div className="d-flex justify-content-around justify-content-lg-between mt-4 mt-lg-0">
+          <div className="col-xl-3 col-lg-3 col-12">
+            <div className="d-flex justify-content-lg-end justify-content-md-around justify-content-between  mt-4 mt-lg-0">
               <ul className="list-unstyled footer-ul mb-0 text-center text-lg-start">
                 <li>
                   <Link

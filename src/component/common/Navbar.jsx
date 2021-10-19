@@ -171,7 +171,6 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   className="d-none d-xxl-block"
                   onClick={() => setLang(!Lang)}
                 >
-                  10:19
                   <NavLink
                     exact
                     to="#"
