@@ -430,8 +430,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
         <div className="container ">
           <div className="row">
             <div className="col-6 my-auto ">
-              <img src={logo} className="w-72 w-36" alt="" />
+              <NavLink exact to="/" className="">
+                <img src={logo} className="w-72 cursor-pointer w-36" alt="" />
+              </NavLink>
             </div>
+
             <div className="col-6 my-auto">
               <div className="d-flex justify-content-end ">
                 <div className="d-block my-auto d-xxl-none">

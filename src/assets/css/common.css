@@ -682,3 +682,17 @@ input::-webkit-inner-spin-button {
   transform: translateY(-20px);
   box-shadow: 0px 10px 15px rgb(0 0 0 / 15%);
 }
+
+.hero-slider-2 .slick-prev::before {
+  display: none !important;
+}
+
+.hero-slider-2 .slick-next::before {
+  display: none !important;
+}
+
+.other_new_articles .slick-prev::before {
+}
+
+.other_new_articles .slick-next::before {
+}
