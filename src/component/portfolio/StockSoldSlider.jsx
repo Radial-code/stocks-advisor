@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./portfolios.css";
+import "../common/slider.css";
 import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
 import { useSelector } from "react-redux";
@@ -11,7 +11,6 @@ const StockSoldSlider = ({ loader }) => {
   const soldStockNewsList = useSelector(
     (state) => state.list.soldStockNewsList
   );
-  console.log("soldStockNewsList", soldStockNewsList);
   var settings = {
     dots: true,
     infinite: true,

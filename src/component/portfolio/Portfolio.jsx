@@ -7,7 +7,6 @@ import {
   getCurrentPortfolioListForDashBoardAction,
   getSoldPortfolioListForDashBoardAction,
 } from "../../redux/action/portfolio";
-import DummySlider from "../home/DummySlider";
 import StockSoldSlider from "./StockSoldSlider";
 
 const Portfolio = ({ match }) => {
