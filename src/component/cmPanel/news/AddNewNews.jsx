@@ -418,7 +418,24 @@ const AddNewNews = ({ edit, match, history }) => {
             </span>
           </div>
           <div className="col-auto mb-3">
-            <div className="form-check cursor-pointer">
+            <label
+              className="form-check-label check-box-text cursor-pointer"
+              for="flexCheckDefault"
+            >
+              Feature on homepage
+            </label>
+            <input
+              type="checkbox"
+              className="cursor-pointer mx-2"
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  showOnHomePage: e.target.checked,
+                });
+              }}
+            />
+
+            {/* <div className="form-check cursor-pointer">
               <input
                 className="form-check-input cursor-pointer"
                 type="checkbox"
@@ -436,7 +453,7 @@ const AddNewNews = ({ edit, match, history }) => {
               >
                 Feature on homepage
               </label>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className=" ">

@@ -207,8 +207,20 @@ function PlansForm({ history, edit, id }) {
                   {portfolioList && portfolioList.length
                     ? portfolioList.map((value, index) => {
                         return (
-                          <div className="col-auto mb-3">
-                            <div className="form-check ">
+                          <div className="col-auto mb-3 d-flex align-items-center">
+                            <label
+                              className="form-check-label check-box-text Ellipse"
+                              for="flexCheckDefault"
+                            >
+                              {value.title}
+                            </label>
+                            <input
+                              key={index}
+                              type="checkbox"
+                              onClick={() => selectPortfolio(value._id)}
+                              className="cursor-pointer mx-2"
+                            />
+                            {/* <div className="form-check ">
                               <input
                                 key={index}
                                 className="form-check-input cursor-pointer"
@@ -223,7 +235,7 @@ function PlansForm({ history, edit, id }) {
                               >
                                 {value.title}
                               </label>
-                            </div>
+                            </div> */}
                           </div>
                         );
                       })

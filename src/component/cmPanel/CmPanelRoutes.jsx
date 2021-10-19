@@ -16,149 +16,128 @@ import TeamForm from "./team/TeamForm";
 import Enquiry from "./enquiry/Enquiry";
 import AdminNotification from "./user/AdminNotification";
 
-const CmPanelRoutes = () => {
-  const [sidebarActive, setSidebarActive] = useState(false);
-  const sideBarHandler = () => setSidebarActive(!sidebarActive);
-
+const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
   return (
     <>
       <div className="container my-5">
         <div className="d-flex justify-content-between flex-lg-row flex-column">
           <SidebarPanel
-            sidebarActive={sidebarActive}
-            setSidebarActive={setSidebarActive}
+            showSidebar2={showSidebar2}
+            setShowSidebar2={setShowSidebar2}
           />
-          <Route exect path="/content/manager/stocks">
+          <Route exact path="/content/manager/stocks">
             <Stocks
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
-          <Route exect path="/content/manager/add/stock">
+          <Route exact path="/content/manager/add/stock">
             <AddStock
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
           <Route path="/content/manager/edit/stock/:id">
             <AddStock
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
           <Route exact path="/content/manager/add/news">
             <AddNews
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
           <Route exact path="/content/manager/users">
             <Users
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
           <Route exact path="/content/manager/news">
             <News
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
           <Route exact path="/content/manager/edit/news/:id">
             <AddNews
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
           <Route exact path="/content/manager/edit/user/:userId">
             <EditUser
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
           <Route path="/content/manager/other/services">
             <OtherServices
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exect path="/content/manager/add/services">
+          <Route exact path="/content/manager/add/services">
             <OtherServicesForm
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
-          <Route exect path="/content/manager/our/plans/details">
+          <Route exact path="/content/manager/our/plans/details">
             <Plans
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exect path="/content/manager/plan/form">
+          <Route exact path="/content/manager/plan/form">
             <PlansSection
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exect path="/content/manager/edit/plan/:id">
+          <Route exact path="/content/manager/edit/plan/:id">
             <PlansSection
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
 
-          <Route exect path="/content/manager/add/other/services">
+          <Route exact path="/content/manager/add/other/services">
             <OtherServicesForm
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exect path="/content/manager/team/cards">
+          <Route exact path="/content/manager/team/cards">
             <TeamCards
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exect path="/content/manager/team/form">
+          <Route exact path="/content/manager/team/form">
             <TeamForm
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
           <Route exact path="/content/manager/enquiry/list">
             <Enquiry
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
           <Route exact path="/content/manager/notification">
             <AdminNotification
-              sideBarHandler={sideBarHandler}
-              sidebarActive={sidebarActive}
-              setSidebarActive={setSidebarActive}
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
             />
           </Route>
         </div>

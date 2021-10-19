@@ -48,7 +48,7 @@ const StockSoldSlider = ({ loader }) => {
   return (
     <>
       {!loader ? (
-        <Slider {...settings}>
+        <Slider {...settings} className="stock-slider">
           {soldStockNewsList.map((value, index) => {
             return <StockSliderCard soldValue={value} index={index} />;
           })}

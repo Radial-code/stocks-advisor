@@ -51,7 +51,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
           <h1 className="profile-heading py-3">Other News Articles</h1>
           {!loader ? (
             <Slider
-              className="other_new_articles d-flex align-items-center"
+              className="other_new_articles d-flex  d-lg-block  align-items-center"
               {...settings}
             >
               {newsListData.map((news, index) => {
@@ -74,7 +74,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
               <h4 className="text-center">You don't have any News</h4>
             </>
           )}
-          <div className=" d-lg-block d-flex pt-3 pb-5 mt-4 justify-content-center ">
+          <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
             <button
               className="default-btn"
               onClick={() => history.push("/news")}

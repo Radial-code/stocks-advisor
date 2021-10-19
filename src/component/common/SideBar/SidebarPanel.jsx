@@ -13,8 +13,7 @@ import {
   Enquiry,
   Back,
 } from "../icons/Icons";
-const SidebarPanel = ({ history }) => {
-  const [showSidebar, setShowSidebar] = useState(false);
+const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
   const [activeLink, setActiveLink] = useState("stocks");
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
@@ -34,7 +33,7 @@ const SidebarPanel = ({ history }) => {
     localStorage.setItem("stock-advisor-lang", "English");
   };
   const openRoutes = (value) => {
-    setShowSidebar(false);
+    setShowSidebar2(false);
     setActiveLink(value);
     if (value === "stocks") {
       history.push("/content/manager/stocks");
@@ -57,14 +56,14 @@ const SidebarPanel = ({ history }) => {
   return (
     <div className="row flex-column  justify-content-between mx-lg-2">
       <div
-        className={`${showSidebar ? "cn-overlay" : ""}`}
+        className={`${showSidebar2 ? "cn-overlay" : ""}`}
         onClick={() => openRoutes(false)}
       ></div>
       <div className="col">
         <div
-          className={`${showSidebar ? "right-0" : "right-350"} ${
+          className={`${showSidebar2 ? "right-0" : "right-350"} ${
             layoutClickChanger ? "left-350" : "left-0 "
-          }${showSidebar ? "left-0" : "left-350"}
+          }${showSidebar2 ? "left-0" : "left-350"}
            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
@@ -180,7 +179,7 @@ const SidebarPanel = ({ history }) => {
             <p className="cn-sidebar-text text-end mb-0">Content Manager</p>
             <span
               className=" cursor-pointer"
-              onClick={() => setShowSidebar(true)}
+              onClick={() => setShowSidebar2(true)}
             >
               {" "}
               <Back />
