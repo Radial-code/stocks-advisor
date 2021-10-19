@@ -24,6 +24,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
   }
 
   const openRoutes = (value) => {
+    console.log(value, "valuevalue");
     setShowSidebar2(false);
     setActiveLink(value);
     if (value === "stocks") {

@@ -66,9 +66,7 @@ const UserListTable = () => {
                   <tr
                     key={index}
                     className="cursor-pointer"
-                    onClick={() =>
-                      history.push(`/content/manager/edit/user/${_id}`)
-                    }
+                    onClick={() => history.push(`/content/manager/user/${_id}`)}
                   >
                     <td className="text-end whitespace Ellipse">
                       {moment(createdAt).format("MM/ddd")}

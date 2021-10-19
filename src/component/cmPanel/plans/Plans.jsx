@@ -39,7 +39,7 @@ const Plans = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
               <h1 className="current-stock-text ff-popins mb-0 fs-sm-20">
                 Plans
               </h1>
-              <Link to="/content/manager/plan/form">
+              <Link to="/content/manager/our/plans/form">
                 <button className="update-btn-2">Add New</button>
               </Link>
             </div>

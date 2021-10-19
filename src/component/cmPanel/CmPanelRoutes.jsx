@@ -46,7 +46,7 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
             />
           </Route>
 
-          <Route exact path="/content/manager/add/news">
+          <Route exact path="/content/manager/news/add">
             <AddNews
               showSidebar2={showSidebar2}
               setShowSidebar2={setShowSidebar2}
@@ -72,7 +72,7 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
               setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exact path="/content/manager/edit/user/:userId">
+          <Route exact path="/content/manager/user/:userId">
             <EditUser
               showSidebar2={showSidebar2}
               setShowSidebar2={setShowSidebar2}
@@ -97,7 +97,7 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
               setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exact path="/content/manager/plan/form">
+          <Route exact path="/content/manager/our/plans/form">
             <PlansSection
               showSidebar2={showSidebar2}
               setShowSidebar2={setShowSidebar2}

@@ -9,7 +9,7 @@ const NewsList = () => {
         <div className="d-flex justify-content-sm-between align-items-center flex-sm-row flex-column">
           <p className="heading-stock fs-sm-20 fs-sm-20">All News</p>
           <div>
-            <Link to="/content/manager/add/news" className="add-new-btn">
+            <Link to="/content/manager/news/add" className="add-new-btn">
               <button className="update-btn">Add New</button>
             </Link>
           </div>

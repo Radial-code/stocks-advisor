@@ -124,7 +124,7 @@ const Router = ({
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
-        <Route path="/content/manager/add/news">
+        <Route path="/content/manager/news/add">
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
@@ -137,13 +137,13 @@ const Router = ({
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
-        <Route path="/content/manager/edit/user/:userId">
+        <Route path="/content/manager/user/:userId">
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
-        <Route path="/content/manager/plan/form">
+        <Route path="/content/manager/our/plans/form">
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
