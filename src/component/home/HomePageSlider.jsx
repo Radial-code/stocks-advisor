@@ -38,7 +38,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
           <BubblesLoader />
         </div>
       ) : (
-        <Slider className="hero-slider-2 w-100" {...settings}>
+        <Slider className="hero-slider-2  w-100" {...settings}>
           {homeNewsList && !!homeNewsList.length ? (
             homeNewsList.map((value, index) => {
               return (

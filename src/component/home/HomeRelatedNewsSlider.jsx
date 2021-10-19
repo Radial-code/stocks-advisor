@@ -48,7 +48,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
           {!loader ? (
-            <Slider {...settings}>
+            <Slider className="other_new_articles" {...settings}>
               {newsListData.map((news, index) => {
                 return <NewsArticlesList news={news} index={index} />;
               })}
