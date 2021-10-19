@@ -692,12 +692,7 @@ input::-webkit-inner-spin-button {
 }
 
 .other_new_articles .slick-prev::before {
-  padding: 15px;
-  background-color: #5cbd4c;
 }
 
 .other_new_articles .slick-next::before {
-  padding: 15px;
-  margin-left: 10px;
-  background-color: #5cbd4c;
 }
