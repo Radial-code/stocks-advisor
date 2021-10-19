@@ -121,7 +121,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <img className="logo-img-navbar" src={logo} alt="" />
               </NavLink>
               <div
-                className="d-block mt-3 d-xxl-none"
+                className="d-block mt-3 cursor-pointer d-xxl-none"
                 onClick={sidebarClosedHandler}
                 // () =>
               >
@@ -179,8 +179,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               >
                 Contact Us
               </NavLink>
-              <span className="d-flex align-items-center lang-dropddown  py-2  py-xxl-3 mt-3 my-xxl-auto">
-                <li onClick={() => setLang(!Lang)}>
+              <span className="d-flex align-items-center  lang-dropddown  py-2  py-xxl-3 mt-3 my-xxl-auto">
+                <li
+                  className="d-none d-xxl-block"
+                  onClick={() => setLang(!Lang)}
+                >
                   <NavLink
                     exact
                     to="#"
@@ -201,7 +204,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </NavLink>
                 </li>
                 {Lang ? (
-                  <div className="bg-white shadow p-2 rounded position-absolute top-72 ">
+                  <div className="bg-white  shadow p-2 rounded position-absolute top-72 ">
                     <span
                       onClick={layoutrightChangeHandler}
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
@@ -227,7 +230,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               </span>
             </div>
 
-            {/* <div className="d-xxl-none d-block ">
+            <div className="d-xxl-none d-block ">
               <Accordion>
                 <Card>
                   <Card.Header className="bg-accordian ">
@@ -236,20 +239,30 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                       eventKey="1"
                     >
                       <div className="d-flex py-2 w-100 justify-content-between ">
-                        <p className="mb-0">Dashboard</p>
+                        <p className="mb-0">Language</p>
                         <p className="mb-0">+</p>
                       </div>
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
                     <Card.Body>
-                      <p>User Dashboard</p>
-                      <p> Admin Dashboard</p>
+                      <p
+                        className="cursor-pointer"
+                        onClick={layoutrightChangeHandler}
+                      >
+                        English
+                      </p>
+                      <p
+                        className="cursor-pointer"
+                        onClick={layoutleftChangeHandler}
+                      >
+                        Arabic
+                      </p>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
               </Accordion>
-            </div> */}
+            </div>
             {/* ends here ............. language accordian */}
             {!!auth && !!token ? (
               <>
@@ -312,7 +325,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                         className="cross-icon-style my-auto "
                         onClick={() => searchPage()}
                       >
-                        X
+                        x
                       </span>
                       <input
                         type="search"
@@ -401,7 +414,16 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 </div>
               ) : (
                 <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
-                  <button className="mt-4 mt-xxl-0 py-2  btn join_now_btn ">
+                  <button
+                    onClick={() => history.push("/login")}
+                    className="mt-4 mt-xxl-0 py-2 ms-3  btn join_now_btn "
+                  >
+                    Log In
+                  </button>
+                  <button
+                    onClick={() => history.push("/signup")}
+                    className="mt-4 mt-xxl-0 py-2  btn log_in_btn "
+                  >
                     Join Now
                   </button>
                 </div>
@@ -413,8 +435,8 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       <div className={`shadow  py-2 d-block d-xxl-none`}>
         <div className="container ">
           <div className="row">
-            <div className="col-6">
-              <img src={logo} className=" w-sm-80 h-sm-80" alt="" />
+            <div className="col-6 my-auto ">
+              <img src={logo} className="w-72 w-36" alt="" />
             </div>
             <div className="col-6 my-auto">
               <div className="d-flex justify-content-end ">

@@ -107,8 +107,8 @@
 }
 .join_now_btn:hover {
   background-color: transparent !important;
-  color: var(--color-88BEFC) !important ;
-  border: 1px solid var(--color-88BEFC);
+  color: var(--color-127CF9) !important ;
+  border: 1px solid var(--color-127CF9);
 }
 
 .position-absoulte {
@@ -251,4 +251,14 @@
 
 .bg-accordian {
   background-color: var(--color-127CF9) !important;
+}
+
+@media (max-width: 768px) {
+  .w-72 {
+    width: 100px;
+  }
+
+  .h-36 {
+    height: 50px;
+  }
 }
