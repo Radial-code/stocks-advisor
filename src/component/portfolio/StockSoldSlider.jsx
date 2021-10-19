@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../common/slider.css";
+import SearchNews from "../../assets/img/searchnews.png";
 import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
 import { useSelector } from "react-redux";
@@ -52,7 +53,12 @@ const StockSoldSlider = ({ loader }) => {
             return <StockSliderCard soldValue={value} index={index} />;
           })}
         </Slider>
-      ) : null}
+      ) : (
+        <>
+          <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
+          <h4 className="text-center">You don't have any News</h4>
+        </>
+      )}
     </>
   );
 };

@@ -43,6 +43,7 @@ const Portfolio = ({ match }) => {
           />
         </div>
         <div className="my-4">
+          <h1 className="profile-heading pe-3 pt-2">Related News</h1>
           <StockSoldSlider />
         </div>
       </div>
