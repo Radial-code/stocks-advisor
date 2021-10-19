@@ -4,7 +4,6 @@ import {
   Manage,
   Notify,
   ProfileIcon,
-  EditPencilIcon,
   Update,
   Back,
   Payment,

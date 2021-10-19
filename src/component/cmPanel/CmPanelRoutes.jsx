@@ -14,6 +14,7 @@ import PlansSection from "./plans/PlansSection";
 import TeamCards from "./team/TeamCards";
 import TeamForm from "./team/TeamForm";
 import Enquiry from "./enquiry/Enquiry";
+import AdminNotification from "./user/AdminNotification";
 
 const CmPanelRoutes = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
@@ -146,8 +147,15 @@ const CmPanelRoutes = () => {
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exect path="/content/manager/enquiry/list">
+          <Route exact path="/content/manager/enquiry/list">
             <Enquiry
+              sideBarHandler={sideBarHandler}
+              sidebarActive={sidebarActive}
+              setSidebarActive={setSidebarActive}
+            />
+          </Route>
+          <Route exact path="/content/manager/notification">
+            <AdminNotification
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
