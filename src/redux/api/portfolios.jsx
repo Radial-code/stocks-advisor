@@ -23,6 +23,6 @@ export const addPortfolioApi = async (data) => {
  * @param {Object} data
  * @returns
  */
-export const userUpdateByAdminApi = async (id) => {
-  return await axiosRequest("PUT", `/users/${id}`);
+export const userUpdateByAdminApi = async (userId, data) => {
+  return await axiosRequest("PUT", `/users/${userId}`, data);
 };
