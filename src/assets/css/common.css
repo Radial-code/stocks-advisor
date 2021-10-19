@@ -776,11 +776,10 @@ input::-webkit-inner-spin-button {
   z-index: 32;
 }
 
-  .other_new_articles .slick-next {
-    height: 50px;
-    background-color: #5cbd4c;
-    border-radius: 7px;
-    z-index: 32;
-    width: 23px;
-  }
+.other_new_articles .slick-next {
+  height: 50px;
+  background-color: #5cbd4c;
+  border-radius: 7px;
+  z-index: 32;
+  width: 23px;
 }
