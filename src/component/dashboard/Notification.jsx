@@ -25,11 +25,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
             <div className="border-b-1">
               <p className="heading-stock fs-sm-20">Notification</p>
             </div>
-            <p className="small-paragraph mt-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              tristique leo et pulvinar luctus. Donec aliquet mauris eget e
-            </p>
-            <div className="table-responsive scroll-bar current-stock-scrollbar">
+            <div className="table-responsive scroll-bar current-stock-scrollbar mt-5">
               <NotificationTable loading={loading} />
             </div>
           </section>
