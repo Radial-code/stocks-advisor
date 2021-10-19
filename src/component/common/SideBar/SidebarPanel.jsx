@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import Cancel from "../../../assets/img/cancel.png";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
@@ -13,10 +13,11 @@ import {
   Enquiry,
   Back,
 } from "../icons/Icons";
-const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
+const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
   const [activeLink, setActiveLink] = useState("stocks");
   const { layoutClickChanger } = useLayoutChangerProvider();
-
+  console.log(match.path);
+  useEffect(() => {}, []);
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
@@ -24,18 +25,17 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
   }
 
   const openRoutes = (value) => {
-    console.log(value, "valuevalue");
     setShowSidebar2(false);
     setActiveLink(value);
     if (value === "stocks") {
       history.push("/content/manager/stocks");
     } else if (value === "news") {
       history.push("/content/manager/news");
-    } else if (value === "user") {
+    } else if (value === "users") {
       history.push("/content/manager/users");
     } else if (value === "services") {
       history.push("/content/manager/other/services");
-    } else if (value === "details") {
+    } else if (value === "our") {
       history.push("/content/manager/our/plans/details");
     } else if (value === "team") {
       history.push("/content/manager/team/cards");
@@ -93,9 +93,9 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink === "user" ? "cn-sidebar-active" : ""
+              activeLink === "users" ? "cn-sidebar-active" : ""
             }`}
-            onClick={() => openRoutes("user")}
+            onClick={() => openRoutes("users")}
           >
             <span className="px-2">
               <User />
@@ -116,9 +116,9 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2 }) => {
 
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink === "details" ? "cn-sidebar-active" : ""
+              activeLink === "our" ? "cn-sidebar-active" : ""
             }`}
-            onClick={() => openRoutes("details")}
+            onClick={() => openRoutes("our")}
           >
             <span className="px-2">
               <PlansIcon />
