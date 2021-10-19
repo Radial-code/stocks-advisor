@@ -60,7 +60,7 @@ function SignUp({ history }) {
   };
 
   return (
-    <div className="container min-h-100vh d-flex  flex-column justify-content-center">
+    <div className="container min-h-100vh d-flex  flex-column justify-content-center my-5">
       <div className="row justify-content-center align-items-center mt-5 mb-5">
         <div className="col-xl-5 col-sm-10">
           <div className="background-form p-sm-5 p-2">

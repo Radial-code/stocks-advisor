@@ -7,7 +7,7 @@ import {
   REMOVE_PLAN_DETAILS,
   GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
-import { GET_CONTACT_LIST } from "../action/contact";
+import { GET_CONTACT_LIST, GET_NOTIFICATION_LIST } from "../action/contact";
 import {
   GET_RELETED_SOLD_STOCK_NEWS,
   GET_SEARCH_RESULT_LIST,
@@ -46,6 +46,7 @@ const initialState = {
   searchNewsList: [],
   soldStockNewsList: [],
   portfoliosChatList: [],
+  notificationList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -217,6 +218,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         portfoliosChatList: action.data,
+      };
+    }
+
+    // get notification chat list data
+    case GET_NOTIFICATION_LIST: {
+      return {
+        ...state,
+        notificationList: action.data,
       };
     }
 

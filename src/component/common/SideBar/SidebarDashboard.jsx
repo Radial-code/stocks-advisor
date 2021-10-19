@@ -1,55 +1,24 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import {
-  Manage,
-  Notify,
-  ProfileIcon,
-  Update,
-  Back,
-  Payment,
-} from "../icons/Icons";
+import { Manage, Notify, ProfileIcon, Back, Payment } from "../icons/Icons";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
-function SidebarDashboard({
-  history,
-  showSidebar,
-  setShowSidebar,
-  sideBarHandler,
-}) {
+
+function SidebarDashboard({ history, showSidebar, setShowSidebar }) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
-
-  const [active, setActive] = useState(false);
-  const [show, setShow] = useState(false);
-  const [activeClass, setActiveClass] = useState(false);
-  const [showemoji, setShowEmoji] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(null);
   const [activeLink, setActiveLink] = useState("manage");
-  const layoutleftChangeHandler = () => {
-    setLayoutClickChanger(true);
 
-    localStorage.setItem("stock-advisor-lang", "Arabic");
-  };
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
     document.dir = "ltr";
   }
-  const layoutrightChangeHandler = () => {
-    setLayoutClickChanger(false);
 
-    localStorage.setItem("stock-advisor-lang", "English");
-  };
-  const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
-  };
   const openRoutes = (value) => {
     setShowSidebar(false);
     setActiveLink(value);
-    // if (value === "editcontact") {
-    //   history.push("/dashboard/edit/contact");
-    // }
     if (value === "manage") {
       history.push("/dashboard/manage/subscription");
     } else if (value === "update") {
@@ -87,17 +56,6 @@ function SidebarDashboard({
             />
           </div>
           <div className="cn-sidebar-border"></div>
-
-          {/* <div
-            className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
-            onClick={() => openRoutes("editcontact")}
-          >
-            <span className="px-2">
-              
-              <EditPencilIcon />
-            </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Edit Contact</p>
-          </div> */}
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
               activeLink == "manage" ? "cn-sidebar-active" : ""
@@ -109,19 +67,6 @@ function SidebarDashboard({
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
               Manage Subscription
-            </p>
-          </div>
-          <div
-            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "update" ? "cn-sidebar-active" : ""
-            }`}
-            onClick={() => openRoutes("update")}
-          >
-            <span className="px-2">
-              <Update />
-            </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              Update Payment Method
             </p>
           </div>
 
@@ -179,5 +124,4 @@ function SidebarDashboard({
     </div>
   );
 }
-
 export default withRouter(SidebarDashboard);

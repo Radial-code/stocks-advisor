@@ -25,13 +25,13 @@ const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
               setShowSidebar={setShowSidebar}
             />
           </Route> */}
-          <Route exact path="/dashboard/update/payment">
+          {/* <Route exact path="/dashboard/update/payment">
             <UpdatePayment
               showSidebar={showSidebar}
               sideBarHandler={sideBarHandler}
               setShowSidebar={setShowSidebar}
             />
-          </Route>
+          </Route> */}
           <Route exact path="/dashboard/notification">
             <Notification
               showSidebar={showSidebar}

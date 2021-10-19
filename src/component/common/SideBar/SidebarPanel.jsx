@@ -16,23 +16,14 @@ import {
 const SidebarPanel = ({ history }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [activeLink, setActiveLink] = useState("stocks");
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
-  const layoutleftChangeHandler = () => {
-    setLayoutClickChanger(true);
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
-    localStorage.setItem("stock-advisor-lang", "Arabic");
-  };
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
     document.dir = "ltr";
   }
-  const layoutrightChangeHandler = () => {
-    setLayoutClickChanger(false);
 
-    localStorage.setItem("stock-advisor-lang", "English");
-  };
   const openRoutes = (value) => {
     setShowSidebar(false);
     setActiveLink(value);
@@ -85,7 +76,6 @@ const SidebarPanel = ({ history }) => {
             onClick={() => openRoutes("stocks")}
           >
             <span className="px-2">
-              {" "}
               <Stocks />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Stocks</p>
@@ -97,7 +87,6 @@ const SidebarPanel = ({ history }) => {
             onClick={() => openRoutes("news")}
           >
             <span className="px-2">
-              {" "}
               <News />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">News</p>
@@ -109,7 +98,6 @@ const SidebarPanel = ({ history }) => {
             onClick={() => openRoutes("user")}
           >
             <span className="px-2">
-              {" "}
               <User />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Users</p>
@@ -121,7 +109,6 @@ const SidebarPanel = ({ history }) => {
             onClick={() => openRoutes("services")}
           >
             <span className="px-2">
-              {" "}
               <ServiceIcon />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Other Services</p>
@@ -167,7 +154,6 @@ const SidebarPanel = ({ history }) => {
             onClick={() => openRoutes("notification")}
           >
             <span className="px-2">
-              {" "}
               <Notify />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Notification</p>
@@ -182,7 +168,6 @@ const SidebarPanel = ({ history }) => {
               className=" cursor-pointer"
               onClick={() => setShowSidebar(true)}
             >
-              {" "}
               <Back />
             </span>
           </div>
@@ -192,5 +177,4 @@ const SidebarPanel = ({ history }) => {
     </div>
   );
 };
-
 export default withRouter(SidebarPanel);

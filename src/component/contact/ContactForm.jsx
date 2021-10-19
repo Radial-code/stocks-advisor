@@ -90,7 +90,7 @@ const ContactForm = () => {
               : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
           }`}
           type="text"
-          placeholder="Select Contact Reason"
+          placeholder="Subject"
           required
           onChange={(e) => {
             setContactDetails({

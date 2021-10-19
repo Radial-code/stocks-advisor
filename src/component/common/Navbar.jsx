@@ -130,7 +130,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   id="search"
                   placeholder="Search..."
                 />
-                <div className="search-green-icon cursor-pointer top-0 left-0    position-absoulte">
+                <div
+                  className={`${
+                    layoutClickChanger ? "left-0" : "right-0"
+                  } search-green-icon cursor-pointer  top-0 position-absoulte`}
+                >
                   <SearchWhiteIcon />
                 </div>
               </div>
@@ -417,13 +421,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
                   <button
                     onClick={() => history.push("/login")}
-                    className="mt-4 mt-xxl-0 py-2 ms-3  btn join_now_btn "
+                    className="mt-4 mt-xxl-0 py-2 ms-3 mx-2  btn join_now_btn "
                   >
                     Log In
                   </button>
                   <button
                     onClick={() => history.push("/signup")}
-                    className="mt-4 mt-xxl-0 py-2  btn log_in_btn "
+                    className="mt-4 mt-xxl-0 py-2 btn log_in_btn "
                   >
                     Join Now
                   </button>
