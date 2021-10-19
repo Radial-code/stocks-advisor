@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Chart from "../home/Chart";
 import AllNews from "./AllNews";
 import Plans from "../plan/Plans";
+import { useLocation } from "react-router-dom";
 import "./Newspage.css";
 
 const News = () => {

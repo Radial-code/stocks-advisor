@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../common/slider.css";
 import SearchNews from "../../assets/img/searchnews.png";
-import { withRouter } from "react-router-dom";
+import { NavLink, withRouter, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import RelatedNewsArticlesList from "./RelatedNewsArticlesList";
 
@@ -75,12 +75,9 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
             </>
           )}
           <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
-            <button
-              className="default-btn"
-              onClick={() => history.push("/news")}
-            >
-              View All News
-            </button>
+            <Link to="/news">
+              <button className="default-btn">View All News</button>
+            </Link>
           </div>
         </div>
       </div>
