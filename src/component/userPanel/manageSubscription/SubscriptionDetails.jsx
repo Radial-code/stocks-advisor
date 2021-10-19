@@ -6,7 +6,7 @@ const SubscriptionDetails = () => {
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
-      <div className="w-xl-1000 box p-md-5 p-4 h-100">
+      <div className="w-xl-1000 box p-md-4 p-4 h-100">
         <h2 className="heading-stock fs-sm-20">Manage Subscription</h2>
         <div className="border-b-1 mt-md-5 mt-3">
           <p className="news-heading-font fs-sm-14">
@@ -14,13 +14,9 @@ const SubscriptionDetails = () => {
           </p>
         </div>
         {myPlanDetails ? (
-          <Row className="mt-5 justify-content-between">
-            <Col
-              lg={5}
-              xs={12}
-              className="d-flex justify-content-center d-lg-block"
-            >
-              <section className="plan-card-edituser p-4">
+          <Row className="mt-5 ">
+            <Col xl={6} xs={12}>
+              <section className="plan-card-edituser p-3">
                 <div className="d-flex justify-content-between border-b-1">
                   <p className="profile-heading fs-sm-16">
                     {myPlanDetails.title}
@@ -29,7 +25,7 @@ const SubscriptionDetails = () => {
                     ${myPlanDetails.price}
                   </p>
                 </div>
-                <div className="d-flex mt-2">
+                <div className="d-flex flex-sm-row flex-column mt-2">
                   <span className="fs-xs fw-500 pr-15 fs-sm-11">
                     Purchase Date :
                   </span>
@@ -39,36 +35,36 @@ const SubscriptionDetails = () => {
                   </span>
                 </div>
                 <div className="d-flex justify-content-between mt-2 mb-2">
-                  <div className="d-flex">
+                  <div className="d-flex flex-sm-row flex-column">
                     <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                      Auto Renew:
+                      Auto Renew :
                     </span>
 
                     <span className="stock-paragraph fs-sm-11">
                       {myPlanDetails.expiresOn}
                     </span>
                   </div>
-                  <div className="">
-                    <span className="float-md-end me-auto ">
-                      <label className="switch-2" for="checkbox-2">
-                        <input type="checkbox" id="checkbox-2" />
-                        <div className="slider-2 round"></div>
-                      </label>
-                    </span>
-                  </div>
+                </div>
+                <div className="pb-4">
+                  <span className="float-md-end me-auto ">
+                    <label className="switch-2" for="checkbox-2">
+                      <input type="checkbox" id="checkbox-2" />
+                      <div className="slider-2 round"></div>
+                    </label>
+                  </span>
                 </div>
               </section>
             </Col>
 
             <Col
-              lg={6}
+              xl={6}
               xs={12}
-              className="d-flex justify-content-center mt-5 mt-lg-0"
+              className="d-flex justify-content-center mt-5 mt-xl-0"
             >
               <section className="current-para">
-                <p className="fs-14 fw-500 ">Plan Description:</p>
+                <p className="fs-14 fw-500 "> : Plan Description</p>
 
-                <p className="stock-paragraph fs-sm-14">
+                <p className="stock-paragraph fs-sm-14 ">
                   {myPlanDetails.details}
                 </p>
               </section>
