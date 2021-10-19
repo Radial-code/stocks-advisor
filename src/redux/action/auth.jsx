@@ -36,19 +36,21 @@ export const Logout = () => ({
   type: REMOVE_LOCAL_STORAGE_TOKEN,
 });
 
-export const LogoutAction = (setLoading, history) => async (dispatch) => {
-  setLoading(true);
+export const LogoutAction = (setLoadingLogOut, history) => async (dispatch) => {
+  setLoadingLogOut(true);
   try {
     const response = await LogoutApi();
     if (response.success) {
       dispatch(Logout);
       localStorage.setItem("stock-advisor", null);
-      setLoading(false);
+      setLoadingLogOut(false);
       history.push("/");
       window.location.reload();
+    } else {
+      setLoadingLogOut(false);
     }
   } catch (error) {
-    setLoading(false);
+    setLoadingLogOut(false);
   }
 };
 

@@ -4,9 +4,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getPortFolioChatListDataAction } from "../../redux/action/portfolio";
-import LineChart from "../chart/LineChart";
-import LineChart2 from "../chart/LineChart2";
-import LineChart3 from "../chart/LineChart3";
+import LineChart from "./LineChart";
 
 const Chart = () => {
   const portfoliosChatList = useSelector(
@@ -19,6 +17,7 @@ const Chart = () => {
     dispatch(getPortFolioChatListDataAction(setLoading));
   }, []);
 
+  console.log("portfoliosChatList", portfoliosChatList);
   return (
     <>
       <div className="pr-15 pl-15 ">
@@ -29,9 +28,11 @@ const Chart = () => {
         </div>
       </div>
       <div>
-        <LineChart2 />
-        <LineChart />
-        <LineChart3 />
+        {portfoliosChatList && portfoliosChatList.length
+          ? portfoliosChatList.map((chatValue, index) => {
+              return <LineChart chatValue={chatValue} index={index} />;
+            })
+          : null}
       </div>
     </>
   );

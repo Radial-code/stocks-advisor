@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../common/slider.css";
 import { withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { NewsArticlesList } from "./RelatedNewsArticlesList";
+import RelatedNewsArticlesList from "./RelatedNewsArticlesList";
 
 const HomeRelatedNewsSlider = ({ loader, history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
@@ -50,7 +50,13 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
           {!loader ? (
             <Slider {...settings}>
               {newsListData.map((news, index) => {
-                return <NewsArticlesList news={news} index={index} />;
+                return (
+                  <RelatedNewsArticlesList
+                    news={news}
+                    index={index}
+                    history={history}
+                  />
+                );
               })}
             </Slider>
           ) : null}

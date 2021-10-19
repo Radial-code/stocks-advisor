@@ -216,7 +216,7 @@ export default function ListReducer(state = initialState, action) {
     case GET_PORTFOLIOS_CHAT_LIST_DATA: {
       return {
         ...state,
-        portfoliosChatList: [],
+        portfoliosChatList: action.data,
       };
     }
 

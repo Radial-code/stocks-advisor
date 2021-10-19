@@ -1,8 +1,7 @@
 import CalenderIcon from "../../assets/img/calendar-icon.png";
-import { withRouter } from "react-router";
 import moment from "moment";
 
-export const NewsArticlesList = ({ news, history }) => {
+export const RelatedNewsArticlesList = ({ news, history }) => {
   const { imagePath, createdAt, title, description, _id, tags, stock } = news;
   return (
     <div className="my-3 ">
@@ -50,4 +49,4 @@ export const NewsArticlesList = ({ news, history }) => {
     </div>
   );
 };
-export default withRouter(NewsArticlesList);
+export default RelatedNewsArticlesList;
