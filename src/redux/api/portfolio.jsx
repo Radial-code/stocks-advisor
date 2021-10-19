@@ -25,3 +25,11 @@ export const getSoldPortfolioListForDashBoardApi = async (id) => {
 export const getCurrentPortfolioListForDashBoardApi = async (id) => {
   return await axiosRequest("GET", `/stock/${id}?page=0&limit=10`);
 };
+
+/**
+ * get PortFolio Chat List Data api
+ * @returns
+ */
+export const getPortFolioChatListDataApi = async () => {
+  return await axiosRequest("GET", `/portfolio-performance`);
+};

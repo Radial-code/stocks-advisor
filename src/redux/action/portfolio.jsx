@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import {
   getCurrentPortfolioListForDashBoardApi,
+  getPortFolioChatListDataApi,
   getPortfolioListForDashBoardApi,
   getSoldPortfolioListForDashBoardApi,
 } from "../api/portfolio";
@@ -9,6 +10,7 @@ export const GET_PORTFOLIOS_LIST_FOR_DASHBOARD =
   "GET_PORTFOLIOS_LIST_FOR_DASHBOARD";
 
 export const GET_SOLD_STOCK_PORTFOLIOS_LIST = "GET_SOLD_STOCK_PORTFOLIOS_LIST";
+export const GET_PORTFOLIOS_CHAT_LIST_DATA = "GET_PORTFOLIOS_CHAT_LIST_DATA";
 
 export const GET_CURRENT_STOCK_PORTFOLIOS_LIST =
   "GET_CURRENT_STOCK_PORTFOLIOS_LIST";
@@ -100,6 +102,35 @@ export const getCurrentPortfolioListForDashBoardAction =
           "Failed to Load sold stock Portfolios list",
           "error"
         );
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setLoading(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * get PortFolio Chat List Data Action
+ * @param {Object} data
+ * @returns
+ */
+const getPortFolioChatListData = (data) => ({
+  type: GET_PORTFOLIOS_CHAT_LIST_DATA,
+  data,
+});
+
+export const getPortFolioChatListDataAction =
+  (setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getPortFolioChatListDataApi();
+      if (response.success) {
+        dispatch(getPortFolioChatListData(response.portfolio));
+        setLoading(false);
+      } else {
+        setLoading(false);
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {

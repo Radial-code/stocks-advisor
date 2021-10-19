@@ -20,6 +20,7 @@ import {
 } from "../action/payment";
 import {
   GET_CURRENT_STOCK_PORTFOLIOS_LIST,
+  GET_PORTFOLIOS_CHAT_LIST_DATA,
   GET_PORTFOLIOS_LIST_FOR_DASHBOARD,
   GET_SOLD_STOCK_PORTFOLIOS_LIST,
 } from "../action/portfolio";
@@ -44,6 +45,7 @@ const initialState = {
   stockChatList: {},
   searchNewsList: [],
   soldStockNewsList: [],
+  portfoliosChatList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -207,6 +209,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         userProfileDetails: {},
+      };
+    }
+
+    // get portfolios chat list data
+    case GET_PORTFOLIOS_CHAT_LIST_DATA: {
+      return {
+        ...state,
+        portfoliosChatList: [],
       };
     }
 
