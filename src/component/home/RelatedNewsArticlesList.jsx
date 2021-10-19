@@ -9,12 +9,12 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
         <img className="w-100 h-100" src={imagePath} alt="newsImg" />
         <div className="news-wrapper-bottom-section">
           <p className="text-end stock-paragraph cursor-pointer">
+            <span> {moment(createdAt).format("DD/MMM/YYYY")}</span>
             <img
-              className="w-19 h-19 d-inline-block"
+              className="w-19 h-19 d-inline-block mx-2"
               src={CalenderIcon}
               alt="CalenderIcon"
             />
-            <span> {moment(createdAt).format("DD/MMM/YYYY")}</span>
           </p>
 
           <h4 className="news-heading-font text-end">

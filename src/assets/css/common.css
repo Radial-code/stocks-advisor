@@ -447,18 +447,10 @@
 .prev {
   border-radius: 5px;
   background: #fff;
-  min-width: 51px !important;
+  min-width: 27px !important;
   border: none;
-  height: 74px !important;
+  height: 50px !important;
   transform-origin: center !important;
-}
-
-.next {
-  margin-left: 20px;
-}
-
-.prev {
-  margin-right: 20px;
 }
 
 .next svg {
@@ -546,11 +538,6 @@ input::-webkit-inner-spin-button {
 
   .w-xs-95 {
     width: 95px;
-  }
-
-  .next,
-  .prev {
-    display: none !important;
   }
 
   .prev {
@@ -690,9 +677,78 @@ input::-webkit-inner-spin-button {
 .hero-slider-2 .slick-next::before {
   display: none !important;
 }
+@media (min-width: 576px) {
+  .other_new_articles .slick-next {
+    left: -32px !important;
+  }
+  .other_new_articles .slick-prev {
+    right: -32px !important;
+  }
+  .other_new_articles .slick-prev {
+    height: 93px !important;
+    background-color: #5cbd4c;
+    border-radius: 7px;
+    width: 40px !important;
+  }
 
-.other_new_articles .slick-prev::before {
+  .other_new_articles .slick-next {
+    height: 93px !important;
+    background-color: #5cbd4c;
+    border-radius: 7px;
+    width: 40px !important;
+  }
 }
+@media (max-width: 375px) {
+  .other_new_articles .slick-next {
+    left: -17px !important;
+  }
+  .other_new_articles .slick-prev {
+    right: -17px !important;
+  }
+  .other_new_articles .slick-prev {
+    height: 75px !important;
+    background-color: #5cbd4c;
+    border-radius: 7px;
+    width: 33px !important;
+  }
 
+  .other_new_articles .slick-next {
+    height: 75px !important;
+    background-color: #5cbd4c;
+    border-radius: 7px;
+    width: 33px !important;
+  }
+}
+.other_new_articles .slick-next {
+  left: -5px;
+}
+.other_new_articles .slick-prev {
+  right: -5px;
+}
+.other_new_articles .slick-prev {
+  height: 50px;
+  background-color: #5cbd4c;
+  border-radius: 7px;
+  width: 23px;
+  z-index: 32;
+}
+/* .other_new_articles .slick-prev::before {
+  background-image: url("../img/arrow.svg");
+  background-repeat: no-repeat;
+  color: transparent !important;
+  background-position: center;
+}
 .other_new_articles .slick-next::before {
+  background-image: url("../img/arrow.svg");
+  background-repeat: no-repeat;
+  color: transparent !important;
+  background-position: center;
+} */
+
+.other_new_articles .slick-next {
+  height: 50px;
+  background-color: #5cbd4c;
+  border-radius: 7px;
+  z-index: 32;
+  width: 23px;
 }

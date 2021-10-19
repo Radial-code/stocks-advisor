@@ -52,14 +52,14 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route exect path="/content/manager/add/news">
+          <Route exact path="/content/manager/add/news">
             <AddNews
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exect path="/content/manager/users">
+          <Route exact path="/content/manager/users">
             <Users
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -67,7 +67,7 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route exect path="/content/manager/news">
+          <Route exact path="/content/manager/news">
             <News
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
@@ -75,14 +75,14 @@ const CmPanelRoutes = () => {
             />
           </Route>
 
-          <Route exect path="/content/manager/edit/news/:id">
+          <Route exact path="/content/manager/edit/news/:id">
             <AddNews
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
               setSidebarActive={setSidebarActive}
             />
           </Route>
-          <Route exect path="/content/manager/edit/user/:userId">
+          <Route exact path="/content/manager/edit/user/:userId">
             <EditUser
               sideBarHandler={sideBarHandler}
               sidebarActive={sidebarActive}
