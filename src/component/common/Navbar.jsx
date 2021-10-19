@@ -33,9 +33,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
-  const [Language, setLanguage] = useState(
-    localStorage.getItem("stock-advisor-lang")
-  );
+  const initialLanguage = localStorage.getItem("stock-advisor-lang")
+    ? localStorage.getItem("stock-advisor-lang")
+    : "Arabic";
+  const [Language, setLanguage] = useState(initialLanguage);
   const firstname = useSelector((state) => state.auth.userData.firstName);
   const lastname = useSelector((state) => state.auth.userData.lastName);
   const [overlayActive, setOverlayActive] = useState(true);
@@ -81,6 +82,12 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       dispatch(getSearchResultAction(searchData, setLoading));
     }
   }, [searchData]);
+
+  if (layoutClickChanger) {
+    document.dir = "rtl";
+  } else {
+    document.dir = "ltr";
+  }
   return (
     <>
       {overlayActive ? (
