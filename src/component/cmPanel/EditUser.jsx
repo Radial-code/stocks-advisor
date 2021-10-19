@@ -59,7 +59,7 @@ const EditUser = ({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <Row>
-        <Col xs={12}>
+        {/* <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between align-items-center">
               <p className="heading-stock pr-15 fs-sm-20 mb-0">
@@ -82,9 +82,9 @@ const EditUser = ({
               </span>
             </div>
           </div>
-        </Col>
-        <Col className="d-flex justify-content-sm-end justify-content-center ">
-          <section className="edituser-card p-3 p-sm-5 mt-5">
+        </Col> */}
+        <Col className="d-flex justify-content-sm-end justify-content-center">
+          <section className="edituser-card p-3 p-sm-5 ">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
               <p className="heading-stock fs-sm-20">
                 {firstName}&nbsp;{lastName}
@@ -110,7 +110,18 @@ const EditUser = ({
                       <div className="edit-user">
                         <input
                           className="input-edit-user"
-                          placeholder={`${firstName} ${lastName}`}
+                          placeholder={`${firstName} `}
+                          type="text"
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row className="mt-4">
+                    <Col lg={6}>
+                      <div className="edit-user">
+                        <input
+                          className="input-edit-user"
+                          placeholder={` ${lastName}`}
                           type="text"
                         />
                       </div>
@@ -344,6 +355,7 @@ const EditUser = ({
                 </button>
               </Col>
             </Row> */}
+            <button className="update-btn-2 mt-3">Update</button>
           </section>
         </Col>
       </Row>
