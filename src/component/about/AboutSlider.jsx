@@ -3,8 +3,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AboutSlider = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const teamList = useSelector((state) => state.list.teamList);
   const settings = {
     infinite: true,
@@ -40,17 +43,31 @@ const AboutSlider = () => {
   return (
     <>
       <h1 className="mt-5 pt-5 section-heading fs-sm-22">Team</h1>
-      <Slider dir="rtl" className="about-slider-4 mt-4" {...settings}>
+      <Slider
+        dir="rtl"
+        className={` ${
+          layoutClickChanger
+            ? "about-slider-4 mt-4"
+            : "about-slider-english mt-4"
+        } `}
+        {...settings}
+      >
         {teamList && teamList.length
           ? teamList.map((value, index) => {
               return (
-                <div className="d-flex justify-content-center fl pr-15 d-sm-block">
-                  <div className="profile-box p-3">
+                <div className="d-flex justify-content-center  fl pr-15 d-sm-block">
+                  <div className="profile-box mx-2 p-3">
                     <div>
-                      <div className="d-flex align-items-center flex-row-reverse">
+                      <div
+                        className={`${
+                          layoutClickChanger
+                            ? "d-flex align-items-center flex-row-reverse"
+                            : "d-flex align-items-center"
+                        }`}
+                      >
                         <img
                           key={index}
-                          className="w-126 w-xs-95"
+                          className="w-126 w-sm-lg-90   w-xs-95"
                           src={value.profileImagePath}
                           alt=""
                         />
@@ -65,7 +82,13 @@ const AboutSlider = () => {
                       </div>
                     </div>
 
-                    <p className="stock-paragraph text-center text-sm-end fs-sm-14 mt-3">
+                    <p
+                      className={`${
+                        layoutClickChanger
+                          ? "stock-paragraph text-center text-sm-end fs-sm-14 mt-3"
+                          : ""
+                      }`}
+                    >
                       {value.description}
                     </p>
                   </div>
