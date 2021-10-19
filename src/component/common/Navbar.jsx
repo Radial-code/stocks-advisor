@@ -333,7 +333,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                         onChange={(e) => setSearchData(e.target.value)}
                       />
                     </div>
-                    <div className="search-green-icon cursor-pointer  top-10 left-20 position-absoulte">
+                    <div
+                      className={`${
+                        layoutClickChanger
+                          ? "search-green-icon cursor-pointer  top-10 left-20 position-absoulte"
+                          : "search-green-icon cursor-pointer  top-10 right-10 position-absoulte"
+                      }`}
+                    >
                       <SearchWhiteIcon />
                     </div>
                   </div>
