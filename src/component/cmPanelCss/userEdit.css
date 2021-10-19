@@ -38,7 +38,6 @@
 }
 
 .plan-card-edituser {
-  width: 451px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
@@ -79,12 +78,12 @@
   width: 22px;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--color-B8D8FD);
   border: 1px solid var(--color-127CF9) !important;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   transform: translateX(19px);
 }
 
@@ -140,12 +139,12 @@ input:checked+.slider:before {
   width: 22px;
 }
 
-input:checked+.slider-2 {
+input:checked + .slider-2 {
   background-color: var(--color-B8D8FD);
   border: 1px solid var(--color-127CF9) !important;
 }
 
-input:checked+.slider-2:before {
+input:checked + .slider-2:before {
   transform: translateX(19px);
 }
 
@@ -171,9 +170,9 @@ input:checked+.slider-2:before {
     width: 380px;
   }
 
-  .plan-card-edituser {
+  /* .plan-card-edituser {
     width: 400px;
-  }
+  } */
 }
 
 @media (min-width: 1199.98px) and (max-width: 1399.98px) {
@@ -195,9 +194,9 @@ input:checked+.slider-2:before {
     width: 300px;
   }
 
-  .plan-card-edituser {
+  /* .plan-card-edituser {
     width: 315px;
-  }
+  } */
 
   .current-para {
     width: 100%;
@@ -218,20 +217,20 @@ input:checked+.slider-2:before {
     width: 100%;
   }
 
-  .plan-card-edituser {
+  /* .plan-card-edituser {
     width: 400px;
-  }
+  } */
 
   .current-para {
     width: 100%;
   }
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .plan-card-edituser {
     width: 100%;
   }
-}
+} */
 
 @media (max-width: 575.98px) {
   .fs-sm-14 {

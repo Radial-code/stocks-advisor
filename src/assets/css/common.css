@@ -367,7 +367,7 @@
 
 @media (max-width: 567px) {
   .heading-stock {
-    --font-lg: 18px;
+    --font-lg: 16px;
   }
 }
 
@@ -484,7 +484,7 @@
 
 @media (max-width: 567px) {
   .news-heading-font {
-    --font-22: 18px;
+    --font-22: 16px;
   }
 }
 

@@ -56,3 +56,7 @@
     max-width: 1000px;
   }
 }
+.payment-border {
+  border-bottom: 1px solid #16191e;
+  opacity: 0.6;
+}

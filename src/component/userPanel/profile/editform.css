@@ -57,6 +57,11 @@
   transition: 0.3s;
   border: 1px solid var(--color-88BEFC);
 }
+@media (max-width: 375px) {
+  .update-btn {
+    font-size: 16px;
+  }
+}
 
 .update-btn:hover {
   background-color: white;

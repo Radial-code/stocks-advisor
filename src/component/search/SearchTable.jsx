@@ -16,10 +16,6 @@ const SearchTable = ({ history, searchNewsList }) => {
           <th className="whitespace table-width-header">
             <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Title
           </th>
-          <th className="whitespace">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            Tags
-          </th>
         </tr>
       </thead>
       <tbody className="user-details">
@@ -30,13 +26,12 @@ const SearchTable = ({ history, searchNewsList }) => {
                   key={index}
                   onClick={() => history.push(`/news/details/${value._id}`)}
                 >
-                  <td className="whitespace Ellipse">
+                  <td className="whitespace Ellipse cursor-pointer">
                     {moment(value.createdAt).format("MM/ddd")}
                   </td>
-                  <td className="whitespace Ellipse" dir="ltr">
+                  <td className="whitespace Ellipse cursor-pointer">
                     {value.description}
                   </td>
-                  <td className="whitespace Ellipse">{value.tags}</td>
                 </tr>
               );
             })
