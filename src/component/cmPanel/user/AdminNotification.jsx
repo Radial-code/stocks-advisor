@@ -4,13 +4,13 @@ import Notification from "./Notification";
 
 function AdminNotification() {
   return (
-    <div>
+    <>
       <Container>
         <Row>
           <Notification />
         </Row>
       </Container>
-    </div>
+    </>
   );
 }
 
