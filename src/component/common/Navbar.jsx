@@ -217,7 +217,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 )}
               </span>
             </div>
-            <div className="d-xxl-none d-block ">
+            <div className="d-xxl-none mb-3 d-block ">
               <Accordion>
                 <Card>
                   <Card.Header className="bg-accordian ">
