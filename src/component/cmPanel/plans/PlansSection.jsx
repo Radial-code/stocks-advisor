@@ -29,7 +29,7 @@ function PlansSection({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row ">
-        <Col xs={12}>
+        {/* <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
               <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
@@ -50,7 +50,7 @@ function PlansSection({
               </span>
             </div>
           </div>
-        </Col>
+        </Col> */}
         <PlansForm edit={edit} id={id} />
       </div>
     </div>

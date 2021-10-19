@@ -99,7 +99,7 @@ function PlansForm({ history, edit, id }) {
   return (
     <div>
       <div className="col-12 h-100 stock-add-new">
-        <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
+        <div className="add-stock-bg p-sm-5 p-3   w-xl-1000">
           <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
             <h1 className="current-stock-text ff-popins mb-sm-0 mb-3 fs-sm-20">
               {edit ? "Update Plan" : "Add New Plans"}
