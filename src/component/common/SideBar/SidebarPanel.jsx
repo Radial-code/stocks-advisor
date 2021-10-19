@@ -8,6 +8,7 @@ import {
   User,
   ServiceIcon,
   PlansIcon,
+  Notify,
   TeamIcon,
   Enquiry,
   Back,
@@ -47,8 +48,10 @@ const SidebarPanel = ({ history }) => {
       history.push("/content/manager/our/plans/details");
     } else if (value === "team") {
       history.push("/content/manager/team/cards");
-    } else if (value == "enquiry") {
+    } else if (value === "enquiry") {
       history.push("/content/manager/enquiry/list");
+    } else if (value === "notification") {
+      history.push("/content/manager/notification");
     }
   };
   return (
@@ -156,6 +159,18 @@ const SidebarPanel = ({ history }) => {
               <Enquiry />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Enquiry</p>
+          </div>
+          <div
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "notification" ? "cn-sidebar-active" : ""
+            }`}
+            onClick={() => openRoutes("notification")}
+          >
+            <span className="px-2">
+              {" "}
+              <Notify />
+            </span>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Notification</p>
           </div>
         </div>
       </div>
