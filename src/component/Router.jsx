@@ -73,16 +73,9 @@ const Router = ({ showSidebar, setShowSidebar, sideBarHandler }) => {
         <Route exact path="/news/details/:id" component={NewsDetails} />
         <Route exact path="/create-newpassword" component={CreateNewPassword} />
         <Route exact path="/change-password" component={ChangePassword} />
-        <Route exact path="/otpinputs" component={OtpInputs} />
+        <Route exact path="/otp/input" component={OtpInputs} />
         <Route exact path="/email" component={IsEmailMessage} />
         {/** User dashboard routes */}
-        {/* <Route
-          path="/dashboard"
-          component={UserRoutes}
-          sideBarHandler={sideBarHandler}
-          showSidebar={showSidebar}
-          setShowSidebar={setShowSidebar} */}
-        {/* /> */}
         <Route path="/dashboard">
           <UserRoutes
             showSidebar={showSidebar}
