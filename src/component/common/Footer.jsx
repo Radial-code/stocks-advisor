@@ -127,23 +127,26 @@ const Footer = ({ history }) => {
                     </Link>
                   </li>
                 ) : null}
-
-                <li>
-                  <Link
-                    className="text-decoration-none text-white fs-15"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-decoration-none text-white fs-15"
-                    to="/signup"
-                  >
-                    Join
-                  </Link>
-                </li>
+                {!auth && !token ? (
+                  <>
+                    <li>
+                      <Link
+                        className="text-decoration-none text-white fs-15"
+                        to="/login"
+                      >
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="text-decoration-none text-white fs-15"
+                        to="/signup"
+                      >
+                        Join
+                      </Link>
+                    </li>
+                  </>
+                ) : null}
               </ul>
             </div>
           </div>

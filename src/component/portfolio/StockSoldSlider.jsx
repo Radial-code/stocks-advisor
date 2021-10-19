@@ -1,131 +1,61 @@
 import React from "react";
 import Slider from "react-slick";
-import { useSelector } from "react-redux";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./portfolios.css";
+import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
+import { useSelector } from "react-redux";
 
-const StockSoldSlider = () => {
+const StockSoldSlider = ({ loader }) => {
   const soldStockNewsList = useSelector(
     (state) => state.list.soldStockNewsList
   );
+  console.log("soldStockNewsList", soldStockNewsList);
   var settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
+    slidesToShow: 4,
+    slidesToScroll: 2,
 
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1000,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint: 1025,
+        breakpoint: 800,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
+          slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 650,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          sliedesToScroll: 2,
         },
       },
     ],
-    nextArrow: <Next />,
-    prevArrow: <Prev />,
   };
   return (
     <>
-      <Slider
-        className="about-slider-2 d-flex align-items-center"
-        {...settings}
-      >
-        {/* {soldStockNewsList &&
-          soldStockNewsList.length &&
-          soldStockNewsList.map((value) => {
-            return (
-              <>
-                <StockSliderCard soldValue={value} />
-              </>
-            );
-          })} */}
-        <StockSliderCard />
-        <StockSliderCard />
-        <StockSliderCard />
-        <StockSliderCard />
-      </Slider>
+      {!loader ? (
+        <Slider {...settings}>
+          {soldStockNewsList.map((value, index) => {
+            return <StockSliderCard soldValue={value} index={index} />;
+          })}
+        </Slider>
+      ) : null}
     </>
   );
 };
 
-export default StockSoldSlider;
-
-const Next = (props) => {
-  const { style, onClick } = props;
-  return (
-    <button style={{ ...style }} onClick={onClick} className={`next`}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.681"
-        height="16.533"
-        viewBox="0 0 9.681 16.533"
-      >
-        <path
-          id="Path_6"
-          data-name="Path 6"
-          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
-          transform="translate(-276.961 -1333.363)"
-          fill="none"
-          stroke="#16191e"
-          strokeWidth="2"
-          opacity="0.6"
-        />
-      </svg>
-    </button>
-  );
-};
-const Prev = (props) => {
-  return (
-    <button
-      onClick={props.onClick}
-      className="prev d-sm-flex justify-content-center d-none d-sm-block align-items-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="9.681"
-        height="16.533"
-        viewBox="0 0 9.681 16.533"
-      >
-        <path
-          id="Path_6"
-          data-name="Path 6"
-          d="M285.935,1334.071l-7.559,7.56,7.559,7.559"
-          transform="translate(-276.961 -1333.363)"
-          fill="none"
-          stroke="#16191e"
-          strokeWidth="2"
-          opacity="0.6"
-        />
-      </svg>
-    </button>
-  );
-};
+export default withRouter(StockSoldSlider);

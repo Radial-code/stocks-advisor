@@ -56,7 +56,7 @@ const DummySlider = ({ history }) => {
     nextArrow: <Next />,
     prevArrow: <Prev />,
   };
-
+  console.log("newsListDatassssss", newsListData);
   return (
     <div className="container my-4 ">
       <div className="row">
