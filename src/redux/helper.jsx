@@ -3,6 +3,7 @@ export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
 // export let SERVER_URL = "http://192.168.0.198:5000";
 // export let SERVER_URL = "https://a8f5-150-242-175-191.ngrok.io";
 
+//push code
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
 
 export async function axiosRequest(method, url, data = null) {
