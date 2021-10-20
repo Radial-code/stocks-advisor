@@ -26,7 +26,6 @@ const NetflixChart = ({ setType, type }) => {
       return "dayData";
     } else if (type === "1w") {
       let m = date.split("-");
-      console.log("index", index);
       return "W"[index + 1];
     } else {
       let m = date.split("-");
@@ -139,7 +138,6 @@ const NetflixChart = ({ setType, type }) => {
             }}
           >
             <Line type="monotone" dataKey="uv" />
-
             <CartesianGrid stroke="0" />
             <defs>
               <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -169,7 +167,6 @@ const NetflixChart = ({ setType, type }) => {
               tickFormatter={(number) => `$${number}`}
             />
             <Tooltip />
-
             <Area
               type="monotone"
               dataKey="uv"
@@ -185,5 +182,4 @@ const NetflixChart = ({ setType, type }) => {
     </div>
   );
 };
-
 export default NetflixChart;

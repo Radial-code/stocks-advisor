@@ -3,9 +3,12 @@ import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import moment from "moment";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 
 const NewsDetailsPage = ({ history, loading }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
@@ -27,7 +30,13 @@ const NewsDetailsPage = ({ history, loading }) => {
               alt=""
             /> */}
             <LinkPreview url={newsDetails && newsDetails.link} width="100%" />
-            <h6 className="text-end section-heading mt-4 fs-sm-18">
+            <h6
+              className={` ${
+                layoutClickChanger
+                  ? "text-end section-heading mt-4 fs-sm-18"
+                  : "section-heading mt-4 fs-sm-18"
+              } `}
+            >
               {newsDetails && newsDetails.title ? newsDetails.title : "N/A"}
             </h6>
             <p
@@ -40,8 +49,15 @@ const NewsDetailsPage = ({ history, loading }) => {
             >
               <span>{newsDetails.tags}</span>
             </p>
-            <p className="small-paragraph text-end">
-              <span className="ps-1 cursor-pointer fw-bold">Stock :</span>
+
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "small-paragraph text-end"
+                  : "small-paragraph"
+              }`}
+            >
+              <span className="cursor-pointer fw-bold">Stock :</span>
               <span
                 onClick={() =>
                   history.push(
@@ -60,7 +76,13 @@ const NewsDetailsPage = ({ history, loading }) => {
                   : "N/A"}
               </span>
             </p>
-            <p className="text-end stock-paragraph mt-4 fs-sm-13">
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "text-end stock-paragraph mt-3 fs-sm-13"
+                  : "stock-paragraph mt-3 fs-sm-13"
+              }`}
+            >
               {moment(newsDetails.createdAt).format("DD/MMM/YYYY")}
             </p>
           </div>

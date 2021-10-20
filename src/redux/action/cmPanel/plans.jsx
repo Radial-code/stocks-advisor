@@ -5,7 +5,6 @@ import {
   getPlansListApi,
   updatePlansDetailsApi,
 } from "../../api/cmPanel/plans";
-import { getPlanDetailsByIdApi } from "../../api/payment";
 
 export const GET_PLANS_LIST = "GET_PLANS_LIST";
 export const UPDATE_PLANS_DETAILS = "UPDATE_PLANS_DETAILS";

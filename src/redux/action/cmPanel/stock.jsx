@@ -95,21 +95,16 @@ const getStockDetails = (data) => ({
 
 // REMOVE STOCK DETAILS DATA
 
-export const removeStockDetailData = () => (
-  console.log("remove"),
-  {
-    type: REMOVE_STOCK_DETAIL_DATA,
-  }
-);
+export const removeStockDetailData = () => ({
+  type: REMOVE_STOCK_DETAIL_DATA,
+});
 
 export const getStockDetailsAction = (id, setLoading) => async (dispatch) => {
   setLoading(true);
-  console.log(id);
   try {
     const response = await getStockDetailsApi(id);
     if (response.success) {
       dispatch(getStockDetails(response.details));
-      console.log(response.details, "detail");
       setLoading(false);
     } else {
       setLoading(false);
@@ -285,7 +280,6 @@ export const getUserProfileDetailsAction =
     try {
       const response = await getUserProfileDataApi(userId);
       if (response.success) {
-        console.log(response);
         dispatch(getUserDetails(response.data));
 
         setLoading(false);

@@ -68,10 +68,12 @@ const OurPlans = ({ homepage, history }) => {
                               <span> {value.price} $</span>
                             </p>
                           </div>
-                          <p className="card-paragraph  mt-4">
+                          <p className=" mt-4">
                             {value.details
                               ? value.details.map((val) => (
-                                  <li className="list-unstyled">{val}</li>
+                                  <ul>
+                                    <li className="">{val}</li>
+                                  </ul>
                                 ))
                               : "N/A"}
                           </p>

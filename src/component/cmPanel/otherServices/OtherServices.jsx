@@ -3,7 +3,8 @@ import Category from "./Category";
 import "../otherServices/OtherServices.css";
 import Portfolio from "./Portfolio";
 import Exchange from "./Exchange";
-const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
+
+const OtherServices = () => {
   const [categoryTable, setCategoryTable] = useState(true);
   const [portfolioTable, setPortfolioTable] = useState(false);
   const [exchangeTable, setExchangeTable] = useState(false);
@@ -25,35 +26,7 @@ const OtherServices = ({ sideBarHandler, setSidebarActive, sidebarActive }) => {
   };
   return (
     <div className="container ">
-      {/* <div
-        onClick={() => setSidebarActive((preState) => !preState)}
-        className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
-      ></div> */}
       <div className="row">
-        {/* <div className="col-12">
-          <div className="content-manager pb-4 mb-3">
-            <div className="d-flex  border-b-1  justify-content-between ">
-              <p className="heading-stock pr-15 fs-sm-20 mb-0">
-                Content Manager
-              </p>
-              <span className="cursor-pointer" onClick={sideBarHandler}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="54"
-                  height="54"
-                  fill="currentColor"
-                  className="bi bi-list"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div> */}
         <div className="col-12 ">
           <div className="other-services bg-white  p-sm-3 p-2">
             <div className="row justify-content-between flex-md-row flex-column align-items-center pt-4">

@@ -63,5 +63,4 @@ const Stockpage = ({ match }) => {
     </div>
   );
 };
-
 export default withRouter(Stockpage);

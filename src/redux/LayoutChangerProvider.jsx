@@ -1,10 +1,16 @@
 import { useState, useContext, createContext } from "react";
+
 const LayoutChangerProviderContext = createContext();
+
 export function useLayoutChangerProvider() {
   return useContext(LayoutChangerProviderContext);
 }
+
 export default function LayoutChangerProvider({ children }) {
-  const [layoutClickChanger, setLayoutClickChanger] = useState(true);
+  const initialLanguage = localStorage.getItem("stock-advisor-lang");
+  const [layoutClickChanger, setLayoutClickChanger] = useState(
+    initialLanguage === "Arabic" ? true : false
+  );
   const value = {
     setLayoutClickChanger,
     layoutClickChanger,
@@ -16,18 +22,3 @@ export default function LayoutChangerProvider({ children }) {
     </LayoutChangerProviderContext.Provider>
   );
 }
-
-//    <button onClick={layoutleftChangeHandler}>change in arabic layout</button>
-//       <button onClick={layoutrightChangeHandler}>
-//         change to english layout
-//       </button>
-
-// const layoutleftChangeHandler = () => {
-//   setLayoutChanger(true);
-// };
-
-// const layoutrightChangeHandler = () => {
-//   setLayoutChanger(false);
-// };
-
-//   const [layoutClickChanger, setLayoutClickChanger] = useState();

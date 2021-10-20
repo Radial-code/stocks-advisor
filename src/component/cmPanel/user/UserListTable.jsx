@@ -69,7 +69,7 @@ const UserListTable = () => {
                     onClick={() => history.push(`/content/manager/user/${_id}`)}
                   >
                     <td className="text-end whitespace Ellipse">
-                      {moment(createdAt).format("MM/ddd")}
+                      {moment(createdAt).format("DD/MM/YY")}
                     </td>
                     <td className="text-end whitespace Ellipse" dir="ltr">
                       {firstName} {lastName}

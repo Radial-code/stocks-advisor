@@ -200,5 +200,4 @@ function Notification() {
     </Col>
   );
 }
-
 export default Notification;

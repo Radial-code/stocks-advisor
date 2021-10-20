@@ -9,22 +9,14 @@ import Sortarrow from "../../assets/img/sortarrow.png";
 import { getRelatedSoldStockNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 
+const data = [];
 function SoldStock({ loading, history, setSoldLoading }) {
   const dispatch = useDispatch();
-  const [data, setData] = useState([]);
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   useEffect(() => {
-    console.log("data", data);
-    console.log(
-      "data",
-      soldStockList.length === data.length,
-      soldStockList.length,
-      data.length
-    );
     if (!!soldStockList.length) {
       if (soldStockList.length === data.length) {
-        console.log("datade", data.length);
         dispatch(
           getRelatedSoldStockNewsAction({ stockIds: data }, setSoldLoading)
         );
@@ -146,5 +138,4 @@ function SoldStock({ loading, history, setSoldLoading }) {
     </div>
   );
 }
-
 export default withRouter(SoldStock);

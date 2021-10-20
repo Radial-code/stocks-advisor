@@ -144,5 +144,4 @@ function PlansTable({ history }) {
     </>
   );
 }
-
 export default withRouter(PlansTable);

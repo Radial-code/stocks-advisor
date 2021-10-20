@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getPortFolioChatListDataAction } from "../../redux/action/portfolio";
+import BubblesLoader from "../common/BubblesLoader";
 import LineChart from "./LineChart";
 
 const Chart = () => {
@@ -17,7 +18,6 @@ const Chart = () => {
     dispatch(getPortFolioChatListDataAction(setLoading));
   }, []);
 
-  console.log("portfoliosChatList", portfoliosChatList);
   return (
     <>
       <div className="pr-15 pl-15 ">
@@ -27,15 +27,18 @@ const Chart = () => {
           </p>
         </div>
       </div>
-      <div>
-        {portfoliosChatList && portfoliosChatList.length
-          ? portfoliosChatList.map((chatValue, index) => {
-              return <LineChart chatValue={chatValue} index={index} />;
-            })
-          : null}
-      </div>
+      {loading ? (
+        <BubblesLoader />
+      ) : (
+        <div>
+          {portfoliosChatList && portfoliosChatList.length
+            ? portfoliosChatList.map((chatValue, index) => {
+                return <LineChart chatValue={chatValue} index={index} />;
+              })
+            : null}
+        </div>
+      )}
     </>
   );
 };
-
 export default Chart;

@@ -62,5 +62,4 @@ const StockSoldSlider = ({ loader }) => {
     </>
   );
 };
-
 export default withRouter(StockSoldSlider);

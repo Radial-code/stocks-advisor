@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../cmPanelCss/addnewstock.css";
-import { Col } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import AddStockForm from "./AddStockForm";
 import {
@@ -9,26 +8,18 @@ import {
   removeStockDetailData,
 } from "../../../redux/action/cmPanel/stock";
 
-const AddStock = ({
-  sideBarHandler,
-  setSidebarActive,
-  sidebarActive,
-  match,
-}) => {
+const AddStock = ({ setSidebarActive, sidebarActive, match }) => {
   const dispatch = useDispatch();
   const { id } = match.params;
   const [loading, setLoading] = useState(false);
   const [edit, setEdit] = useState(false);
-  // const stockListData = useSelector(state => state.cmPanel.stockList)
-  console.log(id);
+
   useEffect(() => {
     if (id) {
       setEdit(true);
-      console.log("id ======>", id);
       dispatch(getStockDetailsAction(id, setLoading));
     }
     return () => {
-      console.log("clean");
       dispatch(removeStockDetailData());
     };
   }, []);
@@ -40,28 +31,6 @@ const AddStock = ({
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <div className="row h-100">
-        {/* <Col xs={12}>
-          <div className="border-b-1 content-manager mb-3">
-            <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
-              <span onClick={sideBarHandler}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="54"
-                  height="54"
-                  fill="currentColor"
-                  className="bi bi-list"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </Col> */}
         <AddStockForm detailLoading={loading} edit={edit} />
       </div>
     </div>

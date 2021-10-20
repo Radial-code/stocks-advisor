@@ -13,8 +13,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Footer = ({ history }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
@@ -164,7 +163,7 @@ const Footer = ({ history }) => {
               <a target="_blank" href="https://www.instagram.com">
                 <InstagramIcon />
               </a>
-              <a target="_blank" href="https://ads.twitter.com">
+              <a target="_blank" href="https://www.twitter.com">
                 <TwitterIcon />
               </a>
               <a target="_blank" href="https://www.linkedin.com/notifications/">

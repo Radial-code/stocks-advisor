@@ -45,7 +45,6 @@ const AddNewNews = ({ edit, match, history }) => {
 
   useEffect(() => {
     if (newsDetailsList) {
-      console.log("newsDetailsList", newsDetailsList);
       setNewsDetails({
         title: newsDetails.title ? newsDetails.title : newsDetailsList.title,
         atitle: newsDetails.atitle
@@ -295,52 +294,6 @@ const AddNewNews = ({ edit, match, history }) => {
                 </label>
               </button>
             </Form.Group>
-            {/* <div className="inputs-border   d-flex justify-content-between align-items-center py-2 ps-1 pe_12">
-              {input !== "" ? (
-                <span className="small-paragraph d-none d-sm-block Ellipse">
-                  {input}
-                </span>
-              ) : (
-                <span className="small-paragraph d-none d-sm-block">
-                  YouTube / Image Link
-                </span>
-              )}
-              {input !== "" ? (
-                <span className="small-paragraph d-block d-sm-none ">
-                  {input}
-                </span>
-              ) : (
-                <span className="small-paragraph d-block d-sm-none">
-                  Video/ Image Link
-                </span>
-              )}
-
-              <input
-                onChange={(e) => setInput(e.target.value)}
-                type="file"
-                value={uploadImageUrl ? uploadImageUrl : null}
-                id="my-file"
-                onChange={(e) =>
-                  dispatch(uploadImageAction(e, setLoadingImage, "news"))
-                }
-                hidden
-              />
-
-              <button className="upload-img-btn d-none d-sm-block cursor-pointer">
-                {loadingImage ? (
-                  <Loader />
-                ) : (
-                  <label className="cursor-pointer" for="my-file">
-                    Upload Image
-                  </label>
-                )}
-              </button>
-              <button className="upload-img-btn d-block d-sm-none cursor-pointer">
-                <label className="cursor-pointer" for="my-file">
-                  Upload
-                </label>
-              </button>
-            </div> */}
             <span className="text-danger">
               {error && uploadImageUrl === "" ? "Media link is required" : null}
             </span>
@@ -434,26 +387,6 @@ const AddNewNews = ({ edit, match, history }) => {
                 });
               }}
             />
-
-            {/* <div className="form-check cursor-pointer">
-              <input
-                className="form-check-input cursor-pointer"
-                type="checkbox"
-                id="flexCheckDefault"
-                onChange={(e) => {
-                  setNewsDetails({
-                    ...newsDetails,
-                    showOnHomePage: e.target.checked,
-                  });
-                }}
-              />
-              <label
-                className="form-check-label check-box-text cursor-pointer"
-                for="flexCheckDefault"
-              >
-                Feature on homepage
-              </label>
-            </div> */}
           </div>
         </div>
         <div className=" ">
