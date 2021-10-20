@@ -195,6 +195,9 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
 
 .stock-heading {
   font-weight: 600;

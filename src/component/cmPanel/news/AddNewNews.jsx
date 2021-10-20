@@ -13,6 +13,19 @@ import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import { uploadImageAction } from "../../../redux/uploadImage";
 
+const initialState = {
+  title: "",
+  atitle: "",
+  description: "",
+  adescription: "",
+  showOnHomePage: false,
+  stock: "",
+  tags: "",
+  atags: "",
+  media: "",
+  link: "",
+};
+
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
   const dispatch = useDispatch();
@@ -30,46 +43,12 @@ const AddNewNews = ({ edit, match, history }) => {
   const [error, setError] = useState(false);
   const [addStockLoading, setAddStockLoading] = useState(false);
   const [input, setInput] = useState("");
-  const [newsDetails, setNewsDetails] = useState({
-    title: "",
-    atitle: "",
-    description: "",
-    adescription: "",
-    showOnHomePage: false,
-    stock: "",
-    tags: "",
-    atags: "",
-    media: uploadImageUrl ? uploadImageUrl : "",
-    link: "",
-  });
+  const [newsDetails, setNewsDetails] = useState(initialState);
 
   useEffect(() => {
     console.log("newsDetailsList", newsDetailsList);
     if (newsDetailsList) {
-      setNewsDetails({
-        title: newsDetails.title ? newsDetails.title : newsDetailsList.title,
-        atitle: newsDetails.atitle
-          ? newsDetails.atitle
-          : newsDetailsList.atitle,
-        description: newsDetails.description
-          ? newsDetails.description
-          : newsDetailsList.description,
-        adescription: newsDetails.adescription
-          ? newsDetails.adescription
-          : newsDetailsList.adescription,
-        showOnHomePage: newsDetails.showOnHomePage
-          ? newsDetails.showOnHomePage
-          : newsDetailsList.showOnHomePage,
-        stock: newsDetails.stock
-          ? newsDetails.stock
-          : newsDetailsList &&
-            newsDetailsList.stock &&
-            newsDetailsList.stock.symbol,
-        tags: newsDetails.title ? newsDetails.title : newsDetailsList.title,
-        atags: newsDetails.title ? newsDetails.title : newsDetailsList.title,
-        media: uploadImageUrl ? uploadImageUrl : "",
-        link: newsDetails.media ? newsDetails.media : newsDetailsList.media,
-      });
+      setNewsDetails(newsDetailsList);
     }
   }, [newsDetailsList]);
 
@@ -231,6 +210,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 tags={atags}
                 placeholder="Arabic Details"
                 maxTags={5}
+                value={newsDetails.atags}
                 editable={true}
                 readOnly={false}
                 removeOnBackspace={true}
@@ -249,6 +229,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 maxTags={5}
                 editable={true}
                 readOnly={false}
+                value={newsDetails.tags}
                 removeOnBackspace={true}
                 onChange={(newTags) => setTags(newTags)}
               />

@@ -380,6 +380,15 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           </label>
                           <input
                             key={index}
+                            checked={
+                              !!stockDetailsList &&
+                              stockDetailsList.portfolios &&
+                              stockDetailsList.portfolios.length > 0
+                                ? stockDetailsList.portfolios.map((val) => {
+                                    return val._id === value._id ? true : false;
+                                  })
+                                : false
+                            }
                             type="checkbox"
                             onClick={() => selectPortfolio(value._id)}
                             className="cursor-pointer mx-2"
@@ -404,8 +413,12 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <>
                   <button
                     type="button"
-                    disabled={addStockLoading}
-                    className="update-btn my-3 ff-popins"
+                    disabled={stockDetailsList.isSold ? true : addStockLoading}
+                    className={`${
+                      stockDetailsList.isSold
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    } update-btn my-3 ff-popins`}
                     onClick={() => updateStockDetails()}
                   >
                     {updateLoading ? <Loader /> : "Update"}
