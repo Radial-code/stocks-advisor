@@ -14,7 +14,7 @@ const Stockpage = ({ match }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState("1y");
-  const [relatedNewsApi, getRelatedNewsApi] = useState(false);
+  const [relatedNewsLoader, getRelatedNewsLoader] = useState(false);
   const { id, tags } = match.params;
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Stockpage = ({ match }) => {
           stockId: id,
           tags: tags,
         };
-        dispatch(getRelatedNewsAction(data, getRelatedNewsApi));
+        dispatch(getRelatedNewsAction(data, getRelatedNewsLoader));
       }
     }
   }, [id, tags]);

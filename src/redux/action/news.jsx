@@ -212,20 +212,20 @@ const getRelatedNews = (data) => ({
 });
 
 export const getRelatedNewsAction =
-  (data, setRelatedLoading) => async (dispatch) => {
-    setRelatedLoading(true);
+  (data, getRelatedNewsLoader) => async (dispatch) => {
+    getRelatedNewsLoader(true);
     try {
       const response = await getRelatedNewsApi(data);
       if (response.success) {
         dispatch(getRelatedNews(response.news));
-        setRelatedLoading(false);
+        getRelatedNewsLoader(false);
       } else {
-        setRelatedLoading(false);
+        getRelatedNewsLoader(false);
         Swal.fire("Error", "Failed to Load News list", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {
-      setRelatedLoading(false);
+      getRelatedNewsLoader(false);
       Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }

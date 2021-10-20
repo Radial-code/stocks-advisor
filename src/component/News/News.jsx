@@ -25,9 +25,6 @@ const News = () => {
         <Row>
           <Col xl={8}>
             <AllNews />
-            {/* <div>
-              <PagiNation />
-            </div> */}
           </Col>
           <Col
             xl={4}

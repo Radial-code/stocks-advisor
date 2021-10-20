@@ -47,5 +47,4 @@ const OtpInputs = () => {
     </div>
   );
 };
-
 export default OtpInputs;

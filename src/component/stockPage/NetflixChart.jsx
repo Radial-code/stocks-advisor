@@ -18,19 +18,21 @@ const NetflixChart = ({ setType, type }) => {
   const stockChatList = useSelector((state) => state.list.stockChatList);
   const [chatList, setChatList] = useState([]);
   const getMonth = (date, index) => {
-    if (type === "1m") {
-      return "minuteData";
-    } else if (type === "1h") {
-      return "hourData";
-    } else if (type === "1d") {
-      return "dayData";
-    } else if (type === "1w") {
-      let m = date.split("-");
-      return "W"[index + 1];
-    } else {
-      let m = date.split("-");
-      return m[1] + "/" + m[0];
-    }
+    // if (type === "1m") {
+    //   return "minuteData";
+    // } else if (type === "1h") {
+    //   return "hourData";
+    // } else if (type === "1d") {
+    //   return "dayData";
+    // } else if (type === "1w") {
+    //   let m = date.split("-");
+    //   return "W"[index + 1];
+    // } else {
+    //   let m = date.split("-");
+    //   return m[1] + "/" + m[0];
+    // }
+    let m = date.split("-");
+    return m[1] + "/" + m[0];
   };
 
   const getKey = (type) => {

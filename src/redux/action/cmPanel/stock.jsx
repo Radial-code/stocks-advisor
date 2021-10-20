@@ -38,7 +38,7 @@ export const addNewStockDetailsAction =
       const response = await addNewStockDetailsApi(data);
       if (response.success) {
         setAddStockLoading(false);
-        Swal.fire("Success", "Stock submitted successfully", "success");
+        Swal.fire("Success", "Stock Submitted successfully", "success");
         setTimeout(Swal.close, 2000);
       } else {
         setAddStockLoading(false);

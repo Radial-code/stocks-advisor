@@ -98,5 +98,4 @@ function App({ history }) {
     </LayoutChangerProvider>
   );
 }
-
 export default withRouter(App);

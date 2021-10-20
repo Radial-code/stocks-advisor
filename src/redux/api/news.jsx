@@ -57,7 +57,7 @@ export const getNewsDetailsApi = async (id) => {
  * @returns
  */
 export const getNewsForAdminApi = async () => {
-  return await axiosRequest("GET", `/news?page=0&limit=10`);
+  return await axiosRequest("GET", `/news?home=false&page=0&limit=10`);
 };
 
 /**
