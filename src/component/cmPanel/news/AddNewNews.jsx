@@ -44,6 +44,7 @@ const AddNewNews = ({ edit, match, history }) => {
   });
 
   useEffect(() => {
+    console.log("newsDetailsList", newsDetailsList);
     if (newsDetailsList) {
       setNewsDetails({
         title: newsDetails.title ? newsDetails.title : newsDetailsList.title,
@@ -157,6 +158,7 @@ const AddNewNews = ({ edit, match, history }) => {
               <Form.Control
                 type="text"
                 placeholder="Arabic Title"
+                value={newsDetails.atitle}
                 onChange={(e) => {
                   setNewsDetails({
                     ...newsDetails,
@@ -179,6 +181,7 @@ const AddNewNews = ({ edit, match, history }) => {
               <Form.Control
                 type="text"
                 placeholder="English Title"
+                value={newsDetails.atitle}
                 onChange={(e) => {
                   setNewsDetails({
                     ...newsDetails,
@@ -266,6 +269,7 @@ const AddNewNews = ({ edit, match, history }) => {
                     link: e.target.value,
                   });
                 }}
+                value={newsDetails.link}
                 type="text"
                 placeholder="YouTube / Image Link "
               />
@@ -300,22 +304,24 @@ const AddNewNews = ({ edit, match, history }) => {
           </div>
           <div className="col-12 col-lg-6 mb-3">
             <FormGroup
-              value={newsDetails.portfolio}
               onChange={(e) => {
                 setNewsDetails({
                   ...newsDetails,
                   stock: e.target.value,
                 });
               }}
+              value={newsDetails.stock}
               className=" add-new-stock-select mb-3"
             >
               <select className="form-select text-end cursor-pointer">
                 <option>Stock</option>
-                {!!stockList && !!stockList.length ? (
+                {stockList ? (
                   stockList.map((stock, index) => {
                     return (
                       <option key={index} value={stock._id}>
-                        {stock.portfolio.title}
+                        {stock && stock.portfolio && stock.portfolio.title
+                          ? stock.portfolio.title
+                          : "N/A"}
                       </option>
                     );
                   })
@@ -342,6 +348,7 @@ const AddNewNews = ({ edit, match, history }) => {
                   adescription: e.target.value,
                 });
               }}
+              value={newsDetails.adescription}
             ></textarea>
             <span className="text-danger">
               {error && newsDetails.adescription === ""
@@ -363,6 +370,7 @@ const AddNewNews = ({ edit, match, history }) => {
                   description: e.target.value,
                 });
               }}
+              value={newsDetails.description}
             ></textarea>
             <span className="text-danger">
               {error && newsDetails.description === ""

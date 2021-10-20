@@ -32,7 +32,7 @@ export const REMOVE_PLAN_DETAILS = "REMOVE_PLAN_DETAILS";
  * @returns
  */
 export const addNewStockDetailsAction =
-  (data, setAddStockLoading) => async () => {
+  (data, setAddStockLoading, history) => async () => {
     setAddStockLoading(true);
     try {
       const response = await addNewStockDetailsApi(data);
@@ -40,6 +40,7 @@ export const addNewStockDetailsAction =
         setAddStockLoading(false);
         Swal.fire("Success", "Stock Submitted successfully", "success");
         setTimeout(Swal.close, 2000);
+        history.push("/content/manager/stocks");
       } else {
         setAddStockLoading(false);
         Swal.fire("Error", "Failed to add stock", "error");
@@ -239,25 +240,27 @@ export const getTeamMemberListAction = (setLoading) => async (dispatch) => {
  * @param {Boolen} setLoading
  * @returns
  */
-export const updateStockDetailsAction = (id, data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await updateStockDetailsApi(id, data);
-    if (response.success) {
+export const updateStockDetailsAction =
+  (id, data, setLoading, history) => async () => {
+    setLoading(true);
+    try {
+      const response = await updateStockDetailsApi(id, data);
+      if (response.success) {
+        setLoading(false);
+        Swal.fire("Success", "Updated stock successfully", "success");
+        setTimeout(Swal.close, 2000);
+        history.push("/content/manager/stocks");
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Update stock", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-      Swal.fire("Success", "Updated stock successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Update stock", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get user details action

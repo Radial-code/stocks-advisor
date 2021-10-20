@@ -26,7 +26,7 @@ const initialState = {
   joinPrice: "",
   category: "",
   exchange: "",
-  portfolio: [],
+  portfolios: [],
   soldDate: "",
   soldPrice: "",
   symbol: "",
@@ -69,15 +69,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       stockDetails.joinPrice !== "" &&
       stockDetails.category !== "" &&
       stockDetails.exchange !== "" &&
-      stockDetails.portfolio.length &&
+      stockDetails.portfolios.length &&
       stockDetails.symbol !== ""
     ) {
       dispatch(
-        addNewStockDetailsAction(
-          stockDetails,
-          setAddStockLoading,
-          setStockDetails
-        )
+        addNewStockDetailsAction(stockDetails, setAddStockLoading, history)
       );
       setError(false);
       setStockDetails({
@@ -85,7 +81,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         joinPrice: "",
         category: "",
         exchange: "",
-        portfolio: [],
+        portfolios: [],
         soldDate: "",
         soldPrice: "",
         symbol: "",
@@ -108,10 +104,12 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         stockDetails.joinPrice !== "" &&
         stockDetails.category !== "" &&
         stockDetails.exchange !== "" &&
-        stockDetails.portfolio.length &&
+        // stockDetails.portfolios.length &&
         stockDetails.symbol !== ""
       ) {
-        dispatch(updateStockDetailsAction(id, stockDetails, setUpdateLoading));
+        dispatch(
+          updateStockDetailsAction(id, stockDetails, setUpdateLoading, history)
+        );
       }
     }
   };
@@ -132,7 +130,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       var indexvalueId = valueId.indexOf({ portfolioId: id });
       valueId.splice(indexvalueId, 1);
     }
-    stockDetails.portfolio = data;
+    stockDetails.portfolios = data;
   };
 
   return (
@@ -393,7 +391,10 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               </>
             )}
             <span className="text-danger">
-              {error && !stockDetails.portfolio.length
+              {error &&
+              stockDetails &&
+              stockDetails.portfolio &&
+              !stockDetails.portfolio.length
                 ? "Portfolio is required"
                 : null}
             </span>

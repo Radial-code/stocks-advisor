@@ -9,8 +9,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const CurrentStockTable = ({ history }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const stockList = useSelector((state) => state.cmPanel.stockList);
@@ -122,7 +121,7 @@ const CurrentStockTable = ({ history }) => {
                 </span>
                 Symbol
               </th>
-              <th
+              {/* <th
                 scope="col"
                 className={`${
                   layoutClickChanger
@@ -134,7 +133,7 @@ const CurrentStockTable = ({ history }) => {
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
                 Portfolio
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
@@ -229,7 +228,7 @@ const CurrentStockTable = ({ history }) => {
                       >
                         {value.symbol ? value.symbol : "N/A"}
                       </td>
-                      <td
+                      {/* <td
                         className={`${
                           layoutClickChanger
                             ? "text-end whitespace Ellipse"
@@ -239,7 +238,7 @@ const CurrentStockTable = ({ history }) => {
                         {value && value.portfolio
                           ? value.portfolio.title
                           : "N/A"}
-                      </td>
+                      </td> */}
                     </tr>
                   );
                 })
