@@ -26,9 +26,11 @@ const NotificationTable = () => {
                   key={index}
                   className="current-stock-data table-border-bottom sold-stock-data"
                 >
-                  <td className="email text-center">{value.title}</td>
-                  <td className="email text-center">{value.body}</td>
-                  <td className="email text-center">
+                  <td className="email text-center whitespace">
+                    {value.title}
+                  </td>
+                  <td className="email text-center whitespace">{value.body}</td>
+                  <td className="email text-center whitespace">
                     {moment(value.createdAt).format("DD/MM/YY")}
                   </td>
                 </tr>

@@ -1,21 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { Manage, Notify, ProfileIcon, Back, Payment } from "../icons/Icons";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
 
-function SidebarDashboard({ history, showSidebar, setShowSidebar }) {
+function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const [activeLink, setActiveLink] = useState("manage");
-
+  console.log(window.location);
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
     document.dir = "ltr";
   }
 
+  useEffect(() => {
+    const path = window.location.pathname.split("/");
+    console.log(match);
+    if (path.includes("manage")) {
+      setActiveLink("manage");
+    } else if (path.includes("update")) {
+      setActiveLink("update");
+    } else if (path.includes("users")) {
+      setActiveLink("users");
+    } else if (path.includes("notification")) {
+      setActiveLink("notification");
+    } else if (path.includes("profile")) {
+      setActiveLink("profile");
+    } else if (path.includes("payment")) {
+      setActiveLink("payment");
+    }
+  }, []);
   const openRoutes = (value) => {
     setShowSidebar(false);
     setActiveLink(value);
