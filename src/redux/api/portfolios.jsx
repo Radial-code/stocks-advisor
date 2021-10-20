@@ -17,3 +17,12 @@ export const getPortfolioListApi = async () => {
 export const addPortfolioApi = async (data) => {
   return await axiosRequest("POST", `/portfolio`, data);
 };
+
+/**
+ * User updated by admin Api
+ * @param {Object} data
+ * @returns
+ */
+export const userUpdateByAdminApi = async (userId, data) => {
+  return await axiosRequest("PUT", `/users/${userId}`, data);
+};

@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllNewsListAction } from "../../redux/action/news";
 import { Container, Row, Col } from "react-bootstrap";
 import Chart from "../home/Chart";
 import AllNews from "./AllNews";
 import Plans from "../plan/Plans";
+import { useLocation } from "react-router-dom";
 import "./Newspage.css";
+import { Component } from "react";
 
 const News = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   useEffect(() => {
     dispatch(getAllNewsListAction(setLoading));
   }, []);

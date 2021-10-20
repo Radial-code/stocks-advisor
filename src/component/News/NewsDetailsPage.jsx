@@ -1,5 +1,5 @@
 import React from "react";
-import HomepageSlider from "../../assets/img/HomepageSlider.png";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import moment from "moment";
@@ -17,8 +17,16 @@ const NewsDetailsPage = ({ history, loading }) => {
       ) : (
         <div className="profile-box-2 w-xs-303 p-4">
           <div className=" my-3">
-            <img className="w-100 h-xs-171" src={HomepageSlider} alt="" />
-
+            {/* <img
+              className="w-100 h-xs-171"
+              src={
+                newsDetails && newsDetails.imagePath
+                  ? newsDetails.imagePath
+                  : "N/A"
+              }
+              alt=""
+            /> */}
+            <LinkPreview url={newsDetails && newsDetails.link} width="100%" />
             <h6 className="text-end section-heading mt-4 fs-sm-18">
               {newsDetails && newsDetails.title ? newsDetails.title : "N/A"}
             </h6>
