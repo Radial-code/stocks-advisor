@@ -170,11 +170,18 @@ const CurrentStockTable = ({ history }) => {
                             : "text-start whitespace Ellipse"
                         } `}
                       >
-                        {value &&
+                        {/* {value &&
                         value.profitOrLoss &&
                         value.profitOrLoss.percentage
                           ? value.profitOrLoss.percentage
-                          : "N/A"}
+                          : "N/A"} */}
+                        {parseInt(
+                          value &&
+                            value.profitOrLoss &&
+                            value.profitOrLoss.percentage
+                            ? value.profitOrLoss.percentage
+                            : "N/A"
+                        ).toFixed(2)}
                       </td>
 
                       <td

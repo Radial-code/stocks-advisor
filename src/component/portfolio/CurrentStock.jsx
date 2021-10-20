@@ -5,6 +5,7 @@ import moment from "moment";
 
 function CurrentStock({ history }) {
   const currentStockList = useSelector((state) => state.list.currentStockList);
+
   return (
     <div className="table-responsive scroll-bar current-stock-scrollbar ">
       {currentStockList && currentStockList.length ? (
@@ -97,8 +98,16 @@ function CurrentStock({ history }) {
                     <td className="text-center whitespace">
                       ${value.currentPrice}
                     </td>
-                    <td className="text-center profitloss-text whitespace">
-                      {value.profitOrLoss.percentage}
+                    <td
+                      className={`${
+                        value.profitOrLoss.status === 0
+                          ? "profitloss-text"
+                          : value.profitOrLoss.status === 1
+                          ? "text-dark"
+                          : "text-danger"
+                      }`}
+                    >
+                      {parseInt(value.profitOrLoss.percentage).toFixed(2)}
                     </td>
                   </tr>
                 </tbody>
