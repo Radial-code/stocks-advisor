@@ -82,6 +82,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     setOverlayActive(true);
   };
 
+  const [accdrianColor, setAccdrianColor] = useState(true);
+  const accordianColorChangeHandler = () => {
+    setAccdrianColor(false);
+  };
+
   const searchHandler = () => {
     history.goBack();
     searchPage();
@@ -152,7 +157,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 exact
                 to="/"
                 activeClassName="active_underline_navbar "
-                className="navbar_Links_text nav-text-border-bottom  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
+                className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
                 Home
               </NavLink>
@@ -160,7 +165,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 exact
                 to="/about"
                 activeClassName="active_underline_navbar"
-                className="navbar_Links_text nav-text-border-bottom  py-2   py-xxl-3 mt-3 my-xxl-auto"
+                className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0   py-2   py-xxl-3 mt-3 my-xxl-auto"
               >
                 About
               </NavLink>
@@ -168,7 +173,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 activeClassName="active_underline_navbar"
                 exact
                 to="/news"
-                className="navbar_Links_text nav-text-border-bottom py-2  py-xxl-3 mx-xxl-4 mt-3 my-xxl-auto "
+                className="navbar_Links_text nav-text-border-bottom py-2 px-2 px-xxl-0   py-xxl-3 mx-xxl-4 mt-3 my-xxl-auto "
               >
                 News
               </NavLink>
@@ -176,7 +181,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 exact
                 activeClassName="active_underline_navbar"
                 to="/our-plan"
-                className="navbar_Links_text nav-text-border-bottom py-2  py-xxl-3 mt-3 my-xxl-auto"
+                className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto"
               >
                 Our Plans
               </NavLink>
@@ -184,7 +189,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 exact
                 to="/contact-us"
                 activeClassName="active_underline_navbar"
-                className="navbar_Links_text nav-text-border-bottom mx-xxl-4 py-2  py-xxl-3 mt-3 my-xxl-auto "
+                className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  mx-xxl-4 py-2  py-xxl-3 mt-3 my-xxl-auto "
               >
                 Contact Us
               </NavLink>
@@ -241,9 +246,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
             <div className="d-xxl-none mb-3 d-block ">
               <Accordion>
                 <Card>
-                  <Card.Header className="bg-accordian ">
+                  <Card.Header className="">
                     <Accordion.Toggle
-                      className="w-100 dashboard-accordian my-auto "
+                      onclick={accordianColorChangeHandler}
+                      className={`${accdrianColor ? "w-100  my-auto" : ""}`}
                       eventKey="1"
                     >
                       <div className="d-flex py-2 w-100 justify-content-between ">
@@ -371,13 +377,17 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <>
                   <NavLink
                     exact
+                    activeClassName="active_underline_navbar"
                     to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                    className="navbar_Links_text my-auto my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
+                    className="navbar_Links_text my-auto px-2 px-xxl-0  my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
                   >
                     Portfolio
                   </NavLink>
-                  <Dropdown className="d-flex mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
-                    <Dropdown.Toggle id="dropdown-basic">
+                  <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
+                    <Dropdown.Toggle
+                      className="d-none d-xxl-block"
+                      id="dropdown-basic"
+                    >
                       Dashboard
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
