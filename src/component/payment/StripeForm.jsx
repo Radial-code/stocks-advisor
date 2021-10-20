@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import StripeErrorMessage from "./StripeErrorMessage";
 import StripeCardField from "./StripeCardField";
+
 import { useDispatch, useSelector } from "react-redux";
 import StripeSubmitButton from "./StripeSubmitButton";
 import { useEffect } from "react";
@@ -73,7 +74,7 @@ const StripeForm = ({ loader, match, history }) => {
     <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
       <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">
         <div>
-          <p className="fs-24 payment-stripe-text  ">Payment</p>
+          <p className="fs-24 payment-stripe-text">Payment</p>
         </div>
         <div className="w-483 b-b-1"></div>
         <form className="Form" onSubmit={handleSubmit}>

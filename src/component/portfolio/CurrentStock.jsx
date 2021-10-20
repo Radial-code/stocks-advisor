@@ -66,11 +66,11 @@ function CurrentStock({ history }) {
               return (
                 <tbody key={index} className="table-hover-scale">
                   <tr className="current-stock-data table-border-bottom">
-                    <td className="text-center">
+                    <td className="text-center whitespace">
                       {moment(value.createdAt).format("DD/MMM/YYYY")}
                     </td>
                     <td
-                      className="text-center"
+                      className="text-center whitespace"
                       onClick={() =>
                         history.push(`/stock/news/${value._id}/stock-tags`)
                       }
@@ -78,18 +78,26 @@ function CurrentStock({ history }) {
                       {value.name ? value.name : value.symbol}
                     </td>
                     <td
-                      className="text-center"
+                      className="text-center whitespace"
                       onClick={() =>
                         history.push(`/stock/news/${value._id}/stock-tags`)
                       }
                     >
                       {value.symbol}
                     </td>
-                    <td className="text-center">{value.portfolio.title}</td>
-                    <td className="text-center">{value.category.title}</td>
-                    <td className="text-center">${value.joinPrice}</td>
-                    <td className="text-center">${value.currentPrice}</td>
-                    <td className="text-center profitloss-text">
+                    <td className="text-center whitespace">
+                      {value.portfolio.title}
+                    </td>
+                    <td className="text-center whitespace">
+                      {value.category.title}
+                    </td>
+                    <td className="text-center whitespace">
+                      ${value.joinPrice}
+                    </td>
+                    <td className="text-center whitespace">
+                      ${value.currentPrice}
+                    </td>
+                    <td className="text-center profitloss-text whitespace">
                       {value.profitOrLoss.percentage}
                     </td>
                   </tr>
