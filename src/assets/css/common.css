@@ -64,7 +64,9 @@
   background-color: transparent;
   color: var(--color-88BEFC);
 }
-
+.form-control:disabled {
+  background-color: #6c757d85 !important;
+}
 .log-outbtn:hover {
   background-color: transparent;
   color: var(--color-88BEFC);

@@ -20,8 +20,21 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
 
   useEffect(() => {
     const path = match.path.split("/");
+    console.log(match);
     if (path.includes("our")) {
       setActiveLink("our");
+    } else if (path.includes("news")) {
+      setActiveLink("news");
+    } else if (path.includes("users")) {
+      setActiveLink("users");
+    } else if (path.includes("services")) {
+      setActiveLink("services");
+    } else if (path.includes("team")) {
+      setActiveLink("team");
+    } else if (path.includes("enquiry")) {
+      setActiveLink("enquiry");
+    } else if (path.includes("notification")) {
+      setActiveLink("notification");
     }
   }, []);
   if (layoutClickChanger) {

@@ -82,11 +82,6 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     setOverlayActive(true);
   };
 
-  const [accdrianColor, setAccdrianColor] = useState(true);
-  const accordianColorChangeHandler = () => {
-    setAccdrianColor(false);
-  };
-
   const searchHandler = () => {
     history.goBack();
     searchPage();
@@ -243,13 +238,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 )}
               </span>
             </div>
+
             <div className="d-xxl-none mb-3 d-block ">
               <Accordion>
                 <Card>
                   <Card.Header className="">
                     <Accordion.Toggle
-                      onclick={accordianColorChangeHandler}
-                      className={`${accdrianColor ? "w-100  my-auto" : ""}`}
+                      className="w-100   my-auto bg-accordian"
                       eventKey="1"
                     >
                       <div className="d-flex py-2 w-100 justify-content-between ">
