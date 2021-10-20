@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Form } from "react-bootstrap";
-
 import { Link } from "react-router-dom";
+
 const TeamForm = () => {
   return (
     <Col className="d-flex justify-content-lg-end">
@@ -71,5 +71,4 @@ const TeamForm = () => {
     </Col>
   );
 };
-
 export default TeamForm;

@@ -123,5 +123,4 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
     </>
   );
 }
-
 export default ExchangeTable;

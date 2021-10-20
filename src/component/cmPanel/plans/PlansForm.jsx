@@ -220,22 +220,6 @@ function PlansForm({ history, edit, id }) {
                               onClick={() => selectPortfolio(value._id)}
                               className="cursor-pointer mx-2"
                             />
-                            {/* <div className="form-check ">
-                              <input
-                                key={index}
-                                className="form-check-input cursor-pointer"
-                                type="checkbox"
-                                value=""
-                                id="flexCheckDefault"
-                                onClick={() => selectPortfolio(value._id)}
-                              />
-                              <label
-                                className="form-check-label check-box-text Ellipse"
-                                for="flexCheckDefault"
-                              >
-                                {value.title}
-                              </label>
-                            </div> */}
                           </div>
                         );
                       })
@@ -276,5 +260,4 @@ function PlansForm({ history, edit, id }) {
     </div>
   );
 }
-
 export default withRouter(PlansForm);

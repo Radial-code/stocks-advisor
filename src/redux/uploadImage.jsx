@@ -32,7 +32,7 @@ export const RemoveFileUrlLink = () => ({
  * @returns
  */
 export const uploadImageAction =
-  (e, setLoadingImage, type, setUploadImageUrl) => async (dispatch) => {
+  (e, setLoadingImage, type) => async (dispatch) => {
     setLoadingImage(true);
     try {
       if (e.target.files[0]) {
@@ -50,7 +50,6 @@ export const uploadImageAction =
         form.append("file", file);
         const response = await uploadImageApi(type, form);
         if (response.success) {
-          console.log("setUploadImageUrl", response.file);
           dispatch(uploadImageSuccess(response.file));
           setLoadingImage(false);
         } else {

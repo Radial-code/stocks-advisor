@@ -8,6 +8,7 @@ function Category() {
   const [updateValue, setUpdateValue] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <div>
       <div className="row">

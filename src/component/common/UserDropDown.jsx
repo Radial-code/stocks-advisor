@@ -5,8 +5,7 @@ import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const UserDropDown = ({ history }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const firstname = useSelector((state) => state.auth.userData.firstName);
   const userData = useSelector((state) => state.auth.userData);
   const [dropdown, setdropdown] = useState(false);
@@ -36,13 +35,12 @@ const UserDropDown = ({ history }) => {
           >
             {layoutClickChanger ? (
               <>
-                {" "}
                 <span className="first-char">
                   {firstname && firstname.toUpperCase().charAt(0)}
                 </span>
                 <span className="first-char">
                   {lastname && lastname.toUpperCase().charAt(0)}
-                </span>{" "}
+                </span>
               </>
             ) : (
               <>
@@ -62,7 +60,6 @@ const UserDropDown = ({ history }) => {
           className="bg-white shadow p-2  rounded position-absolute"
           style={{ bottom: "-95px" }}
         >
-          {" "}
           <p
             className=" px-2 py-1 cursor-pointer fw-normal text-center mb-0"
             onClick={() => user()}
@@ -82,5 +79,4 @@ const UserDropDown = ({ history }) => {
     </>
   );
 };
-
 export default withRouter(UserDropDown);

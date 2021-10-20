@@ -4,14 +4,11 @@ import Notification from "./Notification";
 
 function AdminNotification() {
   return (
-    <>
-      <Container>
-        <Row>
-          <Notification />
-        </Row>
-      </Container>
-    </>
+    <Container>
+      <Row>
+        <Notification />
+      </Row>
+    </Container>
   );
 }
-
 export default AdminNotification;

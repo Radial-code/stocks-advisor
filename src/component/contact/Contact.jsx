@@ -2,9 +2,10 @@ import React from "react";
 import ContactForm from "./ContactForm";
 import "./contacts.css";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 const Contact = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
+
   return (
     <div className="container  py-5">
       <div className="row  justify-content-center align-items-center h-100 ">

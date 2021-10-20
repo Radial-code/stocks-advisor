@@ -62,7 +62,7 @@ const NewsArticles = ({ history }) => {
     nextArrow: <Next />,
     prevArrow: <Prev />,
   };
-  console.log("newsListData", newsListData);
+
   return (
     <>
       <div className="container p-left-right">

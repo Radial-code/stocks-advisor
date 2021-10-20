@@ -54,43 +54,6 @@ export const LogoutAction = (setLoadingLogOut, history) => async (dispatch) => {
   }
 };
 
-// export const LogoutAction = (data, setLoading, history) => async (dispatch) => {
-//   setLoading(true);
-//   try {
-//     const response = await LogoutApi(data);
-//     if (response.success) {
-//       dispatch(LoginSuccess(response["x-api-key"]));
-//       localStorage.setItem("stock-advisor", response["x-api-key"]);
-//       setLoading(false);
-//       if (!response.user.isAdmin) {
-//         if (response.user.isPaidPlan) {
-//           history.push("/portfolio/portfolio1");
-//         } else {
-//           history.push("/our-plan");
-//         }
-//       } else {
-//         history.push("/");
-//       }
-//     } else {
-//       setLoading(false);
-//       Swal.fire(
-//         "Error!",
-//         `${
-//           response && response.response && response.response.data
-//             ? response.response.data.message
-//             : "You have entered wrong email or password"
-//         }`,
-//         "error"
-//       );
-//       setTimeout(Swal.close, 2000);
-//     }
-//   } catch (error) {
-//     setLoading(false);
-//     Swal.fire("Error!", "Something went wrong", "error");
-//     setTimeout(Swal.close, 2000);
-//   }
-// };
-
 /**
  * Login action
  * @param {Object} data
@@ -212,7 +175,7 @@ export const getUserProfileAction =
  * @returns
  */
 
-export const UserNameAction = (data, setUserNameError) => async (dispatch) => {
+export const UserNameAction = (data, setUserNameError) => async () => {
   try {
     const response = await UserNameApi(data);
     if (response.success) {
@@ -282,6 +245,7 @@ export const verfiyEmailTokenAction = (data, history) => async () => {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
       setTimeout(history.push("/verify/mobile-otp"), 4000);
+      window.reload();
     } else {
       Swal.fire("Error!", `Failed to authenticate token`, "error");
       setTimeout(Swal.close, 4000);

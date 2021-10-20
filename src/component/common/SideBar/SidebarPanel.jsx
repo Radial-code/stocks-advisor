@@ -13,10 +13,11 @@ import {
   Enquiry,
   Back,
 } from "../icons/Icons";
+
 const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
   const [activeLink, setActiveLink] = useState("stocks");
   const { layoutClickChanger } = useLayoutChangerProvider();
-  console.log(match.path);
+
   useEffect(() => {
     const path = match.path.split("/");
     if (path.includes("our")) {

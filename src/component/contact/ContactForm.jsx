@@ -6,8 +6,7 @@ import { EmailRegex } from "../common/Validation";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ContactForm = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [contactDetails, setContactDetails] = useState({
     name: "",
@@ -36,6 +35,7 @@ const ContactForm = () => {
       });
     }
   };
+
   return (
     <form className="form-box p-xl-5 p-sm-4 p-2 " action="">
       <div className="d-flex flex-column justify-content-center d-sm-block  pt-lg-3  pe-sm-0 pt-md-4 px-md-3">

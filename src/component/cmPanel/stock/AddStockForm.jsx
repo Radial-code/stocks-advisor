@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import DatePicker from "react-datepicker";
@@ -6,7 +6,6 @@ import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import Buket from "../../../assets/img/backet.png";
-
 import BubblesLoader from "../../common/BubblesLoader";
 import {
   getCategoryListAction,
@@ -15,12 +14,12 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import {
   addNewStockDetailsAction,
-  DeleteStockDetailsAction,
   updateStockDetailsAction,
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
 import { DeleteNewsDetailsAction } from "../../../redux/action/news";
+
 const initialState = {
   joinDate: "",
   joinPrice: "",
@@ -33,7 +32,6 @@ const initialState = {
   currentPrice: "",
 };
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
-  console.log(edit);
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -136,15 +134,12 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <DatePicker
                   placeholderText="Join Date"
                   className="mb-md-0 mb-3"
-                  // selected
                   value={
                     stockDetails &&
                     stockDetails.joinDate &&
                     moment(stockDetails.joinDate).format(`YYYY/MM/DD`)
                   }
-                  // selected={stockDetails.joinDate}
                   onChange={(e) => {
-                    console.log("date format", e);
                     setStockDetails((pre) => ({
                       ...pre,
                       joinDate: e,

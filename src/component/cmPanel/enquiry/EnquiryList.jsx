@@ -16,5 +16,4 @@ const EnquiryList = () => {
     </Col>
   );
 };
-
 export default EnquiryList;

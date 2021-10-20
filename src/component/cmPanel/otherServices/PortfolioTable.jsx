@@ -124,5 +124,4 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
     </>
   );
 }
-
 export default PortfolioTable;

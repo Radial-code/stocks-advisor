@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Buket from "../../assets/img/backet.png";
-
 import "../cmPanelCss/News.css";
+
 const EditNews = () => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const [firstDate, setFirstDate] = useState("");
   return (
     <div>

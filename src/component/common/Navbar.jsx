@@ -50,6 +50,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     dashboardPortfoliosList &&
     dashboardPortfoliosList.length &&
     dashboardPortfoliosList[0]._id;
+
   const layoutleftChangeHandler = () => {
     setLayoutClickChanger(true);
     setLanguage("Arabic");

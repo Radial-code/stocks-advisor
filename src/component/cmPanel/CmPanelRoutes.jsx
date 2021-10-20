@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Route } from "react-router";
 import AddNews from "./news/AddNews";
 import AddStock from "./stock/AddStock";

@@ -118,7 +118,6 @@ const Router = ({
           />
         </Route>
         <Route path="/content/manager/news">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
@@ -131,7 +130,6 @@ const Router = ({
           />
         </Route>
         <Route path="/content/manager/users">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
@@ -150,14 +148,12 @@ const Router = ({
           />
         </Route>
         <Route path="/content/manager/edit/plan/:id">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/other/services">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
@@ -167,42 +163,36 @@ const Router = ({
           path="/content/manager/add/other/services"
           component={OtherServicesForm}
         >
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/our/plans/details">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/team/cards">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/team/form">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/enquiry/list">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
         <Route path="/content/manager/notification">
-          {" "}
           <CmPanelRoutes
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
@@ -213,5 +203,4 @@ const Router = ({
     </BrowserRouter>
   );
 };
-
 export default Router;
