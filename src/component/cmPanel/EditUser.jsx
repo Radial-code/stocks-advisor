@@ -93,7 +93,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
               </div>
             ) : (
               <Row>
-                <Col xxl={6}>
+                <Col xl={6} xs={12}>
                   <Row className="mt-4">
                     <Col>
                       <div className="edit-user">
@@ -155,8 +155,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                 </Col>
 
                 {isPaidPlan ? (
-                  <Col xxl={6}>
-                    <Row>
+                  <Col xl={6} xs={12}>
+                    <Row className="pe-xl-4">
                       <Col className=" mt-5 mt-lg-0 ">
                         <section className="current-para my-4">
                           <div className="d-none">
@@ -167,12 +167,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       </Col>
                     </Row>
                     <Row>
-                      <Col
-                        lg={5}
-                        xs={12}
-                        className="d-flex justify-content-center d-lg-block"
-                      >
-                        <section className="plan-card-edituser p-4">
+                      <Col xs={12} className="d-flex pe-xl-5">
+                        <section className="plan-card-edituser">
                           <div className="d-flex justify-content-between border-b-1">
                             <p className="edituser-amount d-none d-sm-block">
                               ${price}
@@ -182,15 +178,15 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               ${price}
                             </p>
                           </div>
-                          <div className="d-flex justify-content-sm-end mt-2">
-                            <span className="stock-paragraph fs-sm-11">
+                          <div className="d-flex justify-content-between  mt-2">
+                            <span className="stock-paragraph ps-3 ps-lg-0 ps-xl-1 fs-sm-11">
                               {createdAt && createdAt.split(",")[0]}
                             </span>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
                               :Purchase Date
                             </span>
                           </div>
-                          <div className="d-flex justify-content-sm-end mt-2">
+                          <div className="d-flex justify-content-between mt-2">
                             <span className="stock-paragraph fs-sm-11">
                               {createdAt && expiresOn.split(",")[0]}
                             </span>
@@ -198,24 +194,24 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               :Expiry Date
                             </span>
                           </div>
-                          <div className="d-flex justify-content-between mt-2 mb-2">
-                            <div className="d-none d-sm-block">
+
+                          {/* <div className="d-none d-sm-block">
                               <span className="float-md-end me-auto ">
                                 <label className="switch" for="checkbox">
                                   <input type="checkbox" id="checkbox" />
                                   <div className="slider round"></div>
                                 </label>
                               </span>
-                            </div>
-                            <div className="d-flex justify-content-end">
-                              <span className="stock-paragraph fs-sm-11">
-                                Enable
-                              </span>
-                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                :Auto Renew
-                              </span>
-                            </div>
-                            {/* <div className="d-sm-none">
+                            </div> */}
+                          <div className="d-flex justify-content-between  mt-2 mb-2">
+                            <span className="stock-paragraph fs-sm-11">
+                              Enable
+                            </span>
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              :Auto Renew
+                            </span>
+                          </div>
+                          {/* <div className="d-sm-none">
                               <span className="float-md-end me-auto ">
                                 <label className="switch-2" for="checkbox-2">
                                   <input type="checkbox" id="checkbox-2" />
@@ -223,18 +219,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 </label>
                               </span>
                             </div> */}
-                          </div>
                         </section>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col
-                        xs={12}
-                        className="mt-5 d-flex justify-content-center d-sm-block"
-                      >
-                        <button className="update-btn fs-sm-14">
-                          Cancel Subscription
-                        </button>
                       </Col>
                     </Row>
                   </Col>
