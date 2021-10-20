@@ -34,7 +34,8 @@ const initialState = {
 };
 
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -237,43 +238,87 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 </Form.Group>
               </div>
               <div className="col-md-6">
-                <FormGroup
-                  value={stockDetails && stockDetails.category}
-                  onChange={(e) => {
-                    setStockDetails({
-                      ...stockDetails,
-                      category: e.target.value,
-                    });
-                  }}
-                  className=" add-new-stock-select mb-3"
-                >
-                  <select
-                    value={
-                      stockDetails &&
-                      stockDetails.category &&
-                      stockDetails.category._id
-                    }
-                    className="form-select text-end cursor-pointer"
+                {layoutClickChanger ? (
+                  <FormGroup
+                    value={stockDetails && stockDetails.category}
+                    onChange={(e) => {
+                      setStockDetails({
+                        ...stockDetails,
+                        category: e.target.value,
+                      });
+                    }}
+                    className=" add-new-stock-select mb-3"
                   >
-                    <option>Category</option>
-                    {!!categoryList && !!categoryList.length ? (
-                      categoryList.map((category, index) => {
-                        return (
-                          <option key={index} value={category._id}>
-                            {category.title}
-                          </option>
-                        );
-                      })
-                    ) : (
-                      <option>You don't have any category </option>
-                    )}
-                  </select>
-                  <span className="text-danger">
-                    {error && stockDetails.category === ""
-                      ? "Category is required"
-                      : null}
-                  </span>
-                </FormGroup>
+                    <select
+                      value={
+                        stockDetails &&
+                        stockDetails.category &&
+                        stockDetails.category._id
+                      }
+                      className="form-select text-end cursor-pointer"
+                    >
+                      <option>Category</option>
+                      {!!categoryList && !!categoryList.length ? (
+                        categoryList.map((category, index) => {
+                          return (
+                            <option key={index} value={category._id}>
+                              {category.title}
+                            </option>
+                          );
+                        })
+                      ) : (
+                        <option>You don't have any category </option>
+                      )}
+                    </select>
+                    <span className="text-danger">
+                      {error && stockDetails.category === ""
+                        ? "Category is required"
+                        : null}
+                    </span>
+                  </FormGroup>
+                ) : (
+                  <FormGroup
+                    value={stockDetails && stockDetails.category}
+                    onChange={(e) => {
+                      setStockDetails({
+                        ...stockDetails,
+                        category: e.target.value,
+                      });
+                    }}
+                    className=" add-new-stock-select2 mb-3"
+                  >
+                    <select
+                      value={
+                        stockDetails &&
+                        stockDetails.category &&
+                        stockDetails.category._id
+                      }
+                      className={
+                        layoutClickChanger
+                          ? "form-select text-end cursor-pointer"
+                          : "form-select text-start cursor-pointer"
+                      }
+                    >
+                      <option>Category</option>
+                      {!!categoryList && !!categoryList.length ? (
+                        categoryList.map((category, index) => {
+                          return (
+                            <option key={index} value={category._id}>
+                              {category.title}
+                            </option>
+                          );
+                        })
+                      ) : (
+                        <option>You don't have any category </option>
+                      )}
+                    </select>
+                    <span className="text-danger">
+                      {error && stockDetails.category === ""
+                        ? "Category is required"
+                        : null}
+                    </span>
+                  </FormGroup>
+                )}
               </div>
             </div>
             <div className="row">
@@ -324,43 +369,87 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <FormGroup
-                  value={stockDetails && stockDetails.exchange}
-                  onChange={(e) => {
-                    setStockDetails({
-                      ...stockDetails,
-                      exchange: e.target.value,
-                    });
-                  }}
-                  className=" add-new-stock-select mb-3"
-                >
-                  <select
-                    value={
-                      stockDetails &&
-                      stockDetails.exchange &&
-                      stockDetails.exchange._id
-                    }
-                    className="form-select text-end cursor-pointer"
+                {layoutClickChanger ? (
+                  <FormGroup
+                    value={stockDetails && stockDetails.exchange}
+                    onChange={(e) => {
+                      setStockDetails({
+                        ...stockDetails,
+                        exchange: e.target.value,
+                      });
+                    }}
+                    className=" add-new-stock-select mb-3"
                   >
-                    <option>Exchange</option>
-                    {!!exchangeList && !!exchangeList.length ? (
-                      exchangeList.map((exchange, index) => {
-                        return (
-                          <option key={index} value={exchange._id}>
-                            {exchange.title}
-                          </option>
-                        );
-                      })
-                    ) : (
-                      <option>You don't have any exchange </option>
-                    )}
-                  </select>
-                  <span className="text-danger">
-                    {error && stockDetails.exchange === ""
-                      ? "Exchange is required"
-                      : null}
-                  </span>
-                </FormGroup>
+                    <select
+                      value={
+                        stockDetails &&
+                        stockDetails.exchange &&
+                        stockDetails.exchange._id
+                      }
+                      className="form-select text-end cursor-pointer"
+                    >
+                      <option>Exchange</option>
+                      {!!exchangeList && !!exchangeList.length ? (
+                        exchangeList.map((exchange, index) => {
+                          return (
+                            <option key={index} value={exchange._id}>
+                              {exchange.title}
+                            </option>
+                          );
+                        })
+                      ) : (
+                        <option>You don't have any exchange </option>
+                      )}
+                    </select>
+                    <span className="text-danger">
+                      {error && stockDetails.exchange === ""
+                        ? "Exchange is required"
+                        : null}
+                    </span>
+                  </FormGroup>
+                ) : (
+                  <FormGroup
+                    value={stockDetails && stockDetails.exchange}
+                    onChange={(e) => {
+                      setStockDetails({
+                        ...stockDetails,
+                        exchange: e.target.value,
+                      });
+                    }}
+                    className=" add-new-stock-select2 mb-3"
+                  >
+                    <select
+                      value={
+                        stockDetails &&
+                        stockDetails.exchange &&
+                        stockDetails.exchange._id
+                      }
+                      className={`${
+                        layoutClickChanger
+                          ? "form-select text-end cursor-pointer"
+                          : "form-select text-start cursor-pointer"
+                      }`}
+                    >
+                      <option>Exchange</option>
+                      {!!exchangeList && !!exchangeList.length ? (
+                        exchangeList.map((exchange, index) => {
+                          return (
+                            <option key={index} value={exchange._id}>
+                              {exchange.title}
+                            </option>
+                          );
+                        })
+                      ) : (
+                        <option>You don't have any exchange </option>
+                      )}
+                    </select>
+                    <span className="text-danger">
+                      {error && stockDetails.exchange === ""
+                        ? "Exchange is required"
+                        : null}
+                    </span>
+                  </FormGroup>
+                )}
               </div>
             </div>
             <p>Select portfolio list</p>
@@ -372,18 +461,38 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   ? portfolioList.map((value, index) => {
                       return (
                         <div className="col-auto mb-3 d-flex align-items-center">
-                          <label
-                            className="form-check-label check-box-text Ellipse"
-                            for="flexCheckDefault"
-                          >
-                            {value.title}
-                          </label>
-                          <input
-                            key={index}
-                            type="checkbox"
-                            onClick={() => selectPortfolio(value._id)}
-                            className="cursor-pointer mx-2"
-                          />
+                          {layoutClickChanger ? (
+                            <>
+                              {" "}
+                              <label
+                                className="form-check-label check-box-text Ellipse"
+                                for="flexCheckDefault"
+                              >
+                                {value.title}
+                              </label>
+                              <input
+                                key={index}
+                                type="checkbox"
+                                onClick={() => selectPortfolio(value._id)}
+                                className="cursor-pointer mx-2"
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                key={index}
+                                type="checkbox"
+                                onClick={() => selectPortfolio(value._id)}
+                                className="cursor-pointer mx-2"
+                              />
+                              <label
+                                className="form-check-label check-box-text Ellipse"
+                                for="flexCheckDefault"
+                              >
+                                {value.title}
+                              </label>
+                            </>
+                          )}
                         </div>
                       );
                     })
