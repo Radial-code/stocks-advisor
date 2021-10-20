@@ -3,6 +3,8 @@ import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import "@pathofdev/react-tag-input/build/index.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+
 import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import {
@@ -13,6 +15,8 @@ import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurService
 import BubblesLoader from "../../common/BubblesLoader";
 
 function PlansForm({ history, edit, id }) {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const PlanDetailsList = useSelector((state) => state.list.planDetails);
@@ -159,7 +163,13 @@ function PlansForm({ history, edit, id }) {
             </div>
             <div className="row">
               <div className="col-12">
-                <FormGroup className=" add-new-stock-select mb-3 cursor-pointer">
+                <FormGroup
+                  className={`${
+                    layoutClickChanger
+                      ? "add-new-stock-select mb-3 cursor-pointer"
+                      : "add-new-stock-select2 mb-3 cursor-pointer"
+                  }`}
+                >
                   <select
                     value={planDetails.type}
                     onChange={(e) => {
@@ -168,7 +178,11 @@ function PlansForm({ history, edit, id }) {
                         type: e.target.value,
                       });
                     }}
-                    className="form-select text-end cursor-pointer"
+                    className={`${
+                      layoutClickChanger
+                        ? "form-select text-end cursor-pointer"
+                        : "form-select text-start cursor-pointer"
+                    }`}
                   >
                     <option>Week</option>
                     <option>Month</option>
@@ -208,18 +222,37 @@ function PlansForm({ history, edit, id }) {
                     ? portfolioList.map((value, index) => {
                         return (
                           <div className="col-auto mb-3 d-flex align-items-center">
-                            <label
-                              className="form-check-label check-box-text Ellipse"
-                              for="flexCheckDefault"
-                            >
-                              {value.title}
-                            </label>
-                            <input
-                              key={index}
-                              type="checkbox"
-                              onClick={() => selectPortfolio(value._id)}
-                              className="cursor-pointer mx-2"
-                            />
+                            {layoutClickChanger ? (
+                              <>
+                                <label
+                                  className="form-check-label check-box-text Ellipse"
+                                  for="flexCheckDefault"
+                                >
+                                  {value.title}
+                                </label>
+                                <input
+                                  key={index}
+                                  type="checkbox"
+                                  onClick={() => selectPortfolio(value._id)}
+                                  className="cursor-pointer mx-2"
+                                />
+                              </>
+                            ) : (
+                              <>
+                                <input
+                                  key={index}
+                                  type="checkbox"
+                                  onClick={() => selectPortfolio(value._id)}
+                                  className="cursor-pointer mx-2"
+                                />
+                                <label
+                                  className="form-check-label check-box-text Ellipse"
+                                  for="flexCheckDefault"
+                                >
+                                  {value.title}
+                                </label>
+                              </>
+                            )}
                           </div>
                         );
                       })

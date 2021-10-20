@@ -1,6 +1,7 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { Col, Form, FormGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
@@ -29,6 +30,8 @@ const initialState = {
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
   const dispatch = useDispatch();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
 
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
@@ -284,40 +287,87 @@ const AddNewNews = ({ edit, match, history }) => {
             </span>
           </div>
           <div className="col-12 col-lg-6 mb-3">
-            <FormGroup
-              onChange={(e) => {
-                setNewsDetails({
-                  ...newsDetails,
-                  stock: e.target.value,
-                });
-              }}
-              value={newsDetails.stock}
-              className=" add-new-stock-select mb-3"
-            >
-              <select className="form-select text-end cursor-pointer">
-                <option>Stock</option>
-                {stockList ? (
-                  stockList.map((stock, index) => {
-                    return (
-                      <option key={index} value={stock._id}>
-                        {stock && stock.portfolio && stock.portfolio.title
-                          ? stock.portfolio.title
-                          : "N/A"}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option>You don't have any stock </option>
-                )}
-              </select>
-              <span className="text-danger">
-                {error && newsDetails.stock === "" ? "Stock is required" : null}
-              </span>
-            </FormGroup>
+            {layoutClickChanger ? (
+              <FormGroup
+                onChange={(e) => {
+                  setNewsDetails({
+                    ...newsDetails,
+                    stock: e.target.value,
+                  });
+                }}
+                value={newsDetails.stock}
+                className=" add-new-stock-select mb-3"
+              >
+                <select className="form-select text-end cursor-pointer">
+                  <option>Stock</option>
+                  {stockList ? (
+                    stockList.map((stock, index) => {
+                      return (
+                        <option key={index} value={stock._id}>
+                          {stock && stock.portfolio && stock.portfolio.title
+                            ? stock.portfolio.title
+                            : "N/A"}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option>You don't have any stock </option>
+                  )}
+                </select>
+                <span className="text-danger">
+                  {error && newsDetails.stock === ""
+                    ? "Stock is required"
+                    : null}
+                </span>
+              </FormGroup>
+            ) : (
+              <FormGroup
+                onChange={(e) => {
+                  setNewsDetails({
+                    ...newsDetails,
+                    stock: e.target.value,
+                  });
+                }}
+                value={newsDetails.stock}
+                className=" add-new-stock-select2 mb-3"
+              >
+                <select
+                  className={`${
+                    layoutClickChanger
+                      ? "form-select text-end cursor-pointer"
+                      : "form-select text-start cursor-pointer"
+                  }`}
+                >
+                  <option>Stock</option>
+                  {stockList ? (
+                    stockList.map((stock, index) => {
+                      return (
+                        <option key={index} value={stock._id}>
+                          {stock && stock.portfolio && stock.portfolio.title
+                            ? stock.portfolio.title
+                            : "N/A"}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option>You don't have any stock </option>
+                  )}
+                </select>
+                <span className="text-danger">
+                  {error && newsDetails.stock === ""
+                    ? "Stock is required"
+                    : null}
+                </span>
+              </FormGroup>
+            )}
           </div>
           <div className="col-12 mb-3">
             <textarea
-              className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+              className={`${
+                layoutClickChanger
+                  ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-end"
+                  : "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-start"
+              }`}
               name=""
               id=""
               cols=""
@@ -339,7 +389,11 @@ const AddNewNews = ({ edit, match, history }) => {
           </div>
           <div className="col-12 mb-3" dir="ltr">
             <textarea
-              className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+              className={`${
+                layoutClickChanger
+                  ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-start"
+                  : "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-end"
+              }`}
               name=""
               id=""
               cols=""
@@ -360,22 +414,46 @@ const AddNewNews = ({ edit, match, history }) => {
             </span>
           </div>
           <div className="col-auto mb-3">
-            <label
-              className="form-check-label check-box-text cursor-pointer"
-              for="flexCheckDefault"
-            >
-              Feature on homepage
-            </label>
-            <input
-              type="checkbox"
-              className="cursor-pointer mx-2"
-              onChange={(e) => {
-                setNewsDetails({
-                  ...newsDetails,
-                  showOnHomePage: e.target.checked,
-                });
-              }}
-            />
+            {layoutClickChanger ? (
+              <>
+                {" "}
+                <label
+                  className="form-check-label check-box-text cursor-pointer"
+                  for="flexCheckDefault"
+                >
+                  Feature on homepage
+                </label>
+                <input
+                  type="checkbox"
+                  className="cursor-pointer mx-2"
+                  onChange={(e) => {
+                    setNewsDetails({
+                      ...newsDetails,
+                      showOnHomePage: e.target.checked,
+                    });
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <input
+                  type="checkbox"
+                  className="cursor-pointer mx-2"
+                  onChange={(e) => {
+                    setNewsDetails({
+                      ...newsDetails,
+                      showOnHomePage: e.target.checked,
+                    });
+                  }}
+                />
+                <label
+                  className="form-check-label check-box-text cursor-pointer"
+                  for="flexCheckDefault"
+                >
+                  Feature on homepage
+                </label>
+              </>
+            )}
           </div>
         </div>
         <div className=" ">
