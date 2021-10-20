@@ -42,7 +42,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const lastname = useSelector((state) => state.auth.userData.lastName);
   const [overlayActive, setOverlayActive] = useState(true);
   const auth = useSelector((state) => state.auth.auth);
-  const token = useSelector((state) => state.auth.token);
+  const token = localStorage.getItem("stock-advisor");
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
   );
@@ -272,7 +272,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               </Accordion>
             </div>
             {/* ends here ............. language accordian */}
-            {!!auth && !!token ? (
+            {!!auth && token !== null ? (
               <>
                 {userData && !!userData.isAdmin ? (
                   <div className="d-xxl-none d-block ">
@@ -367,7 +367,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </span>
                 )}
               </span>
-              {auth ? (
+              {!!auth && token !== null ? (
                 <>
                   <NavLink
                     exact
@@ -399,7 +399,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               ) : (
                 ""
               )}
-              {auth ? (
+              {!!auth && !!firstname && !!lastname ? (
                 <div className="d-none d-xxl-block my-auto">
                   <div
                     onClick={() => {
@@ -422,7 +422,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               ) : (
                 ""
               )}
-              {auth ? (
+              {!!auth && token !== null ? (
                 <div className="mx-xxl-2 mx-0  mx-auto  my-auto ">
                   <button
                     onClick={() =>

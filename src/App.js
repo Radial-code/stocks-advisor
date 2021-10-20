@@ -37,7 +37,7 @@ function App({ history }) {
   useEffect(() => {
     if (!!token) {
       dispatch(getLocalStorageToken());
-      if (auth && token) {
+      if (token !== null) {
         dispatch(getUserProfileAction(setLoading, history, token));
         dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
       }
