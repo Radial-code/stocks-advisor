@@ -10,7 +10,7 @@ const AllNews = () => {
       <Row className="h-100">
         <Col
           xs={12}
-          className="mt-sm-3 h-100  justify-content-center d-sm-block"
+          className="mt-sm-3   justify-content-center d-sm-block news-scroll"
         >
           {allNewsList && allNewsList.length
             ? allNewsList.map((value, index) => {
