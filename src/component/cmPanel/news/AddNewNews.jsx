@@ -4,10 +4,12 @@ import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { Col, Form, FormGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getStockListAction } from "../../../redux/action/cmPanel/stock";
+import {
+  DeleteStockDetailsAction,
+  getStockListAction,
+} from "../../../redux/action/cmPanel/stock";
 import {
   addNewNewsDetailsAction,
-  DeleteNewsDetailsAction,
   updateNewsDetailsAction,
 } from "../../../redux/action/news";
 import { Link } from "react-router-dom";
@@ -49,7 +51,6 @@ const AddNewNews = ({ edit, match, history }) => {
   const [newsDetails, setNewsDetails] = useState(initialState);
 
   useEffect(() => {
-    console.log("newsDetailsList", newsDetailsList);
     if (newsDetailsList) {
       setNewsDetails(newsDetailsList);
     }
@@ -95,7 +96,7 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const deleteNews = () => {
     if (!!id) {
-      dispatch(DeleteNewsDetailsAction(id, history));
+      dispatch(DeleteStockDetailsAction(id, history));
     }
   };
 
@@ -163,7 +164,7 @@ const AddNewNews = ({ edit, match, history }) => {
               <Form.Control
                 type="text"
                 placeholder="English Title"
-                value={newsDetails.atitle}
+                value={newsDetails.title}
                 onChange={(e) => {
                   setNewsDetails({
                     ...newsDetails,
@@ -211,7 +212,7 @@ const AddNewNews = ({ edit, match, history }) => {
             <div className="col-md-6 input-tag w-100">
               <ReactTagInput
                 tags={atags}
-                placeholder="Arabic Details"
+                placeholder="Arabic Tags"
                 maxTags={5}
                 value={newsDetails.atags}
                 editable={true}
@@ -228,7 +229,7 @@ const AddNewNews = ({ edit, match, history }) => {
             <div className="col-md-6 input-tag w-100">
               <ReactTagInput
                 tags={tags}
-                placeholder="English Details"
+                placeholder="English Tags"
                 maxTags={5}
                 editable={true}
                 readOnly={false}
@@ -295,7 +296,10 @@ const AddNewNews = ({ edit, match, history }) => {
                     stock: e.target.value,
                   });
                 }}
-                value={newsDetails.stock}
+                value={
+                  newsDetails && newsDetails.stock && newsDetails.stock._id
+                }
+                // value={newsDetails.stock}
                 className=" add-new-stock-select mb-3"
               >
                 <select className="form-select text-end cursor-pointer">
@@ -328,7 +332,9 @@ const AddNewNews = ({ edit, match, history }) => {
                     stock: e.target.value,
                   });
                 }}
-                value={newsDetails.stock}
+                value={
+                  newsDetails && newsDetails.stock && newsDetails.stock._id
+                }
                 className=" add-new-stock-select2 mb-3"
               >
                 <select
@@ -343,9 +349,7 @@ const AddNewNews = ({ edit, match, history }) => {
                     stockList.map((stock, index) => {
                       return (
                         <option key={index} value={stock._id}>
-                          {stock && stock.portfolio && stock.portfolio.title
-                            ? stock.portfolio.title
-                            : "N/A"}
+                          {stock && stock.name ? stock.name : "N/A"}
                         </option>
                       );
                     })
