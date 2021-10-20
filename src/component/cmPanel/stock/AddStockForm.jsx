@@ -34,8 +34,7 @@ const initialState = {
 };
 
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);

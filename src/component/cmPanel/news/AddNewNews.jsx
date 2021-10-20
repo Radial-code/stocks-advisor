@@ -438,6 +438,7 @@ const AddNewNews = ({ edit, match, history }) => {
               <>
                 <input
                   type="checkbox"
+                  checked={newsDetails.showOnHomePage}
                   className="cursor-pointer mx-2"
                   onChange={(e) => {
                     setNewsDetails({
