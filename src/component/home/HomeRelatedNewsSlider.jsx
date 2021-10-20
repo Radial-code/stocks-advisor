@@ -49,9 +49,14 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
       <div className="row">
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
+
           {!loader ? (
             <Slider
-              className="other_new_articles d-flex  d-lg-block  align-items-center"
+              className={`${
+                newsListData.length > 4
+                  ? "other_new_articles d-flex  d-block  align-items-center"
+                  : "other_new_articles d-flex  d-lg-block  align-items-center"
+              }`}
               {...settings}
             >
               {newsListData.map((news, index) => {
