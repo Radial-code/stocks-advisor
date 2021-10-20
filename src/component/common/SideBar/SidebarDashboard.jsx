@@ -45,8 +45,8 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar }) {
           }${showSidebar ? "left-0" : "left-350"}
            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
-          <div className="d-flex align-items-center justify-content-between mb-2">
-            <p className="cn-sidebar-text mb-0 pt-4">Dashboard</p>
+          <div className="d-flex align-items-center justify-content-between mb-2 py-2">
+            <p className="cn-sidebar-text mb-0 ">Dashboard</p>
 
             <img
               className="cancel-icon cursor-pointer"

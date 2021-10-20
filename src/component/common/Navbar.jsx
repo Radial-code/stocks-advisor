@@ -472,7 +472,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   )}
                 </div>
                 <div
-                  className="cursor-pointer me-3  text-start "
+                  className={`${
+                    layoutClickChanger
+                      ? "cursor-pointer me-3  text-start"
+                      : "cursor-pointer  text-end"
+                  }`}
                   onClick={overlayActiveHandler}
                 >
                   <HamburgerIcon />
