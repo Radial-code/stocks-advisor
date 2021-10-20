@@ -5,10 +5,13 @@ import { useDispatch } from "react-redux";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import { addNewNotificationAction } from "../../../redux/action/contact";
 import Loader from "../../common/Loader";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const data = [];
 const valueId = [];
 function Notification() {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const planList = useSelector((state) => state.list.planList);
   const [loading, setLoading] = useState(false);
@@ -138,6 +141,18 @@ function Notification() {
               </div>
             </div>
             <div className="row py-4">
+              {layoutClickChanger ? (
+                ""
+              ) : (
+                <div className="col-auto">
+                  <label
+                    className="form-check-label check-box-text text-dark cursor-pointer"
+                    for="flexCheckDefault"
+                  >
+                    Send to:
+                  </label>
+                </div>
+              )}
               {planLoading ? (
                 "Loading..."
               ) : (
@@ -177,14 +192,26 @@ function Notification() {
                   All
                 </label>
               </div>
-              <div className="col-auto">
+              {layoutClickChanger ? (
+                <div className="col-auto">
+                  <label
+                    className="form-check-label check-box-text text-dark cursor-pointer"
+                    for="flexCheckDefault"
+                  >
+                    : Send to
+                  </label>
+                </div>
+              ) : (
+                ""
+              )}
+              {/* <div className="col-auto">
                 <label
                   className="form-check-label check-box-text text-dark cursor-pointer"
                   for="flexCheckDefault"
                 >
                   : Send to
                 </label>
-              </div>
+              </div> */}
             </div>
             <button
               type="button"

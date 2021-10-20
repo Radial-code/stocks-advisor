@@ -72,7 +72,13 @@ const OurPlans = ({ homepage, history }) => {
                             {value.details
                               ? value.details.map((val) => (
                                   <ul>
-                                    <li className="list-unstyled">{val}</li>
+                                    <li
+                                      className={`${
+                                        val === "" ? "list-unstyled" : ""
+                                      }`}
+                                    >
+                                      {val}
+                                    </li>
                                   </ul>
                                 ))
                               : "N/A"}

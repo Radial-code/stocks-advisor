@@ -22,13 +22,15 @@ const Chart = () => {
     <>
       <div className="pr-15 pl-15 ">
         <div className="border-b-1">
-          <p className="profile-heading fs-lg-22 fs-sm-15 pt-2 mb-2">
+          <p className="profile-heading fs-lg-22 fs-sm-15 pt-2 mb-2 px-3">
             Our Portfolio's Performance
           </p>
         </div>
       </div>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center">
+          <BubblesLoader />
+        </div>
       ) : (
         <div>
           {portfoliosChatList && portfoliosChatList.length

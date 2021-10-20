@@ -73,7 +73,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
       ></div>
       <Row>
         <Col className="d-flex justify-content-sm-end justify-content-center">
-          <section className="edituser-card p-3 p-sm-5 ">
+          <section className=" p-3 p-sm-5 ">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
               <p className="heading-stock fs-sm-20">
                 {data.firstName}&nbsp;{data.lastName}
@@ -95,7 +95,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
               <Row>
                 <Col lg={6} xs={12}>
                   <Row className="mt-4">
-                    <Col lg={6}>
+                    <Col>
                       <div className="edit-user">
                         <input
                           className="input-edit-user"
@@ -112,7 +112,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </Col>
                   </Row>
                   <Row className="mt-4">
-                    <Col lg={6}>
+                    <Col>
                       <div className="edit-user">
                         <input
                           className="input-edit-user"
@@ -129,7 +129,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </Col>
                   </Row>
                   <Row>
-                    <Col lg={6} className="mt-3">
+                    <Col className="mt-3">
                       <div className="edit-user">
                         <input
                           className="input-edit-user"
@@ -141,7 +141,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </Col>
                   </Row>{" "}
                   <Row>
-                    <Col lg={6} className="mt-3 ">
+                    <Col className="mt-3 ">
                       <div className="edit-user">
                         <input
                           className="input-edit-user"
@@ -215,14 +215,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 :Auto Renew
                               </span>
                             </div>
-                            <div className="d-sm-none">
+                            {/* <div className="d-sm-none">
                               <span className="float-md-end me-auto ">
                                 <label className="switch-2" for="checkbox-2">
                                   <input type="checkbox" id="checkbox-2" />
                                   <div className="slider-2 round"></div>
                                 </label>
                               </span>
-                            </div>
+                            </div> */}
                           </div>
                         </section>
                       </Col>
