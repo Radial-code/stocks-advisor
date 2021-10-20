@@ -3,6 +3,7 @@ import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import DatePicker from "react-datepicker";
 import moment from "moment";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch, useSelector } from "react-redux";
 import Buket from "../../../assets/img/backet.png";
@@ -32,6 +33,8 @@ const initialState = {
   currentPrice: "",
 };
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -152,7 +155,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                     : null}
                 </span>
                 <img
-                  className="position-absolute bucket-img"
+                  className={`${
+                    layoutClickChanger
+                      ? "position-absolute bucket-img"
+                      : "position-absolute bucket-img2"
+                  }`}
                   src={Buket}
                   alt="Buket"
                 />
@@ -366,7 +373,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   }}
                 />
                 <img
-                  className="position-absolute bucket-img"
+                  className={`${
+                    layoutClickChanger
+                      ? "position-absolute bucket-img"
+                      : "position-absolute bucket-img2"
+                  }`}
                   src={Buket}
                   alt="Buket"
                 />

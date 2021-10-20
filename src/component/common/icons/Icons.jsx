@@ -347,8 +347,8 @@ export const News = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="18.014"
-      height="16.212"
+      width="20"
+      height="20"
       viewBox="0 0 18.014 16.212"
     >
       <g
@@ -449,8 +449,8 @@ export const Manage = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="19.83"
-      height="17"
+      width="20"
+      height="20"
       viewBox="0 0 19.83 17"
     >
       <path
@@ -492,8 +492,8 @@ export const Notify = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20.325"
-      height="24.85"
+      width="20"
+      height="20"
       viewBox="0 0 20.325 24.85"
     >
       <g
@@ -544,8 +544,8 @@ export const ForgetpasswordIcon = () => {
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="18.236"
-        height="18.236"
+        width="20"
+        height="20"
         viewBox="0 0 18.236 18.236"
       >
         <g
@@ -701,8 +701,8 @@ export const ServiceIcon = () => {
       id="Group_10280"
       data-name="Group 10280"
       xmlns="http://www.w3.org/2000/svg"
-      width="18.157"
-      height="18.439"
+      width="20"
+      height="20"
       viewBox="0 0 18.157 18.439"
     >
       <path
@@ -778,8 +778,8 @@ export const Drop = () => {
 export const Enquiry = () => {
   return (
     <svg
-      width="32"
-      height="32"
+      width="20"
+      height="20"
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -829,8 +829,8 @@ export const Back = () => {
 export const Payment = () => {
   return (
     <svg
-      width="24"
-      height="18"
+      width="20"
+      height="20"
       viewBox="0 0 24 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

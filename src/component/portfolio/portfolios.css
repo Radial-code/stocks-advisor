@@ -160,7 +160,7 @@
 }
 
 .current-stock-scrollbar::-webkit-scrollbar {
-  height: 5px;
+  height: 0px;
   width: 5px;
   direction: ltr;
 }

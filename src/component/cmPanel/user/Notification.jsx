@@ -63,7 +63,7 @@ function Notification() {
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-sm-4  pt-5">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
-          <p className="heading-stock ">Notification</p>
+          <p className="heading-stock mb-0 pt-2">Notification</p>
         </div>
         <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
           <div className="container">

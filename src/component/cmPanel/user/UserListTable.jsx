@@ -6,10 +6,13 @@ import { getUserListForAdminAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const UserListTable = () => {
   const dispatch = useDispatch();
   let history = useHistory();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
 
   const [loading, setLoading] = useState(false);
   const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
@@ -28,23 +31,53 @@ const UserListTable = () => {
         <Table responsive hover className="">
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
-              <th className="text-end whitespace">
+              <th
+                className={`${
+                  layoutClickChanger
+                    ? "text-end whitespace"
+                    : "text-start whitespace"
+                }`}
+              >
                 {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Join Date
               </th>
-              <th className="text-end whitespace">
+              <th
+                className={`${
+                  layoutClickChanger
+                    ? "text-end whitespace"
+                    : "text-start whitespace"
+                }`}
+              >
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
               </th>
-              <th className="text- whitespace">
+              <th
+                className={`${
+                  layoutClickChanger
+                    ? "text-end whitespace"
+                    : "text-start whitespace"
+                }`}
+              >
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Phone
               </th>
-              <th className="text-end whitespace">
+              <th
+                className={`${
+                  layoutClickChanger
+                    ? "text-end whitespace"
+                    : "text-start whitespace"
+                }`}
+              >
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 E-mail
               </th>
-              <th className="text-end whitespace">
+              <th
+                className={`${
+                  layoutClickChanger
+                    ? "text-end whitespace"
+                    : "text-start whitespace"
+                }`}
+              >
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Subscription Plan Name
               </th>
@@ -68,17 +101,38 @@ const UserListTable = () => {
                     className="cursor-pointer"
                     onClick={() => history.push(`/content/manager/user/${_id}`)}
                   >
-                    <td className="text-end whitespace Ellipse">
+                    <td
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
                       {moment(createdAt).format("DD/MM/YY")}
                     </td>
-                    <td className="text-end whitespace Ellipse" dir="ltr">
+                    <td
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                      dir="ltr"
+                    >
                       {firstName} {lastName}
                     </td>
                     <td className="text-end whitespace Ellipse">{phone}</td>
                     <td className="text-end whitespace Ellipse" dir="ltr">
                       {email}
                     </td>
-                    <td className="text-end whitespace Ellipse">{plan}</td>
+                    <td
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      {plan}
+                    </td>
                   </tr>
                 );
               })

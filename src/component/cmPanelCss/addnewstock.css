@@ -88,7 +88,10 @@
   left: 27px;
   top: 16px;
 }
-
+.bucket-img2 {
+  right: 27px;
+  top: 16px;
+}
 .delete-new-stock-btn {
   font-size: 18px;
   font-weight: 500;

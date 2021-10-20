@@ -220,7 +220,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     >
                       English
                       <img
-                        className="flag-img  mx-2 "
+                        className="flag-img  mx-1 "
                         src={England}
                         alt="England"
                       />
@@ -230,7 +230,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
                     >
                       Arabic
-                      <img className="flag-img mx-2" src={Arbic} alt="" />
+                      <img className="flag-img mx-2 " src={Arbic} alt="" />
                     </span>
                   </div>
                 ) : (

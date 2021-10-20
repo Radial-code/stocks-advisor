@@ -6,8 +6,11 @@ import { withRouter } from "react-router";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const CurrentStockTable = ({ history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const stockList = useSelector((state) => state.cmPanel.stockList);
@@ -28,7 +31,11 @@ const CurrentStockTable = ({ history }) => {
             <tr className="current-stock-table-head table-border-bottom table-border-top">
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -38,7 +45,11 @@ const CurrentStockTable = ({ history }) => {
 
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -47,7 +58,11 @@ const CurrentStockTable = ({ history }) => {
               </th>
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -56,7 +71,11 @@ const CurrentStockTable = ({ history }) => {
               </th>
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -65,7 +84,11 @@ const CurrentStockTable = ({ history }) => {
               </th>
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -75,7 +98,11 @@ const CurrentStockTable = ({ history }) => {
 
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -84,7 +111,11 @@ const CurrentStockTable = ({ history }) => {
               </th>
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -93,7 +124,11 @@ const CurrentStockTable = ({ history }) => {
               </th>
               <th
                 scope="col"
-                className="text-end position-sticky top-0 whitespace"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
               >
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
@@ -113,7 +148,13 @@ const CurrentStockTable = ({ history }) => {
                       key={index}
                       className="current-stock-data table-border-bottom"
                     >
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
                       <td
@@ -123,7 +164,11 @@ const CurrentStockTable = ({ history }) => {
                             : value.profitOrLoss.status === 1
                             ? "text-dark"
                             : "text-danger"
-                        } text-end whitespace Ellipse`}
+                        } ${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        } `}
                       >
                         {value &&
                         value.profitOrLoss &&
@@ -132,22 +177,58 @@ const CurrentStockTable = ({ history }) => {
                           : "N/A"}
                       </td>
 
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         {value.isSold ? "Sold" : "No Sold"}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         ${value.currentPrice}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         ${value.joinPrice}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         {value && value.category ? value.category.title : "N/A"}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         {value.symbol ? value.symbol : "N/A"}
                       </td>
-                      <td className="text-end whitespace Ellipse">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "text-end whitespace Ellipse"
+                            : "text-start whitespace Ellipse"
+                        }`}
+                      >
                         {value && value.portfolio
                           ? value.portfolio.title
                           : "N/A"}
