@@ -36,9 +36,7 @@ const AllNews = ({ history }) => {
                         sm={8}
                         xs={8}
                         className={`${
-                          layoutClickChanger
-                            ? "d-flex justify-content-center h-100"
-                            : "d-flex h-100"
+                          layoutClickChanger ? "d-flex  h-100" : "d-flex h-100"
                         }  `}
                       >
                         <div className="w-lg-518">
