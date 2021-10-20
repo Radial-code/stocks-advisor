@@ -268,23 +268,27 @@ export const getNewsDetailsAction = (id, setLoading) => async (dispatch) => {
  * @param {Boolen} setLoading
  * @returns
  */
-export const updateNewsDetailsAction = (id, data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await updateNewsDetailsApi(id, data);
-    if (response.success) {
+export const updateNewsDetailsAction =
+  (id, data, setLoading, history) => async () => {
+    setLoading(true);
+    try {
+      const response = await updateNewsDetailsApi(id, data);
+      if (response.success) {
+        setLoading(false);
+        Swal.fire("Success", "News Updated successfully", "success");
+        setTimeout(Swal.close, 2000);
+        history.push("/content/manager/news");
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Update News", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Update News", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * delete news  action

@@ -475,7 +475,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                                 ? stockDetailsList.portfolios.map((val) => {
                                     return val._id === value._id ? true : false;
                                   })
-                                : false
+                                : null
                             }
                             type="checkbox"
                             onClick={() => selectPortfolio(value._id)}

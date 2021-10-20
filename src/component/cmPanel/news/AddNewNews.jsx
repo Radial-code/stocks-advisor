@@ -32,8 +32,7 @@ const initialState = {
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
   const dispatch = useDispatch();
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
@@ -114,7 +113,9 @@ const AddNewNews = ({ edit, match, history }) => {
         newsDetails.stock !== "" &&
         newsDetails.tags !== ""
       ) {
-        dispatch(updateNewsDetailsAction(id, newsDetails, setUpdateLoading));
+        dispatch(
+          updateNewsDetailsAction(id, newsDetails, setUpdateLoading, history)
+        );
       }
     }
   };
