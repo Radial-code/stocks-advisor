@@ -121,7 +121,12 @@ const ViewProfile = () => {
           {inputDisable ? "Edit Profile" : "Save"}
         </button>
       </div>
-      <ProfileForm />
+      <ProfileForm
+        setUpdateUserDetailsData={setUpdateUserDetailsData}
+        inputDisable={inputDisable}
+        userDetails={userDetails}
+        UpdateUserDetailsData={UpdateUserDetailsData}
+      />
     </div>
   );
 };

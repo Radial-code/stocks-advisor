@@ -26,15 +26,15 @@ const initialState = {
   joinPrice: "",
   category: "",
   exchange: "",
-  portfolio: "",
+  portfolio: [],
   soldDate: "",
   soldPrice: "",
   symbol: "",
   currentPrice: "",
 };
+
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -55,6 +55,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
     dispatch(getExchangeListAction(setExchangeLoading));
     dispatch(getPortfolioListAction(setPortfolioLoading));
   }, []);
+
   useEffect(() => {
     if (!detailLoading) {
       setStockDetails(stockDetailsList);
@@ -68,7 +69,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       stockDetails.joinPrice !== "" &&
       stockDetails.category !== "" &&
       stockDetails.exchange !== "" &&
-      stockDetails.portfolio !== "" &&
+      stockDetails.portfolio.length &&
       stockDetails.symbol !== ""
     ) {
       dispatch(
@@ -84,7 +85,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         joinPrice: "",
         category: "",
         exchange: "",
-        portfolio: "",
+        portfolio: [],
         soldDate: "",
         soldPrice: "",
         symbol: "",
@@ -107,13 +108,33 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         stockDetails.joinPrice !== "" &&
         stockDetails.category !== "" &&
         stockDetails.exchange !== "" &&
-        stockDetails.portfolio !== "" &&
+        stockDetails.portfolio.length &&
         stockDetails.symbol !== ""
       ) {
         dispatch(updateStockDetailsAction(id, stockDetails, setUpdateLoading));
       }
     }
   };
+
+  const data = [];
+  const valueId = [];
+  const selectPortfolio = (id) => {
+    const ValidId = valueId.includes(id);
+    if (data === []) {
+      data.push({ portfolioId: id });
+      valueId.push(id);
+    } else if (!ValidId) {
+      data.push({ portfolioId: id });
+      valueId.push(id);
+    } else {
+      var index = data.indexOf({ portfolioId: id });
+      data.splice(index, 1);
+      var indexvalueId = valueId.indexOf({ portfolioId: id });
+      valueId.splice(indexvalueId, 1);
+    }
+    stockDetails.portfolio = data;
+  };
+
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3  w-xl-1000">
@@ -258,45 +279,52 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6">
-                <FormGroup
-                  value={stockDetails && stockDetails.portfolio}
+              <div className="col-md-6  datepicker-input position-relative order-sm-1 order-2">
+                <Form.Group
+                  className="mb-3 add-new-stock-field "
+                  controlId="formBasicEmail"
+                >
+                  <Form.Control
+                    value={stockDetails && stockDetails.soldPrice}
+                    type="text"
+                    placeholder="Sold Price"
+                    onChange={(e) => {
+                      setStockDetails({
+                        ...stockDetails,
+                        soldPrice: e.target.value,
+                      });
+                    }}
+                  />
+                </Form.Group>
+              </div>
+              <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
+                <DatePicker
+                  placeholderText="Sold Date"
+                  className="mb-3"
+                  value={
+                    stockDetails &&
+                    stockDetails.joinDate &&
+                    moment(stockDetails.soldDate).format(`DD/MM/YY`)
+                  }
                   onChange={(e) => {
                     setStockDetails({
                       ...stockDetails,
-                      portfolio: e.target.value,
+                      soldDate: e,
                     });
                   }}
-                  className=" add-new-stock-select mb-3"
-                >
-                  <select
-                    value={
-                      stockDetails &&
-                      stockDetails.portfolio &&
-                      stockDetails.portfolio._id
-                    }
-                    className="form-select text-end cursor-pointer"
-                  >
-                    <option>Portfolio</option>
-                    {!!portfolioList && !!portfolioList.length ? (
-                      portfolioList.map((portfolio, index) => {
-                        return (
-                          <option value={portfolio._id} key={index}>
-                            {portfolio.title}
-                          </option>
-                        );
-                      })
-                    ) : (
-                      <option>You don't have any portfolio </option>
-                    )}
-                  </select>
-                  <span className="text-danger">
-                    {error && stockDetails.portfolio === ""
-                      ? "Portfolio is required"
-                      : null}
-                  </span>
-                </FormGroup>
+                />
+                <img
+                  className={`${
+                    layoutClickChanger
+                      ? "position-absolute bucket-img"
+                      : "position-absolute bucket-img2"
+                  }`}
+                  src={Buket}
+                  alt="Buket"
+                />
               </div>
+            </div>
+            <div className="row">
               <div className="col-md-6">
                 <FormGroup
                   value={stockDetails && stockDetails.exchange}
@@ -337,52 +365,38 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 </FormGroup>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6  datepicker-input position-relative order-sm-1 order-2">
-                <Form.Group
-                  className="mb-3 add-new-stock-field "
-                  controlId="formBasicEmail"
-                >
-                  <Form.Control
-                    value={stockDetails && stockDetails.soldPrice}
-                    type="text"
-                    placeholder="Sold Price"
-                    onChange={(e) => {
-                      setStockDetails({
-                        ...stockDetails,
-                        soldPrice: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Group>
-              </div>
-              <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
-                <DatePicker
-                  placeholderText="Sold Date"
-                  className="mb-3"
-                  value={
-                    stockDetails &&
-                    stockDetails.joinDate &&
-                    moment(stockDetails.soldDate).format(`YYYY/MM/DD`)
-                  }
-                  onChange={(e) => {
-                    setStockDetails({
-                      ...stockDetails,
-                      soldDate: e,
-                    });
-                  }}
-                />
-                <img
-                  className={`${
-                    layoutClickChanger
-                      ? "position-absolute bucket-img"
-                      : "position-absolute bucket-img2"
-                  }`}
-                  src={Buket}
-                  alt="Buket"
-                />
-              </div>
-            </div>
+            <p>Select portfolio list</p>
+            {portfolioLoading ? (
+              <BubblesLoader />
+            ) : (
+              <>
+                {portfolioList && portfolioList.length
+                  ? portfolioList.map((value, index) => {
+                      return (
+                        <div className="col-auto mb-3 d-flex align-items-center">
+                          <label
+                            className="form-check-label check-box-text Ellipse"
+                            for="flexCheckDefault"
+                          >
+                            {value.title}
+                          </label>
+                          <input
+                            key={index}
+                            type="checkbox"
+                            onClick={() => selectPortfolio(value._id)}
+                            className="cursor-pointer mx-2"
+                          />
+                        </div>
+                      );
+                    })
+                  : "You don't have any portfolio List"}
+              </>
+            )}
+            <span className="text-danger">
+              {error && !stockDetails.portfolio.length
+                ? "Portfolio is required"
+                : null}
+            </span>
 
             <div className="d-flex flex-sm-row flex-column">
               {edit ? (

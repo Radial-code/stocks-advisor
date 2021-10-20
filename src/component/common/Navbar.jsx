@@ -373,16 +373,18 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   </span>
                 )}
               </span>
+              {userData.isPaidPlan ? (
+                <NavLink
+                  exact
+                  activeClassName="active_underline_navbar"
+                  to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                  className="navbar_Links_text my-auto px-2 px-xxl-0  my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
+                >
+                  Portfolio
+                </NavLink>
+              ) : null}
               {!!auth && token !== null ? (
                 <>
-                  <NavLink
-                    exact
-                    activeClassName="active_underline_navbar"
-                    to={`/protfolios/stock/${dashboardPortfoliosListId}`}
-                    className="navbar_Links_text my-auto px-2 px-xxl-0  my-xxl-auto mt-3 py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
-                  >
-                    Portfolio
-                  </NavLink>
                   <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
                     <Dropdown.Toggle
                       className="d-none d-xxl-block"

@@ -79,18 +79,18 @@ const updatePlansDetails = (data) => ({
 });
 
 export const updatePlansDetailsAction =
-  (data, id, setPlansLoading, history) => async (dispatch) => {
+  (data, id, setPlansLoading) => async (dispatch) => {
     setPlansLoading(true);
     try {
       const response = await updatePlansDetailsApi(data, id);
       if (response.success) {
         dispatch(updatePlansDetails(response.Plans));
         setPlansLoading(false);
-        Swal.fire("Success", "Plans Details Update successfully", "Success");
+        Swal.fire("Success", "Plan Updated successfully", "Success");
         setTimeout(Swal.close, 2000);
       } else {
         setPlansLoading(false);
-        Swal.fire("Error", "Failed to Update Plans Details", "error");
+        Swal.fire("Error", "Failed to Update Plan Details", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {
@@ -119,11 +119,11 @@ export const deletePlansDetailsAction =
       if (response.success) {
         dispatch(deletePlansDetails(id));
         setDeletedLoading(false);
-        Swal.fire("Success", "Plans Delete successfully", "Success");
+        Swal.fire("Success", "Plan Deleted successfully", "Success");
         setTimeout(Swal.close, 2000);
       } else {
         setDeletedLoading(false);
-        Swal.fire("Error", "Failed to Delete Plans Details", "error");
+        Swal.fire("Error", "Failed to Delete Plan Details", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {

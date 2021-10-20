@@ -245,6 +245,8 @@ export const updateStockDetailsAction = (id, data, setLoading) => async () => {
     const response = await updateStockDetailsApi(id, data);
     if (response.success) {
       setLoading(false);
+      Swal.fire("Success", "Updated stock successfully", "success");
+      setTimeout(Swal.close, 2000);
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to Update stock", "error");
