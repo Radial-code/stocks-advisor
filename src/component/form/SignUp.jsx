@@ -4,12 +4,15 @@ import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { SignUpAction, UserNameAction } from "../../redux/action/auth";
+import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
+import Loader from "../common/Loader";
 
 function SignUp({ history }) {
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [userNameError, setUserNameError] = useState("");
+  const [specialChar, SetSpecialChar] = useState(false);
 
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
@@ -22,12 +25,6 @@ function SignUp({ history }) {
     country: "",
   });
 
-  const regex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-  const phoneRegex =
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-
   const submitSignUpForm = () => {
     setError(true);
     if (
@@ -39,7 +36,8 @@ function SignUp({ history }) {
       signUpDetails.password === signUpDetails.confirmPassword &&
       signUpDetails.phone &&
       signUpDetails.confirmPassword &&
-      signUpDetails.country
+      signUpDetails.country &&
+      passwordRegex.test(signUpDetails.password) === true
     ) {
       dispatch(SignUpAction(signUpDetails, setLoading, history));
     } else {
@@ -158,7 +156,7 @@ function SignUp({ history }) {
                 <span className="text-danger">
                   {error && signUpDetails.email === ""
                     ? "email is required"
-                    : error && regex.test(signUpDetails.email) === false
+                    : error && EmailRegex.test(signUpDetails.email) === false
                     ? "Enter valid email"
                     : null}
                 </span>
@@ -182,7 +180,7 @@ function SignUp({ history }) {
                 <span className="text-danger">
                   {error && signUpDetails.phone === ""
                     ? "Phone Number is required"
-                    : error && phoneRegex.test(signUpDetails.phone) === false
+                    : error && PhoneRegex.test(signUpDetails.phone) === false
                     ? "Enter valid Phone Number"
                     : null}
                 </span>
@@ -198,6 +196,7 @@ function SignUp({ history }) {
                       ...signUpDetails,
                       password: e.target.value,
                     });
+                    SetSpecialChar(true);
                   }}
                   type="password"
                   placeholder="Password"
@@ -205,6 +204,12 @@ function SignUp({ history }) {
                 <span className="text-danger">
                   {error && signUpDetails.password === ""
                     ? "Password is required"
+                    : null}
+                  {error && signUpDetails.password === ""
+                    ? "Please Enter Your New Password"
+                    : specialChar &&
+                      passwordRegex.test(signUpDetails.password) === false
+                    ? "Enter strong password"
                     : null}
                 </span>
               </Form.Group>
@@ -261,7 +266,7 @@ function SignUp({ history }) {
                   onClick={() => submitSignUpForm()}
                   className=" w-100 form-btn px-5 py-3 ff-popins"
                 >
-                  Sign Up
+                  {loading ? <Loader /> : "Sign Up"}
                 </button>
               </div>
             </Form>
