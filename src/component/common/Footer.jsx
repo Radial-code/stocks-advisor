@@ -164,7 +164,7 @@ const Footer = ({ history }) => {
               <a target="_blank" href="https://www.instagram.com">
                 <InstagramIcon />
               </a>
-              <a target="_blank" href="https://ads.twitter.com">
+              <a target="_blank" href="https://www.twitter.com">
                 <TwitterIcon />
               </a>
               <a target="_blank" href="https://www.linkedin.com/notifications/">

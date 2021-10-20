@@ -36,6 +36,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const initialLanguage = localStorage.getItem("stock-advisor-lang")
     ? localStorage.getItem("stock-advisor-lang")
     : "Arabic";
+
   const [Language, setLanguage] = useState(initialLanguage);
   const firstname = useSelector((state) => state.auth.userData.firstName);
   const lastname = useSelector((state) => state.auth.userData.lastName);
@@ -55,10 +56,12 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     localStorage.setItem("stock-advisor-lang", "Arabic");
     setLang(false);
   };
+
   const overlayActiveHandler = () => {
     setNavbarCollapsed(!navbarCollapsed);
     setOverlayActive(false);
   };
+
   const layoutrightChangeHandler = () => {
     setLayoutClickChanger(false);
     setLanguage("English");
@@ -77,6 +80,12 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     setNavbarCollapsed(true);
     setOverlayActive(true);
   };
+
+  const searchHandler = () => {
+    history.goBack();
+    searchPage();
+  };
+
   useEffect(() => {
     if (searchData) {
       dispatch(getSearchResultAction(searchData, setLoading));
@@ -321,7 +330,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     <div className="d-flex">
                       <span
                         className="cross-icon-style my-auto "
-                        onClick={() => searchPage()}
+                        onClick={searchHandler}
                       >
                         x
                       </span>
