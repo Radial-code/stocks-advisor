@@ -1,4 +1,3 @@
-import moment from "moment";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -7,16 +6,27 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { getStockListAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import StockListItem from "./StockListItem";
+import ReactPaginate from "react-paginate";
 
 const CurrentStockTable = ({ history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const stockList = useSelector((state) => state.cmPanel.stockList);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getStockListAction(setLoading));
-  }, []);
+    dispatch(getStockListAction(page, setHasMore, setLoading));
+  }, [page]);
+
+  console.log("re render");
+  const handleChangePage = (e) => {
+    console.log(e);
+    const selectedPage = e.selected;
+    setPage(selectedPage);
+  };
 
   return (
     <>
@@ -138,114 +148,32 @@ const CurrentStockTable = ({ history }) => {
           </thead>
           <tbody>
             {!!stockList && !!stockList.length
-              ? stockList.map((value, index) => {
-                  return (
-                    <tr
-                      onClick={() =>
-                        history.push(`/content/manager/edit/stock/${value._id}`)
-                      }
-                      key={index}
-                      className="current-stock-data table-border-bottom"
-                    >
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {moment(value.createdAt).format("MM/ddd")}
-                      </td>
-                      <td
-                        className={`${
-                          value.profitOrLoss.status === 0
-                            ? "profitloss-text"
-                            : value.profitOrLoss.status === 1
-                            ? "text-dark"
-                            : "text-danger"
-                        } ${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        } `}
-                      >
-                        {/* {value &&
-                        value.profitOrLoss &&
-                        value.profitOrLoss.percentage
-                          ? value.profitOrLoss.percentage
-                          : "N/A"} */}
-                        {parseInt(
-                          value &&
-                            value.profitOrLoss &&
-                            value.profitOrLoss.percentage
-                            ? value.profitOrLoss.percentage
-                            : "N/A"
-                        ).toFixed(2)}
-                      </td>
-
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {value.isSold ? "Sold" : "No Sold"}
-                      </td>
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        ${value.currentPrice}
-                      </td>
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        ${value.joinPrice}
-                      </td>
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {value && value.category ? value.category.title : "N/A"}
-                      </td>
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {value.symbol ? value.symbol : "N/A"}
-                      </td>
-                      {/* <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {value && value.portfolio
-                          ? value.portfolio.title
-                          : "N/A"}
-                      </td> */}
-                    </tr>
-                  );
-                })
+              ? stockList.map((obj, index) => (
+                  <StockListItem
+                    layoutClickChanger={layoutClickChanger}
+                    key={index}
+                    history={history}
+                    value={obj}
+                  />
+                ))
               : "You don't have any stock"}
           </tbody>
         </table>
       )}
+      <ReactPaginate
+        previousLabel={"Prev"}
+        nextLabel={"Next"}
+        breakLabel={"..."}
+        breakClassName={"break-me"}
+        pageCount={Math.ceil(13 / 10)}
+        marginPagesDisplayed={0}
+        pageRangeDisplayed={2}
+        onPageChange={handleChangePage}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        activeClassName={"activePage"}
+        initialPage={page}
+      />
     </>
   );
 };

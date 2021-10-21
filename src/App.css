@@ -40,7 +40,24 @@
 
 /* how are */
 
-.activePage {
-  background-color: green;
-  padding: 20px;
+.pagination li {
+  background-color: #16191e4a;
+  color: white;
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+.pagination .activePage {
+  background-color: #5cbd4c;
+  color: white;
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

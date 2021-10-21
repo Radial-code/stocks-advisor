@@ -40,8 +40,8 @@ export const DeleteStockDetailsApi = async (id) => {
  *  stock list api
  * @returns
  */
-export const getStockListApi = async () => {
-  return await axiosRequest("GET", `/stock`);
+export const getStockListApi = async (page) => {
+  return await axiosRequest("GET", `/stock?page=${page}&limit=10`);
 };
 
 /**

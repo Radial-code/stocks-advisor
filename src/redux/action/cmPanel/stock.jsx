@@ -64,24 +64,28 @@ const getStockList = (data) => ({
   data,
 });
 
-export const getStockListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getStockListApi();
-    if (response.success) {
-      dispatch(getStockList(response.allStock));
+export const getStockListAction =
+  (page, setHasMore, setLoading) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getStockListApi(page);
+      if (response.success) {
+        dispatch(getStockList(response.allStock));
+        setLoading(false);
+        if (response.allStock.length < 10) {
+          setHasMore(false);
+        }
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load stock list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load stock list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get stock details list action

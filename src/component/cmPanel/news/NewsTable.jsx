@@ -5,7 +5,6 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
 import { withRouter } from "react-router";
-import InfiniteScroll from "react-infinite-scroll-component";
 import NewsTableListItem from "./NewsTableListItem";
 import ReactPaginate from "react-paginate";
 
@@ -86,20 +85,25 @@ const NewsTable = ({ history }) => {
           {/* </InfiniteScroll> */}
         </Table>
       )}
-      <ReactPaginate
-        previousLabel={"Prev"}
-        nextLabel={"Next"}
-        breakLabel={"..."}
-        breakClassName={"break-me"}
-        pageCount={Math.ceil(13 / 10)}
-        marginPagesDisplayed={3}
-        pageRangeDisplayed={2}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"activePage"}
-        initialPage={page}
-      />
+
+      {adminNewsList.length === 0 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(13 / 10)}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
+      )}
     </>
   );
 };

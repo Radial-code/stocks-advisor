@@ -17,7 +17,7 @@ const Stocks = () => {
                 <button className="update-btn-2">Add New</button>
               </Link>
             </div>
-            <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
+            <div className="overflow-auto current-stock-calc-height scroll-bar mt-3 ">
               <div className="table-responsive  current-stock-scrollbar h-100">
                 <CurrentStockTable />
               </div>
