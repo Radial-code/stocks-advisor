@@ -108,7 +108,7 @@ const ViewProfile = () => {
           )}
         </div>
       </div>
-      <div className="d-flex flex-row justify-content-center   d-block d-md-none mb-5">
+      <div className="d-flex flex-row justify-content-center  d-block d-md-none mb-5">
         {inputDisable ? (
           <Link to="/change-password">
             <button className="from-edit-profile-btn px-2 ">
