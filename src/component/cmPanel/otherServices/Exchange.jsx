@@ -7,7 +7,11 @@ function Exchange() {
   const [edit, setEdit] = useState(false);
   const [updateValue, setUpdateValue] = useState("");
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+    setEdit(false);
+    setUpdateValue("");
+  };
 
   return (
     <div>
