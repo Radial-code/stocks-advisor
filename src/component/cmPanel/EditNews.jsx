@@ -38,7 +38,6 @@ const EditNews = () => {
                 YouTube Video/ Image Link
               </span>
               <span className="small-paragraph d-block d-sm-none">
-                {" "}
                 Video/ Image Link
               </span>
               <input type="file" value="" id="my-file" hidden />

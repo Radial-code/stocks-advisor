@@ -300,7 +300,6 @@ const AddNewNews = ({ edit, match, history }) => {
                 value={
                   newsDetails && newsDetails.stock && newsDetails.stock._id
                 }
-                // value={newsDetails.stock}
                 className=" add-new-stock-select mb-3"
               >
                 <select className="form-select text-end cursor-pointer">
