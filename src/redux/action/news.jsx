@@ -91,24 +91,28 @@ const getNewsForAdmin = (data) => ({
   data,
 });
 
-export const getNewsListForAdminAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getNewsForAdminApi();
-    if (response.success) {
-      dispatch(getNewsForAdmin(response.allNews));
+export const getNewsListForAdminAction =
+  (setLoading, setHasMore, page) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getNewsForAdminApi(page);
+      if (response.success) {
+        dispatch(getNewsForAdmin(response.allNews));
+        setLoading(false);
+        if (response.allNews.length < 10) {
+          setHasMore(false);
+        }
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load News list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load News list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get home News action
