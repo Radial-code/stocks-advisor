@@ -275,58 +275,6 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
             {/* ends here ............. language accordian */}
 
             <div className="d-flex  flex-xxl-row flex-column">
-              {!!auth && token !== null ? (
-                <>
-                  {userData && !!userData.isAdmin ? (
-                    <div className="d-xxl-none d-block ">
-                      <Accordion>
-                        <Card>
-                          <Card.Header className="bg-accordian ">
-                            <Accordion.Toggle
-                              className="w-100 dashboard-accordian my-auto "
-                              eventKey="1"
-                            >
-                              <div className="d-flex py-2 w-100 justify-content-between ">
-                                <p className="mb-0">Dashboard</p>
-                                <p className="mb-0">+</p>
-                              </div>
-                            </Accordion.Toggle>
-                          </Card.Header>
-                          <Accordion.Collapse eventKey="1">
-                            <Card.Body>
-                              <p
-                                className="cursor-pointer"
-                                onClick={() =>
-                                  history.push("/dashboard/view/profile")
-                                }
-                              >
-                                User Dashboard
-                              </p>
-                              <p
-                                className="cursor-pointer"
-                                onClick={() =>
-                                  history.push("/content/manager/stocks")
-                                }
-                              >
-                                Admin Dashboard
-                              </p>
-                            </Card.Body>
-                          </Accordion.Collapse>
-                        </Card>
-                      </Accordion>
-                    </div>
-                  ) : (
-                    <NavLink
-                      exact
-                      activeClassName="active_underline_navbar"
-                      to="/dashboard/view/profile"
-                      className="navbar_Links_text nav-text-border-bottom py-2 mx-xxl-3  py-xxl-3 mt-3 my-xxl-auto"
-                    >
-                      Dashboard
-                    </NavLink>
-                  )}
-                </>
-              ) : null}
               <span className="icon d-none d-xxl-block my-auto ms-3">
                 {searchshow ? (
                   <div className="position-relative">
@@ -378,6 +326,58 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 >
                   Portfolio
                 </NavLink>
+              ) : null}
+              {!!auth && token !== null ? (
+                <>
+                  {userData && !!userData.isAdmin ? (
+                    <div className="d-xxl-none d-block ">
+                      <Accordion>
+                        <Card>
+                          <Card.Header className="bg-accordian ">
+                            <Accordion.Toggle
+                              className="w-100 dashboard-accordian my-auto "
+                              eventKey="1"
+                            >
+                              <div className="d-flex py-2 w-100 justify-content-between ">
+                                <p className="mb-0">Dashboard</p>
+                                <p className="mb-0">+</p>
+                              </div>
+                            </Accordion.Toggle>
+                          </Card.Header>
+                          <Accordion.Collapse eventKey="1">
+                            <Card.Body>
+                              <p
+                                className="cursor-pointer"
+                                onClick={() =>
+                                  history.push("/dashboard/view/profile")
+                                }
+                              >
+                                User Dashboard
+                              </p>
+                              <p
+                                className="cursor-pointer"
+                                onClick={() =>
+                                  history.push("/content/manager/stocks")
+                                }
+                              >
+                                Admin Dashboard
+                              </p>
+                            </Card.Body>
+                          </Accordion.Collapse>
+                        </Card>
+                      </Accordion>
+                    </div>
+                  ) : (
+                    <NavLink
+                      exact
+                      activeClassName="active_underline_navbar"
+                      to="/dashboard/view/profile"
+                      className="navbar_Links_text nav-text-border-bottom py-2 mx-xxl-3  py-xxl-3 mt-3 my-xxl-auto"
+                    >
+                      Dashboard
+                    </NavLink>
+                  )}
+                </>
               ) : null}
               {!!auth && token !== null ? (
                 <>
