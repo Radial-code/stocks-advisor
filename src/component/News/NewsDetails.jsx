@@ -15,7 +15,9 @@ const NewsDetails = ({ match }) => {
   useEffect(() => {
     dispatch(getNewsDetailsAction(id, setLoading));
   }, []);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section>
