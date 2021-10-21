@@ -168,24 +168,29 @@ const getUserListForAdmin = (data) => ({
   data,
 });
 
-export const getUserListForAdminAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getUserListForAdminApi();
-    if (response.success) {
-      dispatch(getUserListForAdmin(response.allUsers));
+export const getUserListForAdminAction =
+  (setLoading, setHasMore, page) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getUserListForAdminApi(page);
+      if (response.success) {
+        dispatch(getUserListForAdmin(response.allUsers));
+        setLoading(false);
+
+        if (response.allStock.length < 10) {
+          setHasMore(false);
+        }
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to user list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to user list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * create new Team member details action

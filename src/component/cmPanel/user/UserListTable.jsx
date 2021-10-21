@@ -4,22 +4,31 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserListForAdminAction } from "../../../redux/action/cmPanel/stock";
 import BubblesLoader from "../../common/BubblesLoader";
-import moment from "moment";
 import { useHistory } from "react-router-dom";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import UserListItem from "./UserListItem";
+import ReactPaginate from "react-paginate";
 
 const UserListTable = () => {
   const dispatch = useDispatch();
   let history = useHistory();
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
   const [loading, setLoading] = useState(false);
   const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getUserListForAdminAction(setLoading));
-  }, []);
+    dispatch(getUserListForAdminAction(setLoading, setHasMore, page));
+  }, [page]);
+
+  console.log("re render");
+  const handleChangePage = (e) => {
+    console.log(e);
+    const selectedPage = e.selected;
+    setPage(selectedPage);
+  };
 
   return (
     <>
@@ -85,57 +94,14 @@ const UserListTable = () => {
           </thead>
           <tbody className="user-details">
             {adminUserList && adminUserList.length ? (
-              adminUserList.map((value, index) => {
-                const {
-                  phone,
-                  createdAt,
-                  firstName,
-                  lastName,
-                  email,
-                  plan,
-                  _id,
-                } = value;
-                return (
-                  <tr
-                    key={index}
-                    className="cursor-pointer"
-                    onClick={() => history.push(`/content/manager/user/${_id}`)}
-                  >
-                    <td
-                      className={`${
-                        layoutClickChanger
-                          ? "text-end whitespace"
-                          : "text-start whitespace"
-                      }`}
-                    >
-                      {moment(createdAt).format("DD/MM/YY")}
-                    </td>
-                    <td
-                      className={`${
-                        layoutClickChanger
-                          ? "text-end whitespace"
-                          : "text-start whitespace"
-                      }`}
-                      dir="ltr"
-                    >
-                      {firstName} {lastName}
-                    </td>
-                    <td className="text-end whitespace Ellipse">{phone}</td>
-                    <td className="text-end whitespace Ellipse" dir="ltr">
-                      {email}
-                    </td>
-                    <td
-                      className={`${
-                        layoutClickChanger
-                          ? "text-end whitespace"
-                          : "text-start whitespace"
-                      }`}
-                    >
-                      {plan}
-                    </td>
-                  </tr>
-                );
-              })
+              adminUserList.map((obj, index) => (
+                <UserListItem
+                  key={index}
+                  value={obj}
+                  history={history}
+                  layoutClickChanger={layoutClickChanger}
+                />
+              ))
             ) : (
               <td colspan={5} className="text-center h-100 table-text">
                 You don't have any user
@@ -143,6 +109,25 @@ const UserListTable = () => {
             )}
           </tbody>
         </Table>
+      )}
+
+      {adminUserList.length === 0 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(13 / 10)}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={2}
+          onPageChange={handleChangePage}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
       )}
     </>
   );
