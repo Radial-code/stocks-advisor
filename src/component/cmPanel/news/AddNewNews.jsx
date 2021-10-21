@@ -31,6 +31,7 @@ const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
   const dispatch = useDispatch();
   const newsDetailsList = useSelector((state) => state.userPanel.newsDetails);
+  const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
 
   const [tags, setTags] = useState([]);
   const [atags, setATags] = useState([]);
@@ -53,7 +54,6 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const AddNewNewsDetails = () => {
     setError(true);
-    console.log("tags", tags);
     const tagsArray = [...tags, ...categoryArray];
     const atagsArray = [...atags, ...categoryArray];
     tagsArray.map((item) => {
@@ -71,9 +71,20 @@ const AddNewNews = ({ edit, match, history }) => {
       newsDetails.adescription !== "" &&
       newsDetails.atags !== ""
     ) {
-      dispatch(
-        addNewNewsDetailsAction(newsDetails, setAddStockLoading, setNewsDetails)
-      );
+      const data = {
+        title: newsDetails.title,
+        atitle: newsDetails.atitle,
+        description: newsDetails.description,
+        adescription: newsDetails.adescription,
+        showOnHomePage: newsDetails.showOnHomePage,
+        stock: newsDetails.stock,
+        tags: newsDetails.tags,
+        atags: newsDetails.atags,
+        media: uploadImageUrl,
+        link: newsDetails.link,
+        portfolios: newsDetails.portfolios,
+      };
+      dispatch(addNewNewsDetailsAction(data, setAddStockLoading, history));
       setError(false);
       setNewsDetails({
         title: "",

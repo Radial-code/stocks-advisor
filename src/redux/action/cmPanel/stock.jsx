@@ -130,23 +130,28 @@ const DeleteStockDetails = (data) => ({
   data,
 });
 
-export const DeleteStockDetailsAction = (id, history) => async (dispatch) => {
-  try {
-    const response = await DeleteStockDetailsApi(id);
-    if (response.success) {
-      dispatch(DeleteStockDetails(id));
-      history.push("/content/manager/stocks");
-      Swal.fire("success", "Stock deleted successfully", "success");
+export const DeleteStockDetailsAction =
+  (id, setDeleteLoading, history) => async (dispatch) => {
+    setDeleteLoading(true);
+    try {
+      const response = await DeleteStockDetailsApi(id);
+      if (response.success) {
+        dispatch(DeleteStockDetails(id));
+        Swal.fire("success", "Stock deleted successfully", "success");
+        setTimeout(Swal.close, 2000);
+        history.push("/content/manager/stocks");
+        setDeleteLoading(false);
+      } else {
+        Swal.fire("Error", "Failed to delete Stock", "error");
+        setTimeout(Swal.close, 2000);
+        setDeleteLoading(false);
+      }
+    } catch (error) {
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
-    } else {
-      Swal.fire("Error", "Failed to delete Stock", "error");
-      setTimeout(Swal.close, 2000);
+      setDeleteLoading(false);
     }
-  } catch (error) {
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get user list action

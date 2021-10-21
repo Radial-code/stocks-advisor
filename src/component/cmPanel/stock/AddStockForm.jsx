@@ -15,11 +15,11 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import {
   addNewStockDetailsAction,
+  DeleteStockDetailsAction,
   updateStockDetailsAction,
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
-import { DeleteNewsDetailsAction } from "../../../redux/action/news";
 
 const initialState = {
   joinDate: "",
@@ -43,6 +43,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   const stockDetailsList = useSelector((state) => state.cmPanel.stockDetails);
 
   const [loading, setLoading] = useState(false);
+  const [deleteLoading, setDeleteLoading] = useState(false);
   const [updateLoading, setUpdateLoading] = useState(false);
   const [error, setError] = useState(false);
   const [exchangeLoading, setExchangeLoading] = useState(false);
@@ -92,7 +93,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
 
   const deleteStock = () => {
     if (!!id) {
-      dispatch(DeleteNewsDetailsAction(id, history));
+      dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
     }
   };
 
@@ -545,11 +546,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   </button>
                   <button
                     type="button"
-                    disabled={addStockLoading}
+                    disabled={deleteLoading}
                     className="m-2 update-btn my-3 ff-popins"
                     onClick={() => deleteStock()}
                   >
-                    Delete
+                    {deleteLoading ? <Loader /> : "Delete"}
                   </button>
                 </>
               ) : (

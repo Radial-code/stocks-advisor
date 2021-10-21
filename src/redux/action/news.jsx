@@ -29,14 +29,15 @@ export const GET_RELETED_SOLD_STOCK_NEWS = "GET_RELETED_SOLD_STOCK_NEWS";
  * @returns
  */
 export const addNewNewsDetailsAction =
-  (data, setAddNewsLoading) => async () => {
+  (data, setAddNewsLoading, history) => async () => {
     setAddNewsLoading(true);
     try {
       const response = await addNewNewsDetailsApi(data);
       if (response.success) {
         setAddNewsLoading(false);
-        Swal.fire("Success", "News submitted successfully", "success");
+        Swal.fire("Success", "News created successfully", "success");
         setTimeout(Swal.close, 2000);
+        history.push("/content/manager/news");
       } else {
         setAddNewsLoading(false);
         Swal.fire("Error", "Failed to add News", "error");
