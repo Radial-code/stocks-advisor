@@ -43,7 +43,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
       <Modal.Header className="d-block">
         <Modal.Title>
           <p className="mb-0 text-center fw-bold">
-            {edit ? "Update Portfolio" : ""}
+            {edit ? "Update Portfolio" : "Add Portfolio"}
           </p>
         </Modal.Title>
       </Modal.Header>
