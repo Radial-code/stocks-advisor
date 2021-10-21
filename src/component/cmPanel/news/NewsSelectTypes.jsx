@@ -58,7 +58,7 @@ const NewsSelectTypes = ({
   };
 
   return (
-    <>
+    <div className="row">
       <p className="fw-bold">Select portfolio list</p>
       {portfolioLoading ? (
         <BubblesLoader />
@@ -182,7 +182,7 @@ const NewsSelectTypes = ({
           ? "Category is required"
           : null}
       </span>
-    </>
+    </div>
   );
 };
 export default NewsSelectTypes;
