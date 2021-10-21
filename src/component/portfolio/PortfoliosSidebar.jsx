@@ -11,8 +11,8 @@ const PortfoliosSidebar = ({ history }) => {
   );
   const openRoutes = (value) => {
     setShowSidebar(false);
-    if (value && value._id) {
-      history.push(`/protfolios/stock/${value._id}`);
+    if (value) {
+      history.push(`/protfolios/stock/${value}`);
     }
   };
 
