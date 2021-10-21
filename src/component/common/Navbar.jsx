@@ -31,7 +31,7 @@ import Loader from "../common/Loader";
 const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   // new usestate
 
-  const [activeId, setActiveId] = useState("1");
+  const [activeId, setActiveId] = useState("");
 
   function toggleActive(id) {
     if (activeId === id) {
@@ -103,7 +103,29 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     history.goBack();
     searchPage();
   };
-
+  const closeSidebar = (value) => {
+    if (value === "home") {
+      history.push("/");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "about") {
+      history.push("/about");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "news") {
+      history.push("/news");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "ourplan") {
+      history.push("/our-plan");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "contact") {
+      history.push("/contact-us");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    }
+  };
   useEffect(() => {
     if (searchData) {
       dispatch(getSearchResultAction(searchData, setLoading));
@@ -125,7 +147,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
           className="over-lay-navbar"
         ></div>
       )}
-
+      {console.log("navbarCollapsed", navbarCollapsed)}
       <div
         className={`${
           navbarCollapsed
@@ -139,6 +161,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <NavLink
                 exact
                 to="/"
+                onClick={() => closeSidebar("home")}
                 className="nav-logo d-none d-xxl-block logo-img-navbar"
               >
                 <img className="logo-img-navbar" src={logo} alt="" />
@@ -168,6 +191,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <NavLink
                 exact
                 to="/"
+                onClick={() => closeSidebar("home")}
                 activeClassName="active_underline_navbar "
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
@@ -176,6 +200,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <NavLink
                 exact
                 to="/about"
+                onClick={() => closeSidebar("about")}
                 activeClassName="active_underline_navbar"
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0   py-2   py-xxl-3 mt-3 my-xxl-auto"
               >
@@ -185,14 +210,16 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 activeClassName="active_underline_navbar"
                 exact
                 to="/news"
+                onClick={() => closeSidebar("news")}
                 className="navbar_Links_text nav-text-border-bottom py-2 px-2 px-xxl-0   py-xxl-3 mx-xxl-4 mt-3 my-xxl-auto "
               >
                 News
               </NavLink>
               <NavLink
                 exact
-                activeClassName="active_underline_navbar"
                 to="/our-plan"
+                activeClassName="active_underline_navbar"
+                onClick={() => closeSidebar("ourplan")}
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto"
               >
                 Our Plans
@@ -200,6 +227,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <NavLink
                 exact
                 to="/contact-us"
+                onClick={() => closeSidebar("contact")}
                 activeClassName="active_underline_navbar"
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  mx-xxl-4 py-2  py-xxl-3 mt-3 my-xxl-auto "
               >
