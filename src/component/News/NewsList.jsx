@@ -9,10 +9,10 @@ const NewsList = ({ history, value, index }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
 
   return (
-    <section className="news-articles-card h-100 p-3 mb-4">
-      <Row key={index} className="justify-content-between h-100 ">
-        <Col xl={4} lg={4} xs={4} className="h-100">
-          <div className="stock-articles-img h-100">
+    <section className="news-articles-card  p-3 mb-4">
+      <Row key={index} className="justify-content-between ">
+        <Col xl={4} lg={4} xs={4}>
+          <div className="stock-articles-img ">
             <img className="w-100 h-341" src={value.imagePath} alt="" />
           </div>
         </Col>
@@ -20,9 +20,7 @@ const NewsList = ({ history, value, index }) => {
           xl={8}
           sm={8}
           xs={8}
-          className={`${
-            layoutClickChanger ? "d-flex  h-100" : "d-flex h-100"
-          }  `}
+          className={`${layoutClickChanger ? "d-flex  " : "d-flex "}  `}
         >
           <div className="w-lg-518">
             <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">

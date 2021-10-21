@@ -85,6 +85,32 @@
   padding: 4px 8px;
   border-radius: 4px;
 }
+.news-upload-btn {
+  background: var(--color-88BEFC);
+  font-weight: 500;
+  font-size: 17px;
+  color: #fff;
+  border: 1px solid var(--color-88BEFC);
+
+  border-radius: 4px;
+}
+.news-upload-img-border {
+  border: 1px solid var(--color-88BEFC);
+  height: 200px;
+  border-radius: 10px;
+}
+.news-form-height {
+  height: 850px;
+  overflow: auto;
+}
+.news-upload-btn:hover {
+  background: white;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--color-88BEFC);
+
+  border-radius: 4px;
+}
 @media (max-width: 575.98px) {
   .manger-panel-shadow {
     padding-top: 16.3px;

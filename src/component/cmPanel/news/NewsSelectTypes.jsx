@@ -56,7 +56,7 @@ const NewsSelectTypes = ({
 
   return (
     <>
-      <p>Select portfolio list</p>
+      <p className="fw-bold">Select portfolio list</p>
       {portfolioLoading ? (
         <BubblesLoader />
       ) : (
@@ -100,7 +100,7 @@ const NewsSelectTypes = ({
           ? "Portfolio is required"
           : null}
       </span>
-      <p>Select Category List As Tag</p>
+      <p className="fw-bold">Select Category List As Tag</p>
       {loading ? (
         <BubblesLoader />
       ) : (
