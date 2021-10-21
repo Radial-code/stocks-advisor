@@ -460,27 +460,59 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   ? portfolioList.map((value, index) => {
                       return (
                         <div className="col-auto mb-3 d-flex align-items-center">
-                          <label
-                            className="form-check-label check-box-text Ellipse"
-                            for="flexCheckDefault"
-                          >
-                            {value.title}
-                          </label>
-                          <input
-                            key={index}
-                            checked={
-                              !!stockDetailsList &&
-                              stockDetailsList.portfolios &&
-                              stockDetailsList.portfolios.length > 0
-                                ? stockDetailsList.portfolios.map((val) => {
-                                    return val._id === value._id ? true : false;
-                                  })
-                                : null
-                            }
-                            type="checkbox"
-                            onClick={() => selectPortfolio(value._id)}
-                            className="cursor-pointer mx-2"
-                          />
+                          {layoutClickChanger ? (
+                            <>
+                              <label
+                                className="form-check-label check-box-text Ellipse"
+                                for="flexCheckDefault"
+                              >
+                                {value.title}
+                              </label>
+                              <input
+                                key={index}
+                                checked={
+                                  !!stockDetailsList &&
+                                  stockDetailsList.portfolios &&
+                                  stockDetailsList.portfolios.length > 0
+                                    ? stockDetailsList.portfolios.map((val) => {
+                                        return val._id === value._id
+                                          ? true
+                                          : false;
+                                      })
+                                    : null
+                                }
+                                type="checkbox"
+                                onClick={() => selectPortfolio(value._id)}
+                                className="cursor-pointer mx-2"
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <input
+                                key={index}
+                                checked={
+                                  !!stockDetailsList &&
+                                  stockDetailsList.portfolios &&
+                                  stockDetailsList.portfolios.length > 0
+                                    ? stockDetailsList.portfolios.map((val) => {
+                                        return val._id === value._id
+                                          ? true
+                                          : false;
+                                      })
+                                    : null
+                                }
+                                type="checkbox"
+                                onClick={() => selectPortfolio(value._id)}
+                                className="cursor-pointer mx-2"
+                              />
+                              <label
+                                className="form-check-label check-box-text Ellipse"
+                                for="flexCheckDefault"
+                              >
+                                {value.title}
+                              </label>
+                            </>
+                          )}
                         </div>
                       );
                     })
