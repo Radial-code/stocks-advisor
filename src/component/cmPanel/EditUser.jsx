@@ -73,7 +73,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
       ></div>
       <Row>
         <Col className="d-flex justify-content-sm-end justify-content-center">
-          <section className="edituser-card  p-3 p-sm-5 ">
+          <section className="shadow bg-white w-1000  p-3 p-sm-5 ">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
               <p className="heading-stock fs-sm-20">
                 {data.firstName}&nbsp;{data.lastName}
@@ -167,8 +167,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       </Col>
                     </Row>
                     <Row>
-                      <Col xs={12} className="d-flex pe-xl-5">
-                        <section className="plan-card-edituser">
+                      <Col xs={12} className="d-flex pe-xl-5 flex-column">
+                        <section className="plan-card-edituser p-3">
                           <div className="d-flex justify-content-between border-b-1">
                             <p className="edituser-amount d-none d-sm-block">
                               ${price}
