@@ -257,8 +257,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
             </div>
 
             <div className="d-xxl-none mb-3 d-block ">
-              <Accordion defaultActiveKey={activeId}>
-                <Card className="rounded-lg mb-3 border-0">
+              <Accordion
+                className="langu-accordian"
+                defaultActiveKey={activeId}
+              >
+                <Card className="rounded-lg  border-0">
                   <Accordion.Toggle
                     as={Card.Header}
                     eventKey="0"
@@ -267,7 +270,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   >
                     <div className="d-flex justify-content-between ">
                       <p className="mb-0">Language</p>
-                      {activeId ? (
+                      {activeId === "0" ? (
                         <p className="mb-0">-</p>
                       ) : (
                         <p className="mb-0">+</p>
@@ -352,21 +355,28 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <>
                   {userData && !!userData.isAdmin ? (
                     <div className="d-xxl-none d-block ">
-                      <Accordion>
-                        <Card>
-                          <Card.Header className="bg-accordian ">
-                            <Accordion.Toggle
-                              className="w-100 dashboard-accordian my-auto "
-                              eventKey="1"
-                            >
-                              <div className="d-flex py-2 w-100 justify-content-between ">
-                                <p className="mb-0">Dashboard</p>
+                      <Accordion
+                        className="dash-accordian"
+                        defaultActiveKey={activeId}
+                      >
+                        <Card className="rounded-lg  border-0">
+                          <Accordion.Toggle
+                            as={Card.Header}
+                            eventKey="1"
+                            onClick={() => toggleActive("1")}
+                            className={activeId === "1" ? "active" : null}
+                          >
+                            <div className="d-flex justify-content-between ">
+                              <p className="mb-0">Dashboard</p>
+                              {activeId === "1" ? (
+                                <p className="mb-0">-</p>
+                              ) : (
                                 <p className="mb-0">+</p>
-                              </div>
-                            </Accordion.Toggle>
-                          </Card.Header>
+                              )}
+                            </div>
+                          </Accordion.Toggle>
                           <Accordion.Collapse eventKey="1">
-                            <Card.Body>
+                            <Card.Body className="dash-body-accord">
                               <p
                                 className="cursor-pointer"
                                 onClick={() =>
@@ -387,6 +397,24 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                           </Accordion.Collapse>
                         </Card>
                       </Accordion>
+                      {/* <Accordion>
+                        <Card>
+                          <Card.Header className="bg-accordian ">
+                            <Accordion.Toggle
+                              className="w-100 dashboard-accordian my-auto "
+                              eventKey="1"
+                            >
+                              <div className="d-flex py-2 w-100 justify-content-between ">
+                                <p className="mb-0">Dashboard</p>
+                                <p className="mb-0">+</p>
+                              </div>
+                            </Accordion.Toggle>
+                          </Card.Header>
+                          <Accordion.Collapse eventKey="1">
+                         
+                          </Accordion.Collapse>
+                        </Card>
+                      </Accordion> */}
                     </div>
                   ) : (
                     <NavLink
