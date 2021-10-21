@@ -11,6 +11,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import England from "../../assets/img/england.png";
 import Arbic from "../../assets/img/arbic.png";
@@ -25,6 +29,19 @@ import { LogoutAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
 
 const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
+  // new usestate
+
+  const [activeId, setActiveId] = useState("1");
+
+  function toggleActive(id) {
+    if (activeId === id) {
+      setActiveId(null);
+    } else {
+      setActiveId(id);
+    }
+  }
+
+  // its ends here...
   const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
@@ -240,23 +257,27 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
             </div>
 
             <div className="d-xxl-none mb-3 d-block ">
-              <Accordion>
-                <Card>
-                  <Card.Header className="">
-                    <Accordion.Toggle
-                      className="w-100   my-auto bg-accordian"
-                      eventKey="1"
-                    >
-                      <div className="d-flex py-2 w-100 justify-content-between ">
-                        <p className="mb-0">Language</p>
+              <Accordion defaultActiveKey={activeId}>
+                <Card className="rounded-lg mb-3 border-0">
+                  <Accordion.Toggle
+                    as={Card.Header}
+                    eventKey="0"
+                    onClick={() => toggleActive("0")}
+                    className={activeId === "0" ? "active" : null}
+                  >
+                    <div className="d-flex justify-content-between ">
+                      <p className="mb-0">Language</p>
+                      {activeId ? (
+                        <p className="mb-0">-</p>
+                      ) : (
                         <p className="mb-0">+</p>
-                      </div>
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body>
+                      )}
+                    </div>
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey="0">
+                    <Card.Body className="card-body-Lang">
                       <p
-                        className="cursor-pointer"
+                        className="cursor-pointer lang-accor-text"
                         onClick={layoutrightChangeHandler}
                       >
                         English
