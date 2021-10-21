@@ -272,3 +272,24 @@
     height: 50px;
   }
 }
+
+/* accordian css */
+
+.card-header {
+  cursor: pointer;
+  background-color: transparent !important;
+}
+
+.card-header.active {
+  background-color: #5cbd4c !important;
+  color: white;
+}
+
+.card-body-Lang {
+  background-color: #e4e4e4;
+}
+
+.lang-accor-text {
+  color: #16191e;
+  font-size: 16px;
+}
