@@ -6,7 +6,17 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
-const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
+const categorySelectValue = [];
+const categoryId = [];
+const data = [];
+const valueId = [];
+const NewsSelectTypes = ({
+  error,
+  newsDetails,
+  newsDetailsList,
+  setCategoryArray,
+  categoryArray,
+}) => {
   const dispatch = useDispatch();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -18,16 +28,10 @@ const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
     dispatch(getCategoryListAction(setLoading));
   }, []);
 
-  const data = [];
-  const valueId = [];
   const selectPortfolio = (id) => {
-    const ValidId = valueId.includes(id);
-    if (data === []) {
-      data.push({ portfolioId: id });
+    if (!valueId.includes(id)) {
       valueId.push(id);
-    } else if (!ValidId) {
       data.push({ portfolioId: id });
-      valueId.push(id);
     } else {
       var index = data.indexOf({ portfolioId: id });
       data.splice(index, 1);
@@ -35,6 +39,19 @@ const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
       valueId.splice(indexvalueId, 1);
     }
     newsDetails.portfolios = data;
+  };
+
+  const selectCategory = (id, title) => {
+    if (!categoryId.includes(id)) {
+      categoryId.push(id);
+      categorySelectValue.push(title);
+    } else {
+      var index = categorySelectValue.indexOf(title);
+      categorySelectValue.splice(index, 1);
+      var indexcategoryId = categoryId.indexOf(id);
+      categoryId.splice(indexcategoryId, 1);
+    }
+    setCategoryArray(categorySelectValue);
   };
 
   return (
@@ -56,15 +73,15 @@ const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
                     </label>
                     <input
                       key={index}
-                      checked={
-                        !!newsDetailsList &&
-                        newsDetailsList.portfolios &&
-                        newsDetailsList.portfolios.length > 0
-                          ? newsDetailsList.portfolios.map((val) => {
-                              return val._id === value._id ? true : false;
-                            })
-                          : null
-                      }
+                      //   checked={
+                      //     !!newsDetailsList &&
+                      //     newsDetailsList.portfolios &&
+                      //     newsDetailsList.portfolios.length > 0
+                      //       ? newsDetailsList.portfolios.map((val) => {
+                      //           return val._id === value._id ? true : false;
+                      //         })
+                      //       : null
+                      //   }
                       type="checkbox"
                       onClick={() => selectPortfolio(value._id)}
                       className="cursor-pointer mx-2"
@@ -101,7 +118,7 @@ const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
                     <input
                       key={index}
                       type="checkbox"
-                      onClick={() => selectPortfolio(value._id)}
+                      onClick={() => selectCategory(value._id, value.title)}
                       className="cursor-pointer mx-2"
                     />
                   </div>
@@ -111,10 +128,7 @@ const NewsSelectTypes = ({ error, newsDetails, newsDetailsList }) => {
         </>
       )}
       <span className="text-danger">
-        {error &&
-        newsDetails &&
-        newsDetails.portfolio &&
-        !newsDetails.portfolio.length
+        {error && categoryArray && !categoryArray.length
           ? "Category is required"
           : null}
       </span>

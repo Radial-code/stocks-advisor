@@ -39,6 +39,7 @@ const AddNewNews = ({ edit, match, history }) => {
   const [error, setError] = useState(false);
   const [addStockLoading, setAddStockLoading] = useState(false);
   const [newsDetails, setNewsDetails] = useState(initialState);
+  const [categoryArray, setCategoryArray] = useState([]);
 
   useEffect(() => {
     if (newsDetailsList) {
@@ -52,10 +53,13 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const AddNewNewsDetails = () => {
     setError(true);
-    tags.map((item) => {
+    console.log("tags", tags);
+    const tagsArray = [...tags, ...categoryArray];
+    const atagsArray = [...atags, ...categoryArray];
+    tagsArray.map((item) => {
       newsDetails.tags += `${item},`;
     });
-    atags.map((item) => {
+    atagsArray.map((item) => {
       newsDetails.atags += `${item},`;
     });
     if (
@@ -138,6 +142,8 @@ const AddNewNews = ({ edit, match, history }) => {
           newsDetailsList={newsDetailsList}
           error={error}
           newsDetails={newsDetails}
+          setCategoryArray={setCategoryArray}
+          categoryArray={categoryArray}
         />
         <div className=" ">
           {edit ? (
