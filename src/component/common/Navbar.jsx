@@ -205,7 +205,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               >
                 Contact Us
               </NavLink>
-              <span className="d-flex align-items-center  lang-dropddown  py-xxl-2  py-xxl-3 mt-xxl-0 mt-3 my-xxl-auto">
+              <span className="d-flex align-items-center  lang-dropddown  py-xxl-2  py-xxl-3   my-xxl-auto">
                 <li
                   className="d-none d-xxl-block"
                   onClick={() => setLang(!Lang)}
@@ -366,7 +366,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                             onClick={() => toggleActive("1")}
                             className={activeId === "1" ? "active" : null}
                           >
-                            <div className="d-flex justify-content-between ">
+                            <div className="d-flex py-2 px-2 justify-content-between ">
                               <p className="mb-0">Dashboard</p>
                               {activeId === "1" ? (
                                 <p className="mb-0">-</p>

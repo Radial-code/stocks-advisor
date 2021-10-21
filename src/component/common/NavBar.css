@@ -301,6 +301,7 @@
 
 .dash-accordian .card-header {
   border-bottom: 1px solid var(--color-707070) !important;
+  padding: unset !important;
 }
 
 .dash-body-accord {
