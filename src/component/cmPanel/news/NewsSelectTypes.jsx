@@ -5,6 +5,7 @@ import {
   getPortfolioListAction,
 } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const categorySelectValue = [];
 const categoryId = [];
@@ -18,6 +19,8 @@ const NewsSelectTypes = ({
   categoryArray,
 }) => {
   const dispatch = useDispatch();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
   const [portfolioLoading, setPortfolioLoading] = useState(false);
@@ -65,27 +68,55 @@ const NewsSelectTypes = ({
             ? portfolioList.map((value, index) => {
                 return (
                   <div className="col-auto mb-3 d-flex align-items-center">
-                    <label
-                      className="form-check-label check-box-text Ellipse"
-                      for="flexCheckDefault"
-                    >
-                      {value.title}
-                    </label>
-                    <input
-                      key={index}
-                      //   checked={
-                      //     !!newsDetailsList &&
-                      //     newsDetailsList.portfolios &&
-                      //     newsDetailsList.portfolios.length > 0
-                      //       ? newsDetailsList.portfolios.map((val) => {
-                      //           return val._id === value._id ? true : false;
-                      //         })
-                      //       : null
-                      //   }
-                      type="checkbox"
-                      onClick={() => selectPortfolio(value._id)}
-                      className="cursor-pointer mx-2"
-                    />
+                    {layoutClickChanger ? (
+                      <>
+                        <label
+                          className="form-check-label check-box-text Ellipse"
+                          for="flexCheckDefault"
+                        >
+                          {value.title}
+                        </label>
+                        <input
+                          key={index}
+                          //   checked={
+                          //     !!newsDetailsList &&
+                          //     newsDetailsList.portfolios &&
+                          //     newsDetailsList.portfolios.length > 0
+                          //       ? newsDetailsList.portfolios.map((val) => {
+                          //           return val._id === value._id ? true : false;
+                          //         })
+                          //       : null
+                          //   }
+                          type="checkbox"
+                          onClick={() => selectPortfolio(value._id)}
+                          className="cursor-pointer mx-2"
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <input
+                          key={index}
+                          //   checked={
+                          //     !!newsDetailsList &&
+                          //     newsDetailsList.portfolios &&
+                          //     newsDetailsList.portfolios.length > 0
+                          //       ? newsDetailsList.portfolios.map((val) => {
+                          //           return val._id === value._id ? true : false;
+                          //         })
+                          //       : null
+                          //   }
+                          type="checkbox"
+                          onClick={() => selectPortfolio(value._id)}
+                          className="cursor-pointer mx-2"
+                        />
+                        <label
+                          className="form-check-label check-box-text Ellipse"
+                          for="flexCheckDefault"
+                        >
+                          {value.title}
+                        </label>
+                      </>
+                    )}
                   </div>
                 );
               })
@@ -109,18 +140,37 @@ const NewsSelectTypes = ({
             ? categoryList.map((value, index) => {
                 return (
                   <div className="col-auto mb-3 d-flex align-items-center">
-                    <label
-                      className="form-check-label check-box-text Ellipse"
-                      for="flexCheckDefault"
-                    >
-                      {value.title}
-                    </label>
-                    <input
-                      key={index}
-                      type="checkbox"
-                      onClick={() => selectCategory(value._id, value.title)}
-                      className="cursor-pointer mx-2"
-                    />
+                    {layoutClickChanger ? (
+                      <>
+                        <label
+                          className="form-check-label check-box-text Ellipse"
+                          for="flexCheckDefault"
+                        >
+                          {value.title}
+                        </label>
+                        <input
+                          key={index}
+                          type="checkbox"
+                          onClick={() => selectCategory(value._id, value.title)}
+                          className="cursor-pointer mx-2"
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <input
+                          key={index}
+                          type="checkbox"
+                          onClick={() => selectCategory(value._id, value.title)}
+                          className="cursor-pointer mx-2"
+                        />
+                        <label
+                          className="form-check-label check-box-text Ellipse"
+                          for="flexCheckDefault"
+                        >
+                          {value.title}
+                        </label>
+                      </>
+                    )}
                   </div>
                 );
               })

@@ -19,15 +19,24 @@ const AddNewsForm = ({
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
   const [input, setInput] = useState("");
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const [uploadImg, setUploadImg] = useState("");
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
 
+  const uploadImgHandler = (e) => {
+    dispatch(uploadImageAction(e, setLoadingImage, "news"));
+    let img = e.target.files[0];
+    let image = URL.createObjectURL(img);
+    setUploadImg(image);
+    console.log(uploadImg);
+  };
   return (
     <>
       <div className="row">
-        <div className="col-lg-6 mb-3">
+        <div className="col-xl-6 mb-3">
           <Form.Group
             className="mb-3 add-new-stock-field "
             controlId="formBasicEmail"
@@ -56,6 +65,65 @@ const AddNewsForm = ({
               disabled
             />
           </Form.Group>
+
+          <Form.Group
+            className="mb-3 add-new-stock-field upload-field position-relative "
+            controlId="formBasicEmail"
+          >
+            <Form.Control
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  link: e.target.value,
+                });
+              }}
+              value={newsDetails.link}
+              type="text"
+              placeholder="YouTube / Image Link "
+            />
+          </Form.Group>
+        </div>
+        <div className="col-xl-6 mb-3">
+          <div className="news-upload-img-border d-flex align-items-center flex-column justify-content-center">
+            {uploadImg ? (
+              <img className="h-100 py-2" src={uploadImg} alt="" />
+            ) : (
+              <div>
+                <input
+                  type="file"
+                  id="my-file"
+                  onChange={(e) => uploadImgHandler(e)}
+                  hidden
+                />
+                <button className="news-upload-btn cursor-pointer px-3 py-2">
+                  <label for="my-file" className="cursor-pointer">
+                    upload img
+                  </label>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-6 mb-3">
+          <div className=" input-tag w-100">
+            <ReactTagInput
+              tags={atags}
+              placeholder="Arabic Tags"
+              maxTags={5}
+              value={newsDetails.atags}
+              editable={true}
+              readOnly={false}
+              removeOnBackspace={true}
+              onChange={(newTags) => setATags(newTags)}
+            />
+            <span className="text-danger">
+              {error && tags.length < 0 ? "Arabic Details is required" : null}
+            </span>
+          </div>
+        </div>
+        <div className="col-lg-6 mb-3" dir="ltr">
           <div className=" input-tag w-100">
             <ReactTagInput
               tags={tags}
@@ -70,18 +138,6 @@ const AddNewsForm = ({
             <span className="text-danger">
               {error && tags.length < 0 ? "Details is required" : null}
             </span>
-          </div>
-        </div>
-        <div className="col-lg-6 mb-3">
-          <div className="news-upload-img-border d-flex align-items-center flex-column justify-content-center">
-            <div>
-              <input type="file" id="my-file" hidden />
-              <button className="news-upload-btn cursor-pointer px-3 py-2">
-                <label for="my-file" className="cursor-pointer">
-                  upload img
-                </label>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -184,6 +240,49 @@ const AddNewsForm = ({
               : null}
           </span>
         </div>
+      </div>
+      <div className="col-auto mb-3">
+        {layoutClickChanger ? (
+          <>
+            {" "}
+            <label
+              className="form-check-label check-box-text cursor-pointer"
+              for="flexCheckDefault"
+            >
+              Feature on homepage
+            </label>
+            <input
+              type="checkbox"
+              className="cursor-pointer mx-2"
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  showOnHomePage: e.target.checked,
+                });
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <input
+              type="checkbox"
+              checked={newsDetails.showOnHomePage}
+              className="cursor-pointer mx-2"
+              onChange={(e) => {
+                setNewsDetails({
+                  ...newsDetails,
+                  showOnHomePage: e.target.checked,
+                });
+              }}
+            />
+            <label
+              className="form-check-label check-box-text cursor-pointer"
+              for="flexCheckDefault"
+            >
+              Feature on homepage
+            </label>
+          </>
+        )}
       </div>
     </>
     // <div className="row">
