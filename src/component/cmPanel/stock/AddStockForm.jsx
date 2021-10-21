@@ -70,7 +70,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       stockDetails.joinPrice !== "" &&
       stockDetails.category !== "" &&
       stockDetails.exchange !== "" &&
-      stockDetails.portfolios.length &&
       stockDetails.symbol !== ""
     ) {
       dispatch(
