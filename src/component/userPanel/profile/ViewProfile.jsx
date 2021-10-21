@@ -45,7 +45,7 @@ const ViewProfile = () => {
             My Profile
           </p>
         </div>
-        <div className="  d-none d-md-flex">
+        <div className="d-none d-md-flex">
           {inputDisable ? (
             <Link to="/change-password">
               <button className="from-edit-profile-btn mx-xl-3 px-14 ">
@@ -63,13 +63,21 @@ const ViewProfile = () => {
               Edit Profile
             </button>
           ) : (
-            <button
-              onClick={() => UpdateUserProfile()}
-              disabled={loading}
-              className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
-            >
-              {loading ? <Loader /> : "Save"}
-            </button>
+            <>
+              <button
+                onClick={() => UpdateUserProfile()}
+                className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
+              >
+                Back
+              </button>
+              <button
+                onClick={() => UpdateUserProfile()}
+                disabled={loading}
+                className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
+              >
+                {loading ? <Loader /> : "Save"}
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -110,16 +118,24 @@ const ViewProfile = () => {
         ) : (
           ""
         )}
-        <button
-          onClick={() => setInputDisable(false)}
-          className={
-            inputDisable
-              ? "from-edit-profile-btn px-2  me-2 me-sm-3  "
-              : "from-edit-profile-btn  mx-auto px-4"
-          }
-        >
-          {inputDisable ? "Edit Profile" : "Save"}
-        </button>
+        <>
+          <button
+            onClick={() => setInputDisable(false)}
+            className={
+              inputDisable
+                ? "from-edit-profile-btn px-2  me-2 me-sm-3  "
+                : "from-edit-profile-btn  px-4"
+            }
+          >
+            {inputDisable ? "Edit Profile" : "Save"}
+          </button>
+          <button
+            onClick={() => UpdateUserProfile()}
+            className="from-edit-profile-btn  me-sm-3 me-2"
+          >
+            Back
+          </button>
+        </>
       </div>
       <ProfileForm
         setUpdateUserDetailsData={setUpdateUserDetailsData}
