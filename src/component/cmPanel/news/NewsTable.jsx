@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
@@ -9,6 +10,8 @@ import { withRouter } from "react-router";
 
 const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const [loading, setLoading] = useState(false);
   const adminNewsList = useSelector((state) => state.cmPanel.adminNewsList);
 
@@ -53,7 +56,13 @@ const NewsTable = ({ history }) => {
                         {" "}
                         {moment(value.createdAt).format("MM/ddd")}
                       </td>
-                      <td className="whitespace Ellipse" dir="ltr">
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "hitespace Ellipse text-end"
+                            : "hitespace Ellipse text-start"
+                        }`}
+                      >
                         {value.title}
                       </td>
                       <td className="whitespace Ellipse">{value.tags}</td>
