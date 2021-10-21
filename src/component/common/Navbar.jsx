@@ -11,10 +11,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
-
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import England from "../../assets/img/england.png";
 import Arbic from "../../assets/img/arbic.png";
