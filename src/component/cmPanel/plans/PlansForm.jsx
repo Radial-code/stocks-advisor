@@ -100,6 +100,15 @@ function PlansForm({ history, edit, id }) {
       }
     }
   };
+
+  let planPortFoliosArray = [];
+  const array =
+    PlanDetailsList &&
+    PlanDetailsList.portfolios &&
+    PlanDetailsList.portfolios.map((val) => {
+      return planPortFoliosArray.push(val.portfolioId);
+    });
+
   return (
     <div>
       <div className="col-12 h-100 stock-add-new">
@@ -233,6 +242,11 @@ function PlansForm({ history, edit, id }) {
                                 <input
                                   key={index}
                                   type="checkbox"
+                                  checked={
+                                    planPortFoliosArray.includes(value._id)
+                                      ? true
+                                      : null
+                                  }
                                   onClick={() => selectPortfolio(value._id)}
                                   className="cursor-pointer mx-2"
                                 />
@@ -242,6 +256,11 @@ function PlansForm({ history, edit, id }) {
                                 <input
                                   key={index}
                                   type="checkbox"
+                                  checked={
+                                    planPortFoliosArray.includes(value._id)
+                                      ? true
+                                      : null
+                                  }
                                   onClick={() => selectPortfolio(value._id)}
                                   className="cursor-pointer mx-2"
                                 />
