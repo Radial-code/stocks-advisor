@@ -12,6 +12,14 @@
   overflow: auto;
   height: 1335px;
 }
+
+@media (max-width: 576px) {
+  .news-scroll {
+    height: 800px;
+    overflow: auto;
+  }
+}
+
 .news-scroll::-webkit-scrollbar {
   height: 0px;
   width: 7px;

@@ -46,7 +46,7 @@ const RelatedArticles = () => {
                       className="d-flex justify-content-center"
                     >
                       <section key={index} className="articles-card p-3">
-                        <div className="related-articles-img">
+                        <div className="">
                           <img
                             className="w-100 newsImg-slider"
                             src={value.imagePath}
@@ -121,7 +121,9 @@ const RelatedArticles = () => {
                   );
                 })
               ) : (
-                <p className="text-center reltated-text-style" >You don't have any related news</p>
+                <p className="text-center reltated-text-style">
+                  You don't have any related news
+                </p>
               )}
             </Row>
           )}
