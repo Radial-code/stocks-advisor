@@ -72,18 +72,28 @@
   background-image: url("./assets/img/nextbutton.png");
   background-repeat: no-repeat;
   cursor: pointer;
+  color: transparent;
   background-position: center;
 }
 
 .pagination .next a {
-  display: none;
+  background-image: url("./assets/img/nextbutton.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  color: transparent;
+  background-position: center;
 }
 .pagination .previous a {
-  display: none;
+  background-image: url("./assets/img/prevbutton.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  color: transparent;
+  background-position: center;
 }
 .pagination .previous {
   background-image: url("./assets/img/prevbutton.png");
   background-repeat: no-repeat;
   cursor: pointer;
+  color: transparent;
   background-position: center;
 }

@@ -1,5 +1,6 @@
 .current-stock-calc-height {
-  height: calc(100vh - 209px);
+  /* height: calc(100vh - 209px); */
+  height: 720px;
 }
 
 @media (min-width: 1600.98px) {
