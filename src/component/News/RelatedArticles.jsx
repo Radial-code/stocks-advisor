@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CalenderIcon from "../../assets/img/calendar-icon.png";
-
 import { useDispatch, useSelector } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 import moment from "moment";
-
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const RelatedArticles = () => {
   const dispatch = useDispatch();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const [relatedLoading, setRelatedLoading] = useState(false);
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
@@ -47,12 +48,18 @@ const RelatedArticles = () => {
                       <section key={index} className="articles-card p-3">
                         <div className="related-articles-img">
                           <img
-                            className="w-100 h-100"
+                            className="w-100 newsImg-slider"
                             src={value.imagePath}
                             alt=""
                           />
                         </div>
-                        <p className="text-end stock-paragraph cursor-pointer">
+                        <p
+                          className={
+                            layoutClickChanger
+                              ? "text-end stock-paragraph cursor-pointer"
+                              : "text-start stock-paragraph cursor-pointer"
+                          }
+                        >
                           <span>
                             {" "}
                             {moment(value.createdAt).format("DD/MMM/YYYY")}
@@ -63,12 +70,22 @@ const RelatedArticles = () => {
                             alt="CalenderIcon"
                           />
                         </p>
-                        <span className="text-ellipsis-three-line stock-paragraph text-end">
+                        <span
+                          className={
+                            layoutClickChanger
+                              ? "text-ellipsis-three-line stock-paragraph text-end"
+                              : "text-ellipsis-three-line stock-paragraph text-start"
+                          }
+                        >
                           {value.description}
                         </span>
                         <div className="d-flex justify-content-center align-items-center mt-4">
                           <p
-                            className="news-heading-font max-w-articles p-2 Slider-Ellipse"
+                            className={
+                              layoutClickChanger
+                                ? "news-heading-font max-w-articles p-2 Slider-Ellipse"
+                                : "news-heading-font max-w-articles p-0 Slider-Ellipse"
+                            }
                             dir="ltr"
                           >
                             {value.title}
@@ -76,10 +93,22 @@ const RelatedArticles = () => {
                         </div>
 
                         <span className="read-more ">Read More...</span>
-                        <p className="text-end cursor-pointer mb-0 text-ellipsis-dots">
+                        <p
+                          className={
+                            layoutClickChanger
+                              ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
+                              : "text-start cursor-pointer mb-0 text-ellipsis-dots"
+                          }
+                        >
                           {value.tags}
                         </p>
-                        <p className="small-paragraph text-end">
+                        <p
+                          className={
+                            layoutClickChanger
+                              ? "small-paragraph text-end"
+                              : "small-paragraph text-start"
+                          }
+                        >
                           <span className=" cursor-pointer fw-bold">
                             Stock :
                           </span>

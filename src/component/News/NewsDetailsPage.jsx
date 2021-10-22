@@ -46,7 +46,7 @@ const NewsDetailsPage = ({ history, loading }) => {
               }
               className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold"
             >
-              <span>{newsDetails.tags}</span>
+              <span>{newsDetails && newsDetails.tags}</span>
             </p>
 
             <p
