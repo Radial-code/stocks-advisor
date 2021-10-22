@@ -21,7 +21,7 @@ const NewsDetails = ({ match }) => {
   return (
     <>
       <section>
-        <div className="container py-4 p-left-right">
+        <div className="container py-4 p-left-right mt-100">
           <div className="row d-flex justify-content-center">
             <NewsDetailsPage loading={loading} />
             <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
