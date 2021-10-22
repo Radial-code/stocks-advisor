@@ -4,14 +4,18 @@ import ReactPaginate from "react-paginate";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../BubblesLoader";
 import OurPlanCard from "./OurPlanCard";
 
 const OurPlans = ({ homepage, history }) => {
   const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [planListCount, setPlanListCount] = useState(0);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
 
   useEffect(() => {
     const limit = 3;
@@ -37,7 +41,7 @@ const OurPlans = ({ homepage, history }) => {
             </p>
           </Col>
           {loading ? (
-            <div className="text-center d-flex  justify-content-center pt-2">
+            <div className="text-center d-flex  justify-content-center pt-2 mx-4">
               <BubblesLoader />
             </div>
           ) : (
@@ -46,20 +50,43 @@ const OurPlans = ({ homepage, history }) => {
           {planListCount && planListCount <= 10 ? (
             ""
           ) : (
-            <ReactPaginate
-              previousLabel={"Prev"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(planListCount / 3)}
-              marginPagesDisplayed={3}
-              pageRangeDisplayed={3}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"activePage"}
-              initialPage={page}
-            />
+            <>
+              {layoutClickChanger ? (
+                <div className="mx-5">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(planListCount / 3)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              ) : (
+                <div className="react-pagination mx-4">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(planListCount / 3)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              )}
+            </>
           )}
         </Row>
       </Container>

@@ -55,7 +55,7 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
 
               <p
-                className="small-paragraph d-none d-xl-block mb-0 cursor-pointer fw-bold"
+                className="small-paragraph d-none d-xl-block mb-0 cursor-pointer fw-bold py-2"
                 onClick={() =>
                   history.push(`/stock/news/${value.stock._id}/${value.tags}`)
                 }
@@ -67,7 +67,7 @@ const NewsList = ({ history, value, index, loading }) => {
                   layoutClickChanger
                     ? "small-paragraph text-end"
                     : "small-paragraph"
-                }`}
+                } py-2`}
               >
                 <span className="cursor-pointer small-paragraph fw-bold">
                   Stock:

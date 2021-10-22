@@ -461,7 +461,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 {portfolioList && portfolioList.length
                   ? portfolioList.map((value, index) => {
                       return (
-                        <div className="col-auto mb-3 d-flex align-items-center">
+                        <div className="col-auto mb-3  align-items-center d-flex ">
                           {layoutClickChanger ? (
                             <>
                               <label
