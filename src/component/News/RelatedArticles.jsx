@@ -56,8 +56,8 @@ const RelatedArticles = () => {
                         <p
                           className={
                             layoutClickChanger
-                              ? "text-end stock-paragraph cursor-pointer"
-                              : "text-start stock-paragraph cursor-pointer"
+                              ? "text-end stock-paragraph cursor-pointer pt-3 "
+                              : "text-start stock-paragraph cursor-pointer pt-3 "
                           }
                         >
                           <span>
@@ -79,12 +79,12 @@ const RelatedArticles = () => {
                         >
                           {value.description}
                         </span>
-                        <div className="d-flex justify-content-center align-items-center mt-4">
+                        <div className="d-flex justify-content-center align-items-center">
                           <p
                             className={
                               layoutClickChanger
-                                ? "news-heading-font max-w-articles p-2 Slider-Ellipse"
-                                : "news-heading-font max-w-articles p-0 Slider-Ellipse"
+                                ? "news-heading-font max-w-articles p-2 mb-0 Slider-Ellipse"
+                                : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse"
                             }
                             dir="ltr"
                           >
