@@ -18,7 +18,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
       <Row className="h-100">
         <Col
           xs={12}
-          className="mt-sm-3   justify-content-center d-sm-block news-scroll"
+          className="mt-sm-3 mb-5  justify-content-center d-sm-block news-scroll"
         >
           {allNewsList && allNewsList.length
             ? allNewsList.map((value, index) => {
@@ -48,7 +48,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
                 initialPage={page}
               />
             ) : (
-              <div className="react-pagination">
+              <div className="react-pagination  ">
                 {totalNews <= 4 ? (
                   ""
                 ) : (
