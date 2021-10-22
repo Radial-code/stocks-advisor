@@ -816,3 +816,24 @@ input::-webkit-inner-spin-button {
 .bg-dark-grey {
   background-color: darkgrey !important ;
 }
+.object-fit-cover {
+  object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  .h-xxl-275 {
+    height: 300px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+  .h-sm-xl-500 {
+    width: 450px !important ;
+  }
+}
+
+@media (max-width: 576px) {
+  .h-xs-276 {
+    height: 276px;
+  }
+}
