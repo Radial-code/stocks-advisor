@@ -808,3 +808,11 @@ input::-webkit-inner-spin-button {
 .right-10 {
   right: 10px;
 }
+
+.reltated-text-style {
+  font-size: 20px;
+  font-weight: 600;
+}
+.bg-dark-grey {
+  background-color: darkgrey !important ;
+}

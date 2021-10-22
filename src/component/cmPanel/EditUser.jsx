@@ -130,9 +130,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   </Row>
                   <Row>
                     <Col className="mt-3">
-                      <div className="edit-user">
+                      <div className="edit-user  bg-dark-grey">
                         <input
-                          className="input-edit-user"
+                          className="input-edit-user  bg-dark-grey"
                           placeholder={phone}
                           type="number"
                           disabled={true}
@@ -142,9 +142,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   </Row>{" "}
                   <Row>
                     <Col className="mt-3 ">
-                      <div className="edit-user">
+                      <div className="edit-user  bg-dark-grey">
                         <input
-                          className="input-edit-user"
+                          className="input-edit-user  bg-dark-grey"
                           placeholder={email}
                           disabled={true}
                           type="email"
@@ -195,14 +195,6 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             </span>
                           </div>
 
-                          {/* <div className="d-none d-sm-block">
-                              <span className="float-md-end me-auto ">
-                                <label className="switch" for="checkbox">
-                                  <input type="checkbox" id="checkbox" />
-                                  <div className="slider round"></div>
-                                </label>
-                              </span>
-                            </div> */}
                           <div className="d-flex justify-content-between  mt-2 mb-2">
                             <span className="stock-paragraph fs-sm-11">
                               Enable
