@@ -40,7 +40,11 @@
   width: 449px;
   /* height: 435px; */
 }
-
+.dots-class {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 300px;
+}
 @media (min-width: 1599.98px) {
   .max-w-articles {
     max-width: 397px;

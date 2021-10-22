@@ -52,7 +52,7 @@ const OurPlans = ({ homepage, history }) => {
           ) : (
             <>
               {layoutClickChanger ? (
-                <div className="mx-5">
+                <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">
                   <ReactPaginate
                     previousLabel={"Prev"}
                     nextLabel={"Next"}
@@ -69,7 +69,7 @@ const OurPlans = ({ homepage, history }) => {
                   />
                 </div>
               ) : (
-                <div className="react-pagination mx-4">
+                <div className="react-pagination mx-xxl-4 mx-xl-3 d-flex justify-content-md-end justify-content-center">
                   <ReactPaginate
                     previousLabel={"Prev"}
                     nextLabel={"Next"}

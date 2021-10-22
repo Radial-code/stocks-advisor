@@ -12,7 +12,9 @@ const NewsList = ({ history, value, index, loading }) => {
   return (
     <section className="news-articles-card  p-3 mb-4">
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center ">
+          <BubblesLoader />
+        </div>
       ) : (
         <Row key={index} className="justify-content-between ">
           <Col xl={4} lg={4} xs={4}>
@@ -55,7 +57,7 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
 
               <p
-                className="small-paragraph d-none d-xl-block mb-0 cursor-pointer fw-bold py-2"
+                className="small-paragraph d-none d-xl-block mb-0 cursor-pointer fw-bold py-2 dots-class"
                 onClick={() =>
                   history.push(`/stock/news/${value.stock._id}/${value.tags}`)
                 }

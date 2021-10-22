@@ -64,11 +64,18 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     dashboardPortfoliosList.length &&
     dashboardPortfoliosList[0]._id;
 
-  const layoutleftChangeHandler = () => {
+  const layoutleftChangeHandler = (value) => {
     setLayoutClickChanger(true);
     setLanguage("Arabic");
     localStorage.setItem("stock-advisor-lang", "Arabic");
     setLang(false);
+    if (value === "english") {
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "arabic") {
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    }
   };
 
   const overlayActiveHandler = () => {
@@ -76,11 +83,18 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     setOverlayActive(false);
   };
 
-  const layoutrightChangeHandler = () => {
+  const layoutrightChangeHandler = (value) => {
     setLayoutClickChanger(false);
     setLanguage("English");
     localStorage.setItem("stock-advisor-lang", "English");
     setLang(false);
+    if (value === "english") {
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "arabic") {
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    }
   };
   const sidebarClosedHandler = () => {
     setNavbarCollapsed(true);
@@ -126,6 +140,18 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       setOverlayActive(true);
     } else if (value === "joinnow") {
       history.push("/signup");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "userdashboard") {
+      history.push("/dashboard/view/profile");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "admin") {
+      history.push("/content/manager/stocks");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "search") {
+      history.push("/search/news");
       setNavbarCollapsed(true);
       setOverlayActive(true);
     }
@@ -182,6 +208,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   className="search-box-nav py-2 w-100 pe-3"
                   id="search"
                   placeholder="Search..."
+                  onClick={() => closeSidebar("search")}
                 />
                 <div
                   className={`${
@@ -263,7 +290,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 {Lang ? (
                   <div className="bg-white  shadow p-2 rounded position-absolute top-72 ">
                     <span
-                      onClick={layoutrightChangeHandler}
+                      onClick={() => layoutrightChangeHandler("english")}
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
                     >
                       English
@@ -274,7 +301,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                       />
                     </span>
                     <span
-                      onClick={layoutleftChangeHandler}
+                      onClick={() => layoutleftChangeHandler("arabic")}
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
                     >
                       Arabic
@@ -310,13 +337,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                       <Card.Body className="card-body-Lang">
                         <p
                           className="cursor-pointer lang-accor-text"
-                          onClick={layoutrightChangeHandler}
+                          onClick={() => layoutrightChangeHandler("english")}
                         >
                           English
                         </p>
                         <p
                           className="cursor-pointer"
-                          onClick={layoutleftChangeHandler}
+                          onClick={() => layoutleftChangeHandler("arabic")}
                         >
                           Arabic
                         </p>
@@ -410,17 +437,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                             <Card.Body className="dash-body-accord">
                               <p
                                 className="cursor-pointer"
-                                onClick={() =>
-                                  history.push("/dashboard/view/profile")
-                                }
+                                onClick={() => closeSidebar("userdashboard")}
                               >
                                 User Dashboard
                               </p>
                               <p
                                 className="cursor-pointer"
-                                onClick={() =>
-                                  history.push("/content/manager/stocks")
-                                }
+                                onClick={() => closeSidebar("admin")}
                               >
                                 Admin Dashboard
                               </p>
