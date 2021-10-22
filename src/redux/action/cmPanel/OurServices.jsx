@@ -90,8 +90,8 @@ export const getCategoryListAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 /**
@@ -150,8 +150,8 @@ export const addNewExchangeDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -181,8 +181,8 @@ export const getExchangeListAction =
       }
     } catch (error) {
       setExchangeLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -218,8 +218,8 @@ export const updateExchangeDetailsAction =
       }
     } catch (error) {
       setExchangeLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -246,8 +246,8 @@ export const DeleteExchangeDetailsAction = (id) => async (dispatch) => {
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
+    // Swal.fire("Error!", "Something went wrong", "error");
+    // setTimeout(Swal.close, 2000);
   }
 };
 
@@ -279,8 +279,8 @@ export const addNewPortfolioDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -308,8 +308,8 @@ export const getPortfolioListAction =
       }
     } catch (error) {
       setPortfolioLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -349,8 +349,8 @@ export const updatePortfolioDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -386,8 +386,8 @@ export const updateCategoryDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 /**

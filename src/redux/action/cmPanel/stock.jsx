@@ -48,8 +48,8 @@ export const addNewStockDetailsAction =
       }
     } catch (error) {
       setAddStockLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -80,8 +80,8 @@ export const getStockListAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -149,8 +149,8 @@ export const DeleteStockDetailsAction =
         setDeleteLoading(false);
       }
     } catch (error) {
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
       setDeleteLoading(false);
     }
   };
@@ -182,8 +182,8 @@ export const getUserListForAdminAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -266,8 +266,8 @@ export const updateStockDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -304,8 +304,8 @@ export const getUserProfileDetailsAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 

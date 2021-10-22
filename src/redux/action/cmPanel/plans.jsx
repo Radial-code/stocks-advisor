@@ -32,8 +32,8 @@ export const addNewPlansDetailsAction =
       }
     } catch (error) {
       setAddPlansLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -64,8 +64,8 @@ export const getPlansListAction =
       }
     } catch (error) {
       setLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -97,8 +97,8 @@ export const updatePlansDetailsAction =
       }
     } catch (error) {
       setPlansLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };
 
@@ -130,7 +130,7 @@ export const deletePlansDetailsAction =
       }
     } catch (error) {
       setDeletedLoading(false);
-      Swal.fire("Error!", "Something went wrong", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
     }
   };

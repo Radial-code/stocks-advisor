@@ -129,19 +129,6 @@ const CurrentStockTable = ({ history }) => {
                 </span>
                 Symbol
               </th>
-              {/* <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Portfolio
-              </th> */}
             </tr>
           </thead>
           <tbody>
