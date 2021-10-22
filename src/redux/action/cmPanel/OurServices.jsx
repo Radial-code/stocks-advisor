@@ -73,16 +73,14 @@ const getCategoryList = (data) => ({
 });
 
 export const getCategoryListAction =
-  (setLoading, setHasMore, page) => async (dispatch) => {
+  (setLoading, page, setTotalCategory) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await getCategoryListApi(page);
       if (response.success) {
         dispatch(getCategoryList(response.allCategories));
         setLoading(false);
-        if (response.allNews.length < 10) {
-          setHasMore(false);
-        }
+        setTotalCategory(response.totalCategory);
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to Load Category list", "error");
@@ -296,12 +294,13 @@ const getPortfolioList = (data) => ({
 });
 
 export const getPortfolioListAction =
-  (setPortfolioLoading) => async (dispatch) => {
+  (setPortfolioLoading, page, setTotalPortfolios) => async (dispatch) => {
     setPortfolioLoading(true);
     try {
-      const response = await getPortfolioListApi();
+      const response = await getPortfolioListApi(page);
       if (response.success) {
         dispatch(getPortfolioList(response.portfolios));
+        setTotalPortfolios(response.totalPortfolios);
         setPortfolioLoading(false);
       } else {
         setPortfolioLoading(false);

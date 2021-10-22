@@ -1,21 +1,26 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
   DeletePortfolioDetailsAction,
   getPortfolioListAction,
 } from "../../../redux/action/cmPanel/OurServices";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 
 function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(0);
+  const [totalPortfolios, setTotalPortfolios] = useState(0);
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
 
   useEffect(() => {
-    dispatach(getPortfolioListAction(setLoading));
-  }, []);
+    dispatach(getPortfolioListAction(setLoading, page, setTotalPortfolios));
+  }, [page]);
 
   const deletePortfolios = (id) => {
     if (id) {
@@ -27,6 +32,11 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
     setShow(true);
     setEdit(true);
     setUpdateValue(value);
+  };
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
   };
   return (
     <>
@@ -120,6 +130,49 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
             )}
           </tbody>
         </table>
+      )}
+      {totalPortfolios <= 10 ? (
+        ""
+      ) : (
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(totalPortfolios / 10)}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              {totalPortfolios <= 10 ? (
+                ""
+              ) : (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalPortfolios / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              )}
+            </div>
+          )}
+        </>
       )}
     </>
   );

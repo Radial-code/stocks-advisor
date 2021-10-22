@@ -82,8 +82,8 @@ export const addNewPortfolioDetailsApi = async (data) => {
  *  Portfolio list api
  * @returns
  */
-export const getPortfolioListApi = async () => {
-  return await axiosRequest("GET", `/portfolio`);
+export const getPortfolioListApi = async (page) => {
+  return await axiosRequest("GET", `/portfolio?page=${page}&limit=10`);
 };
 
 /**

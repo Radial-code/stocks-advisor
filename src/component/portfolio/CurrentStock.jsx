@@ -68,46 +68,65 @@ function CurrentStock({ history }) {
                 <tbody key={index} className="table-hover-scale">
                   <tr className="current-stock-data table-border-bottom">
                     <td className="text-center whitespace">
-                      {moment(value.createdAt).format("DD/MMM/YYYY")}
+                      {moment(value && value.createdAt).format("DD/MMM/YYYY")}
                     </td>
                     <td
                       className="text-center whitespace"
                       onClick={() =>
-                        history.push(`/stock/news/${value._id}/stock-tags`)
+                        history.push(
+                          `/stock/news/${value && value._id}/stock-tags`
+                        )
                       }
                     >
-                      {value.name ? value.name : value.symbol}
+                      {value && value.name
+                        ? value.name
+                        : value.symbol
+                        ? value.symbol
+                        : "N/A"}
                     </td>
                     <td
                       className="text-center whitespace"
                       onClick={() =>
-                        history.push(`/stock/news/${value._id}/stock-tags`)
+                        history.push(
+                          `/stock/news/${value && value._id}/stock-tags`
+                        )
                       }
                     >
-                      {value.symbol}
+                      {value && value.symbol ? value.symbol : "N/A"}
                     </td>
                     <td className="text-center whitespace">
-                      {value.portfolio.title}
+                      {value && value.portfolio ? value.portfolio.title : "N/A"}
                     </td>
                     <td className="text-center whitespace">
-                      {value.category.title}
+                      {value && value.category ? value.category.title : "N/A"}
                     </td>
                     <td className="text-center whitespace">
-                      ${value.joinPrice}
+                      ${value && value.joinPrice ? value.joinPrice : "N/A"}
                     </td>
                     <td className="text-center whitespace">
-                      ${value.currentPrice}
+                      $
+                      {value && value.currentPrice ? value.currentPrice : "N/A"}
                     </td>
                     <td
                       className={`${
+                        value &&
+                        value.profitOrLoss &&
+                        value.profitOrLoss.status &&
                         value.profitOrLoss.status === 0
                           ? "profitloss-text"
-                          : value.profitOrLoss.status === 1
+                          : value &&
+                            value.profitOrLoss &&
+                            value.profitOrLoss.status &&
+                            value.profitOrLoss.status === 1
                           ? "text-dark"
                           : "text-danger"
                       }`}
                     >
-                      {parseInt(value.profitOrLoss.percentage).toFixed(2)}
+                      {parseInt(
+                        value &&
+                          value.profitOrLoss &&
+                          value.profitOrLoss.percentage
+                      ).toFixed(2)}
                     </td>
                   </tr>
                 </tbody>

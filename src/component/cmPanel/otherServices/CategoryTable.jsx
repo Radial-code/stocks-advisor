@@ -13,16 +13,15 @@ import ReactPaginate from "react-paginate";
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const [totalCategory, setTotalCategory] = useState(0);
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
 
   // USEFFECT AGAIN RUN WHEN PAGE VALUE IS CHANGE
   useEffect(() => {
-    dispatach(getCategoryListAction(setLoading, setHasMore, page));
+    dispatach(getCategoryListAction(setLoading, page, setTotalCategory));
   }, [page]);
 
   const deleteCategory = (id) => {
@@ -112,7 +111,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
         </table>
       )}
 
-      {categoryList.length === 0 ? (
+      {totalCategory <= 10 ? (
         ""
       ) : (
         <>
@@ -122,7 +121,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
               nextLabel={"Next"}
               breakLabel={"..."}
               breakClassName={"break-me"}
-              pageCount={Math.ceil(13 / 10)}
+              pageCount={Math.ceil(totalCategory / 10)}
               marginPagesDisplayed={3}
               pageRangeDisplayed={2}
               onPageChange={handlePageClick}
@@ -133,20 +132,24 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
             />
           ) : (
             <div className="react-pagination">
-              <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
-                breakClassName={"break-me"}
-                pageCount={Math.ceil(13 / 10)}
-                marginPagesDisplayed={3}
-                pageRangeDisplayed={2}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
-                activeClassName={"activePage"}
-                initialPage={page}
-              />
+              {totalCategory <= 10 ? (
+                ""
+              ) : (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalCategory / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              )}
             </div>
           )}
         </>

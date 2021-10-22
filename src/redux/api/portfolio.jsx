@@ -14,7 +14,7 @@ export const getPortfolioListForDashBoardApi = async () => {
  * @returns
  */
 export const getSoldPortfolioListForDashBoardApi = async (id) => {
-  return await axiosRequest("GET", `/stock/${id}?sold=true&page=0&limit=10`);
+  return await axiosRequest("GET", `/stock/sold/${id}?page=0&limit=10`);
 };
 
 /**

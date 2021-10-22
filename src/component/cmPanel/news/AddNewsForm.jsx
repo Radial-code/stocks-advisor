@@ -22,6 +22,7 @@ const AddNewsForm = ({
   const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
+
   const uploadImgHandler = (e) => {
     dispatch(uploadImageAction(e, setLoadingImage, "news"));
     let img = e.target.files[0];

@@ -19,16 +19,16 @@ const NewsSelectTypes = ({
   categoryArray,
 }) => {
   const dispatch = useDispatch();
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
   const [portfolioLoading, setPortfolioLoading] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const page = 0;
     dispatch(getPortfolioListAction(setPortfolioLoading));
-    dispatch(getCategoryListAction(setLoading));
+    dispatch(getCategoryListAction(setLoading, page));
   }, []);
 
   const selectPortfolio = (id) => {
@@ -57,6 +57,14 @@ const NewsSelectTypes = ({
     setCategoryArray(categorySelectValue);
   };
 
+  let newsPortFoliosArray = [];
+  const array =
+    newsDetailsList &&
+    newsDetailsList.portfolios &&
+    newsDetailsList.portfolios.map((val) => {
+      return newsPortFoliosArray.push(val.portfolioId);
+    });
+
   return (
     <div className="row">
       <p className="fw-bold">Select portfolio list</p>
@@ -78,15 +86,7 @@ const NewsSelectTypes = ({
                         </label>
                         <input
                           key={index}
-                          //   checked={
-                          //     !!newsDetailsList &&
-                          //     newsDetailsList.portfolios &&
-                          //     newsDetailsList.portfolios.length > 0
-                          //       ? newsDetailsList.portfolios.map((val) => {
-                          //           return val._id === value._id ? true : false;
-                          //         })
-                          //       : null
-                          //   }
+                          checked={newsPortFoliosArray.includes(value._id)}
                           type="checkbox"
                           onClick={() => selectPortfolio(value._id)}
                           className="cursor-pointer mx-2"
@@ -95,16 +95,7 @@ const NewsSelectTypes = ({
                     ) : (
                       <>
                         <input
-                          key={index}
-                          //   checked={
-                          //     !!newsDetailsList &&
-                          //     newsDetailsList.portfolios &&
-                          //     newsDetailsList.portfolios.length > 0
-                          //       ? newsDetailsList.portfolios.map((val) => {
-                          //           return val._id === value._id ? true : false;
-                          //         })
-                          //       : null
-                          //   }
+                          checked={newsPortFoliosArray.includes(value._id)}
                           type="checkbox"
                           onClick={() => selectPortfolio(value._id)}
                           className="cursor-pointer mx-2"

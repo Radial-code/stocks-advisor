@@ -20,6 +20,7 @@ import {
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
 const initialState = {
   joinDate: "",
@@ -52,9 +53,10 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   const [stockDetails, setStockDetails] = useState(initialState);
 
   useEffect(() => {
-    dispatch(getCategoryListAction(setLoading));
-    dispatch(getExchangeListAction(setExchangeLoading));
-    dispatch(getPortfolioListAction(setPortfolioLoading));
+    const page = 0;
+    dispatch(getCategoryListAction(setLoading, page));
+    dispatch(getExchangeListAction(setExchangeLoading, page));
+    dispatch(getPortfolioListAction(setPortfolioLoading, page));
   }, []);
 
   useEffect(() => {
@@ -129,24 +131,15 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
     }
     stockDetails.portfolios = data;
   };
-  const array = [];
-  // const array = [
-  //   "616e8d9549b3114990257e4f",
-  //   "616c123ddda0ce150f50aafc",
-  //   "616c124fdda0ce150f50ab02",
-  // ];
 
-  // checked={
-  //   !!stockDetailsList &&
-  //   stockDetailsList.portfolios &&
-  //   stockDetailsList.portfolios.length > 0
-  //     ? stockDetailsList.portfolios.map((val) => {
-  //         return val._id === value._id
-  //           ? true
-  //           : false;
-  //       })
-  //     : null
-  // }
+  let stockPortFoliosArray = [];
+  const array =
+    stockDetailsList &&
+    stockDetailsList.portfolios &&
+    stockDetailsList.portfolios.map((val) => {
+      return stockPortFoliosArray.push(val._id);
+    });
+
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3  w-xl-1000">
@@ -485,7 +478,9 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                               <input
                                 key={index}
                                 checked={
-                                  array.includes(value._id) ? true : null
+                                  stockPortFoliosArray.includes(value._id)
+                                    ? true
+                                    : null
                                 }
                                 type="checkbox"
                                 onClick={() => selectPortfolio(value._id)}
@@ -497,11 +492,9 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                               <input
                                 key={index}
                                 checked={
-                                  array &&
-                                  array.length &&
-                                  array.includes(value._id)
+                                  stockPortFoliosArray.includes(value._id)
                                     ? true
-                                    : false
+                                    : null
                                 }
                                 type="checkbox"
                                 onClick={() => selectPortfolio(value._id)}

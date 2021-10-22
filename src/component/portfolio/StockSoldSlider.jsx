@@ -7,6 +7,7 @@ import SearchNews from "../../assets/img/searchnews.png";
 import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
 import { useSelector } from "react-redux";
+import BubblesLoader from "../common/BubblesLoader";
 
 const StockSoldSlider = ({ loader }) => {
   const soldStockNewsList = useSelector(
@@ -49,15 +50,23 @@ const StockSoldSlider = ({ loader }) => {
     <>
       {!loader ? (
         <Slider {...settings} className="stock-slider">
-          {soldStockNewsList.map((value, index) => {
-            return <StockSliderCard soldValue={value} index={index} />;
-          })}
+          {soldStockNewsList && soldStockNewsList.length ? (
+            soldStockNewsList.map((value, index) => {
+              return <StockSliderCard soldValue={value} index={index} />;
+            })
+          ) : (
+            <>
+              <img
+                className="searchnews mx-auto d-block"
+                src={SearchNews}
+                alt=""
+              />
+              <h4 className="text-center">You don't have any News</h4>
+            </>
+          )}
         </Slider>
       ) : (
-        <>
-          <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
-          <h4 className="text-center">You don't have any News</h4>
-        </>
+        <BubblesLoader />
       )}
     </>
   );
