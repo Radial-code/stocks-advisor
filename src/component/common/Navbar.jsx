@@ -11,7 +11,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { withRouter } from "react-router";
 import logo from "../../assets/img/Navbar-logo-img.png";
-
 import { useState } from "react";
 import England from "../../assets/img/england.png";
 import Arbic from "../../assets/img/arbic.png";
@@ -147,7 +146,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       <div
         className={`${
           navbarCollapsed
-            ? "bg-white shadow py-3  d-none d-xxl-block border-bottom-2px"
+            ? "bg-white shadow py-3 navbar-fixed-stock  d-none d-xxl-block border-bottom-2px"
             : "stock-sidebar-navbar d-block "
         }`}
       >
@@ -520,7 +519,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
           </div>
         </div>
       </div>
-      <div className={`shadow  py-2 d-block d-xxl-none`}>
+      <div className={`shadow navbar-fixed-stock  py-2 d-block d-xxl-none`}>
         <div className="container ">
           <div className="row">
             <div className="col-6 my-auto ">

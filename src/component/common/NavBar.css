@@ -96,6 +96,13 @@
     opacity: 0.7;
     text-decoration: none;
   }
+  .navbar-fixed-stock{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: 10px;
+  }
 }
 
 .join_now_btn {
@@ -237,6 +244,13 @@
     top: 0;
     left: 0;
     position: fixed;
+  }
+  .navbar-fixed-stock{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  background-color: white;
   }
 }
 
