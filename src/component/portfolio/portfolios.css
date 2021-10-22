@@ -67,7 +67,7 @@
   border-top: 2px solid #16191e28;
 }
 
-.current-stock-scrollbar {
+/* .current-stock-scrollbar {
   max-height: 589px;
   overflow: auto;
 }
@@ -90,7 +90,7 @@
 .category-stock-scrollbar::-webkit-scrollbar-thumb {
   background-color: #16191e;
   border-radius: 10px;
-}
+} */
 .scroll-bar-1 {
   max-height: 350px;
   overflow: auto;
