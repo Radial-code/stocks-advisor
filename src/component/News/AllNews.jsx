@@ -5,9 +5,8 @@ import ReactPaginate from "react-paginate";
 import NewsList from "./NewsList";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-const AllNews = ({ setPage, page, loading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+const AllNews = ({ setPage, page, loading, totalNews }) => {
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -50,20 +49,24 @@ const AllNews = ({ setPage, page, loading }) => {
               />
             ) : (
               <div className="react-pagination">
-                <ReactPaginate
-                  previousLabel={"Prev"}
-                  nextLabel={"Next"}
-                  breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  pageCount={Math.ceil(5 / 4)}
-                  marginPagesDisplayed={3}
-                  pageRangeDisplayed={2}
-                  onPageChange={handlePageClick}
-                  containerClassName={"pagination"}
-                  subContainerClassName={"pages pagination"}
-                  activeClassName={"activePage"}
-                  initialPage={page}
-                />
+                {totalNews <= 4 ? (
+                  ""
+                ) : (
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(totalNews / 4)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                )}
               </div>
             )}
           </>

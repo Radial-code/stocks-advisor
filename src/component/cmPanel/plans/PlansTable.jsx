@@ -23,7 +23,8 @@ function PlansTable({ history }) {
 
   // WE PASS LOADING STATE FOR LOADING , PAGE FOR INCREASE PAGE COUNT FOR API CALL AND SETPLANLISTCOUNT FOR GET TOTAL NUMBER OF PLANS IN DATA BASE
   useEffect(() => {
-    dispatch(getPlansListAction(setLoading, page, setPlanListCount));
+    const limit = 10;
+    dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
   }, [page]);
 
   const deletePlans = (id) => {

@@ -26,7 +26,9 @@ function Notification() {
   });
 
   useEffect(() => {
-    dispatch(getPlansListAction(setPlanLoading));
+    const limit = 10;
+    const page = 0;
+    dispatch(getPlansListAction(setPlanLoading, page, limit, null));
   }, []);
 
   const selectPlan = (id, type) => {

@@ -130,7 +130,9 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       var indexvalueId = valueId.indexOf({ portfolioId: id });
       valueId.splice(indexvalueId, 1);
     }
-    stockDetails.portfolios = data;
+    if (stockDetails && stockDetails.portfolios) {
+      stockDetails.portfolios = data;
+    }
   };
 
   return (
