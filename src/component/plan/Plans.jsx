@@ -14,7 +14,9 @@ function Plans({ history }) {
   const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
-    dispatch(getPlansListAction(setLoading));
+    const limit = 10;
+    const page = 0;
+    dispatch(getPlansListAction(setLoading, page, limit));
   }, []);
 
   return (

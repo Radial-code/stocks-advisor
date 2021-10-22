@@ -61,24 +61,26 @@ const getAllNewsList = (data) => ({
   data,
 });
 
-export const getAllNewsListAction = (setLoading, page) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getAllNewsListApi(page);
-    if (response.success) {
-      dispatch(getAllNewsList(response.allNews));
+export const getAllNewsListAction =
+  (setLoading, page, setTotalNews) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getAllNewsListApi(page);
+      if (response.success) {
+        dispatch(getAllNewsList(response.allNews));
+        setTotalNews(response.totalNews);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load News list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load News list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get News for admin action

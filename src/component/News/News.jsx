@@ -11,13 +11,14 @@ const News = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
+  const [totalNews, setTotalNews] = useState(0);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
 
   useEffect(() => {
-    dispatch(getAllNewsListAction(setLoading, page));
+    dispatch(getAllNewsListAction(setLoading, page, setTotalNews));
   }, [page]);
 
   return (
@@ -25,7 +26,12 @@ const News = () => {
       <Container className="py-5 mt-100 mb-4">
         <Row>
           <Col xl={8}>
-            <AllNews loading={loading} setPage={setPage} page={page} />
+            <AllNews
+              loading={loading}
+              setPage={setPage}
+              page={page}
+              totalNews={totalNews}
+            />
           </Col>
           <Col
             xl={4}

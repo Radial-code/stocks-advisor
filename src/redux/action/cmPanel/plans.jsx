@@ -49,14 +49,14 @@ const getPlansList = (data) => ({
 });
 
 export const getPlansListAction =
-  (setLoading, page, setPlanListCount) => async (dispatch) => {
+  (setLoading, page, limit, setPlanListCount) => async (dispatch) => {
     setLoading(true);
     try {
-      const response = await getPlansListApi(page);
+      const response = await getPlansListApi(page, limit);
       if (response.success) {
         dispatch(getPlansList(response.allPlans));
         setLoading(false);
-        setPlanListCount(response.totalPlans);
+        setPlanListCount && setPlanListCount(response.totalPlans);
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to Load Plans list", "error");
