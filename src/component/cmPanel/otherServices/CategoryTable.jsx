@@ -7,15 +7,20 @@ import {
   getCategoryListAction,
 } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
+import ReactPaginate from "react-paginate";
 
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(0);
+
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
 
+  // USEFFECT AGAIN RUN WHEN PAGE VALUE IS CHANGE
   useEffect(() => {
-    dispatach(getCategoryListAction(setLoading));
-  }, []);
+    dispatach(getCategoryListAction(setLoading, setHasMore, page));
+  }, [page]);
 
   const deleteCategory = (id) => {
     if (id) {
@@ -27,6 +32,12 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
     setShow(true);
     setEdit(true);
     setUpdateValue(value);
+  };
+
+  // FOR CHANGE PAGE NUMBER TO MAKE AP CALL
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
   };
 
   return (
@@ -81,37 +92,14 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
           </thead>
           <tbody>
             {categoryList && !!categoryList.length ? (
-              categoryList.map((value, index) => {
-                return (
-                  <tr
-                    key={index}
-                    className="current-stock-data table-border-bottom"
-                  >
-                    <td className="text-end  whitespace Ellipse">
-                      {moment(value.createdAt).format("MM/ddd")}
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      {value.title}
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      <button
-                        className="px-3 py-1 edit-button "
-                        onClick={() => editCategory(value)}
-                      >
-                        Edit
-                      </button>
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      <button
-                        onClick={() => deleteCategory(value._id)}
-                        className="px-3 py-1 delete-button"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })
+              categoryList.map((obj, index) => (
+                <CategoryTableListItem
+                  key={index}
+                  value={obj}
+                  editCategory={editCategory}
+                  deleteCategory={deleteCategory}
+                />
+              ))
             ) : (
               <td colSpan={5} className="text-center table-text">
                 You don't have any Category list
@@ -120,7 +108,55 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
           </tbody>
         </table>
       )}
+
+      {categoryList.length === 0 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(13 / 10)}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
+      )}
     </>
   );
 }
 export default CategoryTable;
+
+export function CategoryTableListItem({ value, editCategory, deleteCategory }) {
+  return (
+    <>
+      <tr className="current-stock-data table-border-bottom">
+        <td className="text-end  whitespace Ellipse">
+          {moment(value.createdAt).format("MM/ddd")}
+        </td>
+        <td className="text-end  whitespace Ellipse">{value.title}</td>
+        <td className="text-end  whitespace Ellipse">
+          <button
+            className="px-3 py-1 edit-button "
+            onClick={() => editCategory(value)}
+          >
+            Edit
+          </button>
+        </td>
+        <td className="text-end  whitespace Ellipse">
+          <button
+            onClick={() => deleteCategory(value._id)}
+            className="px-3 py-1 delete-button"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </>
+  );
+}

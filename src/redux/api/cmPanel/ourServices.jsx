@@ -13,8 +13,8 @@ export const addNewCategoryDetailsApi = async (data) => {
  *  category list api
  * @returns
  */
-export const getCategoryListApi = async () => {
-  return await axiosRequest("GET", `/category`);
+export const getCategoryListApi = async (page) => {
+  return await axiosRequest("GET", `/category?page=${page}&limit=10`);
 };
 
 /**
