@@ -533,9 +533,13 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <>
                   <button
                     type="button"
-                    disabled={stockDetailsList.isSold ? true : addStockLoading}
+                    disabled={
+                      stockDetailsList && stockDetailsList.isSold
+                        ? true
+                        : addStockLoading
+                    }
                     className={`${
-                      stockDetailsList.isSold
+                      stockDetailsList && stockDetailsList.isSold
                         ? "cursor-not-allowed"
                         : "cursor-pointer"
                     } update-btn my-3 ff-popins`}
