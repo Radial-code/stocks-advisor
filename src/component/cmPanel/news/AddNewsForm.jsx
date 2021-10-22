@@ -22,7 +22,7 @@ const AddNewsForm = ({
   const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
-
+  console.log("image", userDetails.imagePath);
   const uploadImgHandler = (e) => {
     dispatch(uploadImageAction(e, setLoadingImage, "news"));
     let img = e.target.files[0];
@@ -82,8 +82,8 @@ const AddNewsForm = ({
         </div>
         <div className="col-xl-6 mb-3">
           <div className="news-upload-img-border d-flex align-items-center flex-column justify-content-center">
-            {uploadImg ? (
-              <img className="h-100 py-2" src={uploadImg} alt="" />
+            {userDetails.imagePath ? (
+              <img className="h-100 py-2" src={userDetails.imagePath} alt="" />
             ) : (
               <div>
                 <input
