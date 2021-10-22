@@ -14,8 +14,7 @@ const OurPlans = ({ homepage, history }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [planListCount, setPlanListCount] = useState(0);
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
   useEffect(() => {
     const limit = 3;
