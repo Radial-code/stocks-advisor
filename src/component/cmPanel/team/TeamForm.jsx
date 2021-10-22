@@ -1,16 +1,41 @@
 import React, { useState } from "react";
 import { Col, Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { createNewTeamMemberAction } from "../../../redux/action/cmPanel/stock";
+import { uploadImageAction } from "../../../redux/uploadImage";
 import Loader from "../../common/Loader";
 
 const TeamForm = () => {
   const dispatch = useDispatch();
+  const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [loadingImage, setLoadingImage] = useState(false);
+  const [teamData, setTeamData] = useState({
+    title: "",
+    description: "",
+    name: "",
+  });
+
+  const uploadImgHandler = (e) => {
+    dispatch(uploadImageAction(e, setLoadingImage, "user"));
+  };
 
   const submitTeamData = () => {
-    dispatch(createNewTeamMemberAction(setLoading));
+    setError(true);
+    if (
+      teamData.title !== "" &&
+      teamData.description !== "" &&
+      teamData.name !== ""
+    ) {
+      const data = {
+        post: teamData.title,
+        name: teamData.name,
+        description: teamData.description,
+      };
+      dispatch(createNewTeamMemberAction(data, setLoading));
+    }
   };
 
   return (
@@ -32,7 +57,39 @@ const TeamForm = () => {
                   className="mb-3 add-new-stock-field "
                   controlId="formBasicEmail"
                 >
-                  <Form.Control type="text" placeholder="Title" />
+                  <Form.Control
+                    type="text"
+                    onChange={(e) => {
+                      setTeamData({
+                        ...teamData,
+                        name: e.target.value,
+                      });
+                    }}
+                    placeholder="Name"
+                  />
+                  <span className="text-danger">
+                    {error && teamData.name === "" ? "Name is required" : null}
+                  </span>
+                </Form.Group>
+                <Form.Group
+                  className="mb-3 add-new-stock-field "
+                  controlId="formBasicEmail"
+                >
+                  <Form.Control
+                    type="text"
+                    onChange={(e) => {
+                      setTeamData({
+                        ...teamData,
+                        title: e.target.value,
+                      });
+                    }}
+                    placeholder="Title"
+                  />
+                  <span className="text-danger">
+                    {error && teamData.title === ""
+                      ? "Title is required"
+                      : null}
+                  </span>
                 </Form.Group>
               </div>
               <div className="col-12 col-lg-6 mb-3 ">
@@ -45,11 +102,20 @@ const TeamForm = () => {
                     Image Link
                   </span>
 
-                  <input type="file" value="" id="my-file" hidden />
+                  <input
+                    type="file"
+                    value={uploadImageUrl}
+                    id="my-file"
+                    hidden
+                    onChange={(e) => uploadImgHandler(e)}
+                  />
 
-                  <button className="upload-img-btn2 d-none d-sm-block cursor-pointer">
+                  <button
+                    disabled={loadingImage}
+                    className="upload-img-btn2 d-none d-sm-block cursor-pointer"
+                  >
                     <label className="cursor-pointer" for="my-file">
-                      Upload Image
+                      {loadingImage ? <Loader /> : "Upload Image"}
                     </label>
                   </button>
                   {/* <button className="upload-img-btn d-block d-sm-none cursor-pointer">
@@ -58,6 +124,11 @@ const TeamForm = () => {
                     </label>
                   </button> */}
                 </div>
+                <span className="text-danger">
+                  {error && teamData.uploadImageUrl === null
+                    ? "User Image is required"
+                    : null}
+                </span>
               </div>
               <div className="col-12 mb-3">
                 <textarea
@@ -66,8 +137,19 @@ const TeamForm = () => {
                   id=""
                   cols=""
                   rows="6"
+                  onChange={(e) => {
+                    setTeamData({
+                      ...teamData,
+                      description: e.target.value,
+                    });
+                  }}
                   placeholder="...Description "
                 ></textarea>
+                <span className="text-danger">
+                  {error && teamData.description === ""
+                    ? "Description is required"
+                    : null}
+                </span>
               </div>
             </div>
             <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column">
