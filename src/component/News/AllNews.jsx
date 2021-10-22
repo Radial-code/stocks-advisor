@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import NewsList from "./NewsList";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AllNews = ({ setPage, page, loading }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -29,20 +32,41 @@ const AllNews = ({ setPage, page, loading }) => {
         {allNewsList.length === 0 ? (
           ""
         ) : (
-          <ReactPaginate
-            previousLabel={"Prev"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={Math.ceil(5 / 4)}
-            marginPagesDisplayed={3}
-            pageRangeDisplayed={2}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"activePage"}
-            initialPage={page}
-          />
+          <>
+            {layoutClickChanger ? (
+              <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(5 / 4)}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"activePage"}
+                initialPage={page}
+              />
+            ) : (
+              <div className="react-pagination">
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(5 / 4)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              </div>
+            )}
+          </>
         )}
       </Row>
     </div>

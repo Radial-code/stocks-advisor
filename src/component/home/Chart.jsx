@@ -34,7 +34,7 @@ const Chart = () => {
       ) : (
         <div>
           {portfoliosChatList && portfoliosChatList.length
-            ? portfoliosChatList.map((chatValue, index) => {
+            ? portfoliosChatList.slice(0, 3).map((chatValue, index) => {
                 return <LineChart chatValue={chatValue} index={index} />;
               })
             : null}
