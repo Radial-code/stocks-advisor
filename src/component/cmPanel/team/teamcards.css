@@ -68,4 +68,8 @@
   font-size: var(--font-xs);
   font-size: 500;
   color: var(--color-16191e);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
