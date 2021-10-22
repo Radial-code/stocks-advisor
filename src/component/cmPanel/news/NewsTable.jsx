@@ -49,22 +49,7 @@ const NewsTable = ({ history }) => {
               </th>
             </tr>
           </thead>
-          {/* <InfiniteScroll
-            dataLength={adminNewsList.length}
-            next={fetchMoreData}
-            hasMore={hasMore}
-            scrollableTarget="news-infinite-scroll"
-            loader={
-              <div className="d-flex py-1 justify-content-center">
-                {loading ? <h4>Loading...</h4> : <h4>&nbsp;</h4>}
-              </div>
-            }
-            endMessage={
-              <p style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
-              </p>
-            }
-          > */}
+      
           <tbody className="user-details">
             {adminNewsList && !!adminNewsList.length
               ? adminNewsList.map((obj, index) => (
