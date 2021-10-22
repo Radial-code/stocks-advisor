@@ -6,6 +6,7 @@ import {
   deleteCategoryAction,
   getCategoryListAction,
 } from "../../../redux/action/cmPanel/OurServices";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 
@@ -14,6 +15,8 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
 
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
 
@@ -112,20 +115,41 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
       {categoryList.length === 0 ? (
         ""
       ) : (
-        <ReactPaginate
-          previousLabel={"Prev"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={Math.ceil(13 / 10)}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"activePage"}
-          initialPage={page}
-        />
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(13 / 10)}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(13 / 10)}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"activePage"}
+                initialPage={page}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );

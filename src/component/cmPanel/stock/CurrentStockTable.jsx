@@ -149,20 +149,41 @@ const CurrentStockTable = ({ history }) => {
       {totalStock <= 10 ? (
         ""
       ) : (
-        <ReactPaginate
-          previousLabel={"Prev"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={Math.ceil(totalStock / 10)}
-          marginPagesDisplayed={0}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"activePage"}
-          initialPage={page}
-        />
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(totalStock / 10)}
+              marginPagesDisplayed={0}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(totalStock / 10)}
+                marginPagesDisplayed={0}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"activePage"}
+                initialPage={page}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );
