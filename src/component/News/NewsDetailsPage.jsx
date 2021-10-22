@@ -7,8 +7,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 
 const NewsDetailsPage = ({ history, loading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">

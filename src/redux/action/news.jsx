@@ -309,7 +309,7 @@ export const DeleteNewsDetailsAction = (id, history) => async (dispatch) => {
     const response = await DeleteNewsDetailsApi(id);
     if (response.success) {
       dispatch(DeleteNewsDetails(id));
-      history.push("/content/manager/stocks");
+      history.push("/content/manager/news");
       Swal.fire("success", "Stock deleted successfully", "success");
       setTimeout(Swal.close, 2000);
     } else {
