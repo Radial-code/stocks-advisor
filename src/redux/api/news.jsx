@@ -32,8 +32,8 @@ export const DeleteNewsDetailsApi = async (id) => {
  *  News list api
  * @returns
  */
-export const getAllNewsListApi = async () => {
-  return await axiosRequest("GET", `/news?page=0&limit=10`);
+export const getAllNewsListApi = async (page) => {
+  return await axiosRequest("GET", `/news?page=${page}&limit=4`);
 };
 
 /**

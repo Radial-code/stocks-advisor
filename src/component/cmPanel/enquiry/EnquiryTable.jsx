@@ -4,19 +4,24 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import { useDispatch, useSelector } from "react-redux";
 import BubblesLoader from "../../common/BubblesLoader";
 import moment from "moment";
+import ReactPaginate from "react-paginate";
 import { getContactListAction } from "../../../redux/action/contact";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const EnquiryTable = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(0);
+  const [totalContact, setTotalContact] = useState(0);
   const contactList = useSelector((state) => state.list.contactList);
 
   useEffect(() => {
-    dispatch(getContactListAction(setLoading));
-  }, []);
+    dispatch(getContactListAction(setLoading, page, setTotalContact));
+  }, [page]);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
+  };
 
   return (
     <>
@@ -29,7 +34,6 @@ const EnquiryTable = () => {
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
               <th className=" whitespace text-start">
-                {" "}
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 Date
               </th>
@@ -87,6 +91,24 @@ const EnquiryTable = () => {
             )}
           </tbody>
         </Table>
+      )}
+      {totalContact && totalContact <= 10 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(totalContact / 10)}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
       )}
     </>
   );

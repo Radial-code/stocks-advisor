@@ -13,8 +13,8 @@ export const addContactApi = async (data) => {
  * Get contact list Api
  * @returns
  */
-export const getContactListApi = async () => {
-  return await axiosRequest("GET", `/contact?page=0&limit=10`);
+export const getContactListApi = async (page) => {
+  return await axiosRequest("GET", `/contact?page=${page}&limit=10`);
 };
 
 /**

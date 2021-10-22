@@ -12,13 +12,12 @@ const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
 
   const adminNewsList = useSelector((state) => state.cmPanel.adminNewsList);
 
   useEffect(() => {
-    dispatch(getNewsListForAdminAction(setLoading, setHasMore, page));
+    dispatch(getNewsListForAdminAction(setLoading, page));
   }, [page]);
 
   const handlePageClick = (e) => {

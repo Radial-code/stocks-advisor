@@ -5,26 +5,27 @@ import { Container, Row, Col } from "react-bootstrap";
 import Chart from "../home/Chart";
 import AllNews from "./AllNews";
 import Plans from "../plan/Plans";
-import { useLocation } from "react-router-dom";
 import "./Newspage.css";
-import { Component } from "react";
 
 const News = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(0);
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
+
   useEffect(() => {
-    dispatch(getAllNewsListAction(setLoading));
-  }, []);
+    dispatch(getAllNewsListAction(setLoading, page));
+  }, [page]);
 
   return (
     <div>
       <Container className="py-5">
         <Row>
           <Col xl={8}>
-            <AllNews />
+            <AllNews loading={loading} setPage={setPage} page={page} />
           </Col>
           <Col
             xl={4}

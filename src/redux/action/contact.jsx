@@ -44,24 +44,26 @@ const getContactList = (data) => ({
   data,
 });
 
-export const getContactListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getContactListApi();
-    if (response.success) {
-      dispatch(getContactList(response.allContact));
+export const getContactListAction =
+  (setLoading, page, setTotalContact) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getContactListApi(page);
+      if (response.success) {
+        dispatch(getContactList(response.allContact));
+        setTotalContact(response.totalContact);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load contact list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load contact list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get contact list action

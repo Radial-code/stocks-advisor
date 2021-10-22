@@ -42,11 +42,11 @@ const TeamForm = () => {
                       Upload Image
                     </label>
                   </button>
-                  <button className="upload-img-btn d-block d-sm-none cursor-pointer">
+                  {/* <button className="upload-img-btn d-block d-sm-none cursor-pointer">
                     <label className="cursor-pointer" for="my-file">
                       Upload
                     </label>
-                  </button>
+                  </button> */}
                 </div>
               </div>
               <div className="col-12 mb-3">

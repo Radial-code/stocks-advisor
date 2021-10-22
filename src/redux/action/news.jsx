@@ -61,10 +61,10 @@ const getAllNewsList = (data) => ({
   data,
 });
 
-export const getAllNewsListAction = (setLoading) => async (dispatch) => {
+export const getAllNewsListAction = (setLoading, page) => async (dispatch) => {
   setLoading(true);
   try {
-    const response = await getAllNewsListApi();
+    const response = await getAllNewsListApi(page);
     if (response.success) {
       dispatch(getAllNewsList(response.allNews));
       setLoading(false);
@@ -92,16 +92,13 @@ const getNewsForAdmin = (data) => ({
 });
 
 export const getNewsListForAdminAction =
-  (setLoading, setHasMore, page) => async (dispatch) => {
+  (setLoading, page) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await getNewsForAdminApi(page);
       if (response.success) {
         dispatch(getNewsForAdmin(response.allNews));
         setLoading(false);
-        if (response.allNews.length < 10) {
-          setHasMore(false);
-        }
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to Load News list", "error");
