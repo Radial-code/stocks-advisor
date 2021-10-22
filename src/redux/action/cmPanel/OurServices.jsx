@@ -72,24 +72,28 @@ const getCategoryList = (data) => ({
   data,
 });
 
-export const getCategoryListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getCategoryListApi();
-    if (response.success) {
-      dispatch(getCategoryList(response.allCategories));
+export const getCategoryListAction =
+  (setLoading, setHasMore, page) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getCategoryListApi(page);
+      if (response.success) {
+        dispatch(getCategoryList(response.allCategories));
+        setLoading(false);
+        if (response.allNews.length < 10) {
+          setHasMore(false);
+        }
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load Category list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load Category list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 /**
  * delete Category  action
  * @param {Object} data

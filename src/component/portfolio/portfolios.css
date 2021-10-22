@@ -72,6 +72,25 @@
   overflow: auto;
 }
 
+.category-stock-scrollbar {
+  max-height: 700px;
+  overflow: auto;
+}
+
+.category-stock-scrollbar::-webkit-scrollbar {
+  height: 0px;
+  width: 5px;
+  direction: ltr;
+}
+
+.category-stock-scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px transparent;
+}
+
+.category-stock-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #16191e;
+  border-radius: 10px;
+}
 .scroll-bar-1 {
   max-height: 350px;
   overflow: auto;
