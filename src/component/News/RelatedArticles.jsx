@@ -121,7 +121,7 @@ const RelatedArticles = () => {
                   );
                 })
               ) : (
-                <p>You don't have any related news</p>
+                <p className="text-center reltated-text-style" >You don't have any related news</p>
               )}
             </Row>
           )}
