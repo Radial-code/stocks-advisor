@@ -22,7 +22,7 @@ const News = () => {
 
   return (
     <div>
-      <Container className="py-5">
+      <Container className="py-5 mt-100 mb-4">
         <Row>
           <Col xl={8}>
             <AllNews loading={loading} setPage={setPage} page={page} />

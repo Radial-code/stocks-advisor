@@ -7,7 +7,7 @@ const AboutHero = () => {
     useLayoutChangerProvider();
   return (
     <>
-      <div className="container py-5 my-sm-5  p-left-right">
+      <div className="container py-5   p-left-right mt-100">
         <div className="row justify-content-between align-items-center justify-content-between">
           <div className="col-xl-7  col-lg-6 d-flex justify-content-center d-sm-block">
             <h2

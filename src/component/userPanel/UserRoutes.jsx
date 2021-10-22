@@ -11,7 +11,7 @@ import PaymentDetails from "./payment/PaymentDetails";
 const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
   return (
     <>
-      <div className="container py-5">
+      <div className="container py-5 mt-100">
         <div className=" d-flex justify-content-between flex-lg-row flex-column">
           <SidebarDashboard
             showSidebar={showSidebar}

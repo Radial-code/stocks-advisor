@@ -243,7 +243,9 @@
 .min-h-100vh {
   min-height: 100vh;
 }
-
+.mt-100 {
+  margin-top: 100px;
+}
 .default-btn {
   background: var(--color-127CF9);
   font-weight: 500;
