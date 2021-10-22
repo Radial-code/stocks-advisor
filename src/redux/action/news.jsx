@@ -92,12 +92,13 @@ const getNewsForAdmin = (data) => ({
 });
 
 export const getNewsListForAdminAction =
-  (setLoading, page) => async (dispatch) => {
+  (page, setLoading, setTotalNews) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await getNewsForAdminApi(page);
       if (response.success) {
         dispatch(getNewsForAdmin(response.allNews));
+        setTotalNews(response.totalNews);
         setLoading(false);
       } else {
         setLoading(false);

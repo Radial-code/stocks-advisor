@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import ReactPaginate from "react-paginate";
+import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
 import { withRouter } from "react-router";
-import NewsTableListItem from "./NewsTableListItem";
-import ReactPaginate from "react-paginate";
 
 const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
-
-  const [loading, setLoading] = useState(false);
-  const [totalNews, setTotalNews] = useState(false);
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [page, setPage] = useState(0);
-
+  const [loading, setLoading] = useState(false);
+  const [totalNews, setTotalNews] = useState(0);
   const adminNewsList = useSelector((state) => state.cmPanel.adminNewsList);
 
   useEffect(() => {
-    dispatch(getNewsListForAdminAction(setLoading, page));
+    dispatch(getNewsListForAdminAction(page, setLoading, setTotalNews));
   }, [page]);
 
   const handlePageClick = (e) => {
@@ -33,7 +33,7 @@ const NewsTable = ({ history }) => {
           <BubblesLoader />
         </div>
       ) : (
-        <Table id="news-infinite-scroll" hover>
+        <Table hover>
           <thead className="portfolio-sticky">
             <tr className="user-list-panel">
               <th className="whitespace table-width">
@@ -49,30 +49,46 @@ const NewsTable = ({ history }) => {
               </th>
             </tr>
           </thead>
-
           <tbody className="user-details">
-            {adminNewsList && !!adminNewsList.length ? (
-              adminNewsList.map((obj, index) => (
-                <NewsTableListItem key={index} value={obj} history={history} />
-              ))
-            ) : (
-              <td colSpan="4" className="text-center fw-bold">
-                You don't have any news
-              </td>
-            )}
+            {adminNewsList && !!adminNewsList.length
+              ? adminNewsList.map((value, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      onClick={() =>
+                        history.push(`/content/manager/edit/news/${value._id}`)
+                      }
+                    >
+                      <td className="whitespace Ellipse">
+                        {" "}
+                        {moment(value.createdAt).format("MM/ddd")}
+                      </td>
+                      <td
+                        className={`${
+                          layoutClickChanger
+                            ? "hitespace Ellipse text-end"
+                            : "hitespace Ellipse text-start"
+                        }`}
+                      >
+                        {value.title}
+                      </td>
+                      <td className="whitespace Ellipse">{value.tags}</td>
+                    </tr>
+                  );
+                })
+              : "You don't have any news"}
           </tbody>
-          {/* </InfiniteScroll> */}
         </Table>
       )}
-      {totalNews <= 10 ? (
+      {totalNews && totalNews <= 10 ? (
         ""
       ) : (
         <ReactPaginate
-          previousLabel={""}
-          nextLabel={""}
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
           breakLabel={"..."}
           breakClassName={"break-me"}
-          pageCount={Math.ceil(13 / 10)}
+          pageCount={Math.ceil(totalNews / 10)}
           marginPagesDisplayed={3}
           pageRangeDisplayed={2}
           onPageChange={handlePageClick}

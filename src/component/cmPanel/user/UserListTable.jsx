@@ -13,21 +13,19 @@ const UserListTable = () => {
   const dispatch = useDispatch();
   let history = useHistory();
   const { layoutClickChanger } = useLayoutChangerProvider();
-
-  const [loading, setLoading] = useState(false);
   const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
-  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [totalUsers, setTotalUsers] = useState(0);
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getUserListForAdminAction(setLoading, setHasMore, page));
+    dispatch(getUserListForAdminAction(setLoading, page, setTotalUsers));
   }, [page]);
 
-  const handleChangePage = (e) => {
+  const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setPage(selectedPage);
   };
-
   return (
     <>
       {loading ? (
@@ -108,8 +106,7 @@ const UserListTable = () => {
           </tbody>
         </Table>
       )}
-
-      {adminUserList.length === 0 ? (
+      {totalUsers && totalUsers <= 10 ? (
         ""
       ) : (
         <ReactPaginate
@@ -117,10 +114,10 @@ const UserListTable = () => {
           nextLabel={"Next"}
           breakLabel={"..."}
           breakClassName={"break-me"}
-          pageCount={Math.ceil(13 / 10)}
-          marginPagesDisplayed={0}
+          pageCount={Math.ceil(totalUsers / 10)}
+          marginPagesDisplayed={3}
           pageRangeDisplayed={2}
-          onPageChange={handleChangePage}
+          onPageChange={handlePageClick}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
           activeClassName={"activePage"}

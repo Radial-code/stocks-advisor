@@ -11,17 +11,17 @@ import ReactPaginate from "react-paginate";
 
 const CurrentStockTable = ({ history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
+  const stockList = useSelector((state) => state.cmPanel.stockList);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const stockList = useSelector((state) => state.cmPanel.stockList);
-  const [hasMore, setHasMore] = useState(true);
+  const [totalStock, setTotalStock] = useState(0);
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getStockListAction(page, setLoading));
+    dispatch(getStockListAction(page, setLoading, setTotalStock));
   }, [page]);
 
-  const handleChangePage = (e) => {
+  const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setPage(selectedPage);
   };
@@ -159,7 +159,7 @@ const CurrentStockTable = ({ history }) => {
         </table>
       )}
 
-      {stockList.length === 0 ? (
+      {totalStock <= 10 ? (
         ""
       ) : (
         <ReactPaginate
@@ -167,10 +167,10 @@ const CurrentStockTable = ({ history }) => {
           nextLabel={"Next"}
           breakLabel={"..."}
           breakClassName={"break-me"}
-          pageCount={Math.ceil(13 / 10)}
+          pageCount={Math.ceil(totalStock / 10)}
           marginPagesDisplayed={0}
           pageRangeDisplayed={2}
-          onPageChange={handleChangePage}
+          onPageChange={handlePageClick}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
           activeClassName={"activePage"}

@@ -64,24 +64,26 @@ const getStockList = (data) => ({
   data,
 });
 
-export const getStockListAction = (page, setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getStockListApi(page);
-    if (response.success) {
-      dispatch(getStockList(response.allStock));
+export const getStockListAction =
+  (page, setLoading, setTotalStock) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getStockListApi(page);
+      if (response.success) {
+        dispatch(getStockList(response.allStock));
+        setTotalStock(response.totalStock);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load stock list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load stock list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get stock details list action
@@ -165,17 +167,14 @@ const getUserListForAdmin = (data) => ({
 });
 
 export const getUserListForAdminAction =
-  (setLoading, setHasMore, page) => async (dispatch) => {
+  (setLoading, page, setTotalUsers) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await getUserListForAdminApi(page);
       if (response.success) {
         dispatch(getUserListForAdmin(response.allUsers));
+        setTotalUsers(response.totalUsers);
         setLoading(false);
-
-        if (response.allStock.length < 10) {
-          setHasMore(false);
-        }
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to user list", "error");
