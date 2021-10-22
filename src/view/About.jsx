@@ -17,8 +17,8 @@ const Homepage = () => {
   return (
     <>
       <AboutHero />
-      <section className="bg-f9f9f9 py-5">
-        <div className="container  p-left-right">
+      <section className="bg-f9f9f9 py-5 ">
+        <div className="container  p-left-right ">
           <AboutUs />
           <History />
           <div className="mb-5">

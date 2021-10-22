@@ -7,7 +7,7 @@ const Contact = () => {
   const { layoutClickChanger } = useLayoutChangerProvider();
 
   return (
-    <div className="container  py-5">
+    <div className="container  py-5 mt-100">
       <div className="row  justify-content-center align-items-center h-100 ">
         <div className="col">
           <div className="row d-flex justify-content-between">

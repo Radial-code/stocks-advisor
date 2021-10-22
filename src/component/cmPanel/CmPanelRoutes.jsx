@@ -19,7 +19,7 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
   return (
     <>
       <div className="container my-5">
-        <div className="d-flex justify-content-between flex-lg-row flex-column">
+        <div className="d-flex justify-content-between flex-lg-row flex-column mt-100">
           <SidebarPanel
             showSidebar2={showSidebar2}
             setShowSidebar2={setShowSidebar2}
