@@ -5,7 +5,7 @@ const CreateNewPassword = () => {
     <div>
       <div class="container container my-sm-5 my-3 min-h-576px-80vh pt-sm-5">
         <div class="row">
-          <div class="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
+          <div class="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow mt-100">
             <div class="py-4 px-xxl-5 px-3  ">
               <p class="mb-4 pb-1 pb-1 from-heading text-center">
                 Create New Password

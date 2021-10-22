@@ -7,7 +7,13 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import Loader from "../../common/Loader";
 
-function CategoryPopup({ handleClose, show, edit, updateValue }) {
+function CategoryPopup({
+  handleClose,
+  show,
+  edit,
+  updateValue,
+  setUpdateValue,
+}) {
   const dispatch = useDispatch();
   const [category, setCategory] = useState(
     !!updateValue ? updateValue.title : ""

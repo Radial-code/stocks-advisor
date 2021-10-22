@@ -7,10 +7,13 @@ import {
   deletePlansDetailsAction,
   getPlansListAction,
 } from "../../../redux/action/cmPanel/plans";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 
 function PlansTable({ history }) {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeletedLoading] = useState(false);
@@ -118,20 +121,41 @@ function PlansTable({ history }) {
       {planListCount && planListCount <= 10 ? (
         ""
       ) : (
-        <ReactPaginate
-          previousLabel={"Prev"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={Math.ceil(planListCount / 10)}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"activePage"}
-          initialPage={page}
-        />
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(planListCount / 10)}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(planListCount / 10)}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"activePage"}
+                initialPage={page}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );

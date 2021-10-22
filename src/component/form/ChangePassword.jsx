@@ -40,7 +40,7 @@ const ChangePassword = () => {
     <div>
       <div className="container my-sm-5 pt-sm-5 my-3 min-h-576px-100vh">
         <div className="row">
-          <div className="col-xxl-5 col-lg-7 col-md-10 col-12   mx-auto form-box-shadow">
+          <div className="col-xxl-5 col-lg-7 col-md-10 col-12   mx-auto form-box-shadow mt-100">
             <div className="py-4 px-xxl-5 px-3  ">
               <p className="mb-4 mb-md-5 edit-contact-text text-center">
                 Change Password

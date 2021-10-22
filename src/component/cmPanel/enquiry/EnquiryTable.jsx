@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import { useDispatch, useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import moment from "moment";
 import ReactPaginate from "react-paginate";
 import { getContactListAction } from "../../../redux/action/contact";
 
 const EnquiryTable = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
@@ -95,20 +98,41 @@ const EnquiryTable = () => {
       {totalContact && totalContact <= 10 ? (
         ""
       ) : (
-        <ReactPaginate
-          previousLabel={"Prev"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={Math.ceil(totalContact / 10)}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"activePage"}
-          initialPage={page}
-        />
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(totalContact / 10)}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              <ReactPaginate
+                previousLabel={"Prev"}
+                nextLabel={"Next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={Math.ceil(totalContact / 10)}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"activePage"}
+                initialPage={page}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );

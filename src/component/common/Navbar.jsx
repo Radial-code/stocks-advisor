@@ -120,6 +120,14 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       history.push("/contact-us");
       setNavbarCollapsed(true);
       setOverlayActive(true);
+    } else if (value === "login") {
+      history.push("/login");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
+    } else if (value === "joinnow") {
+      history.push("/signup");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
     }
   };
   useEffect(() => {
@@ -502,13 +510,13 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               ) : (
                 <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
                   <button
-                    onClick={() => history.push("/login")}
+                    onClick={() => closeSidebar("login")}
                     className="mt-4 mt-xxl-0 py-2 ms-3 mx-2  btn join_now_btn "
                   >
                     Log In
                   </button>
                   <button
-                    onClick={() => history.push("/signup")}
+                    onClick={() => closeSidebar("joinnow")}
                     className="mt-4 mt-xxl-0 py-2 btn log_in_btn "
                   >
                     Join Now
