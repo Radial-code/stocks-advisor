@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { createNewTeamMemberAction } from "../../../redux/action/cmPanel/stock";
+import Loader from "../../common/Loader";
 
 const TeamForm = () => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+
+  const submitTeamData = () => {
+    dispatch(createNewTeamMemberAction(setLoading));
+  };
+
   return (
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-sm-4  pt-5">
@@ -62,7 +72,13 @@ const TeamForm = () => {
             </div>
             <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column">
               <div className="add-new-btn w-100">
-                <button className="update-btn">Add</button>
+                <button
+                  className="update-btn"
+                  disabled={loading}
+                  onClick={() => submitTeamData()}
+                >
+                  {loading ? <Loader /> : "Add"}
+                </button>
               </div>
             </div>
           </div>
