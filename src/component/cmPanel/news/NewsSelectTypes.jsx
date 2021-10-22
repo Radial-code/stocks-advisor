@@ -86,7 +86,11 @@ const NewsSelectTypes = ({
                         </label>
                         <input
                           key={index}
-                          checked={newsPortFoliosArray.includes(value._id)}
+                          checked={
+                            newsPortFoliosArray.includes(value._id)
+                              ? true
+                              : null
+                          }
                           type="checkbox"
                           onClick={() => selectPortfolio(value._id)}
                           className="cursor-pointer mx-2"
@@ -95,7 +99,11 @@ const NewsSelectTypes = ({
                     ) : (
                       <>
                         <input
-                          checked={newsPortFoliosArray.includes(value._id)}
+                          checked={
+                            newsPortFoliosArray.includes(value._id)
+                              ? true
+                              : null
+                          }
                           type="checkbox"
                           onClick={() => selectPortfolio(value._id)}
                           className="cursor-pointer mx-2"
