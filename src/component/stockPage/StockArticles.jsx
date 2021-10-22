@@ -2,9 +2,11 @@ import moment from "moment";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
-
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const StockArticles = ({ history }) => {
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   return (
     <>
       <Container className="max-w-container ">
@@ -47,7 +49,7 @@ const StockArticles = ({ history }) => {
                               Read More
                             </p>
                             <p
-                              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold"
+                              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mb-3 mt-3"
                               onClick={() =>
                                 history.push(
                                   `/stock/news/${value.stock._id}/${value.tags}`
@@ -56,7 +58,13 @@ const StockArticles = ({ history }) => {
                             >
                               <span>{value.tags}</span>
                             </p>
-                            <p className="small-paragraph text-end">
+                            <p
+                              className={`${
+                                layoutClickChanger
+                                  ? "small-paragraph text-end"
+                                  : "small-paragraph text-start"
+                              }`}
+                            >
                               <span className="ps-1 cursor-pointer fw-bold">
                                 Stock :
                               </span>

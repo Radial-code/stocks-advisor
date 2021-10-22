@@ -21,13 +21,7 @@ const Stockpage = ({ match }) => {
     if (id) {
       if (tags === "stock-tags") {
         dispatch(getNewsByStockAction(id, setLoading));
-        dispatch(
-          getStockChatDetailsAction(
-            "615c3b7489c2d1f1df65585f",
-            setLoading,
-            type
-          )
-        );
+        dispatch(getStockChatDetailsAction(id, setLoading, type));
       } else {
         const data = {
           stockId: id,
@@ -41,13 +35,7 @@ const Stockpage = ({ match }) => {
   useEffect(() => {
     if (id) {
       if (tags === "stock-tags") {
-        dispatch(
-          getStockChatDetailsAction(
-            "615c3b7489c2d1f1df65585f",
-            setLoading,
-            type
-          )
-        );
+        dispatch(getStockChatDetailsAction(id, setLoading, type));
       }
     }
   }, [type]);
@@ -58,7 +46,7 @@ const Stockpage = ({ match }) => {
         <NetflixChart setType={setType} type={type} />
       ) : null}
       <div className="mt-5">
-        <StockArticles />
+        <StockArticles loading={loading} />
       </div>
     </div>
   );
