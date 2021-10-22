@@ -129,7 +129,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
     }
     stockDetails.portfolios = data;
   };
-  console.log("stockDetails.portfolios", stockDetails.portfolios);
   const array = [];
   // const array = [
   //   "616e8d9549b3114990257e4f",
