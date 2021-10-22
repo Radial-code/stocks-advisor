@@ -72,8 +72,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
       ></div>
       <Row>
-        <Col className="d-flex justify-content-sm-end justify-content-center">
-          <section className="shadow bg-white w-1000  p-3 p-sm-5 ">
+        <Col xs={12} className="d-flex  w-100 ">
+          <section className="shadow bg-white w-1000 w-100  p-3 p-sm-5 ">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
               <p className="heading-stock fs-sm-20">
                 {data.firstName}&nbsp;{data.lastName}

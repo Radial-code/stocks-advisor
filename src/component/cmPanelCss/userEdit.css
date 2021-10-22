@@ -30,7 +30,7 @@
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
 }
-@media (min-width: 1500px) {
+@media (min-width: 1600px) {
   .w-1000 {
     width: 1000px;
   }
