@@ -85,7 +85,7 @@ const AboutSlider = () => {
                     <p
                       className={`${
                         layoutClickChanger
-                          ? "stock-paragraph text-center text-sm-end fs-sm-14 mt-3"
+                          ? "stock-paragraph about-slider text-center text-sm-end fs-sm-14 mt-3"
                           : ""
                       }`}
                     >

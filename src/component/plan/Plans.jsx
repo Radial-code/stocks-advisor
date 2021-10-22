@@ -20,7 +20,7 @@ function Plans({ history }) {
   }, []);
 
   return (
-    <div className="container px-sm-4 px-0">
+    <div className="container px-sm-4 px-0 subs-plan-scroll">
       <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
       <span className="subs-plans-line d-block mb-4"></span>
       {loading ? (
@@ -32,7 +32,7 @@ function Plans({ history }) {
           {!!planList && !!planList.length ? (
             planList.map((value, index) => {
               return (
-                <div className="subs-plan-scroll">
+                <div>
                   <div
                     key={index}
                     className="subs-border d-flex justify-content-between align-items-center p-3 my-4 "
