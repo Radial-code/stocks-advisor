@@ -72,6 +72,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       stockDetails.exchange !== "" &&
       stockDetails.symbol !== ""
     ) {
+      console.log("stockDetails", stockDetails);
       dispatch(
         addNewStockDetailsAction(stockDetails, setAddStockLoading, history)
       );
@@ -117,24 +118,36 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   const data = [];
   const valueId = [];
   const selectPortfolio = (id) => {
-    const ValidId = valueId.includes(id);
-    if (data === []) {
-      data.push({ portfolioId: id });
+    if (!valueId.includes(id)) {
       valueId.push(id);
-    } else if (!ValidId) {
       data.push({ portfolioId: id });
-      valueId.push(id);
     } else {
       var index = data.indexOf({ portfolioId: id });
       data.splice(index, 1);
       var indexvalueId = valueId.indexOf({ portfolioId: id });
       valueId.splice(indexvalueId, 1);
     }
-    if (stockDetails && stockDetails.portfolios) {
-      stockDetails.portfolios = data;
-    }
+    stockDetails.portfolios = data;
   };
+  console.log("stockDetails.portfolios", stockDetails.portfolios);
+  const array = [];
+  // const array = [
+  //   "616e8d9549b3114990257e4f",
+  //   "616c123ddda0ce150f50aafc",
+  //   "616c124fdda0ce150f50ab02",
+  // ];
 
+  // checked={
+  //   !!stockDetailsList &&
+  //   stockDetailsList.portfolios &&
+  //   stockDetailsList.portfolios.length > 0
+  //     ? stockDetailsList.portfolios.map((val) => {
+  //         return val._id === value._id
+  //           ? true
+  //           : false;
+  //       })
+  //     : null
+  // }
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3  w-xl-1000">
@@ -473,15 +486,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                               <input
                                 key={index}
                                 checked={
-                                  !!stockDetailsList &&
-                                  stockDetailsList.portfolios &&
-                                  stockDetailsList.portfolios.length > 0
-                                    ? stockDetailsList.portfolios.map((val) => {
-                                        return val._id === value._id
-                                          ? true
-                                          : false;
-                                      })
-                                    : null
+                                  array.includes(value._id) ? true : null
                                 }
                                 type="checkbox"
                                 onClick={() => selectPortfolio(value._id)}
@@ -493,15 +498,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                               <input
                                 key={index}
                                 checked={
-                                  !!stockDetailsList &&
-                                  stockDetailsList.portfolios &&
-                                  stockDetailsList.portfolios.length > 0
-                                    ? stockDetailsList.portfolios.map((val) => {
-                                        return val._id === value._id
-                                          ? true
-                                          : false;
-                                      })
-                                    : null
+                                  array &&
+                                  array.length &&
+                                  array.includes(value._id)
+                                    ? true
+                                    : false
                                 }
                                 type="checkbox"
                                 onClick={() => selectPortfolio(value._id)}
