@@ -160,20 +160,25 @@ const CurrentStockTable = ({ history }) => {
           </tbody>
         </table>
       )}
-      <ReactPaginate
-        previousLabel={"Prev"}
-        nextLabel={"Next"}
-        breakLabel={"..."}
-        breakClassName={"break-me"}
-        pageCount={Math.ceil(13 / 10)}
-        marginPagesDisplayed={0}
-        pageRangeDisplayed={2}
-        onPageChange={handleChangePage}
-        containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"activePage"}
-        initialPage={page}
-      />
+
+      {stockList.length === 0 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(13 / 10)}
+          marginPagesDisplayed={0}
+          pageRangeDisplayed={2}
+          onPageChange={handleChangePage}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
+      )}
     </>
   );
 };

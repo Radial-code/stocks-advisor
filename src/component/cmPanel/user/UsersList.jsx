@@ -9,7 +9,7 @@ const UsersList = () => {
         <div className="d-flex justify-content-sm-between flex-sm-row flex-column align-items-center pb-3">
           <p className="heading-stock fs-sm-20">Users</p>
         </div>
-        <div className="h-calc-100vh-331 scroll-bar overflow-auto mt-4">
+        <div className="current-stock-calc-height scroll-bar overflow-auto mt-4">
           <UserListTable />
         </div>
       </section>

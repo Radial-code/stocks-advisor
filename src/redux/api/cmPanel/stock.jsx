@@ -48,8 +48,8 @@ export const getStockListApi = async (page) => {
  *  user list for admin api
  * @returns
  */
-export const getUserListForAdminApi = async () => {
-  return await axiosRequest("GET", `/users`);
+export const getUserListForAdminApi = async (page) => {
+  return await axiosRequest("GET", `/users?page=${page}&limit=10`);
 };
 
 /**
