@@ -52,6 +52,7 @@ export const getContactListAction =
       if (response.success) {
         dispatch(getContactList(response.allContact));
         setTotalContact(response.totalContact);
+        console.log(response, "response inquiry");
         setLoading(false);
       } else {
         setLoading(false);

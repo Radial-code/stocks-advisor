@@ -8,21 +8,29 @@ import {
   getPlansListAction,
 } from "../../../redux/action/cmPanel/plans";
 import BubblesLoader from "../../common/BubblesLoader";
+import ReactPaginate from "react-paginate";
 
 function PlansTable({ history }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeletedLoading] = useState(false);
   const planList = useSelector((state) => state.list.planList);
+  const [page, setPage] = useState(0);
+  const [planListCount, setPlanListCount] = useState(0);
 
+  // WE PASS LOADING STATE FOR LOADING , PAGE FOR INCREASE PAGE COUNT FOR API CALL AND SETPLANLISTCOUNT FOR GET TOTAL NUMBER OF PLANS IN DATA BASE
   useEffect(() => {
-    dispatch(getPlansListAction(setLoading));
-  }, []);
+    dispatch(getPlansListAction(setLoading, page, setPlanListCount));
+  }, [page]);
 
   const deletePlans = (id) => {
     dispatch(deletePlansDetailsAction(id, setDeletedLoading));
   };
 
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
+  };
   return (
     <>
       {loading ? (
@@ -92,56 +100,83 @@ function PlansTable({ history }) {
             </tr>
           </thead>
           <tbody>
-            {!!planList && !!planList.length
-              ? planList.map((value, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      className="current-stock-data table-border-bottom"
-                    >
-                      <td className="text-end whitespace Ellipse">
-                        {moment(value.createdAt).format("MM/ddd")}
-                      </td>
-                      <td className="text-end whitespace Ellipse" dir="ltr">
-                        {value.title}
-                      </td>
-
-                      <td className="text-end whitespace Ellipse">
-                        ${value.price}
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        {value.type}
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        <button
-                          className="px-3 py-1 edit-button"
-                          onClick={() =>
-                            history.push(
-                              `/content/manager/edit/plan/${value._id}`
-                            )
-                          }
-                        >
-                          Edit
-                        </button>
-                      </td>
-                      <td className="text-end whitespace Ellipse">
-                        <button
-                          type="button"
-                          disabled={deleteLoading}
-                          onClick={() => deletePlans(value._id)}
-                          className="px-3 py-1 delete-button"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })
+            {planList && planList.length
+              ? planList.map((obj, index) => (
+                  <PlansTableListItem
+                    key={index}
+                    value={obj}
+                    history={history}
+                    deletePlans={deletePlans}
+                    deleteLoading={deleteLoading}
+                  />
+                ))
               : "You don't have any plan"}
           </tbody>
         </table>
+      )}
+
+      {planListCount && planListCount <= 10 ? (
+        ""
+      ) : (
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(planListCount / 10)}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={2}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"activePage"}
+          initialPage={page}
+        />
       )}
     </>
   );
 }
 export default withRouter(PlansTable);
+
+export function PlansTableListItem({
+  value,
+  history,
+  deletePlans,
+  deleteLoading,
+}) {
+  return (
+    <>
+      <tr className="current-stock-data table-border-bottom">
+        <td className="text-end whitespace Ellipse">
+          {moment(value.createdAt).format("MM/ddd")}
+        </td>
+        <td className="text-end whitespace Ellipse" dir="ltr">
+          {value.title}
+        </td>
+
+        <td className="text-end whitespace Ellipse">${value.price}</td>
+        <td className="text-end whitespace Ellipse">{value.type}</td>
+        <td className="text-end whitespace Ellipse">
+          <button
+            className="px-3 py-1 edit-button"
+            onClick={() =>
+              history.push(`/content/manager/edit/plan/${value._id}`)
+            }
+          >
+            Edit
+          </button>
+        </td>
+        <td className="text-end whitespace Ellipse">
+          <button
+            type="button"
+            disabled={deleteLoading}
+            onClick={() => deletePlans(value._id)}
+            className="px-3 py-1 delete-button"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </>
+  );
+}
