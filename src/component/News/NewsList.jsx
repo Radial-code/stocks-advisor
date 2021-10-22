@@ -26,7 +26,7 @@ const NewsList = ({ history, value, index, loading }) => {
             xs={8}
             className={`${layoutClickChanger ? "d-flex  " : "d-flex "}  `}
           >
-            <div className="w-lg-518">
+            <div className="w-lg-518 mx-3">
               <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
                 {moment(value.createdAt).format("ddd/MM/yyyy")}
                 <span className={`${layoutClickChanger ? "pr-15" : "px-3"}`}>

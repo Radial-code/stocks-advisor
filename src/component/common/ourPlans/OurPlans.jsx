@@ -39,7 +39,7 @@ const OurPlans = ({ homepage, history }) => {
             <Col xs={12}>
               <div className="row mt-sm-5">
                 {planList && planList.length ? (
-                  planList.map((value, index) => {
+                  planList.slice(0, 3).map((value, index) => {
                     return (
                       <Col
                         key={index}

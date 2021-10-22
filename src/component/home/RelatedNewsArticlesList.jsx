@@ -7,7 +7,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
   return (
     <div className="my-3 ">
       <div className="news-slider-wrapper">
-        <img className="w-100 h-100" src={imagePath} alt="newsImg" />
+        <img className="w-100 newsImg-slider" src={imagePath} alt="newsImg" />
         <div className="news-wrapper-bottom-section">
           <p
             className={`${

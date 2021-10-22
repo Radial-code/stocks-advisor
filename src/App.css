@@ -97,3 +97,6 @@
   color: transparent;
   background-position: center;
 }
+.prev:hover {
+  background: #5cbd4c;
+}
