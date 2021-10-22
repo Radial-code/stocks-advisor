@@ -18,7 +18,7 @@ const CurrentStockTable = ({ history }) => {
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    dispatch(getStockListAction(page, setHasMore, setLoading));
+    dispatch(getStockListAction(page, setLoading));
   }, [page]);
 
   const handleChangePage = (e) => {

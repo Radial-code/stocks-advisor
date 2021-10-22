@@ -12,6 +12,7 @@ const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
+  const [totalNews, setTotalNews] = useState(false);
   const [page, setPage] = useState(0);
 
   const adminNewsList = useSelector((state) => state.cmPanel.adminNewsList);
@@ -48,7 +49,7 @@ const NewsTable = ({ history }) => {
               </th>
             </tr>
           </thead>
-      
+
           <tbody className="user-details">
             {adminNewsList && !!adminNewsList.length ? (
               adminNewsList.map((obj, index) => (
@@ -63,7 +64,7 @@ const NewsTable = ({ history }) => {
           {/* </InfiniteScroll> */}
         </Table>
       )}
-      {adminNewsList.length === 0 ? (
+      {totalNews <= 10 ? (
         ""
       ) : (
         <ReactPaginate

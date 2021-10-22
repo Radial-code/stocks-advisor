@@ -49,7 +49,7 @@ const AddNewNews = ({ edit, match, history }) => {
   }, [newsDetailsList]);
 
   useEffect(() => {
-    dispatch(getStockListAction(setLoading));
+    dispatch(getStockListAction(0, setLoading));
   }, []);
 
   const AddNewNewsDetails = () => {

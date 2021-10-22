@@ -7,7 +7,7 @@ const NewsTableListItem = ({ value, history }) => {
   return (
     <>
       <tr
-      // onClick={() => history.push(`/content/manager/edit/news/${value._id}`)}
+        onClick={() => history.push(`/content/manager/edit/news/${value._id}`)}
       >
         <td colspan="3" className="whitespace Ellipse">
           {" "}
