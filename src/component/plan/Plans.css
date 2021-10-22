@@ -15,7 +15,10 @@
     font-size: 15px;
   }
 }
-
+.subs-plan-scroll {
+  overflow: auto;
+  height: 415px;
+}
 .subs-plans-line {
   border-bottom: 1px solid #16191e;
   opacity: 0.2;

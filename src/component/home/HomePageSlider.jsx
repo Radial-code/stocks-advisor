@@ -40,7 +40,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
       ) : (
         <Slider className="hero-slider-2  w-100" {...settings}>
           {homeNewsList && !!homeNewsList.length ? (
-            homeNewsList.map((value, index) => {
+            homeNewsList.slice(0, 4).map((value, index) => {
               return (
                 <div key={index}>
                   <img

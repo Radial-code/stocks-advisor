@@ -18,7 +18,7 @@ function Plans({ history }) {
   }, []);
 
   return (
-    <div className="container px-sm-4 px-0 ">
+    <div className="container px-sm-4 px-0 subs-plan-scroll">
       <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
       <span className="subs-plans-line d-block mb-4"></span>
       {loading ? (
