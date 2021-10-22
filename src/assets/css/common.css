@@ -477,8 +477,7 @@
   transform-origin: center !important;
 }
 
-.next:hover,
-.prev:hover {
+.next:hover {
   background: #5cbd4c;
 }
 
