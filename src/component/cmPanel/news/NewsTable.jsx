@@ -21,13 +21,7 @@ const NewsTable = ({ history }) => {
     dispatch(getNewsListForAdminAction(setLoading, setHasMore, page));
   }, [page]);
 
-  // const handlePageClick = () => {
-  //   console.log("render");
-
-  // };
-  console.log("re render");
   const handlePageClick = (e) => {
-    console.log(e);
     const selectedPage = e.selected;
     setPage(selectedPage);
   };

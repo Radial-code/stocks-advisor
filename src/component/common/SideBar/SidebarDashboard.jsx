@@ -6,10 +6,8 @@ import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
 
 function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [activeLink, setActiveLink] = useState("manage");
-  console.log(window.location);
   if (layoutClickChanger) {
     document.dir = "rtl";
   } else {
@@ -18,7 +16,6 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
 
   useEffect(() => {
     const path = window.location.pathname.split("/");
-    console.log(match);
     if (path.includes("manage")) {
       setActiveLink("manage");
     } else if (path.includes("update")) {

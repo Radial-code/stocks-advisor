@@ -23,9 +23,7 @@ const UserListTable = () => {
     dispatch(getUserListForAdminAction(setLoading, setHasMore, page));
   }, [page]);
 
-  console.log("re render");
   const handleChangePage = (e) => {
-    console.log(e);
     const selectedPage = e.selected;
     setPage(selectedPage);
   };
