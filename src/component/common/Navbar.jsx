@@ -150,6 +150,10 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       history.push("/content/manager/stocks");
       setNavbarCollapsed(true);
       setOverlayActive(true);
+    } else if (value === "search") {
+      history.push("/search/news");
+      setNavbarCollapsed(true);
+      setOverlayActive(true);
     }
   };
   useEffect(() => {
@@ -204,6 +208,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                   className="search-box-nav py-2 w-100 pe-3"
                   id="search"
                   placeholder="Search..."
+                  onClick={() => closeSidebar("search")}
                 />
                 <div
                   className={`${

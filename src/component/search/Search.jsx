@@ -7,7 +7,7 @@ import SearchTable from "./SearchTable";
 function Search({ searchData, loading }) {
   const searchNewsList = useSelector((state) => state.list.searchNewsList);
   return (
-    <div className="container">
+    <div className="container mt-100">
       {searchData === "" ? (
         <>
           <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />

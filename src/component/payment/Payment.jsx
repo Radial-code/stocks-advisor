@@ -18,8 +18,8 @@ const Payment = ({ match }) => {
 
   return (
     <>
-      <Container className="max-w-1400 mt-5 mb-5">
-        <Row className="justify-content-between">
+      <Container className="max-w-1400 mt-5 mb-5 ">
+        <Row className="justify-content-between mt-100 pt-3">
           <SubscriptionPlan loading={loading} />
           <StripeForm />
         </Row>
