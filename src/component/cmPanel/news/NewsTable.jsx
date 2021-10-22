@@ -66,26 +66,25 @@ const NewsTable = ({ history }) => {
             }
           > */}
           <tbody className="user-details">
-            {adminNewsList && !!adminNewsList.length
-              ? adminNewsList.map((obj, index) => (
-                  <NewsTableListItem
-                    key={index}
-                    value={obj}
-                    history={history}
-                  />
-                ))
-              : "You don't have any news"}
+            {adminNewsList && !!adminNewsList.length ? (
+              adminNewsList.map((obj, index) => (
+                <NewsTableListItem key={index} value={obj} history={history} />
+              ))
+            ) : (
+              <td colSpan="4" className="text-center fw-bold">
+                You don't have any news
+              </td>
+            )}
           </tbody>
           {/* </InfiniteScroll> */}
         </Table>
       )}
-
       {adminNewsList.length === 0 ? (
         ""
       ) : (
         <ReactPaginate
-          previousLabel={"Prev"}
-          nextLabel={"Next"}
+          previousLabel={""}
+          nextLabel={""}
           breakLabel={"..."}
           breakClassName={"break-me"}
           pageCount={Math.ceil(13 / 10)}
