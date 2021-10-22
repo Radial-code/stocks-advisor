@@ -48,24 +48,26 @@ const getPlansList = (data) => ({
   data,
 });
 
-export const getPlansListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getPlansListApi();
-    if (response.success) {
-      dispatch(getPlansList(response.allPlans));
+export const getPlansListAction =
+  (setLoading, page, setPlanListCount) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getPlansListApi(page);
+      if (response.success) {
+        dispatch(getPlansList(response.allPlans));
+        setLoading(false);
+        setPlanListCount(response.allPlans.length);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load Plans list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load Plans list", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Update Plans details action

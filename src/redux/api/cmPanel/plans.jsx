@@ -13,8 +13,8 @@ export const addNewPlansDetailsApi = async (data) => {
  *  Plans list api
  * @returns
  */
-export const getPlansListApi = async () => {
-  return await axiosRequest("GET", `/plans`);
+export const getPlansListApi = async (page) => {
+  return await axiosRequest("GET", `/plans?page=${page}&limit=10`);
 };
 
 /**
