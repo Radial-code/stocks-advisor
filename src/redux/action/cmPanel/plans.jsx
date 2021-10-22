@@ -56,7 +56,7 @@ export const getPlansListAction =
       if (response.success) {
         dispatch(getPlansList(response.allPlans));
         setLoading(false);
-        setPlanListCount(response.allPlans.length);
+        setPlanListCount(response.totalPlans);
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to Load Plans list", "error");
