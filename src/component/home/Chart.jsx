@@ -32,7 +32,7 @@ const Chart = () => {
           <BubblesLoader />
         </div>
       ) : (
-        <div className="h-100 d-flex justify-content-center align-items-center flex-column">
+        <div className="h-100 d-flex align-items-center flex-column">
           {portfoliosChatList && portfoliosChatList.length ? (
             portfoliosChatList.slice(0, 3).map((chatValue, index) => {
               return <LineChart chatValue={chatValue} index={index} />;
