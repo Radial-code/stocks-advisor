@@ -35,14 +35,14 @@ const OurPlans = ({ homepage, history }) => {
               Subscription Plans
             </p>
           </Col>
-          {loading ? (
+          {/* {loading ? (
             <div className="text-center d-flex  justify-content-center pt-2 mx-4">
               <BubblesLoader />
             </div>
           ) : (
             <OurPlanCard history={history} />
-          )}
-          {planListCount && planListCount <= 10 ? (
+          )} */}
+          {/* {planListCount && planListCount <= 10 ? (
             ""
           ) : (
             <>
@@ -80,6 +80,55 @@ const OurPlans = ({ homepage, history }) => {
                     initialPage={page}
                   />
                 </div>
+              )}
+            </>
+          )} */}
+          {planListCount === "" ? (
+            <>
+              {layoutClickChanger ? (
+                <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(planListCount / 3)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              ) : (
+                <div className="react-pagination mx-xxl-4 mx-xl-3 d-flex justify-content-md-start justify-content-center">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(planListCount / 3)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={3}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              {loading ? (
+                <div className="text-center d-flex  justify-content-center pt-2 mx-4">
+                  <BubblesLoader />
+                </div>
+              ) : (
+                <OurPlanCard history={history} />
               )}
             </>
           )}
