@@ -137,7 +137,9 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
               );
             })
           ) : (
-            <BubblesLoader />
+            <div className="d-flex justify-content-center">
+              <BubblesLoader />
+            </div>
           )}
         </Slider>
       )}

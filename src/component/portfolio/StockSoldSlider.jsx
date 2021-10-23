@@ -48,25 +48,27 @@ const StockSoldSlider = ({ loader }) => {
   };
   return (
     <>
-      {!loader ? (
-        <Slider {...settings} className="stock-slider">
-          {soldStockNewsList && soldStockNewsList.length ? (
-            soldStockNewsList.map((value, index) => {
-              return <StockSliderCard soldValue={value} index={index} />;
-            })
+      {soldStockNewsList === "" ? (
+        <>
+          {!loader ? (
+            <Slider {...settings} className="stock-slider">
+              {soldStockNewsList && soldStockNewsList.length
+                ? soldStockNewsList.map((value, index) => {
+                    return <StockSliderCard soldValue={value} index={index} />;
+                  })
+                : ""}
+            </Slider>
           ) : (
-            <>
-              <img
-                className="searchnews mx-auto d-block"
-                src={SearchNews}
-                alt=""
-              />
-              <h4 className="text-center">You don't have any News</h4>
-            </>
+            <div className="d-flex justify-content-center">
+              <BubblesLoader />
+            </div>
           )}
-        </Slider>
+        </>
       ) : (
-        <BubblesLoader />
+        <>
+          <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
+          <h4 className="text-center">You don't have any News</h4>
+        </>
       )}
     </>
   );
