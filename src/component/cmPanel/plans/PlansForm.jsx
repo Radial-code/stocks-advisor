@@ -46,16 +46,20 @@ function PlansForm({ history, edit, id }) {
   const submitPlanDetails = () => {
     setError(true);
     if (planDetails.details !== "") {
-      const data = planDetails.details.split("\n");
-      data.map((item) => {
-        planDetails.details += `${item},`;
-      });
+      const data =
+        planDetails && planDetails.details && planDetails.details.split("\n");
+      data &&
+        data.length &&
+        data.map((item) => {
+          planDetails.details += `${item},`;
+        });
     }
     if (
       planDetails.title !== "" &&
       planDetails.price !== "" &&
       planDetails.type !== "" &&
       planDetails.details !== "" &&
+      planDetails.portfolios &&
       !!planDetails.portfolios.length
     ) {
       dispatch(addNewPlansDetailsAction(planDetails, setLoading, history));
@@ -205,8 +209,9 @@ function PlansForm({ history, edit, id }) {
               </div>
               <div className="col-12 mb-3">
                 <textarea
-                  className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
                   placeholder="...Description "
+                  rows={5}
                   value={planDetails.details}
                   onChange={(e) => {
                     setPlanDetails({
@@ -215,6 +220,9 @@ function PlansForm({ history, edit, id }) {
                     });
                   }}
                 ></textarea>
+                <p className="text-danger">
+                  Note: Press enter after line end and start from the new line
+                </p>
                 <span className="text-danger">
                   {error && planDetails.details === ""
                     ? "Description is required"
@@ -278,7 +286,10 @@ function PlansForm({ history, edit, id }) {
                 </>
               )}
               <span className="text-danger">
-                {error && !planDetails.portfolios.length
+                {error &&
+                planDetails &&
+                planDetails.portfolios &&
+                planDetails.portfolios.length === 0
                   ? "Portfolio is required"
                   : null}
               </span>
