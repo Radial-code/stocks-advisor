@@ -8,10 +8,18 @@ import { getNotificationListAction } from "../../redux/action/contact";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 import Setting from "../../assets/img/setting.png";
+import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
+import Loader from "../common/Loader";
 
 const Notification = ({ setSidebarActive, sidebarActive }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
+  const [notificationLoading, setNotificationLoading] = useState(false);
+  const [showNotificationWhen, setShowNotificationWhen] = useState({
+    showNotificationForsoldStocks: false,
+    showNotificationForNewStocks: false,
+    showNotificationForGeneralNews: false,
+    showNotificationForReleatedNews: false,
+  });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,6 +31,11 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
     dispatch(getNotificationListAction(setLoading));
   }, []);
 
+  const updateNotification = () => {
+    dispatch(
+      updateUserDetailsAction(showNotificationWhen, setNotificationLoading)
+    );
+  };
   return (
     <Container className="mr-lg-30">
       <div
@@ -64,11 +77,29 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 >
                   New stock is created
                 </label>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForNewStocks: e.target.checked,
+                    });
+                  }}
+                />
               </>
             ) : (
               <>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForNewStocks: e.target.checked,
+                    });
+                  }}
+                />
 
                 <label
                   className="form-check-label check-box-text cursor-pointer"
@@ -88,11 +119,29 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 >
                   Stock is sold
                 </label>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForsoldStocks: e.target.checked,
+                    });
+                  }}
+                />
               </>
             ) : (
               <>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForsoldStocks: e.target.checked,
+                    });
+                  }}
+                />
 
                 <label
                   className="form-check-label check-box-text cursor-pointer"
@@ -112,11 +161,29 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 >
                   General news is added
                 </label>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForGeneralNews: e.target.checked,
+                    });
+                  }}
+                />
               </>
             ) : (
               <>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForGeneralNews: e.target.checked,
+                    });
+                  }}
+                />
 
                 <label
                   className="form-check-label check-box-text cursor-pointer"
@@ -136,11 +203,29 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 >
                   Related news is added
                 </label>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForReleatedNews: e.target.checked,
+                    });
+                  }}
+                />
               </>
             ) : (
               <>
-                <input className="cursor-pointer mx-2" type="checkbox" />
+                <input
+                  className="cursor-pointer mx-2"
+                  type="checkbox"
+                  onChange={(e) => {
+                    setShowNotificationWhen({
+                      ...showNotificationWhen,
+                      showNotificationForReleatedNews: e.target.checked,
+                    });
+                  }}
+                />
 
                 <label
                   className="form-check-label check-box-text cursor-pointer"
@@ -160,14 +245,22 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 >
                   Cancel
                 </button>
-                <button className="news-upload-btn cursor-pointer px-3 py-2">
-                  Submit
+                <button
+                  type="button"
+                  onClick={() => updateNotification()}
+                  className="news-upload-btn cursor-pointer px-3 py-2"
+                >
+                  {notificationLoading ? <Loader /> : "Submit"}
                 </button>
               </>
             ) : (
               <>
-                <button className="news-upload-btn cursor-pointer px-3 py-2">
-                  Submit
+                <button
+                  type="button"
+                  onClick={() => updateNotification()}
+                  className="news-upload-btn cursor-pointer px-3 py-2"
+                >
+                  {notificationLoading ? <Loader /> : "Submit"}
                 </button>
                 <button
                   className="news-upload-btn cursor-pointer px-3 py-2 mx-3"
