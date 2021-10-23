@@ -50,7 +50,6 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
       <div className="row">
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
-
           {!loader ? (
             <Slider
               className={`${
@@ -63,8 +62,8 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
               {newsListData &&
                 newsListData.length &&
                 newsListData.map((news, index) => {
-                  console.log(news);
-                  console.log("newsListData", newsListData.length);
+                  console.log(" newsListData", newsListData);
+
                   return (
                     <RelatedNewsArticlesList
                       news={news}

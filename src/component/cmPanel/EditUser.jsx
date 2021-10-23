@@ -196,19 +196,19 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           </div>
 
                           <div className="d-flex justify-content-between  mt-2 mb-2">
-                            <span className="stock-paragraph fs-sm-11">
+                            {/* <span className="stock-paragraph fs-sm-11">
                               Enable
-                            </span>
+                            </span> */}
+                            <div>
+                              <span className="float-md-end me-auto ">
+                                <label className="switch-2" for="checkbox-2">
+                                  <input type="checkbox" id="checkbox-2" />
+                                  <div className="slider-2 round"></div>
+                                </label>
+                              </span>
+                            </div>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
                               :Auto Renew
-                            </span>
-                          </div>
-                          <div className="d-sm-none">
-                            <span className="float-md-end me-auto ">
-                              <label className="switch-2" for="checkbox-2">
-                                <input type="checkbox" id="checkbox-2" />
-                                <div className="slider-2 round"></div>
-                              </label>
                             </span>
                           </div>
                         </section>
