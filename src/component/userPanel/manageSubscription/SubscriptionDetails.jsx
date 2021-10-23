@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
+import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 
 const SubscriptionDetails = () => {
+  const dispatch = useDispatch();
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
+  const [loading, setLoading] = useState(false);
+
+  const updateAutoCard = (e) => {
+    const data = {
+      autoRenewalOfPlans: e.target.checked,
+    };
+    dispatch(updateUserDetailsAction(data, setLoading));
+  };
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
       <div className="w-xl-1000 box p-md-4 p-4 h-100">
@@ -50,11 +61,15 @@ const SubscriptionDetails = () => {
                   <span className="float-md-end me-auto ">
                     <div className="d-flex flex-sm-row flex-column ">
                       <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
-                        Auto Renew:
+                        Auto Renewsds:
                       </span>
 
                       <label className="switch-2 mx-2" for="checkbox-2">
-                        <input type="checkbox" id="checkbox-2" />
+                        <input
+                          type="checkbox"
+                          id="checkbox-2"
+                          onChange={(e) => updateAutoCard(e)}
+                        />
                         <div className="slider-2 round "></div>
                       </label>
                     </div>
