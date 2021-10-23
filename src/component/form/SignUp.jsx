@@ -7,7 +7,13 @@ import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
 
+// import { Formik } from "formik";
+// import countryList from "country-list";
+// import { parseIncompletePhoneNumber } from "libphonenumber-js";
+// import PhoneInput from "./phoneInput/PhoneInput";
+
 function SignUp({ history }) {
+  // const countryData = countryList.getData();
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -185,6 +191,23 @@ function SignUp({ history }) {
                     : null}
                 </span>
               </Form.Group>
+
+              {/* <PhoneInput
+                initialValues={{
+                  country: "DK",
+                }}
+                countryList={countryData}
+                // value={values.phone}
+                formatOutput={(componentState) => {
+                  return componentState.input.length
+                    ? parseIncompletePhoneNumber(
+                        componentState.code + componentState.input
+                      )
+                    : "";
+                }}
+                // onChange={(value) => setFieldValue("phone", value)}
+              /> */}
+
               <Form.Group
                 className="my-4 form-field"
                 controlId="formBasicPassword"
