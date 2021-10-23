@@ -8,10 +8,10 @@ import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import SearchNews from "../../assets/img/searchnews.png";
 
 const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
@@ -137,7 +137,16 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
               );
             })
           ) : (
-            <BubblesLoader />
+            <>
+              <img
+                className="searchnews mx-auto d-block"
+                src={SearchNews}
+                alt=""
+              />
+              <h4 className="text-center text-5CBD4C">
+                You don't have any News
+              </h4>
+            </>
           )}
         </Slider>
       )}

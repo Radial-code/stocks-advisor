@@ -15,6 +15,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const Footer = ({ history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
+  const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
@@ -106,7 +107,7 @@ const Footer = ({ history }) => {
               </ul>
 
               <ul className="list-unstyled mb-0 footer-ul text-center text-lg-start">
-                {auth && !!token ? (
+                {auth && !!token && userData.isPaidPlan ? (
                   <li>
                     <Link
                       className="text-decoration-none text-white fs-15"

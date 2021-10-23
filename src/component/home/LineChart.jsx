@@ -11,14 +11,8 @@ import {
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 function LineChart({ chatValue }) {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
-  const layoutrightChangeHandler = () => {
-    setLayoutClickChanger(false);
-  };
-  const layoutleftChangeHandler = () => {
-    setLayoutClickChanger(true);
-  };
+  const { layoutClickChanger } = useLayoutChangerProvider();
+
   const data = [];
   chatValue &&
     chatValue.values &&

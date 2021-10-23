@@ -33,11 +33,15 @@ const Chart = () => {
         </div>
       ) : (
         <div>
-          {portfoliosChatList && portfoliosChatList.length
-            ? portfoliosChatList.slice(0, 3).map((chatValue, index) => {
-                return <LineChart chatValue={chatValue} index={index} />;
-              })
-            : null}
+          {portfoliosChatList && portfoliosChatList.length ? (
+            portfoliosChatList.slice(0, 3).map((chatValue, index) => {
+              return <LineChart chatValue={chatValue} index={index} />;
+            })
+          ) : (
+            <h4 className="text-center text-5CBD4C">
+              You don't have any Portfolio's Performance Chat
+            </h4>
+          )}
         </div>
       )}
     </>

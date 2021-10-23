@@ -59,15 +59,17 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
               }`}
               {...settings}
             >
-              {newsListData.map((news, index) => {
-                return (
-                  <RelatedNewsArticlesList
-                    news={news}
-                    index={index}
-                    history={history}
-                  />
-                );
-              })}
+              {newsListData &&
+                newsListData.length &&
+                newsListData.map((news, index) => {
+                  return (
+                    <RelatedNewsArticlesList
+                      news={news}
+                      index={index}
+                      history={history}
+                    />
+                  );
+                })}
             </Slider>
           ) : (
             <>
