@@ -13,7 +13,9 @@
   font-weight: 500;
   color: var(--color-16191e);
 }
-
+.h-143 {
+  height: 143px;
+}
 .amount-card-month {
   font-size: var(--font-lg);
   font-weight: 600;

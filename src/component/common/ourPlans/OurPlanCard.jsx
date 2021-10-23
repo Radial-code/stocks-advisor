@@ -39,7 +39,7 @@ const OurPlanCard = ({ homepage, history }) => {
                       <span> {value.price} $</span>
                     </p>
                   </div>
-                  <p className=" mt-4">
+                  <p className=" mt-4 h-143">
                     {value.details
                       ? value.details.map((val) => (
                           <ul>

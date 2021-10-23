@@ -63,6 +63,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
               {newsListData &&
                 newsListData.length &&
                 newsListData.map((news, index) => {
+                  console.log(news);
                   console.log("newsListData", newsListData.length);
                   return (
                     <RelatedNewsArticlesList
