@@ -61,7 +61,7 @@ const SubscriptionDetails = () => {
                   <span className="float-md-end me-auto ">
                     <div className="d-flex flex-sm-row flex-column ">
                       <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
-                        Auto Renewsds:
+                        Auto Renew:
                       </span>
 
                       <label className="switch-2 mx-2" for="checkbox-2">

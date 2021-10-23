@@ -1,12 +1,15 @@
 import Swal from "sweetalert2";
 import {
   addPortfolioApi,
+  getCountryListApi,
   getPortfolioListApi,
   userUpdateByAdminApi,
 } from "../api/portfolios";
 
 export const GET_ALL_PORTFOLIOS_LIST_SUCCESS =
   "GET_ALL_PORTFOLIOS_LIST_SUCCESS";
+
+export const GET_ALL_COUNTRY_LIST_SUCCESS = "GET_ALL_COUNTRY_LIST_SUCCESS";
 
 /**
  * Get Protfolios list action
@@ -24,6 +27,33 @@ export const getProtfoliosListAction = (setLoading) => async (dispatch) => {
     const response = await getPortfolioListApi();
     if (response.success) {
       dispatch(getProtfoliosList(response.data));
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  } catch (error) {
+    setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get Protfolios list action
+ * @param {Object} data
+ * @returns
+ */
+const getCountryList = (data) => ({
+  type: GET_ALL_COUNTRY_LIST_SUCCESS,
+  data,
+});
+
+export const getCountryListAction = (setLoading) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getCountryListApi();
+    if (response.success) {
+      dispatch(getCountryList(response.countries));
       setLoading(false);
     } else {
       setLoading(false);
