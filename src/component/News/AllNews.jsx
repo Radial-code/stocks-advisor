@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import NewsList from "./NewsList";
+import SearchNews from "../../assets/img/searchnews.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AllNews = ({ setPage, page, loading, totalNews }) => {
@@ -20,13 +21,22 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
           xs={12}
           className="mt-sm-3 mb-5  justify-content-center d-sm-block news-scroll"
         >
-          {allNewsList && allNewsList.length
-            ? allNewsList.map((value, index) => {
-                return (
-                  <NewsList value={value} index={index} loading={loading} />
-                );
-              })
-            : null}
+          {allNewsList && allNewsList.length ? (
+            allNewsList.map((value, index) => {
+              return <NewsList value={value} index={index} loading={loading} />;
+            })
+          ) : (
+            <>
+              <img
+                className="searchnews mx-auto d-block"
+                src={SearchNews}
+                alt=""
+              />
+              <h4 className="text-center text-5CBD4C">
+                You don't have any News
+              </h4>
+            </>
+          )}
         </Col>
         {allNewsList.length === 0 ? (
           ""

@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import FoundImg from "../../../assets/img/notfound.png";
 
 const SubscriptionDetails = () => {
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
@@ -86,7 +87,7 @@ const SubscriptionDetails = () => {
             </Col> */}
           </Row>
         ) : (
-          "You don't have any plan"
+          <img className="not-found-img mx-auto d-block" src={FoundImg} />
         )}
       </div>
     </Col>

@@ -15,8 +15,7 @@ import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurService
 import BubblesLoader from "../../common/BubblesLoader";
 
 function PlansForm({ history, edit, id }) {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const PlanDetailsList = useSelector((state) => state.list.planDetails);

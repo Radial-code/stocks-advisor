@@ -20,7 +20,6 @@ import {
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
-import ReactTagInput from "@pathofdev/react-tag-input";
 
 const initialState = {
   joinDate: "",
@@ -31,7 +30,6 @@ const initialState = {
   soldDate: "",
   soldPrice: "",
   symbol: "",
-  currentPrice: "",
 };
 
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
@@ -68,28 +66,17 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   const submitStockDetails = () => {
     setError(true);
     if (
-      stockDetails.joinDate !== "" &&
-      stockDetails.joinPrice !== "" &&
-      stockDetails.category !== "" &&
-      stockDetails.exchange !== "" &&
-      stockDetails.symbol !== ""
+      stockDetails.joinDate !== undefined &&
+      stockDetails.joinPrice !== undefined &&
+      stockDetails.category !== undefined &&
+      stockDetails.exchange !== undefined &&
+      stockDetails.symbol !== undefined &&
+      stockDetails.portfolios !== undefined
     ) {
-      console.log("stockDetails", stockDetails);
       dispatch(
         addNewStockDetailsAction(stockDetails, setAddStockLoading, history)
       );
       setError(false);
-      setStockDetails({
-        joinDate: "",
-        joinPrice: "",
-        category: "",
-        exchange: "",
-        portfolios: [],
-        soldDate: "",
-        soldPrice: "",
-        symbol: "",
-        currentPrice: 0,
-      });
     }
   };
 
@@ -107,7 +94,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         stockDetails.joinPrice !== "" &&
         stockDetails.category !== "" &&
         stockDetails.exchange !== "" &&
-        // stockDetails.portfolios.length &&
+        stockDetails.portfolios !== "" &&
         stockDetails.symbol !== ""
       ) {
         dispatch(
@@ -176,7 +163,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   }}
                 />
                 <span className="text-danger">
-                  {error && stockDetails.joinDate === ""
+                  {error && stockDetails.joinDate === undefined
                     ? "Join Date is required"
                     : null}
                 </span>
@@ -207,12 +194,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       setStockDetails((pre) => ({
                         ...pre,
                         joinPrice: e.target.value,
-                        currentPrice: e.target.value,
                       }));
                     }}
                   />
                   <span className="text-danger">
-                    {error && stockDetails.joinPrice === ""
+                    {error && stockDetails.joinPrice === undefined
                       ? "Join Price is required"
                       : null}
                   </span>
@@ -237,7 +223,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                     }}
                   />
                   <span className="text-danger">
-                    {error && stockDetails.symbol === ""
+                    {error && stockDetails.symbol === undefined
                       ? "Symbol is required"
                       : null}
                   </span>
@@ -277,7 +263,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       )}
                     </select>
                     <span className="text-danger">
-                      {error && stockDetails.category === ""
+                      {error && stockDetails.category === undefined
                         ? "Category is required"
                         : null}
                     </span>
@@ -319,7 +305,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       )}
                     </select>
                     <span className="text-danger">
-                      {error && stockDetails.category === ""
+                      {error && stockDetails.category === undefined
                         ? "Category is required"
                         : null}
                     </span>
@@ -336,6 +322,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   <Form.Control
                     value={stockDetails && stockDetails.soldPrice}
                     type="text"
+                    disabled={edit ? false : true}
                     placeholder="Sold Price"
                     onChange={(e) => {
                       setStockDetails({
@@ -350,6 +337,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 <DatePicker
                   placeholderText="Sold Date"
                   className="mb-3"
+                  disabled={edit ? false : true}
                   value={
                     stockDetails &&
                     stockDetails.joinDate &&
@@ -408,7 +396,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       )}
                     </select>
                     <span className="text-danger">
-                      {error && stockDetails.exchange === ""
+                      {error && stockDetails.exchange === undefined
                         ? "Exchange is required"
                         : null}
                     </span>
@@ -450,7 +438,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       )}
                     </select>
                     <span className="text-danger">
-                      {error && stockDetails.exchange === ""
+                      {error && stockDetails.exchange === undefined
                         ? "Exchange is required"
                         : null}
                     </span>
@@ -486,6 +474,19 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                                 onClick={() => selectPortfolio(value._id)}
                                 className="cursor-pointer mx-2"
                               />
+                              {console.log(
+                                "stockDetails.portfolios.length",
+                                stockDetails.portfolios.length,
+                                stockDetails.portfolios
+                              )}
+                              <span className="text-danger">
+                                {error &&
+                                stockDetails &&
+                                stockDetails.portfolios &&
+                                stockDetails.portfolios.length === 0
+                                  ? "Portfolio  is required"
+                                  : null}
+                              </span>
                             </>
                           ) : (
                             <>
@@ -512,6 +513,11 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       );
                     })
                   : "You don't have any portfolio List"}
+                <span className="text-danger">
+                  {error && stockDetails.portfolios === undefined
+                    ? "Portfolio  is required"
+                    : null}
+                </span>
               </>
             )}
             <span className="text-danger">
