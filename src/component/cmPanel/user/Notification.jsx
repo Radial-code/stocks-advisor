@@ -161,21 +161,24 @@ function Notification() {
                 <>
                   {planList && planList.length
                     ? planList.map((value) => {
+                        console.log("planList", planList);
                         return (
-                          <div className="col-auto">
-                            <input
-                              className="cursor-pointer mx-2"
-                              type="checkbox"
-                              disabled={allPlan}
-                              onClick={() => selectPlan(value._id, "plan")}
-                            />
-                            <label
-                              className="form-check-label check-box-text cursor-pointer"
-                              for="flexCheckDefault"
-                            >
-                              {value.title}
-                            </label>
-                          </div>
+                          <>
+                            <div className="col-auto">
+                              <input
+                                className="cursor-pointer mx-2"
+                                type="checkbox"
+                                disabled={allPlan}
+                                onClick={() => selectPlan(value._id, "plan")}
+                              />
+                              <label
+                                className="form-check-label check-box-text cursor-pointer"
+                                for="flexCheckDefault"
+                              >
+                                {value.title}
+                              </label>
+                            </div>
+                          </>
                         );
                       })
                     : "You don't have any plan Create any plan"}

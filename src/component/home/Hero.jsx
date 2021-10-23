@@ -23,7 +23,7 @@ const Hero = ({ loading, setRelatedLoading }) => {
             </div>
           </div>
           <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0 ">
-            <div className="profile-box p-2   h-100">
+            <div className="profile-box pb-5   h-100">
               <Chart />
             </div>
           </div>
