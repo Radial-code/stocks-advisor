@@ -20,9 +20,9 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
         <td
           className={`${
             value.profitOrLoss.status === 0
-              ? "profitloss-text"
+              ? "profit-zero-color"
               : value.profitOrLoss.status === 1
-              ? "text-dark"
+              ? "text-green-profite"
               : "text-danger"
           } ${
             layoutClickChanger

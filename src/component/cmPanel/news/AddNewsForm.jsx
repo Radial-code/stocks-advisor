@@ -64,7 +64,7 @@ const AddNewsForm = ({
           </Form.Group>
 
           <Form.Group
-            className="mb-3 add-new-stock-field upload-field position-relative "
+            className="mb-3 add-new-stock-field position-relative "
             controlId="formBasicEmail"
           >
             <Form.Control

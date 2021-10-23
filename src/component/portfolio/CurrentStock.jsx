@@ -113,12 +113,12 @@ function CurrentStock({ history }) {
                         value.profitOrLoss &&
                         value.profitOrLoss.status &&
                         value.profitOrLoss.status === 0
-                          ? "profitloss-text"
+                          ? "profit-zero-color"
                           : value &&
                             value.profitOrLoss &&
                             value.profitOrLoss.status &&
                             value.profitOrLoss.status === 1
-                          ? "text-dark"
+                          ? "text-green-profite"
                           : "text-danger"
                       }`}
                     >

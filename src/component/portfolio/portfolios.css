@@ -53,6 +53,16 @@
   font-weight: normal;
 }
 
+.text-green-profite {
+  color: #5cbd4c;
+}
+
+.profit-zero-color {
+  color: #4870b3;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+
 .first-text {
   color: #f00;
   font-family: "Poppins", sans-serif;
