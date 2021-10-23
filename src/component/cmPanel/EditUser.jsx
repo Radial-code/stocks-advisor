@@ -203,14 +203,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               :Auto Renew
                             </span>
                           </div>
-                          {/* <div className="d-sm-none">
-                              <span className="float-md-end me-auto ">
-                                <label className="switch-2" for="checkbox-2">
-                                  <input type="checkbox" id="checkbox-2" />
-                                  <div className="slider-2 round"></div>
-                                </label>
-                              </span>
-                            </div> */}
+                          <div className="d-sm-none">
+                            <span className="float-md-end me-auto ">
+                              <label className="switch-2" for="checkbox-2">
+                                <input type="checkbox" id="checkbox-2" />
+                                <div className="slider-2 round"></div>
+                              </label>
+                            </span>
+                          </div>
                         </section>
                       </Col>
                     </Row>

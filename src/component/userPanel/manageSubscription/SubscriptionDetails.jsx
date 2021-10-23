@@ -38,7 +38,7 @@ const SubscriptionDetails = () => {
                 <div className="d-flex justify-content-between mt-2 mb-4">
                   <div className="d-flex flex-sm-row flex-column">
                     <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                      Auto Renew :
+                      Expired Date :
                     </span>
 
                     <span className="stock-paragraph fs-sm-11">
@@ -46,14 +46,20 @@ const SubscriptionDetails = () => {
                     </span>
                   </div>
                 </div>
-                {/* <div className="pb-4">
+                <div className="pb-4">
                   <span className="float-md-end me-auto ">
-                    <label className="switch-2" for="checkbox-2">
-                      <input type="checkbox" id="checkbox-2" />
-                      <div className="slider-2 round"></div>
-                    </label>
+                    <div className="d-flex flex-sm-row flex-column ">
+                      <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
+                        Auto Renew:
+                      </span>
+
+                      <label className="switch-2 mx-2" for="checkbox-2">
+                        <input type="checkbox" id="checkbox-2" />
+                        <div className="slider-2 round "></div>
+                      </label>
+                    </div>
                   </span>
-                </div> */}
+                </div>
               </section>
             </Col>
 

@@ -44,6 +44,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
       },
     ],
   };
+
   return (
     <div className="container my-4 ">
       <div className="row">
@@ -62,6 +63,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
               {newsListData &&
                 newsListData.length &&
                 newsListData.map((news, index) => {
+                  console.log("newsListData", newsListData.length);
                   return (
                     <RelatedNewsArticlesList
                       news={news}
