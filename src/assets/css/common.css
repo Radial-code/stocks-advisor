@@ -842,3 +842,7 @@ input::-webkit-inner-spin-button {
     height: 276px;
   }
 }
+
+.input-focus-none:focus {
+  outline: none;
+}
