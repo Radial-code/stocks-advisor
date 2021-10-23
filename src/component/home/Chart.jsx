@@ -28,11 +28,11 @@ const Chart = () => {
         </div>
       </div>
       {loading ? (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center ">
           <BubblesLoader />
         </div>
       ) : (
-        <div>
+        <div className="h-100 d-flex justify-content-center align-items-center flex-column">
           {portfoliosChatList && portfoliosChatList.length ? (
             portfoliosChatList.slice(0, 3).map((chatValue, index) => {
               return <LineChart chatValue={chatValue} index={index} />;
