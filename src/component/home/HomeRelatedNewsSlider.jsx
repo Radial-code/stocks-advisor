@@ -12,10 +12,10 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
   var settings = {
     dots: true,
-    infinite: true,
+
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     nextArrow: <Next />,
     prevArrow: <Prev />,
     responsive: [

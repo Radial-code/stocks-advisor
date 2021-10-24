@@ -486,6 +486,9 @@
 .next:hover {
   background: #5cbd4c;
 }
+.prev:hover {
+  background: #5cbd4c;
+}
 
 .next:hover svg path,
 .prev:hover svg path {

@@ -474,11 +474,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                                 onClick={() => selectPortfolio(value._id)}
                                 className="cursor-pointer mx-2"
                               />
-                              {console.log(
-                                "stockDetails.portfolios.length",
-                                stockDetails.portfolios.length,
-                                stockDetails.portfolios
-                              )}
+
                               <span className="text-danger">
                                 {error &&
                                 stockDetails &&
