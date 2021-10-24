@@ -3,11 +3,15 @@ import "../form/form.css";
 import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 import { loginAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
 
 function Login({ history }) {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -101,9 +105,15 @@ function Login({ history }) {
             </p>
             <Link className="text-decoration" to="/forget/password">
               {" "}
-              <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
-                ? Forgot Password
-              </p>
+              {layoutClickChanger ? (
+                <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
+                  ? Forgot Password
+                </p>
+              ) : (
+                <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
+                  Forgot Password ?
+                </p>
+              )}
             </Link>
           </div>
         </div>

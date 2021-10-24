@@ -67,6 +67,24 @@
   border: 1px solid rgba(22, 25, 30, 0.2) !important;
 }
 
+.form-field2 .form-select {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #16191e;
+  padding: 13px;
+}
+
+.form-field2 .form-select {
+  -webkit-appearance: none !important;
+  background-image: url("../../assets/img/dropdown.png");
+  /* background-position: 20px; */
+}
+
+.form-field2 .form-select:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+  border: 1px solid rgba(22, 25, 30, 0.2) !important;
+}
+
 /* change password css */
 
 .table-heading {

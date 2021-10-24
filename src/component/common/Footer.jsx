@@ -107,7 +107,13 @@ const Footer = ({ history }) => {
                 </li>
               </ul>
 
-              <ul className="list-unstyled mb-0 footer-ul text-center text-lg-start">
+              <ul
+                className={`${
+                  layoutClickChanger
+                    ? "list-unstyled mb-0 footer-ul text-center text-lg-start"
+                    : "list-unstyled mb-0 footer-ul text-center text-lg-start ms-4"
+                }`}
+              >
                 {auth && !!token && userData.isPaidPlan ? (
                   <li>
                     <Link
@@ -161,36 +167,72 @@ const Footer = ({ history }) => {
             <p className="text-white mx-auto mx-md-0 mb-0 mw-479 d-none d-lg-block">
               Copyright @ 2021 Nala's Mane
             </p>
-            <span className="d-flex justify-content-center">
-              <a
-                className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
-                target="_blank"
-                href="https://www.facebook.com/"
-              >
-                <FacebookIcon />
-              </a>
-              <a
-                className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
-                target="_blank"
-                href="https://www.linkedin.com/notifications/"
-              >
-                <LinkedinIcon />
-              </a>
-              <a
-                className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
-                target="_blank"
-                href="https://www.twitter.com"
-              >
-                <TwitterIcon />
-              </a>
-              <a
-                className={`${layoutClickChanger ? "ms-4 me-2" : "me-0 ms-2"}`}
-                target="_blank"
-                href="https://www.instagram.com"
-              >
-                <InstagramIcon />
-              </a>
-            </span>
+
+            {auth && token ? (
+              <span className="d-flex justify-content-center">
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.facebook.com/"
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.linkedin.com/notifications/"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.twitter.com"
+                >
+                  <TwitterIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? " me-2" : "me-0 ms-2"}`}
+                  target="_blank"
+                  href="https://www.instagram.com"
+                >
+                  <InstagramIcon />
+                </a>
+              </span>
+            ) : (
+              <span className="d-flex justify-content-center">
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.facebook.com/"
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.linkedin.com/notifications/"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.twitter.com"
+                >
+                  <TwitterIcon />
+                </a>
+                <a
+                  className={`${
+                    layoutClickChanger ? "ms-4 ps-3  me-2 " : "me-0 ms-2 pe-3"
+                  }`}
+                  target="_blank"
+                  href="https://www.instagram.com"
+                >
+                  <InstagramIcon />
+                </a>
+              </span>
+            )}
           </div>
         </div>
       </div>
