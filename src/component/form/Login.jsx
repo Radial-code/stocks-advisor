@@ -94,7 +94,7 @@ function Login({ history }) {
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-sm-5 pt-4">
-              Don't have an account?{" "}
+              Don't have an account ?{" "}
               <Link to="/signup" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">Sign Up</span>
               </Link>
@@ -102,7 +102,7 @@ function Login({ history }) {
             <Link className="text-decoration" to="/forget/password">
               {" "}
               <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
-                ?Forgot Password
+                ? Forgot Password
               </p>
             </Link>
           </div>
