@@ -234,35 +234,19 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           <div className="d-sm-none">
                             <span className="float-md-end me-auto ">
                               <label className="switch-2" for="checkbox-2">
-                                <input type="checkbox" id="checkbox-2" />
+                                <input
+                                  type="checkbox"
+                                  id="checkbox-2"
+                                  onChange={(e) => {
+                                    setUpdateUser({
+                                      ...updateUser,
+                                      autoRenewalOfPlans: e.target.checked,
+                                    });
+                                  }}
+                                />
+
                                 <div className="slider-2 round"></div>
                               </label>
-                            </span>
-                          </div>
-                          <div className="pb-4">
-                            <span className="float-md-end me-auto ">
-                              <div className="d-flex flex-sm-row flex-column ">
-                                <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
-                                  Auto Renew:
-                                </span>
-
-                                <label
-                                  className="switch-2 mx-2"
-                                  for="checkbox-2"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    id="checkbox-2"
-                                    onChange={(e) => {
-                                      setUpdateUser({
-                                        ...updateUser,
-                                        autoRenewalOfPlans: e.target.checked,
-                                      });
-                                    }}
-                                  />
-                                  <div className="slider-2 round "></div>
-                                </label>
-                              </div>
                             </span>
                           </div>
                         </section>
