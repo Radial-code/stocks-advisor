@@ -332,6 +332,7 @@
   background-color: #5cbd4c;
   border: transparent;
 }
+
 /* slider */
 .Slider-Ellipse {
   white-space: nowrap;
@@ -483,6 +484,9 @@
 }
 
 .next:hover {
+  background: #5cbd4c;
+}
+.prev:hover {
   background: #5cbd4c;
 }
 

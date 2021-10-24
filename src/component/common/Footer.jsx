@@ -13,7 +13,8 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Footer = ({ history }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
@@ -70,7 +71,7 @@ const Footer = ({ history }) => {
           </div>
 
           <div className="col-xl-3 col-lg-3 col-12">
-            <div className="d-flex justify-content-lg-end justify-content-md-center justify-content-between  mt-4 mt-lg-0">
+            <div className="d-flex justify-content-lg-end  justify-content-center  mt-4 mt-lg-0">
               <ul className="list-unstyled footer-ul mb-0 text-center text-lg-start">
                 <li>
                   <Link
@@ -106,7 +107,13 @@ const Footer = ({ history }) => {
                 </li>
               </ul>
 
-              <ul className="list-unstyled mb-0 footer-ul text-center text-lg-start">
+              <ul
+                className={`${
+                  layoutClickChanger
+                    ? "list-unstyled mb-0 footer-ul text-center text-lg-start"
+                    : "list-unstyled mb-0 footer-ul text-center text-lg-start ms-4"
+                }`}
+              >
                 {auth && !!token && userData.isPaidPlan ? (
                   <li>
                     <Link
@@ -160,20 +167,72 @@ const Footer = ({ history }) => {
             <p className="text-white mx-auto mx-md-0 mb-0 mw-479 d-none d-lg-block">
               Copyright @ 2021 Nala's Mane
             </p>
-            <span className="d-flex justify-content-center">
-              <a target="_blank" href="https://www.instagram.com">
-                <InstagramIcon />
-              </a>
-              <a target="_blank" href="https://www.twitter.com">
-                <TwitterIcon />
-              </a>
-              <a target="_blank" href="https://www.linkedin.com/notifications/">
-                <LinkedinIcon />
-              </a>
-              <a target="_blank" href="https://www.facebook.com/">
-                <FacebookIcon />
-              </a>
-            </span>
+
+            {auth && token ? (
+              <span className="d-flex justify-content-center">
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.facebook.com/"
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.linkedin.com/notifications/"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.twitter.com"
+                >
+                  <TwitterIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? " me-2" : "me-0 ms-2"}`}
+                  target="_blank"
+                  href="https://www.instagram.com"
+                >
+                  <InstagramIcon />
+                </a>
+              </span>
+            ) : (
+              <span className="d-flex justify-content-center">
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.facebook.com/"
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.linkedin.com/notifications/"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  className={`${layoutClickChanger ? "mx-2" : "mx-2"}`}
+                  target="_blank"
+                  href="https://www.twitter.com"
+                >
+                  <TwitterIcon />
+                </a>
+                <a
+                  className={`${
+                    layoutClickChanger ? "ms-4 ps-3  me-2 " : "me-0 ms-2 pe-3"
+                  }`}
+                  target="_blank"
+                  href="https://www.instagram.com"
+                >
+                  <InstagramIcon />
+                </a>
+              </span>
+            )}
           </div>
         </div>
       </div>

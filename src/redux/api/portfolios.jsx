@@ -10,6 +10,15 @@ export const getPortfolioListApi = async () => {
 };
 
 /**
+ * Get country list Api
+ * @param {Object} data
+ * @returns
+ */
+export const getCountryListApi = async () => {
+  return await axiosRequest("GET", `/country-list`);
+};
+
+/**
  * add plan Api
  * @param {Object} data
  * @returns

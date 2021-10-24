@@ -64,7 +64,7 @@ export const HamburgerIcon = () => {
 export const FacebookIcon = () => {
   return (
     <svg
-      className="me-3 svg"
+      className=" svg"
       id="Group_9987"
       data-name="Group 9987"
       xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +95,7 @@ export const FacebookIcon = () => {
 export const LinkedinIcon = () => {
   return (
     <svg
-      className="mx-3 svg"
+      className=" svg"
       id="Group_9986"
       data-name="Group 9986"
       xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ export const LinkedinIcon = () => {
 export const TwitterIcon = () => {
   return (
     <svg
-      className="mx-3 svg"
+      className=" svg"
       id="Group_9985"
       data-name="Group 9985"
       xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +157,7 @@ export const TwitterIcon = () => {
 export const InstagramIcon = () => {
   return (
     <svg
-      className="mx-3 svg"
+      className=" svg"
       id="Group_9984"
       data-name="Group 9984"
       xmlns="http://www.w3.org/2000/svg"

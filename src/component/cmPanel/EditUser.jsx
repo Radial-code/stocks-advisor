@@ -22,6 +22,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   const [updateUser, setUpdateUser] = useState({
     firstName: "",
     lastName: "",
+    phone: "",
+    autoRenewalOfPlans: "",
   });
   const { userId } = match.params;
 
@@ -30,7 +32,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     (state) => state.list.userProfileDetails
   );
   const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
-  const { email, firstName, lastName, phone, isPaidPlan } = userProfileDetails;
+  const { email, firstName, lastName, phone, isPaidPlan, autoRenewalOfPlans } =
+    userProfileDetails;
   const { createdAt, expiresOn, details, price, title } = userPlanDetails
     ? userPlanDetails
     : "";
@@ -46,6 +49,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     data = {
       firstName: updateUser.firstName === "" ? firstName : updateUser.firstName,
       lastName: updateUser.lastName === "" ? lastName : updateUser.lastName,
+      phone: updateUser.phone === "" ? phone : updateUser.phone,
+      autoRenewalOfPlans:
+        updateUser.autoRenewalOfPlans === ""
+          ? autoRenewalOfPlans
+          : updateUser.autoRenewalOfPlans,
     };
     dispatch(userUpdateByAdminAction(userId, data, setUserLoading));
   };
@@ -61,10 +69,17 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
       }
     };
   }, [isPaidPlan]);
+
   data = {
     firstName: updateUser.firstName === "" ? firstName : updateUser.firstName,
     lastName: updateUser.lastName === "" ? lastName : updateUser.lastName,
+    phone: updateUser.phone === "" ? phone : updateUser.phone,
+    autoRenewalOfPlans:
+      updateUser.autoRenewalOfPlans === ""
+        ? autoRenewalOfPlans
+        : updateUser.autoRenewalOfPlans,
   };
+
   return (
     <Container>
       <div
@@ -130,12 +145,17 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   </Row>
                   <Row>
                     <Col className="mt-3">
-                      <div className="edit-user  bg-dark-grey">
+                      <div className="edit-user">
                         <input
-                          className="input-edit-user  bg-dark-grey"
+                          className="input-edit-user"
                           placeholder={phone}
                           type="number"
-                          disabled={true}
+                          onChange={(e) => {
+                            setUpdateUser({
+                              ...updateUser,
+                              phone: e.target.value,
+                            });
+                          }}
                         />
                       </div>
                     </Col>
@@ -196,9 +216,17 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           </div>
 
                           <div className="d-flex justify-content-between  mt-2 mb-2">
-                            <span className="stock-paragraph fs-sm-11">
+                            {/* <span className="stock-paragraph fs-sm-11">
                               Enable
-                            </span>
+                            </span> */}
+                            <div>
+                              <span className="float-md-end me-auto ">
+                                <label className="switch-2" for="checkbox-2">
+                                  <input type="checkbox" id="checkbox-2" />
+                                  <div className="slider-2 round"></div>
+                                </label>
+                              </span>
+                            </div>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
                               :Auto Renew
                             </span>
@@ -206,7 +234,17 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           <div className="d-sm-none">
                             <span className="float-md-end me-auto ">
                               <label className="switch-2" for="checkbox-2">
-                                <input type="checkbox" id="checkbox-2" />
+                                <input
+                                  type="checkbox"
+                                  id="checkbox-2"
+                                  onChange={(e) => {
+                                    setUpdateUser({
+                                      ...updateUser,
+                                      autoRenewalOfPlans: e.target.checked,
+                                    });
+                                  }}
+                                />
+
                                 <div className="slider-2 round"></div>
                               </label>
                             </span>

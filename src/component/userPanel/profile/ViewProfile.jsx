@@ -27,6 +27,9 @@ const ViewProfile = () => {
       lastName: UpdateUserDetailsData.lastName
         ? UpdateUserDetailsData.lastName
         : userDetails.lastName,
+      phone: UpdateUserDetailsData.phone
+        ? UpdateUserDetailsData.phone
+        : userDetails.phone,
       isAdmin: true,
     };
     dispatch(updateUserDetailsAction(data, setLoading));
@@ -41,7 +44,6 @@ const ViewProfile = () => {
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
           <p className="from-heading mb-0 text-md-end text-center">
-            {" "}
             My Profile
           </p>
         </div>

@@ -24,7 +24,10 @@ import {
   GET_PORTFOLIOS_LIST_FOR_DASHBOARD,
   GET_SOLD_STOCK_PORTFOLIOS_LIST,
 } from "../action/portfolio";
-import { GET_ALL_PORTFOLIOS_LIST_SUCCESS } from "../action/portfolios";
+import {
+  GET_ALL_COUNTRY_LIST_SUCCESS,
+  GET_ALL_PORTFOLIOS_LIST_SUCCESS,
+} from "../action/portfolios";
 import { UPLOAD_IAMGE } from "../uploadImage";
 
 const initialState = {
@@ -47,6 +50,7 @@ const initialState = {
   soldStockNewsList: [],
   portfoliosChatList: [],
   notificationList: [],
+  countries: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -56,6 +60,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         contactList: action.data,
+      };
+    }
+
+    // Get contact list
+    case GET_ALL_COUNTRY_LIST_SUCCESS: {
+      return {
+        ...state,
+        countries: action.data,
       };
     }
 

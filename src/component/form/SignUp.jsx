@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
+import { getCountryListAction } from "../../redux/action/portfolios";
+import { useSelector } from "react-redux";
 
 // import { Formik } from "formik";
 // import countryList from "country-list";
@@ -15,8 +19,12 @@ import Loader from "../common/Loader";
 function SignUp({ history }) {
   // const countryData = countryList.getData();
   const dispatch = useDispatch();
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+  const countries = useSelector((state) => state.list.countries);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [countryLoading, setCountryLoading] = useState(false);
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
 
@@ -62,6 +70,10 @@ function SignUp({ history }) {
       );
     }
   };
+
+  useEffect(() => {
+    dispatch(getCountryListAction(setCountryLoading));
+  }, []);
 
   return (
     <div className="container min-h-100vh d-flex  flex-column justify-content-center my-5">
@@ -183,6 +195,23 @@ function SignUp({ history }) {
                   type="tel"
                   placeholder="Phone Number"
                 />
+                {/* <FormGroup className=" form-field">
+                  <select
+                    value={signUpDetails.country}
+                    onChange={(e) => {
+                      setSignUpDetails({
+                        ...signUpDetails,
+                        phone: e.target.value,
+                      });
+                    }}
+                    className="form-select text-end"
+                  >
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>JAPAN</option>
+                  </select>
+                </FormGroup> */}
                 <span className="text-danger">
                   {error && signUpDetails.phone === ""
                     ? "Phone Number is required"
@@ -191,22 +220,6 @@ function SignUp({ history }) {
                     : null}
                 </span>
               </Form.Group>
-
-              {/* <PhoneInput
-                initialValues={{
-                  country: "DK",
-                }}
-                countryList={countryData}
-                // value={values.phone}
-                formatOutput={(componentState) => {
-                  return componentState.input.length
-                    ? parseIncompletePhoneNumber(
-                        componentState.code + componentState.input
-                      )
-                    : "";
-                }}
-                // onChange={(value) => setFieldValue("phone", value)}
-              /> */}
 
               <Form.Group
                 className="my-4 form-field"
@@ -260,23 +273,44 @@ function SignUp({ history }) {
                     : null}
                 </span>
               </Form.Group>
-              <FormGroup className=" form-field">
-                <select
-                  value={signUpDetails.country}
-                  onChange={(e) => {
-                    setSignUpDetails({
-                      ...signUpDetails,
-                      country: e.target.value,
-                    });
-                  }}
-                  className="form-select text-end"
-                >
-                  <option>Select Country</option>
-                  <option>India</option>
-                  <option>USA</option>
-                  <option>JAPAN</option>
-                </select>
-              </FormGroup>
+              {layoutClickChanger ? (
+                <FormGroup className=" form-field">
+                  <select
+                    value={signUpDetails.country}
+                    onChange={(e) => {
+                      setSignUpDetails({
+                        ...signUpDetails,
+                        country: e.target.value,
+                      });
+                    }}
+                    className="form-select text-end"
+                  >
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>JAPAN</option>
+                  </select>
+                </FormGroup>
+              ) : (
+                <FormGroup className=" form-field2">
+                  <select
+                    value={signUpDetails.country}
+                    onChange={(e) => {
+                      setSignUpDetails({
+                        ...signUpDetails,
+                        country: e.target.value,
+                      });
+                    }}
+                    className="form-select text-start"
+                  >
+                    <option>Select Country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>JAPAN</option>
+                  </select>
+                </FormGroup>
+              )}
+
               <span className="text-danger">
                 {error && signUpDetails.country === ""
                   ? "Country is required"
