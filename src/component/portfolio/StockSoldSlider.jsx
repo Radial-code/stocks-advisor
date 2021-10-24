@@ -16,7 +16,7 @@ const StockSoldSlider = ({ loader }) => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 2,
 
