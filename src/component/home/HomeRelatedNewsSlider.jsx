@@ -50,20 +50,32 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
       <div className="row">
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
+          <div className="d-flex flex-lg-row flex-column justify-content-center ">
+            {newsListData &&
+              newsListData.length < 4 &&
+              newsListData.map((news, index) => {
+                return (
+                  <RelatedNewsArticlesList
+                    news={news}
+                    index={index}
+                    history={history}
+                  />
+                );
+              })}{" "}
+          </div>
+
           {!loader ? (
             <Slider
               className={`${
-                newsListData.length > 4
-                  ? "other_new_articles d-flex  d-block  align-items-center"
-                  : "other_new_articles d-flex  d-lg-block  align-items-center"
+                newsListData.length > 3
+                  ? "other_new_articles d-flex align-items-center"
+                  : "other_new_articles d-block align-items-center"
               }`}
               {...settings}
             >
               {newsListData &&
-                newsListData.length &&
+                newsListData.length > 3 &&
                 newsListData.map((news, index) => {
-                  console.log(" newsListData", newsListData);
-
                   return (
                     <RelatedNewsArticlesList
                       news={news}
