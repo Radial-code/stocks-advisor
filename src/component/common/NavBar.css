@@ -96,7 +96,7 @@
     opacity: 0.7;
     text-decoration: none;
   }
-  .navbar-fixed-stock{
+  .navbar-fixed-stock {
     position: fixed;
     top: 0;
     width: 100%;
@@ -245,12 +245,12 @@
     left: 0;
     position: fixed;
   }
-  .navbar-fixed-stock{
+  .navbar-fixed-stock {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
-  background-color: white;
+    background-color: white;
   }
 }
 
@@ -320,4 +320,15 @@
 
 .dash-body-accord {
   background-color: #e4e4e4;
+}
+@media (max-width: 1400px) {
+  .MuiPaper-elevation {
+    display: none;
+  }
+}
+.MuiPaper-elevation {
+  top: 80px !important;
+}
+#basic-button [aria-expanded="true"] {
+  overflow: unset !important;
 }

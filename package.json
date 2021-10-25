@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@dhaiwat10/react-link-preview": "^1.9.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.4",
+    "@mui/styled-engine-sc": "^5.0.3",
     "@pathofdev/react-tag-input": "^1.0.7",
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.19.1",
@@ -39,6 +43,7 @@
     "redux-thunk": "^2.3.0",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
     "sweetalert2": "^11.1.7",
     "web-vitals": "^1.1.2"
   },
