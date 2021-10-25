@@ -27,6 +27,7 @@ function SignUp({ history }) {
   const [countryLoading, setCountryLoading] = useState(false);
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
+  const [countrySelectData, setCountrySelectData] = useState(false);
 
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
@@ -158,10 +159,7 @@ function SignUp({ history }) {
                 </span>
               </Form.Group>
               {/* email */}
-              <Form.Group
-                className="mb-3 form-field "
-                controlId="formBasicEmail"
-              >
+              <Form.Group className=" form-field " controlId="formBasicEmail">
                 <Form.Control
                   value={signUpDetails.email}
                   onChange={(e) => {
@@ -182,55 +180,66 @@ function SignUp({ history }) {
                 </span>
               </Form.Group>
 
-              <Form.Group
-                className="my-4 form-field"
-                controlId="formBasicPassword"
-              >
-                <Form.Control
-                  value={signUpDetails.phone}
-                  onChange={(e) => {
-                    setSignUpDetails({
-                      ...signUpDetails,
-                      phone: Number(e.target.value),
-                    });
-                  }}
-                  type="tel"
-                  placeholder="Phone Number"
-                />
-                <FormGroup className=" form-field">
-                  <select
-                    value={signUpDetails.countryCode}
-                    onChange={(e) => {
-                      setSignUpDetails({
-                        ...signUpDetails,
-                        countryCode: e.target.value,
-                      });
-                    }}
-                    className="form-select text-end"
+              <div className="row align-items-center">
+                <div className="col-xl-7">
+                  <Form.Group
+                    className="my-3 form-field"
+                    controlId="formBasicPassword"
                   >
-                    <option>Select Country Code</option>
-                    {countries && countries.length
-                      ? countries.map((value, index) => {
-                          return (
-                            <option key={index} value={value.dial_code}>
-                              {value.name}
-                            </option>
-                          );
-                        })
-                      : "Something went wrong"}
-                  </select>
-                </FormGroup>
-                <span className="text-danger">
-                  {error && signUpDetails.phone === ""
-                    ? "Phone Number is required"
-                    : error && PhoneRegex.test(signUpDetails.phone) === false
-                    ? "Enter valid Phone Number"
-                    : null}
-                </span>
-              </Form.Group>
+                    <Form.Control
+                      value={signUpDetails.phone}
+                      onChange={(e) => {
+                        setSignUpDetails({
+                          ...signUpDetails,
+                          phone: Number(e.target.value),
+                        });
+                      }}
+                      type="tel"
+                      placeholder="Phone Number"
+                    />
 
+                    <span className="text-danger">
+                      {error && signUpDetails.phone === ""
+                        ? "Phone Number is required"
+                        : error &&
+                          PhoneRegex.test(signUpDetails.phone) === false
+                        ? "Enter valid Phone Number"
+                        : null}
+                    </span>
+                  </Form.Group>
+                </div>
+                <div className="col-xl-5 mb-xl-0 mb-3">
+                  <FormGroup className=" form-field">
+                    <select
+                      value={signUpDetails.countryCode}
+                      onChange={(e) => {
+                        setSignUpDetails({
+                          ...signUpDetails,
+                          countryCode: e.target.value,
+                        });
+                      }}
+                      className="form-select text-end cursor-pointer"
+                    >
+                      <option>Select Country Code</option>
+                      {countries && countries.length
+                        ? countries.map((value, index) => {
+                            return (
+                              <option
+                                className="country-dots"
+                                key={index}
+                                value={value.dial_code}
+                              >
+                                {value.name}
+                              </option>
+                            );
+                          })
+                        : "Something went wrong"}
+                    </select>
+                  </FormGroup>
+                </div>
+              </div>
               <Form.Group
-                className="my-4 form-field"
+                className="mb-4 form-field"
                 controlId="formBasicPassword"
               >
                 <Form.Control
