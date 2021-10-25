@@ -329,6 +329,7 @@
 .MuiPaper-elevation {
   top: 80px !important;
 }
-#basic-button [aria-expanded="true"] {
+body {
+  padding-right: 0px !important;
   overflow: unset !important;
 }
