@@ -69,8 +69,8 @@ export const getMyPlanAction = (setLoading) => async (dispatch) => {
       setLoading(false);
     } else {
       setLoading(false);
-      Swal.fire("Error", "Failed to Load user plan list", "error");
-      setTimeout(Swal.close, 2000);
+      // Swal.fire("Error", "Failed to Load user plan list", "error");
+      // setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);

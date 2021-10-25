@@ -47,7 +47,7 @@ const CurrentStockTable = ({ history }) => {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Date{" "}
+                Join date{" "}
               </th>
 
               <th
@@ -61,7 +61,7 @@ const CurrentStockTable = ({ history }) => {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Profit/Loss
+                Symbol
               </th>
               <th
                 scope="col"
@@ -87,7 +87,7 @@ const CurrentStockTable = ({ history }) => {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Current Price
+                Join price
               </th>
               <th
                 scope="col"
@@ -100,9 +100,22 @@ const CurrentStockTable = ({ history }) => {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Join Price
+                Sold price
               </th>
 
+              <th
+                scope="col"
+                className={`${
+                  layoutClickChanger
+                    ? "text-end position-sticky top-0 whitespace"
+                    : "text-start position-sticky top-0 whitespace"
+                }`}
+              >
+                <span>
+                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                </span>
+                Sold date
+              </th>
               <th
                 scope="col"
                 className={`${
@@ -127,7 +140,7 @@ const CurrentStockTable = ({ history }) => {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Symbol
+                Profit/Loss
               </th>
             </tr>
           </thead>

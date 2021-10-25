@@ -32,6 +32,7 @@ import Stripe from "./payment/Stripe";
 import ViewProfile from "./userPanel/profile/ViewProfile";
 import Search from "./search/Search";
 import { useState } from "react";
+import NoPortfolio from "./portfolio/NoPortfolio";
 
 const Router = ({
   showSidebar,
@@ -91,6 +92,7 @@ const Router = ({
         </Route>
         {/** User Portfolios routes */}
         <Route path="/protfolios/stock/:id" component={Portfolio} />
+        <Route path="/protfolios/stock" component={NoPortfolio} />
         <Route path="/view/profile" component={ViewProfile} />
         {/** Content Manager panel Dashboard */}
         <Route path="/content/manager/stocks">

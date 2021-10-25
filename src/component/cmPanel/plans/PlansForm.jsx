@@ -4,7 +4,6 @@ import { withRouter } from "react-router";
 import "@pathofdev/react-tag-input/build/index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
-
 import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import {
@@ -40,15 +39,15 @@ function PlansForm({ history, edit, id }) {
 
   const submitPlanDetails = () => {
     setError(true);
+    let details;
+    let planDetailsData;
+    console.log(planDetails.details);
     if (planDetails.details !== "") {
-      const data =
+      details =
         planDetails && planDetails.details && planDetails.details.split("\n");
-      data &&
-        data.length &&
-        data.map((item) => {
-          planDetails.details += `${item},`;
-        });
+      planDetailsData = details.join();
     }
+    planDetails.details = planDetailsData;
     if (
       planDetails.title !== "" &&
       planDetails.price !== "" &&

@@ -15,29 +15,16 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
               : "text-start whitespace Ellipse"
           }`}
         >
-          {moment(value.createdAt).format("MM/ddd")}
+          {moment(value.joinDate).format("DD/MM/YY")}
         </td>
         <td
           className={`${
-            value.profitOrLoss.status === 0
-              ? "profit-zero-color"
-              : value.profitOrLoss.status === 1
-              ? "text-green-profite"
-              : "text-danger"
-          } ${
             layoutClickChanger
               ? "text-end whitespace Ellipse"
               : "text-start whitespace Ellipse"
-          } `}
+          }`}
         >
-          {/* {value &&
-                        value.profitOrLoss &&
-                        value.profitOrLoss.percentage
-                          ? value.profitOrLoss.percentage
-                          : "N/A"} */}
-          {value && value.profitOrLoss && value.profitOrLoss.percentage
-            ? value.profitOrLoss.percentage
-            : "N/A"}
+          {value && value.symbol ? value.symbol : "N/A"}
         </td>
 
         <td
@@ -56,7 +43,7 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
               : "text-start whitespace Ellipse"
           }`}
         >
-          ${value.currentPrice ? value.currentPrice : "0"}
+          ${value.joinPrice ? value.joinPrice : "0"}
         </td>
         <td
           className={`${
@@ -65,7 +52,16 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
               : "text-start whitespace Ellipse"
           }`}
         >
-          ${value.joinPrice}
+          {value.soldPrice ? `$${value.soldPrice}` : "N/A"}
+        </td>
+        <td
+          className={`${
+            layoutClickChanger
+              ? "text-end whitespace Ellipse"
+              : "text-start whitespace Ellipse"
+          }`}
+        >
+          {value.soldDate ? moment(value.soldDate).format("DD/MM/YY") : "N/A"}
         </td>
         <td
           className={`${
@@ -78,24 +74,21 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
         </td>
         <td
           className={`${
+            value.profitOrLoss.status === 0
+              ? "profit-zero-color"
+              : value.profitOrLoss.status === 1
+              ? "text-green-profite"
+              : "text-danger"
+          } ${
             layoutClickChanger
               ? "text-end whitespace Ellipse"
               : "text-start whitespace Ellipse"
-          }`}
+          } `}
         >
-          {value.symbol ? value.symbol : "N/A"}
+          {value && value.profitOrLoss && value.profitOrLoss.percentage
+            ? value.profitOrLoss.percentage
+            : "N/A"}
         </td>
-        {/* <td
-                        className={`${
-                          layoutClickChanger
-                            ? "text-end whitespace Ellipse"
-                            : "text-start whitespace Ellipse"
-                        }`}
-                      >
-                        {value && value.portfolio
-                          ? value.portfolio.title
-                          : "N/A"}
-                      </td> */}
       </tr>
     </>
   );

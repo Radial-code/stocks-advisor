@@ -448,7 +448,11 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                 <NavLink
                   exact
                   activeClassName="active_underline_navbar"
-                  to={`/protfolios/stock/${dashboardPortfoliosListId}`}
+                  to={
+                    dashboardPortfoliosListId
+                      ? `/protfolios/stock/${dashboardPortfoliosListId}`
+                      : `/protfolios/stock`
+                  }
                   className="navbar_Links_text my-auto px-2 px-xxl-0  my-xxl-auto  py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
                 >
                   Portfolio

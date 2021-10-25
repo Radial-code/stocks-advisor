@@ -7,6 +7,7 @@ import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../BubblesLoader";
 import OurPlanCard from "./OurPlanCard";
+
 const OurPlans = ({ homepage, history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
