@@ -35,11 +35,11 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
                         value.profitOrLoss.percentage
                           ? value.profitOrLoss.percentage
                           : "N/A"} */}
-          {parseInt(
+          {
             value && value.profitOrLoss && value.profitOrLoss.percentage
               ? value.profitOrLoss.percentage
               : "N/A"
-          ).toFixed(2)}
+          }
         </td>
 
         <td
