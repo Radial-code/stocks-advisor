@@ -186,7 +186,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             >
                               <div>
                                 <input
-                                  className="edit-user2 bg-dark-grey px-2"
+                                  className="edit-user2 bg-dark-grey px-2 w-100"
                                   disabled
                                   placeholder={
                                     countryCode ? countryCode : "N/A"
@@ -219,9 +219,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 layoutClickChanger ? "col-8 pe-0" : "col-8 ps-0"
                               }`}
                             >
-                              <div className="edit-user2">
+                              <div className="edit-user2 ">
                                 <input
-                                  className="input-edit-user px-2"
+                                  className="input-edit-user px-2 w-100"
                                   placeholder={phone}
                                   type="number"
                                   onChange={(e) => {
