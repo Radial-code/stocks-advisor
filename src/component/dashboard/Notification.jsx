@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../dashboardCss/Notification.css";
 import { Container, Row, Col } from "react-bootstrap";
 import NotificationTable from "./NotificationTable";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 import { getNotificationListAction } from "../../redux/action/contact";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
@@ -11,25 +11,29 @@ import Setting from "../../assets/img/setting.png";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 import Loader from "../common/Loader";
 
+const initialState = {
+  showNotificationForsoldStocksW: false,
+  showNotificationForNewStocksW: false,
+  showNotificationForGeneralNewsW: false,
+  showNotificationForReleatedNewsW: false,
+
+  showNotificationForsoldStocksM: false,
+  showNotificationForNewStocksM: false,
+  showNotificationForGeneralNewsM: false,
+  showNotificationForReleatedNewsM: false,
+
+  showNotificationForsoldStocksE: false,
+  showNotificationForNewStocksE: false,
+  showNotificationForGeneralNewsE: false,
+  showNotificationForReleatedNewsE: false,
+};
+
 const Notification = ({ setSidebarActive, sidebarActive }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
+  const profileData = useSelector((state) => state.auth.userData);
   const [notificationLoading, setNotificationLoading] = useState(false);
-  const [showNotificationWhen, setShowNotificationWhen] = useState({
-    showNotificationForsoldStocksW: false,
-    showNotificationForNewStocksW: false,
-    showNotificationForGeneralNewsW: false,
-    showNotificationForReleatedNewsW: false,
-
-    showNotificationForsoldStocksM: false,
-    showNotificationForNewStocksM: false,
-    showNotificationForGeneralNewsM: false,
-    showNotificationForReleatedNewsM: false,
-
-    showNotificationForsoldStocksE: false,
-    showNotificationForNewStocksE: false,
-    showNotificationForGeneralNewsE: false,
-    showNotificationForReleatedNewsE: false,
-  });
+  const [showNotificationWhen, setShowNotificationWhen] =
+    useState(initialState);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -38,14 +42,18 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (profileData) {
+      setShowNotificationWhen(profileData);
+    }
     dispatch(getNotificationListAction(setLoading));
-  }, []);
+  }, [profileData]);
 
   const updateNotification = () => {
     dispatch(
       updateUserDetailsAction(showNotificationWhen, setNotificationLoading)
     );
   };
+  console.log("showNotificationWhen", showNotificationWhen);
   return (
     <Container className="mr-lg-30">
       <div
@@ -115,6 +123,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForNewStocksM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -125,6 +134,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForsoldStocksM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -135,6 +145,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForGeneralNewsM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -145,6 +156,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForReleatedNewsM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -160,6 +172,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForNewStocksW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -170,6 +183,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForsoldStocksW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -180,6 +194,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForGeneralNewsW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -190,6 +205,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForReleatedNewsW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -206,6 +222,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2 my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForNewStocksE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -216,6 +233,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForsoldStocksE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -226,6 +244,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForGeneralNewsE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -236,6 +255,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
+                value={showNotificationWhen.showNotificationForReleatedNewsE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
