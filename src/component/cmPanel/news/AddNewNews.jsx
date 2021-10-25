@@ -63,13 +63,16 @@ const AddNewNews = ({ edit, match, history }) => {
       newsDetails.atags += `${item},`;
     });
     if (
-      newsDetails.title !== "" &&
-      newsDetails.description !== "" &&
-      newsDetails.stock !== "" &&
-      newsDetails.tags !== "" &&
-      newsDetails.atitle !== "" &&
-      newsDetails.adescription !== "" &&
-      newsDetails.atags !== ""
+      newsDetails.title !== undefined &&
+      // newsDetails.description !== undefined &&
+      // newsDetails.stock !== undefined &&
+      newsDetails.tags !== undefined &&
+      newsDetails.atitle !== undefined &&
+      // newsDetails.adescription !== undefined &&
+      newsDetails.atags !== undefined
+      // uploadImageUrl !== "" &&
+      // newsDetails.link !== undefined &&
+      // newsDetails.portfolios !== undefined
     ) {
       const data = {
         title: newsDetails.title,
@@ -86,16 +89,6 @@ const AddNewNews = ({ edit, match, history }) => {
       };
       dispatch(addNewNewsDetailsAction(data, setAddStockLoading, history));
       setError(false);
-      setNewsDetails({
-        title: "",
-        atitle: "",
-        description: "",
-        adescription: "",
-        showOnHomePage: false,
-        stock: "",
-        tags: "",
-        atags: "",
-      });
     }
   };
 

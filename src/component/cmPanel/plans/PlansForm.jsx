@@ -14,6 +14,14 @@ import {
 import { getPortfolioListAction } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 
+const initialState = {
+  title: "",
+  price: "",
+  type: "",
+  details: "",
+  portfolios: [],
+};
+
 function PlansForm({ history, edit, id }) {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
@@ -22,24 +30,11 @@ function PlansForm({ history, edit, id }) {
   const [loading, setLoading] = useState(false);
   const [portfoliosLoader, setPortfoliosLoader] = useState(false);
   const [error, setError] = useState(false);
-  const [planDetails, setPlanDetails] = useState({
-    title: "",
-    price: "",
-    type: "",
-    details: "",
-    portfolios: [],
-  });
+  const [planDetails, setPlanDetails] = useState(initialState);
 
   useEffect(() => {
     if (PlanDetailsList) {
-      setPlanDetails({
-        title: planDetails.title ? planDetails.title : PlanDetailsList.title,
-        price: planDetails.price ? planDetails.price : PlanDetailsList.price,
-        type: planDetails.type ? planDetails.type : PlanDetailsList.type,
-        details: planDetails.details
-          ? planDetails.details
-          : PlanDetailsList.details,
-      });
+      setPlanDetails(PlanDetailsList);
     }
   }, [PlanDetailsList]);
 
@@ -92,10 +87,10 @@ function PlansForm({ history, edit, id }) {
   const UpdatePlanDetails = () => {
     if (!!id) {
       if (
-        planDetails.title !== "" &&
-        planDetails.price !== "" &&
-        planDetails.type !== "" &&
-        planDetails.details !== ""
+        planDetails.title !== undefined &&
+        planDetails.price !== undefined &&
+        planDetails.type !== undefined &&
+        planDetails.details !== undefined
       ) {
         dispatch(
           updatePlansDetailsAction(planDetails, id, setLoading, history)
@@ -143,7 +138,7 @@ function PlansForm({ history, edit, id }) {
                     }}
                   />
                   <span className="text-danger">
-                    {error && planDetails.price === ""
+                    {error && planDetails.price === undefined
                       ? "Price is required"
                       : null}
                   </span>
@@ -166,7 +161,7 @@ function PlansForm({ history, edit, id }) {
                     }}
                   />
                   <span className="text-danger">
-                    {error && planDetails.title === ""
+                    {error && planDetails.title === undefined
                       ? "Title is required"
                       : null}
                   </span>
@@ -201,7 +196,7 @@ function PlansForm({ history, edit, id }) {
                     <option>Year</option>
                   </select>
                   <span className="text-danger">
-                    {error && planDetails.type === ""
+                    {error && planDetails.type === undefined
                       ? "Week is required"
                       : null}
                   </span>
@@ -220,14 +215,14 @@ function PlansForm({ history, edit, id }) {
                     });
                   }}
                 ></textarea>
-                <p className="text-danger">
-                  Note: Press enter after line end and start from the new line
-                </p>
                 <span className="text-danger">
-                  {error && planDetails.details === ""
+                  {error && planDetails.details === undefined
                     ? "Description is required"
                     : null}
                 </span>
+                <p className="text-danger">
+                  Note: Press enter after line end and start from the new line
+                </p>
               </div>
               <p>Select portfolio list</p>
               {portfoliosLoader ? (
@@ -286,11 +281,8 @@ function PlansForm({ history, edit, id }) {
                 </>
               )}
               <span className="text-danger">
-                {error &&
-                planDetails &&
-                planDetails.portfolios &&
-                planDetails.portfolios.length === 0
-                  ? "Portfolio is required"
+                {error && planDetails.portfolio === undefined
+                  ? "Portfolio  is required"
                   : null}
               </span>
             </div>

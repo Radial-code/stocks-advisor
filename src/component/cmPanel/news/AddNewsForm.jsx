@@ -78,29 +78,43 @@ const AddNewsForm = ({
               type="text"
               placeholder="YouTube / Image Link "
             />
+            {/* <span className="text-danger">
+              {error && newsDetails.link === undefined
+                ? "Image is required"
+                : null}
+            </span> */}
           </Form.Group>
         </div>
         <div className="col-xl-6 mb-3">
           <div className="news-upload-img-border d-flex align-items-center flex-column justify-content-center">
-            {uploadImg ? (
-              <img className="h-100 py-2" src={uploadImg} alt="" />
+            {setLoadingImage ? (
+              <>
+                {uploadImg ? (
+                  <img className="h-100 py-2" src={uploadImg} alt="" />
+                ) : (
+                  <div>
+                    <input
+                      type="file"
+                      id="my-file"
+                      disabled={loadingImage}
+                      onChange={(e) => uploadImgHandler(e)}
+                      hidden
+                    />
+                    <button className="news-upload-btn cursor-pointer px-3 py-2">
+                      <label for="my-file" className="cursor-pointer">
+                        {loadingImage ? <Loader /> : "upload img"}
+                      </label>
+                    </button>
+                  </div>
+                )}
+              </>
             ) : (
-              <div>
-                <input
-                  type="file"
-                  id="my-file"
-                  disabled={loadingImage}
-                  onChange={(e) => uploadImgHandler(e)}
-                  hidden
-                />
-                <button className="news-upload-btn cursor-pointer px-3 py-2">
-                  <label for="my-file" className="cursor-pointer">
-                    {loadingImage ? <Loader /> : "upload img"}
-                  </label>
-                </button>
-              </div>
+              "Uploading please wait for sometime"
             )}
           </div>
+          {/* <span className="text-danger">
+            {error && uploadImg === "" ? "Image is required" : null}
+          </span> */}
         </div>
       </div>
       <div className="row">
@@ -117,7 +131,9 @@ const AddNewsForm = ({
               onChange={(newTags) => setATags(newTags)}
             />
             <span className="text-danger">
-              {error && tags.length < 0 ? "Arabic Details is required" : null}
+              {error && atags.length === 0
+                ? "Arabic Details is required"
+                : null}
             </span>
           </div>
         </div>
@@ -134,7 +150,7 @@ const AddNewsForm = ({
               onChange={(newTags) => setTags(newTags)}
             />
             <span className="text-danger">
-              {error && tags.length < 0 ? "Details is required" : null}
+              {error && tags.length === 0 ? "Details is required" : null}
             </span>
           </div>
         </div>
@@ -166,9 +182,11 @@ const AddNewsForm = ({
                   <option>You don't have any stock </option>
                 )}
               </select>
-              <span className="text-danger">
-                {error && newsDetails.stock === "" ? "Stock is required" : null}
-              </span>
+              {/* <span className="text-danger">
+                {error && newsDetails.stock === undefined
+                  ? "Stock is required"
+                  : null}
+              </span> */}
             </FormGroup>
           ) : (
             <FormGroup
@@ -201,9 +219,11 @@ const AddNewsForm = ({
                   <option>You don't have any stock </option>
                 )}
               </select>
-              <span className="text-danger">
-                {error && newsDetails.stock === "" ? "Stock is required" : null}
-              </span>
+              {/* <span className="text-danger">
+                {error && newsDetails.stock === undefined
+                  ? "Stock is required"
+                  : null}
+              </span> */}
             </FormGroup>
           )}
         </div>
@@ -226,7 +246,7 @@ const AddNewsForm = ({
               }}
             />
             <span className="text-danger">
-              {error && newsDetails.atitle === ""
+              {error && newsDetails.atitle === undefined
                 ? "Arabic Title is required"
                 : null}
             </span>
@@ -249,7 +269,9 @@ const AddNewsForm = ({
               }}
             />
             <span className="text-danger">
-              {error && newsDetails.title === "" ? "Title is required" : null}
+              {error && newsDetails.title === undefined
+                ? "Title is required"
+                : null}
             </span>
           </Form.Group>
         </div>
@@ -275,11 +297,11 @@ const AddNewsForm = ({
             }}
             value={newsDetails.adescription}
           ></textarea>
-          <span className="text-danger">
-            {error && newsDetails.adescription === ""
+          {/* <span className="text-danger">
+            {error && newsDetails.adescription === undefined
               ? "Arabic Description is required"
               : null}
-          </span>
+          </span> */}
         </div>
         <div className="col-12 mb-3" dir="ltr">
           <textarea
@@ -301,11 +323,11 @@ const AddNewsForm = ({
             }}
             value={newsDetails.description}
           ></textarea>
-          <span className="text-danger">
-            {error && newsDetails.description === ""
+          {/* <span className="text-danger">
+            {error && newsDetails.description === undefined
               ? "Description is required"
               : null}
-          </span>
+          </span> */}
         </div>
       </div>
       <div className="col-auto mb-3">

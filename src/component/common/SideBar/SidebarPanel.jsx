@@ -20,7 +20,6 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
 
   useEffect(() => {
     const path = match.path.split("/");
-    console.log(match);
     if (path.includes("our")) {
       setActiveLink("our");
     } else if (path.includes("news")) {

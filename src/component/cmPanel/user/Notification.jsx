@@ -161,7 +161,6 @@ function Notification() {
                 <>
                   {planList && planList.length
                     ? planList.map((value) => {
-                        console.log("planList", planList);
                         return (
                           <>
                             <div className="col-auto">

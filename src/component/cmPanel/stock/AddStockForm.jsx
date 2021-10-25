@@ -340,7 +340,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   disabled={edit ? false : true}
                   value={
                     stockDetails &&
-                    stockDetails.joinDate &&
+                    stockDetails.soldDate &&
                     moment(stockDetails.soldDate).format(`DD/MM/YY`)
                   }
                   onChange={(e) => {
