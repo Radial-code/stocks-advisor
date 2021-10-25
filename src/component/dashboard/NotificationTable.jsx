@@ -36,7 +36,9 @@ const NotificationTable = ({ loading }) => {
                       {value.title}
                     </td>
                     <td className="email text-center whitespace">
-                      {value.body}
+                      <span className="text-ellipsis-dots-oneline">
+                        {value.body}
+                      </span>
                     </td>
                     <td className="email text-center whitespace">
                       {moment(value.createdAt).format("DD/MM/YY")}

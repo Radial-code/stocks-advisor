@@ -62,7 +62,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       ></div>
       <Row>
         <Col xs={12}>
-          <section className="notification-card p-lg-5 p-2 ">
+          <section className="notification-card p-md-3 p-xl-5 p-2">
             <div className="border-b-1 d-flex justify-content-between align-items-center">
               <p className="heading-stock fs-sm-20 mb-0">Notification</p>
               <img
@@ -88,7 +88,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
         <Modal.Body>
           <div className="row">
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Observation
               </p>
               <label
@@ -117,7 +117,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               </label>
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Push
               </p>
               <input
@@ -166,7 +166,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               />
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Web
               </p>
               <input
@@ -216,7 +216,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
             </div>
 
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 E-mail
               </p>
               <input
