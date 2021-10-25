@@ -121,156 +121,70 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
             ) : (
               <Row>
                 <Col xl={6} xs={12}>
-                  <Row className="mt-4">
-                    <Col>
-                      <div className="edit-user">
-                        <input
-                          className="input-edit-user"
-                          placeholder={`${firstName} `}
-                          type="text"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              firstName: e.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="mt-4">
-                    <Col>
-                      <div className="edit-user">
-                        <input
-                          className="input-edit-user"
-                          placeholder={` ${lastName}`}
-                          type="text"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              lastName: e.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <div className="mt-3  col">
-                      <div className="row">
-                        {layoutClickChanger ? (
-                          <>
-                            <div
-                              className={`${
-                                layoutClickChanger ? "col-8 ps-0" : "col-8 pe-0"
-                              }`}
-                            >
-                              <div className="edit-user2">
-                                <input
-                                  className="input-edit-user px-2"
-                                  placeholder={phone}
-                                  type="number"
-                                  onChange={(e) => {
-                                    setUpdateUser({
-                                      ...updateUser,
-                                      phone: e.target.value,
-                                    });
-                                  }}
-                                />
-                              </div>
-                            </div>
-                            <div
-                              className={`${
-                                layoutClickChanger ? "col-4 pe-0" : "col-4 ps-0"
-                              }`}
-                            >
-                              <div>
-                                <input
-                                  className="edit-user2 bg-dark-grey px-2 w-100"
-                                  disabled
-                                  placeholder={
-                                    countryCode ? countryCode : "N/A"
-                                  }
-                                  type="number"
-                                />
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <div
-                              className={`${
-                                layoutClickChanger ? "col-4 ps-0" : "col-4 pe-0"
-                              }`}
-                            >
-                              <div>
-                                <input
-                                  className="edit-user2 bg-dark-grey px-2"
-                                  disabled
-                                  placeholder={
-                                    countryCode ? countryCode : "N/A"
-                                  }
-                                  type="number"
-                                />
-                              </div>
-                            </div>
-                            <div
-                              className={`${
-                                layoutClickChanger ? "col-8 pe-0" : "col-8 ps-0"
-                              }`}
-                            >
-                              <div className="edit-user2 ">
-                                <input
-                                  className="input-edit-user px-2 w-100"
-                                  placeholder={phone}
-                                  type="number"
-                                  onChange={(e) => {
-                                    setUpdateUser({
-                                      ...updateUser,
-                                      phone: e.target.value,
-                                    });
-                                  }}
-                                />
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                      {/* <div className="edit-user">
-                        <input
-                          className="input-edit-user px-2"
-                          placeholder={phone}
-                          type="number"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              phone: e.target.value,
-                            });
-                          }}
-                        />
-                      </div> */}
-                      {/* <div className="edit-user bg-dark-grey">
-                        <input
-                          className="input-edit-user bg-dark-grey"
-                          disabled
-                          placeholder={countryCode ? countryCode : "N/A"}
-                          type="number"
-                        />
-                      </div> */}
+                  <input
+                    className="input-edit-user edit-user-input-style "
+                    placeholder={`${firstName} `}
+                    type="text"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        firstName: e.target.value,
+                      });
+                    }}
+                  />
+                  <input
+                    className="input-edit-user edit-user-input-style my-2"
+                    placeholder={`${lastName}`}
+                    type="text"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        lastName: e.target.value,
+                      });
+                    }}
+                  />
+                  <input
+                    className="input-edit-user edit-user-input-style"
+                    placeholder={phone}
+                    type="number"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        phone: e.target.value,
+                      });
+                    }}
+                  />
+
+                  <div
+                    className={`d-flex my-2 ${
+                      layoutClickChanger ? "flex-row-reverse" : ""
+                    }`}
+                  >
+                    <div
+                      className={`me-2 edit-user-input-style bg-dark-grey  w-70`}
+                      disabled
+                    >
+                      {countryCode ? countryCode : "N/A"}
                     </div>
-                  </Row>
-                  <Row>
-                    <Col className="mt-3 ">
-                      <div className="edit-user  bg-dark-grey">
-                        <input
-                          className="input-edit-user  bg-dark-grey"
-                          placeholder={email}
-                          disabled={true}
-                          type="email"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+                    <input
+                      className="input-edit-user edit-user-input-style"
+                      placeholder={phone}
+                      type="number"
+                      onChange={(e) => {
+                        setUpdateUser({
+                          ...updateUser,
+                          phone: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+
+                  <input
+                    className="input-edit-user edit-user-input-style bg-dark-grey"
+                    placeholder={email}
+                    disabled={true}
+                    type="email"
+                  />
                 </Col>
 
                 {isPaidPlan ? (
