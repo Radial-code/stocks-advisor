@@ -35,11 +35,9 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
                         value.profitOrLoss.percentage
                           ? value.profitOrLoss.percentage
                           : "N/A"} */}
-          {
-            value && value.profitOrLoss && value.profitOrLoss.percentage
-              ? value.profitOrLoss.percentage
-              : "N/A"
-          }
+          {value && value.profitOrLoss && value.profitOrLoss.percentage
+            ? value.profitOrLoss.percentage
+            : "N/A"}
         </td>
 
         <td
@@ -58,7 +56,7 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
               : "text-start whitespace Ellipse"
           }`}
         >
-          ${value.currentPrice}
+          ${value.currentPrice ? value.currentPrice : "0"}
         </td>
         <td
           className={`${

@@ -5,10 +5,13 @@ import { EditIcon } from "../../common/icons/Icons";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import Loader from "../../common/Loader";
+import { uploadImageAction } from "../../../redux/uploadImage";
 
 const ViewProfile = () => {
   const userDetails = useSelector((state) => state.userPanel.userDetails);
+  const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [Upload, setUpload] = useState("");
+  const [loadingImage, setLoadingImage] = useState(false);
   const dispatch = useDispatch();
   const [inputDisable, setInputDisable] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -17,6 +20,7 @@ const ViewProfile = () => {
     lastName: "",
     email: "",
     phone: "",
+    profileImagePath: "",
   });
 
   const UpdateUserProfile = () => {
@@ -30,12 +34,16 @@ const ViewProfile = () => {
       phone: UpdateUserDetailsData.phone
         ? UpdateUserDetailsData.phone
         : userDetails.phone,
-      isAdmin: true,
+      profileImagePath: uploadImageUrl
+        ? uploadImageUrl
+        : userDetails.profileImagePath,
+      // isAdmin: true,
     };
     dispatch(updateUserDetailsAction(data, setLoading));
     setInputDisable(true);
   };
   const onImageChange = (event) => {
+    dispatch(uploadImageAction(event, setLoadingImage, "users"));
     let img = event.target.files[0];
     setUpload(URL.createObjectURL(img));
   };
@@ -95,7 +103,12 @@ const ViewProfile = () => {
             />
           )}
 
-          <input type="file" id="my-file" hidden onChange={onImageChange} />
+          <input
+            type="file"
+            id="my-file"
+            hidden
+            onChange={(e) => onImageChange(e)}
+          />
           {inputDisable ? (
             <label className="position-absolute pb-sm-2 edit-icon">
               <EditIcon />
@@ -105,7 +118,7 @@ const ViewProfile = () => {
               for="my-file"
               className="position-absolute pb-sm-2 cursor-pointer edit-icon"
             >
-              <EditIcon />
+              {loadingImage ? <Loader /> : <EditIcon />}
             </label>
           )}
         </div>
