@@ -134,8 +134,8 @@ const Footer = ({ history }) => {
                     </Link>
                   </li>
                 ) : null}
-                {!auth && !token ? (
-                  <>
+                {auth && token ? null : (
+                  <div className={`${layoutClickChanger ? "" : "ms-3"}`}>
                     <li>
                       <Link
                         className="text-decoration-none text-white fs-15"
@@ -152,8 +152,8 @@ const Footer = ({ history }) => {
                         Join
                       </Link>
                     </li>
-                  </>
-                ) : null}
+                  </div>
+                )}
               </ul>
             </div>
           </div>
@@ -223,9 +223,7 @@ const Footer = ({ history }) => {
                   <TwitterIcon />
                 </a>
                 <a
-                  className={`${
-                    layoutClickChanger ? "ms-4 ps-3  me-2 " : "me-0 ms-2 pe-3"
-                  }`}
+                  className={`${layoutClickChanger ? "me-2" : "me-0 ms-2"}`}
                   target="_blank"
                   href="https://www.instagram.com"
                 >
