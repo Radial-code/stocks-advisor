@@ -38,7 +38,7 @@ function App({ history }) {
     if (!!token) {
       dispatch(getLocalStorageToken());
       if (token !== null) {
-        dispatch(getUserProfileAction(setLoading, history, token));
+        dispatch(getUserProfileAction(setLoading, token));
         dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
       }
     }

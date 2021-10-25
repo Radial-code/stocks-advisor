@@ -153,21 +153,20 @@ const getUserProfile = (data, token) => ({
   },
 });
 
-export const getUserProfileAction =
-  (setLoading, history, token) => async (dispatch) => {
-    setLoading(true);
-    try {
-      const response = await getUserProfileApi();
-      if (response.success) {
-        dispatch(getUserProfile(response.data, token));
-        setLoading(false);
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
+export const getUserProfileAction = (setLoading, token) => async (dispatch) => {
+  setLoading(true);
+  try {
+    const response = await getUserProfileApi();
+    if (response.success) {
+      dispatch(getUserProfile(response.data, token));
+      setLoading(false);
+    } else {
       setLoading(false);
     }
-  };
+  } catch (error) {
+    setLoading(false);
+  }
+};
 
 /**
  * username action*

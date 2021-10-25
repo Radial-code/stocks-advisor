@@ -23,7 +23,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     firstName: "",
     lastName: "",
     phone: "",
-    autoRenewalOfPlans: "",
+    autoRenewalOfPlans: false,
   });
   const { userId } = match.params;
 
