@@ -37,6 +37,7 @@ function SignUp({ history }) {
     phone: "",
     confirmPassword: "",
     country: "",
+    countryCode: "",
   });
 
   const submitSignUpForm = () => {
@@ -51,13 +52,14 @@ function SignUp({ history }) {
       signUpDetails.phone &&
       signUpDetails.confirmPassword &&
       signUpDetails.country &&
+      signUpDetails.countryCode &&
       passwordRegex.test(signUpDetails.password) === true
     ) {
       dispatch(SignUpAction(signUpDetails, setLoading, history));
     } else {
     }
   };
-
+  console.log("signUpDetails.countryCode", signUpDetails.countryCode);
   const userNameSubmit = (e) => {
     setSignUpDetails({
       ...signUpDetails,
@@ -195,23 +197,29 @@ function SignUp({ history }) {
                   type="tel"
                   placeholder="Phone Number"
                 />
-                {/* <FormGroup className=" form-field">
+                <FormGroup className=" form-field">
                   <select
-                    value={signUpDetails.country}
+                    value={signUpDetails.countryCode}
                     onChange={(e) => {
                       setSignUpDetails({
                         ...signUpDetails,
-                        phone: e.target.value,
+                        countryCode: e.target.value,
                       });
                     }}
                     className="form-select text-end"
                   >
-                    <option>Select Country</option>
-                    <option>India</option>
-                    <option>USA</option>
-                    <option>JAPAN</option>
+                    <option>Select Country Code</option>
+                    {countries && countries.length
+                      ? countries.map((value, index) => {
+                          return (
+                            <option key={index} value={value.dial_code}>
+                              {value.name}
+                            </option>
+                          );
+                        })
+                      : "Something went wrong"}
                   </select>
-                </FormGroup> */}
+                </FormGroup>
                 <span className="text-danger">
                   {error && signUpDetails.phone === ""
                     ? "Phone Number is required"
@@ -304,9 +312,15 @@ function SignUp({ history }) {
                     className="form-select text-start"
                   >
                     <option>Select Country</option>
-                    <option>India</option>
-                    <option>USA</option>
-                    <option>JAPAN</option>
+                    {countries && countries.length
+                      ? countries.map((value, index) => {
+                          return (
+                            <option key={index} value={value.dial_code}>
+                              {value.name}
+                            </option>
+                          );
+                        })
+                      : "Something went wrong"}
                   </select>
                 </FormGroup>
               )}
