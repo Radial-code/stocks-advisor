@@ -33,7 +33,7 @@ const AboutSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 3,
           dots: true,
         },

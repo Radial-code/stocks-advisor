@@ -181,7 +181,7 @@ function SignUp({ history }) {
               </Form.Group>
 
               <div className="row align-items-center">
-                <div className="col-xl-7">
+                <div className="col-sm-7 col-6">
                   <Form.Group
                     className="my-3 form-field"
                     controlId="formBasicPassword"
@@ -208,7 +208,7 @@ function SignUp({ history }) {
                     </span>
                   </Form.Group>
                 </div>
-                <div className="col-xl-5 mb-xl-0 mb-3">
+                <div className="col-sm-5 col-6 ">
                   <FormGroup className=" form-field">
                     <select
                       value={signUpDetails.countryCode}
@@ -218,7 +218,7 @@ function SignUp({ history }) {
                           countryCode: e.target.value,
                         });
                       }}
-                      className="form-select text-end cursor-pointer"
+                      className="form-select text-end cursor-pointer ps-5"
                     >
                       <option>Select Country Code</option>
                       {countries && countries.length
