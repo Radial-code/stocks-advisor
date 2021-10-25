@@ -173,7 +173,7 @@ export function PlansTableListItem({
     <>
       <tr className="current-stock-data table-border-bottom">
         <td className="text-end whitespace Ellipse">
-          {moment(value.createdAt).format("MM/ddd")}
+          {moment(value.createdAt).format("DD/MM/YY")}
         </td>
         <td className="text-end whitespace Ellipse" dir="ltr">
           {value.title}
