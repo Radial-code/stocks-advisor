@@ -695,6 +695,11 @@ input::-webkit-inner-spin-button {
 .newsImg-slider {
   height: 250px;
 }
+@media (max-width: 1024px) {
+  .newsImg-slider {
+    height: 140px;
+  }
+}
 .news-slider-wrapper .news-wrapper-bottom-section {
   padding: 12px;
   width: 100%;
