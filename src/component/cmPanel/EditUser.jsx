@@ -32,8 +32,15 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     (state) => state.list.userProfileDetails
   );
   const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
-  const { email, firstName, lastName, phone, isPaidPlan, autoRenewalOfPlans } =
-    userProfileDetails;
+  const {
+    email,
+    firstName,
+    lastName,
+    phone,
+    isPaidPlan,
+    autoRenewalOfPlans,
+    countryCode,
+  } = userProfileDetails;
   const { createdAt, expiresOn, details, price, title } = userPlanDetails
     ? userPlanDetails
     : "";
@@ -54,6 +61,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
         updateUser.autoRenewalOfPlans === ""
           ? autoRenewalOfPlans
           : updateUser.autoRenewalOfPlans,
+      // countryCode: "+91",
     };
     dispatch(userUpdateByAdminAction(userId, data, setUserLoading));
   };
@@ -78,6 +86,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
       updateUser.autoRenewalOfPlans === ""
         ? autoRenewalOfPlans
         : updateUser.autoRenewalOfPlans,
+    countryCode: countryCode,
   };
 
   return (
@@ -144,10 +153,10 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="mt-3">
+                    <Col className="mt-3 d-flex">
                       <div className="edit-user">
                         <input
-                          className="input-edit-user"
+                          className="input-edit-user "
                           placeholder={phone}
                           type="number"
                           onChange={(e) => {
@@ -158,8 +167,16 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           }}
                         />
                       </div>
+                      <div className="edit-user bg-dark-grey">
+                        <input
+                          className="input-edit-user bg-dark-grey"
+                          disabled
+                          placeholder={countryCode ? countryCode : "N/A"}
+                          type="number"
+                        />
+                      </div>
                     </Col>
-                  </Row>{" "}
+                  </Row>
                   <Row>
                     <Col className="mt-3 ">
                       <div className="edit-user  bg-dark-grey">

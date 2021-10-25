@@ -7,27 +7,17 @@ import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-
 import { getCountryListAction } from "../../redux/action/portfolios";
 import { useSelector } from "react-redux";
 
-// import { Formik } from "formik";
-// import countryList from "country-list";
-// import { parseIncompletePhoneNumber } from "libphonenumber-js";
-// import PhoneInput from "./phoneInput/PhoneInput";
-
 function SignUp({ history }) {
-  // const countryData = countryList.getData();
   const dispatch = useDispatch();
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const countries = useSelector((state) => state.list.countries);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [countryLoading, setCountryLoading] = useState(false);
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
-  const [countrySelectData, setCountrySelectData] = useState(false);
 
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
@@ -57,10 +47,8 @@ function SignUp({ history }) {
       passwordRegex.test(signUpDetails.password) === true
     ) {
       dispatch(SignUpAction(signUpDetails, setLoading, history));
-    } else {
     }
   };
-  console.log("signUpDetails.countryCode", signUpDetails.countryCode);
   const userNameSubmit = (e) => {
     setSignUpDetails({
       ...signUpDetails,
@@ -75,7 +63,7 @@ function SignUp({ history }) {
   };
 
   useEffect(() => {
-    dispatch(getCountryListAction(setCountryLoading));
+    dispatch(getCountryListAction());
   }, []);
 
   return (

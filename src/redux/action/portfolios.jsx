@@ -48,18 +48,14 @@ const getCountryList = (data) => ({
   data,
 });
 
-export const getCountryListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
+export const getCountryListAction = () => async (dispatch) => {
   try {
     const response = await getCountryListApi();
     if (response.success) {
       dispatch(getCountryList(response.countries));
-      setLoading(false);
     } else {
-      setLoading(false);
     }
   } catch (error) {
-    setLoading(false);
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }
