@@ -13,9 +13,12 @@ import BubblesLoader from "../common/BubblesLoader";
 import "../cmPanelCss/userEdit.css";
 import { userUpdateByAdminAction } from "../../redux/action/portfolios";
 import Loader from "../common/Loader";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 let data = {};
 const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
@@ -153,10 +156,89 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="mt-3 d-flex">
-                      <div className="edit-user">
+                    <div className="mt-3  col">
+                      <div className="row">
+                        {layoutClickChanger ? (
+                          <>
+                            <div
+                              className={`${
+                                layoutClickChanger ? "col-8 ps-0" : "col-8 pe-0"
+                              }`}
+                            >
+                              <div className="edit-user2">
+                                <input
+                                  className="input-edit-user px-2"
+                                  placeholder={phone}
+                                  type="number"
+                                  onChange={(e) => {
+                                    setUpdateUser({
+                                      ...updateUser,
+                                      phone: e.target.value,
+                                    });
+                                  }}
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className={`${
+                                layoutClickChanger ? "col-4 pe-0" : "col-4 ps-0"
+                              }`}
+                            >
+                              <div>
+                                <input
+                                  className="edit-user2 bg-dark-grey px-2"
+                                  disabled
+                                  placeholder={
+                                    countryCode ? countryCode : "N/A"
+                                  }
+                                  type="number"
+                                />
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div
+                              className={`${
+                                layoutClickChanger ? "col-4 ps-0" : "col-4 pe-0"
+                              }`}
+                            >
+                              <div>
+                                <input
+                                  className="edit-user2 bg-dark-grey px-2"
+                                  disabled
+                                  placeholder={
+                                    countryCode ? countryCode : "N/A"
+                                  }
+                                  type="number"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className={`${
+                                layoutClickChanger ? "col-8 pe-0" : "col-8 ps-0"
+                              }`}
+                            >
+                              <div className="edit-user2">
+                                <input
+                                  className="input-edit-user px-2"
+                                  placeholder={phone}
+                                  type="number"
+                                  onChange={(e) => {
+                                    setUpdateUser({
+                                      ...updateUser,
+                                      phone: e.target.value,
+                                    });
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      {/* <div className="edit-user">
                         <input
-                          className="input-edit-user "
+                          className="input-edit-user px-2"
                           placeholder={phone}
                           type="number"
                           onChange={(e) => {
@@ -166,16 +248,16 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             });
                           }}
                         />
-                      </div>
-                      <div className="edit-user bg-dark-grey">
+                      </div> */}
+                      {/* <div className="edit-user bg-dark-grey">
                         <input
                           className="input-edit-user bg-dark-grey"
                           disabled
                           placeholder={countryCode ? countryCode : "N/A"}
                           type="number"
                         />
-                      </div>
-                    </Col>
+                      </div> */}
+                    </div>
                   </Row>
                   <Row>
                     <Col className="mt-3 ">

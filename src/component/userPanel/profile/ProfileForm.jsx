@@ -1,9 +1,13 @@
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+
 const ProfileForm = ({
   setUpdateUserDetailsData,
   inputDisable,
   userDetails,
   UpdateUserDetailsData,
 }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   return (
     <div className="row">
       <div className="col-lg-6 ">
@@ -95,8 +99,105 @@ const ProfileForm = ({
           />
         </div>
       </div>
-      <div className="col-lg-6 col-12">
-        <div className="mb-md-4 mb-3 profile-field">
+      <div className="col-lg-6 col-12 d-flex align-items-center">
+        <div className="row">
+          {layoutClickChanger ? (
+            <>
+              <div
+                className={
+                  layoutClickChanger
+                    ? "profile-field col ps-0"
+                    : "profile-field col pe-0"
+                }
+              >
+                {/* {inputDisable ? (
+              ""
+            ) : (
+              <>
+                <label
+                  for="exampleFormControlInput21"
+                  class="form-label mb-2  edit-label  "
+                >
+                  Phone Number
+                </label>
+              </>
+            )} */}
+                <input
+                  type="number"
+                  disabled={inputDisable ? true : false}
+                  onChange={(e) => {
+                    setUpdateUserDetailsData({
+                      ...UpdateUserDetailsData,
+                      phone: e.target.value,
+                    });
+                  }}
+                  className="form-control input-border-16191e33 py-2  profile-input-placeholder"
+                  id="exampleFormControlInput15"
+                  placeholder={
+                    userDetails && userDetails.phone ? userDetails.phone : "N/A"
+                  }
+                />
+              </div>
+              <div className={layoutClickChanger ? "col-3 pe-0" : "col-3 ps-0"}>
+                <input
+                  type="number"
+                  disabled
+                  className="form-control input-border-16191e33 py-2  profile-input-placeholder"
+                  id="exampleFormControlInput15"
+                  placeholder="dfghjksdf"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={layoutClickChanger ? "col-3 ps-0" : "col-3 pe-0"}>
+                <input
+                  type="number"
+                  disabled
+                  className="form-control input-border-16191e33 py-2  profile-input-placeholder"
+                  id="exampleFormControlInput15"
+                  placeholder="dfghjksdf"
+                />
+              </div>
+              <div
+                className={
+                  layoutClickChanger
+                    ? "profile-field col pe-0"
+                    : "profile-field col ps-0"
+                }
+              >
+                {/* {inputDisable ? (
+              ""
+            ) : (
+              <>
+                <label
+                  for="exampleFormControlInput21"
+                  class="form-label mb-2  edit-label  "
+                >
+                  Phone Number
+                </label>
+              </>
+            )} */}
+                <input
+                  type="number"
+                  disabled={inputDisable ? true : false}
+                  onChange={(e) => {
+                    setUpdateUserDetailsData({
+                      ...UpdateUserDetailsData,
+                      phone: e.target.value,
+                    });
+                  }}
+                  className="form-control input-border-16191e33 py-2  profile-input-placeholder"
+                  id="exampleFormControlInput15"
+                  placeholder={
+                    userDetails && userDetails.phone ? userDetails.phone : "N/A"
+                  }
+                />
+              </div>
+            </>
+          )}
+        </div>
+        {/* <div className="mb-md-4 mb-3 profile-field">
           {inputDisable ? (
             ""
           ) : (
@@ -124,7 +225,7 @@ const ProfileForm = ({
               userDetails && userDetails.phone ? userDetails.phone : "N/A"
             }
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

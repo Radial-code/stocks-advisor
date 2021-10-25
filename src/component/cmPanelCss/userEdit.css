@@ -12,7 +12,24 @@
   justify-content: center;
   align-items: center;
 }
+.edit-user2 {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
+  height: 50px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.edit-user2 input {
+  /* width: 430px; */
+  height: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #16191e33;
+  border-radius: 5px;
 
+  border: 0px;
+}
 .edit-user input {
   width: 430px;
   height: 40px;
