@@ -169,9 +169,15 @@ function SignUp({ history }) {
               </Form.Group>
 
               <div className="row align-items-center">
-                <div className="col-sm-7 col-6 ps-0 ">
+                <div
+                  className={`${
+                    layoutClickChanger
+                      ? "col-sm-7 col-6 ps-0 "
+                      : "col-sm-7 col-6  pe-0 "
+                  }`}
+                >
                   <Form.Group
-                    className="my-3 form-field"
+                    className="my-3 form-field number-field"
                     controlId="formBasicPassword"
                   >
                     <Form.Control
@@ -196,8 +202,14 @@ function SignUp({ history }) {
                     </span>
                   </Form.Group>
                 </div>
-                <div className="col-sm-5  pe-0 col-6 ">
-                  <FormGroup className=" form-field">
+                <div
+                  className={`${
+                    layoutClickChanger
+                      ? "col-sm-5  pe-0 col-6"
+                      : "col-sm-5 ps-0 col-6"
+                  }`}
+                >
+                  <FormGroup className=" sign-up-select">
                     <select
                       value={signUpDetails.countryCode}
                       onChange={(e) => {
@@ -206,7 +218,11 @@ function SignUp({ history }) {
                           countryCode: e.target.value,
                         });
                       }}
-                      className="form-select text-end cursor-pointer ps-5"
+                      className={`${
+                        layoutClickChanger
+                          ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                          : "form-select   text-end cursor-pointer ps-5"
+                      }`}
                     >
                       <option>Code</option>
                       {countries && countries.length

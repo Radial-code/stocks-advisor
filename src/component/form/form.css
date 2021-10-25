@@ -84,9 +84,32 @@
   box-shadow: 0 0 0 0.25rem transparent;
   border: 1px solid rgba(22, 25, 30, 0.2) !important;
 }
+/*  */
+.sign-up-select .form-field-3 .form-select {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #16191e;
+  padding: 13px;
+}
+
+.sign-up-select .form-field-3 .form-select {
+  -webkit-appearance: none !important;
+  background-image: url("../../assets/img/dropdown.png");
+  /* background-position: 20px; */
+}
+
+.sign-up-select .form-field-3 .form-select:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+  border: 1px solid rgba(22, 25, 30, 0.2) !important;
+}
 
 /* change password css */
 .country-dots {
+  display: inline-block;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 .table-heading {
   font-size: var(--font-xs);
