@@ -7,6 +7,9 @@ const SubscriptionPlan = ({ loading }) => {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
   const planDetails = useSelector((state) => state.list.planDetails);
+  const split_string =
+    planDetails && planDetails.details && planDetails.details.split(",");
+  console.log("split_string", split_string);
   return (
     <Col lg={7} className="d-flex justify-content-center">
       <section className=" select-plan-payment p-lg-4 p-3">
@@ -24,22 +27,50 @@ const SubscriptionPlan = ({ loading }) => {
               <p className="profile-heading fs-sm-16">{planDetails.title}</p>
               <p className="payment-page-amount">${planDetails.price}</p>
             </div>
-            {layoutClickChanger ? (
-              <p className="fs-xs fw-500 mt-3 fs-sm-14">:Description</p>
-            ) : (
-              <p className="fs-xs fw-500 mt-3 fs-sm-14">Description:</p>
-            )}
-
-            <p className="stock-paragraph fs-sm-14">{planDetails.details}</p>
-            <div className="d-flex justify-content-between align-items-center fw-bold">
+            <div
+              className={`${
+                layoutClickChanger
+                  ? ""
+                  : "flex-row-reverse  justify-content-end "
+              } d-flex  align-items-center fw-bold py-2 `}
+            >
               <p>{planDetails.type}</p>
               {layoutClickChanger ? (
-                <p className="fs-xs fw-500 fs-sm-14">:Plan Type</p>
+                <p
+                  className={`${
+                    layoutClickChanger ? "pe-2" : "pe-3 "
+                  } fs-xs fw-500 fs-sm-14 `}
+                >
+                  :Plan Type
+                </p>
               ) : (
-                <p className="fs-xs fw-500 fs-sm-14">Plan Type:</p>
+                <p
+                  className={`${
+                    layoutClickChanger ? "" : "pe-3 "
+                  } fs-xs fw-500 fs-sm-14 `}
+                >
+                  Plan Type:
+                </p>
               )}
             </div>
             {layoutClickChanger ? (
+              <p className="fs-xs fw-500  fs-sm-14">:Description</p>
+            ) : (
+              <p className="fs-xs fw-500  fs-sm-14">Description:</p>
+            )}
+
+            <p className="stock-paragraph fs-sm-14">
+              {split_string &&
+                split_string.map((value) => (
+                  <ul>
+                    <li className={`${value === "" ? "list-style" : ""} `}>
+                      {value}
+                    </li>
+                  </ul>
+                ))}
+            </p>
+
+            {/* {layoutClickChanger ? (
               <p className="fs-xs fw-500 mt-4 fs-sm-14">:Benifits</p>
             ) : (
               <p className="fs-xs fw-500 mt-4 fs-sm-14">Benifits:</p>
@@ -48,7 +79,7 @@ const SubscriptionPlan = ({ loading }) => {
               Duis venenatis aliquot, Eros, non feugiat Tortor semper sed. In
               diam risus, efficitur Sit amet dolor vitae Finibus tristique Arcu
               finibus tristique
-            </p>
+            </p> */}
           </>
         )}
       </section>
