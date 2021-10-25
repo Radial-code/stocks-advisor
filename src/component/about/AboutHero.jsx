@@ -3,8 +3,7 @@ import heroImg from "../../assets/img/aboutUs-hero.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AboutHero = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   return (
     <>
       <div className="container py-5   p-left-right mt-100">
@@ -37,5 +36,4 @@ const AboutHero = () => {
     </>
   );
 };
-
 export default AboutHero;
