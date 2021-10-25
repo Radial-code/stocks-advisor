@@ -123,7 +123,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForNewStocksM}
+                checked={showNotificationWhen.showNotificationForNewStocksM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -134,7 +134,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForsoldStocksM}
+                checked={showNotificationWhen.showNotificationForsoldStocksM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -145,7 +145,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForGeneralNewsM}
+                checked={showNotificationWhen.showNotificationForGeneralNewsM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -156,7 +156,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForReleatedNewsM}
+                checked={showNotificationWhen.showNotificationForReleatedNewsM}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -172,8 +172,9 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForNewStocksW}
+                checked={showNotificationWhen.showNotificationForNewStocksW}
                 onChange={(e) => {
+                  console.log(e.target.checked);
                   setShowNotificationWhen({
                     ...showNotificationWhen,
                     showNotificationForNewStocksW: e.target.checked,
@@ -183,7 +184,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForsoldStocksW}
+                checked={showNotificationWhen.showNotificationForsoldStocksW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -194,7 +195,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForGeneralNewsW}
+                checked={showNotificationWhen.showNotificationForGeneralNewsW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -205,7 +206,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForReleatedNewsW}
+                checked={showNotificationWhen.showNotificationForReleatedNewsW}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -222,7 +223,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2 my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForNewStocksE}
+                checked={showNotificationWhen.showNotificationForNewStocksE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -233,7 +234,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForsoldStocksE}
+                checked={showNotificationWhen.showNotificationForsoldStocksE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
@@ -244,8 +245,9 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForGeneralNewsE}
+                checked={showNotificationWhen.showNotificationForGeneralNewsE}
                 onChange={(e) => {
+                  console.log(showNotificationWhen);
                   setShowNotificationWhen({
                     ...showNotificationWhen,
                     showNotificationForGeneralNewsE: e.target.checked,
@@ -255,7 +257,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <input
                 className="cursor-pointer mx-2  my-4"
                 type="checkbox"
-                value={showNotificationWhen.showNotificationForReleatedNewsE}
+                checked={showNotificationWhen.showNotificationForReleatedNewsE}
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
