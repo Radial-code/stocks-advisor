@@ -54,7 +54,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       ></div>
       <Row>
         <Col xs={12}>
-          <section className="notification-card p-lg-5 p-2 ">
+          <section className="notification-card p-md-3 p-xl-5 p-2">
             <div className="border-b-1 d-flex justify-content-between align-items-center">
               <p className="heading-stock fs-sm-20 mb-0">Notification</p>
               <img
