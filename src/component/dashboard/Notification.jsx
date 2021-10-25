@@ -15,10 +15,20 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const [notificationLoading, setNotificationLoading] = useState(false);
   const [showNotificationWhen, setShowNotificationWhen] = useState({
-    showNotificationForsoldStocks: false,
-    showNotificationForNewStocks: false,
-    showNotificationForGeneralNews: false,
-    showNotificationForReleatedNews: false,
+    showNotificationForsoldStocksW: false,
+    showNotificationForNewStocksW: false,
+    showNotificationForGeneralNewsW: false,
+    showNotificationForReleatedNewsW: false,
+
+    showNotificationForsoldStocksM: false,
+    showNotificationForNewStocksM: false,
+    showNotificationForGeneralNewsM: false,
+    showNotificationForReleatedNewsM: false,
+
+    showNotificationForsoldStocksE: false,
+    showNotificationForNewStocksE: false,
+    showNotificationForGeneralNewsE: false,
+    showNotificationForReleatedNewsE: false,
   });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -108,7 +118,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForNewStocksM: e.target.checked,
                   });
                 }}
               />
@@ -118,7 +128,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForsoldStocksM: e.target.checked,
                   });
                 }}
               />
@@ -128,7 +138,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForGeneralNewsM: e.target.checked,
                   });
                 }}
               />
@@ -138,7 +148,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForReleatedNewsM: e.target.checked,
                   });
                 }}
               />
@@ -153,7 +163,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForNewStocksW: e.target.checked,
                   });
                 }}
               />
@@ -163,7 +173,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForsoldStocksW: e.target.checked,
                   });
                 }}
               />
@@ -173,7 +183,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForGeneralNewsW: e.target.checked,
                   });
                 }}
               />
@@ -183,7 +193,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForReleatedNewsW: e.target.checked,
                   });
                 }}
               />
@@ -199,7 +209,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForNewStocksE: e.target.checked,
                   });
                 }}
               />
@@ -209,7 +219,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForsoldStocksE: e.target.checked,
                   });
                 }}
               />
@@ -219,7 +229,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForGeneralNewsE: e.target.checked,
                   });
                 }}
               />
@@ -229,7 +239,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 onChange={(e) => {
                   setShowNotificationWhen({
                     ...showNotificationWhen,
-                    showNotificationForNewStocks: e.target.checked,
+                    showNotificationForReleatedNewsE: e.target.checked,
                   });
                 }}
               />
@@ -252,210 +262,6 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               </div>
             </div>
           </div>
-
-          {/* <div className="py-2 d-flex align-items-center justify-content-start">
-            {layoutClickChanger ? (
-              <>
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  New stock is created
-                </label>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForNewStocks: e.target.checked,
-                    });
-                  }}
-                />
-              </>
-            ) : (
-              <>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForNewStocks: e.target.checked,
-                    });
-                  }}
-                />
-
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  New stock is created
-                </label>
-              </>
-            )}
-          </div> */}
-          {/* <div className="py-2 d-flex align-items-center justify-content-start">
-            {layoutClickChanger ? (
-              <>
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  Stock is sold
-                </label>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForsoldStocks: e.target.checked,
-                    });
-                  }}
-                />
-              </>
-            ) : (
-              <>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForsoldStocks: e.target.checked,
-                    });
-                  }}
-                />
-
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  Stock is sold
-                </label>
-              </>
-            )}
-          </div> */}
-          {/* <div className="py-2 d-flex align-items-center justify-content-start">
-            {layoutClickChanger ? (
-              <>
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  General news is added
-                </label>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForGeneralNews: e.target.checked,
-                    });
-                  }}
-                />
-              </>
-            ) : (
-              <>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForGeneralNews: e.target.checked,
-                    });
-                  }}
-                />
-
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  General news is added
-                </label>
-              </>
-            )}
-          </div> */}
-          {/* <div className="py-2 d-flex align-items-center justify-content-start">
-            {layoutClickChanger ? (
-              <>
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  Related news is added
-                </label>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForReleatedNews: e.target.checked,
-                    });
-                  }}
-                />
-              </>
-            ) : (
-              <>
-                <input
-                  className="cursor-pointer mx-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    setShowNotificationWhen({
-                      ...showNotificationWhen,
-                      showNotificationForReleatedNews: e.target.checked,
-                    });
-                  }}
-                />
-
-                <label
-                  className="form-check-label check-box-text cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  Related news is added
-                </label>
-              </>
-            )}
-          </div> */}
-          {/* <div className="d-flex my-3 justify-content-end">
-            {layoutClickChanger ? (
-              <>
-                <button
-                  className="news-upload-btn cursor-pointer px-3 py-2 mx-3"
-                  onClick={handleClose}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  onClick={() => updateNotification()}
-                  className="news-upload-btn cursor-pointer px-3 py-2"
-                >
-                  {notificationLoading ? <Loader /> : "Submit"}
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={() => updateNotification()}
-                  className="news-upload-btn cursor-pointer px-3 py-2"
-                >
-                  {notificationLoading ? <Loader /> : "Submit"}
-                </button>
-                <button
-                  className="news-upload-btn cursor-pointer px-3 py-2 mx-3"
-                  onClick={handleClose}
-                >
-                  Cancel
-                </button>
-              </>
-            )}
-          </div> */}
         </Modal.Body>
       </Modal>
     </Container>
