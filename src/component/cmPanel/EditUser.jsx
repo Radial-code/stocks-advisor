@@ -13,9 +13,12 @@ import BubblesLoader from "../common/BubblesLoader";
 import "../cmPanelCss/userEdit.css";
 import { userUpdateByAdminAction } from "../../redux/action/portfolios";
 import Loader from "../common/Loader";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 let data = {};
 const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
@@ -118,77 +121,70 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
             ) : (
               <Row>
                 <Col xl={6} xs={12}>
-                  <Row className="mt-4">
-                    <Col>
-                      <div className="edit-user">
-                        <input
-                          className="input-edit-user"
-                          placeholder={`${firstName} `}
-                          type="text"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              firstName: e.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="mt-4">
-                    <Col>
-                      <div className="edit-user">
-                        <input
-                          className="input-edit-user"
-                          placeholder={` ${lastName}`}
-                          type="text"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              lastName: e.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="mt-3 d-flex">
-                      <div className="edit-user">
-                        <input
-                          className="input-edit-user "
-                          placeholder={phone}
-                          type="number"
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              phone: e.target.value,
-                            });
-                          }}
-                        />
-                      </div>
-                      <div className="edit-user bg-dark-grey">
-                        <input
-                          className="input-edit-user bg-dark-grey"
-                          disabled
-                          placeholder={countryCode ? countryCode : "N/A"}
-                          type="number"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="mt-3 ">
-                      <div className="edit-user  bg-dark-grey">
-                        <input
-                          className="input-edit-user  bg-dark-grey"
-                          placeholder={email}
-                          disabled={true}
-                          type="email"
-                        />
-                      </div>
-                    </Col>
-                  </Row>
+                  <input
+                    className="input-edit-user edit-user-input-style "
+                    placeholder={`${firstName} `}
+                    type="text"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        firstName: e.target.value,
+                      });
+                    }}
+                  />
+                  <input
+                    className="input-edit-user edit-user-input-style my-2"
+                    placeholder={`${lastName}`}
+                    type="text"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        lastName: e.target.value,
+                      });
+                    }}
+                  />
+                  <input
+                    className="input-edit-user edit-user-input-style"
+                    placeholder={phone}
+                    type="number"
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        phone: e.target.value,
+                      });
+                    }}
+                  />
+
+                  <div
+                    className={`d-flex my-2 ${
+                      layoutClickChanger ? "flex-row-reverse" : ""
+                    }`}
+                  >
+                    <div
+                      className={`me-2 edit-user-input-style bg-dark-grey  w-70`}
+                      disabled
+                    >
+                      {countryCode ? countryCode : "N/A"}
+                    </div>
+                    <input
+                      className="input-edit-user edit-user-input-style"
+                      placeholder={phone}
+                      type="number"
+                      onChange={(e) => {
+                        setUpdateUser({
+                          ...updateUser,
+                          phone: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+
+                  <input
+                    className="input-edit-user edit-user-input-style bg-dark-grey"
+                    placeholder={email}
+                    disabled={true}
+                    type="email"
+                  />
                 </Col>
 
                 {isPaidPlan ? (

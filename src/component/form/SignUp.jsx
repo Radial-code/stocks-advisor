@@ -169,78 +169,158 @@ function SignUp({ history }) {
               </Form.Group>
 
               <div className="row align-items-center">
-                <div
-                  className={`${
-                    layoutClickChanger
-                      ? "col-sm-7 col-6 ps-0 "
-                      : "col-sm-7 col-6  pe-0 "
-                  }`}
-                >
-                  <Form.Group
-                    className="my-3 form-field number-field"
-                    controlId="formBasicPassword"
-                  >
-                    <Form.Control
-                      value={signUpDetails.phone}
-                      onChange={(e) => {
-                        setSignUpDetails({
-                          ...signUpDetails,
-                          phone: Number(e.target.value),
-                        });
-                      }}
-                      type="tel"
-                      placeholder="Phone Number"
-                    />
-
-                    <span className="text-danger">
-                      {error && signUpDetails.phone === ""
-                        ? "Phone Number is required"
-                        : error &&
-                          PhoneRegex.test(signUpDetails.phone) === false
-                        ? "Enter valid Phone Number"
-                        : null}
-                    </span>
-                  </Form.Group>
-                </div>
-                <div
-                  className={`${
-                    layoutClickChanger
-                      ? "col-sm-5  pe-0 col-6"
-                      : "col-sm-5 ps-0 col-6"
-                  }`}
-                >
-                  <FormGroup className=" sign-up-select">
-                    <select
-                      value={signUpDetails.countryCode}
-                      onChange={(e) => {
-                        setSignUpDetails({
-                          ...signUpDetails,
-                          countryCode: e.target.value,
-                        });
-                      }}
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <div
                       className={`${
                         layoutClickChanger
-                          ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                          : "form-select   text-end cursor-pointer ps-5"
+                          ? "col-sm-7 col-6 ps-0 "
+                          : "col-sm-7 col-6  pe-0 "
                       }`}
                     >
-                      <option>Code</option>
-                      {countries && countries.length
-                        ? countries.map((value, index) => {
-                            return (
-                              <option
-                                className="country-dots"
-                                key={index}
-                                value={value.dial_code}
-                              >
-                                {value.name}({value.dial_code})
-                              </option>
-                            );
-                          })
-                        : "Something went wrong"}
-                    </select>
-                  </FormGroup>
-                </div>
+                      <Form.Group
+                        className="my-3 form-field number-field"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Control
+                          value={signUpDetails.phone}
+                          onChange={(e) => {
+                            setSignUpDetails({
+                              ...signUpDetails,
+                              phone: Number(e.target.value),
+                            });
+                          }}
+                          type="tel"
+                          placeholder="Phone Number"
+                        />
+
+                        <span className="text-danger">
+                          {error && signUpDetails.phone === ""
+                            ? "Phone Number is required"
+                            : error &&
+                              PhoneRegex.test(signUpDetails.phone) === false
+                            ? "Enter valid Phone Number"
+                            : null}
+                        </span>
+                      </Form.Group>
+                    </div>
+                    <div
+                      className={`${
+                        layoutClickChanger
+                          ? "col-sm-5  pe-0 col-6"
+                          : "col-sm-5 ps-0 col-6"
+                      }`}
+                    >
+                      <FormGroup className=" sign-up-select">
+                        <select
+                          value={signUpDetails.countryCode}
+                          onChange={(e) => {
+                            setSignUpDetails({
+                              ...signUpDetails,
+                              countryCode: e.target.value,
+                            });
+                          }}
+                          className={`${
+                            layoutClickChanger
+                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                              : "form-select   text-end cursor-pointer ps-5"
+                          }`}
+                        >
+                          <option>Code</option>
+                          {countries && countries.length
+                            ? countries.map((value, index) => {
+                                return (
+                                  <option
+                                    className="country-dots"
+                                    key={index}
+                                    value={value.dial_code}
+                                  >
+                                    {value.name}({value.dial_code})
+                                  </option>
+                                );
+                              })
+                            : "Something went wrong"}
+                        </select>
+                      </FormGroup>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div
+                      className={`${
+                        layoutClickChanger
+                          ? "col-sm-5  ps-0 col-6"
+                          : "col-sm-5 pe-0 col-6"
+                      }`}
+                    >
+                      <FormGroup className=" sign-up-select">
+                        <select
+                          value={signUpDetails.countryCode}
+                          onChange={(e) => {
+                            setSignUpDetails({
+                              ...signUpDetails,
+                              countryCode: e.target.value,
+                            });
+                          }}
+                          className={`${
+                            layoutClickChanger
+                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                              : "form-select   text-end cursor-pointer ps-5"
+                          }`}
+                        >
+                          <option>Code</option>
+                          {countries && countries.length
+                            ? countries.map((value, index) => {
+                                return (
+                                  <option
+                                    className="country-dots"
+                                    key={index}
+                                    value={value.dial_code}
+                                  >
+                                    {value.name}({value.dial_code})
+                                  </option>
+                                );
+                              })
+                            : "Something went wrong"}
+                        </select>
+                      </FormGroup>
+                    </div>{" "}
+                    <div
+                      className={`${
+                        layoutClickChanger
+                          ? "col-sm-7 col-6 pe-0 "
+                          : "col-sm-7 col-6  ps-0 "
+                      }`}
+                    >
+                      <Form.Group
+                        className="my-3 form-field number-field"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Control
+                          value={signUpDetails.phone}
+                          onChange={(e) => {
+                            setSignUpDetails({
+                              ...signUpDetails,
+                              phone: Number(e.target.value),
+                            });
+                          }}
+                          type="tel"
+                          placeholder="Phone Number"
+                        />
+
+                        <span className="text-danger">
+                          {error && signUpDetails.phone === ""
+                            ? "Phone Number is required"
+                            : error &&
+                              PhoneRegex.test(signUpDetails.phone) === false
+                            ? "Enter valid Phone Number"
+                            : null}
+                        </span>
+                      </Form.Group>
+                    </div>
+                  </>
+                )}
               </div>
               <Form.Group
                 className="mb-4 form-field"

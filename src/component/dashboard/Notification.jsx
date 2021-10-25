@@ -62,13 +62,31 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       </Row>
       {/* Modal */}
 
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal show={show} onHide={handleClose} centered size="lg">
         <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
-          View Notification When
+          Receive Notification When
         </p>
 
         <Modal.Body>
-          <div className="py-2 d-flex align-items-center justify-content-start">
+          <div className="row">
+            <div className="col-4">
+              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+                Push
+              </p>
+            </div>
+            <div className="col-4">
+              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+                Web
+              </p>
+            </div>
+
+            <div className="col-4">
+              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+                E-mail
+              </p>
+            </div>
+          </div>
+          {/* <div className="py-2 d-flex align-items-center justify-content-start">
             {layoutClickChanger ? (
               <>
                 <label
@@ -109,8 +127,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 </label>
               </>
             )}
-          </div>
-          <div className="py-2 d-flex align-items-center justify-content-start">
+          </div> */}
+          {/* <div className="py-2 d-flex align-items-center justify-content-start">
             {layoutClickChanger ? (
               <>
                 <label
@@ -151,8 +169,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 </label>
               </>
             )}
-          </div>
-          <div className="py-2 d-flex align-items-center justify-content-start">
+          </div> */}
+          {/* <div className="py-2 d-flex align-items-center justify-content-start">
             {layoutClickChanger ? (
               <>
                 <label
@@ -193,8 +211,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 </label>
               </>
             )}
-          </div>
-          <div className="py-2 d-flex align-items-center justify-content-start">
+          </div> */}
+          {/* <div className="py-2 d-flex align-items-center justify-content-start">
             {layoutClickChanger ? (
               <>
                 <label
@@ -235,8 +253,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 </label>
               </>
             )}
-          </div>
-          <div className="d-flex my-3 justify-content-end">
+          </div> */}
+          {/* <div className="d-flex my-3 justify-content-end">
             {layoutClickChanger ? (
               <>
                 <button
@@ -270,7 +288,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 </button>
               </>
             )}
-          </div>
+          </div> */}
         </Modal.Body>
       </Modal>
     </Container>
