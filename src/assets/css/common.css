@@ -45,6 +45,17 @@
   --font-9: 9px;
 }
 
+@media (max-width: 992px) {
+  :root {
+    --font-lg: 20px;
+  }
+}
+@media (max-width: 576px) {
+  :root {
+    --font-xs: 12px;
+  }
+}
+
 /* VERIFY EMAIL PAGE START*/
 .height-100vh {
   height: 100vh;

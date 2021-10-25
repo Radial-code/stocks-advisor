@@ -80,7 +80,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
         <Modal.Body>
           <div className="row">
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Observation
               </p>
               <label
@@ -109,7 +109,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               </label>
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Push
               </p>
               <input
@@ -154,7 +154,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               />
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 Web
               </p>
               <input
@@ -200,7 +200,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
             </div>
 
             <div className="col-3 d-flex  flex-column align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+              <p className="heading-stock  mb-0 text-center py-3 fw-bold">
                 E-mail
               </p>
               <input
