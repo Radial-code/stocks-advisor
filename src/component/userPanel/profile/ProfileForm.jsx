@@ -6,8 +6,8 @@ const ProfileForm = ({
   userDetails,
   UpdateUserDetailsData,
 }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
+
   return (
     <div className="row">
       <div className="col-lg-6 ">
@@ -99,7 +99,7 @@ const ProfileForm = ({
           />
         </div>
       </div>
-      <div className="col-lg-6 col-12 d-flex align-items-center">
+      <div className="col-lg-6 col-12 d-flex">
         <div className="row">
           {layoutClickChanger ? (
             <>
