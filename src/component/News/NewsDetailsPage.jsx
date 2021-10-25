@@ -44,7 +44,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                   `/stock/news/${newsDetails.stock._id}/${newsDetails.tags}`
                 )
               }
-              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mt-3 mb-3"
+              className="small-paragraph d-none dots-data d-lg-block mb-0 cursor-pointer fw-bold mt-3 mb-3"
             >
               <span>{newsDetails && newsDetails.tags}</span>
             </p>

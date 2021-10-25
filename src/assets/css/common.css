@@ -238,6 +238,13 @@
   height: 300px;
   width: 100%;
 }
+.dots-data {
+  display: inline-block;
+  width: 480px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
 
 @media (max-width: 567px) {
   .stock-paragraph {

@@ -48,12 +48,18 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     src={value.imagePath}
                     alt=""
                   />
-                  <p className="text-end stock-paragraph mt-3">
+                  <p
+                    className={
+                      layoutClickChanger
+                        ? "text-start stock-paragraph mt-3"
+                        : "text-start stock-paragraph mt-3"
+                    }
+                  >
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? "d-flex justify-content-end align-items-center"
-                          : "d-flex align-items-center justify-content-start"
+                          ? "d-flex align-items-center justify-content-start "
+                          : "d-flex align-items-center justify-content-end"
                       }  `}
                     >
                       <span className="d-flex justify-content-end px-2">
@@ -95,8 +101,8 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p
                     className={` ${
                       layoutClickChanger
-                        ? "small-paragraph text-end"
-                        : "small-paragraph"
+                        ? "small-paragraph text-end dots-data"
+                        : "small-paragraph dots-data"
                     } `}
                     onClick={() =>
                       history.push(
@@ -117,7 +123,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p
                     className={` ${
                       layoutClickChanger
-                        ? "small-paragraph text-end"
+                        ? "small-paragraph text-end "
                         : "small-paragraph mb-5 "
                     } `}
                   >
