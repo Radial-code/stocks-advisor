@@ -181,7 +181,7 @@ function SignUp({ history }) {
               </Form.Group>
 
               <div className="row align-items-center">
-                <div className="col-sm-7 col-6">
+                <div className="col-sm-7 col-6 ps-0 ">
                   <Form.Group
                     className="my-3 form-field"
                     controlId="formBasicPassword"
@@ -208,7 +208,7 @@ function SignUp({ history }) {
                     </span>
                   </Form.Group>
                 </div>
-                <div className="col-sm-5 col-6 ">
+                <div className="col-sm-5  pe-0 col-6 ">
                   <FormGroup className=" form-field">
                     <select
                       value={signUpDetails.countryCode}
@@ -220,7 +220,7 @@ function SignUp({ history }) {
                       }}
                       className="form-select text-end cursor-pointer ps-5"
                     >
-                      <option>Select Country Code</option>
+                      <option>Code</option>
                       {countries && countries.length
                         ? countries.map((value, index) => {
                             return (
@@ -230,6 +230,10 @@ function SignUp({ history }) {
                                 value={value.dial_code}
                               >
                                 {value.name}
+                                {value.dial_code}
+                                {/* {signUpDetails.countryCode != ""
+                                  ? signUpDetails.countryCode
+                                  : value.name} */}
                               </option>
                             );
                           })
