@@ -62,30 +62,197 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       </Row>
       {/* Modal */}
 
-      <Modal show={show} onHide={handleClose} centered size="lg">
+      <Modal show={show} onHide={handleClose} centered size="xl">
         <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
           Receive Notification When
         </p>
 
         <Modal.Body>
           <div className="row">
-            <div className="col-4">
+            <div className="col-3 d-flex  flex-column align-items-center">
+              <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+                Observation
+              </p>
+              <label
+                className="form-check-label check-box-text cursor-pointer  my-3"
+                for="flexCheckDefault"
+              >
+                New stock is created
+              </label>
+              <label
+                className="form-check-label check-box-text cursor-pointer  my-3"
+                for="flexCheckDefault"
+              >
+                Stock is sold
+              </label>
+              <label
+                className="form-check-label check-box-text cursor-pointer  my-3"
+                for="flexCheckDefault"
+              >
+                General news is added
+              </label>
+              <label
+                className="form-check-label check-box-text cursor-pointer  my-3"
+                for="flexCheckDefault"
+              >
+                Related news is added
+              </label>
+            </div>
+            <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
                 Push
               </p>
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
             </div>
-            <div className="col-4">
+            <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
                 Web
               </p>
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
             </div>
 
-            <div className="col-4">
+            <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
                 E-mail
               </p>
+              <input
+                className="cursor-pointer mx-2 my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+              <input
+                className="cursor-pointer mx-2  my-4"
+                type="checkbox"
+                onChange={(e) => {
+                  setShowNotificationWhen({
+                    ...showNotificationWhen,
+                    showNotificationForNewStocks: e.target.checked,
+                  });
+                }}
+              />
+            </div>
+            <div className="row ">
+              <div className="col d-flex justify-content-end my-3">
+                <button
+                  type="button"
+                  onClick={() => updateNotification()}
+                  className="news-upload-btn cursor-pointer px-3 py-2"
+                >
+                  {notificationLoading ? <Loader /> : "Submit"}
+                </button>
+                <button
+                  className="news-upload-btn cursor-pointer px-3 py-2 mx-3"
+                  onClick={handleClose}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
+
           {/* <div className="py-2 d-flex align-items-center justify-content-start">
             {layoutClickChanger ? (
               <>
