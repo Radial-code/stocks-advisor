@@ -24,6 +24,9 @@ import { useDispatch } from "react-redux";
 import { LogoutAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
 
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
 const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   // new usestate
 
@@ -36,7 +39,14 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       setActiveId(id);
     }
   }
-
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   // its ends here...
   const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
@@ -266,7 +276,12 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
               <span className="d-flex align-items-center  lang-dropddown  py-xxl-2  py-xxl-3   my-xxl-auto">
                 <li
                   className="d-none d-xxl-block"
-                  onClick={() => setLang(!Lang)}
+                  // onClick={() => setLang(!Lang)}
+                  id="basic-button"
+                  aria-controls="basic-menu"
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
                 >
                   <NavLink
                     exact
@@ -287,8 +302,8 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     )}
                   </NavLink>
                 </li>
-                {Lang ? (
-                  <div className="bg-white  shadow p-2 rounded position-absolute top-72 ">
+
+                {/* <div className="bg-white  shadow p-2 rounded position-absolute top-72 ">
                     <span
                       onClick={() => layoutrightChangeHandler("english")}
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
@@ -307,10 +322,40 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                       Arabic
                       <img className="flag-img mx-2 " src={Arbic} alt="" />
                     </span>
-                  </div>
-                ) : (
-                  ""
-                )}
+                  </div> */}
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>
+                    <span
+                      onClick={() => layoutrightChangeHandler("english")}
+                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                    >
+                      English
+                      <img
+                        className="flag-img  mx-1 "
+                        src={England}
+                        alt="England"
+                      />
+                    </span>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    {" "}
+                    <span
+                      onClick={() => layoutleftChangeHandler("arabic")}
+                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
+                    >
+                      Arabic
+                      <img className="flag-img mx-2 " src={Arbic} alt="" />
+                    </span>
+                  </MenuItem>
+                </Menu>
               </span>
               <div className="d-xxl-none my-3 d-block ">
                 <Accordion
