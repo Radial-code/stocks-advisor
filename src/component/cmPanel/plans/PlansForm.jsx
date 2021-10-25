@@ -41,7 +41,6 @@ function PlansForm({ history, edit, id }) {
     setError(true);
     let details;
     let planDetailsData;
-    console.log(planDetails.details);
     if (planDetails.details !== "") {
       details =
         planDetails && planDetails.details && planDetails.details.split("\n");
