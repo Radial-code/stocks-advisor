@@ -233,11 +233,7 @@ function SignUp({ history }) {
                                 key={index}
                                 value={value.dial_code}
                               >
-                                {value.name}
-                                {value.dial_code}
-                                {/* {signUpDetails.countryCode != ""
-                                  ? signUpDetails.countryCode
-                                  : value.name} */}
+                                {value.name}({value.dial_code})
                               </option>
                             );
                           })
