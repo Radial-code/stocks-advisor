@@ -37,8 +37,13 @@ const OurPlans = ({ homepage, history }) => {
             </p>
           </Col>
 
-          {planListCount && planListCount.length !== 0 ? (
+          {loading ? (
+            <div className="text-center d-flex  justify-content-center pt-2 mx-4">
+              <BubblesLoader />
+            </div>
+          ) : (
             <>
+              <OurPlanCard history={history} />
               {layoutClickChanger ? (
                 <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">
                   <ReactPaginate
@@ -73,16 +78,6 @@ const OurPlans = ({ homepage, history }) => {
                     initialPage={page}
                   />
                 </div>
-              )}
-            </>
-          ) : (
-            <>
-              {loading ? (
-                <div className="text-center d-flex  justify-content-center pt-2 mx-4">
-                  <BubblesLoader />
-                </div>
-              ) : (
-                <OurPlanCard history={history} />
               )}
             </>
           )}
