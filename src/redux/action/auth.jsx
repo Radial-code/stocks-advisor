@@ -23,7 +23,7 @@ export const REMOVE_LOCAL_STORAGE_TOKEN = "REMOVE_LOCAL_STORAGE_TOKEN";
  * get Local Storage Token
  * @returns
  */
-export const getLocalStorageToken = (value) => ({
+export const getLocalStorageToken = () => ({
   type: GET_LOCAL_STORAGE_TOKEN,
   token: localStorage.getItem("stock-advisor"),
 });

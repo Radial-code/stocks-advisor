@@ -9,8 +9,7 @@ import ReactPaginate from "react-paginate";
 import { getContactListAction } from "../../../redux/action/contact";
 
 const EnquiryTable = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);

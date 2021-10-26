@@ -1,4 +1,3 @@
-import moment from "moment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sortarrow from "../../../assets/img/sortarrow.png";
@@ -9,6 +8,7 @@ import {
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
+import CategoryTableListItem from "./CategoryTableListItem";
 
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
@@ -158,32 +158,3 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   );
 }
 export default CategoryTable;
-
-export function CategoryTableListItem({ value, editCategory, deleteCategory }) {
-  return (
-    <>
-      <tr className="current-stock-data table-border-bottom">
-        <td className="text-end  whitespace Ellipse">
-          {moment(value.createdAt).format("MM/ddd")}
-        </td>
-        <td className="text-end  whitespace Ellipse">{value.title}</td>
-        <td className="text-end  whitespace Ellipse">
-          <button
-            className="px-3 py-1 edit-button "
-            onClick={() => editCategory(value)}
-          >
-            Edit
-          </button>
-        </td>
-        <td className="text-end  whitespace Ellipse">
-          <button
-            onClick={() => deleteCategory(value._id)}
-            className="px-3 py-1 delete-button"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    </>
-  );
-}

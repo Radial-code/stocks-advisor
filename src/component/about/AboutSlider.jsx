@@ -6,8 +6,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AboutSlider = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const teamList = useSelector((state) => state.list.teamList);
   const settings = {
     infinite: true,
