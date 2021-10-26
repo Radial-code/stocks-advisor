@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import Loader from "../../common/Loader";
 import { uploadImageAction } from "../../../redux/uploadImage";
+import BubblesLoader from "../../common/BubblesLoader";
 
 const ViewProfile = () => {
   const userDetails = useSelector((state) => state.userPanel.userDetails);
@@ -151,12 +152,16 @@ const ViewProfile = () => {
           </button>
         </>
       </div>
-      <ProfileForm
-        setUpdateUserDetailsData={setUpdateUserDetailsData}
-        inputDisable={inputDisable}
-        userDetails={userDetails}
-        UpdateUserDetailsData={UpdateUserDetailsData}
-      />
+      {userDetails ? (
+        <ProfileForm
+          setUpdateUserDetailsData={setUpdateUserDetailsData}
+          inputDisable={inputDisable}
+          userDetails={userDetails}
+          UpdateUserDetailsData={UpdateUserDetailsData}
+        />
+      ) : (
+        <BubblesLoader />
+      )}
     </div>
   );
 };
