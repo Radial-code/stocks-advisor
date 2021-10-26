@@ -99,7 +99,19 @@ const ProfileForm = ({
           />
         </div>
       </div>
-      <div className="col-lg-6 col-12 d-flex">
+      <div className="col-lg-6 col-12 d-flex flex-column">
+        {inputDisable ? (
+          ""
+        ) : (
+          <>
+            <label
+              for="exampleFormControlInput21"
+              class="form-label mb-2  edit-label  "
+            >
+              Phone Number
+            </label>
+          </>
+        )}
         <div className="row">
           {layoutClickChanger ? (
             <>
