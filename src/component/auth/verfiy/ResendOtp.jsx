@@ -23,7 +23,7 @@ const ResendOtp = ({ history }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container h">
       <form>
         <div className="row  justify-content-center ">
           <div className="col-12 col-lg-5 otp-box p-5 mt-5 mb-5">

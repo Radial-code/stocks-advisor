@@ -68,7 +68,10 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
             ) : (
               <div>
                 <img className=" nodata-img" src={NoData} alt=" NoData" />
-                <h4 className="text-center">You don't have any News</h4>
+                <h4 className="text-center fw-bold">
+                  {" "}
+                  You don't have any Related News
+                </h4>
               </div>
             )}
           </div>
@@ -101,7 +104,9 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
                 src={SearchNews}
                 alt=""
               />
-              <h4 className="text-center">You don't have any News</h4>
+              <h4 className="text-center fw-bold">
+                You don't have any Related News
+              </h4>
             </>
           )}
           <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">

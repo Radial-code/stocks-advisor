@@ -114,7 +114,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
             src={NoData}
             alt="NoData"
           />
-          <p className="fw-bold"> You don't have any Category list</p>
+          <h4 className="fw-bold"> You don't have any Category list</h4>
         </div>
       )}
 

@@ -19,7 +19,7 @@ const ForgetPassword = () => {
   };
   return (
     <div>
-      <div className="container min-h-576px-80vh my-3 my-sm-5 pt-sm-5">
+      <div className="container min-h-576px-80vh my-3 my-sm-5 pt-sm-5 d-flex flex-column justify-content-center">
         <div className="row">
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
             <div className="py-4 px-xxl-5 px-3  ">

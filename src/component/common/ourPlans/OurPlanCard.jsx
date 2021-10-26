@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
@@ -7,6 +8,7 @@ const OurPlanCard = ({ homepage, history }) => {
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
+  const pathname = window.location.pathname;
 
   return (
     <Col xs={12}>
@@ -84,7 +86,16 @@ const OurPlanCard = ({ homepage, history }) => {
             );
           })
         ) : (
-          <img className="not-found-img mx-auto  d-block" src={FoundImg} />
+          <div className="d-flex justify-content-center align-items-center flex-column">
+            <img className="not-found-img mx-auto  d-block" src={FoundImg} />
+            <h4
+              className={`${
+                pathname === "/our-plan" ? "text-dark" : "text-white"
+              } py-3 fw-bold`}
+            >
+              You Don't have any Subscription plan
+            </h4>
+          </div>
         )}
       </div>
     </Col>

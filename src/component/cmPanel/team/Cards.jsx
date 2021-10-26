@@ -47,7 +47,7 @@ const Cards = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p className="fw-bold">You don't have any data</p>
+              <h4 className="fw-bold">You don't have any Team</h4>
             </div>
           )}
         </div>

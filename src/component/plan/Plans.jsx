@@ -71,9 +71,9 @@ function Plans({ history }) {
           ) : (
             <div className="d-flex flex-column align-items-center">
               <img className="nodata-img" src={emptydata} alt="emptydata " />
-              <p className="text-center fw-bold">
+              <h4 className="text-center fw-bold">
                 You don't have any plan list
-              </p>
+              </h4>
             </div>
           )}
         </>

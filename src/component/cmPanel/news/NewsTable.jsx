@@ -34,7 +34,7 @@ const NewsTable = ({ history }) => {
         </div>
       ) : (
         <>
-          {adminNewsList && !!adminNewsList.length ? (
+          {adminNewsList && !!adminNewsList.length === 0 ? (
             <Table hover>
               <thead className="portfolio-sticky">
                 <tr className="user-list-panel">
@@ -61,59 +61,55 @@ const NewsTable = ({ history }) => {
                 </tr>
               </thead>
               <tbody className="user-details">
-                {adminNewsList && !!adminNewsList.length ? (
-                  adminNewsList.map((value, index) => {
-                    return (
-                      <tr
-                        key={index}
-                        onClick={() =>
-                          history.push(
-                            `/content/manager/edit/news/${value._id}`
-                          )
-                        }
-                      >
-                        <td className="whitespace Ellipse">
-                          {" "}
-                          {moment(value.createdAt).format("DD/MM/YY")}
-                        </td>
-                        <td
-                          className={`${
-                            layoutClickChanger
-                              ? "hitespace Ellipse text-end"
-                              : "hitespace Ellipse text-start"
-                          }`}
+                {adminNewsList && !!adminNewsList.length
+                  ? adminNewsList.map((value, index) => {
+                      return (
+                        <tr
+                          key={index}
+                          onClick={() =>
+                            history.push(
+                              `/content/manager/edit/news/${value._id}`
+                            )
+                          }
                         >
-                          {value.title ? value.title : "N/A"}
-                        </td>
-                        <td
-                          className={`${
-                            layoutClickChanger
-                              ? "hitespace Ellipse text-end"
-                              : "hitespace Ellipse text-start"
-                          }`}
-                        >
-                          {value.atitle ? value.atitle : "N/A"}
-                        </td>
-                        <td className="whitespace Ellipse">
-                          {value.tags ? value.tags : "N/A"}
-                        </td>
-                        <td className="whitespace Ellipse">
-                          {value.atags ? value.atags : "N/A"}
-                        </td>
-                      </tr>
-                    );
-                  })
-                ) : (
-                  <td colSpan="5" className="text-center">
-                    You don't have any news
-                  </td>
-                )}
+                          <td className="whitespace Ellipse">
+                            {" "}
+                            {moment(value.createdAt).format("DD/MM/YY")}
+                          </td>
+                          <td
+                            className={`${
+                              layoutClickChanger
+                                ? "hitespace Ellipse text-end"
+                                : "hitespace Ellipse text-start"
+                            }`}
+                          >
+                            {value.title ? value.title : "N/A"}
+                          </td>
+                          <td
+                            className={`${
+                              layoutClickChanger
+                                ? "hitespace Ellipse text-end"
+                                : "hitespace Ellipse text-start"
+                            }`}
+                          >
+                            {value.atitle ? value.atitle : "N/A"}
+                          </td>
+                          <td className="whitespace Ellipse">
+                            {value.tags ? value.tags : "N/A"}
+                          </td>
+                          <td className="whitespace Ellipse">
+                            {value.atags ? value.atags : "N/A"}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  : ""}
               </tbody>
             </Table>
           ) : (
             <div className="d-flex justify-content-center flex-column align-items-center">
               <img className="nodata-img" src={NoData} alt="NoData" />
-              <p className="text-center fw-bold"> You don't have any news</p>
+              <h4 className="text-center fw-bold"> You don't have any news</h4>
             </div>
           )}
         </>

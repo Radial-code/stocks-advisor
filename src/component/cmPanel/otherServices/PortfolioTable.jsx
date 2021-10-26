@@ -154,7 +154,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                 src={NoData}
                 alt="NoData"
               />
-              <p className="fw-bold"> You don't have any Portfolio list</p>
+              <h4 className="fw-bold"> You don't have any Portfolio list</h4>
             </div>
           )}
         </>
