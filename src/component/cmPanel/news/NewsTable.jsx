@@ -41,11 +41,20 @@ const NewsTable = ({ history }) => {
                 Date
               </th>
               <th className="whitespace table-width-header">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Title
+                <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                Eng-Title
+              </th>
+              <th className="whitespace table-width-header">
+                <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                Arabic-Title
               </th>
               <th className="whitespace">
                 <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Tags
+                Eng-Tags
+              </th>
+              <th className="whitespace">
+                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                Arabic-Tags
               </th>
             </tr>
           </thead>
@@ -61,7 +70,7 @@ const NewsTable = ({ history }) => {
                     >
                       <td className="whitespace Ellipse">
                         {" "}
-                        {moment(value.createdAt).format("MM/ddd")}
+                        {moment(value.createdAt).format("DD/MM/YY")}
                       </td>
                       <td
                         className={`${

@@ -169,7 +169,8 @@
   }
 }
 .not-found-img {
-  height: 500px;
+  max-height: 500px;
   border-radius: 30px;
-  width: 500px !important;
+  max-width: 500px !important;
+  width: 100%;
 }

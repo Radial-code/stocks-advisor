@@ -6,8 +6,8 @@ const ProfileForm = ({
   userDetails,
   UpdateUserDetailsData,
 }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
+
   return (
     <div className="row">
       <div className="col-lg-6 ">
@@ -99,7 +99,7 @@ const ProfileForm = ({
           />
         </div>
       </div>
-      <div className="col-lg-6 col-12 d-flex align-items-center">
+      <div className="col-lg-6 col-12 d-flex">
         <div className="row">
           {layoutClickChanger ? (
             <>
@@ -144,7 +144,11 @@ const ProfileForm = ({
                   disabled
                   className="form-control input-border-16191e33 py-2  profile-input-placeholder"
                   id="exampleFormControlInput15"
-                  placeholder="dfghjksdf"
+                  placeholder={
+                    userDetails && userDetails.countryCode
+                      ? userDetails.countryCode
+                      : "N/A"
+                  }
                 />
               </div>
             </>
@@ -156,7 +160,11 @@ const ProfileForm = ({
                   disabled
                   className="form-control input-border-16191e33 py-2  profile-input-placeholder"
                   id="exampleFormControlInput15"
-                  placeholder="dfghjksdf"
+                  placeholder={
+                    userDetails && userDetails.countryCode
+                      ? userDetails.countryCode
+                      : "N/A"
+                  }
                 />
               </div>
               <div
