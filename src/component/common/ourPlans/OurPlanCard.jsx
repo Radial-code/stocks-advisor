@@ -84,10 +84,7 @@ const OurPlanCard = ({ homepage, history }) => {
             );
           })
         ) : (
-          <img
-            className="not-found-img mx-auto mt-100 d-block"
-            src={FoundImg}
-          />
+          <img className="not-found-img mx-auto  d-block" src={FoundImg} />
         )}
       </div>
     </Col>

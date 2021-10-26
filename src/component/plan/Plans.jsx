@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { getPlansListAction } from "../../redux/action/cmPanel/plans";
 import BubblesLoader from "../common/BubblesLoader";
 import "./Plans.css";
-
+import emptydata from "../../assets/img/emptydata.jpg";
 function Plans({ history }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -69,7 +69,12 @@ function Plans({ history }) {
               );
             })
           ) : (
-            <p className="text-center fw-bold">You don't have any plan list</p>
+            <div className="d-flex flex-column align-items-center">
+              <img className="nodata-img" src={emptydata} alt="emptydata " />
+              <p className="text-center fw-bold">
+                You don't have any plan list
+              </p>
+            </div>
           )}
         </>
       )}

@@ -119,44 +119,51 @@ function PlansTable({ history }) {
         </table>
       )}
 
-      {planListCount && planListCount <= 10 ? (
-        ""
-      ) : (
+      {planList === "" ? (
         <>
-          {layoutClickChanger ? (
-            <ReactPaginate
-              previousLabel={"Prev"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(planListCount / 10)}
-              marginPagesDisplayed={3}
-              pageRangeDisplayed={2}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"activePage"}
-              initialPage={page}
-            />
+          {" "}
+          {planListCount && planListCount <= 10 ? (
+            ""
           ) : (
-            <div className="react-pagination">
-              <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
-                breakClassName={"break-me"}
-                pageCount={Math.ceil(planListCount / 10)}
-                marginPagesDisplayed={3}
-                pageRangeDisplayed={2}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
-                activeClassName={"activePage"}
-                initialPage={page}
-              />
-            </div>
+            <>
+              {layoutClickChanger ? (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(planListCount / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              ) : (
+                <div className="react-pagination">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(planListCount / 10)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              )}
+            </>
           )}
         </>
+      ) : (
+        ""
       )}
     </>
   );

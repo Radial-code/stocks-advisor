@@ -94,44 +94,51 @@ const EnquiryTable = () => {
           </tbody>
         </Table>
       )}
-      {totalContact && totalContact <= 10 ? (
-        ""
-      ) : (
+      {contactList === "" ? (
         <>
-          {layoutClickChanger ? (
-            <ReactPaginate
-              previousLabel={"Prev"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(totalContact / 10)}
-              marginPagesDisplayed={3}
-              pageRangeDisplayed={2}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"activePage"}
-              initialPage={page}
-            />
+          {" "}
+          {totalContact && totalContact <= 10 ? (
+            ""
           ) : (
-            <div className="react-pagination">
-              <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
-                breakClassName={"break-me"}
-                pageCount={Math.ceil(totalContact / 10)}
-                marginPagesDisplayed={3}
-                pageRangeDisplayed={2}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
-                activeClassName={"activePage"}
-                initialPage={page}
-              />
-            </div>
+            <>
+              {layoutClickChanger ? (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalContact / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              ) : (
+                <div className="react-pagination">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(totalContact / 10)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              )}
+            </>
           )}
         </>
+      ) : (
+        ""
       )}
     </>
   );

@@ -8,6 +8,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import StockListItem from "./StockListItem";
 import ReactPaginate from "react-paginate";
+import NoData from "../../../assets/img/emptydata.jpg";
 
 const CurrentStockTable = ({ history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
@@ -145,16 +146,25 @@ const CurrentStockTable = ({ history }) => {
             </tr>
           </thead>
           <tbody>
-            {!!stockList && !!stockList.length
-              ? stockList.map((obj, index) => (
-                  <StockListItem
-                    layoutClickChanger={layoutClickChanger}
-                    key={index}
-                    history={history}
-                    value={obj}
-                  />
-                ))
-              : "You don't have any stock"}
+            {!!stockList && !!stockList.length ? (
+              stockList.map((obj, index) => (
+                <StockListItem
+                  layoutClickChanger={layoutClickChanger}
+                  key={index}
+                  history={history}
+                  value={obj}
+                />
+              ))
+            ) : (
+              <td className="d-flex text-center flex-column">
+                <img
+                  className="nodata-img d-inline-block mx-auto"
+                  src={NoData}
+                  alt="NoData"
+                />
+                <p>You don't have any stock</p>
+              </td>
+            )}
           </tbody>
         </table>
       )}

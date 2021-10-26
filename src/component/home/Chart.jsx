@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getPortFolioChatListDataAction } from "../../redux/action/portfolio";
 import BubblesLoader from "../common/BubblesLoader";
 import LineChart from "./LineChart";
-
+import NoData from "../../assets/img/emptydata.jpg";
 const Chart = () => {
   const portfoliosChatList = useSelector(
     (state) => state.list.portfoliosChatList
@@ -38,9 +38,12 @@ const Chart = () => {
               return <LineChart chatValue={chatValue} index={index} />;
             })
           ) : (
-            <h4 className="text-center text-5CBD4C">
-              You don't have any Portfolio's Performance Chat
-            </h4>
+            <div className="d-flex flex-column align-items-center">
+              <img className="nodata-img" src={NoData} alt="NoData" />
+              <h4 className="text-center text-5CBD4C">
+                You don't have any Portfolio's Performance Chat
+              </h4>
+            </div>
           )}
         </div>
       )}
