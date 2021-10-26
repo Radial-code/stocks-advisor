@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PortfolioTable from "./PortfolioTable";
 import PortfoliosPopup from "./PortfoliosPopup";
+import NoData from "../../../assets/img/emptydata.jpg";
 
 function Portfolio() {
   const [show, setShow] = useState(false);

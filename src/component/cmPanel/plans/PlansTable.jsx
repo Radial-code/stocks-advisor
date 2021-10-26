@@ -153,7 +153,7 @@ function PlansTable({ history }) {
                 src={NoData}
                 alt="NoData"
               />
-              <p>You don't have any user</p>
+              <p className="fw-bold">You don't have any user</p>
             </div>
           )}
         </>

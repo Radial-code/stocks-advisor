@@ -47,7 +47,7 @@ const Cards = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p>You don't have any data</p>
+              <p className="fw-bold">You don't have any data</p>
             </div>
           )}
         </div>

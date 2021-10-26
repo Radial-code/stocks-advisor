@@ -107,7 +107,7 @@ const EnquiryTable = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p>You don't have any Enquiry</p>
+              <p className="fw-bold">You don't have any Enquiry</p>
             </div>
           )}
         </div>

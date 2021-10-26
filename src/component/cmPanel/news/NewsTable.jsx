@@ -113,7 +113,7 @@ const NewsTable = ({ history }) => {
           ) : (
             <div className="d-flex justify-content-center flex-column align-items-center">
               <img className="nodata-img" src={NoData} alt="NoData" />
-              <p className="text-center"> You don't have any news</p>
+              <p className="text-center fw-bold"> You don't have any news</p>
             </div>
           )}
         </>

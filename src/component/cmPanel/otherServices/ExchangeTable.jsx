@@ -7,6 +7,7 @@ import {
   getExchangeListAction,
 } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
+import NoData from "../../../assets/img/emptydata.jpg";
 
 function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
@@ -36,89 +37,116 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
           <BubblesLoader />
         </div>
       ) : (
-        <table className="table table-borderless table-hover mb-3">
-          <thead className="portfolio-sticky ">
-            <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Date
-              </th>
+        <>
+          {exchangeList === "" ? (
+            <>
+              <table className="table table-borderless table-hover mb-3">
+                <thead className="portfolio-sticky ">
+                  <tr className="current-stock-table-head table-border-bottom table-border-top">
+                    <th
+                      scope="col"
+                      className="text-end  position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Date
+                    </th>
 
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Exchange
-              </th>
+                    <th
+                      scope="col"
+                      className="text-end  position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Exchange
+                    </th>
 
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Edit
-              </th>
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Delete
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {exchangeList && !!exchangeList.length ? (
-              exchangeList.map((value, index) => {
-                return (
-                  <tr
-                    key={index}
-                    className="current-stock-data table-border-bottom"
-                  >
-                    <td className="text-end  whitespace Ellipse">
-                      {moment(value.createdAt).format("MM/ddd")}
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      {value.title}
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      <button
-                        className="px-3 py-1 edit-button "
-                        onClick={() => editCategory(value)}
-                      >
-                        Edit
-                      </button>
-                    </td>
-                    <td className="text-end  whitespace Ellipse">
-                      <button
-                        onClick={() => deleteExchange(value._id)}
-                        className="px-3 py-1 delete-button"
-                      >
-                        Delete
-                      </button>
-                    </td>
+                    <th
+                      scope="col"
+                      className="text-end  position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Edit
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-end  position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Delete
+                    </th>
                   </tr>
-                );
-              })
-            ) : (
-              <td colSpan={5} className="text-center table-text">
-                You don't have any Exchange list
-              </td>
-            )}
-          </tbody>
-        </table>
+                </thead>
+                <tbody>
+                  {exchangeList && !!exchangeList.length
+                    ? exchangeList.map((value, index) => {
+                        return (
+                          <tr
+                            key={index}
+                            className="current-stock-data table-border-bottom"
+                          >
+                            <td className="text-end  whitespace Ellipse">
+                              {moment(value.createdAt).format("MM/ddd")}
+                            </td>
+                            <td className="text-end  whitespace Ellipse">
+                              {value.title}
+                            </td>
+                            <td className="text-end  whitespace Ellipse">
+                              <button
+                                className="px-3 py-1 edit-button "
+                                onClick={() => editCategory(value)}
+                              >
+                                Edit
+                              </button>
+                            </td>
+                            <td className="text-end  whitespace Ellipse">
+                              <button
+                                onClick={() => deleteExchange(value._id)}
+                                className="px-3 py-1 delete-button"
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    : ""}
+                </tbody>
+              </table>
+            </>
+          ) : (
+            <div className="d-flex text-center flex-column">
+              <img
+                className="nodata-img d-inline-block mx-auto"
+                src={NoData}
+                alt="NoData"
+              />
+              <p className="fw-bold"> You don't have any Exchange list</p>
+            </div>
+          )}
+        </>
       )}
     </>
   );

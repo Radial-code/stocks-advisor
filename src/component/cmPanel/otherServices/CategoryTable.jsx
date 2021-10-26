@@ -9,7 +9,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 import CategoryTableListItem from "./CategoryTableListItem";
-
+import NoData from "../../../assets/img/emptydata.jpg";
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -48,67 +48,74 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
         <div className="d-flex justify-content-center align-items-center h-100">
           <BubblesLoader />
         </div>
+      ) : categoryList === "" ? (
+        <>
+          <table className="table table-borderless table-hover mb-3">
+            <thead className="portfolio-sticky ">
+              <tr className="current-stock-table-head table-border-bottom table-border-top">
+                <th
+                  scope="col"
+                  className="text-end  position-sticky top-0  whitespace "
+                >
+                  <span>
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  </span>
+                  Date
+                </th>
+
+                <th
+                  scope="col"
+                  className="text-end  position-sticky top-0  whitespace"
+                >
+                  <span>
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  </span>
+                  Category
+                </th>
+
+                <th
+                  scope="col"
+                  className="text-end  position-sticky top-0  whitespace"
+                >
+                  <span>
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  </span>
+                  Edit
+                </th>
+                <th
+                  scope="col"
+                  className="text-end  position-sticky top-0  whitespace"
+                >
+                  <span>
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  </span>
+                  Delete
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {categoryList && !!categoryList.length
+                ? categoryList.map((obj, index) => (
+                    <CategoryTableListItem
+                      key={index}
+                      value={obj}
+                      editCategory={editCategory}
+                      deleteCategory={deleteCategory}
+                    />
+                  ))
+                : ""}
+            </tbody>
+          </table>
+        </>
       ) : (
-        <table className="table table-borderless table-hover mb-3">
-          <thead className="portfolio-sticky ">
-            <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0  whitespace "
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Date
-              </th>
-
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0  whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Category
-              </th>
-
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0  whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Edit
-              </th>
-              <th
-                scope="col"
-                className="text-end  position-sticky top-0  whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Delete
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {categoryList && !!categoryList.length ? (
-              categoryList.map((obj, index) => (
-                <CategoryTableListItem
-                  key={index}
-                  value={obj}
-                  editCategory={editCategory}
-                  deleteCategory={deleteCategory}
-                />
-              ))
-            ) : (
-              <td colSpan={5} className="text-center table-text">
-                You don't have any Category list
-              </td>
-            )}
-          </tbody>
-        </table>
+        <div className="d-flex text-center flex-column">
+          <img
+            className="nodata-img d-inline-block mx-auto"
+            src={NoData}
+            alt="NoData"
+          />
+          <p className="fw-bold"> You don't have any Category list</p>
+        </div>
       )}
 
       {totalCategory <= 10 ? (
