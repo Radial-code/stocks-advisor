@@ -3,6 +3,7 @@ import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
@@ -18,6 +19,7 @@ function SignUp({ history }) {
   const [loading, setLoading] = useState(false);
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
+  const [reCaptchaToken, setReCaptchaToken] = useState(null);
 
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
@@ -29,6 +31,7 @@ function SignUp({ history }) {
     confirmPassword: "",
     country: "",
     countryCode: "",
+    "recaptcha-token": reCaptchaToken,
   });
 
   const submitSignUpForm = () => {
@@ -44,9 +47,22 @@ function SignUp({ history }) {
       signUpDetails.confirmPassword &&
       signUpDetails.country &&
       signUpDetails.countryCode &&
+      !!reCaptchaToken &&
       passwordRegex.test(signUpDetails.password) === true
     ) {
-      dispatch(SignUpAction(signUpDetails, setLoading, history));
+      const data = {
+        firstName: signUpDetails.firstName,
+        lastName: signUpDetails.lastName,
+        username: signUpDetails.username,
+        email: signUpDetails.email,
+        password: signUpDetails.password,
+        phone: signUpDetails.phone,
+        confirmPassword: signUpDetails.confirmPassword,
+        country: signUpDetails.country,
+        countryCode: signUpDetails.countryCode,
+        "recaptcha-token": reCaptchaToken,
+      };
+      dispatch(SignUpAction(data, setLoading, history));
     }
   };
   const userNameSubmit = (e) => {
@@ -167,7 +183,6 @@ function SignUp({ history }) {
                     : null}
                 </span>
               </Form.Group>
-
               <div className="row align-items-center">
                 {layoutClickChanger ? (
                   <>
@@ -387,9 +402,15 @@ function SignUp({ history }) {
                     className="form-select text-end"
                   >
                     <option>Select Country</option>
-                    <option>India</option>
-                    <option>USA</option>
-                    <option>JAPAN</option>
+                    {countries && countries.length
+                      ? countries.map((value, index) => {
+                          return (
+                            <option key={index} value={value.name}>
+                              {value.name}
+                            </option>
+                          );
+                        })
+                      : "Something went wrong"}
                   </select>
                 </FormGroup>
               ) : (
@@ -408,7 +429,7 @@ function SignUp({ history }) {
                     {countries && countries.length
                       ? countries.map((value, index) => {
                           return (
-                            <option key={index} value={value.dial_code}>
+                            <option key={index} value={value.name}>
                               {value.name}
                             </option>
                           );
@@ -417,13 +438,20 @@ function SignUp({ history }) {
                   </select>
                 </FormGroup>
               )}
-
               <span className="text-danger">
                 {error && signUpDetails.country === ""
                   ? "Country is required"
                   : null}
               </span>
-
+              <div className="mt-3" style={{ maWidth: "200px" }}>
+                <HCaptcha
+                  sitekey="340a426e-e981-47e6-8a61-6ae115ab23a2"
+                  onVerify={(token, ekey) => setReCaptchaToken(token, ekey)}
+                />
+              </div>
+              <span className="text-danger">
+                {error && !reCaptchaToken ? "Please solved Captcha" : null}
+              </span>
               <div className=" my-4">
                 <button
                   type="button"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../form/form.css";
 import { Link } from "react-router-dom";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
@@ -10,10 +11,10 @@ import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
 
 function Login({ history }) {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [reCaptchaToken, setReCaptchaToken] = useState(null);
   const [error, setError] = useState(false);
   const [logInDetails, setLoginInDetails] = useState({
     email: "",
@@ -26,9 +27,15 @@ function Login({ history }) {
     if (
       logInDetails.email &&
       logInDetails.password &&
+      !!reCaptchaToken &&
       EmailRegex.test(logInDetails.email) === true
     ) {
-      dispatch(loginAction(logInDetails, setLoading, history, userData));
+      const data = {
+        "recaptcha-token": reCaptchaToken,
+        email: logInDetails.email,
+        password: logInDetails.password,
+      };
+      dispatch(loginAction(data, setLoading, history, userData));
     }
   };
 
@@ -86,7 +93,15 @@ function Login({ history }) {
                     : null}
                 </span>
               </Form.Group>
-
+              <div className="" style={{ maWidth: "200px" }}>
+                <HCaptcha
+                  sitekey="340a426e-e981-47e6-8a61-6ae115ab23a2"
+                  onVerify={(token, ekey) => setReCaptchaToken(token, ekey)}
+                />
+              </div>
+              <span className="text-danger">
+                {error && !reCaptchaToken ? "Please solved Captcha" : null}
+              </span>
               <div className=" my-sm-3">
                 <button
                   type="button"
@@ -98,13 +113,12 @@ function Login({ history }) {
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-sm-5 pt-4">
-              Don't have an account ?{" "}
+              Don't have an account ?
               <Link to="/signup" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">Sign Up</span>
               </Link>
             </p>
             <Link className="text-decoration" to="/forget/password">
-              {" "}
               {layoutClickChanger ? (
                 <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
                   ? Forgot Password
