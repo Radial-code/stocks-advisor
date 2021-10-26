@@ -4,10 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../common/slider.css";
 import SearchNews from "../../assets/img/searchnews.png";
-import { NavLink, withRouter, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import RelatedNewsArticlesList from "./RelatedNewsArticlesList";
-
+import NoData from "../../assets/img/emptydata.jpg";
 const HomeRelatedNewsSlider = ({ loader, history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
   var settings = {
@@ -51,17 +51,26 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
           <div className="d-flex flex-lg-row flex-column justify-content-center ">
-            {newsListData &&
-              newsListData.length < 4 &&
-              newsListData.map((news, index) => {
-                return (
-                  <RelatedNewsArticlesList
-                    news={news}
-                    index={index}
-                    history={history}
-                  />
-                );
-              })}{" "}
+            {newsListData === "" ? (
+              <>
+                {newsListData &&
+                  newsListData.length < 4 &&
+                  newsListData.map((news, index) => {
+                    return (
+                      <RelatedNewsArticlesList
+                        news={news}
+                        index={index}
+                        history={history}
+                      />
+                    );
+                  })}{" "}
+              </>
+            ) : (
+              <div>
+                <img className=" nodata-img" src={NoData} alt=" NoData" />
+                <h4 className="text-center">You don't have any News</h4>
+              </div>
+            )}
           </div>
 
           {!loader ? (

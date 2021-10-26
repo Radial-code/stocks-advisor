@@ -8,7 +8,7 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
 import { withRouter } from "react-router";
-
+import NoData from "../../../assets/img/emptydata.jpg";
 const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
   const { layoutClickChanger } = useLayoutChangerProvider();
@@ -111,9 +111,10 @@ const NewsTable = ({ history }) => {
               </tbody>
             </Table>
           ) : (
-            <td colSpan="5" className="text-center">
-              You don't have any news
-            </td>
+            <div className="d-flex justify-content-center flex-column align-items-center">
+              <img className="nodata-img" src={NoData} alt="NoData" />
+              <p className="text-center"> You don't have any news</p>
+            </div>
           )}
         </>
       )}
