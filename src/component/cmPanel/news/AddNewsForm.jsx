@@ -78,11 +78,6 @@ const AddNewsForm = ({
               type="text"
               placeholder="YouTube / Image Link "
             />
-            {/* <span className="text-danger">
-              {error && newsDetails.link === undefined
-                ? "Image is required"
-                : null}
-            </span> */}
           </Form.Group>
         </div>
         <div className="col-xl-6 mb-3">
@@ -112,9 +107,6 @@ const AddNewsForm = ({
               "Uploading please wait for sometime"
             )}
           </div>
-          {/* <span className="text-danger">
-            {error && uploadImg === "" ? "Image is required" : null}
-          </span> */}
         </div>
       </div>
       <div className="row">
@@ -182,11 +174,6 @@ const AddNewsForm = ({
                   <option>You don't have any stock </option>
                 )}
               </select>
-              {/* <span className="text-danger">
-                {error && newsDetails.stock === undefined
-                  ? "Stock is required"
-                  : null}
-              </span> */}
             </FormGroup>
           ) : (
             <FormGroup
@@ -219,11 +206,6 @@ const AddNewsForm = ({
                   <option>You don't have any stock </option>
                 )}
               </select>
-              {/* <span className="text-danger">
-                {error && newsDetails.stock === undefined
-                  ? "Stock is required"
-                  : null}
-              </span> */}
             </FormGroup>
           )}
         </div>
@@ -297,11 +279,6 @@ const AddNewsForm = ({
             }}
             value={newsDetails.adescription}
           ></textarea>
-          {/* <span className="text-danger">
-            {error && newsDetails.adescription === undefined
-              ? "Arabic Description is required"
-              : null}
-          </span> */}
         </div>
         <div className="col-12 mb-3" dir="ltr">
           <textarea
@@ -323,11 +300,6 @@ const AddNewsForm = ({
             }}
             value={newsDetails.description}
           ></textarea>
-          {/* <span className="text-danger">
-            {error && newsDetails.description === undefined
-              ? "Description is required"
-              : null}
-          </span> */}
         </div>
       </div>
       <div className="col-auto mb-3">

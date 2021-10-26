@@ -19,15 +19,6 @@ const NewsDetailsPage = ({ history, loading }) => {
       ) : (
         <div className="profile-box-2 w-xs-303 p-4 h-100">
           <div className=" my-3">
-            {/* <img
-              className="w-100 h-xs-171"
-              src={
-                newsDetails && newsDetails.imagePath
-                  ? newsDetails.imagePath
-                  : "N/A"
-              }
-              alt=""
-            /> */}
             <LinkPreview url={newsDetails && newsDetails.link} width="100%" />
             <h6
               className={` ${

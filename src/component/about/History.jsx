@@ -8,7 +8,6 @@ const History = () => {
         <div className="col-lg-5 order-lg-1 order-2 ">
           <img className="w-100" src={BusinessImg} alt="" />
         </div>
-
         <div className="col-lg-6 order-lg-2 order-1 ">
           <h1 className="section-heading fs-sm-22">History</h1>
           <p className="stock-paragraph max-w-625 w-100 mb-3 mb-lg-0 dots-2">
