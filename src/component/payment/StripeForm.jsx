@@ -86,14 +86,13 @@ const StripeForm = ({ loader, match, history }) => {
               }}
             />
           </fieldset>
-
           {error && <StripeErrorMessage>{error.message}</StripeErrorMessage>}
           <StripeSubmitButton
             processing={processing}
             error={error}
             disabled={!stripe}
           >
-            {loader && loading ? <Loader /> : "Payment"}
+            {loader || loading ? <Loader /> : "Payment"}
           </StripeSubmitButton>
         </form>
       </section>

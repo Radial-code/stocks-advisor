@@ -174,7 +174,6 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 type="checkbox"
                 checked={showNotificationWhen.showNotificationForNewStocksW}
                 onChange={(e) => {
-                  console.log(e.target.checked);
                   setShowNotificationWhen({
                     ...showNotificationWhen,
                     showNotificationForNewStocksW: e.target.checked,
@@ -247,7 +246,6 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 type="checkbox"
                 checked={showNotificationWhen.showNotificationForGeneralNewsE}
                 onChange={(e) => {
-                  console.log(showNotificationWhen);
                   setShowNotificationWhen({
                     ...showNotificationWhen,
                     showNotificationForGeneralNewsE: e.target.checked,
