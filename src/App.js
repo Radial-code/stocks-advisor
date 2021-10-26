@@ -24,7 +24,7 @@ function App({ history }) {
   const [showSidebar2, setShowSidebar2] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
   const stripePromise = loadStripe(
-    "pk_test_51Ix50ySAXA6ohppa6sCSbgt2LbGnFl07UlO5v7HnRza0NT0idMwCYas5ouQBR8GEmv4l2SeR3lfwJXKzVUxmkghh00fs3EjdLI"
+    "pk_test_51JojDBSA6U9MBWzFtxmw0E1QxCkuXOW4qlOGhqtFPlS6Mo84Rsvbs65KVJ0JjSdC7HmYnSwgvu8zkM8lYpfF9RDt008ZkphiZj"
   );
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
