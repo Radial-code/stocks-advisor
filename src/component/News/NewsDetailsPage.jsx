@@ -27,7 +27,17 @@ const NewsDetailsPage = ({ history, loading }) => {
                   : "section-heading mt-4 fs-sm-18"
               } `}
             >
-              {newsDetails && newsDetails.title ? newsDetails.title : "N/A"}
+              {layoutClickChanger ? (
+                <>
+                  {newsDetails && newsDetails.atitle
+                    ? newsDetails.atitle
+                    : "N/A"}
+                </>
+              ) : (
+                <>
+                  {newsDetails && newsDetails.title ? newsDetails.title : "N/A"}
+                </>
+              )}
             </h6>
             <p
               onClick={() =>
@@ -37,7 +47,15 @@ const NewsDetailsPage = ({ history, loading }) => {
               }
               className="small-paragraph d-none dots-data d-lg-block mb-0 cursor-pointer fw-bold mt-3 mb-3"
             >
-              <span>{newsDetails && newsDetails.tags}</span>
+              {layoutClickChanger ? (
+                <>
+                  {newsDetails && newsDetails.atags ? newsDetails.atags : "N/A"}
+                </>
+              ) : (
+                <>
+                  {newsDetails && newsDetails.tags ? newsDetails.tags : "N/A"}
+                </>
+              )}
             </p>
 
             <p
@@ -79,9 +97,19 @@ const NewsDetailsPage = ({ history, loading }) => {
           <div className="row">
             <div className="col-xl-6 col-xxl-7">
               <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
-                {newsDetails && newsDetails.description
-                  ? newsDetails.description
-                  : "N/A"}
+                {layoutClickChanger ? (
+                  <>
+                    {newsDetails && newsDetails.adescription
+                      ? newsDetails.adescription
+                      : "N/A"}
+                  </>
+                ) : (
+                  <>
+                    {newsDetails && newsDetails.description
+                      ? newsDetails.description
+                      : "N/A"}
+                  </>
+                )}
               </p>
             </div>
 
@@ -99,9 +127,19 @@ const NewsDetailsPage = ({ history, loading }) => {
 
             <div className="col-12 mt-5 mt-xl-0">
               <p className="stock-paragraph mt-2 fs-sm-14">
-                {newsDetails && newsDetails.description
-                  ? newsDetails.description
-                  : "N/A"}
+                {layoutClickChanger ? (
+                  <>
+                    {newsDetails && newsDetails.adescription
+                      ? newsDetails.adescription
+                      : "N/A"}
+                  </>
+                ) : (
+                  <>
+                    {newsDetails && newsDetails.description
+                      ? newsDetails.description
+                      : "N/A"}
+                  </>
+                )}
               </p>
             </div>
           </div>

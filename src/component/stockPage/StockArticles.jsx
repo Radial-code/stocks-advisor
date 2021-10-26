@@ -3,10 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 const StockArticles = ({ history }) => {
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   return (
     <>
       <Container className="max-w-container ">
@@ -40,10 +40,26 @@ const StockArticles = ({ history }) => {
                               - {moment(value.updatedAt).format("dd/MM/YYYY")}
                             </p>
                             <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
-                              {value.title ? value.title : "N/A"}{" "}
+                              {layoutClickChanger ? (
+                                <>{value.atitle ? value.atitle : "N/A"}</>
+                              ) : (
+                                <>{value.title ? value.title : "N/A"}</>
+                              )}
                             </p>
                             <p className="stock-paragraph max-w-para d-none d-lg-block">
-                              {value.description}
+                              {layoutClickChanger ? (
+                                <>
+                                  {value.adescription
+                                    ? value.adescription
+                                    : "N/A"}
+                                </>
+                              ) : (
+                                <>
+                                  {value.description
+                                    ? value.description
+                                    : "N/A"}
+                                </>
+                              )}
                             </p>
                             <p className="read-more d-none d-lg-block mb-0">
                               Read More
@@ -56,7 +72,11 @@ const StockArticles = ({ history }) => {
                                 )
                               }
                             >
-                              <span>{value.tags}</span>
+                              {layoutClickChanger ? (
+                                <>{value.atags ? value.atags : "N/A"}</>
+                              ) : (
+                                <>{value.tags ? value.tags : "N/A"}</>
+                              )}
                             </p>
                             <p
                               className={`${

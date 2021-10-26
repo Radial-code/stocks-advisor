@@ -77,7 +77,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         : "heading-stock"
                     } `}
                   >
-                    {value.title ? value.title : "N/A"}
+                    {layoutClickChanger ? (
+                      <>{value.atitle ? value.atitle : "N/A"}</>
+                    ) : (
+                      <>{value.title ? value.title : "N/A"}</>
+                    )}
                   </h6>
                   <p
                     className={` ${
@@ -86,7 +90,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         : "parargraph-stock pt-sm-2"
                     } `}
                   >
-                    {value.description}
+                    {layoutClickChanger ? (
+                      <>{value.atitle ? value.adescription : "N/A"}</>
+                    ) : (
+                      <>{value.title ? value.description : "N/A"}</>
+                    )}
                   </p>
                   <p
                     onClick={() => history.push(`/news/details/${value._id}`)}
@@ -117,7 +125,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                           : "cursor-pointer fw-bold"
                       } `}
                     >
-                      {value.tags}
+                      {layoutClickChanger ? (
+                        <>{value.atitle ? value.atags : "N/A"}</>
+                      ) : (
+                        <>{value.title ? value.tags : "N/A"}</>
+                      )}
                     </span>
                   </p>
                   <p
@@ -135,7 +147,9 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         )
                       }
                     >
-                      {value.stock.symbol}
+                      {value.stock && value.stock.symbol
+                        ? value.stock.symbol
+                        : "N/A"}
                     </span>
                     <span className="cursor-pointer fw-bold ps-1">:Stock</span>
                   </p>
