@@ -51,15 +51,15 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p
                     className={
                       layoutClickChanger
-                        ? "text-start stock-paragraph mt-3"
-                        : "text-start stock-paragraph mt-3"
+                        ? "text-end stock-paragraph mt-3"
+                        : "text-end stock-paragraph mt-3"
                     }
                   >
                     <span
                       className={` ${
                         layoutClickChanger
                           ? "d-flex align-items-center justify-content-start "
-                          : "d-flex align-items-center justify-content-end"
+                          : "d-flex align-items-center justify-content-start"
                       }  `}
                     >
                       <span className="d-flex justify-content-end px-2">
