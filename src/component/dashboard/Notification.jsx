@@ -52,8 +52,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
     dispatch(
       updateUserDetailsAction(showNotificationWhen, setNotificationLoading)
     );
+    handleClose(false);
   };
-  console.log("showNotificationWhen", showNotificationWhen);
   return (
     <Container className="mr-lg-30">
       <div

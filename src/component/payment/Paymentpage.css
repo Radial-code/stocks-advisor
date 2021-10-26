@@ -12,6 +12,9 @@
 .fw-500 {
   font-weight: 500;
 }
+.list-style {
+  list-style: none;
+}
 .monthly-payment {
   height: 50px;
   width: 324px;
