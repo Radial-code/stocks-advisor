@@ -34,139 +34,180 @@ const CurrentStockTable = ({ history }) => {
           <BubblesLoader />
         </div>
       ) : (
-        <table className="table table-borderless table-hover mb-3">
-          <thead className="portfolio-sticky ">
-            <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Join date{" "}
-              </th>
+        <>
+          {stockList === "" ? (
+            <>
+              <table className="table table-borderless table-hover mb-3">
+                <thead className="portfolio-sticky ">
+                  <tr className="current-stock-table-head table-border-bottom table-border-top">
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Join date{" "}
+                    </th>
 
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Symbol
-              </th>
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                State
-              </th>
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Join price
-              </th>
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Sold price
-              </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Symbol
+                    </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      State
+                    </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Join price
+                    </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Sold price
+                    </th>
 
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Sold date
-              </th>
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Category
-              </th>
-              <th
-                scope="col"
-                className={`${
-                  layoutClickChanger
-                    ? "text-end position-sticky top-0 whitespace"
-                    : "text-start position-sticky top-0 whitespace"
-                }`}
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Profit/Loss
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {!!stockList && !!stockList.length ? (
-              stockList.map((obj, index) => (
-                <StockListItem
-                  layoutClickChanger={layoutClickChanger}
-                  key={index}
-                  history={history}
-                  value={obj}
-                />
-              ))
-            ) : (
-              <td className="d-flex text-center flex-column">
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Sold date
+                    </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Category
+                    </th>
+                    <th
+                      scope="col"
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end position-sticky top-0 whitespace"
+                          : "text-start position-sticky top-0 whitespace"
+                      }`}
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Profit/Loss
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {!!stockList && !!stockList.length
+                    ? stockList.map((obj, index) => (
+                        <StockListItem
+                          layoutClickChanger={layoutClickChanger}
+                          key={index}
+                          history={history}
+                          value={obj}
+                        />
+                      ))
+                    : ""}
+                </tbody>
+              </table>
+            </>
+          ) : (
+            <>
+              {" "}
+              <div className="d-flex text-center flex-column">
                 <img
                   className="nodata-img d-inline-block mx-auto"
                   src={NoData}
                   alt="NoData"
                 />
                 <p>You don't have any stock</p>
-              </td>
-            )}
-          </tbody>
-        </table>
+              </div>
+            </>
+          )}
+        </>
       )}
 
       {totalStock <= 10 ? (

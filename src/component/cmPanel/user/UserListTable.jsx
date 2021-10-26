@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import UserListItem from "./UserListItem";
 import ReactPaginate from "react-paginate";
+import NoData from "../../../assets/img/emptydata.jpg";
 
 const UserListTable = () => {
   const dispatch = useDispatch();
@@ -33,78 +34,91 @@ const UserListTable = () => {
           <BubblesLoader />
         </div>
       ) : (
-        <Table responsive hover className="">
-          <thead className="portfolio-sticky">
-            <tr className="user-list-panel">
-              <th
-                className={`${
-                  layoutClickChanger
-                    ? "text-end whitespace"
-                    : "text-start whitespace"
-                }`}
-              >
-                {" "}
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Join Date
-              </th>
-              <th
-                className={`${
-                  layoutClickChanger
-                    ? "text-end whitespace"
-                    : "text-start whitespace"
-                }`}
-              >
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
-              </th>
-              <th
-                className={`${
-                  layoutClickChanger
-                    ? "text-end whitespace"
-                    : "text-start whitespace"
-                }`}
-              >
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Phone
-              </th>
-              <th
-                className={`${
-                  layoutClickChanger
-                    ? "text-end whitespace"
-                    : "text-start whitespace"
-                }`}
-              >
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                E-mail
-              </th>
-              <th
-                className={`${
-                  layoutClickChanger
-                    ? "text-end whitespace"
-                    : "text-start whitespace"
-                }`}
-              >
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Subscription Plan Name
-              </th>
-            </tr>
-          </thead>
-          <tbody className="user-details">
-            {adminUserList && adminUserList.length ? (
-              adminUserList.map((obj, index) => (
-                <UserListItem
-                  key={index}
-                  value={obj}
-                  history={history}
-                  layoutClickChanger={layoutClickChanger}
-                />
-              ))
-            ) : (
-              <td colspan={5} className="text-center h-100 table-text">
-                You don't have any user
-              </td>
-            )}
-          </tbody>
-        </Table>
+        <>
+          {adminUserList ? (
+            <>
+              {" "}
+              <Table responsive hover className="">
+                <thead className="portfolio-sticky">
+                  <tr className="user-list-panel">
+                    <th
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      {" "}
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Join Date
+                    </th>
+                    <th
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                      Name
+                    </th>
+                    <th
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Phone
+                    </th>
+                    <th
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      E-mail
+                    </th>
+                    <th
+                      className={`${
+                        layoutClickChanger
+                          ? "text-end whitespace"
+                          : "text-start whitespace"
+                      }`}
+                    >
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Subscription Plan Name
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="user-details">
+                  {adminUserList && adminUserList.length
+                    ? adminUserList.map((obj, index) => (
+                        <UserListItem
+                          key={index}
+                          value={obj}
+                          history={history}
+                          layoutClickChanger={layoutClickChanger}
+                        />
+                      ))
+                    : ""}
+                </tbody>
+              </Table>
+            </>
+          ) : (
+            <div className="d-flex text-center flex-column">
+              <img
+                className="nodata-img d-inline-block mx-auto"
+                src={NoData}
+                alt="NoData"
+              />
+              <p>You don't have any user</p>
+            </div>
+          )}
+        </>
       )}
       {totalUsers && totalUsers <= 10 ? (
         ""

@@ -7,7 +7,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 import moment from "moment";
 import ReactPaginate from "react-paginate";
 import { getContactListAction } from "../../../redux/action/contact";
-
+import NoData from "../../../assets/img/emptydata.jpg";
 const EnquiryTable = () => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
@@ -32,67 +32,85 @@ const EnquiryTable = () => {
           <BubblesLoader />
         </div>
       ) : (
-        <Table responsive hover className="">
-          <thead className="portfolio-sticky">
-            <tr className="user-list-panel">
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Date
-              </th>
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Name
-              </th>
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Reason
-              </th>
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                E-mail
-              </th>
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Message
-              </th>
-              <th className=" whitespace text-start">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Status
-              </th>
-            </tr>
-          </thead>
-          <tbody className="user-details">
-            {contactList && contactList.length ? (
-              contactList.map((value, index) => {
-                return (
-                  <tr key={index}>
-                    <td className=" whitespace text-start Ellipse">
-                      {moment(value.createdAt).format("MM/ddd")}
-                    </td>
-                    <td className=" whitespace text-start Ellipse" dir="ltr">
-                      {value.name}
-                    </td>
-                    <td className=" whitespace text-start Ellipse">
-                      {value.reason}
-                    </td>
-                    <td className=" whitespace text-start Ellipse" dir="ltr">
-                      {value.email}
-                    </td>
-                    <td className=" whitespace text-start Ellipse">
-                      {value.message}
-                    </td>
-                    <td className=" whitespace text-start Ellipse">
-                      {value.status}
-                    </td>
+        <div>
+          {contactList === "" ? (
+            <>
+              <Table responsive hover className="">
+                <thead className="portfolio-sticky">
+                  <tr className="user-list-panel">
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Date
+                    </th>
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                      Name
+                    </th>
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Reason
+                    </th>
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      E-mail
+                    </th>
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Message
+                    </th>
+                    <th className=" whitespace text-start">
+                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      Status
+                    </th>
                   </tr>
-                );
-              })
-            ) : (
-              <td colSpan={6} className="table-text text-center">
-                You don't have any user
-              </td>
-            )}
-          </tbody>
-        </Table>
+                </thead>
+                <tbody className="user-details">
+                  {contactList && contactList.length
+                    ? contactList.map((value, index) => {
+                        return (
+                          <tr key={index}>
+                            <td className=" whitespace text-start Ellipse">
+                              {moment(value.createdAt).format("MM/ddd")}
+                            </td>
+                            <td
+                              className=" whitespace text-start Ellipse"
+                              dir="ltr"
+                            >
+                              {value.name}
+                            </td>
+                            <td className=" whitespace text-start Ellipse">
+                              {value.reason}
+                            </td>
+                            <td
+                              className=" whitespace text-start Ellipse"
+                              dir="ltr"
+                            >
+                              {value.email}
+                            </td>
+                            <td className=" whitespace text-start Ellipse">
+                              {value.message}
+                            </td>
+                            <td className=" whitespace text-start Ellipse">
+                              {value.status}
+                            </td>
+                          </tr>
+                        );
+                      })
+                    : ""}
+                </tbody>
+              </Table>
+            </>
+          ) : (
+            <div className="d-flex text-center flex-column">
+              <img
+                className="nodata-img d-inline-block mx-auto"
+                src={NoData}
+                alt="NoData"
+              />
+              <p>You don't have any Enquiry</p>
+            </div>
+          )}
+        </div>
       )}
       {contactList === "" ? (
         <>

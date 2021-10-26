@@ -10,7 +10,7 @@ import {
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
-
+import NoData from "../../../assets/img/emptydata.jpg";
 function PlansTable({ history }) {
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
@@ -42,81 +42,121 @@ function PlansTable({ history }) {
           <BubblesLoader />
         </div>
       ) : (
-        <table className="table table-borderless table-hover mb-3">
-          <thead className="portfolio-sticky ">
-            <tr className="current-stock-table-head table-border-bottom table-border-top">
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Date{" "}
-              </th>
+        <>
+          {planList === "" ? (
+            <>
+              {" "}
+              <table className="table table-borderless table-hover mb-3">
+                <thead className="portfolio-sticky ">
+                  <tr className="current-stock-table-head table-border-bottom table-border-top">
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Date{" "}
+                    </th>
 
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Title
-              </th>
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Price
-              </th>
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Type
-              </th>
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Update
-              </th>
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Title
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Price
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Type
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Update
+                    </th>
 
-              <th
-                scope="col"
-                className="text-end position-sticky top-0 whitespace"
-              >
-                <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                </span>
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {planList && planList.length
-              ? planList.map((obj, index) => (
-                  <PlansTableListItem
-                    key={index}
-                    value={obj}
-                    history={history}
-                    deletePlans={deletePlans}
-                    deleteLoading={deleteLoading}
-                  />
-                ))
-              : "You don't have any plan"}
-          </tbody>
-        </table>
+                    <th
+                      scope="col"
+                      className="text-end position-sticky top-0 whitespace"
+                    >
+                      <span>
+                        <img
+                          className="ps-1"
+                          src={Sortarrow}
+                          alt="sort arrow"
+                        />
+                      </span>
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {planList && planList.length
+                    ? planList.map((obj, index) => (
+                        <PlansTableListItem
+                          key={index}
+                          value={obj}
+                          history={history}
+                          deletePlans={deletePlans}
+                          deleteLoading={deleteLoading}
+                        />
+                      ))
+                    : ""}
+                </tbody>
+              </table>
+            </>
+          ) : (
+            <div className="d-flex text-center flex-column">
+              <img
+                className="nodata-img d-inline-block mx-auto"
+                src={NoData}
+                alt="NoData"
+              />
+              <p>You don't have any user</p>
+            </div>
+          )}
+        </>
       )}
 
       {planList === "" ? (
