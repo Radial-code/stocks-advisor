@@ -70,6 +70,7 @@ const AddNewNews = ({ edit, match, history }) => {
       newsDetails.atitle !== undefined &&
       // newsDetails.adescription !== undefined &&
       newsDetails.atags !== undefined
+
       // uploadImageUrl !== "" &&
       // newsDetails.link !== undefined &&
       // newsDetails.portfolios !== undefined

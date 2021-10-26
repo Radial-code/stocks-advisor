@@ -4,12 +4,11 @@ import BubblesLoader from "../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const SubscriptionPlan = ({ loading }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const planDetails = useSelector((state) => state.list.planDetails);
   const split_string =
     planDetails && planDetails.details && planDetails.details.split(",");
-  console.log("split_string", split_string);
+
   return (
     <Col lg={7} className="d-flex justify-content-center">
       <section className=" select-plan-payment p-lg-4 p-3">
