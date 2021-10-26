@@ -61,94 +61,106 @@ const NewsTable = ({ history }) => {
                 </tr>
               </thead>
               <tbody className="user-details">
-                {adminNewsList && !!adminNewsList.length
-                  ? adminNewsList.map((value, index) => {
-                      return (
-                        <tr
-                          key={index}
-                          onClick={() =>
-                            history.push(
-                              `/content/manager/edit/news/${value._id}`
-                            )
-                          }
+                {adminNewsList && !!adminNewsList.length ? (
+                  adminNewsList.map((value, index) => {
+                    return (
+                      <tr
+                        key={index}
+                        onClick={() =>
+                          history.push(
+                            `/content/manager/edit/news/${value._id}`
+                          )
+                        }
+                      >
+                        <td className="whitespace Ellipse">
+                          {" "}
+                          {moment(value.createdAt).format("DD/MM/YY")}
+                        </td>
+                        <td
+                          className={`${
+                            layoutClickChanger
+                              ? "hitespace Ellipse text-end"
+                              : "hitespace Ellipse text-start"
+                          }`}
                         >
-                          <td className="whitespace Ellipse">
-                            {" "}
-                            {moment(value.createdAt).format("DD/MM/YY")}
-                          </td>
-                          <td
-                            className={`${
-                              layoutClickChanger
-                                ? "hitespace Ellipse text-end"
-                                : "hitespace Ellipse text-start"
-                            }`}
-                          >
-                            {value.title ? value.title : "N/A"}
-                          </td>
-                          <td
-                            className={`${
-                              layoutClickChanger
-                                ? "hitespace Ellipse text-end"
-                                : "hitespace Ellipse text-start"
-                            }`}
-                          >
-                            {value.atitle ? value.atitle : "N/A"}
-                          </td>
-                          <td className="whitespace Ellipse">
-                            {value.tags ? value.tags : "N/A"}
-                          </td>
-                          <td className="whitespace Ellipse">
-                            {value.atags ? value.atags : "N/A"}
-                          </td>
-                        </tr>
-                      );
-                    })
-                  : "You don't have any news"}
+                          {value.title ? value.title : "N/A"}
+                        </td>
+                        <td
+                          className={`${
+                            layoutClickChanger
+                              ? "hitespace Ellipse text-end"
+                              : "hitespace Ellipse text-start"
+                          }`}
+                        >
+                          {value.atitle ? value.atitle : "N/A"}
+                        </td>
+                        <td className="whitespace Ellipse">
+                          {value.tags ? value.tags : "N/A"}
+                        </td>
+                        <td className="whitespace Ellipse">
+                          {value.atags ? value.atags : "N/A"}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <td colSpan="5" className="text-center">
+                    You don't have any news
+                  </td>
+                )}
               </tbody>
             </Table>
           ) : (
-            "You don't have any news"
+            <td colSpan="5" className="text-center">
+              You don't have any news
+            </td>
           )}
         </>
       )}
-      {totalNews && totalNews <= 10 ? (
-        ""
-      ) : (
+      {adminNewsList.length === "" ? (
         <>
-          {layoutClickChanger ? (
-            <ReactPaginate
-              previousLabel={"Prev"}
-              nextLabel={"Next"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(totalNews / 10)}
-              marginPagesDisplayed={3}
-              pageRangeDisplayed={2}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"activePage"}
-              initialPage={page}
-            />
+          {totalNews && totalNews <= 10 ? (
+            ""
           ) : (
-            <div className="react-pagination">
-              <ReactPaginate
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                breakLabel={"..."}
-                breakClassName={"break-me"}
-                pageCount={Math.ceil(totalNews / 10)}
-                marginPagesDisplayed={3}
-                pageRangeDisplayed={2}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
-                activeClassName={"activePage"}
-                initialPage={page}
-              />
-            </div>
+            <>
+              {layoutClickChanger ? (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalNews / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              ) : (
+                <div className="react-pagination">
+                  <ReactPaginate
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(totalNews / 10)}
+                    marginPagesDisplayed={3}
+                    pageRangeDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"activePage"}
+                    initialPage={page}
+                  />
+                </div>
+              )}
+            </>
           )}
         </>
+      ) : (
+        ""
       )}
     </>
   );
