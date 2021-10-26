@@ -14,7 +14,7 @@ const IsPhoneConfirmed = ({ history }) => {
 
   const verificationOTPSubmit = () => {
     setError(true);
-    if (verificationOTP && verificationOTP.length === 6) {
+    if (verificationOTP) {
       const data = {
         verificationOTP: verificationOTP,
       };
@@ -57,7 +57,7 @@ const IsPhoneConfirmed = ({ history }) => {
               <div className="">
                 <button
                   type="button"
-                  onClick={() => history.push("/resend-otp")}
+                  onClick={() => history.push("/resend-otp/verify")}
                   className="resend-otp px-3  mt-3  w-100"
                 >
                   Resend OTP

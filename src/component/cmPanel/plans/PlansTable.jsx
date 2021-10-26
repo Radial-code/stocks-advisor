@@ -11,9 +11,9 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 import NoData from "../../../assets/img/emptydata.jpg";
+
 function PlansTable({ history }) {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeletedLoading] = useState(false);
@@ -43,7 +43,7 @@ function PlansTable({ history }) {
         </div>
       ) : (
         <>
-          {planList === "" ? (
+          {planList && planList.length !== 0 ? (
             <>
               {" "}
               <table className="table table-borderless table-hover mb-3">
@@ -153,7 +153,7 @@ function PlansTable({ history }) {
                 src={NoData}
                 alt="NoData"
               />
-              <p className="fw-bold">You don't have any user</p>
+              <p className="fw-bold">You don't have any Plan List</p>
             </div>
           )}
         </>

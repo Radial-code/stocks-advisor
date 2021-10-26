@@ -47,7 +47,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
         </div>
       ) : (
         <>
-          {portfolioList === "" ? (
+          {portfolioList && portfolioList.length !== 0 ? (
             <>
               <table className="table table-borderless table-hover mb-3">
                 <thead className="portfolio-sticky ">

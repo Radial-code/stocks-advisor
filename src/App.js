@@ -10,16 +10,15 @@ import { withRouter } from "react-router";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import LogoImage from "./assets/img/Navbar-logo-img.png";
-import IsPhoneConfirmed from "./component/auth/verfiy/IsPhoneConfirmed";
-import IsEmailMessage from "./component/auth/verfiy/IsEmailMessage";
 import BubblesLoader from "./component/common/BubblesLoader";
 import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import LayoutChangerProvider from "./redux/LayoutChangerProvider";
+import ConfirmRoute from "./component/ConfirmRoute";
 
-function App({ history }) {
+function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebar2, setShowSidebar2] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
@@ -67,10 +66,9 @@ function App({ history }) {
                 <BubblesLoader />
               </div>
             ) : userData !== {} ? (
-              !userData.isEmailConfirmed ? (
-                <IsEmailMessage />
-              ) : !userData.isMobileNumberConfirmed ? (
-                <IsPhoneConfirmed />
+              !userData.isEmailConfirmed ||
+              !userData.isMobileNumberConfirmed ? (
+                <ConfirmRoute />
               ) : (
                 <Router
                   showSidebar={showSidebar}

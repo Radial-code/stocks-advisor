@@ -38,7 +38,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
         </div>
       ) : (
         <>
-          {exchangeList === "" ? (
+          {exchangeList && exchangeList.length !== 0 ? (
             <>
               <table className="table table-borderless table-hover mb-3">
                 <thead className="portfolio-sticky ">

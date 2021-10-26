@@ -35,7 +35,7 @@ const UserListTable = () => {
         </div>
       ) : (
         <>
-          {adminUserList ? (
+          {adminUserList && adminUserList.length !== 0 ? (
             <>
               {" "}
               <Table responsive hover className="">

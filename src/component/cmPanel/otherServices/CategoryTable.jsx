@@ -48,7 +48,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
         <div className="d-flex justify-content-center align-items-center h-100">
           <BubblesLoader />
         </div>
-      ) : categoryList === "" ? (
+      ) : categoryList && categoryList.length !== 0 ? (
         <>
           <table className="table table-borderless table-hover mb-3">
             <thead className="portfolio-sticky ">

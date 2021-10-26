@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Col, Form } from "react-bootstrap";
+import { withRouter } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { createNewTeamMemberAction } from "../../../redux/action/cmPanel/stock";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import Loader from "../../common/Loader";
 
-const TeamForm = () => {
+const TeamForm = ({ history }) => {
   const dispatch = useDispatch();
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ const TeamForm = () => {
         name: teamData.name,
         description: teamData.description,
       };
-      dispatch(createNewTeamMemberAction(data, setLoading));
+      dispatch(createNewTeamMemberAction(data, setLoading, history));
     }
   };
 
@@ -169,4 +170,4 @@ const TeamForm = () => {
     </Col>
   );
 };
-export default TeamForm;
+export default withRouter(TeamForm);

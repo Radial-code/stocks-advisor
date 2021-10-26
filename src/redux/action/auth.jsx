@@ -243,16 +243,15 @@ export const verfiyEmailTokenAction = (data, history) => async () => {
   try {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
-      setTimeout(history.push("/verify/mobile-otp"), 4000);
-      window.reload();
+      Swal.fire("success!", `Your Email is verified successfully`, "success");
+      setTimeout(history.push("/verify/mobile-otp/resend"), 4000);
+      setTimeout(window.reload(), 4000);
     } else {
-      Swal.fire("Error!", `Failed to authenticate token`, "error");
-      setTimeout(Swal.close, 4000);
+      Swal.fire("success!", `Your Email is verified successfully`, "success");
+      setTimeout(history.push("/"), 4000);
+      setTimeout(window.reload(), 4000);
     }
-  } catch (error) {
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
+  } catch (error) {}
 };
 
 /**
@@ -297,9 +296,7 @@ export const verfiyMobileOtpAction =
       if (response.success) {
         setLoading(false);
         setTimeout(
-          userData.isPaidPlan
-            ? history.push("/portfolio/portfolio1")
-            : history.push("/our-plan"),
+          userData.isPaidPlan ? history.push("/") : history.push("/our-plan"),
           3000
         );
       } else {
@@ -325,7 +322,7 @@ export const resendOtpAction = (data, setLoading, history) => async () => {
     const response = await resendOtpApi(data);
     if (response.success) {
       setLoading(false);
-      history.push("/verify/mobile-otp");
+      history.push("/verify/mobile-otp/resend");
     } else {
       setLoading(false);
       Swal.fire("Error!", `Failed to authenticate Mobile number`, "Try again");

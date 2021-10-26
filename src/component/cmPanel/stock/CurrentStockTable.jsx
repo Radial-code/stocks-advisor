@@ -35,7 +35,7 @@ const CurrentStockTable = ({ history }) => {
         </div>
       ) : (
         <>
-          {stockList === "" ? (
+          {stockList && stockList.length !== 0 ? (
             <>
               <table className="table table-borderless table-hover mb-3">
                 <thead className="portfolio-sticky ">

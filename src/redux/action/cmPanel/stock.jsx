@@ -192,25 +192,27 @@ export const getUserListForAdminAction =
  * @param {Object} data
  * @returns
  */
-export const createNewTeamMemberAction = (data, setLoading) => async () => {
-  setLoading(true);
-  try {
-    const response = await createNewTeamMemberApi(data);
-    if (response.success) {
+export const createNewTeamMemberAction =
+  (data, setLoading, history) => async () => {
+    setLoading(true);
+    try {
+      const response = await createNewTeamMemberApi(data);
+      if (response.success) {
+        setLoading(false);
+        Swal.fire("Success", "Team created successfully", "success");
+        setTimeout(Swal.close, 2000);
+        history.push("/content/manager/team/cards");
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to create Team", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-      Swal.fire("Success", "Team created successfully", "success");
-      setTimeout(Swal.close, 2000);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to create Team", "error");
+      Swal.fire("Error!", "Something went wrong", "error");
       setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get Team list action

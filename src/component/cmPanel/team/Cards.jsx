@@ -16,7 +16,7 @@ const Cards = () => {
     <>
       <div className="container">
         <div className="row">
-          {teamList === "" ? (
+          {teamList && teamList.length !== 0 ? (
             <>
               {teamList && teamList.length
                 ? teamList.map((value, index) => {
@@ -47,7 +47,7 @@ const Cards = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p className="fw-bold">You don't have any data</p>
+              <p className="fw-bold">You don't have any Team</p>
             </div>
           )}
         </div>

@@ -60,8 +60,12 @@ const Router = ({
           path="/verify/email/:token/:userId"
           component={IsEmailConfirmed}
         />
-        <Route exact path="/verify/mobile-otp" component={IsPhoneConfirmed} />
-        <Route exact path="/resend-otp" component={ResendOtp} />
+        <Route
+          exact
+          path="/verify/mobile-otp/resend"
+          component={IsPhoneConfirmed}
+        />
+        {/* <Route exact path="/resend-otp/verify" component={ResendOtp} /> */}
         {/** */}
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
