@@ -37,7 +37,6 @@ const ViewProfile = () => {
       profileImagePath: uploadImageUrl
         ? uploadImageUrl
         : userDetails.profileImagePath,
-      // isAdmin: true,
     };
     dispatch(updateUserDetailsAction(data, setLoading));
     setInputDisable(true);

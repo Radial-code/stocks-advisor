@@ -64,16 +64,9 @@ const AddNewNews = ({ edit, match, history }) => {
     });
     if (
       newsDetails.title !== undefined &&
-      // newsDetails.description !== undefined &&
-      // newsDetails.stock !== undefined &&
       newsDetails.tags !== undefined &&
       newsDetails.atitle !== undefined &&
-      // newsDetails.adescription !== undefined &&
       newsDetails.atags !== undefined
-
-      // uploadImageUrl !== "" &&
-      // newsDetails.link !== undefined &&
-      // newsDetails.portfolios !== undefined
     ) {
       const data = {
         title: newsDetails.title,

@@ -229,9 +229,6 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           </div>
 
                           <div className="d-flex justify-content-between  mt-2 mb-2">
-                            {/* <span className="stock-paragraph fs-sm-11">
-                              Enable
-                            </span> */}
                             <div>
                               <span className="float-md-end me-auto ">
                                 <label className="switch-2" for="checkbox-2">

@@ -42,22 +42,6 @@ function Search({ searchData, loading }) {
             </div>
           </div>
         </div>
-
-        // <>
-        //   {loading ? (
-        //     <div className="d-flex justify-content-center align-items-center">
-        //       <BubblesLoader />
-        //     </div>
-        //   ) : (
-        //     <div className="container">
-        //       {!!searchNewsList.length && searchData !== "" ? (
-        //         <SearchTable searchNewsList={searchNewsList} />
-        //       ) : (
-        //         "No result found"
-        //       )}
-        //     </div>
-        //   )}
-        // </>
       )}
     </div>
   );

@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import ForgetPassword from "./auth/ForgetPassword";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
-import NewsDetails from "./News/NewsDetails";
 import ChangePassword from "./form/ChangePassword";
 import CreateNewPassword from "./form/CreateNewPassword";
 import OtpInputs from "./stocksotpinput/OtpInputs";

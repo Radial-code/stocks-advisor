@@ -15,14 +15,6 @@ function UserProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
 
   return (
     <div>
-      {/* <div className="col-12  dashboard">
-          <div className="border-b-1  mb-3">
-            <DashboardDropDown sideBarHandler={sideBarHandler} />
-          </div>
-        </div> */}
-      {/* <div className="col-12 ">
-          <ViewProfile loading={loading} />
-        </div> */}
       <ViewProfile loading={loading} />
     </div>
   );

@@ -302,27 +302,6 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                     )}
                   </NavLink>
                 </li>
-
-                {/* <div className="bg-white  shadow p-2 rounded position-absolute top-72 ">
-                    <span
-                      onClick={() => layoutrightChangeHandler("english")}
-                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
-                    >
-                      English
-                      <img
-                        className="flag-img  mx-1 "
-                        src={England}
-                        alt="England"
-                      />
-                    </span>
-                    <span
-                      onClick={() => layoutleftChangeHandler("arabic")}
-                      className="d-flex px-2 py-1 cursor-pointer fw-normal"
-                    >
-                      Arabic
-                      <img className="flag-img mx-2 " src={Arbic} alt="" />
-                    </span>
-                  </div> */}
                 <Menu
                   id="basic-menu"
                   anchorEl={anchorEl}

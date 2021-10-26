@@ -68,17 +68,6 @@ const SubscriptionPlan = ({ loading }) => {
                   </ul>
                 ))}
             </p>
-
-            {/* {layoutClickChanger ? (
-              <p className="fs-xs fw-500 mt-4 fs-sm-14">:Benifits</p>
-            ) : (
-              <p className="fs-xs fw-500 mt-4 fs-sm-14">Benifits:</p>
-            )}
-            <p className="stock-paragraph fs-sm-16 max-w-sm-263">
-              Duis venenatis aliquot, Eros, non feugiat Tortor semper sed. In
-              diam risus, efficitur Sit amet dolor vitae Finibus tristique Arcu
-              finibus tristique
-            </p> */}
           </>
         )}
       </section>

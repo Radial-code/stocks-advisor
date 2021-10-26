@@ -24,7 +24,6 @@ import OtpInputs from "./stocksotpinput/OtpInputs";
 import IsEmailMessage from "./auth/verfiy/IsEmailMessage";
 import IsEmailConfirmed from "./auth/verfiy/IsEmailConfirmed";
 import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
-import ResendOtp from "./auth/verfiy/ResendOtp";
 import CmPanelRoutes from "./cmPanel/CmPanelRoutes";
 import NetflixChart from "./stockPage/NetflixChart";
 import OtherServicesForm from "./cmPanel/otherServices/OtherServicesForm";
@@ -65,7 +64,6 @@ const Router = ({
           path="/verify/mobile-otp/resend"
           component={IsPhoneConfirmed}
         />
-        {/* <Route exact path="/resend-otp/verify" component={ResendOtp} /> */}
         {/** */}
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
