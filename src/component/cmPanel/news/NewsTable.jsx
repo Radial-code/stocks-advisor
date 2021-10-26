@@ -33,61 +33,83 @@ const NewsTable = ({ history }) => {
           <BubblesLoader />
         </div>
       ) : (
-        <Table hover>
-          <thead className="portfolio-sticky">
-            <tr className="user-list-panel">
-              <th className="whitespace table-width">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Date
-              </th>
-              <th className="whitespace table-width-header">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                Eng-Title
-              </th>
-              <th className="whitespace table-width-header">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                Arabic-Title
-              </th>
-              <th className="whitespace">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Eng-Tags
-              </th>
-              <th className="whitespace">
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                Arabic-Tags
-              </th>
-            </tr>
-          </thead>
-          <tbody className="user-details">
-            {adminNewsList && !!adminNewsList.length
-              ? adminNewsList.map((value, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      onClick={() =>
-                        history.push(`/content/manager/edit/news/${value._id}`)
-                      }
-                    >
-                      <td className="whitespace Ellipse">
-                        {" "}
-                        {moment(value.createdAt).format("DD/MM/YY")}
-                      </td>
-                      <td
-                        className={`${
-                          layoutClickChanger
-                            ? "hitespace Ellipse text-end"
-                            : "hitespace Ellipse text-start"
-                        }`}
-                      >
-                        {value.title}
-                      </td>
-                      <td className="whitespace Ellipse">{value.tags}</td>
-                    </tr>
-                  );
-                })
-              : "You don't have any news"}
-          </tbody>
-        </Table>
+        <>
+          {adminNewsList && !!adminNewsList.length ? (
+            <Table hover>
+              <thead className="portfolio-sticky">
+                <tr className="user-list-panel">
+                  <th className="whitespace table-width">
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    Date
+                  </th>
+                  <th className="whitespace table-width-header">
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                    Eng-Title
+                  </th>
+                  <th className="whitespace table-width-header">
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                    Arabic-Title
+                  </th>
+                  <th className="whitespace">
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    Eng-Tags
+                  </th>
+                  <th className="whitespace">
+                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    Arabic-Tags
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="user-details">
+                {adminNewsList && !!adminNewsList.length
+                  ? adminNewsList.map((value, index) => {
+                      return (
+                        <tr
+                          key={index}
+                          onClick={() =>
+                            history.push(
+                              `/content/manager/edit/news/${value._id}`
+                            )
+                          }
+                        >
+                          <td className="whitespace Ellipse">
+                            {" "}
+                            {moment(value.createdAt).format("DD/MM/YY")}
+                          </td>
+                          <td
+                            className={`${
+                              layoutClickChanger
+                                ? "hitespace Ellipse text-end"
+                                : "hitespace Ellipse text-start"
+                            }`}
+                          >
+                            {value.title ? value.title : "N/A"}
+                          </td>
+                          <td
+                            className={`${
+                              layoutClickChanger
+                                ? "hitespace Ellipse text-end"
+                                : "hitespace Ellipse text-start"
+                            }`}
+                          >
+                            {value.atitle ? value.atitle : "N/A"}
+                          </td>
+                          <td className="whitespace Ellipse">
+                            {value.tags ? value.tags : "N/A"}
+                          </td>
+                          <td className="whitespace Ellipse">
+                            {value.atags ? value.atags : "N/A"}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  : "You don't have any news"}
+              </tbody>
+            </Table>
+          ) : (
+            "You don't have any news"
+          )}
+        </>
       )}
       {totalNews && totalNews <= 10 ? (
         ""
