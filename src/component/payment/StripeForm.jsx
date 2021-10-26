@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import StripeErrorMessage from "./StripeErrorMessage";
 import StripeCardField from "./StripeCardField";
@@ -21,6 +21,8 @@ const StripeForm = ({ loader, match, history }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
+  const [errorPayment, setErrorPayment] = useState(false);
+  const [reCaptchaToken, setReCaptchaToken] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [loading, setLoading] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -58,13 +60,15 @@ const StripeForm = ({ loader, match, history }) => {
   };
 
   useEffect(() => {
+    setErrorPayment(true);
     if (paymentMethod) {
       dispatch(AddStripePaymentId(paymentMethod.id));
     }
-    if (stripeID) {
+    if (stripeID && reCaptchaToken) {
       const data = {
         planId: id,
         id: stripeID,
+        "recaptcha-token": reCaptchaToken,
       };
       dispatch(getBuyPlanAction(data, setLoading, history));
     }
@@ -87,6 +91,15 @@ const StripeForm = ({ loader, match, history }) => {
             />
           </fieldset>
           {error && <StripeErrorMessage>{error.message}</StripeErrorMessage>}
+          <div className="mt-3" style={{ maWidth: "100%" }}>
+            <HCaptcha
+              sitekey="340a426e-e981-47e6-8a61-6ae115ab23a2"
+              onVerify={(token, ekey) => setReCaptchaToken(token, ekey)}
+            />
+          </div>
+          <span className="text-danger">
+            {errorPayment && !reCaptchaToken ? "Please solved Captcha" : null}
+          </span>
           <StripeSubmitButton
             processing={processing}
             error={error}
