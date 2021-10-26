@@ -203,7 +203,7 @@ const CurrentStockTable = ({ history }) => {
                   src={NoData}
                   alt="NoData"
                 />
-                <p className="fw-bold">You don't have any stock</p>
+                <h4 className="fw-bold">You don't have any stock</h4>
               </div>
             </>
           )}

@@ -143,7 +143,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                 src={NoData}
                 alt="NoData"
               />
-              <p className="fw-bold"> You don't have any Exchange list</p>
+              <h4 className="fw-bold"> You don't have any Exchange list</h4>
             </div>
           )}
         </>
