@@ -84,7 +84,7 @@ const OurPlans = ({ homepage, history }) => {
               )}
             </>
           )} */}
-          {planListCount === "" ? (
+          {planListCount && planListCount.length !== 0 ? (
             <>
               {layoutClickChanger ? (
                 <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">

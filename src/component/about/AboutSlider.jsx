@@ -42,7 +42,7 @@ const AboutSlider = () => {
   return (
     <>
       <h1 className="mt-5 pt-5 section-heading fs-sm-22">Team</h1>
-      {teamList === "" ? (
+      {teamList && teamList.length !== 0 ? (
         <>
           <Slider
             dir="rtl"

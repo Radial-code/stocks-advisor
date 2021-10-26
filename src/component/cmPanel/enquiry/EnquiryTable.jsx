@@ -33,7 +33,7 @@ const EnquiryTable = () => {
         </div>
       ) : (
         <div>
-          {contactList === "" ? (
+          {contactList && contactList !== 0 ? (
             <>
               <Table responsive hover className="">
                 <thead className="portfolio-sticky">
@@ -112,9 +112,8 @@ const EnquiryTable = () => {
           )}
         </div>
       )}
-      {contactList === "" ? (
+      {contactList && contactList.length !== 0 ? (
         <>
-          {" "}
           {totalContact && totalContact <= 10 ? (
             ""
           ) : (

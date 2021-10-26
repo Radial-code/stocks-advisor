@@ -12,7 +12,7 @@ const NotificationTable = ({ loading }) => {
         <BubblesLoader />
       ) : (
         <>
-          {notificationList === "" ? (
+          {notificationList && notificationList.length !== 0 ? (
             <>
               <table className="table table-borderless">
                 <thead>

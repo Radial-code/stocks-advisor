@@ -239,19 +239,28 @@ export const ChangePasswordAction = (data, setLoading) => async () => {
  * @param {Object} data
  * @returns
  */
-export const verfiyEmailTokenAction = (data, history) => async () => {
+export const verfiyEmailTokenAction = (data, history, userData) => async () => {
   try {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
       Swal.fire("success!", `Your Email is verified successfully`, "success");
       setTimeout(history.push("/verify/mobile-otp/resend"), 4000);
       setTimeout(window.reload(), 4000);
-    } else {
-      Swal.fire("success!", `Your Email is verified successfully`, "success");
-      setTimeout(history.push("/"), 4000);
+    }
+
+    //
+    else {
+      if (userData.isEmailConfirmed) {
+        Swal.fire("success!", `Your Email is verified successfully`, "success");
+        setTimeout(history.push("/verify/mobile-otp/resend"), 4000);
+        setTimeout(window.reload(), 4000);
+      }
       setTimeout(window.reload(), 4000);
     }
-  } catch (error) {}
+  } catch (error) {
+    // Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
 };
 
 /**
@@ -295,10 +304,12 @@ export const verfiyMobileOtpAction =
       const response = await verfiyMobileOtpApi(data);
       if (response.success) {
         setLoading(false);
+        Swal.fire("success!", `OTP Verify Successfully`, "success");
         setTimeout(
           userData.isPaidPlan ? history.push("/") : history.push("/our-plan"),
           3000
         );
+        setTimeout(window.reload(), 3000);
       } else {
         setLoading(false);
         Swal.fire("Error!", `Failed to authenticate Otp`, "Try again");

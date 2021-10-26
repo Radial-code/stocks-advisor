@@ -48,7 +48,7 @@ const StockSoldSlider = ({ loader }) => {
   };
   return (
     <>
-      {soldStockNewsList === "" ? (
+      {soldStockNewsList && soldStockNewsList !== 0 ? (
         <>
           {!loader ? (
             <Slider {...settings} className="stock-slider">

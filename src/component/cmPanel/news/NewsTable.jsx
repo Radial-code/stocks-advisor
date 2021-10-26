@@ -114,7 +114,7 @@ const NewsTable = ({ history }) => {
           )}
         </>
       )}
-      {adminNewsList.length === "" ? (
+      {adminNewsList && adminNewsList.length !== 0 ? (
         <>
           {totalNews && totalNews <= 10 ? (
             ""

@@ -6,9 +6,8 @@ const PaymentTable = () => {
   const paymentList = useSelector((state) => state.list.paymentList);
   return (
     <>
-      {paymentList === "" ? (
+      {paymentList && paymentList.length !== 0 ? (
         <>
-          {" "}
           <table className="table white-space-nowrap table-borderless">
             <thead className="portfolio-sticky">
               <tr>

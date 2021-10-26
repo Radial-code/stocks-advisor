@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
@@ -7,6 +8,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 
 const IsEmailConfirmed = ({ match, history }) => {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.auth.userData);
   const { token, userId } = match.params;
 
   useEffect(() => {
@@ -15,7 +17,7 @@ const IsEmailConfirmed = ({ match, history }) => {
         resetPasswordToken: token,
         userId: userId,
       };
-      dispatch(verfiyEmailTokenAction(data, history));
+      dispatch(verfiyEmailTokenAction(data, history, userData));
     }
   }, []);
 

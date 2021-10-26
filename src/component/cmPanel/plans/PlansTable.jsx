@@ -159,7 +159,7 @@ function PlansTable({ history }) {
         </>
       )}
 
-      {planList === "" ? (
+      {planList && planList.length !== 0 ? (
         <>
           {" "}
           {planListCount && planListCount <= 10 ? (
