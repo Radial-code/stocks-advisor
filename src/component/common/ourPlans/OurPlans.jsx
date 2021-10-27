@@ -16,7 +16,7 @@ const OurPlans = ({ homepage, history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
 
   useEffect(() => {
-    const limit = 3;
+    const limit = 10;
     dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
   }, [page]);
   const handlePageClick = (e) => {
@@ -44,7 +44,7 @@ const OurPlans = ({ homepage, history }) => {
           ) : (
             <>
               <OurPlanCard history={history} />
-              {layoutClickChanger ? (
+              {/* {layoutClickChanger ? (
                 <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">
                   <ReactPaginate
                     previousLabel={"Prev"}
@@ -78,7 +78,7 @@ const OurPlans = ({ homepage, history }) => {
                     initialPage={page}
                   />
                 </div>
-              )}
+              )} */}
             </>
           )}
         </Row>

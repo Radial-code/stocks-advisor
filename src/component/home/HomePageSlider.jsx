@@ -58,7 +58,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? "d-flex align-items-center justify-content-start "
+                          ? "d-flex align-items-center justify-content-end"
                           : "d-flex align-items-center justify-content-start"
                       }  `}
                     >
@@ -86,7 +86,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p
                     className={` ${
                       layoutClickChanger
-                        ? "text-end parargraph-stock pt-sm-2  ps-sm-5"
+                        ? "text-end parargraph-stock pt-sm-2  ps-sm-5 "
                         : "parargraph-stock pt-sm-2"
                     } `}
                   >
@@ -109,8 +109,8 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                   <p
                     className={` ${
                       layoutClickChanger
-                        ? "small-paragraph text-end dots-data"
-                        : "small-paragraph dots-data"
+                        ? "small-paragraph text-end dots-data w-100"
+                        : "small-paragraph dots-data w-100"
                     } `}
                     onClick={() =>
                       history.push(

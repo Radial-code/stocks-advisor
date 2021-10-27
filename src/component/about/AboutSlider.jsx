@@ -101,8 +101,14 @@ const AboutSlider = () => {
         </>
       ) : (
         <div className="d-flex justify-content-center flex-column align-items-center">
-          <img className="nodata-img " src={NoDataImg} alt="NoDataImg " />
-          <h4 className="py-3 fw-bold">You don't have any Team Members</h4>
+          <img
+            className="nodata-img  mx-auto d-inline-block"
+            src={NoDataImg}
+            alt="NoDataImg "
+          />
+          <h4 className="py-3 fw-bold text-sm-start text-center">
+            You don't have any Team Members
+          </h4>
         </div>
       )}
     </>

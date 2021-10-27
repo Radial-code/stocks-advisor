@@ -12,7 +12,6 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
   var settings = {
     dots: true,
-
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -50,7 +49,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
       <div className="row">
         <div className="col my-4">
           <h1 className="profile-heading py-3">Other News Articles</h1>
-          <div className="d-flex flex-lg-row flex-column justify-content-center ">
+          <div className="d-flex flex-lg-row flex-column justify-content-center">
             {newsListData === "" ? (
               <>
                 {newsListData &&
@@ -66,8 +65,8 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
                   })}{" "}
               </>
             ) : (
-              <div>
-                <img className=" nodata-img" src={NoData} alt=" NoData" />
+              <div className="d-flex  flex-column align-items-center">
+                <img className=" nodata-img " src={NoData} alt=" NoData" />
                 <h4 className="text-center fw-bold">
                   {" "}
                   You don't have any Related News

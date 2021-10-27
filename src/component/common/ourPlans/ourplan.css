@@ -75,10 +75,15 @@
   background-color: var(--color-88BEFC);
   transition: 0.3s;
 }
+@media (min-width: 567px) {
+  .nodata-img {
+    height: 400px;
+    width: 400px !important;
+    border-radius: 10px;
+  }
+}
 .nodata-img {
-  height: 400px;
-  width: 400px;
-  border-radius: 10px;
+  width: 100%;
 }
 .card-amount-2 {
   background-color: var(--color-127CF9);
