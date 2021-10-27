@@ -14,7 +14,18 @@ const SearchTable = ({ history, searchNewsList }) => {
             Date
           </th>
           <th className="whitespace table-width-header">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Title
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+            Arabic-Title
+          </th>
+          <th className="whitespace table-width-header">
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Eng-Title
+          </th>
+          <th className="whitespace table-width-header">
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+            Arabic-Tags
+          </th>
+          <th className="whitespace table-width-header">
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Eng-Tags
           </th>
         </tr>
       </thead>
@@ -27,10 +38,19 @@ const SearchTable = ({ history, searchNewsList }) => {
                   onClick={() => history.push(`/news/details/${value._id}`)}
                 >
                   <td className="whitespace Ellipse cursor-pointer">
-                    {moment(value.createdAt).format("MM/ddd")}
+                    {moment(value.createdAt).format("DD/MM/YY")}
                   </td>
                   <td className="whitespace Ellipse cursor-pointer">
-                    {value.description}
+                    {value.atitle}
+                  </td>
+                  <td className="whitespace Ellipse cursor-pointer">
+                    {value.title}
+                  </td>
+                  <td className="whitespace Ellipse cursor-pointer">
+                    {value.atags}
+                  </td>
+                  <td className="whitespace Ellipse cursor-pointer">
+                    {value.tags}
                   </td>
                 </tr>
               );
