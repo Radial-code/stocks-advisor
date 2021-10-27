@@ -21,6 +21,7 @@ export const GET_NEWS_BY_STOCK_PAGE = "GET_NEWS_BY_STOCK_PAGE";
 export const GET_RELATED_NEWS = "GET_RELATED_NEWS";
 export const GET_NEWS_DETAILS_BY_ID = "GET_NEWS_DETAILS_BY_ID";
 export const GET_SEARCH_RESULT_LIST = "GET_SEARCH_RESULT_LIST";
+export const REMOVE_SEARCH_REASULT_LIST = "REMOVE_SEARCH_REASULT_LIST";
 export const GET_RELETED_SOLD_STOCK_NEWS = "GET_RELETED_SOLD_STOCK_NEWS";
 
 /**
@@ -333,6 +334,10 @@ export const DeleteNewsDetailsAction = (id, history) => async (dispatch) => {
 const getSearchResult = (data) => ({
   type: GET_SEARCH_RESULT_LIST,
   data,
+});
+
+export const removeSearchResultList = () => ({
+  type: REMOVE_SEARCH_REASULT_LIST,
 });
 
 export const getSearchResultAction = (data, setLoading) => async (dispatch) => {

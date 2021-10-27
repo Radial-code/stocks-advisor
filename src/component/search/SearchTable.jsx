@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import Sortarrow from "../../assets/img/sortarrow.png";
 
-const SearchTable = ({ history, searchNewsList }) => {
+const SearchTable = ({ history, searchNewsList, searchshow }) => {
   return (
     <Table hover className="mt-sm-0 mt-3">
       <thead className="portfolio-sticky">

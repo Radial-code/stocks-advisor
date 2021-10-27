@@ -11,6 +11,7 @@ import { GET_CONTACT_LIST, GET_NOTIFICATION_LIST } from "../action/contact";
 import {
   GET_RELETED_SOLD_STOCK_NEWS,
   GET_SEARCH_RESULT_LIST,
+  REMOVE_SEARCH_REASULT_LIST,
 } from "../action/news";
 import {
   ADD_PAYMENT_STRIPE_ID,
@@ -175,6 +176,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         searchNewsList: action.data,
+      };
+    }
+
+    // remove search result list
+    case REMOVE_SEARCH_REASULT_LIST: {
+      return {
+        ...state,
+        searchNewsList: [],
       };
     }
     // sold Stock News List

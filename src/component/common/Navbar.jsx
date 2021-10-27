@@ -19,15 +19,24 @@ import { Dropdown } from "react-bootstrap";
 import { Drop } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { useEffect } from "react";
-import { getSearchResultAction } from "../../redux/action/news";
+import {
+  getSearchResultAction,
+  removeSearchResultList,
+} from "../../redux/action/news";
 import { useDispatch } from "react-redux";
 import { LogoutAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
-
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
+const Navbar = ({
+  history,
+  setLoading,
+  setSearchData,
+  searchData,
+  searchshow,
+  setSearchShow,
+}) => {
   // new usestate
 
   const [activeId, setActiveId] = useState("");
@@ -51,7 +60,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   const dispatch = useDispatch();
   const { setLayoutClickChanger, layoutClickChanger } =
     useLayoutChangerProvider();
-  const [searchshow, setSearchShow] = useState(false);
+
   const [Lang, setLang] = useState(false);
   const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
@@ -111,6 +120,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     setOverlayActive(true);
   };
   const searchPage = () => {
+    dispatch(removeSearchResultList());
     setSearchShow(!searchshow);
     history.push("/search/news");
   };
@@ -123,6 +133,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
     history.goBack();
     searchPage();
   };
+
   const closeSidebar = (value) => {
     if (value === "home") {
       history.push("/");
@@ -166,6 +177,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
       setOverlayActive(true);
     }
   };
+
   useEffect(() => {
     if (searchData) {
       dispatch(getSearchResultAction(searchData, setLoading));
@@ -177,6 +189,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
   } else {
     document.dir = "ltr";
   }
+
   return (
     <>
       {overlayActive ? (
@@ -396,7 +409,7 @@ const Navbar = ({ history, setLoading, setSearchData, searchData }) => {
                         className="mx-3 search-box-nav py-2 px-xxl-3"
                         id="search"
                         placeholder="Search..."
-                        onChange={(e) => setSearchData(e.target.value)}
+                        onChange={(e) => setSearchData(e.target.value.trim())}
                       />
                     </div>
                     <div
