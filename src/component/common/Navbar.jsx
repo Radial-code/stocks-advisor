@@ -177,6 +177,7 @@ const Navbar = ({
       setOverlayActive(true);
     }
   };
+
   useEffect(() => {
     if (searchData) {
       dispatch(getSearchResultAction(searchData, setLoading));
@@ -188,6 +189,7 @@ const Navbar = ({
   } else {
     document.dir = "ltr";
   }
+
   return (
     <>
       {overlayActive ? (
