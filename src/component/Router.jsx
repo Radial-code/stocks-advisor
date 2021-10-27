@@ -42,12 +42,16 @@ const Router = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchData] = useState("");
+  const [searchshow, setSearchShow] = useState(false);
+
   return (
     <BrowserRouter>
       <Navbar
         setSearchData={setSearchData}
         setLoading={setLoading}
         searchData={searchData}
+        searchshow={searchshow}
+        setSearchShow={setSearchShow}
       />
       <Switch>
         {/**Auth routes */}
@@ -72,7 +76,12 @@ const Router = ({
         <Route exact path="/stock/news/:id/:tags" component={Stockpage} />
         <Route exact path="/our-plan" component={OurPlanspage} />
         <Route exact path="/search/news">
-          <Search loading={loading} searchData={searchData} />
+          <Search
+            searchshow={searchshow}
+            setSearchShow={setSearchShow}
+            loading={loading}
+            searchData={searchData}
+          />
         </Route>
         <Route exact path="/news" component={News} />
         <Route exact path="/loginmodal" component={LogInModal} />
