@@ -58,9 +58,9 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? "d-flex align-items-center justify-content-end"
-                          : "d-flex align-items-center justify-content-start"
-                      }  `}
+                          ? " justify-content-start"
+                          : " justify-content-start"
+                      }  d-flex align-items-center`}
                     >
                       <span className="d-flex justify-content-end px-2">
                         <img className="w-19 h-19" src={img_1} alt="" />

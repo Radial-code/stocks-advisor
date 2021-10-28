@@ -7,7 +7,7 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import Loader from "../../common/Loader";
 
-function ExchangePopup({ handleClose, show, edit, updateValue }) {
+function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
   const dispatch = useDispatch();
   const [Exchange, setExchange] = useState(
     !!updateValue && !!updateValue.title ? updateValue.title : ""
