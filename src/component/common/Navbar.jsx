@@ -289,7 +289,6 @@ const Navbar = ({
               <span className="d-flex align-items-center  lang-dropddown  py-xxl-2  py-xxl-3   my-xxl-auto">
                 <li
                   className="d-none d-xxl-block"
-                  // onClick={() => setLang(!Lang)}
                   id="basic-button"
                   aria-controls="basic-menu"
                   aria-haspopup="true"
@@ -604,7 +603,7 @@ const Navbar = ({
             <div className="col-6 my-auto">
               <div className="d-flex justify-content-end ">
                 <div className="d-block my-auto d-xxl-none position-relative">
-                  <span className="d-block notify-dot"></span>
+                  {auth ? <span className="d-block notify-dot "></span> : ""}
                   {auth ? (
                     <div
                       onClick={() => {
