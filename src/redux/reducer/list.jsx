@@ -1,4 +1,8 @@
-import { DELETE_PLANS_SUCCESS, GET_PLANS_LIST } from "../action/cmPanel/plans";
+import {
+  DELETE_PLANS_SUCCESS,
+  GET_PLANS_LIST,
+  UPDATE_PLANS_DETAILS,
+} from "../action/cmPanel/plans";
 import {
   GET_TEAM_LIST,
   GET_USER_PROFILE_DATA,
@@ -77,6 +81,19 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         planList: action.data,
+      };
+    }
+
+    //Get plan list
+    case UPDATE_PLANS_DETAILS: {
+      const updatePlanList = [...state.planList];
+      const updateData = updatePlanList.filter(
+        (value) => value._id === action.data.id
+      );
+      updateData[0].isActive = !updateData[0].isActive;
+      return {
+        ...state,
+        planList: updatePlanList,
       };
     }
 

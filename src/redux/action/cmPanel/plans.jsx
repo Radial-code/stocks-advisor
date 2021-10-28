@@ -81,15 +81,16 @@ const updatePlansDetails = (data) => ({
 });
 
 export const updatePlansDetailsAction =
-  (data, id, setPlansLoading) => async (dispatch) => {
+  (data, id, setPlansLoading, history, type) => async (dispatch) => {
     setPlansLoading(true);
     try {
       const response = await updatePlansDetailsApi(data, id);
       if (response.success) {
-        dispatch(updatePlansDetails(response.Plans));
+        dispatch(updatePlansDetails({ type, id }));
         setPlansLoading(false);
         Swal.fire("Success", "Plan Updated successfully", "Success");
         setTimeout(Swal.close, 2000);
+        history.push("/content/manager/our/plans/details");
       } else {
         setPlansLoading(false);
         Swal.fire("Error", "Failed to Update Plan Details", "error");
@@ -97,8 +98,6 @@ export const updatePlansDetailsAction =
       }
     } catch (error) {
       setPlansLoading(false);
-      // Swal.fire("Error!", "Something went wrong", "error");
-      // setTimeout(Swal.close, 2000);
     }
   };
 

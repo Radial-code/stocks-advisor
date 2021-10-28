@@ -42,9 +42,21 @@ function PlansTable({ history }) {
         title: "? Are You Sure",
         text: `${
           !isActive
-            ? ". You want to Unable This Plan"
+            ? ". You want to Enable This Plan"
             : ". You want to Disable This Plan"
         }`,
+
+        title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+        text: `${
+          layoutClickChanger
+            ? !isActive
+              ? ".You want to Enable This Plan"
+              : ".You want to Disable This Plan"
+            : !isActive
+            ? "You want to Enable This Plan."
+            : "You want to Disable This Plan."
+        }`,
+
         icon: "Error",
         showCancelButton: true,
         confirmButtonText: "Yes",
@@ -63,7 +75,15 @@ function PlansTable({ history }) {
               isActive: false,
             };
           }
-          updatePlansDetailsAction(planDetails, id, setDeletedLoading, history);
+          dispatch(
+            updatePlansDetailsAction(
+              planDetails,
+              id,
+              setDeletedLoading,
+              history,
+              "action"
+            )
+          );
         }
       });
   };
@@ -282,7 +302,7 @@ export function PlansTableListItem({
             onClick={() => deletePlans(value._id, value.isActive)}
             className="px-3 py-1 delete-button"
           >
-            {!value.isActive ? "Disabled" : "Not-Disable"}
+            {!value.isActive ? "Disable" : "Enable"}
           </button>
         </td>
       </tr>
