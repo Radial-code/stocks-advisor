@@ -11,6 +11,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 import NoData from "../../../assets/img/emptydata.jpg";
+import Swal from "sweetalert2";
 
 function PlansTable({ history }) {
   const { layoutClickChanger } = useLayoutChangerProvider();
@@ -28,7 +29,28 @@ function PlansTable({ history }) {
   }, [page]);
 
   const deletePlans = (id) => {
-    dispatch(deletePlansDetailsAction(id, setDeletedLoading));
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-success",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "? Are You Sure",
+        text: ". You want to Disable This Plan",
+        icon: "Error",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          dispatch(deletePlansDetailsAction(id, setDeletedLoading));
+        }
+      });
   };
 
   const handlePageClick = (e) => {
@@ -245,7 +267,7 @@ export function PlansTableListItem({
             onClick={() => deletePlans(value._id)}
             className="px-3 py-1 delete-button"
           >
-            Delete
+            Disable
           </button>
         </td>
       </tr>
