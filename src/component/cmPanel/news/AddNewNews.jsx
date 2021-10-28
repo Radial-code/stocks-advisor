@@ -100,6 +100,7 @@ const AddNewNews = ({ edit, match, history }) => {
       atags.map((item) => {
         newsDetails.atags += `${item},`;
       });
+      console.log("newsDetails", newsDetails);
       if (
         newsDetails.title !== "" &&
         newsDetails.description !== "" &&

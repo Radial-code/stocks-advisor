@@ -34,7 +34,7 @@ const NewsTable = ({ history }) => {
         </div>
       ) : (
         <>
-          {adminNewsList && !!adminNewsList.length === 0 ? (
+          {adminNewsList && adminNewsList.length !== 0 ? (
             <Table hover>
               <thead className="portfolio-sticky">
                 <tr className="user-list-panel">
