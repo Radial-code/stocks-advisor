@@ -33,6 +33,7 @@ const Portfolio = ({ match }) => {
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
             setPortfoliosId={setPortfoliosId}
+            portfoliosId={portfoliosId}
           />
           <PortfolioStock
             sideBarHandler={sideBarHandler}
@@ -40,6 +41,7 @@ const Portfolio = ({ match }) => {
             setSidebarActive={setSidebarActive}
             loading={loading}
             setSoldLoading={setSoldLoading}
+            soldLoading={soldLoading}
           />
         </div>
         <div className="my-4">

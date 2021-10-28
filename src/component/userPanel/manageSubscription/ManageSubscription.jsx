@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getMyPlanAction } from "../../../redux/action/payment";
 import BubblesLoader from "../../common/BubblesLoader";
-import DashboardDropDown from "../../dashboard/DashboardDropDown";
 import SubscriptionDetails from "./SubscriptionDetails";
 
-const ManageSubscription = ({
-  sideBarHandler,
-  setSidebarActive,
-  sidebarActive,
-}) => {
+const ManageSubscription = ({ setSidebarActive, sidebarActive }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 

@@ -105,7 +105,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
           reverseButtons: true,
         })
         .then((result) => {
-          console.log("result.isConfirmed", result);
           if (result.isConfirmed) {
             dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
           }

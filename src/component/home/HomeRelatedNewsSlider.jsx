@@ -120,7 +120,7 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
 };
 export default withRouter(HomeRelatedNewsSlider);
 const Next = (props) => {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <button style={{ ...style }} onClick={onClick} className={`next`}>
       <svg

@@ -108,7 +108,11 @@ const SubscriptionDetails = () => {
             </Col> */}
           </Row>
         ) : (
-          <img className="not-found-img mx-auto d-block" src={FoundImg} />
+          <img
+            className="not-found-img mx-auto d-block"
+            src={FoundImg}
+            alt=""
+          />
         )}
       </div>
     </Col>

@@ -13,8 +13,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Footer = ({ history }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);

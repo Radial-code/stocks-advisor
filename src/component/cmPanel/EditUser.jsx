@@ -17,8 +17,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 let data = {};
 const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);

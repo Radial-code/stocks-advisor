@@ -17,7 +17,7 @@ const Homepage = () => {
   return (
     <>
       <Hero loading={loading} setRelatedLoading={setRelatedLoading} />
-      <HomeRelatedNewsSlider />
+      <HomeRelatedNewsSlider relatedloader={relatedloader} />
       <SubscriptionPlans />
     </>
   );

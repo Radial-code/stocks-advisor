@@ -10,8 +10,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 const data = [];
 const valueId = [];
 function Notification() {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const planList = useSelector((state) => state.list.planList);
   const [loading, setLoading] = useState(false);

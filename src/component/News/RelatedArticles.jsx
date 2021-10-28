@@ -6,10 +6,10 @@ import { getRelatedNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 const RelatedArticles = () => {
   const dispatch = useDispatch();
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [relatedLoading, setRelatedLoading] = useState(false);
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);

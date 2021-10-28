@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
-  deletePlansDetailsAction,
   getPlansListAction,
   updatePlansDetailsAction,
 } from "../../../redux/action/cmPanel/plans";

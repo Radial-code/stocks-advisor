@@ -10,7 +10,7 @@ const OtpInputs = () => {
           <div className="col-12  col-xl-6 col-md-10 otp-box p-3 ">
             <div className="row">
               <div className="col justify-content-center d-flex mt-5">
-                <img src={LogoPhoto} style={{ width: "40%" }} />
+                <img src={LogoPhoto} style={{ width: "40%" }} alt="" />
               </div>
             </div>
             <div className="row mt-5 justify-content-center ">

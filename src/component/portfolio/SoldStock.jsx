@@ -1,9 +1,6 @@
-import moment from "moment";
-import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import Sortarrow from "../../assets/img/sortarrow.png";
 import { getRelatedSoldStockNewsAction } from "../../redux/action/news";

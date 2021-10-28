@@ -29,7 +29,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
       tags: "tag1",
     };
     dispatch(getRelatedNewsAction(data, setRelatedLoading));
-  }, []);
+  }, [getRelatedNewsAction]);
 
   return (
     <>

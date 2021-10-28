@@ -5,8 +5,6 @@ import NotificationTable from "./NotificationTable";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 import { getNotificationListAction } from "../../redux/action/contact";
-import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-
 import Setting from "../../assets/img/setting.png";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 import Loader from "../common/Loader";
@@ -29,7 +27,6 @@ const initialState = {
 };
 
 const Notification = ({ setSidebarActive, sidebarActive }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
   const profileData = useSelector((state) => state.auth.userData);
   const [notificationLoading, setNotificationLoading] = useState(false);
   const [showNotificationWhen, setShowNotificationWhen] =

@@ -7,8 +7,7 @@ import Slider from "react-slick";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const OurPlanCard = ({ homepage, history }) => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
