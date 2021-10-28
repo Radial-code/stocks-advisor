@@ -121,6 +121,7 @@
   padding: 14px;
   border: unset;
   border-radius: 5px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
 }
 
 .datepicker-input
