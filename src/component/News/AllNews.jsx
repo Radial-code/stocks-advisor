@@ -38,7 +38,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
             </>
           )}
         </Col>
-        {allNewsList.length === 0 ? (
+        {totalNews <= 4 ? (
           ""
         ) : (
           <>
@@ -48,7 +48,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
                 nextLabel={"Next"}
                 breakLabel={"..."}
                 breakClassName={"break-me"}
-                pageCount={Math.ceil(5 / 4)}
+                pageCount={Math.ceil(totalNews / 4)}
                 marginPagesDisplayed={3}
                 pageRangeDisplayed={2}
                 onPageChange={handlePageClick}
