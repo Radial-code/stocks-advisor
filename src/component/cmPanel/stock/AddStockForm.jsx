@@ -92,8 +92,8 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       });
       swalWithBootstrapButtons
         .fire({
-          title: "?Are You Sure",
-          text: "You want to delete This Stock",
+          title: "? Are You Sure",
+          text: ". You want to delete This Stock",
           icon: "Error",
           showCancelButton: true,
           confirmButtonText: "Yes",
