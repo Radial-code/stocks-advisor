@@ -73,6 +73,9 @@
   border-color: #5cbd4c;
   margin-left: 10px;
 }
+.swal2-cancel {
+  margin-right: 10px;
+}
 .resend-email-btnn {
   background-color: var(--color-88BEFC);
   color: white;

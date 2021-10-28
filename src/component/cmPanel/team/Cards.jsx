@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTeamMemberListAction } from "../../../redux/action/cmPanel/stock";
 import "../team/teamcards.css";
 import NoData from "../../../assets/img/emptydata.jpg";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+
 const Cards = () => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const teamList = useSelector((state) => state.list.teamList);
   const [loading, setLoading] = useState(false);
@@ -31,9 +35,15 @@ const Cards = () => {
                           <p className="text-center team-title pt-3 mb-0">
                             {value.name}
                           </p>
-                          <p className="text-center  team-dec">
-                            {value.description}
-                          </p>
+                          {layoutClickChanger ? (
+                            <p className="text-center  team-dec" dir="ltr">
+                              {value.description}
+                            </p>
+                          ) : (
+                            <p className="text-center  team-dec">
+                              {value.description}
+                            </p>
+                          )}
                         </div>
                       </div>
                     );

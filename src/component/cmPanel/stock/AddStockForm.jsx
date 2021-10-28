@@ -90,21 +90,33 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         },
         buttonsStyling: false,
       });
-      swalWithBootstrapButtons
-        .fire({
-          title: "? Are You Sure",
-          text: ". You want to delete This Stock",
-          icon: "Error",
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          cancelButtonText: "No",
-          reverseButtons: true,
-        })
-        .then((result) => {
-          if (result.isConfirmed) {
-            dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
-          }
-        });
+      layoutClickChanger
+        ? swalWithBootstrapButtons.fire({
+            title: "? Are You Sure",
+            text: ". You want to delete This Stock",
+            icon: "Error",
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
+            reverseButtons: true,
+          })
+        : swalWithBootstrapButtons
+            .fire({
+              title: " Are You Sure ?",
+              text: "You want to delete This Stock . ",
+              icon: "Error",
+              showCancelButton: true,
+              cancelButtonText: "No",
+              confirmButtonText: "Yes",
+              reverseButtons: false,
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                dispatch(
+                  DeleteStockDetailsAction(id, setDeleteLoading, history)
+                );
+              }
+            });
     }
   };
 
