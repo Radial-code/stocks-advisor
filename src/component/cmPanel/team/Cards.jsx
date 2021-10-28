@@ -31,7 +31,7 @@ const Cards = () => {
                           <p className="text-center team-title pt-3 mb-0">
                             {value.name}
                           </p>
-                          <p className="text-center team-dec">
+                          <p className="text-center  team-dec">
                             {value.description}
                           </p>
                         </div>
