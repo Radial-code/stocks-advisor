@@ -20,6 +20,7 @@ import {
 } from "../../../redux/action/cmPanel/stock";
 import Loader from "../../common/Loader";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const initialState = {
   joinDate: "",
@@ -82,7 +83,28 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
 
   const deleteStock = () => {
     if (!!id) {
-      dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-success",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "?Are You Sure",
+          text: "You want to delete This Stock",
+          icon: "Error",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            // dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
+          }
+        });
     }
   };
 
