@@ -218,6 +218,10 @@
   width: 126px;
 }
 
+.w-100px {
+  width: 100px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
