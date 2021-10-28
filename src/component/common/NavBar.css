@@ -104,6 +104,15 @@
     margin-bottom: 10px;
   }
 }
+.notify-dot {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 0px;
+  right: -3px;
+  border-radius: 50%;
+  background-color: #4870b3;
+}
 
 .join_now_btn {
   font-weight: 500;

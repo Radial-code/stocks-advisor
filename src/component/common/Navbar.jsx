@@ -510,7 +510,7 @@ const Navbar = ({
                   {userData.isAdmin ? (
                     <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
                       <Dropdown.Toggle
-                        className="d-none d-xxl-block"
+                        className="d-none d-xxl-block "
                         id="dropdown-basic"
                       >
                         Dashboard
@@ -538,7 +538,8 @@ const Navbar = ({
                 ""
               )}
               {!!auth && !!firstname && !!lastname ? (
-                <div className="d-none d-xxl-block my-auto">
+                <div className="d-none d-xxl-block my-auto position-relative">
+                  <span className="d-block notify-dot"></span>
                   <div
                     onClick={() => {
                       userData.isAdmin
@@ -602,7 +603,8 @@ const Navbar = ({
 
             <div className="col-6 my-auto">
               <div className="d-flex justify-content-end ">
-                <div className="d-block my-auto d-xxl-none">
+                <div className="d-block my-auto d-xxl-none position-relative">
+                  <span className="d-block notify-dot"></span>
                   {auth ? (
                     <div
                       onClick={() => {

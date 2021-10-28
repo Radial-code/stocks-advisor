@@ -4,8 +4,11 @@ import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
 import { withRouter } from "react-router";
 import Slider from "react-slick";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const OurPlanCard = ({ homepage, history }) => {
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
@@ -175,7 +178,13 @@ const OurPlanCard = ({ homepage, history }) => {
                         <p className=" mt-4 h-143">
                           {value.details
                             ? value.details.map((val) => (
-                                <ul>
+                                <ul
+                                  className={`${
+                                    layoutClickChanger
+                                      ? "d-flex flex-row-reverse pe-4"
+                                      : ""
+                                  }`}
+                                >
                                   <li
                                     className={`${
                                       val === "" ? "list-unstyled" : ""

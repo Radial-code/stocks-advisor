@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ReactPaginate from "react-paginate";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
@@ -44,41 +43,6 @@ const OurPlans = ({ homepage, history }) => {
           ) : (
             <>
               <OurPlanCard history={history} />
-              {/* {layoutClickChanger ? (
-                <div className="mx-xxl-5 mx-xl-3  d-flex justify-content-md-start justify-content-center">
-                  <ReactPaginate
-                    previousLabel={"Prev"}
-                    nextLabel={"Next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={Math.ceil(planListCount / 3)}
-                    marginPagesDisplayed={3}
-                    pageRangeDisplayed={3}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"activePage"}
-                    initialPage={page}
-                  />
-                </div>
-              ) : (
-                <div className="react-pagination mx-xxl-4 mx-xl-3 d-flex justify-content-md-start justify-content-center">
-                  <ReactPaginate
-                    previousLabel={"Prev"}
-                    nextLabel={"Next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={Math.ceil(planListCount / 3)}
-                    marginPagesDisplayed={3}
-                    pageRangeDisplayed={3}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"activePage"}
-                    initialPage={page}
-                  />
-                </div>
-              )} */}
             </>
           )}
         </Row>
