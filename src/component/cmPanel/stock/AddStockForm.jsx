@@ -336,7 +336,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
                 <DatePicker
                   placeholderText="Sold Date"
-                  className="mb-3"
+                  className="mb-3 bg-6c757d85 "
                   disabled={edit ? false : true}
                   value={
                     stockDetails &&

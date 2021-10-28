@@ -115,7 +115,7 @@ const AddNewNews = ({ edit, match, history }) => {
 
   return (
     <Col xs={12}>
-      <div className="manger-panel-shadow p-sm-5 w-xl-1000 news-form-height">
+      <div className="manger-panel-shadow p-sm-5 w-xl-1000 scroll-bar   news-form-height">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="heading-stock d-none d-sm-block fs-sm-20">
             {edit ? "Update News" : "Add New News"}

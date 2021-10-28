@@ -103,6 +103,7 @@
   height: 850px;
   overflow: auto;
 }
+
 .news-upload-btn:hover {
   background: white;
   font-weight: 500;
