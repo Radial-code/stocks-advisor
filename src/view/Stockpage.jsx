@@ -46,7 +46,10 @@ const Stockpage = ({ match }) => {
         <NetflixChart setType={setType} type={type} />
       ) : null}
       <div className="mt-5">
-        <StockArticles loading={loading} />
+        <StockArticles
+          loading={loading}
+          relatedNewsLoader={relatedNewsLoader}
+        />
       </div>
     </div>
   );

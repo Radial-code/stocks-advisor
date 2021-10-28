@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import NoDataImg from "../../assets/img/emptydata.jpg";
+
 const AboutSlider = () => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const teamList = useSelector((state) => state.list.teamList);

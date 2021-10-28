@@ -3,25 +3,20 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../BubblesLoader";
 import OurPlanCard from "./OurPlanCard";
 
 const OurPlans = ({ homepage, history }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(0);
   const [planListCount, setPlanListCount] = useState(0);
-  const { layoutClickChanger } = useLayoutChangerProvider();
 
   useEffect(() => {
     const limit = 10;
+    const page = 0;
     dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
-  }, [page]);
-  const handlePageClick = (e) => {
-    const selectedPage = e.selected;
-    setPage(selectedPage);
-  };
+  }, []);
+
   return (
     <>
       <Container>
@@ -42,7 +37,7 @@ const OurPlans = ({ homepage, history }) => {
             </div>
           ) : (
             <>
-              <OurPlanCard history={history} />
+              <OurPlanCard history={history} planListCount={planListCount} />
             </>
           )}
         </Row>

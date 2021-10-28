@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../dashboardCss/Notification.css";
-import { Container, Row, Col } from "react-bootstrap";
-import DashboardDropDown from "../../dashboard/DashboardDropDown";
+import { Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getUserPaymentMethodAction } from "../../../redux/action/payment";
 import PaymentTable from "./PaymentTable";
 import BubblesLoader from "../../common/BubblesLoader";
 
-const PaymentDetails = ({
-  sideBarHandler,
-  setSidebarActive,
-  sidebarActive,
-}) => {
+const PaymentDetails = ({ setSidebarActive, sidebarActive }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   useEffect(() => {

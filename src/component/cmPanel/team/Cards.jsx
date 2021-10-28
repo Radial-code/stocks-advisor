@@ -6,8 +6,7 @@ import NoData from "../../../assets/img/emptydata.jpg";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Cards = () => {
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const teamList = useSelector((state) => state.list.teamList);
   const [loading, setLoading] = useState(false);

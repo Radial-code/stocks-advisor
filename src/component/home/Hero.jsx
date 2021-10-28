@@ -1,4 +1,3 @@
-import BubblesLoader from "../common/BubblesLoader";
 import Chart from "./Chart";
 import HomePageSlider from "./HomePageSlider";
 

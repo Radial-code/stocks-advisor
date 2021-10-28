@@ -1,7 +1,4 @@
 import { CardElement } from "@stripe/react-stripe-js";
-import PaymentForm from "./PaymentForm";
-import img_1 from "../../assets/img/visa.png";
-import img_2 from "../../assets/img/paypal.png";
 
 const CARD_OPTIONS = {
   iconStyle: "solid",

@@ -22,7 +22,7 @@ const Homepage = () => {
           <AboutUs />
           <History />
           <div className="mb-5">
-            <AboutSlider />
+            <AboutSlider loading={loading} />
           </div>
         </div>
       </section>

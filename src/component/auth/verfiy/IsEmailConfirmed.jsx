@@ -28,7 +28,7 @@ const IsEmailConfirmed = ({ match, history }) => {
           <div className="col-12 col-md-8 col-lg-6 col-xl-5 p-sm-5 p-3 email-verify-box mt-5 mb-5">
             <div className="row">
               <div className="col justify-content-center d-flex my-4">
-                <img src={LogoPhoto} style={{ width: "40%" }} />
+                <img src={LogoPhoto} style={{ width: "40%" }} alt="" />
               </div>
             </div>
             <h1 className="text-center ">Verify Your Email Address</h1>
