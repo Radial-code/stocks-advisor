@@ -35,8 +35,12 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: "? Are You Sure",
-          text: ". You want to delete This Exchange",
+          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          text: `${
+            layoutClickChanger
+              ? ".You want to delete This Portfolios"
+              : "You want to delete This Portfolios."
+          }`,
           icon: "Error",
           showCancelButton: true,
           confirmButtonText: "Yes",

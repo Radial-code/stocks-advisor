@@ -13,6 +13,7 @@ import Loader from "../../common/Loader";
 import AddNewsForm from "./AddNewsForm";
 import NewsSelectTypes from "./NewsSelectTypes";
 import Swal from "sweetalert2";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const initialState = {
   title: "",
@@ -30,6 +31,8 @@ const initialState = {
 
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
+  const { layoutClickChanger } = useLayoutChangerProvider();
+
   const dispatch = useDispatch();
   const newsDetailsList = useSelector((state) => state.userPanel.newsDetails);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
@@ -98,8 +101,12 @@ const AddNewNews = ({ edit, match, history }) => {
       });
       swalWithBootstrapButtons
         .fire({
-          title: "? Are You Sure",
-          text: ". You want to delete This News",
+          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          text: `${
+            layoutClickChanger
+              ? ".You want to delete This News"
+              : "You want to delete This News."
+          }`,
           icon: "Error",
           showCancelButton: true,
           confirmButtonText: "Yes",

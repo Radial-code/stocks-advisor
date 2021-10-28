@@ -9,9 +9,11 @@ import {
 import BubblesLoader from "../../common/BubblesLoader";
 import NoData from "../../../assets/img/emptydata.jpg";
 import Swal from "sweetalert2";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
 
@@ -30,8 +32,12 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: "? Are You Sure",
-          text: ". You want to delete This Exchange",
+          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          text: `${
+            layoutClickChanger
+              ? ".You want to delete This Exchange"
+              : "You want to delete This Exchange."
+          }`,
           icon: "Error",
           showCancelButton: true,
           confirmButtonText: "Yes",
