@@ -44,6 +44,57 @@ const AboutSlider = () => {
       <h1 className="mt-5 pt-5 section-heading fs-sm-22">Team</h1>
       {teamList && teamList.length !== 0 ? (
         <>
+          <div className="row">
+            <div className="col-3">
+              <div>
+                {teamList && teamList.length
+                  ? teamList.map((value, index) => {
+                      return (
+                        <div className="d-flex justify-content-center  fl pr-15 d-sm-block">
+                          <div className="profile-box mx-2 p-3">
+                            <div>
+                              <div
+                                className={`${
+                                  layoutClickChanger
+                                    ? "d-flex align-items-center flex-row-reverse"
+                                    : "d-flex align-items-center"
+                                }`}
+                              >
+                                <img
+                                  key={index}
+                                  className="w-100px w-sm-lg-90   w-xs-95"
+                                  src={value.profileImagePath}
+                                  alt=""
+                                />
+                                <div className="me-3 d-flex  flex-column pr-15">
+                                  <h4 className="profile-heading fs-xs-19  fs-992-1200-19">
+                                    {value.name}
+                                  </h4>
+                                  <p className="profile-heading font-xs text-end">
+                                    {value.post}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <p
+                              className={`${
+                                layoutClickChanger
+                                  ? "stock-paragraph about-slider text-center text-sm-end fs-sm-14 mt-3"
+                                  : ""
+                              }`}
+                            >
+                              {value.description}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })
+                  : null}
+              </div>
+            </div>
+          </div>
+
           <Slider
             dir="rtl"
             className={` ${
@@ -53,7 +104,7 @@ const AboutSlider = () => {
             } `}
             {...settings}
           >
-            {teamList && teamList.length
+            {teamList && teamList.length > 3
               ? teamList.map((value, index) => {
                   return (
                     <div className="d-flex justify-content-center  fl pr-15 d-sm-block">
