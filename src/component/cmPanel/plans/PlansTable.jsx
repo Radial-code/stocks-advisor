@@ -6,6 +6,7 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
   deletePlansDetailsAction,
   getPlansListAction,
+  updatePlansDetailsAction,
 } from "../../../redux/action/cmPanel/plans";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
@@ -28,7 +29,7 @@ function PlansTable({ history }) {
     dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
   }, [page]);
 
-  const deletePlans = (id) => {
+  const deletePlans = (id, isActive) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success",
@@ -39,7 +40,11 @@ function PlansTable({ history }) {
     swalWithBootstrapButtons
       .fire({
         title: "? Are You Sure",
-        text: ". You want to Disable This Plan",
+        text: `${
+          !isActive
+            ? ". You want to Unable This Plan"
+            : ". You want to Disable This Plan"
+        }`,
         icon: "Error",
         showCancelButton: true,
         confirmButtonText: "Yes",
@@ -48,7 +53,17 @@ function PlansTable({ history }) {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          dispatch(deletePlansDetailsAction(id, setDeletedLoading));
+          let planDetails = {};
+          if (!isActive) {
+            planDetails = {
+              isActive: true,
+            };
+          } else {
+            planDetails = {
+              isActive: false,
+            };
+          }
+          updatePlansDetailsAction(planDetails, id, setDeletedLoading, history);
         }
       });
   };
@@ -264,10 +279,10 @@ export function PlansTableListItem({
           <button
             type="button"
             disabled={deleteLoading}
-            onClick={() => deletePlans(value._id)}
+            onClick={() => deletePlans(value._id, value.isActive)}
             className="px-3 py-1 delete-button"
           >
-            Disable
+            {!value.isActive ? "Disabled" : "Not-Disable"}
           </button>
         </td>
       </tr>
