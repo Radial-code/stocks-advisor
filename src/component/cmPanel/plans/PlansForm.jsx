@@ -91,7 +91,7 @@ function PlansForm({ history, edit, id }) {
         planDetails.details !== undefined
       ) {
         dispatch(
-          updatePlansDetailsAction(planDetails, id, setLoading, history)
+          updatePlansDetailsAction(planDetails, id, setLoading, history, "data")
         );
       }
     }
