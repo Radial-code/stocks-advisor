@@ -6,6 +6,7 @@ import {
   updateCategoryDetailsAction,
 } from "../../../redux/action/cmPanel/OurServices";
 import Loader from "../../common/Loader";
+import CloseIcon from "../../../assets/img/close-icon.png";
 
 function CategoryPopup({
   handleClose,
@@ -46,13 +47,21 @@ function CategoryPopup({
 
   return (
     <Modal show={show} onHide={handleClose} centered>
-      <Modal.Header className="d-block">
-        <Modal.Title>
-          <p className="mb-0 text-center fw-bold">
+      <div className=" p-sm-3 p-2">
+        {" "}
+        <img
+          className="close-popup-icon "
+          onClick={handleClose}
+          src={CloseIcon}
+          alt=""
+        />
+        <div>
+          <h4 className="mb-0 text-center fw-bold">
             {edit ? "Update Category" : "Add Category"}
-          </p>
-        </Modal.Title>
-      </Modal.Header>
+          </h4>
+        </div>
+      </div>
+
       <Modal.Body>
         <div className="add-new-stock-field my-3 ms-sm-3">
           <input
