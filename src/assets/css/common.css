@@ -61,10 +61,13 @@
   height: 100vh;
 }
 .swal2-confirm {
-  background-color: red;
-  border-color: red;
+  background-color: red !important;
+  border-color: red !important;
 }
-
+.swal2-confirm:hover {
+  background-color: red !important;
+  border-color: red !important;
+}
 .swal2-cancel {
   background-color: #5cbd4c;
   border-color: #5cbd4c;
