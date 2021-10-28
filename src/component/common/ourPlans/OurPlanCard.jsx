@@ -49,7 +49,7 @@ const OurPlanCard = ({ homepage, history }) => {
   return (
     <Col xs={12}>
       <div className="row mt-sm-5  justify-content-center">
-        {planList.length <= 3 ? (
+        {planList && planList.length <= 3 ? (
           <>
             {planList && planList.length ? (
               planList.map((value, index) => {
