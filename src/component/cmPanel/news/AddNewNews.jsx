@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Loader from "../../common/Loader";
 import AddNewsForm from "./AddNewsForm";
 import NewsSelectTypes from "./NewsSelectTypes";
+import Swal from "sweetalert2";
 
 const initialState = {
   title: "",
@@ -88,7 +89,28 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const deleteNews = () => {
     if (!!id) {
-      dispatch(DeleteNewsDetailsAction(id, history));
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-success",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "? Are You Sure",
+          text: ". You want to delete This News",
+          icon: "Error",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            dispatch(DeleteNewsDetailsAction(id, history));
+          }
+        });
     }
   };
 
@@ -100,7 +122,6 @@ const AddNewNews = ({ edit, match, history }) => {
       atags.map((item) => {
         newsDetails.atags += `${item},`;
       });
-      console.log("newsDetails", newsDetails);
       if (
         newsDetails.title !== "" &&
         newsDetails.description !== "" &&

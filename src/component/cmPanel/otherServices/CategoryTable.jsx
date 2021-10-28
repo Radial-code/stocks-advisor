@@ -10,6 +10,7 @@ import BubblesLoader from "../../common/BubblesLoader";
 import ReactPaginate from "react-paginate";
 import CategoryTableListItem from "./CategoryTableListItem";
 import NoData from "../../../assets/img/emptydata.jpg";
+import Swal from "sweetalert2";
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -26,7 +27,28 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
 
   const deleteCategory = (id) => {
     if (id) {
-      dispatach(deleteCategoryAction(id));
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-success",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "? Are You Sure",
+          text: ". You want to delete This Category",
+          icon: "Error",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            dispatach(deleteCategoryAction(id));
+          }
+        });
     }
   };
 

@@ -8,6 +8,7 @@ import {
 } from "../../../redux/action/cmPanel/OurServices";
 import BubblesLoader from "../../common/BubblesLoader";
 import NoData from "../../../assets/img/emptydata.jpg";
+import Swal from "sweetalert2";
 
 function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
@@ -20,7 +21,28 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
 
   const deleteExchange = (id) => {
     if (id) {
-      dispatach(DeleteExchangeDetailsAction(id));
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-success",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "? Are You Sure",
+          text: ". You want to delete This Exchange",
+          icon: "Error",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            dispatach(DeleteExchangeDetailsAction(id));
+          }
+        });
     }
   };
 

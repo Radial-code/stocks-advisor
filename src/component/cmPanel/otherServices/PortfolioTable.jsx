@@ -10,6 +10,7 @@ import {
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import NoData from "../../../assets/img/emptydata.jpg";
+import Swal from "sweetalert2";
 
 function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
@@ -25,7 +26,28 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
 
   const deletePortfolios = (id) => {
     if (id) {
-      dispatach(DeletePortfolioDetailsAction(id));
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-success",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "? Are You Sure",
+          text: ". You want to delete This Exchange",
+          icon: "Error",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            dispatach(DeletePortfolioDetailsAction(id));
+          }
+        });
     }
   };
 

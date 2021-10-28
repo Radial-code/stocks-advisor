@@ -102,7 +102,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            // dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
+            dispatch(DeleteStockDetailsAction(id, setDeleteLoading, history));
           }
         });
     }
