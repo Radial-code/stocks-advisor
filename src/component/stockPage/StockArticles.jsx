@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-const StockArticles = ({ history }) => {
+const StockArticles = ({ history, getValueOf }) => {
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
   const { layoutClickChanger } = useLayoutChangerProvider();
   return (
@@ -13,7 +13,7 @@ const StockArticles = ({ history }) => {
         <Row>
           <Col xs={12}>
             <p className="profile-heading fs-md-20 fs-md-14 ">
-              Related News Articles
+              {getValueOf("Related News Articles")}
             </p>
           </Col>
           {allRelatedNews && allRelatedNews.length
@@ -62,7 +62,7 @@ const StockArticles = ({ history }) => {
                               )}
                             </p>
                             <p className="read-more d-none d-lg-block mb-0">
-                              Read More
+                              {getValueOf("Read More")}
                             </p>
                             <p
                               className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mb-3 mt-3"

@@ -8,8 +8,10 @@ import {
   getSoldPortfolioListForDashBoardAction,
 } from "../../redux/action/portfolio";
 import StockSoldSlider from "./StockSoldSlider";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Portfolio = ({ match }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [sidebarActive, setSidebarActive] = useState(false);
   const [soldLoading, setSoldLoading] = useState(false);
@@ -30,12 +32,14 @@ const Portfolio = ({ match }) => {
       <div className="container my-5 ">
         <div className="d-flex justify-content-between flex-lg-row flex-column  mt-100">
           <PortfoliosSidebar
+            getValueOf={getValueOf}
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
             setPortfoliosId={setPortfoliosId}
             portfoliosId={portfoliosId}
           />
           <PortfolioStock
+            getValueOf={getValueOf}
             sideBarHandler={sideBarHandler}
             sidebarActive={sidebarActive}
             setSidebarActive={setSidebarActive}
@@ -45,7 +49,9 @@ const Portfolio = ({ match }) => {
           />
         </div>
         <div className="my-4">
-          <h1 className="profile-heading pe-3 pt-2">Related News</h1>
+          <h1 className="profile-heading pe-3 pt-2">
+            {getValueOf("Related News")}
+          </h1>
           <StockSoldSlider />
         </div>
       </div>

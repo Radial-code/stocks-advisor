@@ -240,7 +240,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                   : "join-now-btn"
                               } join-now-btn`}
                             >
-                              {getValueOf("Join Now")}
+                              {getValueOf("Join Now")}Join Now
                             </button>
                           )}
                         </div>

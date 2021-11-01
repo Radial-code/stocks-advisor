@@ -9,7 +9,7 @@ import StockSliderCard from "./StockSliderCard";
 import { useSelector } from "react-redux";
 import BubblesLoader from "../common/BubblesLoader";
 
-const StockSoldSlider = ({ loader }) => {
+const StockSoldSlider = ({ loader, getValueOf }) => {
   const soldStockNewsList = useSelector(
     (state) => state.list.soldStockNewsList
   );
@@ -54,7 +54,13 @@ const StockSoldSlider = ({ loader }) => {
             <Slider {...settings} className="stock-slider">
               {soldStockNewsList && soldStockNewsList.length
                 ? soldStockNewsList.map((value, index) => {
-                    return <StockSliderCard soldValue={value} index={index} />;
+                    return (
+                      <StockSliderCard
+                        soldValue={value}
+                        index={index}
+                        getValueOf={getValueOf}
+                      />
+                    );
                   })
                 : ""}
             </Slider>

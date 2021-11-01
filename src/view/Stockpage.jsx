@@ -9,8 +9,10 @@ import {
 } from "../redux/action/news";
 import { withRouter } from "react-router";
 import { getStockChatDetailsAction } from "../redux/action/cmPanel/stock";
+import { useLayoutChangerProvider } from "../redux/LayoutChangerProvider";
 
 const Stockpage = ({ match }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState("1y");
@@ -48,6 +50,7 @@ const Stockpage = ({ match }) => {
       <div className="mt-5">
         <StockArticles
           loading={loading}
+          getValueOf={getValueOf}
           relatedNewsLoader={relatedNewsLoader}
         />
       </div>

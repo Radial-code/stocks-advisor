@@ -6,8 +6,10 @@ import Chart from "../home/Chart";
 import AllNews from "./AllNews";
 import Plans from "../plan/Plans";
 import "./Newspage.css";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const News = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
@@ -38,9 +40,9 @@ const News = () => {
             className=" mt-3 d-flex justify-content-center d-sm-block"
           >
             <div className="profile-box py-2  w-xs-303">
-              <Chart />
+              <Chart getValueOf={getValueOf} />
               <div className="mt-5">
-                <Plans />
+                <Plans getValueOf={getValueOf} />
               </div>
             </div>
           </Col>

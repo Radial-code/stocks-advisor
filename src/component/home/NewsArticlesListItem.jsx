@@ -3,8 +3,8 @@ import img_1 from "../../assets/img/calendar-icon.png";
 import moment from "moment";
 import { withRouter } from "react-router";
 
-const NewsArticlesListItem = ({ news, history }) => {
-  const { imagePath, createdAt, title, description, _id, tags, stock } = news;
+const NewsArticlesListItem = ({ news, history, getValueOf }) => {
+  const { createdAt, title, description, _id, tags, stock } = news;
 
   return (
     <>
@@ -34,7 +34,7 @@ const NewsArticlesListItem = ({ news, history }) => {
               className="read-more text-end cursor-pointer"
               onClick={() => history.push(`/news/details/${_id}`)}
             >
-              Read More...
+              {getValueOf("Read More")}
             </p>
             <p class="small-paragraph text-end Slider-Ellipse">{tags}</p>
             <p className={`small-paragraph text-end Slider-Ellipse`}>

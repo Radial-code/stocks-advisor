@@ -7,7 +7,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 
 const NewsList = ({ history, value, index, loading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   return (
     <section className="news-articles-card  p-3 mb-4">
@@ -29,16 +29,10 @@ const NewsList = ({ history, value, index, loading }) => {
             className={`${layoutClickChanger ? "d-flex  " : "d-flex "}  `}
           >
             <div className="w-lg-518 mx-3">
-              {/* <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
-                {moment(value.createdAt).format("ddd/MM/yyyy")}
-                <span className={`${layoutClickChanger ? "pe-2" : "ps-2"}`}>
-                  <img src={img_2} alt="" />{" "}
-                </span>{" "}
-              </p> */}
               {layoutClickChanger ? (
                 <>
                   <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
-                    {moment(value.createdAt).format("ddd/MM/yyyy")}
+                    {moment(value.createdAt).format("DD/MM/YY")}
                     <span className={`${layoutClickChanger ? "pe-2" : ""}`}>
                       <img src={img_2} alt="" />{" "}
                     </span>{" "}
@@ -52,7 +46,7 @@ const NewsList = ({ history, value, index, loading }) => {
                     </span>{" "}
                     <span className={`${layoutClickChanger ? "" : "ps-2"}`}>
                       {" "}
-                      {moment(value.createdAt).format("ddd/MM/yyyy")}
+                      {moment(value.createdAt).format("DD/MM/YY")}
                     </span>
                   </p>
                 </>
@@ -75,7 +69,7 @@ const NewsList = ({ history, value, index, loading }) => {
                 className="read-more  mb-0 cursor-pointer fs-xs-12"
                 onClick={() => history.push(`/news/details/${value._id}`)}
               >
-                ...Read More
+                {getValueOf("Read More")}
               </p>
 
               <p

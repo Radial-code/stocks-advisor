@@ -1,7 +1,7 @@
 import moment from "moment";
 import CalenderIcon from "../../assets/img/calendar-icon.png";
 
-const StockSliderCard = ({ soldValue }) => {
+const StockSliderCard = ({ soldValue, getValueOf }) => {
   return (
     <>
       <div className="my-3 ">
@@ -28,7 +28,7 @@ const StockSliderCard = ({ soldValue }) => {
               <span>{soldValue.description}</span>
             </p>
             <p className="text-end cursor-pointer">
-              <span className="read-more ">Read More...</span>
+              <span className="read-more "> {getValueOf("Read More")}</span>
             </p>
             <p className="text-end cursor-pointer mb-0 text-ellipsis-dots">
               {soldValue.tags}

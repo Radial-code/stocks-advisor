@@ -6,7 +6,8 @@ import { getPlansListAction } from "../../redux/action/cmPanel/plans";
 import BubblesLoader from "../common/BubblesLoader";
 import "./Plans.css";
 import emptydata from "../../assets/img/emptydata.jpg";
-function Plans({ history }) {
+
+function Plans({ history, getValueOf }) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const planList = useSelector((state) => state.list.planList);
@@ -21,7 +22,9 @@ function Plans({ history }) {
 
   return (
     <div className="container px-sm-4 px-0 subs-plan-scroll">
-      <p className="subs-plan-text ff-popins mb-1">Subscription Plans</p>
+      <p className="subs-plan-text ff-popins mb-1">
+        {getValueOf("Subscription Plans")}
+      </p>
       <span className="subs-plans-line d-block mb-4"></span>
       {loading ? (
         <div className="d-flex justify-content-center align-items-center">
@@ -51,6 +54,7 @@ function Plans({ history }) {
                           className="ff-popins join-now ff-popins "
                         >
                           Buy now
+                          {getValueOf("Buy now")}
                         </button>
                       ) : (
                         <button
@@ -59,6 +63,7 @@ function Plans({ history }) {
                           className="ff-popins join-now ff-popins "
                         >
                           Join Now
+                          {getValueOf("Join Now")}
                         </button>
                       )}
                     </div>

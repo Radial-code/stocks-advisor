@@ -43,7 +43,9 @@ const Contact = () => {
                   </div>
 
                   <div className="col-7 col-md-4 order-1 order-md-3 p-0">
-                    <p className="email-heading pb-md-3 pb-3 m-0">Addresses</p>
+                    <p className="email-heading pb-md-3 pb-3 m-0">
+                      {getValueOf("Address")}
+                    </p>
                     <p className="addres-sub-heading pt-1">Santo Domingo</p>
                     <p className="sub-text">Lorem passagess</p>
                   </div>

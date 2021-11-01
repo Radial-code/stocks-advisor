@@ -11,7 +11,7 @@ import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
 
 function Login({ history }) {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [reCaptchaToken, setReCaptchaToken] = useState(null);
@@ -61,7 +61,7 @@ function Login({ history }) {
                     });
                   }}
                   type="email"
-                  placeholder="Email"
+                  placeholder={getValueOf("Email")}
                 />
                 <span className="text-danger">
                   {error && logInDetails.email === ""

@@ -3,8 +3,10 @@ import Slider from "react-slick";
 import NewsArticlesListItem from "./NewsArticlesListItem";
 import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NewsArticles = ({ history }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
 
   var settings = {
@@ -66,7 +68,9 @@ const NewsArticles = ({ history }) => {
   return (
     <>
       <div className="container p-left-right">
-        <h1 className="profile-heading ">Other News Articles</h1>
+        <h1 className="profile-heading ">
+          {getValueOf("Other News Articles")}
+        </h1>
 
         <div className="row ">
           <div className="col-12">
@@ -76,13 +80,15 @@ const NewsArticles = ({ history }) => {
             >
               {newsListData &&
                 newsListData.length &&
-                newsListData.map((obj) => <NewsArticlesListItem news={obj} />)}
+                newsListData.map((obj) => (
+                  <NewsArticlesListItem news={obj} getValueOf={getValueOf} />
+                ))}
             </Slider>
           </div>
         </div>
         <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
           <button className="default-btn" onClick={() => history.push("/news")}>
-            View All News
+            {getValueOf("View All News")}
           </button>
         </div>
       </div>

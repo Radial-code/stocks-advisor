@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import Cancel from "../../assets/img/cancel.png";
 import { Back } from "../common/icons/Icons";
 
-const PortfoliosSidebar = ({ history }) => {
+const PortfoliosSidebar = ({ history, getValueOf }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
@@ -28,7 +28,7 @@ const PortfoliosSidebar = ({ history }) => {
             bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">
-            <p className="cn-sidebar-text mb-0">Portfolios</p>
+            <p className="cn-sidebar-text mb-0">{getValueOf("Portfolios")}</p>
 
             <img
               className="cancel-icon cursor-pointer"
@@ -57,7 +57,9 @@ const PortfoliosSidebar = ({ history }) => {
       <div className="col">
         <div className=" px-lg-4 pt-4 d-lg-none d-flex flex-column mb-5">
           <div className="d-flex align-items-center mb-3 justify-content-between">
-            <p className="cn-sidebar-text text-end mb-0">Portfolios</p>
+            <p className="cn-sidebar-text text-end mb-0">
+              {getValueOf("Portfolios")}
+            </p>
             <span
               className="cursor-pointer"
               onClick={() => setShowSidebar(true)}

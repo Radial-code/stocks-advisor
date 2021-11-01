@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 function SignUp({ history }) {
   const dispatch = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const countries = useSelector((state) => state.list.countries);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -102,7 +102,7 @@ function SignUp({ history }) {
                       }}
                       type="text"
                       className=""
-                      placeholder="Last Name"
+                      placeholder={getValueOf("Last Name")}
                     />
                     <span className="text-danger">
                       {error && signUpDetails.lastName === ""
@@ -125,7 +125,7 @@ function SignUp({ history }) {
                         });
                       }}
                       type="text"
-                      placeholder="First Name"
+                      placeholder={getValueOf("First Name")}
                     />
                     <span className="text-danger">
                       {error && signUpDetails.firstName === ""
@@ -168,7 +168,7 @@ function SignUp({ history }) {
                     });
                   }}
                   type="email"
-                  placeholder="Email"
+                  placeholder={getValueOf("Email")}
                 />
                 <span className="text-danger">
                   {error && signUpDetails.email === ""
@@ -202,7 +202,7 @@ function SignUp({ history }) {
                             });
                           }}
                           type="tel"
-                          placeholder="Phone Number"
+                          placeholder={getValueOf("Phone Number")}
                         />
 
                         <span className="text-danger">
@@ -316,7 +316,7 @@ function SignUp({ history }) {
                             });
                           }}
                           type="tel"
-                          placeholder="Phone Number"
+                          placeholder={getValueOf("Phone Number")}
                         />
 
                         <span className="text-danger">

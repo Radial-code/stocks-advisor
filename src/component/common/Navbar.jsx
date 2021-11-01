@@ -575,13 +575,13 @@ const Navbar = ({
                     onClick={() => closeSidebar("login")}
                     className="mt-4 mt-xxl-0 py-2 ms-3 mx-2  btn join_now_btn "
                   >
-                    {getValueOf("Log In")}
+                    {getValueOf("Log In")}Log In
                   </button>
                   <button
                     onClick={() => closeSidebar("joinnow")}
                     className="mt-4 mt-xxl-0 py-2 btn log_in_btn "
                   >
-                    {getValueOf("Join Now")}
+                    {getValueOf("Join Now")}Join Now
                   </button>
                 </div>
               )}

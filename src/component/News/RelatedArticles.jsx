@@ -9,7 +9,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const RelatedArticles = () => {
   const dispatch = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [relatedLoading, setRelatedLoading] = useState(false);
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
@@ -28,7 +28,7 @@ const RelatedArticles = () => {
     <Container className="mt-5">
       <Row>
         <Col xs={12}>
-          <p className="profile-heading">Related News Articles</p>
+          <p className="profile-heading">{getValueOf("Related News")}</p>
         </Col>
         <Col xs={12}>
           {relatedLoading ? (
@@ -61,7 +61,6 @@ const RelatedArticles = () => {
                           }
                         >
                           <span>
-                            {" "}
                             {moment(value.createdAt).format("DD/MMM/YYYY")}
                           </span>
                           <img
@@ -92,7 +91,9 @@ const RelatedArticles = () => {
                           </p>
                         </div>
 
-                        <span className="read-more ">Read More...</span>
+                        <span className="read-more ">
+                          {getValueOf("Read More")}
+                        </span>
                         <p
                           className={
                             layoutClickChanger
@@ -122,7 +123,7 @@ const RelatedArticles = () => {
                 })
               ) : (
                 <p className="text-center reltated-text-style">
-                  You don't have any related news
+                  {getValueOf("You don't have any Related News")}
                 </p>
               )}
             </Row>

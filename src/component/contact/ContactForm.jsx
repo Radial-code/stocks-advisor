@@ -103,7 +103,7 @@ const ContactForm = () => {
                 >
                   <Form.Control
                     type="tel"
-                    placeholder="Phone Number"
+                    placeholder={getValueOf("Phone Number")}
                     onChange={(e) => {
                       setContactDetails({
                         ...contactDetails,
@@ -241,7 +241,7 @@ const ContactForm = () => {
               : " input-border  py-2 py-md-3 ps-3   w-100 input-text border-A3A3A3 "
           }`}
           type="text"
-          placeholder="Subject"
+          placeholder={getValueOf("Subject")}
           required
           onChange={(e) => {
             setContactDetails({
@@ -261,7 +261,7 @@ const ContactForm = () => {
               : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
           }`}
           rows="6"
-          placeholder="Message..."
+          placeholder={getValueOf("Message…")}
           required
           onChange={(e) => {
             setContactDetails({
@@ -281,7 +281,7 @@ const ContactForm = () => {
             onClick={() => SubmitContactForm()}
             className=" mt-4   send-msg-btn text-white"
           >
-            {loading ? <Loader /> : "Send Message"}
+            {loading ? <Loader /> : getValueOf("Send Message")}
           </button>
         </div>
       </div>

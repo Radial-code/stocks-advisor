@@ -6,8 +6,10 @@ import NewsDetailsPage from "./NewsDetailsPage";
 import Chart from "../home/Chart";
 import RelatedArticles from "./RelatedArticles";
 import Plans from "../plan/Plans";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NewsDetails = ({ match }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const [loading, setLoading] = useState(false);
@@ -18,6 +20,7 @@ const NewsDetails = ({ match }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <section>
@@ -26,9 +29,9 @@ const NewsDetails = ({ match }) => {
             <NewsDetailsPage loading={loading} />
             <div className="col-xl-4  col-lg-10   mt-5 mt-lg-0 ">
               <div className="profile-box py-4">
-                <Chart />
+                <Chart getValueOf={getValueOf} />
                 <div className="mt-5">
-                  <Plans />
+                  <Plans getValueOf={getValueOf} />
                 </div>
               </div>
             </div>

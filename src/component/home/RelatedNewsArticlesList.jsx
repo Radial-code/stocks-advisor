@@ -1,8 +1,9 @@
 import CalenderIcon from "../../assets/img/calendar-icon.png";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 export const RelatedNewsArticlesList = ({ news, history }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const { imagePath, createdAt, title, description, _id, tags, stock } = news;
   return (
     <div className="my-3 ">
@@ -59,7 +60,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             onClick={() => history.push(`/news/details/${_id}`)}
           >
             {" "}
-            <span className="read-more ">Read More...</span>
+            <span className="read-more "> {getValueOf("Read More")}</span>
           </p>
           <p
             className={`${
