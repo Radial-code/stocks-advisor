@@ -8,8 +8,9 @@ import moment from "moment";
 import ReactPaginate from "react-paginate";
 import { getContactListAction } from "../../../redux/action/contact";
 import NoData from "../../../assets/img/emptydata.jpg";
+
 const EnquiryTable = () => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
@@ -40,27 +41,27 @@ const EnquiryTable = () => {
                   <tr className="user-list-panel">
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Date
+                      {getValueOf("Date")}
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                      Name
+                      {getValueOf("Name")}
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Reason
+                      {getValueOf("Reason")}
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      E-mail
+                      {getValueOf("E-mail")}
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Message
+                      {getValueOf("Message")}
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Status
+                      {getValueOf("Status")}Status
                     </th>
                   </tr>
                 </thead>
