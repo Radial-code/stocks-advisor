@@ -177,21 +177,42 @@ const OurPlanCard = ({ homepage, history }) => {
                         <p className=" mt-4 h-143">
                           {value.details
                             ? value.details.map((val) => (
-                                <ul
+                                <p
                                   className={`${
                                     layoutClickChanger
-                                      ? "d-flex flex-row-reverse pe-4"
+                                      ? "d-flex flex-row-reverse "
                                       : ""
                                   }`}
                                 >
-                                  <li
+                                  <span
                                     className={`${
                                       val === "" ? "list-unstyled" : ""
-                                    }`}
+                                    } `}
                                   >
-                                    {val}
-                                  </li>
-                                </ul>
+                                    {" "}
+                                    {layoutClickChanger ? (
+                                      <>
+                                        {" "}
+                                        {val}{" "}
+                                        <span
+                                          className={`${
+                                            layoutClickChanger ? "me-2" : ""
+                                          } card-dot d-inline-block`}
+                                        ></span>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {" "}
+                                        <span
+                                          className={`${
+                                            layoutClickChanger ? "" : "ms-2"
+                                          } card-dot d-inline-block `}
+                                        ></span>
+                                        <span> {val} </span>
+                                      </>
+                                    )}
+                                  </span>
+                                </p>
                               ))
                             : "N/A"}
                         </p>

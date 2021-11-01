@@ -89,6 +89,18 @@
   background-color: var(--color-127CF9);
   transition: 0.3s;
 }
+/* .card-ellipse {
+  white-space: nowrap;
+  max-width: 179px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+.card-dot {
+  background-color: black;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}
 .week-plan {
   background-color: var(--color-127CF9);
 }
