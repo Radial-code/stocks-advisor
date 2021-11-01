@@ -63,7 +63,7 @@ const OurPlanCard = ({ homepage, history }) => {
                   >
                     <section className="bg-card-plan mb-4 mx-1">
                       <p className="plan-card d-flex justify-content-center pt-5">
-                        Plan - {value.title}
+                        {value.title}
                       </p>
                       <div
                         className={`${
@@ -159,7 +159,7 @@ const OurPlanCard = ({ homepage, history }) => {
                     >
                       <section className="bg-card-plan mb-4 mx-1">
                         <p className="plan-card d-flex justify-content-center pt-5">
-                          Plan - {value.title}
+                          {value.title}
                         </p>
                         <div
                           className={`${

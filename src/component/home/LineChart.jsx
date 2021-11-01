@@ -18,13 +18,15 @@ function LineChart({ chatValue }) {
     chatValue.values &&
     chatValue.values.map((value) => {
       if (value.profitOrLoss !== null) {
-        data.push({ Year: value.year, Profite: value.profitOrLoss });
+        data.push({ Year: value.year, Profit: `${value.profitOrLoss}%` });
       }
     });
 
   return (
     <div className="container px-sm-4 px-1  mt-2">
-      <p className="chart-text-2 ff-popins mb-1"> % {chatValue.title} </p>
+      <p className="chart-text-2 ff-popins mb-1">
+        {chatValue.title} Portfolio{" "}
+      </p>
       <div
         className={`${
           chatValue.title === "Long Term"
@@ -53,7 +55,7 @@ function LineChart({ chatValue }) {
 
             <XAxis dataKey="Year" axisLine={false} tickLine={false} />
             <YAxis
-              dataKey="Profite"
+              dataKey="Profit"
               dx={layoutClickChanger ? -30 : -10}
               axisLine={false}
               tickLine={false}
@@ -61,7 +63,7 @@ function LineChart({ chatValue }) {
             />
             <Tooltip />
             <Area
-              dataKey="Profite"
+              dataKey="Profit"
               stroke={`${
                 chatValue.title === "Long Term"
                   ? "#5CBD4C"

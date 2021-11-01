@@ -38,9 +38,7 @@ function Plans({ history }) {
                     className="subs-border d-flex justify-content-between align-items-center p-3 my-4 "
                   >
                     <div>
-                      <p className="ff-popins plan-text mb-0">
-                        Plan-{index + 1}
-                      </p>
+                      <p className="ff-popins plan-text mb-0">{value.title}</p>
                       <p className="ff-popins mb-0 plan-price-text">
                         ${value.price}
                       </p>
