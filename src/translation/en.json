@@ -79,5 +79,11 @@
   "Users": "Users",
   "Other Services": "Other Services",
   "Enquiry": "Enquiry",
-  "Notification ": "Notification"
+  "Notification ": "Notification",
+  "Current Stocks ": "Current Stocks ",
+  "Add New": "Add New",
+  "State": "State",
+  "Sold": "Sold",
+  "Not Sold": "Not Sold"
+
 }
