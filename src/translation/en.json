@@ -129,5 +129,11 @@
   "Add Members": "Add Members",
   "Upload Image": "Upload Image",
   "Reason": "Reason",
-  "Message": "Message"
+  "Message": "Message",
+  "Status": "Status",
+  "Notification": "Notification",
+  "Send Notification": "Send Notification",
+  "Body": "Body",
+  "Send to": "Send to",
+  "Send": "Send"
 }

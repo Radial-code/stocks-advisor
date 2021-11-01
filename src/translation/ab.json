@@ -130,6 +130,12 @@
   "Add Members": "إضافة أعضاء",
   "Upload Image": "رفع صورة",
   "Reason": "السبب",
-  "Message": "الرسالة"
+  "Message": "الرسالة",
+  "Status": "الحالة",
+  "Notification": "رسال تنبيه",
+  "Send Notification": "ارسال تنبيه",
+  "Body": "المحتوى",
+  "Send to": "ارسال إلى",
+  "Send": "ارسال "
 
 }
