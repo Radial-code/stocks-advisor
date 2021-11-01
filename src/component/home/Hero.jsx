@@ -1,16 +1,19 @@
 import Chart from "./Chart";
 import HomePageSlider from "./HomePageSlider";
 
-const Hero = ({ loading, setRelatedLoading }) => {
+const Hero = ({ loading, setRelatedLoading, getValueOf }) => {
   return (
     <section className="pt-sm-5 pt-3 mt-100">
       <div className="container p-left-right">
         <div className="row  justify-content-between">
           <div className="col-xl-8 col-lg-7 ">
             <div className="profile-box p-3 h-100  homePageSlider">
-              <h1 className="profile-heading  pr-15">Featured News</h1>
+              <h1 className="profile-heading  pr-15">
+                {getValueOf("Features News")}
+              </h1>
 
               <HomePageSlider
+                getValueOf={getValueOf}
                 loading={loading}
                 setRelatedLoading={setRelatedLoading}
               />

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import {
   HamburgerIcon,
   HamburgerCrossIcon,
@@ -38,7 +37,6 @@ const Navbar = ({
   searchshow,
   setSearchShow,
 }) => {
-  const { t } = useTranslation();
   const [activeId, setActiveId] = useState("");
 
   function toggleActive(id) {
@@ -248,8 +246,6 @@ const Navbar = ({
                 activeClassName="active_underline_navbar "
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
-                {/* {console.log("t(sssss", t("Home"))}
-                {t("Home")} */}
                 {getValueOf("Home")}
               </NavLink>
               <NavLink
@@ -259,7 +255,7 @@ const Navbar = ({
                 activeClassName="active_underline_navbar"
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0   py-2   py-xxl-3 mt-3 my-xxl-auto"
               >
-                About
+                {getValueOf("About")}
               </NavLink>
               <NavLink
                 activeClassName="active_underline_navbar"
@@ -268,7 +264,7 @@ const Navbar = ({
                 onClick={() => closeSidebar("news")}
                 className="navbar_Links_text nav-text-border-bottom py-2 px-2 px-xxl-0   py-xxl-3 mx-xxl-4 mt-3 my-xxl-auto "
               >
-                News
+                {getValueOf("News")}
               </NavLink>
               <NavLink
                 exact
@@ -277,7 +273,7 @@ const Navbar = ({
                 onClick={() => closeSidebar("ourplan")}
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto"
               >
-                Our Plans
+                {getValueOf("Our Plans")}
               </NavLink>
               <NavLink
                 exact
@@ -286,7 +282,7 @@ const Navbar = ({
                 activeClassName="active_underline_navbar"
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  mx-xxl-4 py-2  py-xxl-3 mt-3 my-xxl-auto "
               >
-                Contact Us
+                {getValueOf("Contact Us")}
               </NavLink>
               <span className="d-flex align-items-center  lang-dropddown  py-xxl-2  py-xxl-3   my-xxl-auto">
                 <li
@@ -448,7 +444,7 @@ const Navbar = ({
                   }
                   className="navbar_Links_text my-auto px-2 px-xxl-0  my-xxl-auto  py-2 py-xxl-3 nav-text-border-bottom mx-0 mx-xxl-2"
                 >
-                  Portfolio
+                  {getValueOf("Portfolio")}
                 </NavLink>
               ) : null}
               {!!auth && token !== null ? (
@@ -481,13 +477,13 @@ const Navbar = ({
                                 className="cursor-pointer"
                                 onClick={() => closeSidebar("userdashboard")}
                               >
-                                User Dashboard
+                                {getValueOf("User Dashboard")}
                               </p>
                               <p
                                 className="cursor-pointer"
                                 onClick={() => closeSidebar("admin")}
                               >
-                                Admin Dashboard
+                                {getValueOf("Admin Dashboard")}
                               </p>
                             </Card.Body>
                           </Accordion.Collapse>
@@ -501,7 +497,7 @@ const Navbar = ({
                       to="/dashboard/view/profile"
                       className="navbar_Links_text nav-text-border-bottom py-2 mx-xxl-3  py-xxl-3 mt-3 my-xxl-auto"
                     >
-                      Dashboard
+                      {getValueOf("Dashboard")}
                     </NavLink>
                   )}
                 </>
@@ -514,7 +510,7 @@ const Navbar = ({
                         className="d-none d-xxl-block "
                         id="dropdown-basic"
                       >
-                        Dashboard
+                        {getValueOf("Dashboard")}
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
                         <Dropdown.Item
@@ -522,14 +518,14 @@ const Navbar = ({
                             history.push("/dashboard/manage/subscription")
                           }
                         >
-                          User Dashboard
+                          {getValueOf("User Dashboard")}
                         </Dropdown.Item>
                         <Dropdown.Item
                           onClick={() =>
                             history.push("/content/manager/stocks")
                           }
                         >
-                          Admin Dashboard
+                          {getValueOf("Admin Dashboard")}
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
@@ -579,13 +575,13 @@ const Navbar = ({
                     onClick={() => closeSidebar("login")}
                     className="mt-4 mt-xxl-0 py-2 ms-3 mx-2  btn join_now_btn "
                   >
-                    Log In
+                    {getValueOf("Log In")}
                   </button>
                   <button
                     onClick={() => closeSidebar("joinnow")}
                     className="mt-4 mt-xxl-0 py-2 btn log_in_btn "
                   >
-                    Join Now
+                    {getValueOf("Join Now")}
                   </button>
                 </div>
               )}
