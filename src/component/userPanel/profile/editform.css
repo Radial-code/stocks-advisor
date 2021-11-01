@@ -17,6 +17,9 @@
 .form-section {
   max-width: 481px;
 }
+.grey-color {
+  background-color: #6c757d85 !important;
+}
 
 .edit-contact-text {
   font-size: 31px;

@@ -130,3 +130,37 @@
     text-overflow: ellipsis;
   }
 }
+
+.number-field-contact .form-control {
+  padding: 14px;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+  border-radius: 5px;
+  color: #75758b;
+}
+
+.number-field-contact .form-control:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+  border-color: rgba(22, 25, 30, 0.2) !important;
+}
+
+.number-field-contact .form-control::placeholder {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #75758b;
+}
+.contact-select .form-select {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #75758b;
+  padding: 14px;
+  border-radius: 0px;
+}
+.contact-select .form-select {
+  -webkit-appearance: none !important;
+  background-image: url("../../assets/img/dropdown.png");
+  background-position: 20px;
+}
+.contact-select .form-select:focus {
+  box-shadow: 0 0 0 0.25rem transparent;
+  border-color: rgba(22, 25, 30, 0.2) !important;
+}

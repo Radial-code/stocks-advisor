@@ -106,7 +106,7 @@ const ProfileForm = ({
           <>
             <label
               for="exampleFormControlInput21"
-              class="form-label mb-2  edit-label  "
+              className="form-label mb-2  edit-label  "
             >
               Phone Number
             </label>
@@ -143,7 +143,7 @@ const ProfileForm = ({
                       phone: e.target.value,
                     });
                   }}
-                  className="form-control input-border-16191e33 py-2  profile-input-placeholder"
+                  className="form-control input-border-16191e33 py-2  profile-input-placeholder grey-color"
                   id="exampleFormControlInput15"
                   placeholder={
                     userDetails && userDetails.phone ? userDetails.phone : "N/A"
