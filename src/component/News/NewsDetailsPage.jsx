@@ -1,5 +1,5 @@
 import React from "react";
-import { LinkPreview } from "@dhaiwat10/react-link-preview";
+import ReactPlayer from "react-player";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import moment from "moment";
@@ -19,7 +19,13 @@ const NewsDetailsPage = ({ history, loading }) => {
       ) : (
         <div className="profile-box-2 w-xs-303 p-4 h-100">
           <div className=" my-3">
-            <LinkPreview url={newsDetails && newsDetails.link} width="100%" />
+            <ReactPlayer
+              url={newsDetails && newsDetails.link}
+              controls
+              playbackRate={2}
+              width="100%"
+              height="504px"
+            />
             <h6
               className={` ${
                 layoutClickChanger
