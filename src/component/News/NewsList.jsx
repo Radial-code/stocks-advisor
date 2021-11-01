@@ -29,12 +29,34 @@ const NewsList = ({ history, value, index, loading }) => {
             className={`${layoutClickChanger ? "d-flex  " : "d-flex "}  `}
           >
             <div className="w-lg-518 mx-3">
-              <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
+              {/* <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
                 {moment(value.createdAt).format("ddd/MM/yyyy")}
-                <span className={`${layoutClickChanger ? "pr-15" : "px-3"}`}>
-                  <img src={img_2} className="px-2" alt="" />{" "}
+                <span className={`${layoutClickChanger ? "pe-2" : "ps-2"}`}>
+                  <img src={img_2} alt="" />{" "}
                 </span>{" "}
-              </p>
+              </p> */}
+              {layoutClickChanger ? (
+                <>
+                  <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
+                    {moment(value.createdAt).format("ddd/MM/yyyy")}
+                    <span className={`${layoutClickChanger ? "pe-2" : ""}`}>
+                      <img src={img_2} alt="" />{" "}
+                    </span>{" "}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="stock-paragraph d-flex  mt-md-2 mt-lg-0 mb-0 fs-xs-14  articles-date">
+                    <span>
+                      <img src={img_2} alt="" />{" "}
+                    </span>{" "}
+                    <span className={`${layoutClickChanger ? "" : "ps-2"}`}>
+                      {" "}
+                      {moment(value.createdAt).format("ddd/MM/yyyy")}
+                    </span>
+                  </p>
+                </>
+              )}
               <p
                 className={` ${
                   layoutClickChanger
@@ -80,7 +102,9 @@ const NewsList = ({ history, value, index, loading }) => {
                     history.push(`/stock/news/${value.stock._id}/stock-tags`)
                   }
                 >
-                  {value.stock.symbol}
+                  {value.stock && value.stock.symbol
+                    ? value.stock.symbol
+                    : "N/A"}
                 </span>
               </p>
             </div>

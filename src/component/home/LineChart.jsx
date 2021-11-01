@@ -24,7 +24,12 @@ function LineChart({ chatValue }) {
 
   return (
     <div className="container px-sm-4 px-1  mt-2">
-      <p className="chart-text-2 ff-popins mb-1"> % {chatValue.title} </p>
+      {layoutClickChanger ? (
+        <p className="chart-text-2 ff-popins mb-1"> % {chatValue.title} </p>
+      ) : (
+        <p className="chart-text-2 ff-popins mb-1">{chatValue.title} % </p>
+      )}
+
       <div
         className={`${
           chatValue.title === "Long Term"

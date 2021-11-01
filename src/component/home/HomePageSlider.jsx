@@ -58,11 +58,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? " justify-content-start"
+                          ? " justify-content-end"
                           : " justify-content-start"
                       }  d-flex align-items-center`}
                     >
-                      <span className="d-flex justify-content-end px-2">
+                      <span className={`${layoutClickChanger?"pe-2":""} d-flex justify-content-end pe-2`}>
                         <img className="w-19 h-19" src={img_1} alt="" />
                       </span>
                       <span className="cursor-pointer">
@@ -132,7 +132,8 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                       )}
                     </span>
                   </p>
-                  <p
+               {
+                 layoutClickChanger?<>   <p
                     className={` ${
                       layoutClickChanger
                         ? "small-paragraph text-end "
@@ -152,7 +153,30 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         : "N/A"}
                     </span>
                     <span className="cursor-pointer fw-bold ps-1">:Stock</span>
-                  </p>
+                  </p></>:<> <p
+                  
+                    className={` ${
+                      layoutClickChanger
+                        ? "small-paragraph text-end "
+                        : "small-paragraph mb-5 "
+                    } `}
+                  >
+                     <span className="cursor-pointer fw-bold pe-1">Stock:</span>
+                    <span
+                      className="fw-bold cursor-pointer"
+                      onClick={() =>
+                        history.push(
+                          `/stock/news/${value.stock._id}/stock-tags`
+                        )
+                      }
+                    >
+                      {value.stock && value.stock.symbol
+                        ? value.stock.symbol
+                        : "N/A"}
+                    </span>
+                   
+                  </p></>
+               }
                 </div>
               );
             })
