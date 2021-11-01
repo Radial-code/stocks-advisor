@@ -37,9 +37,8 @@ const Navbar = ({
   searchData,
   searchshow,
   setSearchShow,
+  t,
 }) => {
-  // new usestate
-
   const [activeId, setActiveId] = useState("");
 
   function toggleActive(id) {
@@ -253,7 +252,7 @@ const Navbar = ({
                 activeClassName="active_underline_navbar "
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
-                Home
+                {t("Home")}
               </NavLink>
               <NavLink
                 exact

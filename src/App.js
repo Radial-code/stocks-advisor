@@ -17,8 +17,24 @@ import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 import ConfirmRoute from "./component/ConfirmRoute";
+import i18n from "./translation/i18n";
+import { observable, computed, reaction } from "mobx";
 
-function App() {
+class AppStore {
+  observable;
+}
+
+const appStore = new AppStore();
+
+reaction(
+  () => appStore.locale,
+  (locale) => {
+    console.log("change language");
+    i18n.changeLanguage(locale);
+  }
+);
+
+function App({ t }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebar2, setShowSidebar2] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
