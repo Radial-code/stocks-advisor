@@ -167,11 +167,10 @@ const OurPlanCard = ({ homepage, history }) => {
                           } card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4`}
                         >
                           <p className="amount-card-month align-items-center d-flex  mb-0">
-                            <span className="d-none d-sm-block month">
-                              {value.type}/
+                            <span> $ {value.price}</span>
+                            <span className="d-none d-sm-block month px-1">
+                              / {value.type}
                             </span>
-
-                            <span> {value.price} $</span>
                           </p>
                         </div>
                         <p className=" mt-4 h-143">

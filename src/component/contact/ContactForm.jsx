@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addContactAction } from "../../redux/action/contact";
 import Loader from "../common/Loader";
+import { Form, FormGroup } from "react-bootstrap";
 import { EmailRegex } from "../common/Validation";
+import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ContactForm = () => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
+  const countries = useSelector((state) => state.list.countries);
   const [contactDetails, setContactDetails] = useState({
     name: "",
     message: "",
@@ -80,14 +83,115 @@ const ContactForm = () => {
         ) : error && EmailRegex.test(contactDetails.email) === false ? (
           <span className="text-danger">Enter valid email</span>
         ) : null}
-
+        <div className="row align-items-center">
+          {layoutClickChanger ? (
+            <>
+              {" "}
+              <div
+                className={`${
+                  layoutClickChanger
+                    ? "col-sm-7 col-6 ps-0 "
+                    : "col-sm-7 col-6  pe-0 "
+                }`}
+              >
+                <Form.Group
+                  className="my-3 form-field number-field-contact"
+                  controlId="formBasicPassword"
+                >
+                  <Form.Control type="tel" placeholder="Phone Number" />
+                </Form.Group>
+              </div>
+              <div
+                className={`${
+                  layoutClickChanger
+                    ? "col-sm-5  pe-0 col-6"
+                    : "col-sm-5 ps-0 col-6"
+                }`}
+              >
+                <FormGroup className="contact-select">
+                  <select
+                    className={`${
+                      layoutClickChanger
+                        ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                        : "form-select   text-end cursor-pointer ps-5"
+                    }`}
+                  >
+                    <option>Code</option>
+                    {countries && countries.length
+                      ? countries.map((value, index) => {
+                          return (
+                            <option
+                              className="country-dots"
+                              key={index}
+                              value={value.dial_code}
+                            >
+                              {value.name}({value.dial_code})
+                            </option>
+                          );
+                        })
+                      : "Something went wrong"}
+                  </select>
+                </FormGroup>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className={`${
+                  layoutClickChanger
+                    ? "col-sm-5  ps-0 col-6"
+                    : "col-sm-5 pe-0 col-6"
+                }`}
+              >
+                <FormGroup className="contact-select">
+                  <select
+                    className={`${
+                      layoutClickChanger
+                        ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                        : "form-select   text-end cursor-pointer ps-5"
+                    }`}
+                  >
+                    <option>Code</option>
+                    {countries && countries.length
+                      ? countries.map((value, index) => {
+                          return (
+                            <option
+                              className="country-dots"
+                              key={index}
+                              value={value.dial_code}
+                            >
+                              {value.name}({value.dial_code})
+                            </option>
+                          );
+                        })
+                      : "Something went wrong"}
+                  </select>
+                </FormGroup>
+              </div>{" "}
+              <div
+                className={`${
+                  layoutClickChanger
+                    ? "col-sm-7 col-6 pe-0 "
+                    : "col-sm-7 col-6  ps-0 "
+                }`}
+              >
+                <Form.Group
+                  className="my-3 form-field number-field-contact"
+                  controlId="formBasicPassword"
+                >
+                  <Form.Control type="tel" placeholder="Phone Number" />
+                </Form.Group>
+              </div>
+            </>
+          )}
+        </div>
         {/* DROPDOWN */}
 
         <input
           className={`${
             layoutClickChanger
-              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
-              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
+              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0   w-100 input-text border-A3A3A3 "
+              : " input-border  py-2 py-md-3 ps-3   w-100 input-text border-A3A3A3 "
           }`}
           type="text"
           placeholder="Subject"

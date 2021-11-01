@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactForm from "./ContactForm";
 import "./contacts.css";
+
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 
 const Contact = () => {
   const { layoutClickChanger } = useLayoutChangerProvider();
+  const [error, setError] = useState(false);
 
   return (
     <div className="container  py-5 mt-100">
