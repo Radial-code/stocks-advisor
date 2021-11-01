@@ -6,7 +6,7 @@ import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import BubblesLoader from "../BubblesLoader";
 import OurPlanCard from "./OurPlanCard";
 
-const OurPlans = ({ homepage, history }) => {
+const OurPlans = ({ homepage, history, getValueOf }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [planListCount, setPlanListCount] = useState(0);
@@ -27,7 +27,7 @@ const OurPlans = ({ homepage, history }) => {
                 homepage ? "text-white" : ""
               } `}
             >
-              Subscription Plans
+              {getValueOf("Subscription Plans")}
             </p>
           </Col>
 

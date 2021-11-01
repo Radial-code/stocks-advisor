@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ContactForm from "./ContactForm";
 import "./contacts.css";
-
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 
 const Contact = () => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
-  const [error, setError] = useState(false);
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   return (
     <div className="container  py-5 mt-100">
@@ -17,12 +14,14 @@ const Contact = () => {
             <div className="col-12 col-lg-7 d-flex justify-content-center d-sm-block  pt-3  ">
               <div className="p-xl-5 p-2 us-contact">
                 <h1 className=" mb-2 mb-md-3  section-heading fs-sm-24">
-                  Contact Us
+                  {getValueOf("Contact Us")}
                 </h1>
                 <p className=" sub-text m-0">Send us your concerns 24x7</p>
                 <div className="row mt-4 mt-md-5 pt-2 ">
                   <div className=" col-12 col-md-4 order-3 mt-4 mt-md-0  order-md-1">
-                    <p className=" email-heading pb-2 m-0">Email</p>
+                    <p className=" email-heading pb-2 m-0">
+                      {getValueOf("Email")}
+                    </p>
                     <p
                       className={`${
                         layoutClickChanger
@@ -38,7 +37,7 @@ const Contact = () => {
 
                   <div className="col-5 col-md-4 order-2 order-md-2  d-flex flex-column justify-content-end d-md-block">
                     <p className=" email-heading pb-2 m-0 fs-sm-14">
-                      Telephone
+                      {getValueOf("Telephone")}
                     </p>
                     <p className=" email-para">1234567890</p>
                   </div>

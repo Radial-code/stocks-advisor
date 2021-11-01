@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ContactForm = () => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.list.countries);
   const [contactDetails, setContactDetails] = useState({
@@ -54,7 +54,7 @@ const ContactForm = () => {
               : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
           }`}
           type="text"
-          placeholder="Name"
+          placeholder={getValueOf("Name")}
           onChange={(e) => {
             setContactDetails({
               ...contactDetails,
@@ -73,7 +73,7 @@ const ContactForm = () => {
               : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
           }`}
           type="email"
-          placeholder="Email"
+          placeholder={getValueOf("Email")}
           required
           onChange={(e) => {
             setContactDetails({

@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const OurPlanCard = ({ homepage, history }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const planList = useSelector((state) => state.list.planList);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
@@ -106,7 +106,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                 : "join-now-btn"
                             } join-now-btn `}
                           >
-                            Buy now
+                            {getValueOf("Buy now")}
                           </button>
                         ) : (
                           <button
@@ -118,7 +118,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                 : "join-now-btn"
                             } join-now-btn`}
                           >
-                            Join Now
+                            {getValueOf("Join Now")}
                           </button>
                         )}
                       </div>
@@ -169,7 +169,7 @@ const OurPlanCard = ({ homepage, history }) => {
                           <p className="amount-card-month align-items-center d-flex  mb-0">
                             <span> $ {value.price}</span>
                             <span className="d-none d-sm-block month px-1">
-                              / {value.type}
+                              / {getValueOf(`${value.type}`)}
                             </span>
                           </p>
                         </div>
@@ -228,7 +228,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                   : "join-now-btn"
                               } join-now-btn `}
                             >
-                              Buy now
+                              {getValueOf("Buy now")}
                             </button>
                           ) : (
                             <button
@@ -240,7 +240,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                   : "join-now-btn"
                               } join-now-btn`}
                             >
-                              Join Now
+                              {getValueOf("Join Now")}
                             </button>
                           )}
                         </div>
@@ -272,7 +272,7 @@ const OurPlanCard = ({ homepage, history }) => {
 };
 export default withRouter(OurPlanCard);
 const Next = (props) => {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <button style={{ ...style }} onClick={onClick} className={`next`}>
       <svg

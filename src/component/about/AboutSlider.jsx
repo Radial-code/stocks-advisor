@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import NoDataImg from "../../assets/img/emptydata.jpg";
 
-const AboutSlider = () => {
+const AboutSlider = ({ getValueOf }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const teamList = useSelector((state) => state.list.teamList);
   const settings = {
@@ -42,7 +42,9 @@ const AboutSlider = () => {
   };
   return (
     <>
-      <h1 className="mt-5 pt-5 section-heading fs-sm-22">Team</h1>
+      <h1 className="mt-5 pt-5 section-heading fs-sm-22">
+        {getValueOf("Team")}
+      </h1>
       {teamList && teamList.length !== 0 ? (
         <>
           <div className="row">

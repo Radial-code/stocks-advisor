@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Footer = ({ history }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const auth = useSelector((state) => state.auth.auth);
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
@@ -50,7 +50,7 @@ const Footer = ({ history }) => {
                 className="text-decoration-none text-white footer-btn"
                 onClick={() => history.push("/contact-us")}
               >
-                Contact Us
+                {getValueOf("Contact Us")}
               </button>
             </span>
           </div>
@@ -77,7 +77,7 @@ const Footer = ({ history }) => {
                     className="text-decoration-none text-white fs-15"
                     to="/"
                   >
-                    Home
+                    {getValueOf("Home")}
                   </Link>
                 </li>
                 <li>
@@ -85,7 +85,7 @@ const Footer = ({ history }) => {
                     className="text-decoration-none text-white fs-15"
                     to="/about"
                   >
-                    About
+                    {getValueOf("About")}
                   </Link>
                 </li>
                 <li>
@@ -93,7 +93,7 @@ const Footer = ({ history }) => {
                     className="text-decoration-none text-white fs-15"
                     to="/news"
                   >
-                    News
+                    {getValueOf("News")}
                   </Link>
                 </li>
                 <li>
@@ -101,7 +101,7 @@ const Footer = ({ history }) => {
                     className="text-decoration-none text-white fs-15"
                     to="/our-plan"
                   >
-                    Our Plan
+                    {getValueOf("Our Plan")}
                   </Link>
                 </li>
               </ul>
@@ -119,7 +119,7 @@ const Footer = ({ history }) => {
                       className="text-decoration-none text-white fs-15"
                       to={`/protfolios/stock/${dashboardPortfoliosListId}`}
                     >
-                      Portfolio
+                      {getValueOf("Portfolio")}
                     </Link>
                   </li>
                 ) : null}
@@ -129,7 +129,7 @@ const Footer = ({ history }) => {
                       className="text-decoration-none text-white fs-15"
                       to="/dashboard/manage/subscription"
                     >
-                      Dashboard
+                      {getValueOf("Dashboard")}
                     </Link>
                   </li>
                 ) : null}
@@ -140,7 +140,7 @@ const Footer = ({ history }) => {
                         className="text-decoration-none text-white fs-15"
                         to="/login"
                       >
-                        Login
+                        {getValueOf("Login")}
                       </Link>
                     </li>
                     <li>
@@ -148,7 +148,7 @@ const Footer = ({ history }) => {
                         className="text-decoration-none text-white fs-15"
                         to="/signup"
                       >
-                        Join
+                        {getValueOf("Join Now")}
                       </Link>
                     </li>
                   </div>
@@ -164,7 +164,7 @@ const Footer = ({ history }) => {
         <div className="row my-3 justify-content-between align-items-center">
           <div className="col-12 d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between">
             <p className="text-white mx-auto mx-md-0 mb-0 mw-479 d-none d-lg-block">
-              Copyright @ 2021 Nala's Mane
+              {getValueOf("Copyright")} @ 2021 Nala's Mane
             </p>
 
             {auth && token ? (
@@ -235,7 +235,7 @@ const Footer = ({ history }) => {
       </div>
       <div className="b-b-1 d-lg-none"></div>
       <p className="text-white text-center my-2 mw-479 d-lg-none">
-        Copyright @ 2021 Nala's Mane
+        {getValueOf("Copyright")}@ 2021 Nala's Mane
       </p>
     </section>
   );

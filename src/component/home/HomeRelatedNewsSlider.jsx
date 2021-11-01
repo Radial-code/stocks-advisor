@@ -8,7 +8,8 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import RelatedNewsArticlesList from "./RelatedNewsArticlesList";
 import NoData from "../../assets/img/emptydata.jpg";
-const HomeRelatedNewsSlider = ({ loader, history }) => {
+
+const HomeRelatedNewsSlider = ({ loader, history, getValueOf }) => {
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
   var settings = {
     dots: true,
@@ -48,7 +49,9 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
     <div className="container my-4 ">
       <div className="row">
         <div className="col my-4">
-          <h1 className="profile-heading py-3">Other News Articles</h1>
+          <h1 className="profile-heading py-3">
+            {getValueOf("Other News Articles")}
+          </h1>
           <div className="d-flex flex-lg-row flex-column justify-content-center">
             {newsListData === "" ? (
               <>
@@ -110,7 +113,9 @@ const HomeRelatedNewsSlider = ({ loader, history }) => {
           )}
           <div className="d-flex pt-3 pb-5 mt-4 justify-content-center ">
             <Link to="/news">
-              <button className="default-btn">View All News</button>
+              <button className="default-btn">
+                {getValueOf("View All News")}
+              </button>
             </Link>
           </div>
         </div>

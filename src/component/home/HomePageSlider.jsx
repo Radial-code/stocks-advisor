@@ -11,7 +11,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import SearchNews from "../../assets/img/searchnews.png";
 
 const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const homeNewsList = useSelector((state) => state.cmPanel.homeNewsList);
   const settings = {
@@ -62,7 +62,11 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                           : " justify-content-start"
                       }  d-flex align-items-center`}
                     >
-                      <span className={`${layoutClickChanger?"pe-2":""} d-flex justify-content-end pe-2`}>
+                      <span
+                        className={`${
+                          layoutClickChanger ? "pe-2" : ""
+                        } d-flex justify-content-end pe-2`}
+                      >
                         <img className="w-19 h-19" src={img_1} alt="" />
                       </span>
                       <span className="cursor-pointer">
@@ -104,7 +108,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         : "read-more cursor-pointer"
                     } `}
                   >
-                    Read More...
+                    {getValueOf("Read More")}
                   </p>
                   <p
                     className={` ${
@@ -132,51 +136,61 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                       )}
                     </span>
                   </p>
-               {
-                 layoutClickChanger?<>   <p
-                    className={` ${
-                      layoutClickChanger
-                        ? "small-paragraph text-end "
-                        : "small-paragraph mb-5 "
-                    } `}
-                  >
-                    <span
-                      className="fw-bold cursor-pointer"
-                      onClick={() =>
-                        history.push(
-                          `/stock/news/${value.stock._id}/stock-tags`
-                        )
-                      }
-                    >
-                      {value.stock && value.stock.symbol
-                        ? value.stock.symbol
-                        : "N/A"}
-                    </span>
-                    <span className="cursor-pointer fw-bold ps-1">:Stock</span>
-                  </p></>:<> <p
-                  
-                    className={` ${
-                      layoutClickChanger
-                        ? "small-paragraph text-end "
-                        : "small-paragraph mb-5 "
-                    } `}
-                  >
-                     <span className="cursor-pointer fw-bold pe-1">Stock:</span>
-                    <span
-                      className="fw-bold cursor-pointer"
-                      onClick={() =>
-                        history.push(
-                          `/stock/news/${value.stock._id}/stock-tags`
-                        )
-                      }
-                    >
-                      {value.stock && value.stock.symbol
-                        ? value.stock.symbol
-                        : "N/A"}
-                    </span>
-                   
-                  </p></>
-               }
+                  {layoutClickChanger ? (
+                    <>
+                      {" "}
+                      <p
+                        className={` ${
+                          layoutClickChanger
+                            ? "small-paragraph text-end "
+                            : "small-paragraph mb-5 "
+                        } `}
+                      >
+                        <span
+                          className="fw-bold cursor-pointer"
+                          onClick={() =>
+                            history.push(
+                              `/stock/news/${value.stock._id}/stock-tags`
+                            )
+                          }
+                        >
+                          {value.stock && value.stock.symbol
+                            ? value.stock.symbol
+                            : "N/A"}
+                        </span>
+                        <span className="cursor-pointer fw-bold ps-1">
+                          :Stock
+                        </span>
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <p
+                        className={` ${
+                          layoutClickChanger
+                            ? "small-paragraph text-end "
+                            : "small-paragraph mb-5 "
+                        } `}
+                      >
+                        <span className="cursor-pointer fw-bold pe-1">
+                          Stock:
+                        </span>
+                        <span
+                          className="fw-bold cursor-pointer"
+                          onClick={() =>
+                            history.push(
+                              `/stock/news/${value.stock._id}/stock-tags`
+                            )
+                          }
+                        >
+                          {value.stock && value.stock.symbol
+                            ? value.stock.symbol
+                            : "N/A"}
+                        </span>
+                      </p>
+                    </>
+                  )}
                 </div>
               );
             })

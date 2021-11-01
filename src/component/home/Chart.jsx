@@ -7,7 +7,8 @@ import { getPortFolioChatListDataAction } from "../../redux/action/portfolio";
 import BubblesLoader from "../common/BubblesLoader";
 import LineChart from "./LineChart";
 import NoData from "../../assets/img/emptydata.jpg";
-const Chart = () => {
+
+const Chart = ({ getValueOf }) => {
   const portfoliosChatList = useSelector(
     (state) => state.list.portfoliosChatList
   );
@@ -23,7 +24,7 @@ const Chart = () => {
       <div className="pr-15 pl-15 ">
         <div className="border-b-1">
           <p className="profile-heading fs-lg-22 fs-sm-15 pt-2 mb-2 px-3">
-            Our Portfolio's Performance
+            {getValueOf("Our Portfolio's Performance")}
           </p>
         </div>
       </div>

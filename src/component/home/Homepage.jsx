@@ -24,8 +24,11 @@ const Homepage = () => {
         setRelatedLoading={setRelatedLoading}
         getValueOf={getValueOf}
       />
-      <HomeRelatedNewsSlider relatedloader={relatedloader} />
-      <SubscriptionPlans />
+      <HomeRelatedNewsSlider
+        relatedloader={relatedloader}
+        getValueOf={getValueOf}
+      />
+      <SubscriptionPlans getValueOf={getValueOf} />
     </>
   );
 };

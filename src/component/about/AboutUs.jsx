@@ -1,11 +1,14 @@
 import React from "react";
 import heroImg from "../../assets/img/about-img-second.png";
-const AboutUs = () => {
+
+const AboutUs = ({ getValueOf }) => {
   return (
     <>
       <div className="row justify-content-between align-items-center justify-content-between ">
         <div className="col-lg-7">
-          <h1 className="section-heading fs-sm-22">About Us</h1>
+          <h1 className="section-heading fs-sm-22">
+            {getValueOf("About Us")} About Us
+          </h1>
           <p className="stock-paragraph max-w-665 fs-sm-14 mb-4 mb-lg-0  dots-2 w-100">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

@@ -3,7 +3,7 @@ import heroImg from "../../assets/img/aboutUs-hero.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AboutHero = () => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   return (
     <>
       <div className="container py-5   p-left-right mt-100">
@@ -20,6 +20,7 @@ const AboutHero = () => {
               <span className="text-5CBD4C">pharetra </span> feugiat de
             </h2>
             <button className="default-btn mt-5 d-none d-lg-block">
+              {getValueOf("Know More")}
               Know More
             </button>
           </div>
@@ -27,6 +28,7 @@ const AboutHero = () => {
             <img className="w-100" src={heroImg} alt="" />
             <div className="d-flex justify-content-center d-sm-block">
               <button className="default-btn mt-4 d-lg-none fs-sm-14">
+                {getValueOf("Know More")}
                 Know More
               </button>
             </div>

@@ -13,7 +13,6 @@ const Hero = ({ loading, setRelatedLoading, getValueOf }) => {
               </h1>
 
               <HomePageSlider
-                getValueOf={getValueOf}
                 loading={loading}
                 setRelatedLoading={setRelatedLoading}
               />
@@ -21,7 +20,7 @@ const Hero = ({ loading, setRelatedLoading, getValueOf }) => {
           </div>
           <div className="col-xl-4 col-lg-5 mt-5 mt-lg-0 ">
             <div className="profile-box pb-5   h-100">
-              <Chart />
+              <Chart getValueOf={getValueOf} />
             </div>
           </div>
         </div>
