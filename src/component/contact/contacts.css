@@ -134,7 +134,9 @@
 .number-field-contact .form-control {
   padding: 14px;
   border: 1px solid rgba(22, 25, 30, 0.2);
-  border-radius: 5px;
+  border-radius: 0px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
   color: #75758b;
 }
 
@@ -154,6 +156,8 @@
   color: #75758b;
   padding: 14px;
   border-radius: 0px;
+  border-bottom-left-radius: 5px !important;
+  border-top-left-radius: 5px !important;
 }
 .contact-select .form-select {
   -webkit-appearance: none !important;
