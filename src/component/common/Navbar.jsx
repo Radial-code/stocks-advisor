@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { translate, Trans } from "react-i18next";
 import {
   HamburgerIcon,
   HamburgerCrossIcon,
@@ -189,6 +190,10 @@ const Navbar = ({
   } else {
     document.dir = "ltr";
   }
+
+  // const changeLanguage = (lng) => {
+  //   i18n.changeLanguage(lng);
+  // };
 
   return (
     <>
