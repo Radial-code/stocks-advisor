@@ -12,7 +12,6 @@ function Exchange() {
     setEdit(false);
     setUpdateValue("");
   };
-  console.log("show", show);
   return (
     <div>
       <div className="row">

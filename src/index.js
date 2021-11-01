@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { I18nextProvider } from "react-i18next";
-import i18next from "i18next";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -9,15 +7,16 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./Store";
 import FixedScreenProvider from "./contexts/FixedScreenProvider";
+import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
         <FixedScreenProvider>
-          <I18nextProvider i18n={i18next}>
+          <LayoutChangerProvider>
             <App />
-          </I18nextProvider>
+          </LayoutChangerProvider>
         </FixedScreenProvider>
       </Router>
     </Provider>

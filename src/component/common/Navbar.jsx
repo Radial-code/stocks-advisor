@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { translate, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import {
   HamburgerIcon,
   HamburgerCrossIcon,
@@ -37,8 +37,8 @@ const Navbar = ({
   searchData,
   searchshow,
   setSearchShow,
-  t,
 }) => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState("");
 
   function toggleActive(id) {
@@ -58,7 +58,7 @@ const Navbar = ({
   };
   // its ends here...
   const dispatch = useDispatch();
-  const { setLayoutClickChanger, layoutClickChanger } =
+  const { setLayoutClickChanger, layoutClickChanger, getValueOf } =
     useLayoutChangerProvider();
 
   const [Lang, setLang] = useState(false);
@@ -190,10 +190,6 @@ const Navbar = ({
     document.dir = "ltr";
   }
 
-  // const changeLanguage = (lng) => {
-  //   i18n.changeLanguage(lng);
-  // };
-
   return (
     <>
       {overlayActive ? (
@@ -252,8 +248,9 @@ const Navbar = ({
                 activeClassName="active_underline_navbar "
                 className="navbar_Links_text nav-text-border-bottom px-2 px-xxl-0  py-2  py-xxl-3 mt-3 my-xxl-auto mx-xxl-4 "
               >
-                {/* {t("Home")} */}
-                Home
+                {/* {console.log("t(sssss", t("Home"))}
+                {t("Home")} */}
+                {getValueOf("Home")}
               </NavLink>
               <NavLink
                 exact

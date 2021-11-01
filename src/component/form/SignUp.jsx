@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,6 @@ import { SignUpAction, UserNameAction } from "../../redux/action/auth";
 import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-import { getCountryListAction } from "../../redux/action/portfolios";
 import { useSelector } from "react-redux";
 
 function SignUp({ history }) {
@@ -77,10 +76,6 @@ function SignUp({ history }) {
       );
     }
   };
-
-  useEffect(() => {
-    dispatch(getCountryListAction());
-  }, []);
 
   return (
     <div className="container min-h-100vh d-flex  flex-column justify-content-center my-5">

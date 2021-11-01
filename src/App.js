@@ -15,24 +15,8 @@ import "./assets/css/common.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
-import LayoutChangerProvider from "./redux/LayoutChangerProvider";
 import ConfirmRoute from "./component/ConfirmRoute";
-import i18n from "./translation/i18n";
-import { observable, computed, reaction } from "mobx";
-
-class AppStore {
-  observable;
-}
-
-const appStore = new AppStore();
-
-reaction(
-  () => appStore.locale,
-  (locale) => {
-    console.log("change language");
-    i18n.changeLanguage(locale);
-  }
-);
+import { getCountryListAction } from "./redux/action/portfolios";
 
 function App({ t }) {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -57,59 +41,57 @@ function App({ t }) {
         dispatch(getPortfolioListForDashBoardAction(setSideBarLoading));
       }
     }
+    dispatch(getCountryListAction());
   }, [auth, token]);
 
   return (
-    <LayoutChangerProvider>
-      <div
-        className={`${
-          isScreenFixed
-            ? "overflow-hidden  h-100vh"
-            : showSidebar
-            ? "overflow-hidden"
-            : ""
-        } ${
-          showSidebar2 ? "overflow-hidden" : ""
-        } d-flex justify-content-between flex-column h-100vh `}
-      >
-        {!!auth && !!token ? (
-          <>
-            {loading ? (
-              <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
-                <div className="mb-5">
-                  <img src={LogoImage} />
-                </div>
-                <BubblesLoader />
+    <div
+      className={`${
+        isScreenFixed
+          ? "overflow-hidden  h-100vh"
+          : showSidebar
+          ? "overflow-hidden"
+          : ""
+      } ${
+        showSidebar2 ? "overflow-hidden" : ""
+      } d-flex justify-content-between flex-column h-100vh `}
+    >
+      {!!auth && !!token ? (
+        <>
+          {loading ? (
+            <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
+              <div className="mb-5">
+                <img src={LogoImage} />
               </div>
-            ) : userData !== {} ? (
-              !userData.isEmailConfirmed ||
-              !userData.isMobileNumberConfirmed ? (
-                <ConfirmRoute />
-              ) : (
-                <Router
-                  showSidebar={showSidebar}
-                  sideBarHandler={sideBarHandler}
-                  setShowSidebar={setShowSidebar}
-                  showSidebar2={showSidebar2}
-                  setShowSidebar2={setShowSidebar2}
-                />
-              )
+              <BubblesLoader />
+            </div>
+          ) : userData !== {} ? (
+            !userData.isEmailConfirmed || !userData.isMobileNumberConfirmed ? (
+              <ConfirmRoute />
             ) : (
-              <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
-                <div className="mb-5">
-                  <img src={LogoImage} />
-                </div>
-                <BubblesLoader />
+              <Router
+                showSidebar={showSidebar}
+                sideBarHandler={sideBarHandler}
+                setShowSidebar={setShowSidebar}
+                showSidebar2={showSidebar2}
+                setShowSidebar2={setShowSidebar2}
+              />
+            )
+          ) : (
+            <div className="h-100vh d-flex justify-content-center align-items-center flex-column">
+              <div className="mb-5">
+                <img src={LogoImage} />
               </div>
-            )}
-          </>
-        ) : (
-          <Elements stripe={stripePromise}>
-            <Router />
-          </Elements>
-        )}
-      </div>
-    </LayoutChangerProvider>
+              <BubblesLoader />
+            </div>
+          )}
+        </>
+      ) : (
+        <Elements stripe={stripePromise}>
+          <Router />
+        </Elements>
+      )}
+    </div>
   );
 }
 export default withRouter(App);

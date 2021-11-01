@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addContactAction } from "../../redux/action/contact";
 import Loader from "../common/Loader";
 import { Form, FormGroup } from "react-bootstrap";
-import { EmailRegex } from "../common/Validation";
+import { EmailRegex, PhoneRegex } from "../common/Validation";
 import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
@@ -16,6 +16,8 @@ const ContactForm = () => {
     message: "",
     reason: "",
     email: "",
+    phone: "",
+    countryCode: "",
   });
   const [error, setError] = useState(false);
   const [loading, setSetLoading] = useState(false);
@@ -27,6 +29,8 @@ const ContactForm = () => {
       contactDetails.message !== "" &&
       contactDetails.reason !== "" &&
       contactDetails.email !== "" &&
+      contactDetails.phone !== "" &&
+      contactDetails.countryCode !== "" &&
       EmailRegex.test(contactDetails.email) === true
     ) {
       dispatch(addContactAction(contactDetails, setSetLoading));
@@ -86,7 +90,6 @@ const ContactForm = () => {
         <div className="row align-items-center">
           {layoutClickChanger ? (
             <>
-              {" "}
               <div
                 className={`${
                   layoutClickChanger
@@ -98,7 +101,23 @@ const ContactForm = () => {
                   className="my-3 form-field number-field-contact"
                   controlId="formBasicPassword"
                 >
-                  <Form.Control type="tel" placeholder="Phone Number" />
+                  <Form.Control
+                    type="tel"
+                    placeholder="Phone Number"
+                    onChange={(e) => {
+                      setContactDetails({
+                        ...contactDetails,
+                        phone: Number(e.target.value),
+                      });
+                    }}
+                  />
+                  <span className="text-danger">
+                    {error && contactDetails.phone === ""
+                      ? "Phone Number is required"
+                      : error && PhoneRegex.test(contactDetails.phone) === false
+                      ? "Enter valid Phone Number"
+                      : null}
+                  </span>
                 </Form.Group>
               </div>
               <div
@@ -110,6 +129,12 @@ const ContactForm = () => {
               >
                 <FormGroup className="contact-select">
                   <select
+                    onChange={(e) => {
+                      setContactDetails({
+                        ...contactDetails,
+                        countryCode: e.target.value,
+                      });
+                    }}
                     className={`${
                       layoutClickChanger
                         ? "form-select form-field-3 text-end cursor-pointer ps-5"
@@ -145,6 +170,12 @@ const ContactForm = () => {
               >
                 <FormGroup className="contact-select">
                   <select
+                    onChange={(e) => {
+                      setContactDetails({
+                        ...contactDetails,
+                        countryCode: e.target.value,
+                      });
+                    }}
                     className={`${
                       layoutClickChanger
                         ? "form-select form-field-3 text-end cursor-pointer ps-5"
@@ -167,7 +198,7 @@ const ContactForm = () => {
                       : "Something went wrong"}
                   </select>
                 </FormGroup>
-              </div>{" "}
+              </div>
               <div
                 className={`${
                   layoutClickChanger
@@ -179,7 +210,23 @@ const ContactForm = () => {
                   className="my-3 form-field number-field-contact"
                   controlId="formBasicPassword"
                 >
-                  <Form.Control type="tel" placeholder="Phone Number" />
+                  <Form.Control
+                    type="tel"
+                    placeholder="Phone Number"
+                    onChange={(e) => {
+                      setContactDetails({
+                        ...contactDetails,
+                        phone: Number(e.target.value),
+                      });
+                    }}
+                  />
+                  <span className="text-danger">
+                    {error && contactDetails.phone === ""
+                      ? "Phone Number is required"
+                      : error && PhoneRegex.test(contactDetails.phone) === false
+                      ? "Enter valid Phone Number"
+                      : null}
+                  </span>
                 </Form.Group>
               </div>
             </>

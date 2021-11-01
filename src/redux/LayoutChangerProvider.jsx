@@ -1,4 +1,6 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
+import en from "../translation/en.json";
+import ab from "../translation/ab.json";
 
 const LayoutChangerProviderContext = createContext();
 
@@ -11,9 +13,23 @@ export default function LayoutChangerProvider({ children }) {
   const [layoutClickChanger, setLayoutClickChanger] = useState(
     initialLanguage === "Arabic" ? true : false
   );
+  const getValueOf = (key) => {
+    const defaultLanguage = layoutClickChanger;
+    if (defaultLanguage) {
+      return ab[key];
+    } else if (!defaultLanguage) {
+      return en[key];
+    }
+  };
+
+  useEffect(() => {
+    getValueOf();
+  }, [layoutClickChanger]);
+
   const value = {
     setLayoutClickChanger,
     layoutClickChanger,
+    getValueOf,
   };
 
   return (

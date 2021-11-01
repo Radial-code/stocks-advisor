@@ -25,6 +25,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     firstName: "",
     lastName: "",
     phone: "",
+    email: "",
     autoRenewalOfPlans: false,
   });
   const { userId } = match.params;
@@ -179,9 +180,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   </div>
 
                   <input
-                    className="input-edit-user edit-user-input-style bg-dark-grey"
+                    className="input-edit-user edit-user-input-style"
                     placeholder={email}
-                    disabled={true}
+                    onChange={(e) => {
+                      setUpdateUser({
+                        ...updateUser,
+                        email: e.target.value,
+                      });
+                    }}
                     type="email"
                   />
                 </Col>

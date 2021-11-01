@@ -62,17 +62,11 @@ const AddNewNews = ({ edit, match, history }) => {
     tagsArray = [...tags, ...categoryArray];
     const atagsArray = [...atags, ...categoryArray];
     tagsArray.map((item) => {
-      console.log("item", item);
       newsDetails.tags += `${item},`;
-      console.log("newsDetails.tagsss", newsDetails.tags);
     });
     atagsArray.map((item) => {
       newsDetails.atags += `${item},`;
     });
-    console.log("tagsArray", tagsArray);
-    console.log("tags", tags);
-    console.log("categoryArray", categoryArray);
-    console.log("newsDetails.tags", newsDetails.tags.split(undefined));
     if (
       newsDetails.title !== undefined &&
       newsDetails.tags !== undefined &&
