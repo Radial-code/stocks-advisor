@@ -83,11 +83,11 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             </span>
             <span
               onClick={() =>
-                history.push(`/stock/news/${stock._id}/stock-tags`)
+                history.push(`/stock/news/${stock ? stock : tags}/stock-tags`)
               }
               className="cursor-pointer fw-bold"
             >
-              {stock.symbol}
+              {stock && stock.symbol ? stock.symbol : "N/A"}
             </span>
           </p>
         </div>

@@ -53,7 +53,8 @@ const HomeRelatedNewsSlider = ({ loader, history, getValueOf }) => {
             {getValueOf("Other News Articles")}
           </h1>
           <div className="d-flex flex-lg-row flex-column justify-content-center">
-            {newsListData === "" ? (
+            {console.log(newsListData)}
+            {newsListData && newsListData.length !== 0 ? (
               <>
                 {newsListData &&
                   newsListData.length < 4 &&

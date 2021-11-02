@@ -6,20 +6,14 @@ import Sortarrow from "../../assets/img/sortarrow.png";
 import { getRelatedSoldStockNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 
-const data = [];
-function SoldStock({ loading, history, setSoldLoading, getValueOf }) {
+function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
+  const { id } = match.params;
   const dispatch = useDispatch();
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   useEffect(() => {
-    if (!!soldStockList.length) {
-      if (soldStockList.length === data.length) {
-        dispatch(
-          getRelatedSoldStockNewsAction({ stockIds: data }, setSoldLoading)
-        );
-      }
-    }
-  }, [data]);
+    dispatch(getRelatedSoldStockNewsAction({ portfolios: id }, setSoldLoading));
+  }, [id]);
 
   return (
     <div className="mt-5">
@@ -89,7 +83,6 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf }) {
               </thead>
               {soldStockList &&
                 soldStockList.map((value) => {
-                  data.push(value._id);
                   return (
                     <tbody className="table-hover-scale">
                       <tr className="sold-stock-data table-border-bottom">
