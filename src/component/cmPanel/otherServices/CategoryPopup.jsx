@@ -8,13 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function CategoryPopup({
-  handleClose,
-  show,
-  edit,
-  updateValue,
-  setUpdateValue,
-}) {
+function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const dispatch = useDispatch();
   const [category, setCategory] = useState(
     !!updateValue ? updateValue.title : ""
@@ -48,7 +42,6 @@ function CategoryPopup({
   return (
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
-        {" "}
         <img
           className="close-popup-icon "
           onClick={handleClose}
@@ -57,7 +50,9 @@ function CategoryPopup({
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {edit ? "Update Category" : "Add Category"}
+            {edit
+              ? `${getValueOf("Update Category")}`
+              : `${getValueOf("Add Category")}`}
           </h4>
         </div>
       </div>
@@ -67,12 +62,14 @@ function CategoryPopup({
           <input
             type="text"
             value={!!category ? category : updateValue.title}
-            placeholder=" Add Category"
+            placeholder={getValueOf("Add Category")}
             className="py-2 px-3 w-100"
             onChange={(e) => setCategory(e.target.value)}
           />
           <span className="text-danger">
-            {error && category === "" ? "Category is required" : null}
+            {error && category === ""
+              ? `${getValueOf("Category is required")}`
+              : null}
           </span>
         </div>
       </Modal.Body>
@@ -83,7 +80,7 @@ function CategoryPopup({
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Submit"}
+            {loading ? <Loader /> : `${getValueOf("Submit")}`}
           </button>
         ) : (
           <button
@@ -91,7 +88,7 @@ function CategoryPopup({
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Submit"}
+            {loading ? <Loader /> : `${getValueOf("Submit")}`}
           </button>
         )}
       </Modal.Footer>

@@ -61,7 +61,7 @@ const EnquiryTable = () => {
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Status")}Status
+                      {getValueOf("Status")}
                     </th>
                   </tr>
                 </thead>
@@ -108,7 +108,9 @@ const EnquiryTable = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">You don't have any Enquiry</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Enquiry")}
+              </h4>
             </div>
           )}
         </div>

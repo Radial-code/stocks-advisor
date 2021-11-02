@@ -8,7 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
+function ExchangePopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const dispatch = useDispatch();
   const [Exchange, setExchange] = useState(
     !!updateValue && !!updateValue.title ? updateValue.title : ""
@@ -42,7 +42,6 @@ function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
   return (
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
-        {" "}
         <img
           className="close-popup-icon "
           onClick={handleClose}
@@ -51,7 +50,9 @@ function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {edit ? "Update Exchange" : "Add Exchange"}
+            {edit
+              ? `${getValueOf("Update Exchange")}`
+              : `${getValueOf("Add Exchange")}`}
           </h4>
         </div>
       </div>
@@ -61,12 +62,14 @@ function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
           <input
             type="text"
             value={!!Exchange ? Exchange : updateValue.title}
-            placeholder=" Add Exchange"
+            placeholder={getValueOf("Add Exchange")}
             className="py-2 px-3 w-100"
             onChange={(e) => setExchange(e.target.value)}
           />
           <span className="text-danger">
-            {error && Exchange === "" ? "Exchange is required" : null}
+            {error && Exchange === ""
+              ? `${getValueOf("Exchange is required")}`
+              : null}
           </span>
         </div>
       </Modal.Body>
@@ -77,7 +80,7 @@ function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Update"}
+            {loading ? <Loader /> : `${getValueOf("Update")}`}
           </button>
         ) : (
           <button
@@ -85,7 +88,7 @@ function ExchangePopup({ handleClose, show, edit, updateValue, setShow }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Submit"}
+            {loading ? <Loader /> : `${getValueOf("Submit")}`}
           </button>
         )}
       </Modal.Footer>

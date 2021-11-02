@@ -8,7 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
+function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const dispatch = useDispatch();
   const [portfolios, setPortfolios] = useState(
     !!updateValue ? updateValue.title : ""
@@ -42,7 +42,6 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
   return (
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
-        {" "}
         <img
           className="close-popup-icon "
           onClick={handleClose}
@@ -51,7 +50,9 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {edit ? "Update Portfolio" : "Add Portfolio"}
+            {edit
+              ? `${getValueOf("Update Portfolio")}`
+              : `${getValueOf("Add Portfolio")}`}
           </h4>
         </div>
       </div>
@@ -61,13 +62,13 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
           <input
             type="text"
             value={!!portfolios ? portfolios : updateValue.title}
-            placeholder=" Add portfolios"
+            placeholder={getValueOf("Add Portfolio")}
             className="py-2 px-3 w-100"
             onChange={(e) => setPortfolios(e.target.value)}
           />
           <span className="text-danger">
             {error && portfolios === undefined
-              ? "Portfolios is required"
+              ? `${getValueOf("Portfolios is required")}`
               : null}
           </span>
         </div>
@@ -79,7 +80,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Submit"}
+            {loading ? <Loader /> : `${getValueOf("Submit")}`}
           </button>
         ) : (
           <button
@@ -87,7 +88,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : "Submit"}
+            {loading ? <Loader /> : `${getValueOf("Submit")}`}
           </button>
         )}
       </Modal.Footer>

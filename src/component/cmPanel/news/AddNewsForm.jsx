@@ -19,7 +19,7 @@ const AddNewsForm = ({
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
   const [uploadImg, setUploadImg] = useState("");
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
 
@@ -76,7 +76,7 @@ const AddNewsForm = ({
               }}
               value={newsDetails.link}
               type="text"
-              placeholder="YouTube / Image Link "
+              placeholder={getValueOf("YouTube / Image Link")}
             />
           </Form.Group>
         </div>
@@ -97,14 +97,18 @@ const AddNewsForm = ({
                     />
                     <button className="news-upload-btn cursor-pointer px-3 py-2">
                       <label for="my-file" className="cursor-pointer">
-                        {loadingImage ? <Loader /> : "upload img"}
+                        {loadingImage ? (
+                          <Loader />
+                        ) : (
+                          `${getValueOf("upload img")}`
+                        )}
                       </label>
                     </button>
                   </div>
                 )}
               </>
             ) : (
-              "Uploading please wait for sometime"
+              `${getValueOf("Uploading please wait for sometime")}`
             )}
           </div>
         </div>
@@ -114,7 +118,7 @@ const AddNewsForm = ({
           <div className=" input-tag w-100">
             <ReactTagInput
               tags={atags}
-              placeholder="Arabic Tags"
+              placeholder={getValueOf("Arabic Tags")}
               maxTags={5}
               value={newsDetails.atags}
               editable={true}
@@ -124,7 +128,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && atags.length === 0
-                ? "Arabic Details is required"
+                ? `${getValueOf("Arabic Details is required")}`
                 : null}
             </span>
           </div>
@@ -133,7 +137,7 @@ const AddNewsForm = ({
           <div className=" input-tag w-100">
             <ReactTagInput
               tags={tags}
-              placeholder="English Tags"
+              placeholder={getValueOf("English Tags")}
               maxTags={5}
               editable={true}
               readOnly={false}
@@ -142,7 +146,9 @@ const AddNewsForm = ({
               onChange={(newTags) => setTags(newTags)}
             />
             <span className="text-danger">
-              {error && tags.length === 0 ? "Details is required" : null}
+              {error && tags.length === 0
+                ? `${getValueOf("Details is required")}`
+                : null}
             </span>
           </div>
         </div>
@@ -161,7 +167,7 @@ const AddNewsForm = ({
               className=" add-new-stock-select mb-3"
             >
               <select className="form-select text-end cursor-pointer">
-                <option>Stock</option>
+                <option>{getValueOf("Stock")}</option>
                 {stockList ? (
                   stockList.map((stock, index) => {
                     return (
@@ -171,7 +177,7 @@ const AddNewsForm = ({
                     );
                   })
                 ) : (
-                  <option>You don't have any stock </option>
+                  <option>{getValueOf("You don't have any stock")} </option>
                 )}
               </select>
             </FormGroup>
@@ -193,7 +199,7 @@ const AddNewsForm = ({
                     : "form-select text-start cursor-pointer"
                 }`}
               >
-                <option>Stock</option>
+                <option>{getValueOf("Stock")}</option>
                 {stockList ? (
                   stockList.map((stock, index) => {
                     return (
@@ -203,7 +209,7 @@ const AddNewsForm = ({
                     );
                   })
                 ) : (
-                  <option>You don't have any stock </option>
+                  <option>{getValueOf("You don't have any stock ")}</option>
                 )}
               </select>
             </FormGroup>
@@ -218,7 +224,7 @@ const AddNewsForm = ({
           >
             <Form.Control
               type="text"
-              placeholder="Arabic Title"
+              placeholder={getValueOf("Arabic Title")}
               value={newsDetails.atitle}
               onChange={(e) => {
                 setNewsDetails({
@@ -229,7 +235,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && newsDetails.atitle === undefined
-                ? "Arabic Title is required"
+                ? `${getValueOf("Arabic Title is required")}`
                 : null}
             </span>
           </Form.Group>
@@ -241,7 +247,7 @@ const AddNewsForm = ({
           >
             <Form.Control
               type="text"
-              placeholder="English Title"
+              placeholder={getValueOf("English Title")}
               value={newsDetails.title}
               onChange={(e) => {
                 setNewsDetails({
@@ -252,7 +258,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && newsDetails.title === undefined
-                ? "Title is required"
+                ? `${getValueOf("Title is required")}`
                 : null}
             </span>
           </Form.Group>
@@ -270,7 +276,7 @@ const AddNewsForm = ({
             id=""
             cols=""
             rows="6"
-            placeholder="Arabic Description "
+            placeholder={getValueOf("Arabic Description")}
             onChange={(e) => {
               setNewsDetails({
                 ...newsDetails,
@@ -291,7 +297,7 @@ const AddNewsForm = ({
             id=""
             cols=""
             rows="6"
-            placeholder="English Description "
+            placeholder={getValueOf("English Description")}
             onChange={(e) => {
               setNewsDetails({
                 ...newsDetails,
@@ -305,12 +311,11 @@ const AddNewsForm = ({
       <div className="col-auto mb-3">
         {layoutClickChanger ? (
           <>
-            {" "}
             <label
               className="form-check-label check-box-text cursor-pointer"
               for="flexCheckDefault"
             >
-              Feature on homepage
+              {getValueOf("Feature on homepage")}
             </label>
             <input
               type="checkbox"
@@ -340,7 +345,7 @@ const AddNewsForm = ({
               className="form-check-label check-box-text cursor-pointer"
               for="flexCheckDefault"
             >
-              Feature on homepage
+              {getValueOf("Feature on homepage")}
             </label>
           </>
         )}

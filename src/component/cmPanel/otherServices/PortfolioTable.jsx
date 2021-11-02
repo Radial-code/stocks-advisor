@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 
 function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [totalPortfolios, setTotalPortfolios] = useState(0);
@@ -35,11 +35,15 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          title: `${
+            layoutClickChanger
+              ? `${getValueOf("? Are You Sure")}`
+              : `${getValueOf("Are You Sure ?")}`
+          }`,
           text: `${
             layoutClickChanger
-              ? ".You want to delete This Portfolios"
-              : "You want to delete This Portfolios."
+              ? `${getValueOf(".You want to delete This Portfolios")}`
+              : `${getValueOf("You want to delete This Portfolios.")}`
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -89,7 +93,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Date
+                      {getValueOf("Date")}
                     </th>
 
                     <th
@@ -103,7 +107,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Portfolio
+                      {getValueOf("Portfolio")}
                     </th>
 
                     <th
@@ -117,7 +121,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Edit
+                      {getValueOf("Edit")}
                     </th>
                     <th
                       scope="col"
@@ -130,7 +134,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Delete
+                      {getValueOf("Delete")}
                     </th>
                   </tr>
                 </thead>
@@ -154,7 +158,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                                 onClick={() => editPortfolios(value)}
                                 type="button"
                               >
-                                Edit
+                                {getValueOf("Edit")}
                               </button>
                             </td>
                             <td className="text-end whitespace Ellipse">
@@ -163,7 +167,7 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                                 type="button"
                                 className="px-3 py-1 delete-button"
                               >
-                                Delete
+                                {getValueOf("Delete")}
                               </button>
                             </td>
                           </tr>
@@ -180,7 +184,9 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold"> You don't have any Portfolio list</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Portfolio list")}
+              </h4>
             </div>
           )}
         </>

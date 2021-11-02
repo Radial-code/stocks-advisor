@@ -191,7 +191,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
               <Notify />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
-              {getValueOf("Notification")}Notification
+              {getValueOf("Notification")}
             </p>
           </div>
         </div>

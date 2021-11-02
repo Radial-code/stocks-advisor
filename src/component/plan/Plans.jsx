@@ -53,7 +53,6 @@ function Plans({ history, getValueOf }) {
                           onClick={() => history.push("/our-plan")}
                           className="ff-popins join-now ff-popins "
                         >
-                          Buy now
                           {getValueOf("Buy now")}
                         </button>
                       ) : (
@@ -62,7 +61,6 @@ function Plans({ history, getValueOf }) {
                           onClick={() => history.push("/login")}
                           className="ff-popins join-now ff-popins "
                         >
-                          Join Now
                           {getValueOf("Join Now")}
                         </button>
                       )}

@@ -1,12 +1,14 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function AddOtherServices() {
+  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div className="col-12 h-100 stock-add-new">
       <div className="add-stock-bg p-sm-5 p-3 mt-5  w-xl-1000">
         <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
-          Add Services
+          {getValueOf("Add Services")}
         </p>
         <Form className="pt-sm-5  pt-4">
           <div className="row">
@@ -15,12 +17,15 @@ function AddOtherServices() {
                 className="mb-3 add-new-stock-field "
                 controlId="formBasicEmail"
               >
-                <Form.Control type="text" placeholder="Category" />
+                <Form.Control
+                  type="text"
+                  placeholder={getValueOf("Category")}
+                />
               </Form.Group>
             </div>
             <div className="col-md-4 order-1 last-name order-sm-1 order-2">
               <p className="new-stock-heading ff-popins mb-0 fs-sm-20 text-start">
-                Category
+                {getValueOf("Category")}
               </p>
             </div>
           </div>
@@ -30,12 +35,15 @@ function AddOtherServices() {
                 className="mb-3 add-new-stock-field "
                 controlId="formBasicEmail"
               >
-                <Form.Control type="text" placeholder="Exchange" />
+                <Form.Control
+                  type="text"
+                  placeholder={getValueOf("Exchange")}
+                />
               </Form.Group>
             </div>
             <div className="col-md-6 order-1 last-name order-sm-1 order-2">
               <p className="new-stock-heading ff-popins mb-0 fs-sm-20 text-start">
-                Exchange
+                {getValueOf("Exchange")}
               </p>
             </div>
           </div>
@@ -45,12 +53,15 @@ function AddOtherServices() {
                 className="mb-3 add-new-stock-field "
                 controlId="formBasicEmail"
               >
-                <Form.Control type="text" placeholder="Portfolio" />
+                <Form.Control
+                  type="text"
+                  placeholder={getValueOf("Portfolio")}
+                />
               </Form.Group>
             </div>
             <div className="col-md-6 order-1 last-name order-sm-1 order-2">
               <p className="new-stock-heading ff-popins mb-0 fs-sm-20 text-start">
-                Portfolio
+                {getValueOf("Portfolio")}
               </p>
             </div>
           </div>

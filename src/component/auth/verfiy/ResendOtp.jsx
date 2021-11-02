@@ -5,8 +5,10 @@ import { resendOtpAction } from "../../../redux/action/auth";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
 import Loader from "../../common/Loader";
 import { PhoneRegex } from "../../common/Validation";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const ResendOtp = ({ history }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -35,19 +37,19 @@ const ResendOtp = ({ history }) => {
             <div className="row mt-5 justify-content-center ">
               <div className="col-12 col-xl-8  otp-inputs mb-3 pt-5">
                 <label for="exampleInputEmail1" class="form-label">
-                  Enter your Phone number
+                  {getValueOf("Enter your Phone number")}
                 </label>
                 <input
                   type="number"
                   class="form-control"
-                  placeholder="  Enter your Phone number"
+                  placeholder={getValueOf("Enter your Phone number")}
                   onChange={(e) => setPhone(e.target.value)}
                 />
                 <span className="text-danger">
                   {error && phone === ""
-                    ? "Phone number is required"
+                    ? `${getValueOf("Phone number is required")}`
                     : error && PhoneRegex.test(phone) === false
-                    ? "Enter valid Phone Number"
+                    ? `${getValueOf("Enter valid Phone Number")}`
                     : null}
                 </span>
               </div>
@@ -60,7 +62,7 @@ const ResendOtp = ({ history }) => {
                   disabled={loading}
                   className="verify-otp px-3  mt-3 verify-otp w-100"
                 >
-                  {loading ? <Loader /> : "Verify OTP"}
+                  {loading ? <Loader /> : `${getValueOf("Verify OTP")}`}
                 </button>
               </div>
             </div>

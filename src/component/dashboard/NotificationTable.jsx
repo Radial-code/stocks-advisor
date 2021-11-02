@@ -4,7 +4,7 @@ import BubblesLoader from "../common/BubblesLoader";
 import NotFound from "../../assets/img/notfound.png";
 import NoData from "../../assets/img/emptydata.jpg";
 
-const NotificationTable = ({ loading }) => {
+const NotificationTable = ({ loading, getValueOf }) => {
   const notificationList = useSelector((state) => state.list.notificationList);
   return (
     <>
@@ -18,13 +18,13 @@ const NotificationTable = ({ loading }) => {
                 <thead>
                   <tr className="current-stock-table-head table-border-bottom table-border-top">
                     <th scope="col" className="text-center observations">
-                      Title
+                      {getValueOf("Title")}
                     </th>
                     <th scope="col" className="text-center observations">
-                      Description
-                    </th>{" "}
+                      {getValueOf("Description")}
+                    </th>
                     <th scope="col" className="text-center observations">
-                      Date
+                      {getValueOf("Date")}
                     </th>
                   </tr>
                 </thead>
@@ -69,7 +69,9 @@ const NotificationTable = ({ loading }) => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold"> You don't have any payment list</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any payment list")}
+              </h4>
             </div>
           )}
         </>

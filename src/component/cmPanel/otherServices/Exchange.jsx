@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ExchangeTable from "./ExchangeTable";
 import ExchangePopup from "./ExchangePopup";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function Exchange() {
+  const { getValueOf } = useLayoutChangerProvider();
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
   const [updateValue, setUpdateValue] = useState("");
@@ -12,6 +14,7 @@ function Exchange() {
     setEdit(false);
     setUpdateValue("");
   };
+
   return (
     <div>
       <div className="row">
@@ -21,7 +24,7 @@ function Exchange() {
               className="px-3 py-1 add-button ms-3 my-sm-3"
               onClick={handleShow}
             >
-              Add
+              {getValueOf("Add")}
             </button>
           </div>
         </div>
@@ -39,6 +42,7 @@ function Exchange() {
       {/* Modal */}
 
       <ExchangePopup
+        getValueOf={getValueOf}
         handleClose={handleClose}
         setShow={setShow}
         show={show}

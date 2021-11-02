@@ -11,12 +11,13 @@ import ReactPaginate from "react-paginate";
 import CategoryTableListItem from "./CategoryTableListItem";
 import NoData from "../../../assets/img/emptydata.jpg";
 import Swal from "sweetalert2";
+
 function CategoryTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [totalCategory, setTotalCategory] = useState(0);
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
 
@@ -36,11 +37,15 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          title: `${
+            layoutClickChanger
+              ? `${getValueOf("? Are You Sure")}`
+              : `${getValueOf("Are You Sure ?")}`
+          }`,
           text: `${
             layoutClickChanger
-              ? ".You want to delete This Category"
-              : "You want to delete This Category."
+              ? `${getValueOf(".You want to delete This Category")}`
+              : `${getValueOf("You want to delete This Category.")}`
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -86,7 +91,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  Date
+                  {getValueOf("Date")}
                 </th>
 
                 <th
@@ -96,7 +101,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  Category
+                  {getValueOf("Category")}
                 </th>
 
                 <th
@@ -106,7 +111,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  Edit
+                  {getValueOf("Edit")}
                 </th>
                 <th
                   scope="col"
@@ -115,7 +120,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  Delete
+                  {getValueOf("Delete")}
                 </th>
               </tr>
             </thead>
@@ -125,6 +130,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                     <CategoryTableListItem
                       key={index}
                       value={obj}
+                      getValueOf={getValueOf}
                       editCategory={editCategory}
                       deleteCategory={deleteCategory}
                     />
@@ -140,7 +146,9 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
             src={NoData}
             alt="NoData"
           />
-          <h4 className="fw-bold"> You don't have any Category list</h4>
+          <h4 className="fw-bold">
+            {getValueOf("You don't have any Category list")}
+          </h4>
         </div>
       )}
 

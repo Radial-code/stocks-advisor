@@ -6,7 +6,7 @@ import NoData from "../../../assets/img/emptydata.jpg";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Cards = () => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const teamList = useSelector((state) => state.list.teamList);
   const [loading, setLoading] = useState(false);
@@ -56,7 +56,9 @@ const Cards = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">You don't have any Team</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Team")}
+              </h4>
             </div>
           )}
         </div>

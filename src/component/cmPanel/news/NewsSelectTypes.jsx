@@ -19,7 +19,7 @@ const NewsSelectTypes = ({
   categoryArray,
 }) => {
   const dispatch = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const portfolioList = useSelector((state) => state.cmPanel.portfolioList);
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
   const [portfolioLoading, setPortfolioLoading] = useState(false);
@@ -67,7 +67,7 @@ const NewsSelectTypes = ({
 
   return (
     <div className="row">
-      <p className="fw-bold">Select portfolio list</p>
+      <p className="fw-bold">{getValueOf("Select portfolio list")}</p>
       {portfolioLoading ? (
         <BubblesLoader />
       ) : (
@@ -119,7 +119,7 @@ const NewsSelectTypes = ({
                   </div>
                 );
               })
-            : "You don't have any portfolio List"}
+            : `${getValueOf("You don't have any portfolio List")}`}
         </>
       )}
       <span className="text-danger">
@@ -127,10 +127,10 @@ const NewsSelectTypes = ({
         newsDetails &&
         newsDetails.portfolio &&
         !newsDetails.portfolio.length
-          ? "Portfolio is required"
+          ? `${getValueOf("Portfolio is required")}`
           : null}
       </span>
-      <p className="fw-bold">Select Category List As Tag</p>
+      <p className="fw-bold">{getValueOf("Select Category List As Tag")}</p>
       {loading ? (
         <BubblesLoader />
       ) : (
@@ -173,12 +173,12 @@ const NewsSelectTypes = ({
                   </div>
                 );
               })
-            : "You don't have any portfolio List"}
+            : `${getValueOf("You don't have any portfolio List")}`}
         </>
       )}
       <span className="text-danger">
         {error && categoryArray && !categoryArray.length
-          ? "Category is required"
+          ? `${getValueOf("Category is required")}`
           : null}
       </span>
     </div>

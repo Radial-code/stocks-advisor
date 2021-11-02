@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import CategoryTable from "./CategoryTable";
 import CategoryPopup from "./CategoryPopup";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function Category() {
+  const { getValueOf } = useLayoutChangerProvider();
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
   const [updateValue, setUpdateValue] = useState("");
@@ -22,7 +24,7 @@ function Category() {
               className="px-3 py-1 add-button ms-3 my-sm-3"
               onClick={handleShow}
             >
-              Add
+              {getValueOf("Add")}
             </button>
           </div>
         </div>
@@ -41,6 +43,7 @@ function Category() {
       <CategoryPopup
         handleClose={handleClose}
         setShow={setShow}
+        getValueOf={getValueOf}
         show={show}
         edit={edit}
         updateValue={updateValue}

@@ -4,8 +4,10 @@ import { LogoutAction, verfiyEmailAction } from "../../../redux/action/auth";
 import Loader from "../../common/Loader";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
 import { withRouter } from "react-router";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const IsEmailMessage = ({ history }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [logOut, setLogout] = useState(false);
@@ -24,13 +26,16 @@ const IsEmailMessage = ({ history }) => {
                 <img src={LogoPhoto} style={{ width: "40%" }} />
               </div>
             </div>
-            <h1 className="text-center  mt-5">Verify Your Email Address</h1>
+            <h1 className="text-center  mt-5">
+              {getValueOf("Verify Your Email Address")}
+            </h1>
             <p className="text-center pt-4">
-              Before proceeding, please check your email for a verification
-              link. If you did not receive the email
+              {getValueOf(
+                "Before proceeding, please check your email for a verification link. If you did not receive the email"
+              )}
             </p>
             <p className="request-line text-center">
-              click here to request another
+              {getValueOf("click here to request another")}
             </p>
             <div className="d-flex justify-content-center mt-4 ">
               <button
@@ -39,17 +44,17 @@ const IsEmailMessage = ({ history }) => {
                 onClick={() => verfiyEmailToken()}
                 className="resend-email-btnn px-4 "
               >
-                {loading ? <Loader /> : "Resend Email"}
+                {loading ? <Loader /> : `${getValueOf("Resend Email")}`}
               </button>
             </div>
-            <p className="text-center orr pt-3">or</p>
+            <p className="text-center orr pt-3">{getValueOf("or")}</p>
             <div className="d-flex justify-content-center mt-4 ">
               <span
                 onClick={() => dispatch(LogoutAction(setLogout, history))}
                 type="button"
                 disabled={loading}
               >
-                {logOut ? "Loading..." : "Logout"}
+                {logOut ? "Loading..." : `${getValueOf("Log Out")}`}
               </span>
             </div>
           </div>

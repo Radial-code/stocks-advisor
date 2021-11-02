@@ -8,6 +8,7 @@ import { getNotificationListAction } from "../../redux/action/contact";
 import Setting from "../../assets/img/setting.png";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 import Loader from "../common/Loader";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const initialState = {
   showNotificationForsoldStocksW: false,
@@ -27,6 +28,7 @@ const initialState = {
 };
 
 const Notification = ({ setSidebarActive, sidebarActive }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const profileData = useSelector((state) => state.auth.userData);
   const [notificationLoading, setNotificationLoading] = useState(false);
   const [showNotificationWhen, setShowNotificationWhen] =
@@ -61,7 +63,9 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
         <Col xs={12}>
           <section className="notification-card p-md-3 p-xl-5 p-2">
             <div className="border-b-1 d-flex justify-content-between align-items-center">
-              <p className="heading-stock fs-sm-20 mb-0">Notification</p>
+              <p className="heading-stock fs-sm-20 mb-0">
+                {getValueOf("Notification")}
+              </p>
               <img
                 onClick={handleShow}
                 className="cursor-pointer h-25"
@@ -70,7 +74,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               />
             </div>
             <div className="table-responsive scroll-bar current-stock-scrollbar mt-5">
-              <NotificationTable loading={loading} />
+              <NotificationTable loading={loading} getValueOf={getValueOf} />
             </div>
           </section>
         </Col>
@@ -79,43 +83,43 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
 
       <Modal show={show} onHide={handleClose} centered size="xl">
         <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
-          Receive Notification When
+          {getValueOf("Receive Notification When")}
         </p>
 
         <Modal.Body>
           <div className="row">
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                Observation
+                {getValueOf("Observation")}
               </p>
               <label
                 className="form-check-label check-box-text cursor-pointer  my-3"
                 for="flexCheckDefault"
               >
-                New stock is created
+                {getValueOf("New stock is created")}
               </label>
               <label
                 className="form-check-label check-box-text cursor-pointer  my-3"
                 for="flexCheckDefault"
               >
-                Stock is sold
+                {getValueOf("Stock is sold")}
               </label>
               <label
                 className="form-check-label check-box-text cursor-pointer  my-3"
                 for="flexCheckDefault"
               >
-                General news is added
+                {getValueOf("General news is added")}
               </label>
               <label
                 className="form-check-label check-box-text cursor-pointer  my-3"
                 for="flexCheckDefault"
               >
-                Related news is added
+                {getValueOf("Related news is added")}
               </label>
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                Push
+                {getValueOf("Push")}
               </p>
               <input
                 className="cursor-pointer mx-2  my-4"
@@ -164,7 +168,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                Web
+                {getValueOf("Web")}
               </p>
               <input
                 className="cursor-pointer mx-2  my-4"
@@ -214,7 +218,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
 
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                E-mail
+                {getValueOf("E-mail")}
               </p>
               <input
                 className="cursor-pointer mx-2 my-4"
@@ -268,13 +272,13 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                   onClick={() => updateNotification()}
                   className="news-upload-btn cursor-pointer px-3 py-2"
                 >
-                  {notificationLoading ? <Loader /> : "Submit"}
+                  {notificationLoading ? <Loader /> : `${getValueOf("Submit")}`}
                 </button>
                 <button
                   className="news-upload-btn cursor-pointer px-3 py-2 mx-3"
                   onClick={handleClose}
                 >
-                  Cancel
+                  {getValueOf("Cancel")}
                 </button>
               </div>
             </div>

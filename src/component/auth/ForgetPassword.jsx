@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { resetPasswordAction } from "../../redux/action/auth";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { ForgetpasswordIcon } from "../common/icons/Icons";
 import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
 
 const ForgetPassword = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
@@ -24,10 +26,10 @@ const ForgetPassword = () => {
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
             <div className="py-4 px-xxl-5 px-3  ">
               <p className="mb-sm-4 mb-0 from-heading text-center">
-                Forget Your Password
+                {getValueOf("Forget Your Password")}
               </p>
               <p className=" mb-sm-5 mb-0 max-sm-w-283 mx-auto py-3 py-sm-0 from-sub-heading text-center">
-                Enter your email and we'll send the instructions
+                {getValueOf("Enter your email and we'll send the instructions")}
               </p>
 
               <div className="mb-3 form-field">
@@ -45,9 +47,9 @@ const ForgetPassword = () => {
                 </span>
                 <span className="text-danger">
                   {error && email === ""
-                    ? "Email is required"
+                    ? `${getValueOf("Email is required")}`
                     : error && EmailRegex.test(email) === false
-                    ? "Enter valid email"
+                    ? `${getValueOf("Enter valid email")}`
                     : null}
                 </span>
               </div>
@@ -57,7 +59,7 @@ const ForgetPassword = () => {
                 onClick={() => submitResetPassword()}
                 className=" w-100 mt-sm-3 mt-2 mb-sm-4 from-btn"
               >
-                {loading ? <Loader /> : "Reset Password"}
+                {loading ? <Loader /> : `${getValueOf("Reset Password")}`}
               </button>
             </div>
           </div>

@@ -16,9 +16,9 @@ export default function LayoutChangerProvider({ children }) {
   const getValueOf = (key) => {
     const defaultLanguage = layoutClickChanger;
     if (defaultLanguage) {
-      return ab[key];
+      return ab[key] ? ab[key] : key;
     } else if (!defaultLanguage) {
-      return en[key];
+      return en[key] ? en[key] : key;
     }
   };
 

@@ -13,7 +13,7 @@ import NoData from "../../../assets/img/emptydata.jpg";
 const UserListTable = () => {
   const dispatch = useDispatch();
   let history = useHistory();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
   const [loading, setLoading] = useState(false);
   const [totalUsers, setTotalUsers] = useState(0);
@@ -50,7 +50,7 @@ const UserListTable = () => {
                     >
                       {" "}
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Join Date
+                      {getValueOf("Join Date")}
                     </th>
                     <th
                       className={`${
@@ -60,7 +60,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                      Name
+                      {getValueOf("Name")}
                     </th>
                     <th
                       className={`${
@@ -70,7 +70,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Phone
+                      {getValueOf("Phone")}
                     </th>
                     <th
                       className={`${
@@ -80,7 +80,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      E-mail
+                      {getValueOf("E-mail")}
                     </th>
                     <th
                       className={`${
@@ -90,7 +90,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      Subscription Plan Name
+                      {getValueOf("Subscription Plan Name")}
                     </th>
                   </tr>
                 </thead>
@@ -115,7 +115,7 @@ const UserListTable = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p>You don't have any user</p>
+              <p>{getValueOf("You don't have any user")}</p>
             </div>
           )}
         </>

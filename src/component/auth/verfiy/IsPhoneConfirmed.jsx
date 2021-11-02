@@ -4,8 +4,10 @@ import { withRouter } from "react-router";
 import { verfiyMobileOtpAction } from "../../../redux/action/auth";
 import LogoPhoto from "../../../assets/img/Navbar-logo-img.png";
 import Loader from "../../common/Loader";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const IsPhoneConfirmed = ({ history }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -34,20 +36,20 @@ const IsPhoneConfirmed = ({ history }) => {
           <div className="row mt-5 justify-content-center ">
             <div className="col-12 col-xl-8  otp-inputs mb-3">
               <label for="exampleInputEmail1" class="form-label">
-                Enter your otp
+                {getValueOf("Enter your otp")}
               </label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="  Enter your otp"
+                placeholder={getValueOf("Enter your otp")}
                 onChange={(e) => setVerificationOTP(e.target.value)}
               />
               <span className="text-danger">
                 {error && verificationOTP
-                  ? "OTP is required"
+                  ? `${getValueOf("OTP is required")}`
                   : (error && verificationOTP.length < 6) ||
                     (error && verificationOTP.length > 6)
-                  ? "Enter valid OTP"
+                  ? `${getValueOf("Enter valid OTP")}`
                   : null}
               </span>
             </div>
@@ -59,7 +61,7 @@ const IsPhoneConfirmed = ({ history }) => {
                 onClick={() => history.push("/resend-otp/verify")}
                 className="resend-otp px-3  mt-3  w-100"
               >
-                Resend OTP
+                {getValueOf("Resend OTP")}
               </button>
             </div>
             <div className="mx-md-2">
@@ -69,7 +71,7 @@ const IsPhoneConfirmed = ({ history }) => {
                 disabled={loading}
                 className="verify-otp px-3  mt-3 verify-otp w-100"
               >
-                {loading ? <Loader /> : "Verify OTP"}
+                {loading ? <Loader /> : `${getValueOf("Verify OTP")}`}
               </button>
             </div>
           </div>

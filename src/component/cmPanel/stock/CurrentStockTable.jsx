@@ -10,7 +10,7 @@ import StockListItem from "./StockListItem";
 import ReactPaginate from "react-paginate";
 import NoData from "../../../assets/img/emptydata.jpg";
 
-const CurrentStockTable = ({ history }) => {
+const CurrentStockTable = ({ history, getValueOf }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Join date{" "}
+                      {getValueOf("Join Date")}
                     </th>
 
                     <th
@@ -73,7 +73,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Symbol
+                      {getValueOf("Symbol")}
                     </th>
                     <th
                       scope="col"
@@ -90,7 +90,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      State
+                      {getValueOf("State")}
                     </th>
                     <th
                       scope="col"
@@ -107,7 +107,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Join price
+                      {getValueOf("Join Price")}
                     </th>
                     <th
                       scope="col"
@@ -124,7 +124,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Sold price
+                      {getValueOf("Sold Price")}
                     </th>
 
                     <th
@@ -142,7 +142,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Sold date
+                      {getValueOf("Sold Date")}
                     </th>
                     <th
                       scope="col"
@@ -159,7 +159,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Category
+                      {getValueOf("Category")}
                     </th>
                     <th
                       scope="col"
@@ -176,7 +176,7 @@ const CurrentStockTable = ({ history }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      Profit/Loss
+                      {getValueOf("Profit/Loss")}
                     </th>
                   </tr>
                 </thead>
@@ -203,7 +203,9 @@ const CurrentStockTable = ({ history }) => {
                   src={NoData}
                   alt="NoData"
                 />
-                <h4 className="fw-bold">You don't have any stock</h4>
+                <h4 className="fw-bold">
+                  {getValueOf("You don't have any stock")}
+                </h4>
               </div>
             </>
           )}

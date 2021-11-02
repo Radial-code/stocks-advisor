@@ -10,7 +10,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 const data = [];
 const valueId = [];
 function Notification() {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const planList = useSelector((state) => state.list.planList);
   const [loading, setLoading] = useState(false);
@@ -67,7 +67,9 @@ function Notification() {
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-sm-4  pt-5">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
-          <p className="heading-stock mb-0 pt-2">Notification</p>
+          <p className="heading-stock mb-0 pt-2">
+            {getValueOf("Notification")}
+          </p>
         </div>
         <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
           <div className="container">
@@ -79,7 +81,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder="Body"
+                    placeholder={getValueOf("Body")}
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -89,7 +91,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.body === ""
-                      ? "Body is required"
+                      ? `${getValueOf("Body is required")}`
                       : null}
                   </span>
                 </Form.Group>
@@ -101,7 +103,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder=" Title"
+                    placeholder={getValueOf("Title")}
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -111,7 +113,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.title === ""
-                      ? "Title is required"
+                      ? `${getValueOf("Title is required")}`
                       : null}
                   </span>
                 </Form.Group>
@@ -125,7 +127,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder="Type"
+                    placeholder={getValueOf("Type")}
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -135,7 +137,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.body === ""
-                      ? "Type is required"
+                      ? `${getValueOf("Type is required")}`
                       : null}
                   </span>
                 </Form.Group>
@@ -150,7 +152,7 @@ function Notification() {
                     className="form-check-label check-box-text text-dark cursor-pointer"
                     for="flexCheckDefault"
                   >
-                    Send to:
+                    {getValueOf("Send to")}:
                   </label>
                 </div>
               )}
@@ -192,7 +194,7 @@ function Notification() {
                   className="form-check-label check-box-text cursor-pointer"
                   for="flexCheckDefault"
                 >
-                  All
+                  {getValueOf("All")}
                 </label>
               </div>
               {layoutClickChanger ? (
@@ -201,20 +203,12 @@ function Notification() {
                     className="form-check-label check-box-text text-dark cursor-pointer"
                     for="flexCheckDefault"
                   >
-                    : Send to
+                    : {getValueOf("Send to")}
                   </label>
                 </div>
               ) : (
                 ""
               )}
-              {/* <div className="col-auto">
-                <label
-                  className="form-check-label check-box-text text-dark cursor-pointer"
-                  for="flexCheckDefault"
-                >
-                  : Send to
-                </label>
-              </div> */}
             </div>
             <button
               type="button"
@@ -222,7 +216,7 @@ function Notification() {
                py-2 "
               onClick={() => submitNotifiction()}
             >
-              {loading ? <Loader /> : "Send"}
+              {loading ? <Loader /> : `${getValueOf("Send")}`}
             </button>
           </div>
         </div>

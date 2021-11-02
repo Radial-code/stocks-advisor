@@ -9,9 +9,10 @@ import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
 import { withRouter } from "react-router";
 import NoData from "../../../assets/img/emptydata.jpg";
+
 const NewsTable = ({ history }) => {
   const dispatch = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [totalNews, setTotalNews] = useState(0);
@@ -40,23 +41,23 @@ const NewsTable = ({ history }) => {
                 <tr className="user-list-panel">
                   <th className="whitespace table-width">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    Date
+                    {getValueOf("Date")}
                   </th>
                   <th className="whitespace table-width-header">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                    Eng-Title
+                    {getValueOf("Eng-Title")}
                   </th>
                   <th className="whitespace table-width-header">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                    Arabic-Title
+                    {getValueOf("Arabic-Title")}
                   </th>
                   <th className="whitespace">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    Eng-Tags
+                    {getValueOf(" Eng-Tags")}
                   </th>
                   <th className="whitespace">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    Arabic-Tags
+                    {getValueOf("Arabic-Tags")}
                   </th>
                 </tr>
               </thead>
@@ -109,7 +110,10 @@ const NewsTable = ({ history }) => {
           ) : (
             <div className="d-flex justify-content-center flex-column align-items-center">
               <img className="nodata-img" src={NoData} alt="NoData" />
-              <h4 className="text-center fw-bold"> You don't have any news</h4>
+              <h4 className="text-center fw-bold">
+                {" "}
+                {getValueOf("You don't have any news")}
+              </h4>
             </div>
           )}
         </>

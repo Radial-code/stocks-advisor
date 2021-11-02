@@ -34,7 +34,7 @@ const initialState = {
 };
 
 const AddStockForm = ({ edit, match, history, detailLoading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const { id } = match.params;
   const categoryList = useSelector((state) => state.cmPanel.categoryList);
@@ -92,11 +92,15 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          title: `${
+            layoutClickChanger
+              ? `${getValueOf("? Are You Sure")}`
+              : `${getValueOf("Are You Sure ?")}`
+          }`,
           text: `${
             layoutClickChanger
-              ? ".You want to delete This Stock"
-              : " You want to delete This Stock."
+              ? `${getValueOf(".You want to delete This Stock")}`
+              : `${getValueOf(" You want to delete This Stock.")}`
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -158,10 +162,12 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       <div className="add-stock-bg p-sm-5 p-3  w-xl-1000">
         <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="new-stock-heading ff-popins mb-0 fs-sm-20">
-            {edit ? "Update Stock" : "Add New Stock"}
+            {edit
+              ? `${getValueOf("Update Stock")}`
+              : `${getValueOf("Add New Stock")}`}
           </p>
           <Link to="/content/manager/stocks">
-            <button className="update-btn-2 ">Back</button>
+            <button className="update-btn-2 ">{getValueOf("Back")}</button>
           </Link>
         </div>
 
@@ -174,7 +180,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
             <div className="row">
               <div className="col-md-6 order-2 datepicker-input position-relative order-sm-2 order-1">
                 <DatePicker
-                  placeholderText="Join Date"
+                  placeholderText={getValueOf("Join Date")}
                   className="mb-md-0 mb-3"
                   value={
                     stockDetails &&
@@ -190,7 +196,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 />
                 <span className="text-danger">
                   {error && stockDetails.joinDate === undefined
-                    ? "Join Date is required"
+                    ? `${getValueOf("Join Date is required")}`
                     : null}
                 </span>
                 <img
@@ -215,7 +221,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                         ? stockDetails.joinPrice
                         : ""
                     }
-                    placeholder="Join Price"
+                    placeholder={getValueOf("Join Price")}
                     onChange={(e) => {
                       setStockDetails((pre) => ({
                         ...pre,
@@ -225,7 +231,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   />
                   <span className="text-danger">
                     {error && stockDetails.joinPrice === undefined
-                      ? "Join Price is required"
+                      ? `${getValueOf("Join Price is required")}`
                       : null}
                   </span>
                 </Form.Group>
@@ -239,7 +245,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                 >
                   <Form.Control
                     type="text"
-                    placeholder="Symbol"
+                    placeholder={getValueOf("Symbol")}
                     value={stockDetails && stockDetails.symbol}
                     onChange={(e) => {
                       setStockDetails({
@@ -250,7 +256,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   />
                   <span className="text-danger">
                     {error && stockDetails.symbol === undefined
-                      ? "Symbol is required"
+                      ? `${getValueOf("Symbol is required")}`
                       : null}
                   </span>
                 </Form.Group>
@@ -275,7 +281,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       }
                       className="form-select text-end cursor-pointer"
                     >
-                      <option>Category</option>
+                      <option>{getValueOf("Category")}</option>
                       {!!categoryList && !!categoryList.length ? (
                         categoryList.map((category, index) => {
                           return (
@@ -285,12 +291,14 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           );
                         })
                       ) : (
-                        <option>You don't have any category </option>
+                        <option>
+                          {getValueOf("You don't have any category")}{" "}
+                        </option>
                       )}
                     </select>
                     <span className="text-danger">
                       {error && stockDetails.category === undefined
-                        ? "Category is required"
+                        ? `${getValueOf("Category is required")}`
                         : null}
                     </span>
                   </FormGroup>
@@ -317,7 +325,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           : "form-select text-start cursor-pointer"
                       }
                     >
-                      <option>Category</option>
+                      <option>{getValueOf("Category")}</option>
                       {!!categoryList && !!categoryList.length ? (
                         categoryList.map((category, index) => {
                           return (
@@ -327,12 +335,14 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           );
                         })
                       ) : (
-                        <option>You don't have any category </option>
+                        <option>
+                          {getValueOf("You don't have any category")}{" "}
+                        </option>
                       )}
                     </select>
                     <span className="text-danger">
                       {error && stockDetails.category === undefined
-                        ? "Category is required"
+                        ? `${getValueOf("Category is required")}`
                         : null}
                     </span>
                   </FormGroup>
@@ -349,7 +359,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                     value={stockDetails && stockDetails.soldPrice}
                     type="text"
                     disabled={edit ? false : true}
-                    placeholder="Sold Price"
+                    placeholder={getValueOf("Sold Price")}
                     onChange={(e) => {
                       setStockDetails({
                         ...stockDetails,
@@ -361,7 +371,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               </div>
               <div className="col-md-6 datepicker-input position-relative order-sm-2 order-1">
                 <DatePicker
-                  placeholderText="Sold Date"
+                  placeholderText={getValueOf("Sold Date")}
                   className={`${edit ? "" : "bg-6c757d85"} mb-3 `}
                   disabled={edit ? false : true}
                   value={
@@ -408,7 +418,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                       }
                       className="form-select text-end cursor-pointer"
                     >
-                      <option>Exchange</option>
+                      <option>{getValueOf("Exchange")}</option>
                       {!!exchangeList && !!exchangeList.length ? (
                         exchangeList.map((exchange, index) => {
                           return (
@@ -418,12 +428,14 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           );
                         })
                       ) : (
-                        <option>You don't have any exchange </option>
+                        <option>
+                          {getValueOf("You don't have any exchange")}{" "}
+                        </option>
                       )}
                     </select>
                     <span className="text-danger">
                       {error && stockDetails.exchange === undefined
-                        ? "Exchange is required"
+                        ? `${getValueOf("Exchange is required")}`
                         : null}
                     </span>
                   </FormGroup>
@@ -450,7 +462,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           : "form-select text-start cursor-pointer"
                       }`}
                     >
-                      <option>Exchange</option>
+                      <option>{getValueOf("Exchange")}</option>
                       {!!exchangeList && !!exchangeList.length ? (
                         exchangeList.map((exchange, index) => {
                           return (
@@ -460,19 +472,21 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                           );
                         })
                       ) : (
-                        <option>You don't have any exchange </option>
+                        <option>
+                          {getValueOf("You don't have any exchange")}{" "}
+                        </option>
                       )}
                     </select>
                     <span className="text-danger">
                       {error && stockDetails.exchange === undefined
-                        ? "Exchange is required"
+                        ? `${getValueOf("Exchange is required")}`
                         : null}
                     </span>
                   </FormGroup>
                 )}
               </div>
             </div>
-            <p>Select portfolio list</p>
+            <p>{getValueOf("Select portfolio list")}</p>
             {portfolioLoading ? (
               <BubblesLoader />
             ) : (
@@ -506,7 +520,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                                 stockDetails &&
                                 stockDetails.portfolios &&
                                 stockDetails.portfolios.length === 0
-                                  ? "Portfolio  is required"
+                                  ? `${getValueOf("Portfolio  is required")}`
                                   : null}
                               </span>
                             </>
@@ -534,10 +548,10 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                         </div>
                       );
                     })
-                  : "You don't have any portfolio List"}
+                  : `${getValueOf("You don't have any portfolio List")}`}
                 <span className="text-danger">
                   {error && stockDetails.portfolios === undefined
-                    ? "Portfolio  is required"
+                    ? `${getValueOf("Portfolio  is required")}`
                     : null}
                 </span>
               </>
@@ -547,7 +561,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
               stockDetails &&
               stockDetails.portfolio &&
               !stockDetails.portfolio.length
-                ? "Portfolio is required"
+                ? `${getValueOf("Portfolio is required")}`
                 : null}
             </span>
 
@@ -570,7 +584,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                     className="m-2 update-btn my-3 ff-popins"
                     onClick={() => deleteStock()}
                   >
-                    {deleteLoading ? <Loader /> : "Delete"}
+                    {deleteLoading ? <Loader /> : `${getValueOf("Delete")}`}
                   </button>
                 </>
               ) : (
@@ -580,7 +594,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   className="update-btn my-3 ff-popins"
                   onClick={() => submitStockDetails()}
                 >
-                  {addStockLoading ? <Loader /> : "Add"}
+                  {addStockLoading ? <Loader /> : `${getValueOf("Add")}`}
                 </button>
               )}
             </div>

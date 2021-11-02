@@ -18,7 +18,7 @@ import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import ConfirmRoute from "./component/ConfirmRoute";
 import { getCountryListAction } from "./redux/action/portfolios";
 
-function App({ t }) {
+function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebar2, setShowSidebar2] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);

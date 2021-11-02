@@ -14,7 +14,7 @@ import NoData from "../../../assets/img/emptydata.jpg";
 import Swal from "sweetalert2";
 
 function PlansTable({ history }) {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [deleteLoading, setDeletedLoading] = useState(false);
@@ -38,22 +38,19 @@ function PlansTable({ history }) {
     });
     swalWithBootstrapButtons
       .fire({
-        title: "? Are You Sure",
-        text: `${
-          !isActive
-            ? ". You want to Enable This Plan"
-            : ". You want to Disable This Plan"
+        title: `${
+          layoutClickChanger
+            ? `${getValueOf("? Are You Sure")}`
+            : `${getValueOf("Are You Sure ?")}`
         }`,
-
-        title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
         text: `${
           layoutClickChanger
             ? !isActive
-              ? ".You want to Enable This Plan"
-              : ".You want to Disable This Plan"
+              ? `${getValueOf(".You want to Enable This Plan")}`
+              : `${getValueOf(".You want to Disable This Plan")}`
             : !isActive
-            ? "You want to Enable This Plan."
-            : "You want to Disable This Plan."
+            ? `${getValueOf("You want to Enable This Plan.")}`
+            : `${getValueOf("You want to Disable This Plan.")}`
         }`,
 
         icon: "Error",
@@ -101,7 +98,6 @@ function PlansTable({ history }) {
         <>
           {planList && planList.length !== 0 ? (
             <>
-              {" "}
               <table className="table table-borderless table-hover mb-3">
                 <thead className="portfolio-sticky ">
                   <tr className="current-stock-table-head table-border-bottom table-border-top">
@@ -116,7 +112,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Date{" "}
+                      {getValueOf("Date")}
                     </th>
 
                     <th
@@ -130,7 +126,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Title
+                      {getValueOf("Title")}
                     </th>
                     <th
                       scope="col"
@@ -143,7 +139,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Price
+                      {getValueOf("Price")}
                     </th>
                     <th
                       scope="col"
@@ -156,7 +152,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Type
+                      {getValueOf("Type")}
                     </th>
                     <th
                       scope="col"
@@ -169,7 +165,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Update
+                      {getValueOf("Update")}
                     </th>
 
                     <th
@@ -183,7 +179,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Action
+                      {getValueOf("Action")}
                     </th>
                   </tr>
                 </thead>
@@ -196,6 +192,7 @@ function PlansTable({ history }) {
                           history={history}
                           deletePlans={deletePlans}
                           deleteLoading={deleteLoading}
+                          getValueOf={getValueOf}
                         />
                       ))
                     : ""}
@@ -209,7 +206,9 @@ function PlansTable({ history }) {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">You don't have any Plan List</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Plan List")}
+              </h4>
             </div>
           )}
         </>
@@ -217,7 +216,6 @@ function PlansTable({ history }) {
 
       {planList && planList.length !== 0 ? (
         <>
-          {" "}
           {planListCount && planListCount <= 10 ? (
             ""
           ) : (
@@ -271,6 +269,7 @@ export function PlansTableListItem({
   history,
   deletePlans,
   deleteLoading,
+  getValueOf,
 }) {
   return (
     <>
@@ -291,7 +290,7 @@ export function PlansTableListItem({
               history.push(`/content/manager/edit/plan/${value._id}`)
             }
           >
-            Edit
+            {getValueOf("Edit")}
           </button>
         </td>
         <td className="text-end whitespace Ellipse">
@@ -301,7 +300,9 @@ export function PlansTableListItem({
             onClick={() => deletePlans(value._id, value.isActive)}
             className="px-3 py-1 delete-button"
           >
-            {!value.isActive ? "Disable" : "Enable"}
+            {!value.isActive
+              ? `${getValueOf("Disable")}`
+              : `${getValueOf("Enable")}`}
           </button>
         </td>
       </tr>

@@ -13,7 +13,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
 
@@ -32,11 +32,15 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
+          title: `${
+            layoutClickChanger
+              ? `${getValueOf("? Are You Sure")}`
+              : `${getValueOf("Are You Sure ?")}`
+          }`,
           text: `${
             layoutClickChanger
-              ? ".You want to delete This Exchange"
-              : "You want to delete This Exchange."
+              ? `${getValueOf(".You want to delete This Exchange")}`
+              : `${getValueOf("You want to delete This Exchange.")}`
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -82,7 +86,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Date
+                      {getValueOf("Date")}
                     </th>
 
                     <th
@@ -96,7 +100,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Exchange
+                      {getValueOf("Exchange")}
                     </th>
 
                     <th
@@ -110,7 +114,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Edit
+                      {getValueOf("Edit")}
                     </th>
                     <th
                       scope="col"
@@ -123,7 +127,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      Delete
+                      {getValueOf("Delete")}
                     </th>
                   </tr>
                 </thead>
@@ -146,7 +150,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                                 className="px-3 py-1 edit-button "
                                 onClick={() => editCategory(value)}
                               >
-                                Edit
+                                {getValueOf("Edit")}
                               </button>
                             </td>
                             <td className="text-end  whitespace Ellipse">
@@ -154,7 +158,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                                 onClick={() => deleteExchange(value._id)}
                                 className="px-3 py-1 delete-button"
                               >
-                                Delete
+                                {getValueOf("Delete")}
                               </button>
                             </td>
                           </tr>
@@ -171,7 +175,9 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold"> You don't have any Exchange list</h4>
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Exchange list")}
+              </h4>
             </div>
           )}
         </>

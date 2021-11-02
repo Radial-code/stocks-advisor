@@ -2,12 +2,14 @@ import React from "react";
 import "../../cmPanelCss/addnewstock.css";
 import { Col } from "react-bootstrap";
 import AddOtherServices from "./AddOtherServices";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const OtherServicesForm = ({
   sideBarHandler,
   setSidebarActive,
   sidebarActive,
 }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div className="container">
       <div
@@ -18,7 +20,9 @@ const OtherServicesForm = ({
         <Col xs={12}>
           <div className="border-b-1 content-manager mb-3">
             <div className="d-flex justify-content-between">
-              <p className="heading-stock pr-15 fs-sm-20">Content Manager</p>
+              <p className="heading-stock pr-15 fs-sm-20">
+                {getValueOf("Content Manager")}
+              </p>
               <span onClick={sideBarHandler}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
