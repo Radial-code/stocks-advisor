@@ -48,7 +48,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
                   : "text-ellipsis-three-line stock-paragraph text-start"
               }`}
             >
-              {description}
+              {description ? description : "N/A"}
             </span>
           </p>
           <p
