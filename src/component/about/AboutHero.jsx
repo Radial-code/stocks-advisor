@@ -21,7 +21,7 @@ const AboutHero = () => {
             </h2>
             <button className="default-btn mt-5 d-none d-lg-block">
               {getValueOf("Know More")}
-              Know More
+     
             </button>
           </div>
           <div className="col-xl-5  col-lg-6 mt-4 mt-lg-0">
@@ -29,7 +29,7 @@ const AboutHero = () => {
             <div className="d-flex justify-content-center d-sm-block">
               <button className="default-btn mt-4 d-lg-none fs-sm-14">
                 {getValueOf("Know More")}
-                Know More
+      
               </button>
             </div>
           </div>

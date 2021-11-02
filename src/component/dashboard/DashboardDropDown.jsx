@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useFixedScreenProvider } from "../../contexts/FixedScreenProvider";
 import { NavLink } from "react-router-dom";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const DashboardDropDown = ({ sideBarHandler }) => {
   const [dashboard, setDashboard] = useState(false);
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   const dashboardHandler = () => {
     setDashboard(!dashboard);
@@ -25,10 +27,11 @@ const DashboardDropDown = ({ sideBarHandler }) => {
         {" "}
         <li
           onClick={dashboardHandler}
-          className={`    ${dashboard ? "drop-active" : "dashboard-down"} `}
+          className={`${dashboard ? "drop-active" : "dashboard-down"} `}
         >
           <a className="d-flex heading-stock pr-15 fs-sm-20 text-white  nav-links justify-content-between align-items-center">
-            Dashboard
+            {getValueOf('Dashboard')}
+           
             <span className={`ml-20 ${dashboard ? "sidebardropdown" : ""}`}>
               <span className="plus">
                 <svg
@@ -73,7 +76,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Edit Contact</span>
+                    <span>{getValueOf('Edit Contact')}</span>
                   </div>
                 </NavLink>
               </li>
@@ -87,7 +90,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Manage Subscription</span>
+                    <span>{getValueOf('Manage Subscription')}</span>
                   </div>
                 </NavLink>
               </li>
@@ -101,7 +104,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Update payment Method</span>
+                    <span>{getValueOf('Update payment Method')}</span>
                   </div>
                 </NavLink>
               </li>
@@ -115,7 +118,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Notification</span>
+                    <span>{getValueOf('Notification')}</span>
                   </div>
                 </NavLink>
               </li>
@@ -128,7 +131,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Profile</span>
+                    <span>{getValueOf('Profile')}</span>
                   </div>
                 </NavLink>
               </li>
@@ -141,7 +144,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>Payment Details</span>
+                    <span>{getValueOf('Payment Details')}</span>
                   </div>
                 </NavLink>
               </li>

@@ -83,7 +83,7 @@ function SignUp({ history }) {
         <div className="col-xl-5 col-sm-10">
           <div className="background-form p-sm-5 p-2 mt-100">
             <p className="text-center edit-contact-text ff-popins mb-0">
-              Sign Up
+              {getValueOf("Sign Up")}
             </p>
             <Form className="pt-sm-5  pt-4">
               <div className="row">
@@ -105,9 +105,9 @@ function SignUp({ history }) {
                       placeholder={getValueOf("Last Name")}
                     />
                     <span className="text-danger">
-                      {error && signUpDetails.lastName === ""
-                        ? "Last name is required"
-                        : null}
+                      {error && signUpDetails.lastName === "" ? (
+                        <>{getValueOf("Last name is required")}</>
+                      ) : null}
                     </span>
                   </Form.Group>
                 </div>
@@ -149,12 +149,16 @@ function SignUp({ history }) {
 
                 <span className="text-danger">
                   {" "}
-                  {error && signUpDetails.username === ""
-                    ? "UserName is required"
-                    : error}
+                  {error && signUpDetails.username === "" ? (
+                    <>{getValueOf("UserName is required")}</>
+                  ) : (
+                    error
+                  )}
                 </span>
                 <span className="text-danger">
-                  {userNameError ? "User Name already exist" : null}
+                  {userNameError ? (
+                    <>{getValueOf("User Name already exist")}</>
+                  ) : null}
                 </span>
               </Form.Group>
               {/* email */}
@@ -171,11 +175,12 @@ function SignUp({ history }) {
                   placeholder={getValueOf("Email")}
                 />
                 <span className="text-danger">
-                  {error && signUpDetails.email === ""
-                    ? "email is required"
-                    : error && EmailRegex.test(signUpDetails.email) === false
-                    ? "Enter valid email"
-                    : null}
+                  {error && signUpDetails.email === "" ? (
+                    <>{getValueOf("email is required")}</>
+                  ) : error &&
+                    EmailRegex.test(signUpDetails.email) === false ? (
+                    <>{getValueOf("Enter valid email")}</>
+                  ) : null}
                 </span>
               </Form.Group>
               <div className="row align-items-center">
@@ -206,12 +211,12 @@ function SignUp({ history }) {
                         />
 
                         <span className="text-danger">
-                          {error && signUpDetails.phone === ""
-                            ? "Phone Number is required"
-                            : error &&
-                              PhoneRegex.test(signUpDetails.phone) === false
-                            ? "Enter valid Phone Number"
-                            : null}
+                          {error && signUpDetails.phone === "" ? (
+                            <>{getValueOf("Phone Number is required")}</>
+                          ) : error &&
+                            PhoneRegex.test(signUpDetails.phone) === false ? (
+                            <>{getValueOf("Enter valid Phone Number")}</>
+                          ) : null}
                         </span>
                       </Form.Group>
                     </div>
@@ -238,19 +243,21 @@ function SignUp({ history }) {
                           }`}
                         >
                           <option>Code</option>
-                          {countries && countries.length
-                            ? countries.map((value, index) => {
-                                return (
-                                  <option
-                                    className="country-dots"
-                                    key={index}
-                                    value={value.dial_code}
-                                  >
-                                    {value.name}({value.dial_code})
-                                  </option>
-                                );
-                              })
-                            : "Something went wrong"}
+                          {countries && countries.length ? (
+                            countries.map((value, index) => {
+                              return (
+                                <option
+                                  className="country-dots"
+                                  key={index}
+                                  value={value.dial_code}
+                                >
+                                  {value.name}({value.dial_code})
+                                </option>
+                              );
+                            })
+                          ) : (
+                            <>{getValueOf("Something went wrong")}</>
+                          )}
                         </select>
                       </FormGroup>
                     </div>
@@ -280,19 +287,21 @@ function SignUp({ history }) {
                           }`}
                         >
                           <option>Code</option>
-                          {countries && countries.length
-                            ? countries.map((value, index) => {
-                                return (
-                                  <option
-                                    className="country-dots"
-                                    key={index}
-                                    value={value.dial_code}
-                                  >
-                                    {value.name}({value.dial_code})
-                                  </option>
-                                );
-                              })
-                            : "Something went wrong"}
+                          {countries && countries.length ? (
+                            countries.map((value, index) => {
+                              return (
+                                <option
+                                  className="country-dots"
+                                  key={index}
+                                  value={value.dial_code}
+                                >
+                                  {value.name}({value.dial_code})
+                                </option>
+                              );
+                            })
+                          ) : (
+                            <>{getValueOf("Something went wrong")}</>
+                          )}
                         </select>
                       </FormGroup>
                     </div>{" "}
@@ -320,12 +329,12 @@ function SignUp({ history }) {
                         />
 
                         <span className="text-danger">
-                          {error && signUpDetails.phone === ""
-                            ? "Phone Number is required"
-                            : error &&
-                              PhoneRegex.test(signUpDetails.phone) === false
-                            ? "Enter valid Phone Number"
-                            : null}
+                          {error && signUpDetails.phone === "" ? (
+                            <>{getValueOf("Phone Number is required")}</>
+                          ) : error &&
+                            PhoneRegex.test(signUpDetails.phone) === false ? (
+                            <>{getValueOf("Enter valid Phone Number")}</>
+                          ) : null}
                         </span>
                       </Form.Group>
                     </div>
@@ -346,18 +355,18 @@ function SignUp({ history }) {
                     SetSpecialChar(true);
                   }}
                   type="password"
-                  placeholder="Password"
+                  placeholder={getValueOf("Password")}
                 />
                 <span className="text-danger">
-                  {error && signUpDetails.password === ""
-                    ? "Password is required"
-                    : null}
-                  {error && signUpDetails.password === ""
-                    ? "Please Enter Your New Password"
-                    : specialChar &&
-                      passwordRegex.test(signUpDetails.password) === false
-                    ? "Enter strong password"
-                    : null}
+                  {error && signUpDetails.password === "" ? (
+                    <>{getValueOf("Password is required")}</>
+                  ) : null}
+                  {error && signUpDetails.password === "" ? (
+                    <>{getValueOf("Please Enter Your New Password")}</>
+                  ) : specialChar &&
+                    passwordRegex.test(signUpDetails.password) === false ? (
+                    <>{getValueOf("Enter strong password")}</>
+                  ) : null}
                 </span>
               </Form.Group>
               <Form.Group
@@ -373,15 +382,15 @@ function SignUp({ history }) {
                     });
                   }}
                   type="password"
-                  placeholder="Confirm Password"
+                  placeholder={getValueOf("Confirm Password")}
                 />{" "}
                 <span className="text-danger">
-                  {error && signUpDetails.confirmPassword === ""
-                    ? "Confirm Password is required"
-                    : error &&
-                      signUpDetails.password !== signUpDetails.confirmPassword
-                    ? "Enter  same password"
-                    : null}
+                  {error && signUpDetails.confirmPassword === "" ? (
+                    <>{getValueOf("Confirm Password is required")}</>
+                  ) : error &&
+                    signUpDetails.password !== signUpDetails.confirmPassword ? (
+                    <>{getValueOf("Enter same password")}</>
+                  ) : null}
                 </span>
               </Form.Group>
               {layoutClickChanger ? (
@@ -396,16 +405,18 @@ function SignUp({ history }) {
                     }}
                     className="form-select text-end"
                   >
-                    <option>Select Country</option>
-                    {countries && countries.length
-                      ? countries.map((value, index) => {
-                          return (
-                            <option key={index} value={value.name}>
-                              {value.name}
-                            </option>
-                          );
-                        })
-                      : "Something went wrong"}
+                    <option>{getValueOf("Select Country")}</option>
+                    {countries && countries.length ? (
+                      countries.map((value, index) => {
+                        return (
+                          <option key={index} value={value.name}>
+                            {value.name}
+                          </option>
+                        );
+                      })
+                    ) : (
+                      <>{getValueOf("Something went wrong")}</>
+                    )}
                   </select>
                 </FormGroup>
               ) : (
@@ -420,23 +431,25 @@ function SignUp({ history }) {
                     }}
                     className="form-select text-start"
                   >
-                    <option>Select Country</option>
-                    {countries && countries.length
-                      ? countries.map((value, index) => {
-                          return (
-                            <option key={index} value={value.name}>
-                              {value.name}
-                            </option>
-                          );
-                        })
-                      : "Something went wrong"}
+                    <option>{getValueOf("Select Country")}</option>
+                    {countries && countries.length ? (
+                      countries.map((value, index) => {
+                        return (
+                          <option key={index} value={value.name}>
+                            {value.name}
+                          </option>
+                        );
+                      })
+                    ) : (
+                      <>{getValueOf("Something went wrong")}</>
+                    )}
                   </select>
                 </FormGroup>
               )}
               <span className="text-danger">
-                {error && signUpDetails.country === ""
-                  ? "Country is required"
-                  : null}
+                {error && signUpDetails.country === "" ? (
+                  <>{getValueOf("Country is required")}</>
+                ) : null}
               </span>
               <div className="mt-3" style={{ maWidth: "200px" }}>
                 <HCaptcha
@@ -445,7 +458,9 @@ function SignUp({ history }) {
                 />
               </div>
               <span className="text-danger">
-                {error && !reCaptchaToken ? "Please solved Captcha" : null}
+                {error && !reCaptchaToken ? (
+                  <>{getValueOf("Please solved Captcha")}</>
+                ) : null}
               </span>
               <div className=" my-4">
                 <button
@@ -453,14 +468,16 @@ function SignUp({ history }) {
                   onClick={() => submitSignUpForm()}
                   className=" w-100 form-btn px-5 py-3 ff-popins"
                 >
-                  {loading ? <Loader /> : "Sign Up"}
+                  {loading ? <Loader /> : <>{getValueOf("Sign Up")}</>}
                 </button>
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-4">
-              Already have account?{" "}
+              {getValueOf("Already have account?")}{" "}
               <Link to="/login" className="text-decoration">
-                <span className="sign-up-text cursor-pointer">Log In</span>
+                <span className="sign-up-text cursor-pointer">
+                  {getValueOf("Log In")}
+                </span>
               </Link>
             </p>
           </div>
