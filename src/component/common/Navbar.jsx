@@ -340,7 +340,7 @@ const Navbar = ({
                       onClick={() => layoutleftChangeHandler("arabic")}
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
                     >
-                      Arabic
+                      {getValueOf("Arabic")}
                       <img className="flag-img mx-2 " src={Arbic} alt="" />
                     </span>
                   </MenuItem>
