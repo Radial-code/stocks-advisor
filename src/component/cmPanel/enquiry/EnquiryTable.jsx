@@ -36,7 +36,7 @@ const EnquiryTable = () => {
         <div>
           {contactList && contactList.length !== 0 ? (
             <>
-              <Table responsive hover className="">
+              <Table responsive hover >
                 <thead className="portfolio-sticky">
                   <tr className="user-list-panel">
                     <th className=" whitespace text-start">

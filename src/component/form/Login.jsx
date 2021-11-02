@@ -45,7 +45,7 @@ function Login({ history }) {
         <div className="col-xl-4 col-sm-5">
           <div className="background-form p-sm-5 p-2 my-sm-0 my-5">
             <p className="text-center edit-contact-text ff-popins mb-0">
-              Log In
+              {getValueOf("Log In")}
             </p>
             <Form className="pt-sm-5  pt-4">
               <Form.Group
@@ -64,11 +64,11 @@ function Login({ history }) {
                   placeholder={getValueOf("Email")}
                 />
                 <span className="text-danger">
-                  {error && logInDetails.email === ""
-                    ? "email is required"
-                    : error && EmailRegex.test(logInDetails.email) === false
-                    ? "Enter valid email"
-                    : null}
+                  {error && logInDetails.email === "" ? (
+                    <>{getValueOf("email is required")}</>
+                  ) : error && EmailRegex.test(logInDetails.email) === false ? (
+                    <>{getValueOf("Enter valid email")}</>
+                  ) : null}
                 </span>
               </Form.Group>
 
@@ -85,12 +85,12 @@ function Login({ history }) {
                     });
                   }}
                   type="password"
-                  placeholder="Password"
+                  placeholder={getValueOf("Password")}
                 />
                 <span className="text-danger">
-                  {error && logInDetails.password === ""
-                    ? "Password is required"
-                    : null}
+                  {error && logInDetails.password === "" ? (
+                    <>{getValueOf("Password is required")}</>
+                  ) : null}
                 </span>
               </Form.Group>
               <div className="" style={{ maWidth: "200px" }}>
@@ -100,7 +100,9 @@ function Login({ history }) {
                 />
               </div>
               <span className="text-danger">
-                {error && !reCaptchaToken ? "Please solved Captcha" : null}
+                {error && !reCaptchaToken ? (
+                  <>{getValueOf("Please solved Captcha")}</>
+                ) : null}
               </span>
               <div className=" my-sm-3">
                 <button
@@ -108,24 +110,26 @@ function Login({ history }) {
                   onClick={() => submitLoginInForm()}
                   className=" w-100 form-btn  ff-popins"
                 >
-                  {loading ? <Loader /> : "Log In"}
+                  {loading ? <Loader /> : <>{getValueOf("Log In")}</>}
                 </button>
               </div>
             </Form>
             <p className="ff-popins text-center mb-2 pt-sm-5 pt-4">
-              Don't have an account ?
+              {getValueOf("Don't have an account ?")}
               <Link to="/signup" className="text-decoration">
-                <span className="sign-up-text cursor-pointer">Sign Up</span>
+                <span className="sign-up-text cursor-pointer">
+                  {getValueOf("Sign Up")}
+                </span>
               </Link>
             </p>
             <Link className="text-decoration" to="/forget/password">
               {layoutClickChanger ? (
                 <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
-                  ? Forgot Password
+                  {getValueOf("? Forgot Password")}
                 </p>
               ) : (
                 <p className="ff-popins bg-16191e text-center cursor-pointer pt-sm-0 pt-3">
-                  Forgot Password ?
+                  {getValueOf(" Forgot Password ?")}
                 </p>
               )}
             </Link>

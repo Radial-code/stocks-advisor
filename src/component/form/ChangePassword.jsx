@@ -4,9 +4,12 @@ import { passwordRegex } from "../../component/common/Validation";
 import { useDispatch } from "react-redux";
 import { ChangePasswordAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+
   const [changePasswordDetails, setChangePasswordDetails] = useState({
     password: "",
     newPassword: "",
@@ -43,7 +46,7 @@ const ChangePassword = () => {
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12   mx-auto form-box-shadow mt-100">
             <div className="py-4 px-xxl-5 px-3  ">
               <p className="mb-4 mb-md-5 edit-contact-text text-center">
-                Change Password
+                {getValueOf("Change Password")}
               </p>
               <div className="mb-3 form-field">
                 <input
@@ -57,12 +60,12 @@ const ChangePassword = () => {
                   }
                   className="form-control from-input-placeholder"
                   id="exampleFormControlInput6"
-                  placeholder="Current Password"
+                  placeholder={getValueOf("Current Password")}
                 />
                 <span className="text-danger">
-                  {error && changePasswordDetails.password === ""
-                    ? "Please Enter Your Old Password"
-                    : null}
+                  {error && changePasswordDetails.password === "" ? (
+                    <>{getValueOf("Please Enter Your Old Password")}</>
+                  ) : null}
                 </span>
               </div>
               <div className="mb-3 form-field ">
@@ -78,16 +81,16 @@ const ChangePassword = () => {
                   }}
                   className="form-control from-input-placeholder"
                   id="exampleFormControlInput7"
-                  placeholder="New Password"
+                  placeholder={getValueOf("New Password")}
                 />
                 <span className="text-danger">
-                  {error && changePasswordDetails.newPassword === ""
-                    ? "Please Enter Your New Password"
-                    : specialChar &&
-                      passwordRegex.test(changePasswordDetails.newPassword) ===
-                        false
-                    ? "Enter strong password"
-                    : null}
+                  {error && changePasswordDetails.newPassword === "" ? (
+                    <>{getValueOf("Please Enter Your New Password")}</>
+                  ) : specialChar &&
+                    passwordRegex.test(changePasswordDetails.newPassword) ===
+                      false ? (
+                    <>{getValueOf("Enter strong password")}</>
+                  ) : null}
                 </span>
               </div>
               <div className="mb-0 form-field">
@@ -102,16 +105,16 @@ const ChangePassword = () => {
                   type="text"
                   className="form-control from-input-placeholder"
                   id="exampleFormControlInput8"
-                  placeholder="Confirm Password"
+                  placeholder={getValueOf("Confirm Password")}
                 />
                 <span className="text-danger">
-                  {error && changePasswordDetails.confirmPassword === ""
-                    ? "Please Enter confirm Confirm password"
-                    : error &&
-                      changePasswordDetails.newPassword !==
-                        changePasswordDetails.confirmPassword
-                    ? "Enter same password"
-                    : null}
+                  {error && changePasswordDetails.confirmPassword === "" ? (
+                    <>{getValueOf("Please Enter confirm Confirm password")}</>
+                  ) : error &&
+                    changePasswordDetails.newPassword !==
+                      changePasswordDetails.confirmPassword ? (
+                    <>{getValueOf("Enter same password")}</>
+                  ) : null}
                 </span>
               </div>
               <button
@@ -119,7 +122,7 @@ const ChangePassword = () => {
                 disabled={loading}
                 className=" w-100 mb-4 mt-sm-5 mt-3 from-btn"
               >
-                {loading ? <Loader /> : "Update My Password"}
+                {loading ? <Loader /> : <>{getValueOf("Update My Password")}</>}
               </button>
             </div>
           </div>
