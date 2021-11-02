@@ -53,7 +53,7 @@ function LineChart({ chatValue }) {
 
             <XAxis dataKey="Year" axisLine={false} tickLine={false} />
             <YAxis
-              dataKey={getValueOf("Profit")}
+              dataKey={getValueOf("Profit To")}
               dx={layoutClickChanger ? -30 : -10}
               axisLine={false}
               tickLine={false}
@@ -61,7 +61,7 @@ function LineChart({ chatValue }) {
             />
             <Tooltip />
             <Area
-              dataKey={getValueOf("Profit")}
+              dataKey={getValueOf("Profit To")}
               stroke={`${
                 chatValue.title === `${getValueOf("Long Term")}`
                   ? "#5CBD4C"
