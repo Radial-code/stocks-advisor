@@ -38,7 +38,7 @@ const ForgetPassword = () => {
                     type="text"
                     className="form-control  padding-right-50"
                     id="exampleFormControlInput3"
-                    placeholder="Johndoe@gmail.com"
+                    placeholder={getValueOf("Johndoe@gmail.com")}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <div className="position-absolute me-4">
