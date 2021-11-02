@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import "../modal/modal.css";
 import CloseIcon from "../../assets/img/close-icon.png";
+
 function LogInModal() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
