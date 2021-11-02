@@ -34,7 +34,9 @@ const StockSliderCard = ({ soldValue, getValueOf }) => {
               {soldValue.tags}
             </p>
             <p className="small-paragraph text-end">
-              <span className=" cursor-pointer fw-bold">Stock : </span>
+              <span className=" cursor-pointer fw-bold">
+                {getValueOf("Stock")} :{" "}
+              </span>
               <span className="cursor-pointer fw-bold">
                 {soldValue &&
                   soldValue.stock &&

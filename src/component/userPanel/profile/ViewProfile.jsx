@@ -7,8 +7,10 @@ import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import Loader from "../../common/Loader";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import BubblesLoader from "../../common/BubblesLoader";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const ViewProfile = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   const userDetails = useSelector((state) => state.userPanel.userDetails);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
   const [Upload, setUpload] = useState("");
@@ -52,14 +54,14 @@ const ViewProfile = () => {
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
           <p className="from-heading mb-0 text-md-end text-center">
-            My Profile
+            {getValueOf("My Profile")}
           </p>
         </div>
         <div className="d-none d-md-flex">
           {inputDisable ? (
             <Link to="/change-password">
               <button className="from-edit-profile-btn mx-xl-3 px-14 ">
-                Change Password
+                {getValueOf("Change Password")}
               </button>
             </Link>
           ) : (
@@ -70,7 +72,7 @@ const ViewProfile = () => {
               onClick={() => setInputDisable(false)}
               className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
             >
-              Edit Profile
+              {getValueOf("Edit Profile")}
             </button>
           ) : (
             <>
@@ -78,14 +80,14 @@ const ViewProfile = () => {
                 onClick={() => UpdateUserProfile()}
                 className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
               >
-                Back
+                {getValueOf("Back")}
               </button>
               <button
                 onClick={() => UpdateUserProfile()}
                 disabled={loading}
                 className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
               >
-                {loading ? <Loader /> : "Save"}
+                {loading ? <Loader /> : `${getValueOf("Save")}`}
               </button>
             </>
           )}
@@ -127,7 +129,7 @@ const ViewProfile = () => {
         {inputDisable ? (
           <Link to="/change-password">
             <button className="from-edit-profile-btn px-2 ">
-              Change Password
+              {getValueOf("Change Password")}
             </button>
           </Link>
         ) : (
@@ -142,13 +144,15 @@ const ViewProfile = () => {
                 : "from-edit-profile-btn  px-4"
             }
           >
-            {inputDisable ? "Edit Profile" : "Save"}
+            {inputDisable
+              ? `${getValueOf("Edit Profile")}`
+              : `${getValueOf("Save")}`}
           </button>
           <button
             onClick={() => UpdateUserProfile()}
             className="from-edit-profile-btn  me-sm-3 me-2"
           >
-            Back
+            {getValueOf("Back")}
           </button>
         </>
       </div>

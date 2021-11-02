@@ -7,13 +7,12 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 
 const NewsDetailsPage = ({ history, loading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
       {loading ? (
         <div className="d-flex justify-content-center align-items-center h-100">
-          {" "}
           <BubblesLoader />
         </div>
       ) : (
@@ -71,7 +70,9 @@ const NewsDetailsPage = ({ history, loading }) => {
                   : "small-paragraph"
               }`}
             >
-              <span className="cursor-pointer fw-bold">Stock :</span>
+              <span className="cursor-pointer fw-bold">
+                {getValueOf("Stock")} :
+              </span>
               <span
                 onClick={() =>
                   history.push(

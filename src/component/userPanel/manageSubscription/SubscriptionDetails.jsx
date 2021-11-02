@@ -4,8 +4,10 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const SubscriptionDetails = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   const [loading, setLoading] = useState(false);
@@ -19,10 +21,12 @@ const SubscriptionDetails = () => {
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
       <div className="w-xl-1000 box p-md-4 p-4 h-100">
-        <h2 className="heading-stock fs-sm-20">Manage Subscription</h2>
+        <h2 className="heading-stock fs-sm-20">
+          {getValueOf("Manage Subscription")}
+        </h2>
         <div className="border-b-1 mt-md-5 mt-3">
           <p className="news-heading-font fs-sm-14">
-            Current Subscription Info
+            {getValueOf("Current Subscription Info")}
           </p>
         </div>
         {myPlanDetails ? (
@@ -39,7 +43,7 @@ const SubscriptionDetails = () => {
                 </div>
                 <div className="d-flex flex-sm-row flex-column mt-2">
                   <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                    Purchase Date :
+                    {getValueOf("Purchase Date")}:
                   </span>
                   <span className="stock-paragraph fs-sm-11">
                     {" "}
@@ -49,7 +53,7 @@ const SubscriptionDetails = () => {
                 <div className="d-flex justify-content-between mt-2 mb-4">
                   <div className="d-flex flex-sm-row flex-column">
                     <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                      Expired Date :
+                      {getValueOf("Expired Date")} :
                     </span>
 
                     <span className="stock-paragraph fs-sm-11">
@@ -61,7 +65,7 @@ const SubscriptionDetails = () => {
                   <span className="float-md-end me-auto ">
                     <div className="d-flex flex-sm-row flex-column ">
                       <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
-                        Auto Renew:
+                        {getValueOf("Auto Renew")}:
                       </span>
 
                       <label className="switch-2 mx-2" for="checkbox-2">

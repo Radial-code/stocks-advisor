@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./editform.css";
 import { Form } from "react-bootstrap";
-import { EmailRegex, PhoneRegex } from "../../common/Validation";
-import DashboardDropDown from "../../dashboard/DashboardDropDown";
-function EditContact({ sideBarHandler, setSidebarActive, sidebarActive }) {
+
+function EditContact({ setSidebarActive, sidebarActive }) {
   const [editDetails, setEditDetails] = useState({
     editName: "",
     email: "",

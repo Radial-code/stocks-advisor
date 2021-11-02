@@ -78,7 +78,9 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
                 : "small-paragraph text-start"
             }`}
           >
-            <span className=" cursor-pointer fw-bold">Stock :</span>
+            <span className=" cursor-pointer fw-bold">
+              {getValueOf("Stock")} :
+            </span>
             <span
               onClick={() =>
                 history.push(`/stock/news/${stock._id}/stock-tags`)

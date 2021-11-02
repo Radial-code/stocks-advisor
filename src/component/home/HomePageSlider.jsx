@@ -159,7 +159,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                             : "N/A"}
                         </span>
                         <span className="cursor-pointer fw-bold ps-1">
-                          :Stock
+                          :{getValueOf("Stock")}
                         </span>
                       </p>
                     </>
@@ -174,7 +174,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         } `}
                       >
                         <span className="cursor-pointer fw-bold pe-1">
-                          Stock:
+                          {getValueOf("Stock")}:
                         </span>
                         <span
                           className="fw-bold cursor-pointer"
@@ -202,7 +202,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                 alt=""
               />
               <h4 className="text-center text-5CBD4C">
-                You don't have any News
+                {getValueOf("You don't have any News")}
               </h4>
             </>
           )}

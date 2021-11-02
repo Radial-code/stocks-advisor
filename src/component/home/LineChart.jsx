@@ -11,7 +11,7 @@ import {
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 function LineChart({ chatValue }) {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   const data = [];
   chatValue &&
@@ -53,7 +53,7 @@ function LineChart({ chatValue }) {
 
             <XAxis dataKey="Year" axisLine={false} tickLine={false} />
             <YAxis
-              dataKey="Profit"
+              dataKey={getValueOf("Profit")}
               dx={layoutClickChanger ? -30 : -10}
               axisLine={false}
               tickLine={false}
@@ -61,19 +61,19 @@ function LineChart({ chatValue }) {
             />
             <Tooltip />
             <Area
-              dataKey="Profit"
+              dataKey={getValueOf("Profit")}
               stroke={`${
-                chatValue.title === "Long Term"
+                chatValue.title === `${getValueOf("Long Term")}`
                   ? "#5CBD4C"
-                  : chatValue.title === "Trading"
+                  : chatValue.title === `${getValueOf("Trading")}`
                   ? "#4870B3"
                   : "#BD4C67"
               }`}
               strokeWidth="2"
               fill={`${
-                chatValue.title === "Long Term"
+                chatValue.title === `${getValueOf("Long Term")}`
                   ? "#5CBD4C"
-                  : chatValue.title === "Trading"
+                  : chatValue.title === `${getValueOf("Trading")}`
                   ? "#4870B3"
                   : "#BD4C67"
               }`}

@@ -71,8 +71,7 @@ const HomeRelatedNewsSlider = ({ loader, history, getValueOf }) => {
               <div className="d-flex  flex-column align-items-center">
                 <img className=" nodata-img " src={NoData} alt=" NoData" />
                 <h4 className="text-center fw-bold">
-                  {" "}
-                  You don't have any Related News
+                  {getValueOf("You don't have any Related News")}
                 </h4>
               </div>
             )}

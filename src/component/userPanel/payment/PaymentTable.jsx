@@ -2,7 +2,8 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 import { DropDownIcon } from "../../common/icons/Icons";
 import NoData from "../../../assets/img/emptydata.jpg";
-const PaymentTable = () => {
+
+const PaymentTable = ({ getValueOf }) => {
   const paymentList = useSelector((state) => state.list.paymentList);
   return (
     <>
@@ -13,23 +14,23 @@ const PaymentTable = () => {
               <tr>
                 <th scope="col-5" className="payment-thead">
                   <DropDownIcon />
-                  <span className="me-2">Status</span>
+                  <span className="me-2">{getValueOf("Status")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
                   <DropDownIcon />
-                  <span className="me-2">Card No</span>
+                  <span className="me-2">{getValueOf("Card No")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
                   <DropDownIcon />
-                  <span className="me-2">Plan</span>
+                  <span className="me-2">{getValueOf("Plan")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
                   <DropDownIcon />
-                  <span className="me-2">Amount</span>
+                  <span className="me-2">{getValueOf("Amount")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
                   <DropDownIcon />
-                  <span className="me-2">Date</span>
+                  <span className="me-2">{getValueOf("Date")}</span>
                 </th>
               </tr>
             </thead>
@@ -63,7 +64,9 @@ const PaymentTable = () => {
             src={NoData}
             alt="NoData"
           />
-          <h4 className="fw-bold"> You don't have any payment list</h4>
+          <h4 className="fw-bold">
+            {getValueOf("You don't have any payment list")}
+          </h4>
         </div>
       )}
     </>

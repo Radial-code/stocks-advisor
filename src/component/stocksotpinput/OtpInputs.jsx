@@ -1,8 +1,11 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import LogoPhoto from "../../assets/img/Navbar-logo-img.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const OtpInputs = () => {
+  const { getValueOf } = useLayoutChangerProvider();
+
   return (
     <div className="container">
       <form>
@@ -16,13 +19,16 @@ const OtpInputs = () => {
             <div className="row mt-5 justify-content-center ">
               <div className="col-12 col-md-10   otp-inputs mb-3 pt-5">
                 <label for="exampleotpinput" class="form-label" id="form-font">
-                  Enter your otp
+                  {getValueOf("Enter your otp")}
                 </label>
                 <Form.Group
                   className="mb-3 form-field "
                   controlId="eampleotpinput"
                 >
-                  <Form.Control type="Text" placeholder="Enter your otp" />
+                  <Form.Control
+                    type="Text"
+                    placeholder={getValueOf("Enter your otp")}
+                  />
                 </Form.Group>
               </div>
             </div>
@@ -32,12 +38,12 @@ const OtpInputs = () => {
                   type="button"
                   className="verify-otp px-3  mt-3 verify-otp w-100"
                 >
-                  Verify OTP
+                  {getValueOf("Verify OTP")}
                 </button>
               </div>
               <div className="">
                 <button type="button" className="resend-otp px-3  mt-3  w-100">
-                  Resend OTP
+                  {getValueOf("Resend OTP")}
                 </button>
               </div>
             </div>

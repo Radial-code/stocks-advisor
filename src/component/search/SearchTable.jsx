@@ -4,28 +4,30 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import Sortarrow from "../../assets/img/sortarrow.png";
 
-const SearchTable = ({ history, searchNewsList, searchshow }) => {
+const SearchTable = ({ history, searchNewsList, getValueOf }) => {
   return (
     <Table hover className="mt-sm-0 mt-3">
       <thead className="portfolio-sticky">
         <tr className="user-list-panel">
           <th className="whitespace table-width">
             <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            Date
+            {getValueOf("Date")}
           </th>
           <th className="whitespace table-width-header">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-            Arabic-Title
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            {getValueOf("Arabic-Title")}
           </th>
           <th className="whitespace table-width-header">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Eng-Title
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            {getValueOf("Eng-Title")}
           </th>
           <th className="whitespace table-width-header">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-            Arabic-Tags
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            {getValueOf("Arabic-Tags")}
           </th>
           <th className="whitespace table-width-header">
-            <img className="ps-1" src={Sortarrow} alt="sort arrow" /> Eng-Tags
+            <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            {getValueOf("Eng-Tags")}
           </th>
         </tr>
       </thead>
@@ -55,7 +57,7 @@ const SearchTable = ({ history, searchNewsList, searchshow }) => {
                 </tr>
               );
             })
-          : "You don't have any news"}
+          : `${getValueOf("You don't have any news")}`}
       </tbody>
     </Table>
   );

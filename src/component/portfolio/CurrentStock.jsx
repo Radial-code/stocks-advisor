@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
-function CurrentStock({ history }) {
+function CurrentStock({ history, getValueOf }) {
   const currentStockList = useSelector((state) => state.list.currentStockList);
 
   return (
@@ -16,49 +16,49 @@ function CurrentStock({ history }) {
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Date
+                {getValueOf("Date")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Name
+                {getValueOf("Name")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Symbol
+                {getValueOf("Symbol")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Portfolio
+                {getValueOf("Portfolio")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Category
+                {getValueOf("Category")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Join Price
+                {getValueOf("Join Price")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Current Price
+                {getValueOf("Current Price")}
               </th>
               <th scope="col" className="text-center">
                 <span>
                   <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                 </span>
-                Profit/Loss
+                {getValueOf("Profit/Loss")}
               </th>
             </tr>
           </thead>
@@ -134,13 +134,13 @@ function CurrentStock({ history }) {
             })
           ) : (
             <p className="blank-data text-center mt-5">
-              You don't have any current stock list
+              {getValueOf("You don't have any current stock list")}
             </p>
           )}
         </table>
       ) : (
         <p className="blank-data text-center mt-5">
-          You don't have any current stock list
+          {getValueOf("You don't have any current stock list")}
         </p>
       )}
     </div>

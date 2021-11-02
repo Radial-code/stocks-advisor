@@ -1,17 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SearchNews from "../../assets/img/searchnews.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 import SearchTable from "./SearchTable";
 
-function Search({ searchData, loading, searchshow, setSearchShow }) {
+function Search({ searchData, loading, searchshow }) {
+  const { getValueOf } = useLayoutChangerProvider();
   const searchNewsList = useSelector((state) => state.list.searchNewsList);
   return (
     <div className="container mt-100">
       {searchData === "" ? (
         <>
           <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
-          <h4 className="text-center">...Type to Search News Result</h4>
+          <h4 className="text-center">
+            ...{getValueOf("Type to Search News Result")}
+          </h4>
         </>
       ) : (
         <>
@@ -21,7 +25,7 @@ function Search({ searchData, loading, searchshow, setSearchShow }) {
                 <div className="shadow rounded p-sm-3 p-2 my-4">
                   <div className="mt-4 d-flex justify-content-between align-items-center">
                     <h1 className="current-stock-text ff-popins mb-0 fs-sm-20">
-                      Search News
+                      {getValueOf("Search News")}
                     </h1>
                   </div>
                   <div className="overflow-auto h-calc-100vh-380 scroll-bar mt-3 ">
@@ -35,11 +39,12 @@ function Search({ searchData, loading, searchshow, setSearchShow }) {
                           <div>
                             {!!searchNewsList.length && searchData !== "" ? (
                               <SearchTable
+                                getValueOf={getValueOf}
                                 searchshow={searchshow}
                                 searchNewsList={searchNewsList}
                               />
                             ) : (
-                              "No result found"
+                              `${getValueOf("No result found")}`
                             )}
                           </div>
                         </>
@@ -56,7 +61,9 @@ function Search({ searchData, loading, searchshow, setSearchShow }) {
                 src={SearchNews}
                 alt=""
               />
-              <h4 className="text-center">...Type to Search News Result</h4>
+              <h4 className="text-center">
+                ...{getValueOf("Type to Search News Result")}
+              </h4>
             </>
           )}
         </>
@@ -64,5 +71,4 @@ function Search({ searchData, loading, searchshow, setSearchShow }) {
     </div>
   );
 }
-
 export default Search;

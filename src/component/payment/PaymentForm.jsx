@@ -2,8 +2,10 @@ import React from "react";
 import { Col } from "react-bootstrap";
 import img_1 from "../../assets/img/visa.png";
 import img_2 from "../../assets/img/paypal.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const PaymentForm = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   return (
     <Col
       lg={5}
@@ -11,27 +13,35 @@ const PaymentForm = () => {
     >
       <section className="card-payment p-4">
         <p className="heading-stock  d-sm-flex fs-sm-14 justify-content-center d-lg-block">
-          Payment
+          {getValueOf("Payment")}
         </p>
         <div className=" d-flex align-items-center ">
           <p className="stock-paragraph mb-0 fs-sm-12">
-            Use same information as in your profile{" "}
+            {getValueOf("Use same information as in your profile")}
           </p>
           <span>
             <input className="payment-checkbox" type="Checkbox" />
-          </span>{" "}
+          </span>
         </div>
         <div className="form-input-payment mt-4 d-flex align-items-center">
-          <input className="border-0 " type="text" placeholder="Name" />
+          <input
+            className="border-0 "
+            type="text"
+            placeholder={getValueOf("Name")}
+          />
         </div>
         <div className="form-input-payment mt-4 d-flex align-items-center">
-          <input className="border-0 " type="text" placeholder="Email" />
+          <input
+            className="border-0 "
+            type="text"
+            placeholder={getValueOf("Email")}
+          />
         </div>
         <div className="form-input-payment mt-4 d-flex align-items-center">
           <input
             className="border-0 arrow-none"
             type="number"
-            placeholder="Phone"
+            placeholder={getValueOf("Phone")}
           />
         </div>
         <div className="d-flex justify-content-between paypal mt-4">

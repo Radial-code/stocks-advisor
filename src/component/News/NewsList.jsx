@@ -88,7 +88,7 @@ const NewsList = ({ history, value, index, loading }) => {
                 } py-2`}
               >
                 <span className="cursor-pointer small-paragraph fw-bold">
-                  Stock:
+                  {getValueOf("Stock")}:
                 </span>
                 <span
                   className="cursor-pointer fw-bold pe-1"

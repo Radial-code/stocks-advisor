@@ -73,7 +73,9 @@ const StockSoldSlider = ({ loader, getValueOf }) => {
       ) : (
         <>
           <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
-          <h4 className="text-center">You don't have any News</h4>
+          <h4 className="text-center">
+            {getValueOf("You don't have any News")}
+          </h4>
         </>
       )}
     </>

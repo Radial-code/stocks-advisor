@@ -3,7 +3,10 @@ import { Form, FormGroup } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Buket from "../../assets/img/backet.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+
 function Netflix() {
+  const { getValueOf } = useLayoutChangerProvider();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [firstDate, setFirstDate] = useState(new Date());
@@ -13,7 +16,9 @@ function Netflix() {
       <div className="row">
         <div className="col-12">
           <div className="add-stock-bg p-sm-5 p-3 mt-3">
-            <p className="new-stock-heading ff-popins mb-0 ">Netflix Inc</p>
+            <p className="new-stock-heading ff-popins mb-0 ">
+              {getValueOf("Netflix Inc")}
+            </p>
             <Form className="pt-sm-5  pt-4">
               <div className="row">
                 <div className="col-sm-6 order-2 datepicker-input position-relative order-sm-2 order-1">
@@ -43,13 +48,16 @@ function Netflix() {
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="NFLX" />
+                    <Form.Control
+                      type="email"
+                      placeholder={getValueOf("NFLX")}
+                    />
                   </Form.Group>
                 </div>
                 <div className="col-sm-6">
                   <FormGroup className=" add-new-stock-select mb-3">
                     <select className="form-select text-end">
-                      <option>Common</option>
+                      <option>{getValueOf("Common")}</option>
                     </select>
                   </FormGroup>
                 </div>
@@ -60,7 +68,10 @@ function Netflix() {
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="Netflix Inc" />
+                    <Form.Control
+                      type="email"
+                      placeholder={getValueOf("Netflix Inc")}
+                    />
                   </Form.Group>
                 </div>
                 <div className="col-sm-6">
@@ -68,7 +79,10 @@ function Netflix() {
                     className="mb-3 add-new-stock-field "
                     controlId="formBasicEmail"
                   >
-                    <Form.Control type="email" placeholder="Exchange" />
+                    <Form.Control
+                      type="email"
+                      placeholder={getValueOf("Exchange")}
+                    />
                   </Form.Group>
                 </div>
               </div>
@@ -101,10 +115,10 @@ function Netflix() {
 
               <div className="d-flex flex-sm-row flex-column">
                 <button className="delete-new-stock-btn my-sm-3  ff-popins">
-                  Delete
+                  {getValueOf("Delete")}
                 </button>
                 <button className="new-stock-btn my-3 border-0 ff-popins mx-sm-3">
-                  Add
+                  {getValueOf("Add")}
                 </button>
               </div>
             </Form>

@@ -7,7 +7,7 @@ import SearchNews from "../../assets/img/searchnews.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const AllNews = ({ setPage, page, loading, totalNews }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const allNewsList = useSelector((state) => state.cmPanel.allNews);
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -33,7 +33,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
                 alt=""
               />
               <h4 className="text-center text-5CBD4C">
-                You don't have any News
+                {getValueOf("You don't have any News")}
               </h4>
             </>
           )}

@@ -42,7 +42,7 @@ const Chart = ({ getValueOf }) => {
             <div className="d-flex flex-column align-items-center">
               <img className="nodata-img" src={NoData} alt="NoData" />
               <h4 className="text-center text-5CBD4C">
-                You don't have any Portfolio's Performance Chat
+                {getValueOf("You don't have any Portfolio's Performance Chat")}
               </h4>
             </div>
           )}

@@ -10,16 +10,13 @@ const NewsArticlesListItem = ({ news, history, getValueOf }) => {
     <>
       <div className="d-flex justify-content-center d-md-block pr-15">
         <div className="profile-box mt-5 hover-anim mb-3 p-0 d-flex justify-content-center flex-column">
-          {/* <img className="w-100 h-100" src={NewsSlider} alt="" /> */}
           <div className="p-3">
             <p className="text-end stock-paragraph Slider-Ellipse">
-              {" "}
               <span className="d-flex justify-content-end align-items-center">
                 <span className="d-flex justify-content-end px-2">
                   <img className="w-19 h-19" src={img_1} alt="" />
-                </span>{" "}
+                </span>
                 <span className="cursor-pointer">
-                  {" "}
                   {moment(createdAt).format("DD/MMM/YYYY")}
                 </span>
               </span>
@@ -38,7 +35,9 @@ const NewsArticlesListItem = ({ news, history, getValueOf }) => {
             </p>
             <p class="small-paragraph text-end Slider-Ellipse">{tags}</p>
             <p className={`small-paragraph text-end Slider-Ellipse`}>
-              <span className=" cursor-pointer fw-bold">Stock :</span>
+              <span className=" cursor-pointer fw-bold">
+                {getValueOf("Stock")} :
+              </span>
               <span
                 onClick={() =>
                   history.push(`/stock/news/${stock._id}/stock-tags`)

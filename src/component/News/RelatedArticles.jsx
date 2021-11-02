@@ -111,7 +111,7 @@ const RelatedArticles = () => {
                           }
                         >
                           <span className=" cursor-pointer fw-bold">
-                            Stock :
+                            {getValueOf("Stock")} :
                           </span>
                           <span className="cursor-pointer fw-bold">
                             {value.stock.symbol}

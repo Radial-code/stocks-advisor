@@ -9,10 +9,8 @@ import About from "../view/About";
 import UserRoutes from "./userPanel/UserRoutes";
 import Login from "./form/Login";
 import SignUp from "./form/SignUp";
-import LogInModal from "./modal/LogInModal";
 import Navbar from "../component/common/Navbar";
 import Footer from "../component/common/Footer";
-import Subscription from "./modal/Subscription";
 import Netflix from "./netflixinc/Netflix";
 import News from "../component/News/News";
 import Portfolio from "./portfolio/Portfolio";
@@ -84,8 +82,6 @@ const Router = ({
           />
         </Route>
         <Route exact path="/news" component={News} />
-        <Route exact path="/loginmodal" component={LogInModal} />
-        <Route exact path="/subsmodal" component={Subscription} />
         <Route exact path="/netflix" component={Netflix} />
         <Route exact path="/netfix/chart" component={NetflixChart} />
         <Route exact path="/news/details/:id" component={NewsDetails} />

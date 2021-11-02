@@ -4,7 +4,7 @@ import SoldStock from "./SoldStock";
 import CurrentStock from "./CurrentStock";
 import BubblesLoader from "../common/BubblesLoader";
 
-function PortfolioStock({ loading, setSoldLoading }) {
+function PortfolioStock({ loading, setSoldLoading, getValueOf }) {
   return (
     <>
       <div className="width-table mr-lg-30 ">
@@ -12,17 +12,21 @@ function PortfolioStock({ loading, setSoldLoading }) {
           <div className="col-12 ">
             <div className="current-stock-bg p-sm-3 p-2">
               <h1 className="current-stock-text ff-popins mt-md-5 mt-2">
-                Current Stocks
+                {getValueOf("Current Stocks")}
               </h1>
               {loading ? (
                 <div className="d-flex justify-content-center">
                   <BubblesLoader />
                 </div>
               ) : (
-                <CurrentStock />
+                <CurrentStock getValueOf={getValueOf} />
               )}
               <div className="border-b-1-16191E mt-4"></div>
-              <SoldStock loading={loading} setSoldLoading={setSoldLoading} />
+              <SoldStock
+                loading={loading}
+                setSoldLoading={setSoldLoading}
+                getValueOf={getValueOf}
+              />
             </div>
           </div>
         </div>

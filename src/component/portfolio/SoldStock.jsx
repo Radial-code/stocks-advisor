@@ -7,7 +7,7 @@ import { getRelatedSoldStockNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 
 const data = [];
-function SoldStock({ loading, history, setSoldLoading }) {
+function SoldStock({ loading, history, setSoldLoading, getValueOf }) {
   const dispatch = useDispatch();
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
@@ -23,7 +23,9 @@ function SoldStock({ loading, history, setSoldLoading }) {
 
   return (
     <div className="mt-5">
-      <h1 className="sold-stock-text ff-popins pt-md-4 ">Sold Stocks</h1>
+      <h1 className="sold-stock-text ff-popins pt-md-4 ">
+        {getValueOf("Sold Stocks")}
+      </h1>
       {loading ? (
         <div className="d-flex justify-content-center">
           <BubblesLoader />
@@ -35,32 +37,32 @@ function SoldStock({ loading, history, setSoldLoading }) {
               <thead className="portfolio-sticky">
                 <tr className="sold-stock-table-head table-border-bottom table-border-top">
                   <th scope="col" className="text-center whitespace">
-                    Date Bought
+                    {getValueOf("Date Bought")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
 
                   <th scope="col" className="text-center whitespace">
-                    Date Sold
+                    {getValueOf("Date Sold")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
-                    Name
+                    {getValueOf("Name")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
-                    Symbol
+                    {getValueOf("Symbol")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
-                    Category
+                    {getValueOf("Category")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
@@ -69,16 +71,16 @@ function SoldStock({ loading, history, setSoldLoading }) {
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
-                    Join Price
+                    {getValueOf("Join Price")}
                   </th>
                   <th scope="col" className="text-center whitespace">
-                    sell Price
+                    {getValueOf("sell Price")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
-                    Profit/Loss
+                    {getValueOf("Profit/Loss")}
                     <span>
                       <img className="pe-1" src={Sortarrow} alt="sort arrow" />
                     </span>
@@ -141,7 +143,7 @@ function SoldStock({ loading, history, setSoldLoading }) {
             </table>
           ) : (
             <p className="blank-data text-center mt-5">
-              You don't have any sold stocks
+              {getValueOf("You don't have any sold stocks")}
             </p>
           )}
         </div>

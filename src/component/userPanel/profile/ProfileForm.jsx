@@ -6,7 +6,7 @@ const ProfileForm = ({
   userDetails,
   UpdateUserDetailsData,
 }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   return (
     <div className="row">
@@ -20,7 +20,7 @@ const ProfileForm = ({
                 for="exampleFormControlInput21"
                 class="form-label mb-2  edit-label  "
               >
-                First Name
+                {getValueOf("First Name")}
               </label>
             </>
           )}
@@ -53,7 +53,7 @@ const ProfileForm = ({
                 for="exampleFormControlInput21"
                 class="form-label mb-2  edit-label  "
               >
-                Last Name
+                {getValueOf("Last Name")}
               </label>
             </>
           )}
@@ -84,7 +84,7 @@ const ProfileForm = ({
                 for="exampleFormControlInput21"
                 class="form-label mb-2  edit-label  "
               >
-                Email
+                {getValueOf("Email")}
               </label>
             </>
           )}
@@ -108,7 +108,7 @@ const ProfileForm = ({
               for="exampleFormControlInput21"
               className="form-label mb-2  edit-label  "
             >
-              Phone Number
+              {getValueOf("Phone Number")}
             </label>
           </>
         )}
@@ -122,18 +122,6 @@ const ProfileForm = ({
                     : "profile-field col pe-0"
                 }
               >
-                {/* {inputDisable ? (
-              ""
-            ) : (
-              <>
-                <label
-                  for="exampleFormControlInput21"
-                  class="form-label mb-2  edit-label  "
-                >
-                  Phone Number
-                </label>
-              </>
-            )} */}
                 <input
                   type="number"
                   disabled={inputDisable ? true : false}
@@ -186,18 +174,6 @@ const ProfileForm = ({
                     : "profile-field col ps-0"
                 }
               >
-                {/* {inputDisable ? (
-              ""
-            ) : (
-              <>
-                <label
-                  for="exampleFormControlInput21"
-                  class="form-label mb-2  edit-label  "
-                >
-                  Phone Number
-                </label>
-              </>
-            )} */}
                 <input
                   type="number"
                   disabled={inputDisable ? true : false}
@@ -217,35 +193,6 @@ const ProfileForm = ({
             </>
           )}
         </div>
-        {/* <div className="mb-md-4 mb-3 profile-field">
-          {inputDisable ? (
-            ""
-          ) : (
-            <>
-              <label
-                for="exampleFormControlInput21"
-                class="form-label mb-2  edit-label  "
-              >
-                Phone Number
-              </label>
-            </>
-          )}
-          <input
-            type="number"
-            disabled={inputDisable ? true : false}
-            onChange={(e) => {
-              setUpdateUserDetailsData({
-                ...UpdateUserDetailsData,
-                phone: e.target.value,
-              });
-            }}
-            className="form-control input-border-16191e33 py-2  profile-input-placeholder"
-            id="exampleFormControlInput15"
-            placeholder={
-              userDetails && userDetails.phone ? userDetails.phone : "N/A"
-            }
-          />
-        </div> */}
       </div>
     </div>
   );

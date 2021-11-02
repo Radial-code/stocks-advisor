@@ -52,7 +52,7 @@ const Portfolio = ({ match }) => {
           <h1 className="profile-heading pe-3 pt-2">
             {getValueOf("Related News")}
           </h1>
-          <StockSoldSlider />
+          <StockSoldSlider getValueOf={getValueOf} />
         </div>
       </div>
     </>

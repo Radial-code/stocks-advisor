@@ -13,11 +13,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import DropDown from "../../assets/img/btnarrow.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NetflixChart = ({ setType, type }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const stockChatList = useSelector((state) => state.list.stockChatList);
   const [chatList, setChatList] = useState([]);
-  const getMonth = (date, index) => {
+  const getMonth = (date) => {
     let m = date.split("-");
     return m[1] + "/" + m[0];
   };
@@ -62,37 +64,36 @@ const NetflixChart = ({ setType, type }) => {
               onClick={() => setType("1y")}
               className="chart-btn ff-popins mx-1 border-0"
             >
-              1 Month
+              1 {getValueOf("Month")}
             </button>
             <button
               onClick={() => setType("1w")}
               className="chart-btn ff-popins mx-1 border-0"
             >
-              1 Week
+              1 {getValueOf("Week")}
             </button>
             <button
               className="chart-btn ff-popins mx-1 border-0"
               onClick={() => setType("1d")}
             >
-              1 Day
+              1 {getValueOf("Day")}
             </button>
 
             <button
               className="chart-btn ff-popins mx-1 border-0"
               onClick={() => setType("1h")}
             >
-              1 Hr
+              1 {getValueOf("Hr")}
             </button>
 
             <button
               onClick={() => setType("1m")}
               className="chart-btn ff-popins mx-1 border-0"
             >
-              1 Min
+              1 {getValueOf("Min")}
             </button>
           </div>
           <p className="chart-text ff-popins text-white mb-0">
-            .{" "}
             {stockChatList &&
               stockChatList[getKey(type)] &&
               stockChatList[getKey(type)].meta &&
@@ -105,7 +106,7 @@ const NetflixChart = ({ setType, type }) => {
               <span className="px-1">
                 <img src={DropDown} alt="DropDown" />
               </span>
-              1 Hr
+              1 {getValueOf("Hr")}
             </button>
           </div>
           <p className="chart-text ff-popins text-white mb-0">

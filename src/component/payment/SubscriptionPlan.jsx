@@ -4,7 +4,7 @@ import BubblesLoader from "../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const SubscriptionPlan = ({ loading }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const planDetails = useSelector((state) => state.list.planDetails);
   const split_string =
     planDetails && planDetails.details && planDetails.details.split(",");
@@ -13,7 +13,7 @@ const SubscriptionPlan = ({ loading }) => {
     <Col lg={7} className="d-flex justify-content-center">
       <section className=" select-plan-payment p-lg-4 p-3">
         <p className="heading-stock fs-sm-20 d-sm-flex justify-content-center d-lg-block">
-          Selected Subscription Plan
+          {getValueOf("Selected Subscription Plan")}
         </p>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center h-100">
@@ -40,7 +40,7 @@ const SubscriptionPlan = ({ loading }) => {
                     layoutClickChanger ? "pe-2" : "pe-3 "
                   } fs-xs fw-500 fs-sm-14 `}
                 >
-                  :Plan Type
+                  :{getValueOf("Plan Type")}
                 </p>
               ) : (
                 <p
@@ -48,14 +48,18 @@ const SubscriptionPlan = ({ loading }) => {
                     layoutClickChanger ? "" : "pe-3 "
                   } fs-xs fw-500 fs-sm-14 `}
                 >
-                  Plan Type:
+                  {getValueOf("Plan Type")}:
                 </p>
               )}
             </div>
             {layoutClickChanger ? (
-              <p className="fs-xs fw-500  fs-sm-14">:Description</p>
+              <p className="fs-xs fw-500  fs-sm-14">
+                :{getValueOf("Description")}
+              </p>
             ) : (
-              <p className="fs-xs fw-500  fs-sm-14">Description:</p>
+              <p className="fs-xs fw-500  fs-sm-14">
+                {getValueOf("Description")}:
+              </p>
             )}
 
             <p className="stock-paragraph fs-sm-14">

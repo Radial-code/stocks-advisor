@@ -3,7 +3,6 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import StripeErrorMessage from "./StripeErrorMessage";
 import StripeCardField from "./StripeCardField";
-
 import { useDispatch, useSelector } from "react-redux";
 import StripeSubmitButton from "./StripeSubmitButton";
 import { useEffect } from "react";
@@ -13,8 +12,10 @@ import {
   getBuyPlanAction,
 } from "../../redux/action/payment";
 import { withRouter } from "react-router";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const StripeForm = ({ loader, match, history }) => {
+  const { getValueOf } = useLayoutChangerProvider();
   const { id } = match.params;
   const stripeID = useSelector((state) => state.list.stripeID);
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const StripeForm = ({ loader, match, history }) => {
     <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
       <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">
         <div>
-          <p className="fs-24 payment-stripe-text">Payment</p>
+          <p className="fs-24 payment-stripe-text">{getValueOf("Payment")}</p>
         </div>
         <div className="w-483 b-b-1"></div>
         <form className="Form" onSubmit={handleSubmit}>
@@ -98,14 +99,17 @@ const StripeForm = ({ loader, match, history }) => {
             />
           </div>
           <span className="text-danger">
-            {errorPayment && !reCaptchaToken ? "Please solved Captcha" : null}
+            {errorPayment && !reCaptchaToken
+              ? `${getValueOf("Please solved Captcha")}`
+              : null}
           </span>
           <StripeSubmitButton
+            getValueOf={getValueOf}
             processing={processing}
             error={error}
             disabled={!stripe}
           >
-            {loader || loading ? <Loader /> : "Payment"}
+            {loader || loading ? <Loader /> : `${getValueOf("Payment")}`}
           </StripeSubmitButton>
         </form>
       </section>
