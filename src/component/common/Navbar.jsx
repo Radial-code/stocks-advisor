@@ -304,7 +304,7 @@ const Navbar = ({
                         <Drop />
                       </span>
                     ) : null}
-                    {Language}
+                    {getValueOf(Language)}
                     {layoutClickChanger ? null : (
                       <span className="px-1 ">
                         <Drop />

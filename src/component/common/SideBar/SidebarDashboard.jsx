@@ -6,7 +6,7 @@ import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
 
 function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [activeLink, setActiveLink] = useState("manage");
   if (layoutClickChanger) {
     document.dir = "rtl";
@@ -60,7 +60,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2 py-2">
-            <p className="cn-sidebar-text mb-0 ">Dashboard</p>
+            <p className="cn-sidebar-text mb-0 ">{getValueOf("Dashboard")}</p>
 
             <img
               className="cancel-icon cursor-pointer"
@@ -80,7 +80,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
               <Manage />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
-              Manage Subscription
+              {getValueOf("Manage Subscription")}
             </p>
           </div>
 
@@ -93,7 +93,9 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
             <span className="px-2">
               <Notify />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Notification</p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
+              {getValueOf("Notification")}
+            </p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -104,7 +106,9 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
             <span className="px-2">
               <ProfileIcon />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Profile</p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
+              {getValueOf("Profile")}
+            </p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -116,7 +120,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
               <Payment />
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              Payment Details
+              {getValueOf("Payment Details")}
             </p>
           </div>
         </div>
@@ -124,7 +128,9 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
       <div className="col">
         <div className=" px-lg-4 pt-4 d-lg-none d-flex flex-column mb-5">
           <div className="d-flex align-items-center mb-3 justify-content-between">
-            <p className="cn-sidebar-text text-end mb-0">Dashboard</p>
+            <p className="cn-sidebar-text text-end mb-0">
+              {getValueOf("Dashboard")}
+            </p>
             <span
               className=" cursor-pointer"
               onClick={() => setShowSidebar(true)}
