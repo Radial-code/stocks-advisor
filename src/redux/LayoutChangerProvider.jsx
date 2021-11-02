@@ -19,6 +19,8 @@ export default function LayoutChangerProvider({ children }) {
       return ab[key] ? ab[key] : key;
     } else if (!defaultLanguage) {
       return en[key] ? en[key] : key;
+    } else {
+      return ab[key] ? ab[key] : key;
     }
   };
 

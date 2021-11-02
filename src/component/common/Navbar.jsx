@@ -341,7 +341,13 @@ const Navbar = ({
                       className="d-flex px-2 py-1 cursor-pointer fw-normal"
                     >
                       {getValueOf("Arabic")}
-                      <img className="flag-img mx-2 " src={Arbic} alt="" />
+                      <img
+                        className={`${
+                          layoutClickChanger ? "me-4" : " ms-3 "
+                        } flag-img`}
+                        src={Arbic}
+                        alt=""
+                      />
                     </span>
                   </MenuItem>
                 </Menu>
