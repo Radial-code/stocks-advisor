@@ -21,10 +21,12 @@ function LineChart({ chatValue }) {
         data.push({ Year: value.year, Profit: `${value.profitOrLoss}%` });
       }
     });
-
+  console.log(data);
   return (
     <div className="container px-sm-4 px-1  mt-2">
-      <p className="chart-text-2 ff-popins mb-1">{chatValue.title} Portfolio</p>
+      <p className="chart-text-2 ff-popins mb-1">
+        {getValueOf(chatValue.title)} {getValueOf("Portfolio")}
+      </p>
       <div
         className={`${
           chatValue.title === "Long Term"

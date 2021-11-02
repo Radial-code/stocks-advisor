@@ -22,12 +22,12 @@ const EditNews = () => {
             <input
               className="form-control  small-paragraph inputs-border p_16_20"
               type=""
-              placeholder="Title"
+              placeholder={getValueOf("Title")}
             />
           </div>
           <div className="col-lg-6 col-12  datepicker-input position-relative ">
             <DatePicker
-              placeholderText="Date"
+              placeholderText={getValueOf("Date")}
               className="mb-3"
               selected={firstDate}
               onChange={(date) => setFirstDate(date)}

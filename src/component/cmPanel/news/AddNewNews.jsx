@@ -58,21 +58,27 @@ const AddNewNews = ({ edit, match, history }) => {
 
   const AddNewNewsDetails = () => {
     setError(true);
-    let tagsArray = [];
-    tagsArray = [...tags, ...categoryArray];
-    const atagsArray = [...atags, ...categoryArray];
-    tagsArray.map((item) => {
-      newsDetails.tags += `${item},`;
-    });
-    atagsArray.map((item) => {
-      newsDetails.atags += `${item},`;
-    });
     if (
       newsDetails.title !== undefined &&
-      newsDetails.tags !== undefined &&
+      tags !== undefined &&
       newsDetails.atitle !== undefined &&
-      newsDetails.atags !== undefined
+      atags !== undefined
     ) {
+      const tagsArray = [...tags, ...categoryArray];
+      const atagsArray = [...atags, ...categoryArray];
+
+      console.log(tagsArray);
+      let TagValue = "";
+      tagsArray.map((item) => {
+        console.log(item);
+        TagValue += `${item},`;
+      });
+
+      let aTagValue = "";
+      atagsArray.map((item) => {
+        aTagValue += `${item},`;
+      });
+
       const data = {
         title: newsDetails.title,
         atitle: newsDetails.atitle,
@@ -80,8 +86,8 @@ const AddNewNews = ({ edit, match, history }) => {
         adescription: newsDetails.adescription,
         showOnHomePage: newsDetails.showOnHomePage,
         stock: newsDetails.stock,
-        tags: newsDetails.tags,
-        atags: newsDetails.atags,
+        tags: TagValue,
+        atags: aTagValue,
         media: uploadImageUrl,
         link: newsDetails.link,
         portfolios: newsDetails.portfolios,
