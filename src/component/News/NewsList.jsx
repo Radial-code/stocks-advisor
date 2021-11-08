@@ -19,7 +19,12 @@ const NewsList = ({ history, value, index, loading }) => {
         <Row key={index} className="justify-content-between ">
           <Col xl={4} lg={4} xs={4}>
             <div className="stock-articles-img ">
-              <img className="w-100 h-341" src={value.imagePath} alt="" />
+              <img
+                className="w-100 h-341 cursor-pointer"
+                src={value.imagePath}
+                onClick={() => history.push(`/news/details/${value._id}`)}
+                alt=""
+              />
             </div>
           </Col>
           <Col
@@ -52,11 +57,12 @@ const NewsList = ({ history, value, index, loading }) => {
                 </>
               )}
               <p
+                onClick={() => history.push(`/news/details/${value._id}`)}
                 className={` ${
                   layoutClickChanger
                     ? "heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title ps-sm-5 "
                     : "heading-stock fs-md-25 fs-sm-20 fs-xs-15 articles-title"
-                } `}
+                }  cursor-pointer`}
               >
                 {value && value.title ? value.title : "N/A"}
               </p>
@@ -96,6 +102,7 @@ const NewsList = ({ history, value, index, loading }) => {
                 )}
 
                 <span
+                  onClick={() => history.push(`/news/details/${value._id}`)}
                   className="cursor-pointer fw-bold pe-1 text-primary"
                   onClick={() =>
                     history.push(`/stock/news/${value.stock._id}/stock-tags`)

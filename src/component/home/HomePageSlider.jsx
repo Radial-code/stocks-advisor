@@ -44,7 +44,8 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
               return (
                 <div key={index}>
                   <img
-                    className=" slider-img d-block mx-auto"
+                    onClick={() => history.push(`/news/details/${value._id}`)}
+                    className=" slider-img d-block mx-auto cursor-pointer"
                     src={value.imagePath}
                     alt=""
                   />
@@ -75,11 +76,12 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     </span>
                   </p>
                   <h6
+                    onClick={() => history.push(`/news/details/${value._id}`)}
                     className={` ${
                       layoutClickChanger
                         ? "heading-stock text-end "
                         : "heading-stock"
-                    } `}
+                    }  cursor-pointer`}
                   >
                     {layoutClickChanger ? (
                       <>{value.atitle ? value.atitle : "N/A"}</>
@@ -88,11 +90,12 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     )}
                   </h6>
                   <p
+                    onClick={() => history.push(`/news/details/${value._id}`)}
                     className={` ${
                       layoutClickChanger
                         ? "text-end parargraph-stock pt-sm-2  ps-sm-5 "
                         : "parargraph-stock pt-sm-2"
-                    } `}
+                    } cursor-pointer`}
                   >
                     {layoutClickChanger ? (
                       <>{value.atitle ? value.adescription : "N/A"}</>

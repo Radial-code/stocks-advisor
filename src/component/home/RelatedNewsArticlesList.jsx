@@ -8,14 +8,19 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
   return (
     <div className="my-3 ">
       <div className="news-slider-wrapper">
-        <img className="w-100 newsImg-slider" src={imagePath} alt="newsImg" />
+        <img
+          className="w-100 newsImg-slider cursor-pointer"
+          src={imagePath}
+          onClick={() => history.push(`/news/details/${_id}`)}
+          alt="newsImg"
+        />
         <div className="news-wrapper-bottom-section">
           <p
             className={`${
               layoutClickChanger
                 ? "text-end stock-paragraph cursor-pointer"
                 : "text-start stock-paragraph cursor-pointer"
-            }`}
+            } cursor-pointer`}
           >
             <span> {moment(createdAt).format("DD/MMM/YYYY")}</span>
             <img
@@ -26,27 +31,29 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
           </p>
 
           <h4
+            onClick={() => history.push(`/news/details/${_id}`)}
             className={`${
               layoutClickChanger
                 ? "news-heading-font text-end"
                 : "news-heading-font text-start"
-            }`}
+            } cursor-pointer`}
           >
             <span className="text-ellipsis-dots">{title ? title : "N/A"}</span>
           </h4>
           <p
+            onClick={() => history.push(`/news/details/${_id}`)}
             className={`${
               layoutClickChanger
                 ? "text-ellipsis-three-line stock-paragraph text-end"
                 : "text-ellipsis-three-line stock-paragraph text-start"
-            }`}
+            } cursor-pointer`}
           >
             <span
               className={`${
                 layoutClickChanger
                   ? "text-ellipsis-three-line stock-paragraph text-end"
                   : "text-ellipsis-three-line stock-paragraph text-start"
-              }`}
+              } cursor-pointer`}
             >
               {description ? description : "N/A"}
             </span>
@@ -67,7 +74,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
               layoutClickChanger
                 ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
                 : "text-start cursor-pointer mb-0 text-ellipsis-dots"
-            } text-primary`}
+            } text-primary cursor`}
           >
             {tags}
           </p>
