@@ -74,7 +74,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
               layoutClickChanger
                 ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
                 : "text-start cursor-pointer mb-0 text-ellipsis-dots"
-            } text-primary cursor`}
+            } color-blue cursor`}
           >
             {tags}
           </p>
@@ -86,7 +86,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             }`}
           >
             {stock && stock.symbol ? (
-              <span className=" cursor-pointer fw-bold text-primary">
+              <span className=" cursor-pointer fw-bold color-blue">
                 {getValueOf("Stock")} :
               </span>
             ) : (
@@ -97,7 +97,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
               onClick={() =>
                 history.push(`/stock/news/${stock ? stock : tags}/stock-tags`)
               }
-              className="cursor-pointer fw-bold text-primary"
+              className="cursor-pointer fw-bold color-blue"
             >
               {stock && stock.symbol ? stock.symbol : ""}
             </span>

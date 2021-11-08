@@ -50,47 +50,53 @@ const NewsDetailsPage = ({ history, loading }) => {
                   `/stock/news/${newsDetails.stock._id}/${newsDetails.tags}`
                 )
               }
-              className="small-paragraph d-none dots-data d-lg-block mb-0 cursor-pointer fw-bold mt-3 mb-3"
+              className="small-paragraph d-none dots-data d-lg-block mb-0 cursor-pointer fw-bold mt-3 mb-3 color-blue"
             >
               {layoutClickChanger ? (
-                <>
-                  {newsDetails && newsDetails.atags ? newsDetails.atags : "N/A"}
-                </>
+                <span className="color-blue">
+                  {newsDetails && newsDetails.atags ? newsDetails.atags : ""}
+                </span>
               ) : (
-                <>
-                  {newsDetails && newsDetails.tags ? newsDetails.tags : "N/A"}
-                </>
+                <span className="color-blue">
+                  {newsDetails && newsDetails.tags ? newsDetails.tags : ""}
+                </span>
               )}
             </p>
-
-            <p
-              className={`${
-                layoutClickChanger
-                  ? "small-paragraph text-end"
-                  : "small-paragraph"
-              }`}
-            >
-              <span className="cursor-pointer fw-bold">
-                {getValueOf("Stock")} :
-              </span>
-              <span
-                onClick={() =>
-                  history.push(
-                    `/stock/news/${newsDetails.stock._id}/stock-tags`
-                  )
-                }
-                className="cursor-pointer fw-bold"
+            {newsDetails &&
+            newsDetails.stock &&
+            newsDetails.stock.chartData &&
+            newsDetails.stock.chartData.name ? (
+              <p
+                className={`${
+                  layoutClickChanger
+                    ? "small-paragraph text-end"
+                    : "small-paragraph"
+                }`}
               >
-                {newsDetails &&
-                newsDetails.stock &&
-                newsDetails.stock.chartData &&
-                newsDetails.stock.chartData.name
-                  ? newsDetails.stock.chartData.name
-                  : newsDetails.stock && newsDetails.stock.symbol
-                  ? newsDetails.stock.symbol
-                  : "N/A"}
-              </span>
-            </p>
+                <span className="cursor-pointer fw-bold color-blue">
+                  {getValueOf("Stock")} :
+                </span>
+                <span
+                  onClick={() =>
+                    history.push(
+                      `/stock/news/${newsDetails.stock._id}/stock-tags`
+                    )
+                  }
+                  className="cursor-pointer fw-bold color-blue"
+                >
+                  {newsDetails &&
+                  newsDetails.stock &&
+                  newsDetails.stock.chartData &&
+                  newsDetails.stock.chartData.name
+                    ? newsDetails.stock.chartData.name
+                    : newsDetails.stock && newsDetails.stock.symbol
+                    ? newsDetails.stock.symbol
+                    : "N/A"}
+                </span>
+              </p>
+            ) : (
+              ""
+            )}
             <p
               className={`${
                 layoutClickChanger

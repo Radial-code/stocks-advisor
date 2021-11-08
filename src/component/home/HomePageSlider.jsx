@@ -128,14 +128,14 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? "cursor-pointer fw-bold"
-                          : "cursor-pointer fw-bold"
+                          ? "cursor-pointer fw-bold color-blue"
+                          : "cursor-pointer fw-bold color-blue"
                       } `}
                     >
                       {layoutClickChanger ? (
-                        <>{value.atitle ? value.atags : "N/A"}</>
+                        <>{value.atitle ? value.atags : ""}</>
                       ) : (
-                        <>{value.title ? value.tags : "N/A"}</>
+                        <>{value.title ? value.tags : ""}</>
                       )}
                     </span>
                   </p>
@@ -150,7 +150,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         } `}
                       >
                         <span
-                          className="fw-bold cursor-pointer text-primary"
+                          className="fw-bold cursor-pointer color-blue"
                           onClick={() =>
                             history.push(
                               `/stock/news/${value.stock._id}/stock-tags`
@@ -181,7 +181,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         } `}
                       >
                         {value.stock && value.stock.symbol ? (
-                          <span className="cursor-pointer fw-bold pe-1 text-primary">
+                          <span className="cursor-pointer fw-bold pe-1 color-blue">
                             {getValueOf("Stock")}:
                           </span>
                         ) : (
@@ -189,7 +189,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         )}
 
                         <span
-                          className="fw-bold cursor-pointer text-primary"
+                          className="fw-bold cursor-pointer color-blue"
                           onClick={() =>
                             history.push(
                               `/stock/news/${value.stock._id}/stock-tags`

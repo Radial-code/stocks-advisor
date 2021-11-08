@@ -79,7 +79,7 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
 
               <p
-                className="small-paragraph text-primary d-none d-xl-block mb-0 cursor-pointer fw-bold py-2 dots-class"
+                className="small-paragraph color-blue d-none d-xl-block mb-0 cursor-pointer fw-bold py-2 dots-class"
                 onClick={() =>
                   history.push(`/stock/news/${value.stock._id}/${value.tags}`)
                 }
@@ -94,7 +94,7 @@ const NewsList = ({ history, value, index, loading }) => {
                 } py-2`}
               >
                 {value.stock && value.stock.symbol ? (
-                  <span className="cursor-pointer small-paragraph text-primary fw-bold">
+                  <span className="cursor-pointer small-paragraph color-blue fw-bold">
                     {getValueOf("Stock")}:
                   </span>
                 ) : (
@@ -103,7 +103,7 @@ const NewsList = ({ history, value, index, loading }) => {
 
                 <span
                   onClick={() => history.push(`/news/details/${value._id}`)}
-                  className="cursor-pointer fw-bold pe-1 text-primary"
+                  className="cursor-pointer fw-bold pe-1 color-blue"
                   onClick={() =>
                     history.push(`/stock/news/${value.stock._id}/stock-tags`)
                   }

@@ -2,7 +2,6 @@ import Axios from "axios";
 // export let SERVER_URL = "https://7820-110-225-209-107.ngrok.io";
 export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
 
-//stock
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
 
 export async function axiosRequest(method, url, data = null) {
