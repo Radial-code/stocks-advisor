@@ -147,7 +147,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         } `}
                       >
                         <span
-                          className="fw-bold cursor-pointer"
+                          className="fw-bold cursor-pointer text-primary"
                           onClick={() =>
                             history.push(
                               `/stock/news/${value.stock._id}/stock-tags`
@@ -156,11 +156,15 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         >
                           {value.stock && value.stock.symbol
                             ? value.stock.symbol
-                            : "N/A"}
+                            : ""}
                         </span>
-                        <span className="cursor-pointer fw-bold ps-1">
-                          :{getValueOf("Stock")}
-                        </span>
+                        {value.stock && value.stock.symbol ? (
+                          <span className="cursor-pointer fw-bold ps-1">
+                            :{getValueOf("Stock")}
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </p>
                     </>
                   ) : (
@@ -173,11 +177,16 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                             : "small-paragraph mb-5 "
                         } `}
                       >
-                        <span className="cursor-pointer fw-bold pe-1">
-                          {getValueOf("Stock")}:
-                        </span>
+                        {value.stock && value.stock.symbol ? (
+                          <span className="cursor-pointer fw-bold pe-1 text-primary">
+                            {getValueOf("Stock")}:
+                          </span>
+                        ) : (
+                          ""
+                        )}
+
                         <span
-                          className="fw-bold cursor-pointer"
+                          className="fw-bold cursor-pointer text-primary"
                           onClick={() =>
                             history.push(
                               `/stock/news/${value.stock._id}/stock-tags`
@@ -186,7 +195,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                         >
                           {value.stock && value.stock.symbol
                             ? value.stock.symbol
-                            : "N/A"}
+                            : ""}
                         </span>
                       </p>
                     </>

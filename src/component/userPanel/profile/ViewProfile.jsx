@@ -109,9 +109,7 @@ const ViewProfile = () => {
             onChange={(e) => onImageChange(e)}
           />
           {inputDisable ? (
-            <label className="position-absolute pb-sm-2 edit-icon">
-              <EditIcon />
-            </label>
+            ""
           ) : (
             <label
               for="my-file"

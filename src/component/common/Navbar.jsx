@@ -457,7 +457,7 @@ const Navbar = ({
                 <>
                   {userData && !!userData.isAdmin ? (
                     <div className="d-xxl-none mt-3 d-block ">
-                      <Accordion
+                      {/* <Accordion
                         className="dash-accordian"
                         defaultActiveKey={activeId}
                       >
@@ -494,7 +494,7 @@ const Navbar = ({
                             </Card.Body>
                           </Accordion.Collapse>
                         </Card>
-                      </Accordion>
+                      </Accordion> */}
                     </div>
                   ) : (
                     <NavLink
@@ -509,55 +509,71 @@ const Navbar = ({
                 </>
               ) : null}
               {!!auth && token !== null ? (
-                <>
-                  {userData.isAdmin ? (
-                    <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
-                      <Dropdown.Toggle
-                        className="d-none d-xxl-block "
-                        id="dropdown-basic"
-                      >
-                        {getValueOf("Dashboard")}
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item
-                          onClick={() =>
-                            history.push("/dashboard/manage/subscription")
-                          }
-                        >
-                          {getValueOf("User Dashboard")}
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          onClick={() =>
-                            history.push("/content/manager/stocks")
-                          }
-                        >
-                          {getValueOf("Admin Dashboard")}
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  ) : null}
-                </>
+                <></>
               ) : (
+                // <>
+                //   {userData.isAdmin ? (
+                //     <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
+                //       <Dropdown.Toggle
+                //         className="d-none d-xxl-block "
+                //         id="dropdown-basic"
+                //       >
+                //         {getValueOf("Dashboard")}
+                //       </Dropdown.Toggle>
+                //       <Dropdown.Menu>
+                //         <Dropdown.Item
+                //           onClick={() =>
+                //             history.push("/dashboard/manage/subscription")
+                //           }
+                //         >
+                //           {getValueOf("User Dashboard")}
+                //         </Dropdown.Item>
+                //         <Dropdown.Item
+                //           onClick={() =>
+                //             history.push("/content/manager/stocks")
+                //           }
+                //         >
+                //           {getValueOf("Admin Dashboard")}
+                //         </Dropdown.Item>
+                //       </Dropdown.Menu>
+                //     </Dropdown>
+                //   ) : null}
+                // </>
                 ""
               )}
               {!!auth && !!firstname && !!lastname ? (
                 <div className="d-none d-xxl-block my-auto position-relative">
                   <span className="d-block notify-dot"></span>
-                  <div
-                    onClick={() => {
-                      userData.isAdmin
-                        ? history.push("/content/manager/stocks")
-                        : history.push("/dashboard/view/profile");
-                    }}
-                    className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
-                  >
+                  <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
                     <div>
-                      <span className="first-char">
-                        {firstname && firstname.toUpperCase().charAt(0)}
-                      </span>
-                      <span className="first-char">
-                        {lastname && lastname.toUpperCase().charAt(0)}
-                      </span>
+                      <Dropdown className="stock-dashboard-dropdown">
+                        {" "}
+                        <Dropdown.Toggle id="dropdown-basic">
+                          {" "}
+                          <span className="first-char">
+                            {firstname && firstname.toUpperCase().charAt(0)}
+                          </span>
+                          <span className="first-char">
+                            {lastname && lastname.toUpperCase().charAt(0)}
+                          </span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item
+                            onClick={() =>
+                              history.push("/dashboard/manage/subscription")
+                            }
+                          >
+                            {getValueOf("User Dashboard")}
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={() =>
+                              history.push("/content/manager/stocks")
+                            }
+                          >
+                            {getValueOf("Admin Dashboard")}
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
                     </div>
                   </div>
                 </div>
@@ -609,21 +625,36 @@ const Navbar = ({
                 <div className="d-block my-auto d-xxl-none position-relative">
                   {auth ? <span className="d-block notify-dot "></span> : ""}
                   {auth ? (
-                    <div
-                      onClick={() => {
-                        userData.isAdmin
-                          ? history.push("/content/manager/stocks")
-                          : history.push("/dashboard/view/profile");
-                      }}
-                      className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle "
-                    >
+                    <div className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
                       <div>
-                        <span className="first-char">
-                          {firstname && firstname.toUpperCase().charAt(0)}
-                        </span>
-                        <span className="first-char">
-                          {lastname && lastname.toUpperCase().charAt(0)}
-                        </span>
+                        <Dropdown className="stock-dashboard-dropdown">
+                          {" "}
+                          <Dropdown.Toggle id="dropdown-basic">
+                            {" "}
+                            <span className="first-char">
+                              {firstname && firstname.toUpperCase().charAt(0)}
+                            </span>
+                            <span className="first-char">
+                              {lastname && lastname.toUpperCase().charAt(0)}
+                            </span>
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu>
+                            <Dropdown.Item
+                              onClick={() =>
+                                history.push("/dashboard/manage/subscription")
+                              }
+                            >
+                              {getValueOf("User Dashboard")}
+                            </Dropdown.Item>
+                            <Dropdown.Item
+                              onClick={() =>
+                                history.push("/content/manager/stocks")
+                              }
+                            >
+                              {getValueOf("Admin Dashboard")}
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
                       </div>
                     </div>
                   ) : (
