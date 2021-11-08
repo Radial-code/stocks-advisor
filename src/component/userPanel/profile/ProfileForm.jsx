@@ -176,13 +176,7 @@ const ProfileForm = ({
               >
                 <input
                   type="number"
-                  disabled={inputDisable ? true : false}
-                  onChange={(e) => {
-                    setUpdateUserDetailsData({
-                      ...UpdateUserDetailsData,
-                      phone: e.target.value,
-                    });
-                  }}
+                  disabled
                   className="form-control input-border-16191e33 py-2  profile-input-placeholder"
                   id="exampleFormControlInput15"
                   placeholder={

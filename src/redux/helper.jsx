@@ -1,6 +1,6 @@
 import Axios from "axios";
-// export let SERVER_URL = "https://f280-103-240-235-218.ngrok.io";
-export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
+export let SERVER_URL = "https://7820-110-225-209-107.ngrok.io";
+// export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
 
 //stock
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;

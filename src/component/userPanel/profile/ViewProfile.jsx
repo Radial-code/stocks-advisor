@@ -34,9 +34,6 @@ const ViewProfile = () => {
       lastName: UpdateUserDetailsData.lastName
         ? UpdateUserDetailsData.lastName
         : userDetails.lastName,
-      phone: UpdateUserDetailsData.phone
-        ? UpdateUserDetailsData.phone
-        : userDetails.phone,
       profileImagePath: uploadImageUrl
         ? uploadImageUrl
         : userDetails.profileImagePath,

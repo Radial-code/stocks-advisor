@@ -101,7 +101,7 @@ const Footer = ({ history }) => {
                     className="text-decoration-none text-white fs-15"
                     to="/our-plan"
                   >
-                    {getValueOf("Our Plan")}
+                    {getValueOf("Our Plans")}
                   </Link>
                 </li>
               </ul>
@@ -119,7 +119,7 @@ const Footer = ({ history }) => {
                       className="text-decoration-none text-white fs-15"
                       to={`/protfolios/stock/${dashboardPortfoliosListId}`}
                     >
-                      {getValueOf("Portfolio")}
+                      {getValueOf("Portfolios")}
                     </Link>
                   </li>
                 ) : null}
