@@ -119,7 +119,6 @@ export const getBuyPlanAction = (data, setLoading, history) => async () => {
   setLoading(true);
   try {
     const response = await getBuyPlanApi(data);
-    console.log("response", response);
     if (response.success) {
       Swal.fire("Success", "Plan Subscribed successfully", "success");
       setTimeout(Swal.close, 2000);

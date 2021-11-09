@@ -67,10 +67,8 @@ const AddNewNews = ({ edit, match, history }) => {
       const tagsArray = [...tags, ...categoryArray];
       const atagsArray = [...atags, ...categoryArray];
 
-      console.log(tagsArray);
       let TagValue = "";
       tagsArray.map((item) => {
-        console.log(item);
         TagValue += `${item},`;
       });
 
