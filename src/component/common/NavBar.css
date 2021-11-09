@@ -116,12 +116,34 @@
   height: 10px;
   width: 10px;
   position: absolute;
-  top: 0px;
+  top: 15px;
   right: -3px;
   border-radius: 50%;
   background-color: #4870b3;
 }
-
+.notify-dot2 {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 6px;
+  right: -3px;
+  border-radius: 50%;
+  background-color: #4870b3;
+}
+.notification-text {
+  color: #545454;
+}
+.notify-time {
+  font-size: var(--font-12);
+}
+.notify-user-name {
+  font-size: var(--font-15);
+}
+.user-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
 .join_now_btn {
   font-weight: 500;
   color: var(--color-ffffff) !important;
@@ -228,7 +250,34 @@
 .lang-dropddown li {
   list-style: none;
 }
+.notification-dropdown button:after {
+  display: none !important;
+}
 
+.notification-dropdown button {
+  color: var(--color-16191e);
+  font-size: 16px;
+  font-weight: normal;
+  opacity: 0.7 !important;
+  text-decoration: none;
+  border: 0;
+  padding: 0.375rem 0 !important;
+  background-color: transparent !important;
+}
+
+.notification-dropdown button:hover {
+  color: var(--color-16191e) !important;
+  opacity: 0.7 !important;
+}
+
+.notification-dropdown button.btn-primary:focus {
+  color: var(--color-16191e) !important;
+  opacity: 0.7 !important;
+}
+.notification-dropdown .dropdown-menu {
+  min-width: 23rem;
+  inset: 0px 0px auto auto !important;
+}
 .flag-img {
   width: 30px;
   height: 30px;

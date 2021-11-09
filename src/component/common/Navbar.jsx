@@ -3,6 +3,7 @@ import {
   HamburgerIcon,
   HamburgerCrossIcon,
   SearchWhiteIcon,
+  Notify,
 } from "./icons/Icons";
 import "./NavBar.css";
 import Accordion from "react-bootstrap/Accordion";
@@ -509,7 +510,77 @@ const Navbar = ({
                 </>
               ) : null}
               {!!auth && token !== null ? (
-                <></>
+                <div className="cursor-pointer d-none d-xxl-flex align-items-center mx-2 position-relative">
+                  <Dropdown className="notification-dropdown">
+                    <Dropdown.Toggle>
+                      <Notify />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-between">
+                          <p className="mb-0 px-2 notification-text fw-bold">
+                            Notifications
+                          </p>
+                        </div>
+                        <div
+                          onClick={() =>
+                            history.push("/dashboard/notification")
+                          }
+                        >
+                          <p className="mb-0 px-2 notification-text">
+                            View All
+                          </p>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-between align-items-center pt-3">
+                        <div className="d-flex align-items-center">
+                          <img
+                            className="user-img mx-1"
+                            src="https://laptop-care.in/img/testimonial/img1.jpg"
+                            alt="user-img"
+                          />
+                          <div>
+                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                              UserName
+                            </p>
+                            <p className="mb-0 px-2  notification-text notify-time">
+                              UserName{" "}
+                            </p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="mb-0 px-2  notification-text notify-time">
+                            2 min ago
+                          </p>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-between align-items-center pt-3">
+                        <div className="d-flex align-items-center">
+                          <img
+                            className="user-img mx-1"
+                            src="https://laptop-care.in/img/testimonial/img1.jpg"
+                            alt="user-img"
+                          />
+                          <div>
+                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                              UserName
+                            </p>
+                            <p className="mb-0 px-2  notification-text notify-time">
+                              UserName{" "}
+                            </p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="mb-0 px-2  notification-text notify-time">
+                            2 min ago
+                          </p>
+                        </div>
+                      </div>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+                  <span className="d-block notify-dot"></span>
+                </div>
               ) : (
                 // <>
                 //   {userData.isAdmin ? (
@@ -542,8 +613,7 @@ const Navbar = ({
                 ""
               )}
               {!!auth && !!firstname && !!lastname ? (
-                <div className="d-none d-xxl-block my-auto position-relative">
-                  <span className="d-block notify-dot"></span>
+                <div className="d-none d-xxl-block my-auto ">
                   <div className="my-auto  cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
                     <div>
                       <Dropdown className="stock-dashboard-dropdown">
@@ -623,7 +693,7 @@ const Navbar = ({
             <div className="col-6 my-auto">
               <div className="d-flex justify-content-end ">
                 <div className="d-block my-auto d-xxl-none position-relative">
-                  {auth ? <span className="d-block notify-dot "></span> : ""}
+                  {/* {auth ? <span className="d-block notify-dot "></span> : ""} */}
                   {auth ? (
                     <div className="my-auto cursor-pointer d-flex justify-content-center align-items-center  bg-green-circle ">
                       <div>
@@ -660,6 +730,55 @@ const Navbar = ({
                   ) : (
                     ""
                   )}
+                </div>
+                <div className="cursor-pointer d-flex my-auto d-xxl-none align-items-center mx-2 position-relative">
+                  <Dropdown className="notification-dropdown">
+                    <Dropdown.Toggle>
+                      <Notify />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-between">
+                          <p className="mb-0 px-2 notification-text fw-bold">
+                            Notifications
+                          </p>
+                        </div>
+                        <div
+                          onClick={() =>
+                            history.push("/dashboard/notification")
+                          }
+                        >
+                          <p className="mb-0 px-2 notification-text">
+                            View All
+                          </p>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-between align-items-center pt-3">
+                        <div className="d-flex align-items-center">
+                          <img
+                            className="user-img mx-1"
+                            src="https://laptop-care.in/img/testimonial/img1.jpg"
+                            alt="user-img"
+                          />
+                          <div>
+                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                              UserName
+                            </p>
+                            <p className="mb-0 px-2  notification-text notify-time">
+                              UserName{" "}
+                            </p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="mb-0 px-2  notification-text notify-time">
+                            2 min ago
+                          </p>
+                        </div>
+                      </div>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+                  {auth ? <span className="d-block notify-dot2"></span> : ""}
                 </div>
                 <div
                   className={`${
