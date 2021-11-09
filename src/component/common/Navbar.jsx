@@ -29,6 +29,8 @@ import { LogoutAction } from "../../redux/action/auth";
 import Loader from "../common/Loader";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import BubblesLoader from "./BubblesLoader";
+import GetTime from "./dateTime";
 
 const Navbar = ({
   history,
@@ -37,8 +39,10 @@ const Navbar = ({
   searchData,
   searchshow,
   setSearchShow,
+  notificationLoading,
 }) => {
   const [activeId, setActiveId] = useState("");
+  const notificationList = useSelector((state) => state.list.notificationList);
 
   function toggleActive(id) {
     if (activeId === id) {
@@ -534,50 +538,43 @@ const Navbar = ({
                           </p>
                         </div>
                       </div>
-                      <div className="d-flex justify-content-between align-items-center pt-3">
-                        <div className="d-flex align-items-center">
-                          <img
-                            className="user-img mx-1"
-                            src="https://laptop-care.in/img/testimonial/img1.jpg"
-                            alt="user-img"
-                          />
-                          <div>
-                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                              UserName
-                            </p>
-                            <p className="mb-0 px-2  notification-text notify-time">
-                              UserName{" "}
-                            </p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="mb-0 px-2  notification-text notify-time">
-                            2 min ago
-                          </p>
-                        </div>
-                      </div>
-                      <div className="d-flex justify-content-between align-items-center pt-3">
-                        <div className="d-flex align-items-center">
-                          <img
-                            className="user-img mx-1"
-                            src="https://laptop-care.in/img/testimonial/img1.jpg"
-                            alt="user-img"
-                          />
-                          <div>
-                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                              UserName
-                            </p>
-                            <p className="mb-0 px-2  notification-text notify-time">
-                              UserName{" "}
-                            </p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="mb-0 px-2  notification-text notify-time">
-                            2 min ago
-                          </p>
-                        </div>
-                      </div>
+                      {notificationLoading ? (
+                        <BubblesLoader />
+                      ) : (
+                        <>
+                          {notificationList && notificationList.length
+                            ? notificationList.map((value, index) => {
+                                return (
+                                  <div
+                                    key={index}
+                                    className="d-flex justify-content-between align-items-center pt-3"
+                                  >
+                                    <div className="d-flex align-items-center">
+                                      <img
+                                        className="user-img mx-1"
+                                        src="https://laptop-care.in/img/testimonial/img1.jpg"
+                                        alt="user-img"
+                                      />
+                                      <div>
+                                        <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                          {value.body}
+                                        </p>
+                                        <p className="mb-0 px-2  notification-text notify-time">
+                                          {value.title}
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <p className="mb-0 px-2  notification-text notify-time">
+                                        {GetTime(value.createdAt)}
+                                      </p>
+                                    </div>
+                                  </div>
+                                );
+                              })
+                            : ""}
+                        </>
+                      )}
                     </Dropdown.Menu>
                   </Dropdown>
 

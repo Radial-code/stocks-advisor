@@ -17,10 +17,12 @@ import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import ConfirmRoute from "./component/ConfirmRoute";
 import { getCountryListAction } from "./redux/action/portfolios";
+import { getNotificationListAction } from "./redux/action/contact";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showSidebar2, setShowSidebar2] = useState(false);
+  const [notificationLoading, setNotificationLoading] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
   const stripePromise = loadStripe(
     "pk_test_51JojDBSA6U9MBWzFtxmw0E1QxCkuXOW4qlOGhqtFPlS6Mo84Rsvbs65KVJ0JjSdC7HmYnSwgvu8zkM8lYpfF9RDt008ZkphiZj"
@@ -42,6 +44,7 @@ function App() {
       }
     }
     dispatch(getCountryListAction());
+    dispatch(getNotificationListAction(setNotificationLoading));
   }, [auth, token]);
 
   return (
@@ -70,6 +73,7 @@ function App() {
               <ConfirmRoute />
             ) : (
               <Router
+                notificationLoading={notificationLoading}
                 showSidebar={showSidebar}
                 sideBarHandler={sideBarHandler}
                 setShowSidebar={setShowSidebar}
