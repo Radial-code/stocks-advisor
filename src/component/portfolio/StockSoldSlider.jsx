@@ -6,13 +6,9 @@ import "../common/slider.css";
 import SearchNews from "../../assets/img/searchnews.png";
 import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
-import { useSelector } from "react-redux";
 import BubblesLoader from "../common/BubblesLoader";
 
-const StockSoldSlider = ({ loader, getValueOf }) => {
-  const soldStockNewsList = useSelector(
-    (state) => state.list.soldStockNewsList
-  );
+const StockSoldSlider = ({ loader, getValueOf, soldStockNewsList }) => {
   var settings = {
     dots: true,
     infinite: true,

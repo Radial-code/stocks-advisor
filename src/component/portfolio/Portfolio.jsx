@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import PortfolioStock from "./PortfolioStock";
 import PortfoliosSidebar from "./PortfoliosSidebar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getCurrentPortfolioListForDashBoardAction,
   getSoldPortfolioListForDashBoardAction,
@@ -13,6 +13,9 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const Portfolio = ({ match }) => {
   const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
+  const soldStockNewsList = useSelector(
+    (state) => state.list.soldStockNewsList
+  );
   const [sidebarActive, setSidebarActive] = useState(false);
   const [soldLoading, setSoldLoading] = useState(false);
   const [portfoliosId, setPortfoliosId] = useState(null);
@@ -48,12 +51,12 @@ const Portfolio = ({ match }) => {
             soldLoading={soldLoading}
           />
         </div>
-        <div className="my-4">
-          <h1 className="profile-heading pe-3 pt-2">
-            {getValueOf("Related News")}
-          </h1>
-          <StockSoldSlider getValueOf={getValueOf} />
-        </div>
+        {soldStockNewsList && (
+          <StockSoldSlider
+            getValueOf={getValueOf}
+            soldStockNewsList={soldStockNewsList}
+          />
+        )}
       </div>
     </>
   );
