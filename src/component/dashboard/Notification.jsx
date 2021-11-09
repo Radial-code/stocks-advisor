@@ -64,7 +64,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
         <Col xs={12}>
           <section className="notification-card p-md-3 p-xl-5 p-2">
             <div className="border-b-1 d-flex justify-content-between align-items-center">
-              <p className=" notification-show-textfs-sm-20 mb-0">
+              <p className=" heading-stock fs-sm-20 mb-0">
                 {getValueOf("Notification")}
               </p>
               <span

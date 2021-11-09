@@ -514,10 +514,10 @@ const Navbar = ({
                 </>
               ) : null}
               {!!auth && token !== null ? (
-                <div className="cursor-pointer d-none d-xxl-flex align-items-center mx-2 position-relative">
+                <div className="cursor-pointer d-none d-xxl-flex align-items-center mx-3 position-relative">
                   <Dropdown className="notification-dropdown">
                     <Dropdown.Toggle>
-                      <span className="notification-icon">
+                      <span className="notification-icon ">
                         <Notify />
                       </span>
                     </Dropdown.Toggle>
@@ -538,6 +538,7 @@ const Navbar = ({
                           </p>
                         </div>
                       </div>
+
                       {notificationLoading ? (
                         <BubblesLoader />
                       ) : (
@@ -617,31 +618,52 @@ const Navbar = ({
                     <div>
                       <Dropdown className="stock-dashboard-dropdown">
                         {" "}
-                        <Dropdown.Toggle id="dropdown-basic">
-                          {" "}
-                          <span className="first-char">
-                            {firstname && firstname.toUpperCase().charAt(0)}
-                          </span>
-                          <span className="first-char">
-                            {lastname && lastname.toUpperCase().charAt(0)}
-                          </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item
+                        {userData.isAdmin ? (
+                          <Dropdown.Toggle id="dropdown-basic">
+                            {" "}
+                            <span className="first-char">
+                              {firstname && firstname.toUpperCase().charAt(0)}
+                            </span>
+                            <span className="first-char">
+                              {lastname && lastname.toUpperCase().charAt(0)}
+                            </span>
+                          </Dropdown.Toggle>
+                        ) : (
+                          <Dropdown.Toggle
+                            id="dropdown-basic"
                             onClick={() =>
                               history.push("/dashboard/manage/subscription")
                             }
                           >
-                            {getValueOf("User Dashboard")}
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            onClick={() =>
-                              history.push("/content/manager/stocks")
-                            }
-                          >
-                            {getValueOf("Admin Dashboard")}
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
+                            {" "}
+                            <span className="first-char">
+                              {firstname && firstname.toUpperCase().charAt(0)}
+                            </span>
+                            <span className="first-char">
+                              {lastname && lastname.toUpperCase().charAt(0)}
+                            </span>
+                          </Dropdown.Toggle>
+                        )}
+                        {userData.isAdmin ? (
+                          <Dropdown.Menu>
+                            <Dropdown.Item
+                              onClick={() =>
+                                history.push("/dashboard/manage/subscription")
+                              }
+                            >
+                              {getValueOf("User Dashboard")}
+                            </Dropdown.Item>
+                            <Dropdown.Item
+                              onClick={() =>
+                                history.push("/content/manager/stocks")
+                              }
+                            >
+                              {getValueOf("Admin Dashboard")}
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        ) : (
+                          ""
+                        )}
                       </Dropdown>
                     </div>
                   </div>
@@ -698,31 +720,52 @@ const Navbar = ({
                       <div>
                         <Dropdown className="stock-dashboard-dropdown">
                           {" "}
-                          <Dropdown.Toggle id="dropdown-basic">
-                            {" "}
-                            <span className="first-char">
-                              {firstname && firstname.toUpperCase().charAt(0)}
-                            </span>
-                            <span className="first-char">
-                              {lastname && lastname.toUpperCase().charAt(0)}
-                            </span>
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu>
-                            <Dropdown.Item
+                          {userData.isAdmin ? (
+                            <Dropdown.Toggle id="dropdown-basic">
+                              {" "}
+                              <span className="first-char">
+                                {firstname && firstname.toUpperCase().charAt(0)}
+                              </span>
+                              <span className="first-char">
+                                {lastname && lastname.toUpperCase().charAt(0)}
+                              </span>
+                            </Dropdown.Toggle>
+                          ) : (
+                            <Dropdown.Toggle
+                              id="dropdown-basic"
                               onClick={() =>
                                 history.push("/dashboard/manage/subscription")
                               }
                             >
-                              {getValueOf("User Dashboard")}
-                            </Dropdown.Item>
-                            <Dropdown.Item
-                              onClick={() =>
-                                history.push("/content/manager/stocks")
-                              }
-                            >
-                              {getValueOf("Admin Dashboard")}
-                            </Dropdown.Item>
-                          </Dropdown.Menu>
+                              {" "}
+                              <span className="first-char">
+                                {firstname && firstname.toUpperCase().charAt(0)}
+                              </span>
+                              <span className="first-char">
+                                {lastname && lastname.toUpperCase().charAt(0)}
+                              </span>
+                            </Dropdown.Toggle>
+                          )}
+                          {userData.isAdmin ? (
+                            <Dropdown.Menu>
+                              <Dropdown.Item
+                                onClick={() =>
+                                  history.push("/dashboard/manage/subscription")
+                                }
+                              >
+                                {getValueOf("User Dashboard")}
+                              </Dropdown.Item>
+                              <Dropdown.Item
+                                onClick={() =>
+                                  history.push("/content/manager/stocks")
+                                }
+                              >
+                                {getValueOf("Admin Dashboard")}
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          ) : (
+                            ""
+                          )}
                         </Dropdown>
                       </div>
                     </div>
@@ -739,7 +782,7 @@ const Navbar = ({
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <div className="d-flex align-items-center justify-content-between">
-                        <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center justify-content-between ">
                           <p className="mb-0 px-2 notification-text fw-bold">
                             Notifications
                           </p>
@@ -754,28 +797,43 @@ const Navbar = ({
                           </p>
                         </div>
                       </div>
-                      <div className="d-flex justify-content-between align-items-center pt-3">
-                        <div className="d-flex align-items-center">
-                          <img
-                            className="user-img mx-1"
-                            src="https://laptop-care.in/img/testimonial/img1.jpg"
-                            alt="user-img"
-                          />
-                          <div>
-                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                              UserName
-                            </p>
-                            <p className="mb-0 px-2  notification-text notify-time">
-                              UserName{" "}
-                            </p>
-                          </div>
-                        </div>
-                        <div>
-                          <p className="mb-0 px-2  notification-text notify-time">
-                            2 min ago
-                          </p>
-                        </div>
-                      </div>
+                      {notificationLoading ? (
+                        <BubblesLoader />
+                      ) : (
+                        <>
+                          {notificationList && notificationList.length
+                            ? notificationList.map((value, index) => {
+                                return (
+                                  <div
+                                    key={index}
+                                    className="d-flex justify-content-between align-items-center pt-3"
+                                  >
+                                    <div className="d-flex align-items-center">
+                                      <img
+                                        className="user-img mx-1"
+                                        src="https://laptop-care.in/img/testimonial/img1.jpg"
+                                        alt="user-img"
+                                      />
+                                      <div>
+                                        <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                          {value.body}
+                                        </p>
+                                        <p className="mb-0 px-2  notification-text notify-time">
+                                          {value.title}
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <p className="mb-0 px-2  notification-text notify-time">
+                                        {GetTime(value.createdAt)}
+                                      </p>
+                                    </div>
+                                  </div>
+                                );
+                              })
+                            : ""}
+                        </>
+                      )}
                     </Dropdown.Menu>
                   </Dropdown>
 

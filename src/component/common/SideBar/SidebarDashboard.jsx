@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
-import { Manage, Notify, ProfileIcon, Back, Payment } from "../icons/Icons";
+import {
+  Manage,
+  Notify,
+  ProfileIcon,
+  Back,
+  Payment,
+  Invite,
+} from "../icons/Icons";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Cancel from "../../../assets/img/cancel.png";
 import { withRouter } from "react-router";
@@ -121,6 +128,18 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
               {getValueOf("Payment Details")}
+            </p>
+          </div>
+          <div
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink == "payment" ? "cn-sidebar-active" : ""
+            }`}
+          >
+            <span className="px-2">
+              <Invite />
+            </span>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
+              {getValueOf("Invite")}
             </p>
           </div>
         </div>
