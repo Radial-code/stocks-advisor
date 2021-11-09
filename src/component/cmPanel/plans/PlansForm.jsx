@@ -15,9 +15,11 @@ import BubblesLoader from "../../common/BubblesLoader";
 
 const initialState = {
   title: "",
+  atitle: "",
   price: "",
   type: "",
   details: "",
+  adetails: "",
   portfolios: [],
 };
 
@@ -40,13 +42,21 @@ function PlansForm({ history, edit, id }) {
   const submitPlanDetails = () => {
     setError(true);
     let details;
+    let adetails;
     let planDetailsData;
+    let planADetailsData;
     if (planDetails.details !== "") {
       details =
         planDetails && planDetails.details && planDetails.details.split("\n");
       planDetailsData = details && details.join();
     }
+    if (planDetails.adetails !== "") {
+      adetails =
+        planDetails && planDetails.adetails && planDetails.adetails.split("\n");
+      planADetailsData = adetails && adetails.join();
+    }
     planDetails.details = planDetailsData;
+    planDetails.adetails = planADetailsData;
     if (
       planDetails.title !== "" &&
       planDetails.price !== "" &&
@@ -151,7 +161,7 @@ function PlansForm({ history, edit, id }) {
                 >
                   <Form.Control
                     type="text"
-                    placeholder={getValueOf("Title")}
+                    placeholder={getValueOf("English Title")}
                     value={planDetails.title}
                     onChange={(e) => {
                       setPlanDetails({
@@ -201,11 +211,29 @@ function PlansForm({ history, edit, id }) {
                       : null}
                   </span>
                 </FormGroup>
+                <div className="col-md-6 order-1 last-name order-sm-1 order-2">
+                  <Form.Group
+                    className="mb-3 add-new-stock-field "
+                    controlId="formBasicEmail"
+                  >
+                    <Form.Control
+                      type="text"
+                      placeholder={getValueOf("Arabic Title")}
+                      value={planDetails.atitle}
+                      onChange={(e) => {
+                        setPlanDetails({
+                          ...planDetails,
+                          atitle: e.target.value,
+                        });
+                      }}
+                    />
+                  </Form.Group>
+                </div>
               </div>
               <div className="col-12 mb-3">
                 <textarea
                   className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                  placeholder={getValueOf("Description")}
+                  placeholder={getValueOf("English Description")}
                   rows={5}
                   value={planDetails.details}
                   onChange={(e) => {
@@ -220,6 +248,18 @@ function PlansForm({ history, edit, id }) {
                     ? "Description is required"
                     : null}
                 </span>
+                <textarea
+                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                  placeholder={getValueOf("Arabic Description")}
+                  rows={5}
+                  value={planDetails.adetails}
+                  onChange={(e) => {
+                    setPlanDetails({
+                      ...planDetails,
+                      adetails: e.target.value,
+                    });
+                  }}
+                ></textarea>
                 <p className="text-danger">
                   {getValueOf(
                     "Note: Press enter after line end and start from the new line"
