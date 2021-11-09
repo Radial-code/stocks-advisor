@@ -135,9 +135,19 @@
 }
 .notify-time {
   font-size: var(--font-12);
+  width: 80px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .notify-user-name {
   font-size: var(--font-15);
+  width: 80px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .user-img {
   height: 40px;
