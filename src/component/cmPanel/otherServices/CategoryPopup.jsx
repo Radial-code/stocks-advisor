@@ -13,13 +13,16 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const [category, setCategory] = useState(
     !!updateValue ? updateValue.title : ""
   );
+  const [acategory, setaCategory] = useState(
+    !!updateValue ? updateValue.atitle : ""
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const submitCategoryDetails = () => {
     setError(true);
     if (category !== "") {
-      const data = { title: category };
+      const data = { title: category, atitle: acategory };
       dispatch(addNewCategoryDetailsAction(data, setLoading, handleClose));
     }
   };
@@ -62,7 +65,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
           <input
             type="text"
             value={!!category ? category : updateValue.title}
-            placeholder={getValueOf("Add Category")}
+            placeholder={getValueOf("English Category")}
             className="py-2 px-3 w-100"
             onChange={(e) => setCategory(e.target.value)}
           />
@@ -71,6 +74,13 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
               ? `${getValueOf("Category is required")}`
               : null}
           </span>
+          <input
+            type="text"
+            value={!!acategory ? acategory : updateValue.title}
+            placeholder={getValueOf("Arabic Category")}
+            className="py-2 px-3 w-100 mt-2"
+            onChange={(e) => setaCategory(e.target.value)}
+          />
         </div>
       </Modal.Body>
       <Modal.Footer className="d-block text-center">

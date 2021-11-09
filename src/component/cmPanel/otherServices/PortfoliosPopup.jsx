@@ -13,13 +13,16 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const [portfolios, setPortfolios] = useState(
     !!updateValue ? updateValue.title : ""
   );
+  const [aportfolios, setaPortfolios] = useState(
+    !!updateValue ? updateValue.atitle : ""
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const submitPortfoliosDetails = () => {
     setError(true);
     if (portfolios !== "" && portfolios !== undefined) {
-      const data = { title: portfolios };
+      const data = { title: portfolios, atitle: aportfolios };
       dispatch(addNewPortfolioDetailsAction(data, setLoading, handleClose));
     }
   };
@@ -62,7 +65,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
           <input
             type="text"
             value={!!portfolios ? portfolios : updateValue.title}
-            placeholder={getValueOf("Add Portfolio")}
+            placeholder={getValueOf("English Portfolio")}
             className="py-2 px-3 w-100"
             onChange={(e) => setPortfolios(e.target.value)}
           />
@@ -71,6 +74,13 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
               ? `${getValueOf("Portfolios is required")}`
               : null}
           </span>
+          <input
+            type="text"
+            value={!!aportfolios ? aportfolios : updateValue.atitle}
+            placeholder={getValueOf("Arabic Portfolio")}
+            className="py-2 px-3 w-100 mt-2"
+            onChange={(e) => setaPortfolios(e.target.value)}
+          />
         </div>
       </Modal.Body>
       <Modal.Footer className="d-block text-center">

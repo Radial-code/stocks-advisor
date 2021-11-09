@@ -53,7 +53,7 @@ function SignUp({ history }) {
       signUpDetails.phone &&
       signUpDetails.confirmPassword &&
       signUpDetails.country &&
-      signUpDetails.countryCode &&
+      // signUpDetails.countryCode &&
       !!reCaptchaToken &&
       passwordRegex.test(signUpDetails.password) === true
     ) {
