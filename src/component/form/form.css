@@ -128,7 +128,14 @@
 .table-header-top-border {
   border-top: 1px solid #d0d1d2 !important;
 }
-
+.setting-icon svg path {
+  fill: var(--color-88BEFC);
+}
+.setting-icon:hover svg path {
+  fill: white;
+  stroke: var(--color-88BEFC);
+  stroke-width: 20px;
+}
 .table-header-bottom-border {
   border-bottom: 2px solid #d0d1d2 !important;
 }

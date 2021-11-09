@@ -513,7 +513,9 @@ const Navbar = ({
                 <div className="cursor-pointer d-none d-xxl-flex align-items-center mx-2 position-relative">
                   <Dropdown className="notification-dropdown">
                     <Dropdown.Toggle>
-                      <Notify />
+                      <span className="notification-icon">
+                        <Notify />
+                      </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <div className="d-flex align-items-center justify-content-between">
@@ -734,7 +736,9 @@ const Navbar = ({
                 <div className="cursor-pointer d-flex my-auto d-xxl-none align-items-center mx-2 position-relative">
                   <Dropdown className="notification-dropdown">
                     <Dropdown.Toggle>
-                      <Notify />
+                      <span className="notification-icon">
+                        <Notify />
+                      </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                       <div className="d-flex align-items-center justify-content-between">

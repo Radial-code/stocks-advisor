@@ -5,10 +5,11 @@ import NotificationTable from "./NotificationTable";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 import { getNotificationListAction } from "../../redux/action/contact";
-import Setting from "../../assets/img/setting.png";
+
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { SettingIcon } from "../common/icons/Icons";
 
 const initialState = {
   showNotificationForsoldStocksW: false,
@@ -66,12 +67,19 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               <p className="heading-stock fs-sm-20 mb-0">
                 {getValueOf("Notification")}
               </p>
-              <img
+              <span
+                className="setting-icon cursor-pointer"
+                onClick={handleShow}
+              >
+                {" "}
+                <SettingIcon />
+              </span>
+              {/* <img
                 onClick={handleShow}
                 className="cursor-pointer h-25 color-blue"
                 src={Setting}
                 alt=""
-              />
+              /> */}
             </div>
             <div className="table-responsive scroll-bar current-stock-scrollbar mt-5">
               <NotificationTable loading={loading} getValueOf={getValueOf} />

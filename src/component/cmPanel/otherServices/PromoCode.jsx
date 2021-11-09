@@ -22,7 +22,7 @@ const Promocode = () => {
               className="px-3 py-1 add-button ms-3 my-sm-3"
               onClick={() => handleShow(true)}
             >
-              {getValueOf("Add")}
+              {getValueOf("Create ")}
             </button>
           </div>
         </div>

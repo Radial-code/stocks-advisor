@@ -116,7 +116,7 @@
   height: 10px;
   width: 10px;
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: -3px;
   border-radius: 50%;
   background-color: #4870b3;
@@ -335,6 +335,9 @@
   }
 }
 
+.notification-icon:hover svg path {
+  stroke: var(--color-88BEFC);
+}
 .cross-icon-style {
   background-color: var(--color-88BEFC);
   border-radius: 50%;
