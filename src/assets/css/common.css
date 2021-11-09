@@ -428,6 +428,11 @@
     --font-lg: 16px;
   }
 }
+.notification-show-text {
+  font-size: var(--font-15);
+  font-weight: 500;
+  color: var(--color-16191E);
+}
 
 .parargraph-stock {
   font-size: var(--font-xs);
