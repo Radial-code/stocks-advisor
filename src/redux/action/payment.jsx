@@ -119,12 +119,19 @@ export const getBuyPlanAction = (data, setLoading, history) => async () => {
   setLoading(true);
   try {
     const response = await getBuyPlanApi(data);
+    console.log("response", response);
     if (response.success) {
       Swal.fire("Success", "Plan Subscribed successfully", "success");
       setTimeout(Swal.close, 2000);
       setLoading(false);
-      history.push("/");
-      window.location.reload();
+      setTimeout(function () {
+        window.location.href = response.url;
+      }, 5000);
+      setTimeout(function () {
+        window.location.href = "localhost:3000";
+      }, 5000);
+      // history.push("/");
+      // window.location.reload();
     } else {
       setLoading(false);
       Swal.fire("Error", "Failed to add payment", "error");

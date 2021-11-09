@@ -68,7 +68,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               </p>
               <img
                 onClick={handleShow}
-                className="cursor-pointer h-25"
+                className="cursor-pointer h-25 color-blue"
                 src={Setting}
                 alt=""
               />
@@ -83,14 +83,14 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
 
       <Modal show={show} onHide={handleClose} centered size="xl">
         <p className="heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
-          {getValueOf("Receive Notification When")}
+          {getValueOf("Get rid of the title")}
         </p>
 
         <Modal.Body>
           <div className="row">
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                {getValueOf("Observation")}
+                {getValueOf("Receive Notification When")}
               </p>
               <label
                 className="form-check-label check-box-text cursor-pointer  my-3"
@@ -119,7 +119,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
             </div>
             <div className="col-3 d-flex  flex-column align-items-center">
               <p className="heading-stock  mb-0 text-center py-3 fw-bold">
-                {getValueOf("Push")}
+                {getValueOf("Mobile")}
               </p>
               <input
                 className="cursor-pointer mx-2  my-4"
