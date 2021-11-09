@@ -139,7 +139,13 @@
   border-top-right-radius: 5px;
   color: #75758b;
 }
-
+.contact-border2 {
+  border: 1px solid #16191e33;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 14px;
+  cursor: pointer;
+}
 .number-field-contact .form-control:focus {
   box-shadow: 0 0 0 0.25rem transparent;
   border-color: rgba(22, 25, 30, 0.2) !important;

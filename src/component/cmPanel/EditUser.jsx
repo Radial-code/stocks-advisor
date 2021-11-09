@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, FormGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
 import {
   getUserPlanDetailAction,
   getUserProfileDetailsAction,
@@ -32,7 +35,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     countryCode: "",
   });
   const { userId } = match.params;
-
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   // GET DATA FROM REDUX
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
@@ -181,9 +191,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                         layoutClickChanger
                           ? "col-sm-5  pe-0 col-6"
                           : "col-sm-5 ps-0 col-6"
-                      }`}
+                      } h-100`}
                     >
-                      <FormGroup className=" sign-up-select">
+                      {/* <FormGroup className=" sign-up-select">
                         <select
                           value={updateUser.countryCode}
                           onChange={(e) => {
@@ -215,7 +225,37 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             <>{getValueOf("Something went wrong")}</>
                           )}
                         </select>
-                      </FormGroup>
+                      </FormGroup> */}
+                      <div className="contact-field">
+                        <div
+                          aria-controls="simple-menu"
+                          aria-haspopup="true"
+                          onClick={handleClick}
+                          className="contact-border "
+                        >
+                          <span className="contact-text"> Open Menu</span>
+                        </div>{" "}
+                        <Menu
+                          id="simple-menu"
+                          anchorEl={anchorEl}
+                          keepMounted
+                          open={Boolean(anchorEl)}
+                          onClose={handleClose}
+                        >
+                          {countries &&
+                            countries.length &&
+                            countries.map((value, i) => {
+                              return (
+                                <MenuItem
+                                  value={value.dial_code}
+                                  onClick={handleClose}
+                                >
+                                  {value.name}({value.dial_code})
+                                </MenuItem>
+                              );
+                            })}
+                        </Menu>
+                      </div>
                     </div>
                     <input
                       className="input-edit-user edit-user-input-style"

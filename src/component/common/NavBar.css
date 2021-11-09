@@ -403,7 +403,7 @@
   background-color: #e4e4e4;
 }
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1400px) {
   .MuiPaper-elevation {
     display: none;
   }
@@ -411,7 +411,7 @@
 
 .MuiPaper-elevation {
   top: 80px !important;
-}
+} */
 
 body {
   padding-right: 0px !important;

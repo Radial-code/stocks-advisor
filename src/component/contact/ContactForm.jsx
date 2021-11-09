@@ -6,8 +6,17 @@ import { Form, FormGroup } from "react-bootstrap";
 import { EmailRegex, PhoneRegex } from "../common/Validation";
 import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 const ContactForm = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.list.countries);
@@ -168,7 +177,37 @@ const ContactForm = () => {
                     : "col-sm-5 pe-0 col-6"
                 }`}
               >
-                <FormGroup className="contact-select">
+                <div className="contact-field">
+                  <div
+                    aria-controls="simple-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                    className="contact-border2"
+                  >
+                    <span className="contact-text"> Open Menu</span>
+                  </div>{" "}
+                  <Menu
+                    id="simple-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                  >
+                    {countries &&
+                      countries.length &&
+                      countries.map((value, i) => {
+                        return (
+                          <MenuItem
+                            value={value.dial_code}
+                            onClick={handleClose}
+                          >
+                            {value.name}({value.dial_code})
+                          </MenuItem>
+                        );
+                      })}
+                  </Menu>
+                </div>
+                {/* <FormGroup className="contact-select">
                   <select
                     onChange={(e) => {
                       setContactDetails({
@@ -197,7 +236,7 @@ const ContactForm = () => {
                         })
                       : "Something went wrong"}
                   </select>
-                </FormGroup>
+                </FormGroup> */}
               </div>
               <div
                 className={`${

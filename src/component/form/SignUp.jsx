@@ -9,7 +9,8 @@ import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { useSelector } from "react-redux";
-
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 function SignUp({ history }) {
   const dispatch = useDispatch();
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
@@ -19,7 +20,14 @@ function SignUp({ history }) {
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
   const [reCaptchaToken, setReCaptchaToken] = useState(null);
-
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
     lastName: "",
@@ -271,39 +279,36 @@ function SignUp({ history }) {
                           : "col-sm-5 pe-0 col-6"
                       }`}
                     >
-                      <FormGroup className=" sign-up-select">
-                        <select
-                          value={signUpDetails.countryCode}
-                          onChange={(e) => {
-                            setSignUpDetails({
-                              ...signUpDetails,
-                              countryCode: e.target.value,
-                            });
-                          }}
-                          className={`${
-                            layoutClickChanger
-                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                              : "form-select   text-end cursor-pointer ps-5"
-                          }`}
+                      <div className="contact-field">
+                        <div
+                          aria-controls="simple-menu"
+                          aria-haspopup="true"
+                          onClick={handleClick}
+                          className="contact-border2"
                         >
-                          <option>Code</option>
-                          {countries && countries.length ? (
-                            countries.map((value, index) => {
+                          <span className="contact-text"> Open Menu</span>
+                        </div>{" "}
+                        <Menu
+                          id="simple-menu"
+                          anchorEl={anchorEl}
+                          keepMounted
+                          open={Boolean(anchorEl)}
+                          onClose={handleClose}
+                        >
+                          {countries &&
+                            countries.length &&
+                            countries.map((value, i) => {
                               return (
-                                <option
-                                  className="country-dots"
-                                  key={index}
+                                <MenuItem
                                   value={value.dial_code}
+                                  onClick={handleClose}
                                 >
                                   {value.name}({value.dial_code})
-                                </option>
+                                </MenuItem>
                               );
-                            })
-                          ) : (
-                            <>{getValueOf("Something went wrong")}</>
-                          )}
-                        </select>
-                      </FormGroup>
+                            })}
+                        </Menu>
+                      </div>
                     </div>{" "}
                     <div
                       className={`${

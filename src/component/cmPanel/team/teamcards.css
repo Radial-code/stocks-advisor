@@ -73,3 +73,13 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+.contact-border {
+  border: 1px solid #16191e33;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+}
+.contact-text {
+  color: #00000085;
+}
