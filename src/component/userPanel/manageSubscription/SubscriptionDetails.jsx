@@ -46,7 +46,6 @@ const SubscriptionDetails = () => {
                     {getValueOf("Purchase Date")}:
                   </span>
                   <span className="stock-paragraph fs-sm-11">
-                    {" "}
                     {myPlanDetails.createdAt}
                   </span>
                 </div>
@@ -88,28 +87,14 @@ const SubscriptionDetails = () => {
               className="d-flex justify-content-center mt-5 mt-xl-0"
             >
               <section className="current-para">
-                <p className="fs-14 fw-500 "> : Plan Description</p>
-
+                <p className="fs-14 fw-500 ">
+                  : {getValueOf("Plan Description")}
+                </p>
                 <p className="stock-paragraph fs-sm-14 ">
                   {myPlanDetails.details}
                 </p>
               </section>
             </Col>
-            {/* 
-            <Col xs={12} className="mt-5 d-flex justify-content-center mx-auto">
-              <div className="cancel-change-btn">
-                <button disabled className="cancel-btn fs-sm-14">
-                  Cancel Plan
-                </button>
-
-                <button
-                  disabled
-                  className="update-btn-2 fs-sm-14  change-btn mr-15 mr-xs-0"
-                >
-                  Change Plan
-                </button>
-              </div>
-            </Col> */}
           </Row>
         ) : (
           <img

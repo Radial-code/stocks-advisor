@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, FormGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,8 +16,10 @@ import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 let data = {};
+let detailsString = [];
 const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
-  const { layoutClickChanger } = useLayoutChangerProvider();
+  const countries = useSelector((state) => state.list.countries);
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
@@ -27,6 +29,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     phone: "",
     email: "",
     autoRenewalOfPlans: false,
+    countryCode: "",
   });
   const { userId } = match.params;
 
@@ -64,7 +67,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
         updateUser.autoRenewalOfPlans === ""
           ? autoRenewalOfPlans
           : updateUser.autoRenewalOfPlans,
-      // countryCode: "+91",
+      countryCode:
+        updateUser.countryCode === "" ? countryCode : updateUser.countryCode,
     };
     dispatch(userUpdateByAdminAction(userId, data, setUserLoading));
   };
@@ -92,6 +96,10 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     countryCode: countryCode,
   };
 
+  useEffect(() => {
+    detailsString = details && details.split(",");
+  }, [details]);
+
   return (
     <Container>
       <div
@@ -106,12 +114,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                 {data.firstName}&nbsp;{data.lastName}
               </p>
               <Link to="/content/manager/users">
-                <button className="update-btn-2 ">Back</button>
+                <button className="update-btn-2 ">{getValueOf("Back")}</button>
               </Link>
             </div>
 
             <div className="border-b-1 mt-5">
-              <p className="fs-22 fw-500 fs-sm-14">Contact Info</p>
+              <p className="fs-22 fw-500 fs-sm-14">
+                {getValueOf("Contact Info")}
+              </p>
             </div>
 
             {loading ? (
@@ -160,11 +170,52 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       layoutClickChanger ? "flex-row-reverse" : ""
                     }`}
                   >
-                    <div
+                    {/* <div
                       className={`me-2 edit-user-input-style bg-dark-grey  w-70`}
                       disabled
                     >
                       {countryCode ? countryCode : "N/A"}
+                    </div> */}
+                    <div
+                      className={`${
+                        layoutClickChanger
+                          ? "col-sm-5  pe-0 col-6"
+                          : "col-sm-5 ps-0 col-6"
+                      }`}
+                    >
+                      <FormGroup className=" sign-up-select">
+                        <select
+                          value={updateUser.countryCode}
+                          onChange={(e) => {
+                            setUpdateUser({
+                              ...updateUser,
+                              countryCode: e.target.value,
+                            });
+                          }}
+                          className={`${
+                            layoutClickChanger
+                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                              : "form-select   text-end cursor-pointer ps-5"
+                          }`}
+                        >
+                          <option>Code</option>
+                          {countries && countries.length ? (
+                            countries.map((value, index) => {
+                              return (
+                                <option
+                                  className="country-dots"
+                                  key={index}
+                                  value={value.dial_code}
+                                >
+                                  {value.name}({value.dial_code})
+                                </option>
+                              );
+                            })
+                          ) : (
+                            <>{getValueOf("Something went wrong")}</>
+                          )}
+                        </select>
+                      </FormGroup>
                     </div>
                     <input
                       className="input-edit-user edit-user-input-style"
@@ -195,12 +246,23 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                 {isPaidPlan ? (
                   <Col xl={6} xs={12}>
                     <Row className="pe-xl-4">
-                      <Col className=" mt-5 mt-lg-0 ">
-                        <section className="current-para my-4">
-                          <div className="d-none">
-                            <p className="fs-14 fw-500 ">:Plan Description</p>
-                          </div>
-                          <p className="stock-paragraph fs-sm-14">{details}</p>
+                      <Col className="mt-lg-0 ">
+                        <section className="current-para mb-4">
+                          <p className="profile-heading fs-sm-16">
+                            {getValueOf("Plan Description")}
+                          </p>
+                          {detailsString &&
+                            !!detailsString.length &&
+                            detailsString.map((item, index) => {
+                              return (
+                                <p
+                                  className="profile-para fs-sm-14"
+                                  key={index}
+                                >
+                                  {item}
+                                </p>
+                              );
+                            })}
                         </section>
                       </Col>
                     </Row>
@@ -221,7 +283,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               {createdAt && createdAt.split(",")[0]}
                             </span>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              :Purchase Date
+                              : {getValueOf("Purchase Date")}
                             </span>
                           </div>
                           <div className="d-flex justify-content-between mt-2">
@@ -229,7 +291,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               {createdAt && expiresOn.split(",")[0]}
                             </span>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              :Expiry Date
+                              : {getValueOf("Expiry Date")}
                             </span>
                           </div>
 
@@ -243,7 +305,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               </span>
                             </div>
                             <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              :Auto Renew
+                              : {getValueOf("Auto Renew")}
                             </span>
                           </div>
                           <div className="d-sm-none">
@@ -252,6 +314,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 <input
                                   type="checkbox"
                                   id="checkbox-2"
+                                  checked={autoRenewalOfPlans}
                                   onChange={(e) => {
                                     setUpdateUser({
                                       ...updateUser,
@@ -278,7 +341,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
               disabled={userLoading}
               onClick={() => UpdateUser()}
             >
-              {userLoading ? <Loader /> : "Update"}
+              {userLoading ? <Loader /> : `${getValueOf("Update")}`}
             </button>
           </section>
         </Col>
