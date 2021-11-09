@@ -309,7 +309,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     <Row>
                       <Col xs={12} className="d-flex pe-xl-5 flex-column">
                         <section className="plan-card-edituser p-3">
-                          <div className="d-flex justify-content-between border-b-1">
+                          <div
+                            className={`${
+                              layoutClickChanger ? "" : "flex-row-reverse"
+                            }  d-flex justify-content-between border-b-1 `}
+                          >
                             <p className="edituser-amount d-none d-sm-block">
                               ${price}
                             </p>
@@ -318,24 +322,48 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               ${price}
                             </p>
                           </div>
-                          <div className="d-flex justify-content-between  mt-2">
+                          <div
+                            className={`${
+                              layoutClickChanger ? "" : "flex-row-reverse"
+                            }  d-flex justify-content-between  mt-2`}
+                          >
                             <span className="stock-paragraph ps-3 ps-lg-0 ps-xl-1 fs-sm-11">
                               {createdAt && createdAt.split(",")[0]}
                             </span>
-                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              : {getValueOf("Purchase Date")}
-                            </span>
+                            {layoutClickChanger ? (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                : {getValueOf("Purchase Date")}
+                              </span>
+                            ) : (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                {getValueOf("Purchase Date")} :
+                              </span>
+                            )}
                           </div>
-                          <div className="d-flex justify-content-between mt-2">
+                          <div
+                            className={`${
+                              layoutClickChanger ? "" : "flex-row-reverse"
+                            }  d-flex justify-content-between  mt-2`}
+                          >
                             <span className="stock-paragraph fs-sm-11">
                               {createdAt && expiresOn.split(",")[0]}
                             </span>
-                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              : {getValueOf("Expiry Date")}
-                            </span>
+                            {layoutClickChanger ? (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                : {getValueOf("Expiry Date")}
+                              </span>
+                            ) : (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                {getValueOf("Expiry Date")} :
+                              </span>
+                            )}
                           </div>
 
-                          <div className="d-flex justify-content-between  mt-2 mb-2">
+                          <div
+                            className={`${
+                              layoutClickChanger ? "" : "flex-row-reverse"
+                            }  d-flex justify-content-between  mt-2`}
+                          >
                             <div>
                               <span className="float-md-end me-auto ">
                                 <label className="switch-2" for="checkbox-2">
@@ -344,9 +372,15 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 </label>
                               </span>
                             </div>
-                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                              : {getValueOf("Auto Renew")}
-                            </span>
+                            {layoutClickChanger ? (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                : {getValueOf("Auto Renew")}
+                              </span>
+                            ) : (
+                              <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                                {getValueOf("Auto Renew")} :
+                              </span>
+                            )}
                           </div>
                           <div className="d-sm-none">
                             <span className="float-md-end me-auto ">

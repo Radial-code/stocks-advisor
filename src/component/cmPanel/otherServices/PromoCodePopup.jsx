@@ -34,7 +34,7 @@ const PromocodePopup = ({ show, handleClose, setShow }) => {
 
       <Modal.Body>
         <div className="add-new-stock-field my-3 ms-sm-3">
-          <label>PromoCode</label>
+          <label>{getValueOf("PromoCode")}</label>
           <input
             type="text"
             placeholder={getValueOf("PromoCode")}
@@ -99,7 +99,7 @@ const PromocodePopup = ({ show, handleClose, setShow }) => {
         <div className="row">
           <div className="col-md-6">
             <div className="add-new-stock-field  ms-sm-3">
-              <label>Start Date</label>
+              <label>{getValueOf("Start Date")}</label>
               <input
                 type="date"
                 placeholder={getValueOf("Start Date")}
@@ -123,7 +123,7 @@ const PromocodePopup = ({ show, handleClose, setShow }) => {
           </div>
           <div className="col-md-6">
             <div className="add-new-stock-field my-md-0 my-3  ms-sm-3">
-              <label>End Date</label>
+              <label>{getValueOf("End Date")}</label>
               <input
                 type="date"
                 placeholder={getValueOf("End Date")}
