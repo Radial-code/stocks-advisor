@@ -12,6 +12,7 @@ import {
   TeamIcon,
   Enquiry,
   Back,
+  Invite,
 } from "../icons/Icons";
 
 const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
@@ -34,6 +35,8 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
       setActiveLink("enquiry");
     } else if (path.includes("notification")) {
       setActiveLink("notification");
+    } else if (path.includes("invite")) {
+      setActiveLink("invite");
     }
   }, []);
   if (layoutClickChanger) {
@@ -61,6 +64,8 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
       history.push("/content/manager/enquiry/list");
     } else if (value === "notification") {
       history.push("/content/manager/notification");
+    } else if (value === "invite") {
+      history.push("/content/manager/invite");
     }
   };
   return (
@@ -192,6 +197,19 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             </span>
             <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
               {getValueOf("Notification")}
+            </p>
+          </div>
+          <div
+            className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
+              activeLink === "invite" ? "cn-sidebar-active" : ""
+            }`}
+            onClick={() => openRoutes("invite")}
+          >
+            <span className="px-2">
+              <Invite />
+            </span>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
+              {getValueOf("Invite")}
             </p>
           </div>
         </div>

@@ -35,11 +35,14 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
       setActiveLink("profile");
     } else if (path.includes("payment")) {
       setActiveLink("payment");
+    } else if (path.includes("invite")) {
+      setActiveLink("invite");
     }
   }, []);
   const openRoutes = (value) => {
     setShowSidebar(false);
     setActiveLink(value);
+
     if (value === "manage") {
       history.push("/dashboard/manage/subscription");
     } else if (value === "update") {
@@ -50,6 +53,8 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
       history.push("/dashboard/view/profile");
     } else if (value === "payment") {
       history.push("/dashboard/payment");
+    } else if (value === "invite") {
+      history.push("/dashboard/invite");
     }
   };
 
@@ -132,8 +137,9 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "payment" ? "cn-sidebar-active" : ""
+              activeLink == "invite" ? "cn-sidebar-active" : ""
             }`}
+            onClick={() => openRoutes("invite")}
           >
             <span className="px-2">
               <Invite />

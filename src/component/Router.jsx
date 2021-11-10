@@ -209,6 +209,12 @@ const Router = ({
             setShowSidebar2={setShowSidebar2}
           />
         </Route>
+        <Route>
+          <CmPanelRoutes
+            showSidebar2={showSidebar2}
+            setShowSidebar2={setShowSidebar2}
+          />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

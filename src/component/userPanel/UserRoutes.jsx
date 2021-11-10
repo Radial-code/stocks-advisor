@@ -5,6 +5,7 @@ import ManageSubscription from "./manageSubscription/ManageSubscription";
 import SidebarDashboard from "../common/SideBar/SidebarDashboard";
 import UserProfile from "./profile/UserProfile";
 import PaymentDetails from "./payment/PaymentDetails";
+import Invite from "./invite/Invite";
 
 const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
   return (
@@ -39,6 +40,13 @@ const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
           </Route>
           <Route exact path="/dashboard/payment">
             <PaymentDetails
+              sideBarHandler={sideBarHandler}
+              showSidebar={showSidebar}
+              setShowSidebar={setShowSidebar}
+            />
+          </Route>
+          <Route exact path="/dashboard/invite">
+            <Invite
               sideBarHandler={sideBarHandler}
               showSidebar={showSidebar}
               setShowSidebar={setShowSidebar}

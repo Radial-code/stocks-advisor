@@ -14,6 +14,7 @@ import TeamCards from "./team/TeamCards";
 import TeamForm from "./team/TeamForm";
 import Enquiry from "./enquiry/Enquiry";
 import AdminNotification from "./user/AdminNotification";
+import AdminInvite from "./user/AdminInvite";
 
 const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
   return (
@@ -135,6 +136,12 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
           </Route>
           <Route exact path="/content/manager/notification">
             <AdminNotification
+              showSidebar2={showSidebar2}
+              setShowSidebar2={setShowSidebar2}
+            />
+          </Route>
+          <Route exact path="/content/manager/invite">
+            <AdminInvite
               showSidebar2={showSidebar2}
               setShowSidebar2={setShowSidebar2}
             />

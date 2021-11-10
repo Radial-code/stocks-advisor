@@ -30,8 +30,8 @@ const DashboardDropDown = ({ sideBarHandler }) => {
           className={`${dashboard ? "drop-active" : "dashboard-down"} `}
         >
           <a className="d-flex heading-stock pr-15 fs-sm-20 text-white  nav-links justify-content-between align-items-center">
-            {getValueOf('Dashboard')}
-           
+            {getValueOf("Dashboard")}
+
             <span className={`ml-20 ${dashboard ? "sidebardropdown" : ""}`}>
               <span className="plus">
                 <svg
@@ -76,7 +76,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Edit Contact')}</span>
+                    <span>{getValueOf("Edit Contact")}</span>
                   </div>
                 </NavLink>
               </li>
@@ -90,7 +90,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Manage Subscription')}</span>
+                    <span>{getValueOf("Manage Subscription")}</span>
                   </div>
                 </NavLink>
               </li>
@@ -104,7 +104,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Update payment Method')}</span>
+                    <span>{getValueOf("Update payment Method")}</span>
                   </div>
                 </NavLink>
               </li>
@@ -118,7 +118,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Notification')}</span>
+                    <span>{getValueOf("Notification")}</span>
                   </div>
                 </NavLink>
               </li>
@@ -131,7 +131,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Profile')}</span>
+                    <span>{getValueOf("Profile")}</span>
                   </div>
                 </NavLink>
               </li>
@@ -144,7 +144,7 @@ const DashboardDropDown = ({ sideBarHandler }) => {
                   onClick={click ? handleClick : null}
                 >
                   <div className="all-student">
-                    <span>{getValueOf('Payment Details')}</span>
+                    <span>{getValueOf("Payment Details")}</span>
                   </div>
                 </NavLink>
               </li>
