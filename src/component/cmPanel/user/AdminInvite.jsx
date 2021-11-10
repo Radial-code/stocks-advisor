@@ -26,7 +26,7 @@ const AdminInvite = () => {
         </div>
       </div>
 
-      <div className="my-4 row">
+      {/* <div className="my-4 row">
         <div className="col-md-9 col-sm-7 col-6 pe-0">
           <input
             type="text"
@@ -43,19 +43,19 @@ const AdminInvite = () => {
             )}`}</button>
           </div>
         </div>
-      </div>
-      <div className=" mb-3 mt-sm-4 mt-3 pt-sm-0 pt-3">
+      </div> */}
+      <div className="my-5">
         <textarea
           className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
           rows="6"
           placeholder={getValueOf("Invite....")}
         ></textarea>
       </div>
-      <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column my-4">
+      {/* <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column my-4">
         <div className="add-new-btn w-100">
           <button className="update-btn">{`${getValueOf("Submit")}`}</button>
         </div>
-      </div>
+      </div> */}
       <AdminInvitePopup
         handleClose={handleClose}
         show={show}
