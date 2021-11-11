@@ -90,9 +90,9 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       {/* Modal */}
 
       <Modal show={show} onHide={handleClose} centered size="xl">
-        <p className=" heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
+        {/* <p className=" heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
           {getValueOf("Get rid of the title")}
-        </p>
+        </p> */}
 
         <Modal.Body>
           <div className="row">

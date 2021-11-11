@@ -551,11 +551,11 @@ const Navbar = ({
                                     className="d-flex justify-content-between align-items-center pt-3"
                                   >
                                     <div className="d-flex align-items-center">
-                                      <img
+                                      {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
-                                      />
+                                      /> */}
                                       <div>
                                         <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
                                           {value.body}
@@ -809,11 +809,11 @@ const Navbar = ({
                                     className="d-flex justify-content-between align-items-center pt-3"
                                   >
                                     <div className="d-flex align-items-center">
-                                      <img
+                                      {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
-                                      />
+                                      /> */}
                                       <div>
                                         <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
                                           {value.body}
