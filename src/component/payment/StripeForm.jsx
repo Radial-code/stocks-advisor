@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import Loader from "../common/Loader";
 import {
   AddStripePaymentId,
+  confirmPlanByIdForStripe,
   getBuyPlanAction,
 } from "../../redux/action/payment";
 import { withRouter } from "react-router";
@@ -28,6 +29,7 @@ const StripeForm = ({ loader, match, history }) => {
   const [loading, setLoading] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
+  const [paymentWindow, setPaymentWindow] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,10 +62,10 @@ const StripeForm = ({ loader, match, history }) => {
     }
   };
 
-  useEffect(() => {
+  const handleSubmitPayment = async () => {
     setErrorPayment(true);
     if (paymentMethod) {
-      dispatch(AddStripePaymentId(paymentMethod.id));
+      await dispatch(AddStripePaymentId(paymentMethod.id));
     }
     if (stripeID && reCaptchaToken) {
       const data = {
@@ -71,8 +73,21 @@ const StripeForm = ({ loader, match, history }) => {
         id: stripeID,
         "recaptcha-token": reCaptchaToken,
       };
-      dispatch(getBuyPlanAction(data, setLoading, history));
+      await dispatch(
+        getBuyPlanAction(data, setLoading, history, setPaymentWindow)
+      );
     }
+    if (stripeID) {
+      const data = {
+        planId: id,
+        id: stripeID,
+      };
+      await dispatch(confirmPlanByIdForStripe(data));
+    }
+  };
+
+  useEffect(() => {
+    handleSubmitPayment();
   }, [paymentMethod, stripeID]);
 
   return (

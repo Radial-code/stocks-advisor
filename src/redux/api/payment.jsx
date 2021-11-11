@@ -33,3 +33,12 @@ export const getBuyPlanApi = async (data) => {
 export const getPlanDetailsByIdApi = async (id) => {
   return await axiosRequest("GET", `/plans/${id}`);
 };
+
+/**
+ * confirm payment api for plan purchase api call from stripe api call
+ * @param {Object} data
+ * @returns
+ */
+export const confirmPlanByIdForStripeApi = async (data) => {
+  return await axiosRequest("POST", `/confirm/plan`, data);
+};

@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import {
+  confirmPlanByIdForStripeApi,
   getBuyPlanApi,
   getMyPlanApi,
   getPlanDetailsByIdApi,
@@ -115,14 +116,49 @@ export const getPlanDetailsByIdAction =
  * @param {Boolen} setLoading
  * @returns
  */
-export const getBuyPlanAction = (data, setLoading, history) => async () => {
-  setLoading(true);
-  try {
-    const response = await getBuyPlanApi(data);
-    if (response.success) {
-      Swal.fire("Success", "Plan Subscribed successfully", "success");
-      setTimeout(Swal.close, 2000);
+export const getBuyPlanAction =
+  (data, setLoading, history, setPaymentWindow) => async () => {
+    setLoading(true);
+    try {
+      const response = await getBuyPlanApi(data);
+      if (response.success) {
+        Swal.fire("Success", "Plan Subscribed successfully", "success");
+        setTimeout(Swal.close, 2000);
+        setLoading(false);
+        setTimeout(function () {
+          const paymentWindow = window.open(
+            "https://" + response.url,
+            "_blank"
+          );
+          console.log(paymentWindow);
+        }, 5000);
+        // setTimeout(function () {
+        //   window.location.href = "localhost:3000";
+        // }, 5000);
+        // history.push("/");
+        // window.location.reload();
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to add payment", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
+      Swal.fire("Error!", "You already have a plan", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ *
+ * @param {Object} data
+ * @param {Boolen} setLoading
+ * @returns
+ */
+export const confirmPlanByIdForStripe = (data) => async () => {
+  try {
+    const response = await confirmPlanByIdForStripeApi(data);
+    if (response.success) {
       setTimeout(function () {
         window.location.href = response.url;
       }, 5000);
@@ -132,13 +168,13 @@ export const getBuyPlanAction = (data, setLoading, history) => async () => {
       // history.push("/");
       // window.location.reload();
     } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to add payment", "error");
+      Swal.fire("Error", "Failed to add payment method", "error");
       setTimeout(Swal.close, 2000);
     }
   } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "You already have a plan", "error");
+    Swal.fire("Error!", "Failed to add payment method", "error");
     setTimeout(Swal.close, 2000);
   }
 };
+
+// make a function to open new tab after few seconds close it and redirect to home page
