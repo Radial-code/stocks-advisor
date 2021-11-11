@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import CloseIcon from "../../../assets/img/close-icon.png";
-const PromocodePopup = ({ show, handleClose, setShow }) => {
+
+const PromocodePopup = ({ show, handleClose }) => {
   const { getValueOf } = useLayoutChangerProvider();
   const [error, setError] = useState(false);
   const [discount, setDiscount] = useState(false);

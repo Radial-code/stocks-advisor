@@ -134,8 +134,8 @@ export const getBuyPlanAction =
         // setTimeout(function () {
         //   window.location.href = "localhost:3000";
         // }, 5000);
-        // history.push("/");
-        // window.location.reload();
+        history.push("/");
+        window.location.reload();
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to add payment", "error");

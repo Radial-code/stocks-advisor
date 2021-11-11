@@ -18,14 +18,14 @@ const Invite = () => {
             {getValueOf("Invite")}
           </p>
         </div>
-        <div className="d-none d-md-flex">
+        {/* <div className="d-none d-md-flex">
           <button
             className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
             onClick={handleShow}
           >
             {getValueOf("Edit")}
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* <div className="my-4 row">
@@ -55,14 +55,14 @@ const Invite = () => {
       </div>
       <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column my-4">
         <div className="add-new-btn w-100">
-          <button className="update-btn">{`${getValueOf("Submit")}`}</button>
+          <button className="update-btn">{`${getValueOf("Copy Link")}`}</button>
         </div>
       </div>
-      <InvitePopup
+      {/* <InvitePopup
         handleClose={handleClose}
         handleShow={handleShow}
         show={show}
-      />
+      /> */}
     </div>
   );
 };

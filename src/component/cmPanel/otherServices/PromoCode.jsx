@@ -11,6 +11,7 @@ const Promocode = () => {
     setShow(true);
     setEdit(false);
   };
+
   const { getValueOf } = useLayoutChangerProvider();
   return (
     <div>
@@ -33,6 +34,7 @@ const Promocode = () => {
             show={show}
             setShow={setShow}
             handleClose={handleClose}
+            setEdit={setEdit}
           />
         </div>
       </div>

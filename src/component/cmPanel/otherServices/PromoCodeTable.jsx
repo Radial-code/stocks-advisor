@@ -3,11 +3,15 @@ import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import NoData from "../../../assets/img/emptydata.jpg";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
-const PromoCodeTable = ({ show, handleClose, setShow }) => {
+
+const PromoCodeTable = ({ show, handleClose, setShow, setEdit }) => {
   const { getValueOf } = useLayoutChangerProvider();
   const [loading, setLoading] = useState(true);
+
   const editPortfolios = (value) => {
     setShow(true);
+    setEdit(true);
+    // setUpdateValue(value);
   };
 
   return (
@@ -60,7 +64,12 @@ const PromoCodeTable = ({ show, handleClose, setShow }) => {
             <td className="text-end whitespace Ellipse">4227289</td>
             <td className="text-end whitespace Ellipse">asdfghjk</td>
             <td className="text-end whitespace Ellipse">
-              <button className="px-3 py-1 edit-button " type="button">
+              <button
+                type="button"
+                onClick={() => editPortfolios()}
+                className="px-3 py-1 edit-button "
+                type="button"
+              >
                 {getValueOf("Edit")}
               </button>
             </td>
