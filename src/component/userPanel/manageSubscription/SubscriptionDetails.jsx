@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -6,11 +7,13 @@ import FoundImg from "../../../assets/img/notfound.png";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
+let detailsString;
 const SubscriptionDetails = () => {
   const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   const [loading, setLoading] = useState(false);
+  const [detailsData, setDetailsData] = useState(false);
 
   const updateAutoCard = (e) => {
     const data = {
@@ -18,6 +21,15 @@ const SubscriptionDetails = () => {
     };
     dispatch(updateUserDetailsAction(data, setLoading));
   };
+
+  useEffect(() => {
+    if (myPlanDetails.details) {
+      detailsString = myPlanDetails.details && myPlanDetails.details.split(",");
+      setDetailsData(detailsString);
+    }
+  }, [myPlanDetails]);
+
+  console.log("detailsString", detailsData);
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
       <div className="w-xl-1000 box p-md-4 p-4 h-100">
@@ -91,7 +103,15 @@ const SubscriptionDetails = () => {
                   : {getValueOf("Plan Description")}
                 </p>
                 <p className="stock-paragraph fs-sm-14 ">
-                  {myPlanDetails.details}
+                  {detailsString &&
+                    !!detailsString.length &&
+                    detailsString.map((item, index) => {
+                      return (
+                        <p className="profile-para fs-sm-14" key={index}>
+                          {item}
+                        </p>
+                      );
+                    })}
                 </p>
               </section>
             </Col>

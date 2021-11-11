@@ -163,7 +163,7 @@ const Navbar = ({
       setNavbarCollapsed(true);
       setOverlayActive(true);
     } else if (value === "joinnow") {
-      history.push("/signup");
+      history.push("/our-plan");
       setNavbarCollapsed(true);
       setOverlayActive(true);
     } else if (value === "userdashboard") {
@@ -573,7 +573,7 @@ const Navbar = ({
                                   </div>
                                 );
                               })
-                            : ""}
+                            : "You don't not have any notification list"}
                         </>
                       )}
                     </Dropdown.Menu>

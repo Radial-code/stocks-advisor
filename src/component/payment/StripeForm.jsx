@@ -30,6 +30,7 @@ const StripeForm = ({ loader, match, history }) => {
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [paymentWindow, setPaymentWindow] = useState(false);
+  const [paymentId, setPaymentId] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -74,22 +75,29 @@ const StripeForm = ({ loader, match, history }) => {
         "recaptcha-token": reCaptchaToken,
       };
       await dispatch(
-        getBuyPlanAction(data, setLoading, history, setPaymentWindow)
+        getBuyPlanAction(
+          data,
+          setLoading,
+          history,
+          setPaymentWindow,
+          setPaymentId
+        )
       );
     }
-    if (stripeID) {
+    if (paymentId) {
       const data = {
         planId: id,
-        id: stripeID,
+        id: paymentId,
       };
-      await dispatch(confirmPlanByIdForStripe(data));
+      setTimeout(await dispatch(confirmPlanByIdForStripe(data)), 7000);
     }
   };
 
   useEffect(() => {
     handleSubmitPayment();
-  }, [paymentMethod, stripeID]);
+  }, [paymentMethod, stripeID, paymentId]);
 
+  console.log("paymentId", paymentId);
   return (
     <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
       <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">

@@ -44,7 +44,12 @@ function App() {
       }
     }
     dispatch(getCountryListAction());
-    dispatch(getNotificationListAction(setNotificationLoading));
+    if (!!auth && !!token) {
+      setTimeout(
+        dispatch(getNotificationListAction(setNotificationLoading)),
+        2000
+      );
+    }
   }, [auth, token]);
 
   return (

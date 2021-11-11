@@ -117,21 +117,20 @@ export const getPlanDetailsByIdAction =
  * @returns
  */
 export const getBuyPlanAction =
-  (data, setLoading, history, setPaymentWindow) => async () => {
+  (data, setLoading, history, setPaymentWindow, setPaymentId) => async () => {
     setLoading(true);
     try {
       const response = await getBuyPlanApi(data);
       if (response.success) {
         Swal.fire("Success", "Plan Subscribed successfully", "success");
         setTimeout(Swal.close, 2000);
+        console.log("response.paymentId", response.paymentId);
+        setPaymentId(response.paymentId);
         setLoading(false);
-        setTimeout(function () {
-          const paymentWindow = window.open(
-            "https://" + response.url,
-            "_blank"
-          );
-          console.log(paymentWindow);
-        }, 5000);
+        // setTimeout(function () {
+        const paymentWindow = window.open(response.url, "_blank");
+        console.log(paymentWindow);
+        // }, 5000);
         // setTimeout(function () {
         //   window.location.href = "localhost:3000";
         // }, 5000);

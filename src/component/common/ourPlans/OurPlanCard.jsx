@@ -9,6 +9,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 const OurPlanCard = ({ homepage, history }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const planList = useSelector((state) => state.list.planList);
+  const userData = useSelector((state) => state.auth.userData);
   const auth = useSelector((state) => state.auth.auth);
   const token = useSelector((state) => state.auth.token);
   const pathname = window.location.pathname;
@@ -162,7 +163,9 @@ const OurPlanCard = ({ homepage, history }) => {
                         </p>
                         <div
                           className={`${
-                            value.type === "Week" ? "week-plan" : "card-amount"
+                            userData.planId === value._id
+                              ? "week-plan cursor-not-allowed"
+                              : "card-amount"
                           } card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4`}
                         >
                           <p className="amount-card-month align-items-center d-flex  mb-0">
@@ -214,6 +217,7 @@ const OurPlanCard = ({ homepage, history }) => {
                               ))
                             : "N/A"}
                         </p>
+                        {console.log(userData.planId)}
                         <div className="d-flex justify-content-center mt-5 pb-5">
                           {auth && !!token ? (
                             <button
@@ -222,12 +226,18 @@ const OurPlanCard = ({ homepage, history }) => {
                                 history.push(`/payment/${value._id}`)
                               }
                               className={`${
-                                value.type === "Week"
-                                  ? "join-now-btn-2"
+                                userData.planId === value._id
+                                  ? "join-now-btn-2 cursor-not-allowed"
                                   : "join-now-btn"
                               } join-now-btn `}
+                              disabled={
+                                userData.planId === value._id ? true : false
+                              }
                             >
-                              {getValueOf("Buy now")}
+                              {userData.planId === value._id
+                                ? `
+                                  ${getValueOf("Current Plan")}`
+                                : `${getValueOf("Change Plan")}`}
                             </button>
                           ) : (
                             <button
@@ -239,7 +249,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                   : "join-now-btn"
                               } join-now-btn`}
                             >
-                              {getValueOf("Join Now")}Join Now
+                              {getValueOf("Join Now")}
                             </button>
                           )}
                         </div>

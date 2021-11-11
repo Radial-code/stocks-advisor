@@ -12,9 +12,8 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
   const soldStockList = useSelector((state) => state.list.soldStockList);
 
   useEffect(() => {
-    dispatch(
-      getRelatedSoldStockNewsAction([{ portfolios: id }], setSoldLoading)
-    );
+    const data = { portfolios: [id] };
+    dispatch(getRelatedSoldStockNewsAction(data, setSoldLoading));
   }, [id]);
 
   return (
