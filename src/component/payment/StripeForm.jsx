@@ -74,22 +74,14 @@ const StripeForm = ({ loader, match, history }) => {
         id: stripeID,
         "recaptcha-token": reCaptchaToken,
       };
-      await dispatch(
-        getBuyPlanAction(
-          data,
-          setLoading,
-          history,
-          setPaymentWindow,
-          setPaymentId
-        )
-      );
+      await dispatch(getBuyPlanAction(data, setLoading, setPaymentId));
     }
     if (paymentId) {
       const data = {
         planId: id,
         id: paymentId,
       };
-      setTimeout(await dispatch(confirmPlanByIdForStripe(data)), 7000);
+      setTimeout(await dispatch(confirmPlanByIdForStripe(data, history)), 7000);
     }
   };
 

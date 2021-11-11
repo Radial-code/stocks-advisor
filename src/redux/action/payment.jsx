@@ -117,7 +117,7 @@ export const getPlanDetailsByIdAction =
  * @returns
  */
 export const getBuyPlanAction =
-  (data, setLoading, history, setPaymentWindow, setPaymentId) => async () => {
+  (data, setLoading, setPaymentId) => async () => {
     setLoading(true);
     try {
       const response = await getBuyPlanApi(data);
@@ -127,15 +127,8 @@ export const getBuyPlanAction =
         console.log("response.paymentId", response.paymentId);
         setPaymentId(response.paymentId);
         setLoading(false);
-        // setTimeout(function () {
         const paymentWindow = window.open(response.url, "_blank");
         console.log(paymentWindow);
-        // }, 5000);
-        // setTimeout(function () {
-        //   window.location.href = "localhost:3000";
-        // }, 5000);
-        history.push("/");
-        window.location.reload();
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to add payment", "error");
@@ -154,7 +147,7 @@ export const getBuyPlanAction =
  * @param {Boolen} setLoading
  * @returns
  */
-export const confirmPlanByIdForStripe = (data) => async () => {
+export const confirmPlanByIdForStripe = (data, history) => async () => {
   try {
     const response = await confirmPlanByIdForStripeApi(data);
     if (response.success) {
@@ -164,8 +157,8 @@ export const confirmPlanByIdForStripe = (data) => async () => {
       setTimeout(function () {
         window.location.href = "localhost:3000";
       }, 5000);
-      // history.push("/");
-      // window.location.reload();
+      history.push("/");
+      window.location.reload();
     } else {
       Swal.fire("Error", "Failed to add payment method", "error");
       setTimeout(Swal.close, 2000);
@@ -175,5 +168,3 @@ export const confirmPlanByIdForStripe = (data) => async () => {
     setTimeout(Swal.close, 2000);
   }
 };
-
-// make a function to open new tab after few seconds close it and redirect to home page
