@@ -22,6 +22,9 @@
   fill: WHITE !important;
   cursor: pointer;
 }
+/* .list-unstyled {
+  list-style: none;
+} */
 
 .svg:hover circle {
   fill: #5cbd4c !important;
