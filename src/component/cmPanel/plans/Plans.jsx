@@ -11,7 +11,7 @@ const Plans = () => {
           <div className="current-stock-bg p-sm-3 p-2">
             <div className="mt-4 d-flex justify-content-between align-items-center">
               <h1 className="current-stock-text ff-popins mb-0 fs-sm-20">
-                OurPlanspage
+                OurPlans
               </h1>
               <Link to="/content/manager/our/plans/form">
                 <button className="update-btn-2">Add New</button>

@@ -24,15 +24,11 @@ const PromoCodeTableList = ({
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${
-            layoutClickChanger
-              ? `${getValueOf("? Are You Sure")}`
-              : `${getValueOf("Are You Sure ?")}`
-          }`,
+          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
           text: `${
             layoutClickChanger
-              ? `${getValueOf(".You want to delete This Promo Code")}`
-              : `${getValueOf("You want to delete This Promo Code.")}`
+              ? ".You want to delete This Promo Code"
+              : "You want to delete This Promo Code."
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -56,39 +52,39 @@ const PromoCodeTableList = ({
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
-            {getValueOf("Start Date")}
+            Start Date
           </th>
           <th scope="col" className="text-end position-sticky top-0 whitespace">
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
-            {getValueOf("End Date")}
-          </th>
-
-          <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            {getValueOf("Code")}
-          </th>
-          <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
-              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
-            {getValueOf("Type")}
+            End Date
           </th>
 
           <th scope="col" className="text-end position-sticky top-0 whitespace">
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
-            {getValueOf("Edit")}
+            Code
           </th>
           <th scope="col" className="text-end position-sticky top-0 whitespace">
             <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
             </span>
-            {getValueOf("Delete")}
+            Type
+          </th>
+
+          <th scope="col" className="text-end position-sticky top-0 whitespace">
+            <span>
+              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            </span>
+            Edit
+          </th>
+          <th scope="col" className="text-end position-sticky top-0 whitespace">
+            <span>
+              <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+            </span>
+            Delete
           </th>
         </tr>
       </thead>
@@ -119,7 +115,7 @@ const PromoCodeTableList = ({
                     className="px-3 py-1 edit-button "
                     type="button"
                   >
-                    {getValueOf("Edit")}
+                    Edit
                   </button>
                 </td>
                 <td className="text-end whitespace Ellipse">
@@ -128,7 +124,7 @@ const PromoCodeTableList = ({
                     onClick={() => deletePromoCode(value._id)}
                     className="px-3 py-1 delete-button"
                   >
-                    {getValueOf("Delete")}
+                    Delete
                   </button>
                 </td>
               </tr>

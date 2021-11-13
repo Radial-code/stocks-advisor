@@ -55,9 +55,7 @@ const PromoCodeTable = ({ setUpdateValue, setShow, setEdit }) => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">
-                {getValueOf("You don't have any Promo Code list.")}
-              </h4>
+              <h4 className="fw-bold">You don't have any Promo Code list.</h4>
             </div>
           )}
         </>
