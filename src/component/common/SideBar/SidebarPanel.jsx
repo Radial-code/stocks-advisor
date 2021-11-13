@@ -65,7 +65,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
     } else if (value === "notification") {
       history.push("/content/manager/notification");
     } else if (value === "invite") {
-      history.push("/content/manager/invite");
+      history.push("/content/manager/invite/friend");
     }
   };
   return (

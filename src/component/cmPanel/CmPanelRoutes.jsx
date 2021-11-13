@@ -140,7 +140,7 @@ const CmPanelRoutes = ({ showSidebar2, setShowSidebar2 }) => {
               setShowSidebar2={setShowSidebar2}
             />
           </Route>
-          <Route exact path="/content/manager/invite">
+          <Route exact path="/content/manager/invite/friend">
             <AdminInvite
               showSidebar2={showSidebar2}
               setShowSidebar2={setShowSidebar2}
