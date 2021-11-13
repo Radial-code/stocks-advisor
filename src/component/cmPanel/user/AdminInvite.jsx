@@ -8,7 +8,7 @@ import AdminInvitePopup from "./AdminInvitePopup";
 import NoData from "../../../assets/img/emptydata.jpg";
 
 const AdminInvite = () => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const inviteMessageCode = useSelector(
     (state) => state.list.inviteMessageCode
@@ -50,13 +50,145 @@ const AdminInvite = () => {
               <BubblesLoader />
             </div>
           ) : (
-            <div className="my-5">
-              <textarea
-                className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                rows="6"
-                placeholder={getValueOf("Invite....")}
-              ></textarea>
+            <div className="border mt-3 p-3 message-box">
+              <div
+                className={`${
+                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
+                } d-flex `}
+              >
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <p>
+                      {layoutClickChanger ? <> : CreateAt</> : <>CreateAt :</>}
+                    </p>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                    <p>
+                      {layoutClickChanger ? <> : CreateAt</> : <>CreateAt :</>}
+                    </p>
+                  </>
+                )}
+              </div>
+              <div
+                className={`${
+                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
+                } d-flex `}
+              >
+                {" "}
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <p>{layoutClickChanger ? <> : Type</> : <>Type :</>}</p>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                    <p>{layoutClickChanger ? <> : Type</> : <>Type :</>}</p>
+                  </>
+                )}
+              </div>
+              <div
+                className={`${
+                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
+                } d-flex `}
+              >
+                {" "}
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <p>{layoutClickChanger ? <> : Amount</> : <>Amount :</>}</p>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                    <p>{layoutClickChanger ? <> : Amount</> : <>Amount :</>}</p>
+                  </>
+                )}
+              </div>
+              <div
+                className={`${
+                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
+                } d-flex `}
+              >
+                {" "}
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <p>
+                      {layoutClickChanger ? <> : Discount</> : <>Discount :</>}
+                    </p>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                    <p>
+                      {layoutClickChanger ? <> : Discount</> : <>Discount :</>}
+                    </p>
+                  </>
+                )}
+              </div>
+              <div
+                className={`${
+                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
+                } d-flex `}
+              >
+                {" "}
+                {layoutClickChanger ? (
+                  <>
+                    {" "}
+                    <p>
+                      {layoutClickChanger ? <> : Message</> : <>Message :</>}
+                    </p>
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <span>
+                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
+                    </span>
+                    <p>
+                      {layoutClickChanger ? <> : Message</> : <>Message :</>}
+                    </p>
+                  </>
+                )}
+              </div>
             </div>
+            // <div className="my-5">
+            //   <textarea
+            //     className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+            //     rows="6"
+            //     placeholder={getValueOf("Invite....")}
+            //   ></textarea>
+            // </div>
           )}
         </>
       ) : (
