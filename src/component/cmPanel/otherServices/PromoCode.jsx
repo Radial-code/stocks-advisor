@@ -4,18 +4,19 @@ import PromoCodeTable from "./PromoCodeTable";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Promocode = () => {
+  const { getValueOf } = useLayoutChangerProvider();
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [updateValue, setUpdateValue] = useState({});
   const handleClose = () => setShow(false);
+
   const handleShow = () => {
     setShow(true);
     setEdit(false);
   };
 
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div>
-      {" "}
       <div className="row">
         <div className="col-12 d-flex flex-sm-row flex-column justify-content-md-end justify-content-center align-items-center">
           <div>
@@ -35,6 +36,7 @@ const Promocode = () => {
             setShow={setShow}
             handleClose={handleClose}
             setEdit={setEdit}
+            setUpdateValue={setUpdateValue}
           />
         </div>
       </div>
@@ -43,6 +45,8 @@ const Promocode = () => {
         show={show}
         handleShow={handleShow}
         handleClose={handleClose}
+        edit={edit}
+        updateValue={updateValue}
       />
     </div>
   );

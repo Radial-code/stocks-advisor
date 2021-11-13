@@ -33,6 +33,12 @@ import {
   GET_ALL_COUNTRY_LIST_SUCCESS,
   GET_ALL_PORTFOLIOS_LIST_SUCCESS,
 } from "../action/portfolios";
+import {
+  DELETE_PROMO_CODE,
+  GET_PROMOR_CODE_LIST,
+  UPDATE_PROMO_CODE,
+  UPLOAD_NEW_PROMO_CODE,
+} from "../action/promoCode";
 import { UPLOAD_IAMGE } from "../uploadImage";
 
 const initialState = {
@@ -56,6 +62,7 @@ const initialState = {
   portfoliosChatList: [],
   notificationList: [],
   countries: [],
+  promoCodeList: [],
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -264,6 +271,52 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         notificationList: action.data,
+      };
+    }
+
+    // get promo code list data
+    case GET_PROMOR_CODE_LIST: {
+      return {
+        ...state,
+        promoCodeList: action.data,
+      };
+    }
+
+    // upload new promo code list data
+    case UPLOAD_NEW_PROMO_CODE: {
+      const newPromoCodeList = [...state.promoCodeList];
+      newPromoCodeList.push(action.data);
+      return {
+        ...state,
+        promoCodeList: newPromoCodeList,
+      };
+    }
+
+    // Delete plan by id
+    case DELETE_PROMO_CODE: {
+      console.log(action.data);
+      const promoCodeListDeleted = [...state.promoCodeList];
+      const promoCodeListDelData = promoCodeListDeleted.filter(
+        (value) => value._id !== action.data
+      );
+      return {
+        ...state,
+        promoCodeList: promoCodeListDelData,
+      };
+    }
+
+    // update promo code by id
+    case UPDATE_PROMO_CODE: {
+      const promoCodeListList = [...state.promoCodeList];
+      const promoCodeListDetails = promoCodeListList.filter(
+        (value) => value._id === action.payload.id
+      );
+      console.log(action.payload.data);
+      console.log(promoCodeListDetails, "promoCodeListDetails");
+      // promoCodeListDetails[0] = action.payload.data;
+      return {
+        ...state,
+        // promoCodeList: promoCodeListDetails,
       };
     }
 

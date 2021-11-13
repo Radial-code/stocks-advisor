@@ -3,6 +3,12 @@
   font-weight: 600;
   color: var(--color-88BEFC);
 }
+
+.payment-page-amount-promo {
+  font-size: var(--font-15);
+  font-weight: 600;
+  color: var(--color-127CF9);
+}
 .payment-border {
   border-bottom: 1px solid var(--color-16191e33);
 }

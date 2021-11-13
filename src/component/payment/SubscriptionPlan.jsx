@@ -1,14 +1,13 @@
 import { Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import BubblesLoader from "../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-const SubscriptionPlan = ({ loading }) => {
+const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
-  const planDetails = useSelector((state) => state.list.planDetails);
   const split_string =
     planDetails && planDetails.details && planDetails.details.split(",");
 
+  console.log("promoCodeData", promoCodeData);
   return (
     <Col lg={7} className="d-flex justify-content-center">
       <section className=" select-plan-payment p-lg-4 p-3">
@@ -17,7 +16,6 @@ const SubscriptionPlan = ({ loading }) => {
         </p>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center h-100">
-            {" "}
             <BubblesLoader />
           </div>
         ) : (
@@ -26,6 +24,29 @@ const SubscriptionPlan = ({ loading }) => {
               <p className="profile-heading fs-sm-16">{planDetails.title}</p>
               <p className="payment-page-amount">${planDetails.price}</p>
             </div>
+            {promoCodeData ? (
+              <>
+                <div className="d-flex justify-content-between pb-2">
+                  <p className="profile-heading-promo">Total Amount</p>
+                  <p className="payment-page-amount-promo">
+                    ${promoCodeData.total}
+                  </p>
+                </div>
+                <div className="d-flex justify-content-between payment-border pb-2">
+                  <p className="profile-heading-promo">discount</p>
+                  <p className="payment-page-amount-promo">
+                    ${promoCodeData.discount}
+                  </p>
+                </div>
+                <div className="d-flex justify-content-between payment-border pb-2">
+                  <p className="profile-heading-promo">Amount to be Paid</p>
+                  <p className="payment-page-amount-promo">
+                    ${promoCodeData.amountToBePaid}
+                  </p>
+                </div>
+              </>
+            ) : null}
+
             <div
               className={`${
                 layoutClickChanger

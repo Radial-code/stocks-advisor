@@ -14,8 +14,16 @@ import {
 } from "../../redux/action/payment";
 import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { verifyPromoCodeAction } from "../../redux/action/promoCode";
 
-const StripeForm = ({ loader, match, history }) => {
+const StripeForm = ({
+  loader,
+  match,
+  history,
+  setPromoCodeData,
+  promoCodeData,
+  planDetails,
+}) => {
   const { getValueOf } = useLayoutChangerProvider();
   const { id } = match.params;
   const stripeID = useSelector((state) => state.list.stripeID);
@@ -27,10 +35,11 @@ const StripeForm = ({ loader, match, history }) => {
   const [reCaptchaToken, setReCaptchaToken] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [verifyLoading, setVerifyLoading] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
-  const [paymentWindow, setPaymentWindow] = useState(false);
   const [paymentId, setPaymentId] = useState("");
+  const [promoCodeDetails, setPromoCodeDetails] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -72,6 +81,10 @@ const StripeForm = ({ loader, match, history }) => {
       const data = {
         planId: id,
         id: stripeID,
+        amount:
+          promoCodeData && promoCodeData.amountToBePaid
+            ? promoCodeData.amountToBePaid
+            : planDetails.price,
         "recaptcha-token": reCaptchaToken,
       };
       await dispatch(getBuyPlanAction(data, setLoading, setPaymentId));
@@ -89,7 +102,19 @@ const StripeForm = ({ loader, match, history }) => {
     handleSubmitPayment();
   }, [paymentMethod, stripeID, paymentId]);
 
-  console.log("paymentId", paymentId);
+  const submitPromoCode = () => {
+    const data = {
+      code: promoCodeDetails,
+      planId: id,
+    };
+    dispatch(verifyPromoCodeAction(data, setVerifyLoading, setPromoCodeData));
+  };
+
+  const removePromoCode = () => {
+    setPromoCodeData("");
+    setPromoCodeDetails("");
+  };
+
   return (
     <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
       <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">
@@ -107,6 +132,37 @@ const StripeForm = ({ loader, match, history }) => {
             />
           </fieldset>
           {error && <StripeErrorMessage>{error.message}</StripeErrorMessage>}
+          <div className="row mt-3 d-flex">
+            <div className="col-12">
+              <input
+                type="text"
+                className="form-control w-70-input"
+                placeholder="Promo Code"
+                onChange={(e) => setPromoCodeDetails(e.target.value)}
+              />
+              {promoCodeDetails.length > 2 && (
+                <>
+                  {promoCodeData && promoCodeData.success ? (
+                    <button
+                      className="btn btn-primary mt-2"
+                      type="button"
+                      onClick={() => removePromoCode()}
+                    >
+                      {verifyLoading ? <Loader /> : "Remove Promo Code"}
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-primary mt-2"
+                      type="button"
+                      onClick={() => submitPromoCode()}
+                    >
+                      {verifyLoading ? <Loader /> : "Apply"}
+                    </button>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
           <div className="mt-3" style={{ maWidth: "100%" }}>
             <HCaptcha
               sitekey="340a426e-e981-47e6-8a61-6ae115ab23a2"
@@ -122,7 +178,7 @@ const StripeForm = ({ loader, match, history }) => {
             getValueOf={getValueOf}
             processing={processing}
             error={error}
-            disabled={!stripe}
+            disabled={promoCodeDetails.length > 2 && !stripe}
           >
             {loader || loading ? <Loader /> : `${getValueOf("Payment")}`}
           </StripeSubmitButton>

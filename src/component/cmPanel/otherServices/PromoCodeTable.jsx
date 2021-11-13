@@ -1,88 +1,111 @@
 import React, { useEffect, useState } from "react";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import NoData from "../../../assets/img/emptydata.jpg";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import { getPromoCodeListAction } from "../../../redux/action/promoCode";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import ReactPaginate from "react-paginate";
+import PromoCodeTableList from "./PromoCodeTableList";
 
-const PromoCodeTable = ({ show, handleClose, setShow, setEdit }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+const PromoCodeTable = ({ setUpdateValue, setShow, setEdit }) => {
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
+  const dispatch = useDispatch();
+  const promoCodeList = useSelector((state) => state.list.promoCodeList);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(0);
+  const [totalPromoCode, setTotalPromoCode] = useState(0);
 
   const editPortfolios = (value) => {
     setShow(true);
     setEdit(true);
-    // setUpdateValue(value);
+    setUpdateValue(value);
+  };
+
+  useEffect(() => {
+    dispatch(getPromoCodeListAction(setLoading, setTotalPromoCode));
+  }, []);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
   };
 
   return (
     <>
-      <table className="table table-borderless table-hover mb-3">
-        <thead className="portfolio-sticky ">
-          <tr className="current-stock-table-head table-border-bottom table-border-top">
-            <th
-              scope="col"
-              className="text-end position-sticky top-0 whitespace "
-            >
-              <span>
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-              </span>
-              {getValueOf("Date")}
-            </th>
-
-            <th
-              scope="col"
-              className="text-end position-sticky top-0 whitespace"
-            >
-              <span>
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-              </span>
-              {getValueOf("Portfolio")}
-            </th>
-
-            <th
-              scope="col"
-              className="text-end position-sticky top-0 whitespace"
-            >
-              <span>
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-              </span>
-              {getValueOf("Edit")}
-            </th>
-            <th
-              scope="col"
-              className="text-end position-sticky top-0 whitespace"
-            >
-              <span>
-                <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-              </span>
-              {getValueOf("Delete")}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="current-stock-data table-border-bottom">
-            <td className="text-end whitespace Ellipse">4227289</td>
-            <td className="text-end whitespace Ellipse">asdfghjk</td>
-            <td className="text-end whitespace Ellipse">
-              <button
-                type="button"
-                onClick={() => editPortfolios()}
-                className="px-3 py-1 edit-button "
-                type="button"
-              >
-                {getValueOf("Edit")}
-              </button>
-            </td>
-            <td className="text-end whitespace Ellipse">
-              <button type="button" className="px-3 py-1 delete-button">
-                {getValueOf("Delete")}
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <BubblesLoader />
+        </div>
+      ) : (
+        <>
+          {promoCodeList && promoCodeList.length !== 0 ? (
+            <PromoCodeTableList
+              getValueOf={getValueOf}
+              layoutClickChanger={layoutClickChanger}
+              dispatch={dispatch}
+              loading={loading}
+              promoCodeList={promoCodeList}
+              editPortfolios={editPortfolios}
+            />
+          ) : (
+            <div className="d-flex text-center flex-column">
+              <img
+                className="nodata-img d-inline-block mx-auto"
+                src={NoData}
+                alt="NoData"
+              />
+              <h4 className="fw-bold">
+                {getValueOf("You don't have any Promo Code list.")}
+              </h4>
+            </div>
+          )}
+        </>
+      )}
+      {totalPromoCode <= 10 ? (
+        ""
+      ) : (
+        <>
+          {layoutClickChanger ? (
+            <ReactPaginate
+              previousLabel={"Prev"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(totalPromoCode / 10)}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"activePage"}
+              initialPage={page}
+            />
+          ) : (
+            <div className="react-pagination">
+              {totalPromoCode <= 10 ? (
+                ""
+              ) : (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalPromoCode / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              )}
+            </div>
+          )}
+        </>
+      )}
     </>
   );
 };
-
 export default PromoCodeTable;

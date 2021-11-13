@@ -32,7 +32,7 @@ export const uploadNewPromoCodeApi = async (data) => {
  *  @param {String} id
  * @returns
  */
-export const updatePromoCodeApi = async (id) => {
+export const updatePromoCodeApi = async (id, data) => {
   return await axiosRequest("PUT", `/promo-code/${id}`, data);
 };
 
@@ -43,4 +43,13 @@ export const updatePromoCodeApi = async (id) => {
  */
 export const DeletePromoCodeApi = async (id) => {
   return await axiosRequest("DELETE", `/promo-code/${id}`);
+};
+
+/**
+ * Verify Promo code Api
+ *  @param {String} id
+ * @returns
+ */
+export const verifyPromoCodeApi = async (data) => {
+  return await axiosRequest("POST", `/promo-code/verify`, data);
 };

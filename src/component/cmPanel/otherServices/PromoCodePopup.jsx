@@ -1,43 +1,142 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import CloseIcon from "../../../assets/img/close-icon.png";
+import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
+import { useDispatch, useSelector } from "react-redux";
+import BubblesLoader from "../../common/BubblesLoader";
+import {
+  updatePromoCodeAction,
+  uploadNewPromoCodeAction,
+} from "../../../redux/action/promoCode";
+import Loader from "../../common/Loader";
+import moment from "moment";
 
-const PromocodePopup = ({ show, handleClose }) => {
+const initialState = {
+  code: "",
+  isReleatedToPlan: false,
+  maximumUses: null,
+  discount: "",
+  isDiscount: false,
+  isFixedAmount: false,
+  amount: "",
+  startDate: "",
+  endDate: "",
+  isGift: false,
+  plans: [],
+  userEmail: "",
+  giftText: "",
+};
+
+const promoCodePlanDetails = [];
+const promoCodePlanId = [];
+
+const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
   const { getValueOf } = useLayoutChangerProvider();
+  const dispatch = useDispatch();
+  const planList = useSelector((state) => state.list.planList);
   const [error, setError] = useState(false);
+  const [promoCodeLoading, setPromoCodeLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [discount, setDiscount] = useState(false);
-  const [gift, setGift] = useState(false);
   const [amount, setAmount] = useState(false);
-  const [promoCodeData, setPromoCodeData] = useState({
-    email: "",
-    discount: "",
-    promocode: "",
-    startdate: "",
-    enddate: "",
-    dicountCheckbox: "",
-    amount: "",
-    gift: "",
-  });
-  const SubmitHandler = () => {
-    setError(true);
-    setPromoCodeData(promoCodeData);
+  const [promroCodeDataId, setPromroCodeDataId] = useState([]);
+  const [promoCodeData, setPromoCodeData] = useState(initialState);
+
+  // Get plan list from redux store and set it to the state
+  useEffect(() => {
+    if (promoCodeData.isReleatedToPlan) {
+      const limit = 10;
+      const page = 0;
+      dispatch(getPlansListAction(setLoading, page, limit));
+    }
+    if (updateValue) {
+      setPromoCodeData(updateValue);
+    }
+  }, [promoCodeData, updateValue]);
+
+  // set plan Id in array for promo code plan id array
+  const selectPlanForPromoCode = (id) => {
+    if (!promoCodePlanId.includes(id)) {
+      promoCodePlanId.push(id);
+      promoCodePlanDetails.push(id);
+    } else {
+      var index = promoCodePlanDetails.indexOf(id);
+      promoCodePlanDetails.splice(index, 1);
+      var indexcategoryId = promoCodePlanId.indexOf(id);
+      promoCodePlanId.splice(indexcategoryId, 1);
+    }
+    setPromroCodeDataId(promoCodePlanDetails);
   };
+
+  // Submit Promo Code Data to API and get response from API and set the response to state variable and close the modal
+  const submitPromoCodeDetails = () => {
+    setError(true);
+    if (
+      promoCodeData.code &&
+      promoCodeData.startDate &&
+      promoCodeData.endDate
+    ) {
+      const data = {
+        code: promoCodeData.code,
+        isReleatedToPlan: promoCodeData.isReleatedToPlan,
+        maximumUses: promoCodeData.maximumUses,
+        discount:
+          promoCodeData.isDiscount === true ? promoCodeData.discount : null,
+        isDiscount: amount ? false : promoCodeData.isDiscount,
+        isFixedAmount: discount ? false : promoCodeData.isFixedAmount,
+        amount:
+          promoCodeData.isFixedAmount === true ? promoCodeData.amount : null,
+        startDate: promoCodeData.startDate,
+        endDate: promoCodeData.endDate,
+        isGift: promoCodeData.isGift,
+        plans: promroCodeDataId ? promroCodeDataId : [],
+        userEmail: promoCodeData.isGift ? promoCodeData.userEmail : null,
+        giftText: promoCodeData.isGift ? promoCodeData.giftText : null,
+      };
+      dispatch(uploadNewPromoCodeAction(data, setPromoCodeLoading));
+      setShow(false);
+    }
+  };
+
   const checkboxHandler = (value) => {
     if (value === "amount") {
       setAmount(!amount);
       setDiscount(false);
-      setGift(false);
     } else if (value === "discount") {
       setDiscount(!discount);
       setAmount(false);
-      setGift(false);
-    } else if (value === "gift") {
-      setGift(!gift);
-      setDiscount(false);
-      setAmount(false);
     }
   };
+
+  const updatePromoCodeDetails = () => {
+    const data = {
+      code: promoCodeData.code,
+      isReleatedToPlan: promoCodeData.isReleatedToPlan,
+      maximumUses: promoCodeData.maximumUses,
+      discount:
+        promoCodeData.isDiscount === true ? promoCodeData.discount : null,
+      isDiscount: amount ? false : promoCodeData.isDiscount,
+      isFixedAmount: discount ? false : promoCodeData.isFixedAmount,
+      amount:
+        promoCodeData.isFixedAmount === true ? promoCodeData.amount : null,
+      startDate: promoCodeData.startDate,
+      endDate: promoCodeData.endDate,
+      isGift: promoCodeData.isGift,
+      plans: promroCodeDataId ? promroCodeDataId : [],
+      userEmail: promoCodeData.isGift ? promoCodeData.userEmail : null,
+      giftText: promoCodeData.isGift ? promoCodeData.giftText : null,
+    };
+    dispatch(
+      updatePromoCodeAction(
+        updateValue._id,
+        data,
+        setPromoCodeLoading,
+        handleClose
+      )
+    );
+  };
+
   return (
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
@@ -49,59 +148,82 @@ const PromocodePopup = ({ show, handleClose }) => {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {getValueOf("Create PromoCode")}
+            {edit
+              ? `${getValueOf("Update PromoCode")}`
+              : `${getValueOf("Create PromoCode")}`}
           </h4>
         </div>
       </div>
 
       <Modal.Body>
+        {/** Promor code */}
         <div className="add-new-stock-field my-3 ms-sm-3">
           <label>{getValueOf("PromoCode")}</label>
           <input
             type="text"
             placeholder={getValueOf("PromoCode")}
             className="py-2 px-3 w-100"
+            value={promoCodeData.code}
             onChange={(e) =>
               setPromoCodeData({
                 ...promoCodeData,
-                promocode: e.target.value,
+                code: e.target.value,
               })
             }
           />
           <span className="text-danger">
-            {error && promoCodeData.promocode === "" ? (
-              <span> {getValueOf("PromoCode is required")}</span>
+            {error && promoCodeData.code === "" ? (
+              <span> {getValueOf("Promo code is required")}</span>
             ) : (
               ""
             )}
           </span>
         </div>
+        {/** Maximum uses */}
+        <div className="add-new-stock-field my-3 ms-sm-3">
+          <label>{getValueOf("Maximum Uses")}</label>
+          <input
+            type="text"
+            placeholder={getValueOf("Maximum Uses")}
+            className="py-2 px-3 w-100"
+            value={promoCodeData.maximumUses}
+            onChange={(e) =>
+              setPromoCodeData({
+                ...promoCodeData,
+                maximumUses: e.target.value,
+              })
+            }
+          />
+        </div>
 
+        {/** Start Date */}
         <div className="row">
           <div className="col-md-6">
             <div className="add-new-stock-field  ms-sm-3">
               <label>{getValueOf("Start Date")}</label>
               <input
                 type="date"
+                value={moment(promoCodeData.startDate).format("YYYY-MM-DD")}
                 placeholder={getValueOf("Start Date")}
                 className="py-2 px-3 w-100 cursor-pointer"
                 onChange={(e) =>
                   setPromoCodeData({
                     ...promoCodeData,
-                    startdate: e.target.value,
+                    startDate: e.target.value,
                   })
                 }
               />
-              {error && promoCodeData.startdate === "" ? (
+              {error && promoCodeData.startDate === "" ? (
                 <span className="text-danger">
-                  {" "}
-                  {getValueOf("StartDate is required")}
+                  {getValueOf("Start Date is required")}
                 </span>
               ) : (
                 ""
               )}
             </div>
           </div>
+
+          {/** End Date */}
           <div className="col-md-6">
             <div className="add-new-stock-field my-md-0 my-3  ms-sm-3">
               <label>{getValueOf("End Date")}</label>
@@ -109,17 +231,17 @@ const PromocodePopup = ({ show, handleClose }) => {
                 type="date"
                 placeholder={getValueOf("End Date")}
                 className="py-2 px-3 w-100 cursor-pointer"
+                value={moment(promoCodeData.endDate).format("YYYY-MM-DD")}
                 onChange={(e) =>
                   setPromoCodeData({
                     ...promoCodeData,
-                    enddate: e.target.value,
+                    endDate: e.target.value,
                   })
                 }
               />
-              {error && promoCodeData.enddate === "" ? (
+              {error && promoCodeData.endDate === "" ? (
                 <span className="text-danger">
-                  {" "}
-                  {getValueOf("EndDate is required")}
+                  {getValueOf("End Date is required")}
                 </span>
               ) : (
                 ""
@@ -127,17 +249,19 @@ const PromocodePopup = ({ show, handleClose }) => {
             </div>
           </div>
         </div>
+
+        {/** Discount */}
         <div className="row">
           <div className="col">
             <input
               className="cursor-pointer my-3 ms-sm-3"
               type="checkbox"
               onClick={() => checkboxHandler("discount")}
-              checked={discount}
+              checked={amount ? false : promoCodeData.isDiscount}
               onChange={(e) =>
                 setPromoCodeData({
                   ...promoCodeData,
-                  dicountCheckbox: e.target.value,
+                  isDiscount: e.target.checked,
                 })
               }
             />
@@ -148,13 +272,14 @@ const PromocodePopup = ({ show, handleClose }) => {
               {getValueOf(" Fix Discount")}
             </label>
 
-            {discount ? (
+            {promoCodeData.isDiscount && discount ? (
               <div className="add-new-stock-field my-1 ms-sm-3">
                 <label>Discount %</label>
                 <input
                   type="number"
                   placeholder={getValueOf("Discount %")}
                   className="py-2 px-3 w-100"
+                  value={promoCodeData.discount}
                   onChange={(e) =>
                     setPromoCodeData({
                       ...promoCodeData,
@@ -162,30 +287,25 @@ const PromocodePopup = ({ show, handleClose }) => {
                     })
                   }
                 />
-                <span className="text-danger">
-                  {error && promoCodeData.discount === "" ? (
-                    <span> {getValueOf("Discount is required")}</span>
-                  ) : (
-                    ""
-                  )}
-                </span>
               </div>
             ) : (
               ""
             )}
           </div>
         </div>
+
+        {/**Fixed amount */}
         <div className="row">
           <div className="col">
             <input
               className="cursor-pointer my-3 ms-sm-3"
               type="checkbox"
-              checked={amount}
+              checked={discount ? false : promoCodeData.isFixedAmount}
               onClick={() => checkboxHandler("amount")}
               onChange={(e) =>
                 setPromoCodeData({
                   ...promoCodeData,
-                  amount: e.target.value,
+                  isFixedAmount: e.target.checked,
                 })
               }
             />
@@ -196,11 +316,12 @@ const PromocodePopup = ({ show, handleClose }) => {
               {getValueOf("Fix Amount")}
             </label>
 
-            {amount ? (
+            {promoCodeData.isFixedAmount && amount ? (
               <div className="add-new-stock-field my-1 ms-sm-3">
                 <label>Amount</label>
                 <input
                   type="number"
+                  value={promoCodeData.amount}
                   placeholder={getValueOf("Amount")}
                   className="py-2 px-3 w-100"
                   onChange={(e) =>
@@ -223,17 +344,18 @@ const PromocodePopup = ({ show, handleClose }) => {
             )}
           </div>
         </div>
+
+        {/**Plan Gift */}
         <div className="row">
           <div className="col">
             <input
               className="cursor-pointer my-3 ms-sm-3"
               type="checkbox"
-              checked={gift}
-              onClick={() => checkboxHandler("gift")}
+              checked={promoCodeData.isGift}
               onChange={(e) =>
                 setPromoCodeData({
                   ...promoCodeData,
-                  gift: e.target.value,
+                  isGift: e.target.checked,
                 })
               }
             />
@@ -244,49 +366,114 @@ const PromocodePopup = ({ show, handleClose }) => {
               {getValueOf("Gift")}
             </label>
 
-            {gift ? (
+            {promoCodeData.isGift ? (
               <div className="add-new-stock-field my-3 ms-sm-3">
                 <label>Email</label>
                 <input
                   type="email"
+                  value={promoCodeData.userEmail}
                   placeholder={getValueOf("Email")}
                   className="py-2 px-3 w-100"
                   onChange={(e) =>
                     setPromoCodeData({
                       ...promoCodeData,
-                      email: e.target.value,
+                      userEmail: e.target.value,
                     })
                   }
                 />
-                <span className="text-danger">
-                  {error && promoCodeData.email === "" ? (
-                    <span> {getValueOf("Email is required")}</span>
-                  ) : (
-                    ""
-                  )}
-                </span>
+
+                <label className="mt-3">Gift Message</label>
+                <textarea
+                  type="text"
+                  placeholder={getValueOf("Message")}
+                  value={promoCodeData.giftText}
+                  className="py-2 px-3 w-100 mt"
+                  onChange={(e) =>
+                    setPromoCodeData({
+                      ...promoCodeData,
+                      giftText: e.target.value,
+                    })
+                  }
+                />
               </div>
             ) : (
               ""
             )}
           </div>
         </div>
+
+        {/**Related plans */}
+        <div className="row">
+          <div className="col">
+            <input
+              className="cursor-pointer my-3 ms-sm-3"
+              type="checkbox"
+              checked={promoCodeData.isReleatedToPlan}
+              onChange={(e) =>
+                setPromoCodeData({
+                  ...promoCodeData,
+                  isReleatedToPlan: e.target.checked,
+                })
+              }
+            />
+            <label
+              className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
+              for="flexCheckDefault"
+            >
+              {getValueOf("Is Related To Plan")}
+            </label>
+
+            {promoCodeData.isReleatedToPlan ? (
+              <>
+                {loading ? (
+                  <BubblesLoader />
+                ) : (
+                  planList &&
+                  planList.length > 0 &&
+                  planList.map((plan, index) => {
+                    return (
+                      <div key={index} className="add-new-stock-field ms-sm-3">
+                        <input
+                          className="cursor-pointer my-3 ms-sm-3"
+                          type="checkbox"
+                          onClick={() =>
+                            selectPlanForPromoCode(plan._id, plan.title)
+                          }
+                        />
+                        <label
+                          className=" cursor-pointer fw-bold ms-2 mt-1"
+                          for="flexCheckDefault"
+                        >
+                          {getValueOf(`${plan.title}`)}
+                        </label>
+                      </div>
+                    );
+                  })
+                )}
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
         <div className="d-flex flex-sm-row flex-column  justify-content-center">
-          <button
-            className="px-5 py-2 add-button  my-sm-3"
-            onClick={SubmitHandler}
-          >
-            {getValueOf("Submit")}
-          </button>
+          {edit ? (
+            <button
+              className="px-5 py-2 add-button  my-sm-3"
+              onClick={() => updatePromoCodeDetails()}
+            >
+              {promoCodeLoading ? <Loader /> : `${getValueOf("Update")}`}
+            </button>
+          ) : (
+            <button
+              className="px-5 py-2 add-button  my-sm-3"
+              onClick={() => submitPromoCodeDetails()}
+            >
+              {promoCodeLoading ? <Loader /> : `${getValueOf("Submit")}`}
+            </button>
+          )}
         </div>
       </Modal.Body>
-
-      {/* <button
-          
-            className="px-5 py-2 add-button ms-3 my-sm-3"
-          >
-            {getValueOf("Update")}
-          </button> */}
     </Modal>
   );
 };
