@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
-import InvitePopup from "./InvitePopup";
 
 const Invite = () => {
   const { getValueOf } = useLayoutChangerProvider();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => {
-    setShow(true);
+
+  const copyReferalUrl = (url) => {
+    var copyUrlText = document.createElement("textarea");
+    copyUrlText.innerText = `${url}`;
+    document.body.appendChild(copyUrlText);
+    copyUrlText.select();
+    document.execCommand("copy");
+    copyUrlText.remove();
+    Swal.fire("Success!", `URL copied successfully.`, "success");
+    setTimeout(Swal.close, 2000);
   };
 
   return (
@@ -15,24 +22,31 @@ const Invite = () => {
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
           <p className="from-heading mb-0 text-md-end text-center">
-            {getValueOf("Invite")}
+            {getValueOf("Invite Your Friends")}
           </p>
         </div>
-        {/* <div className="d-none d-md-flex">
-          <button
-            className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
-            onClick={handleShow}
-          >
-            {getValueOf("Edit")}
-          </button>
-        </div> */}
       </div>
-
-      {/* <div className="my-4 row">
+      <div className="border mt-3 p-3 message-box">
+        <p>Hey</p>
+        <p>
+          Join this website{" "}
+          <Link
+            className="text-decoration-none fs-15 text-5CBD4C "
+            to="https://stockadvisor-app.herokuapp.com"
+          >
+            {getValueOf("https://stockadvisor.com")}.
+          </Link>
+        </p>
+        <p>
+          and user promo code :<code></code>
+        </p>
+        <p>to get $50 when you sign up for a plan.</p>
+      </div>
+      <div className="my-4 row">
         <div className="col-md-9 col-sm-7 col-6 pe-0">
           <input
             type="text"
-            placeholder="link"
+            placeholder="https://stockadvisor-app.herokuapp.com"
             disabled="disabled"
             className="form-control  input-border-16191e33 btn-disable  py-3 profile-input-placeholder"
             id="exampleFormControlInput12"
@@ -40,31 +54,19 @@ const Invite = () => {
         </div>
         <div className="col-md-3 col-sm-5 col-6 ps-0">
           <div className="add-new-btn h-100">
-            <button className="update-btn w-100 h-100">{`${getValueOf(
-              "Copy Link"
-            )}`}</button>
+            <button
+              className="update-btn w-100 h-100"
+              type="button"
+              onClick={() =>
+                copyReferalUrl("https://stockadvisor-app.herokuapp.com")
+              }
+            >
+              {`${getValueOf("Copy Link")}`}
+            </button>
           </div>
         </div>
-      </div> */}
-      <div className="my-5">
-        <textarea
-          className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-          rows="6"
-          placeholder={getValueOf("Invite....")}
-        ></textarea>
       </div>
-      <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column my-4">
-        <div className="add-new-btn w-100">
-          <button className="update-btn">{`${getValueOf("Copy Link")}`}</button>
-        </div>
-      </div>
-      {/* <InvitePopup
-        handleClose={handleClose}
-        handleShow={handleShow}
-        show={show}
-      /> */}
     </div>
   );
 };
-
 export default Invite;

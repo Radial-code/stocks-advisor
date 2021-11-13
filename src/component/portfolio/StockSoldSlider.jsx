@@ -8,7 +8,12 @@ import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
 import BubblesLoader from "../common/BubblesLoader";
 
-const StockSoldSlider = ({ loader, getValueOf, soldStockNewsList }) => {
+const StockSoldSlider = ({
+  loader,
+  getValueOf,
+  soldStockNewsList,
+  layoutClickChanger,
+}) => {
   var settings = {
     dots: true,
     infinite: true,
@@ -55,6 +60,7 @@ const StockSoldSlider = ({ loader, getValueOf, soldStockNewsList }) => {
                         soldValue={value}
                         index={index}
                         getValueOf={getValueOf}
+                        layoutClickChanger={layoutClickChanger}
                       />
                     );
                   })

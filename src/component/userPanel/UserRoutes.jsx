@@ -45,7 +45,7 @@ const UserRoutes = ({ showSidebar, sideBarHandler, setShowSidebar }) => {
               setShowSidebar={setShowSidebar}
             />
           </Route>
-          <Route exact path="/dashboard/invite">
+          <Route exact path="/dashboard/invite/friend">
             <Invite
               sideBarHandler={sideBarHandler}
               showSidebar={showSidebar}

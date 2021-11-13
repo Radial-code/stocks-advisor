@@ -11,7 +11,7 @@ import StockSoldSlider from "./StockSoldSlider";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Portfolio = ({ match }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const soldStockNewsList = useSelector(
     (state) => state.list.soldStockNewsList
@@ -52,10 +52,16 @@ const Portfolio = ({ match }) => {
           />
         </div>
         {soldStockNewsList && (
-          <StockSoldSlider
-            getValueOf={getValueOf}
-            soldStockNewsList={soldStockNewsList}
-          />
+          <div className="m-4">
+            <h1 className="profile-heading pe-3 pt-2">
+              {getValueOf("Related News")}
+            </h1>
+            <StockSoldSlider
+              getValueOf={getValueOf}
+              soldStockNewsList={soldStockNewsList}
+              layoutClickChanger={layoutClickChanger}
+            />
+          </div>
         )}
       </div>
     </>

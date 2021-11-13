@@ -919,3 +919,8 @@ input::-webkit-inner-spin-button {
   background-color: #6c757d85;
   opacity: 1;
 }
+
+.message-box {
+  border-radius: 5px;
+  background-color: #c1c7cc85;
+}

@@ -54,7 +54,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
     } else if (value === "payment") {
       history.push("/dashboard/payment");
     } else if (value === "invite") {
-      history.push("/dashboard/invite");
+      history.push("/dashboard/invite/friend");
     }
   };
 
