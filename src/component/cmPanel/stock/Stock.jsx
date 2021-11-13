@@ -13,17 +13,15 @@ const Stocks = () => {
           <div className="current-stock-bg p-sm-3 p-2">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-between align-items-center">
               <h1 className="current-stock-text ff-popins mb-sm-0  mb-3">
-                {getValueOf("Current Stocks")}
+                Current Stocks
               </h1>
               <Link to="/content/manager/add/stock">
-                <button className="update-btn-2">
-                  {getValueOf("Add New")}
-                </button>
+                <button className="update-btn-2">Add New</button>
               </Link>
             </div>
             <div className="overflow-auto current-stock-calc-height scroll-bar mt-3 ">
               <div className="table-responsive  current-stock-scrollbar h-100 cursor-pointer">
-                <CurrentStockTable getValueOf={getValueOf} />
+                <CurrentStockTable />
               </div>
             </div>
           </div>

@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getInviteFriendsMessageAction } from "../../../redux/action/inviteFriends";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import AdminInvitePopup from "./AdminInvitePopup";
 import NoData from "../../../assets/img/emptydata.jpg";
 import moment from "moment";
 
 const AdminInvite = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const inviteMessageCode = useSelector(
     (state) => state.list.inviteMessageCode
@@ -29,9 +27,7 @@ const AdminInvite = () => {
     <div className="px-xxl-5 px-2 py-4 form-box-shadow container h-100">
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
-          <p className="from-heading mb-0 text-md-end text-center">
-            {getValueOf("Invite")}
-          </p>
+          <p className="from-heading mb-0 text-md-end text-center">Invite</p>
         </div>
         <div className="d-none d-md-flex">
           {inviteMessageCode.length === 0 ? (
@@ -39,14 +35,14 @@ const AdminInvite = () => {
               className="from-edit-profile-btn   mt-3 mt-sm-0"
               onClick={handleShow}
             >
-              {getValueOf("Add")}
+              Add
             </button>
           ) : (
             <button
               className="from-edit-profile-btn   mt-3 mt-sm-0"
               onClick={handleShow}
             >
-              {getValueOf("Edit")}
+              Edit
             </button>
           )}
         </div>
@@ -113,7 +109,7 @@ const AdminInvite = () => {
             alt="NoData"
           />
           <h4 className="fw-bold">
-            {getValueOf("You don't have any Invite Message for User.")}
+            You don't have any Invite Message for User.
           </h4>
         </div>
       )}

@@ -9,12 +9,10 @@ const NewsList = () => {
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-4  pt-5">
         <div className="d-flex justify-content-sm-between align-items-center flex-sm-row flex-column">
-          <p className="heading-stock fs-sm-20 fs-sm-20">
-            {getValueOf("All News")}
-          </p>
+          <p className="heading-stock fs-sm-20 fs-sm-20">All News</p>
           <div>
             <Link to="/content/manager/news/add" className="add-new-btn">
-              <button className="update-btn">{getValueOf("Add New")}</button>
+              <button className="update-btn">Add New</button>
             </Link>
           </div>
         </div>

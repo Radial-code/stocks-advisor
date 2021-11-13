@@ -92,9 +92,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {inviteMessageCode.length > 0
-              ? `${getValueOf("Update Message")}`
-              : `${getValueOf("Create Message")}`}
+            {inviteMessageCode.length > 0 ? "Update Message" : "Create Message"}
           </h4>
         </div>
       </div>
@@ -105,16 +103,14 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
             <textarea
               className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
               rows="6"
-              placeholder={getValueOf("Invite....")}
+              placeholder={"Invite...."}
               value={inviteDetails.message}
               onChange={(e) => {
                 setInviteDetails({ ...inviteDetails, message: e.target.value });
               }}
             ></textarea>
             {error && inviteDetails.message === "" && (
-              <p className="text-danger">
-                {getValueOf("Please enter message")}
-              </p>
+              <p className="text-danger">Please enter message</p>
             )}
           </div>
 
@@ -136,7 +132,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
                 className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
                 for="flexCheckDefault"
               >
-                {getValueOf("Fix Amount")}
+                Fix Amount
               </label>
               {amount ? (
                 <>
@@ -145,7 +141,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
                     <input
                       type="number"
                       value={inviteDetails.amount}
-                      placeholder={getValueOf("Amount")}
+                      placeholder="Amount"
                       className="py-2 px-3 w-100"
                       onChange={(e) => {
                         setInviteDetails({
@@ -179,7 +175,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
                 className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
                 for="flexCheckDefault"
               >
-                {getValueOf("Fix Discount")}
+                Fix Discount
               </label>
               {discount ? (
                 <>
@@ -188,7 +184,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
                     <label>Discount</label>
                     <input
                       type="number"
-                      placeholder={getValueOf(" Discount %")}
+                      placeholder=" Discount %"
                       className="py-2 px-3 w-100"
                       value={inviteDetails.discount}
                       onChange={(e) => {

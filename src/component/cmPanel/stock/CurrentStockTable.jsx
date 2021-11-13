@@ -55,7 +55,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Join Date")}
+                      Join Date
                     </th>
 
                     <th
@@ -73,7 +73,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Symbol")}
+                      Symbol
                     </th>
                     <th
                       scope="col"
@@ -90,7 +90,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("State")}
+                      State
                     </th>
                     <th
                       scope="col"
@@ -107,7 +107,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Join Price")}
+                      Join Price
                     </th>
                     <th
                       scope="col"
@@ -124,7 +124,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Sold Price")}
+                      Sold Price
                     </th>
 
                     <th
@@ -142,7 +142,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Sold Date")}
+                      Sold Date
                     </th>
                     <th
                       scope="col"
@@ -159,7 +159,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Category")}
+                      Category
                     </th>
                     <th
                       scope="col"
@@ -176,7 +176,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Profit/Loss")}
+                      Profit/Loss
                     </th>
                   </tr>
                 </thead>
@@ -203,9 +203,7 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                   src={NoData}
                   alt="NoData"
                 />
-                <h4 className="fw-bold">
-                  {getValueOf("You don't have any stock")}
-                </h4>
+                <h4 className="fw-bold">You don't have any stock</h4>
               </div>
             </>
           )}

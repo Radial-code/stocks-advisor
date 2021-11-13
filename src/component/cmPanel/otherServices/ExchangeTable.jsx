@@ -32,15 +32,11 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
       });
       swalWithBootstrapButtons
         .fire({
-          title: `${
-            layoutClickChanger
-              ? `${getValueOf("? Are You Sure")}`
-              : `${getValueOf("Are You Sure ?")}`
-          }`,
+          title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
           text: `${
             layoutClickChanger
-              ? `${getValueOf(".You want to delete This Exchange")}`
-              : `${getValueOf("You want to delete This Exchange.")}`
+              ? ".You want to delete This Exchange"
+              : "You want to delete This Exchange."
           }`,
           icon: "Error",
           showCancelButton: true,
@@ -86,7 +82,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Date")}
+                      Date
                     </th>
 
                     <th
@@ -100,7 +96,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Exchange")}
+                      Exchange
                     </th>
 
                     <th
@@ -114,7 +110,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Edit")}
+                      Edit
                     </th>
                     <th
                       scope="col"
@@ -127,7 +123,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Delete")}
+                      Delete
                     </th>
                   </tr>
                 </thead>
@@ -150,7 +146,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                                 className="px-3 py-1 edit-button "
                                 onClick={() => editCategory(value)}
                               >
-                                {getValueOf("Edit")}
+                                Edit
                               </button>
                             </td>
                             <td className="text-end  whitespace Ellipse">
@@ -158,7 +154,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                                 onClick={() => deleteExchange(value._id)}
                                 className="px-3 py-1 delete-button"
                               >
-                                {getValueOf("Delete")}
+                                Delete
                               </button>
                             </td>
                           </tr>
@@ -175,9 +171,7 @@ function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">
-                {getValueOf("You don't have any Exchange list")}
-              </h4>
+              <h4 className="fw-bold">You don't have any Exchange list</h4>
             </div>
           )}
         </>

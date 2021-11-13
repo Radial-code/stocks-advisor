@@ -43,7 +43,7 @@ const OtherServices = () => {
             <div className="row justify-content-between flex-md-row flex-column align-items-center pt-4">
               <div className="col-xxl-3 col-12 pb-xxl-0 pb-sm-3 ">
                 <p className="mb-0 text-md-end text-center other-services-text">
-                  {getValueOf("Other Services")}
+                  Other Services
                 </p>
               </div>
               <div className="col-xxl-9 d-flex  justify-content-md-end flex-md-row flex-column">
@@ -53,7 +53,7 @@ const OtherServices = () => {
                   } px-4 py-2 my-md-0 my-2 ms-xl-3 ms-1`}
                   onClick={() => showTable("exchange")}
                 >
-                  {getValueOf("Exchange")}
+                  Exchange
                 </button>
                 <button
                   className={`${
@@ -61,7 +61,7 @@ const OtherServices = () => {
                   } px-4 py-2 my-md-0 my-2  ms-xl-3 ms-1`}
                   onClick={() => showTable("portfolio")}
                 >
-                  {getValueOf("Portfolio")}
+                  Portfolio
                 </button>
 
                 <button
@@ -70,7 +70,7 @@ const OtherServices = () => {
                   } px-4 py-2 my-md-0 my-2  ms-xl-3 ms-1`}
                   onClick={() => showTable("promocode")}
                 >
-                  {getValueOf("PromoCode")}
+                  PromoCode
                 </button>
                 <button
                   className={`${
@@ -78,7 +78,7 @@ const OtherServices = () => {
                   } px-4 py-2 my-md-0 my-2  ms-xl-3 ms-1`}
                   onClick={() => showTable("category")}
                 >
-                  {getValueOf("Category")}
+                  Category
                 </button>
               </div>
             </div>

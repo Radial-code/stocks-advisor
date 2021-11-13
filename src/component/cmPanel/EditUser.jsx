@@ -124,14 +124,12 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                 {data.firstName}&nbsp;{data.lastName}
               </p>
               <Link to="/content/manager/users">
-                <button className="update-btn-2 ">{getValueOf("Back")}</button>
+                <button className="update-btn-2 ">Back</button>
               </Link>
             </div>
 
             <div className="border-b-1 mt-5">
-              <p className="fs-22 fw-500 fs-sm-14">
-                {getValueOf("Contact Info")}
-              </p>
+              <p className="fs-22 fw-500 fs-sm-14">Contact Info</p>
             </div>
 
             {loading ? (
@@ -332,11 +330,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             </span>
                             {layoutClickChanger ? (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                : {getValueOf("Purchase Date")}
+                                : Purchase Date
                               </span>
                             ) : (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                {getValueOf("Purchase Date")} :
+                                Purchase Date :
                               </span>
                             )}
                           </div>
@@ -350,11 +348,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             </span>
                             {layoutClickChanger ? (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                : {getValueOf("Expiry Date")}
+                                : Expiry Date
                               </span>
                             ) : (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                {getValueOf("Expiry Date")} :
+                                Expiry Date :
                               </span>
                             )}
                           </div>
@@ -374,11 +372,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             </div>
                             {layoutClickChanger ? (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                : {getValueOf("Auto Renew")}
+                                : Auto Renew
                               </span>
                             ) : (
                               <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                                {getValueOf("Auto Renew")} :
+                                Auto Renew :
                               </span>
                             )}
                           </div>
@@ -415,7 +413,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
               disabled={userLoading}
               onClick={() => UpdateUser()}
             >
-              {userLoading ? <Loader /> : `${getValueOf("Update")}`}
+              {userLoading ? <Loader /> : "Update"}
             </button>
           </section>
         </Col>

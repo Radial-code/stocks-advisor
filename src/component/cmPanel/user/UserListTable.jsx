@@ -50,7 +50,7 @@ const UserListTable = () => {
                     >
                       {" "}
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Join Date")}
+                      Join Date
                     </th>
                     <th
                       className={`${
@@ -60,7 +60,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                      {getValueOf("Name")}
+                      Name
                     </th>
                     <th
                       className={`${
@@ -70,7 +70,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Phone")}
+                      Phone
                     </th>
                     <th
                       className={`${
@@ -80,7 +80,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("E-mail")}
+                      E-mail
                     </th>
                     <th
                       className={`${
@@ -90,7 +90,7 @@ const UserListTable = () => {
                       }`}
                     >
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Subscription Plan Name")}
+                      Subscription Plan Name
                     </th>
                   </tr>
                 </thead>
@@ -115,7 +115,7 @@ const UserListTable = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <p>{getValueOf("You don't have any user")}</p>
+              <p>You don't have any user</p>
             </div>
           )}
         </>

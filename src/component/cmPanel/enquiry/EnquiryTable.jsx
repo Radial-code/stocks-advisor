@@ -36,32 +36,32 @@ const EnquiryTable = () => {
         <div>
           {contactList && contactList.length !== 0 ? (
             <>
-              <Table responsive hover >
+              <Table responsive hover>
                 <thead className="portfolio-sticky">
                   <tr className="user-list-panel">
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Date")}
+                      Date
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                      {getValueOf("Name")}
+                      Name
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Reason")}
+                      Reason
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("E-mail")}
+                      E-mail
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Message")}
+                      Message
                     </th>
                     <th className=" whitespace text-start">
                       <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                      {getValueOf("Status")}
+                      Status
                     </th>
                   </tr>
                 </thead>
@@ -108,9 +108,7 @@ const EnquiryTable = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">
-                {getValueOf("You don't have any Enquiry")}
-              </h4>
+              <h4 className="fw-bold">You don't have any Enquiry</h4>
             </div>
           )}
         </div>

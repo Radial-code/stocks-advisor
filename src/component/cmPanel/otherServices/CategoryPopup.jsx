@@ -53,9 +53,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {edit
-              ? `${getValueOf("Update Category")}`
-              : `${getValueOf("Add Category")}`}
+            {edit ? "Update Category" : "Add Category"}
           </h4>
         </div>
       </div>
@@ -65,19 +63,17 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
           <input
             type="text"
             value={!!category ? category : updateValue.title}
-            placeholder={getValueOf("English Category")}
+            placeholder="English Category"
             className="py-2 px-3 w-100"
             onChange={(e) => setCategory(e.target.value)}
           />
           <span className="text-danger">
-            {error && category === ""
-              ? `${getValueOf("Category is required")}`
-              : null}
+            {error && category === "" ? "Category is required" : null}
           </span>
           <input
             type="text"
             value={!!acategory ? acategory : updateValue.title}
-            placeholder={getValueOf("Arabic Category")}
+            placeholder="Arabic Category"
             className="py-2 px-3 w-100 mt-2"
             onChange={(e) => setaCategory(e.target.value)}
           />
@@ -90,7 +86,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : `${getValueOf("Submit")}`}
+            {loading ? <Loader /> : "Submit"}
           </button>
         ) : (
           <button
@@ -98,7 +94,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : `${getValueOf("Submit")}`}
+            {loading ? <Loader /> : "Submit"}
           </button>
         )}
       </Modal.Footer>
