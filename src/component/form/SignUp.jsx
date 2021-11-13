@@ -11,7 +11,14 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-function SignUp({ history }) {
+
+function SignUp({ history, match }) {
+  const { inviteCode } = match.params;
+  localStorage.setItem(
+    "inviteCode",
+    inviteCode !== "inviteCode" ? inviteCode : null
+  );
+  const joinedReferalCode = localStorage.getItem("inviteCode");
   const dispatch = useDispatch();
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const countries = useSelector((state) => state.list.countries);
@@ -68,6 +75,7 @@ function SignUp({ history }) {
         country: signUpDetails.country,
         countryCode: signUpDetails.countryCode,
         "recaptcha-token": reCaptchaToken,
+        joinedReferalCode: joinedReferalCode,
       };
       dispatch(SignUpAction(data, setLoading, history));
     }

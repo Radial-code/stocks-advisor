@@ -116,7 +116,7 @@ function Login({ history }) {
             </Form>
             <p className="ff-popins text-center mb-2 pt-sm-5 pt-4">
               {getValueOf("Don't have an account ?")}
-              <Link to="/signup" className="text-decoration">
+              <Link to="/signup/inviteCode" className="text-decoration">
                 <span className="sign-up-text cursor-pointer">
                   {getValueOf("Sign Up")}
                 </span>

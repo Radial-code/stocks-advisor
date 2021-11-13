@@ -146,7 +146,7 @@ const Footer = ({ history }) => {
                     <li>
                       <Link
                         className="text-decoration-none text-white fs-15"
-                        to="/signup"
+                        to="/signup/inviteCode"
                       >
                         {getValueOf("Join Now")}
                       </Link>

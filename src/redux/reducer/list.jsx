@@ -12,7 +12,10 @@ import {
   GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
 import { GET_CONTACT_LIST, GET_NOTIFICATION_LIST } from "../action/contact";
-import { GET_INVITE_MESSAGE_CODE } from "../action/inviteFriends";
+import {
+  GET_INVITE_MESSAGE_CODE,
+  INVITE_YOUR_MESSAGE_CODE,
+} from "../action/inviteFriends";
 import {
   GET_RELETED_SOLD_STOCK_NEWS,
   GET_SEARCH_RESULT_LIST,
@@ -65,6 +68,7 @@ const initialState = {
   countries: [],
   promoCodeList: [],
   inviteMessageCode: {},
+  inviteYourMessageCode: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -327,6 +331,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         inviteMessageCode: action.data,
+      };
+    }
+
+    // invite your message code data
+    case INVITE_YOUR_MESSAGE_CODE: {
+      return {
+        ...state,
+        inviteYourMessageCode: action.data,
       };
     }
     default:

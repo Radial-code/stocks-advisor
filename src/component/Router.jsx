@@ -56,7 +56,7 @@ const Router = ({
       <Switch>
         {/**Auth routes */}
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup/:inviteCode" component={SignUp} />
         <Route path="/forget/password" component={ForgetPassword} />
         <Route
           exact

@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { InviteYourFriendsCodeAction } from "../../../redux/action/inviteFriends";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Invite = () => {
   const { getValueOf } = useLayoutChangerProvider();
+  const dispatch = useDispatch();
+  const [inviteFriendMessage, setInviteFriendMessage] = useState(false);
+  const inviteYourMessageCode = useSelector(
+    (state) => state.list.inviteYourMessageCode
+  );
+  useEffect(() => {
+    dispatch(InviteYourFriendsCodeAction(setInviteFriendMessage));
+  }, []);
 
   const copyReferalUrl = (url) => {
     var copyUrlText = document.createElement("textarea");
@@ -46,7 +56,9 @@ const Invite = () => {
         <div className="col-md-9 col-sm-7 col-6 ">
           <input
             type="text"
-            placeholder="https://stockadvisor-app.herokuapp.com"
+            placeholder={`${
+              inviteYourMessageCode ? inviteYourMessageCode.code : "N/A"
+            }`}
             disabled="disabled"
             className="form-control  input-border-16191e33 btn-disable  py-3 profile-input-placeholder"
             id="exampleFormControlInput12"
@@ -58,7 +70,9 @@ const Invite = () => {
               className="update-btn w-100 h-100"
               type="button"
               onClick={() =>
-                copyReferalUrl("https://stockadvisor-app.herokuapp.com")
+                copyReferalUrl(
+                  inviteYourMessageCode ? inviteYourMessageCode.code : null
+                )
               }
             >
               {`${getValueOf("Copy Link")}`}

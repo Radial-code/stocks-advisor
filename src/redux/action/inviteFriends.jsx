@@ -2,10 +2,12 @@ import Swal from "sweetalert2";
 import {
   getInviteFriendsMessageApi,
   inviteFriendsMessageApi,
+  InviteYourFriendsCodeApi,
 } from "../api/inviteFriend";
 
 export const INVITE_MESSAGE_CODE = "INVITE_MESSAGE_CODE";
 export const GET_INVITE_MESSAGE_CODE = "GET_INVITE_MESSAGE_CODE";
+export const INVITE_YOUR_MESSAGE_CODE = "INVITE_YOUR_MESSAGE_CODE";
 
 /**
  * invite friend message action
@@ -65,6 +67,36 @@ export const getInviteFriendsMessageAction =
       } else {
         setInviteFriendMessage(false);
         Swal.fire("Error", "Failed to load invite message code", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setInviteFriendMessage(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * invite your friend message action
+ * @param {Object} data
+ * @returns
+ */
+const InviteYourFriendsCode = (data) => ({
+  type: INVITE_YOUR_MESSAGE_CODE,
+  data,
+});
+
+export const InviteYourFriendsCodeAction =
+  (setInviteFriendMessage) => async (dispatch) => {
+    setInviteFriendMessage(true);
+    try {
+      const response = await InviteYourFriendsCodeApi();
+      if (response.success) {
+        dispatch(InviteYourFriendsCode(response));
+        setInviteFriendMessage(false);
+      } else {
+        setInviteFriendMessage(false);
+        Swal.fire("Error", "Failed to load invite message", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {
