@@ -34,7 +34,7 @@
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
   opacity: 1;
-  width: 781px;
+  /* width: 781px; */
 }
 .mr-15 {
   margin-right: 15px;
@@ -85,9 +85,9 @@ input:focus-visible {
   }
 }
 @media (max-width: 1599.98px) {
-  .select-plan-payment {
+  /* .select-plan-payment {
     width: 700px;
-  }
+  } */
   .w-xlg-100 {
     width: 100%;
   }
@@ -109,9 +109,9 @@ input:focus-visible {
   }
 }
 @media (max-width: 1399.98px) {
-  .select-plan-payment {
+  /* .select-plan-payment {
     width: 600px;
-  }
+  } */
   .card-payment {
     width: 450px;
   }
@@ -127,9 +127,9 @@ input:focus-visible {
 }
 
 @media (max-width: 1199.98px) {
-  .select-plan-payment {
+  /* .select-plan-payment {
     width: 500px;
-  }
+  } */
   .card-payment {
     width: 390px;
   }
