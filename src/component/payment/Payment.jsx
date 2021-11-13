@@ -22,47 +22,45 @@ const Payment = ({ match }) => {
   }, []);
 
   return (
-    <>
-      <Container className="max-w-1400 mt-5 mb-5 ">
-        <Row className="justify-content-between mt-100 pt-3">
-          <SubscriptionPlan
+    <Container className="max-w-1400 mt-5 mb-5 ">
+      <Row className="justify-content-between mt-100 pt-3">
+        <SubscriptionPlan
+          loading={loading}
+          promoCodeData={promoCodeData}
+          planDetails={planDetails}
+        />
+        {allPlanDetails.isOldPlan ? (
+          <OldPlanDetails
             loading={loading}
-            promoCodeData={promoCodeData}
-            planDetails={planDetails}
+            planDetails={allPlanDetails.oldPlan}
           />
-          {allPlanDetails.youHaveToPay === 0 ? (
-            <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
-          ) : (
-            <>
-              {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
-                <>
-                  <StripeForm
-                    setPromoCodeData={setPromoCodeData}
-                    promoCodeData={promoCodeData}
-                    youHaveToPay={allPlanDetails.youHaveToPay}
-                  />
-                  <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
-                </>
-              ) : (
+        ) : (
+          ""
+        )}
+        {allPlanDetails.youHaveToPay === 0 ? (
+          <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+        ) : (
+          <>
+            {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
+              <>
                 <StripeForm
                   setPromoCodeData={setPromoCodeData}
                   promoCodeData={promoCodeData}
                   youHaveToPay={allPlanDetails.youHaveToPay}
                 />
-              )}
-            </>
-          )}
-          {allPlanDetails.isOldPlan ? (
-            <OldPlanDetails
-              loading={loading}
-              planDetails={allPlanDetails.oldPlan}
-            />
-          ) : (
-            ""
-          )}
-        </Row>
-      </Container>
-    </>
+                <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+              </>
+            ) : (
+              <StripeForm
+                setPromoCodeData={setPromoCodeData}
+                promoCodeData={promoCodeData}
+                youHaveToPay={allPlanDetails.youHaveToPay}
+              />
+            )}
+          </>
+        )}
+      </Row>
+    </Container>
   );
 };
 export default withRouter(Payment);
