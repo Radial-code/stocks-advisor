@@ -31,7 +31,7 @@ const initialState = {
 const promoCodePlanDetails = [];
 const promoCodePlanId = [];
 
-const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
+const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
   const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const planList = useSelector((state) => state.list.planList);
@@ -50,10 +50,15 @@ const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
       const page = 0;
       dispatch(getPlansListAction(setLoading, page, limit));
     }
-    if (updateValue) {
+  }, [promoCodeData]);
+
+  useEffect(() => {
+    if (updateValue !== {} && edit) {
       setPromoCodeData(updateValue);
+    } else {
+      setPromoCodeData(initialState);
     }
-  }, [promoCodeData, updateValue]);
+  }, [updateValue, edit]);
 
   // set plan Id in array for promo code plan id array
   const selectPlanForPromoCode = (id) => {
@@ -94,8 +99,14 @@ const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
         userEmail: promoCodeData.isGift ? promoCodeData.userEmail : null,
         giftText: promoCodeData.isGift ? promoCodeData.giftText : null,
       };
-      dispatch(uploadNewPromoCodeAction(data, setPromoCodeLoading));
-      setShow(false);
+      dispatch(
+        uploadNewPromoCodeAction(
+          data,
+          setPromoCodeLoading,
+          setError,
+          handleClose
+        )
+      );
     }
   };
 
@@ -183,7 +194,7 @@ const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
         <div className="add-new-stock-field my-3 ms-sm-3">
           <label>{getValueOf("Maximum Uses")}</label>
           <input
-            type="text"
+            type="number"
             placeholder={getValueOf("Maximum Uses")}
             className="py-2 px-3 w-100"
             value={promoCodeData.maximumUses}
@@ -381,7 +392,16 @@ const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
                     })
                   }
                 />
-
+                {promoCodeData.isGift &&
+                error &&
+                promoCodeData.userEmail === "" ? (
+                  <span className="text-danger">
+                    {getValueOf("Email is required")}
+                  </span>
+                ) : (
+                  ""
+                )}
+                <br></br>
                 <label className="mt-3">Gift Message</label>
                 <textarea
                   type="text"
@@ -395,6 +415,15 @@ const PromocodePopup = ({ show, handleClose, setShow, edit, updateValue }) => {
                     })
                   }
                 />
+                {promoCodeData.isGift &&
+                error &&
+                promoCodeData.giftText === "" ? (
+                  <span className="text-danger">
+                    {getValueOf("Gift Message is required")}
+                  </span>
+                ) : (
+                  ""
+                )}
               </div>
             ) : (
               ""

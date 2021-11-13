@@ -317,12 +317,10 @@ export default function ListReducer(state = initialState, action) {
       const promoCodeListDetails = promoCodeListList.filter(
         (value) => value._id === action.payload.id
       );
-      console.log(action.payload.data);
-      console.log(promoCodeListDetails, "promoCodeListDetails");
-      // promoCodeListDetails[0] = action.payload.data;
+      promoCodeListDetails[0] = action.payload.data;
       return {
         ...state,
-        // promoCodeList: promoCodeListDetails,
+        promoCodeList: promoCodeListList,
       };
     }
 

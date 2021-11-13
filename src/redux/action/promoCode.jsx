@@ -83,13 +83,15 @@ const uploadNewPromoCode = (data) => ({
 });
 
 export const uploadNewPromoCodeAction =
-  (data, setLoading) => async (dispatch) => {
+  (data, setLoading, setError, handleClose) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await uploadNewPromoCodeApi(data);
       if (response.success) {
         dispatch(uploadNewPromoCode(response.data));
         setLoading(false);
+        setError(false);
+        handleClose();
       } else {
         setLoading(false);
       }
