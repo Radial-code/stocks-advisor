@@ -34,7 +34,7 @@ const AdminInvite = () => {
         </div>
         <div className="d-none d-md-flex">
           <button
-            className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
+            className="from-edit-profile-btn   mt-3 mt-sm-0"
             onClick={handleShow}
           >
             {inviteMessageCode.length > 0
@@ -51,135 +51,30 @@ const AdminInvite = () => {
             </div>
           ) : (
             <div className="border mt-3 p-3 message-box">
-              <div
-                className={`${
-                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
-                } d-flex `}
-              >
-                {layoutClickChanger ? (
-                  <>
-                    {" "}
-                    <p>
-                      {layoutClickChanger ? <> : CreateAt</> : <>CreateAt :</>}
-                    </p>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    {" "}
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                    <p>
-                      {layoutClickChanger ? <> : CreateAt</> : <>CreateAt :</>}
-                    </p>
-                  </>
-                )}
+              <div className="d-flex ">
+                <p className="flex-row-reverse">
+                  CreatedAt : <span>sdfghjkl</span>
+                </p>
               </div>
-              <div
-                className={`${
-                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
-                } d-flex `}
-              >
-                {" "}
-                {layoutClickChanger ? (
-                  <>
-                    {" "}
-                    <p>{layoutClickChanger ? <> : Type</> : <>Type :</>}</p>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    {" "}
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                    <p>{layoutClickChanger ? <> : Type</> : <>Type :</>}</p>
-                  </>
-                )}
+              <div className="d-flex ">
+                <p className="flex-row-reverse">
+                  Type : <span>sdfghjkl</span>
+                </p>
               </div>
-              <div
-                className={`${
-                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
-                } d-flex `}
-              >
-                {" "}
-                {layoutClickChanger ? (
-                  <>
-                    {" "}
-                    <p>{layoutClickChanger ? <> : Amount</> : <>Amount :</>}</p>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                    <p>{layoutClickChanger ? <> : Amount</> : <>Amount :</>}</p>
-                  </>
-                )}
+              <div className="d-flex ">
+                <p className="flex-row-reverse">
+                  Amount : <span>sdfghjkl</span>
+                </p>
               </div>
-              <div
-                className={`${
-                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
-                } d-flex `}
-              >
-                {" "}
-                {layoutClickChanger ? (
-                  <>
-                    {" "}
-                    <p>
-                      {layoutClickChanger ? <> : Discount</> : <>Discount :</>}
-                    </p>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    {" "}
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                    <p>
-                      {layoutClickChanger ? <> : Discount</> : <>Discount :</>}
-                    </p>
-                  </>
-                )}
+              <div className="d-flex">
+                <p className="flex-row-reverse">
+                  Discount : <span>sdfghjkl</span>
+                </p>
               </div>
-              <div
-                className={`${
-                  layoutClickChanger ? "flex-row-reverse" : "flex-row-reverse"
-                } d-flex `}
-              >
-                {" "}
-                {layoutClickChanger ? (
-                  <>
-                    {" "}
-                    <p>
-                      {layoutClickChanger ? <> : Message</> : <>Message :</>}
-                    </p>
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    {" "}
-                    <span>
-                      {layoutClickChanger ? <> asdfghjkl</> : <>zxcvbnm,.</>}
-                    </span>
-                    <p>
-                      {layoutClickChanger ? <> : Message</> : <>Message :</>}
-                    </p>
-                  </>
-                )}
+              <div className="d-flex">
+                <p className="flex-row-reverse">
+                  Message : <span>sdfghjkl</span>
+                </p>
               </div>
             </div>
             // <div className="my-5">
