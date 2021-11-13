@@ -32,7 +32,6 @@ const SubscriptionDetails = () => {
     }
   }, [myPlanDetails]);
 
-  console.log("detailsString", detailsData);
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
       <div className="w-xl-1000 box p-md-4 p-4 h-100">

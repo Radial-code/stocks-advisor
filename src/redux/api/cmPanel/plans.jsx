@@ -10,6 +10,15 @@ export const addNewPlansDetailsApi = async (data) => {
 };
 
 /**
+ * Plan upgrade api
+ * @param {Object} data
+ * @returns
+ */
+export const plansUpgradeApi = async (data) => {
+  return await axiosRequest("POST", `/plans/upgrade`, data);
+};
+
+/**
  *  Plans list api
  * @returns
  */

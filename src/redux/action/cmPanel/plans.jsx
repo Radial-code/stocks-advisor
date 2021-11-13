@@ -3,6 +3,7 @@ import {
   addNewPlansDetailsApi,
   deletePlansApi,
   getPlansListApi,
+  plansUpgradeApi,
   updatePlansDetailsApi,
 } from "../../api/cmPanel/plans";
 
@@ -25,6 +26,34 @@ export const addNewPlansDetailsAction =
         Swal.fire("Success", "Plans submitted successfully", "success");
         setTimeout(Swal.close, 2000);
         history.push("/content/manager/our/plans/details");
+      } else {
+        setAddPlansLoading(false);
+        Swal.fire("Error", "Failed to add Plans", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setAddPlansLoading(false);
+      // Swal.fire("Error!", "Something went wrong", "error");
+      // setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * plan upgrade action
+ * @param {Object} data
+ * @returns
+ */
+export const plansUpgradeAction =
+  (data, setAddPlansLoading, history) => async () => {
+    setAddPlansLoading(true);
+    try {
+      const response = await plansUpgradeApi(data);
+      if (response.success) {
+        setAddPlansLoading(false);
+        Swal.fire("Success", "Plans Changed successfully", "success");
+        setTimeout(Swal.close, 2000);
+        history.push("/dashboard/manage/subscription");
+        window.location.reload();
       } else {
         setAddPlansLoading(false);
         Swal.fire("Error", "Failed to add Plans", "error");

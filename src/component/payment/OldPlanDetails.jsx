@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 import BubblesLoader from "../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
+const OldPlanDetails = ({ loading, planDetails }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const split_string =
     planDetails && planDetails.details && planDetails.details.split(",");
@@ -11,7 +11,7 @@ const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
     <Col lg={7} className="d-flex justify-content-center">
       <section className=" select-plan-payment p-lg-4 p-3">
         <p className="heading-stock fs-sm-20 d-sm-flex justify-content-center d-lg-block">
-          {getValueOf("Selected Subscription Plan")}
+          {getValueOf("Old Plan Details")}
         </p>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center h-100">
@@ -27,29 +27,6 @@ const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
                 ${planDetails && planDetails.price}
               </p>
             </div>
-            {promoCodeData ? (
-              <>
-                <div className="d-flex justify-content-between pb-2">
-                  <p className="profile-heading-promo">Total Amount</p>
-                  <p className="payment-page-amount-promo">
-                    ${promoCodeData.total}
-                  </p>
-                </div>
-                <div className="d-flex justify-content-between payment-border pb-2">
-                  <p className="profile-heading-promo">Discount</p>
-                  <p className="payment-page-amount-promo">
-                    ${promoCodeData.discountPrice}
-                  </p>
-                </div>
-                <div className="d-flex justify-content-between payment-border pb-2">
-                  <p className="profile-heading-promo">Amount to be Paid</p>
-                  <p className="payment-page-amount-promo">
-                    ${promoCodeData.amountToBePaid}
-                  </p>
-                </div>
-              </>
-            ) : null}
-
             <div
               className={`${
                 layoutClickChanger
@@ -102,4 +79,4 @@ const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
     </Col>
   );
 };
-export default SubscriptionPlan;
+export default OldPlanDetails;

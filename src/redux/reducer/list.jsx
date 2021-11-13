@@ -70,6 +70,7 @@ const initialState = {
   promoCodeList: [],
   inviteMessageCode: {},
   inviteYourMessageCode: {},
+  allPlanDetails: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -229,7 +230,8 @@ export default function ListReducer(state = initialState, action) {
     case GET_PLAN_DETAILS_BY_ID: {
       return {
         ...state,
-        planDetails: action.data,
+        planDetails: action.payload.data,
+        allPlanDetails: action.payload.response,
       };
     }
 
@@ -301,7 +303,6 @@ export default function ListReducer(state = initialState, action) {
 
     // Delete plan by id
     case DELETE_PROMO_CODE: {
-      console.log(action.data);
       const promoCodeListDeleted = [...state.promoCodeList];
       const promoCodeListDelData = promoCodeListDeleted.filter(
         (value) => value._id !== action.data

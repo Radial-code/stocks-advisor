@@ -85,9 +85,12 @@ export const getMyPlanAction = (setLoading) => async (dispatch) => {
  * @param {Object} data
  * @returns
  */
-const getPlanDetailsById = (data) => ({
+const getPlanDetailsById = (data, response) => ({
   type: GET_PLAN_DETAILS_BY_ID,
-  data,
+  payload: {
+    data: data,
+    response: response,
+  },
 });
 
 export const getPlanDetailsByIdAction =
@@ -96,7 +99,7 @@ export const getPlanDetailsByIdAction =
     try {
       const response = await getPlanDetailsByIdApi(id);
       if (response.success) {
-        dispatch(getPlanDetailsById(response.details));
+        dispatch(getPlanDetailsById(response.details, response));
         setLoading(false);
       } else {
         setLoading(false);
@@ -124,11 +127,9 @@ export const getBuyPlanAction =
       if (response.success) {
         Swal.fire("Success", "Plan Subscribed successfully", "success");
         setTimeout(Swal.close, 2000);
-        console.log("response.paymentId", response.paymentId);
         setPaymentId(response.paymentId);
         setLoading(false);
         const paymentWindow = window.open(response.url, "_blank");
-        console.log(paymentWindow);
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to add payment", "error");

@@ -6,7 +6,6 @@ import "../common/slider.css";
 import SearchNews from "../../assets/img/searchnews.png";
 import { withRouter } from "react-router-dom";
 import StockSliderCard from "./StockSliderCard";
-import BubblesLoader from "../common/BubblesLoader";
 
 const StockSoldSlider = ({
   loader,
@@ -47,41 +46,6 @@ const StockSoldSlider = ({
       },
     ],
   };
-
-  // <>
-  //   {soldStockNewsList && soldStockNewsList !== 0 ? (
-  //     <>
-  //       {!loader ? (
-  //         <Slider {...settings} className="stock-slider">
-  //           {console.log("soldStockNewsList", soldStockNewsList.length)}
-  //           {soldStockNewsList && soldStockNewsList.length
-  //             ? soldStockNewsList.map((value, index) => {
-  //                 return (
-  //                   <StockSliderCard
-  //                     soldValue={value}
-  //                     index={index}
-  //                     getValueOf={getValueOf}
-  //                     layoutClickChanger={layoutClickChanger}
-  //                   />
-  //                 );
-  //               })
-  //             : ""}
-  //         </Slider>
-  //       ) : (
-  //         <div className="d-flex justify-content-center">
-  //           <BubblesLoader />
-  //         </div>
-  //       )}
-  //     </>
-  //   ) : (
-  //     <>
-  //       <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
-  //       <h4 className="text-center">
-  //         {getValueOf("You don't have any News")}
-  //       </h4>
-  //     </>
-  //   )}
-  // </>
   return (
     <div className="container my-4 ">
       <div className="row">

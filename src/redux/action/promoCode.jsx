@@ -116,7 +116,6 @@ export const deletePromoCodeAction = (id) => async (dispatch) => {
   try {
     const response = await DeletePromoCodeApi(id);
     if (response.success) {
-      console.log(id);
       dispatch(deletePromoCode(id));
       Swal.fire("success", "Promo Code deleted successfully", "success");
       setTimeout(Swal.close, 2000);
@@ -180,7 +179,6 @@ export const verifyPromoCodeAction =
     setLoading(true);
     try {
       const response = await verifyPromoCodeApi(data);
-      console.log(response.err);
       if (response.success) {
         dispatch(verifyPromoCode(response));
         setPromoCodeData(response);

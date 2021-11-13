@@ -22,7 +22,7 @@ const StripeForm = ({
   history,
   setPromoCodeData,
   promoCodeData,
-  planDetails,
+  youHaveToPay,
 }) => {
   const { getValueOf } = useLayoutChangerProvider();
   const { id } = match.params;
@@ -81,10 +81,7 @@ const StripeForm = ({
       const data = {
         planId: id,
         id: stripeID,
-        amount:
-          promoCodeData && promoCodeData.amountToBePaid
-            ? promoCodeData.amountToBePaid
-            : planDetails.price,
+        amount: youHaveToPay,
         "recaptcha-token": reCaptchaToken,
       };
       await dispatch(getBuyPlanAction(data, setLoading, setPaymentId));

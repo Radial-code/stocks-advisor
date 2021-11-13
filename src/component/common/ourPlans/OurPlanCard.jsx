@@ -220,7 +220,6 @@ const OurPlanCard = ({ homepage, history }) => {
                               ))
                             : "N/A"}
                         </p>
-                        {console.log(userData.planId)}
                         <div className="d-flex justify-content-center mt-5 pb-5">
                           {auth && !!token ? (
                             <button

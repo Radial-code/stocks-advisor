@@ -6,6 +6,8 @@ import "./Paymentpage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlanDetailsByIdAction } from "../../redux/action/payment";
 import { withRouter } from "react-router";
+import OldPlan from "./OldPlan";
+import OldPlanDetails from "./OldPlanDetails";
 
 const Payment = ({ match }) => {
   const { id } = match.params;
@@ -13,6 +15,7 @@ const Payment = ({ match }) => {
   const [loading, setLoading] = useState(false);
   const [promoCodeData, setPromoCodeData] = useState(false);
   const planDetails = useSelector((state) => state.list.planDetails);
+  const allPlanDetails = useSelector((state) => state.list.allPlanDetails);
 
   useEffect(() => {
     dispatch(getPlanDetailsByIdAction(id, setLoading));
@@ -27,11 +30,36 @@ const Payment = ({ match }) => {
             promoCodeData={promoCodeData}
             planDetails={planDetails}
           />
-          <StripeForm
-            setPromoCodeData={setPromoCodeData}
-            promoCodeData={promoCodeData}
-            planDetails={planDetails}
-          />
+          {allPlanDetails.youHaveToPay === 0 ? (
+            <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+          ) : (
+            <>
+              {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
+                <>
+                  <StripeForm
+                    setPromoCodeData={setPromoCodeData}
+                    promoCodeData={promoCodeData}
+                    youHaveToPay={allPlanDetails.youHaveToPay}
+                  />
+                  <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+                </>
+              ) : (
+                <StripeForm
+                  setPromoCodeData={setPromoCodeData}
+                  promoCodeData={promoCodeData}
+                  youHaveToPay={allPlanDetails.youHaveToPay}
+                />
+              )}
+            </>
+          )}
+          {allPlanDetails.isOldPlan ? (
+            <OldPlanDetails
+              loading={loading}
+              planDetails={allPlanDetails.oldPlan}
+            />
+          ) : (
+            ""
+          )}
         </Row>
       </Container>
     </>
