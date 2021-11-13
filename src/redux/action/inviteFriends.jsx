@@ -3,11 +3,13 @@ import {
   getInviteFriendsMessageApi,
   inviteFriendsMessageApi,
   InviteYourFriendsCodeApi,
+  updateInviteFriendMessageApi,
 } from "../api/inviteFriend";
 
 export const INVITE_MESSAGE_CODE = "INVITE_MESSAGE_CODE";
 export const GET_INVITE_MESSAGE_CODE = "GET_INVITE_MESSAGE_CODE";
 export const INVITE_YOUR_MESSAGE_CODE = "INVITE_YOUR_MESSAGE_CODE";
+export const UPDATE_INVITE_MESSAGE_CODE = "UPDATE_INVITE_MESSAGE_CODE";
 
 /**
  * invite friend message action
@@ -37,6 +39,46 @@ export const inviteFriendsMessageAction =
       } else {
         setInviteFriendMessage(false);
         Swal.fire("Error", "Failed to add message code", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
+      setInviteFriendMessage(false);
+      Swal.fire("Error!", "Something went wrong", "error");
+      setTimeout(Swal.close, 2000);
+    }
+  };
+
+/**
+ * update invite friend message action
+ * @param {Object} data
+ * @returns
+ */
+const updateInviteFriendMessage = (id, data) => ({
+  type: UPDATE_INVITE_MESSAGE_CODE,
+  payload: {
+    data: data,
+    id: id,
+  },
+});
+
+export const updateInviteFriendMessageAction =
+  (id, data, setInviteFriendMessage, handleClose) => async (dispatch) => {
+    setInviteFriendMessage(true);
+    try {
+      const response = await updateInviteFriendMessageApi(id, data);
+      if (response.success) {
+        dispatch(updateInviteFriendMessage(id, response.data));
+        setInviteFriendMessage(false);
+        Swal.fire(
+          "Success",
+          "Update Invite message code successfully",
+          "success"
+        );
+        setTimeout(Swal.close, 2000);
+        handleClose();
+      } else {
+        setInviteFriendMessage(false);
+        Swal.fire("Error", "Failed to update message code", "error");
         setTimeout(Swal.close, 2000);
       }
     } catch (error) {

@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { Modal } from "react-bootstrap";
 import CloseIcon from "../../../assets/img/close-icon.png";
 import { useDispatch } from "react-redux";
-import { inviteFriendsMessageAction } from "../../../redux/action/inviteFriends";
+import {
+  inviteFriendsMessageAction,
+  updateInviteFriendMessageAction,
+} from "../../../redux/action/inviteFriends";
 import Loader from "../../common/Loader";
 
-const AdminInvitePopup = ({ handleClose, show }) => {
+const initialState = {
+  isDiscount: false,
+  discount: "",
+  amount: "",
+  isFixedAmount: false,
+  message: "",
+};
+
+const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
   const dispatch = useDispatch();
   const [amount, setAmount] = useState(false);
   const [error, setError] = useState(false);
@@ -14,13 +25,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
   const [inviteFriendMessage, setInviteFriendMessage] = useState(false);
   const { getValueOf } = useLayoutChangerProvider();
 
-  const [inviteDetails, setInviteDetails] = useState({
-    isDiscount: false,
-    discount: "",
-    amount: "",
-    isFixedAmount: false,
-    message: "",
-  });
+  const [inviteDetails, setInviteDetails] = useState(initialState);
 
   const checkboxHandler = (value) => {
     if (value === "amount") {
@@ -31,6 +36,14 @@ const AdminInvitePopup = ({ handleClose, show }) => {
       setAmount(false);
     }
   };
+
+  useEffect(() => {
+    if (inviteMessageCode.length > 0) {
+      setInviteDetails(inviteMessageCode[0]);
+    } else {
+      setInviteDetails(initialState);
+    }
+  }, [inviteMessageCode]);
 
   const saveInviteDetails = () => {
     setError(true);
@@ -48,6 +61,26 @@ const AdminInvitePopup = ({ handleClose, show }) => {
     }
   };
 
+  const updateInviteFriend = () => {
+    setError(true);
+    if (inviteDetails.message !== "") {
+      const data = {
+        isDiscount: amount ? false : inviteDetails.isDiscount,
+        discount: !amount ? inviteDetails.discount : null,
+        amount: inviteDetails.isFixedAmount ? inviteDetails.amount : null,
+        isFixedAmount: discount ? false : inviteDetails.isFixedAmount,
+        message: inviteDetails.message,
+      };
+      dispatch(
+        updateInviteFriendMessageAction(
+          inviteMessageCode[0]._id,
+          data,
+          setInviteFriendMessage,
+          handleClose
+        )
+      );
+    }
+  };
   return (
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
@@ -59,7 +92,9 @@ const AdminInvitePopup = ({ handleClose, show }) => {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {`${getValueOf("Invite Friend")}`}
+            {inviteMessageCode.length > 0
+              ? `${getValueOf("Update Message")}`
+              : `${getValueOf("Create Message")}`}
           </h4>
         </div>
       </div>
@@ -71,6 +106,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
               className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
               rows="6"
               placeholder={getValueOf("Invite....")}
+              value={inviteDetails.message}
               onChange={(e) => {
                 setInviteDetails({ ...inviteDetails, message: e.target.value });
               }}
@@ -87,7 +123,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
               <input
                 className="cursor-pointer my-3 ms-sm-2"
                 type="checkbox"
-                checked={amount}
+                checked={inviteDetails.isFixedAmount}
                 onClick={() => checkboxHandler("amount")}
                 onChange={(e) => {
                   setInviteDetails({
@@ -108,6 +144,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
                     <label>Amount</label>
                     <input
                       type="number"
+                      value={inviteDetails.amount}
                       placeholder={getValueOf("Amount")}
                       className="py-2 px-3 w-100"
                       onChange={(e) => {
@@ -129,7 +166,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
               <input
                 className="cursor-pointer my-3 ms-sm-2"
                 type="checkbox"
-                checked={discount}
+                checked={inviteDetails.isDiscount}
                 onClick={() => checkboxHandler("discount")}
                 onChange={(e) => {
                   setInviteDetails({
@@ -153,6 +190,7 @@ const AdminInvitePopup = ({ handleClose, show }) => {
                       type="number"
                       placeholder={getValueOf(" Discount %")}
                       className="py-2 px-3 w-100"
+                      value={inviteDetails.discount}
                       onChange={(e) => {
                         setInviteDetails({
                           ...inviteDetails,
@@ -169,13 +207,23 @@ const AdminInvitePopup = ({ handleClose, show }) => {
           </div>
           <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column my-4">
             <div className="add-new-btn w-100">
-              <button
-                type="button"
-                onClick={() => saveInviteDetails()}
-                className="update-btn"
-              >
-                {inviteFriendMessage ? <Loader /> : `${getValueOf("Submit")}`}
-              </button>
+              {inviteMessageCode.length === 0 ? (
+                <button
+                  type="button"
+                  onClick={() => saveInviteDetails()}
+                  className="update-btn"
+                >
+                  {inviteFriendMessage ? <Loader /> : `${getValueOf("Submit")}`}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => updateInviteFriend()}
+                  className="update-btn"
+                >
+                  {inviteFriendMessage ? <Loader /> : `${getValueOf("Update")}`}
+                </button>
+              )}
             </div>
           </div>
         </div>

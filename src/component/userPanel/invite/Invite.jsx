@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { InviteYourFriendsCodeAction } from "../../../redux/action/inviteFriends";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import BubblesLoader from "../../common/BubblesLoader";
+import NoData from "../../../assets/img/emptydata.jpg";
 
 const Invite = () => {
   const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
@@ -36,44 +37,75 @@ const Invite = () => {
           </p>
         </div>
       </div>
-      <div className="border mt-3 p-3 message-box">
-        <p className={`${layoutClickChanger ? "" : ""} d-flex`}>
-          {layoutClickChanger ? <>...Messages</> : <>Messages...</>}
-        </p>
-        <p>afghjklwertyuiopdfghjklrtyuio</p>
-      </div>
-      <div className="my-4 row">
-        <div className="col-md-8 col-sm-7 col-5 pe-sm-2 pe-0">
-          <input
-            type="text"
-            placeholder={`${
-              inviteYourMessageCode ? inviteYourMessageCode.code : "N/A"
-            }`}
-            disabled="disabled"
-            className="form-control  input-border-16191e33 btn-disable  py-3 profile-input-placeholder"
-            id="exampleFormControlInput12"
+      {inviteYourMessageCode ? (
+        <>
+          {inviteFriendMessage ? (
+            <div className="d-flex justify-content-center align-items-center h-100 mt-5">
+              <BubblesLoader />
+            </div>
+          ) : (
+            <>
+              <div className="border mt-3 p-3 message-box">
+                <p className={`${layoutClickChanger ? "" : ""} d-flex`}>
+                  {layoutClickChanger ? <>...Messages</> : <>Messages...</>}
+                </p>
+                <p>
+                  {inviteYourMessageCode
+                    ? inviteYourMessageCode.message
+                    : "N/A"}
+                </p>
+              </div>
+              <div className="my-4 row">
+                <div className="col-md-8 col-sm-7 col-5 pe-sm-2 pe-0">
+                  <input
+                    type="text"
+                    placeholder={`${
+                      inviteYourMessageCode ? inviteYourMessageCode.code : "N/A"
+                    }`}
+                    disabled="disabled"
+                    className="form-control  input-border-16191e33 btn-disable  py-3 profile-input-placeholder"
+                    id="exampleFormControlInput12"
+                  />
+                </div>
+                <div
+                  className={`${
+                    layoutClickChanger ? "" : "ps-0"
+                  }  col-md-4 col-sm-5 col-7 `}
+                >
+                  <div className="add-new-btn h-100">
+                    <button
+                      className="update-btn w-100 h-100"
+                      type="button"
+                      onClick={() =>
+                        copyReferalUrl(
+                          inviteYourMessageCode
+                            ? inviteYourMessageCode.code
+                            : null
+                        )
+                      }
+                    >
+                      {`${getValueOf("Copy Link")}`}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <div className="d-flex text-center flex-column">
+          <img
+            className="nodata-img d-inline-block mx-auto"
+            src={NoData}
+            alt="NoData"
           />
+          <h4 className="fw-bold">
+            {getValueOf(
+              "You don't have any Invite Message code for You friend."
+            )}
+          </h4>
         </div>
-        <div
-          className={`${
-            layoutClickChanger ? "" : "ps-0"
-          }  col-md-4 col-sm-5 col-7 `}
-        >
-          <div className="add-new-btn h-100">
-            <button
-              className="update-btn w-100 h-100"
-              type="button"
-              onClick={() =>
-                copyReferalUrl(
-                  inviteYourMessageCode ? inviteYourMessageCode.code : null
-                )
-              }
-            >
-              {`${getValueOf("Copy Link")}`}
-            </button>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -15,6 +15,7 @@ import { GET_CONTACT_LIST, GET_NOTIFICATION_LIST } from "../action/contact";
 import {
   GET_INVITE_MESSAGE_CODE,
   INVITE_YOUR_MESSAGE_CODE,
+  UPDATE_INVITE_MESSAGE_CODE,
 } from "../action/inviteFriends";
 import {
   GET_RELETED_SOLD_STOCK_NEWS,
@@ -339,6 +340,17 @@ export default function ListReducer(state = initialState, action) {
         inviteYourMessageCode: action.data,
       };
     }
+
+    // update invite code by id
+    case UPDATE_INVITE_MESSAGE_CODE: {
+      const data = [];
+      data.push(action.payload.data);
+      return {
+        ...state,
+        inviteYourMessageCode: data,
+      };
+    }
+
     default:
       return state;
   }

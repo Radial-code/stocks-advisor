@@ -6,9 +6,10 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import BubblesLoader from "../../common/BubblesLoader";
 import AdminInvitePopup from "./AdminInvitePopup";
 import NoData from "../../../assets/img/emptydata.jpg";
+import moment from "moment";
 
 const AdminInvite = () => {
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const inviteMessageCode = useSelector(
     (state) => state.list.inviteMessageCode
@@ -33,17 +34,24 @@ const AdminInvite = () => {
           </p>
         </div>
         <div className="d-none d-md-flex">
-          <button
-            className="from-edit-profile-btn   mt-3 mt-sm-0"
-            onClick={handleShow}
-          >
-            {inviteMessageCode.length > 0
-              ? getValueOf("Edit")
-              : getValueOf("Add")}
-          </button>
+          {inviteMessageCode.length === 0 ? (
+            <button
+              className="from-edit-profile-btn   mt-3 mt-sm-0"
+              onClick={handleShow}
+            >
+              {getValueOf("Add")}
+            </button>
+          ) : (
+            <button
+              className="from-edit-profile-btn   mt-3 mt-sm-0"
+              onClick={handleShow}
+            >
+              {getValueOf("Edit")}
+            </button>
+          )}
         </div>
       </div>
-      {inviteMessageCode ? (
+      {inviteMessageCode && inviteMessageCode.length > 0 ? (
         <>
           {inviteFriendMessage ? (
             <div className="d-flex justify-content-center align-items-center h-100 mt-5">
@@ -53,37 +61,48 @@ const AdminInvite = () => {
             <div className="border mt-3 p-3 message-box">
               <div className="d-flex ">
                 <p className="flex-row-reverse">
-                  CreatedAt : <span>sdfghjkl</span>
+                  CreatedAt :{" "}
+                  <span>
+                    {moment(inviteMessageCode[0].createdAt).format("DD/MM/YY")}
+                  </span>
                 </p>
               </div>
               <div className="d-flex ">
                 <p className="flex-row-reverse">
-                  Type : <span>sdfghjkl</span>
+                  Type :{" "}
+                  <span>
+                    {inviteMessageCode[0].isDiscount ? "Discount" : "Amount"}
+                  </span>
                 </p>
               </div>
               <div className="d-flex ">
                 <p className="flex-row-reverse">
-                  Amount : <span>sdfghjkl</span>
+                  Amount :{" "}
+                  <span>
+                    $
+                    {inviteMessageCode[0].isFixedAmount
+                      ? inviteMessageCode[0].amount
+                      : "0"}
+                  </span>
                 </p>
               </div>
               <div className="d-flex">
                 <p className="flex-row-reverse">
-                  Discount : <span>sdfghjkl</span>
+                  Discount :{" "}
+                  <span>
+                    $
+                    {inviteMessageCode[0].isDiscount
+                      ? inviteMessageCode[0].discount
+                      : "0"}
+                  </span>
                 </p>
               </div>
               <div className="d-flex">
                 <p className="flex-row-reverse">
-                  Message : <span>sdfghjkl</span>
+                  Message : <span>{inviteMessageCode[0].message}</span>
                 </p>
               </div>
             </div>
-            // <div className="my-5">
-            //   <textarea
-            //     className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-            //     rows="6"
-            //     placeholder={getValueOf("Invite....")}
-            //   ></textarea>
-            // </div>
           )}
         </>
       ) : (
@@ -102,6 +121,7 @@ const AdminInvite = () => {
         handleClose={handleClose}
         show={show}
         handleShow={handleShow}
+        inviteMessageCode={inviteMessageCode}
       />
     </div>
   );

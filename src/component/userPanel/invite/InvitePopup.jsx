@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { Modal } from "react-bootstrap";
 import CloseIcon from "../../../assets/img/close-icon.png";
+
 const InvitePopup = ({ handleClose, handleShow, show }) => {
   const [amount, setAmount] = useState(false);
   const [discount, setDiscount] = useState(false);

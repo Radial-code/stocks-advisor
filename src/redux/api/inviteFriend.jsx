@@ -24,3 +24,11 @@ export const getInviteFriendsMessageApi = async () => {
 export const InviteYourFriendsCodeApi = async () => {
   return await axiosRequest("GET", `/my-invitecode`);
 };
+
+/**
+ * update invite friend message code api
+ * @returns
+ */
+export const updateInviteFriendMessageApi = async (id, data) => {
+  return await axiosRequest("PUT", `/invitecode/${id}`, data);
+};
