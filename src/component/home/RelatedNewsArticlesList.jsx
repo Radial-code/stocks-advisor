@@ -9,7 +9,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
     <div className="my-3 ">
       <div className="news-slider-wrapper">
         <img
-          className="w-100 newsImg-slider cursor-pointer"
+          className="newsImg-slider cursor-pointer"
           src={imagePath}
           onClick={() => history.push(`/news/details/${_id}`)}
           alt="newsImg"
@@ -46,7 +46,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
               layoutClickChanger
                 ? "text-ellipsis-three-line stock-paragraph text-end"
                 : "text-ellipsis-three-line stock-paragraph text-start"
-            } cursor-pointer`}
+            } text-ellipsis-three-line cursor-pointer`}
           >
             <span
               className={`${

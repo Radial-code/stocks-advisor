@@ -209,7 +209,10 @@ const OurPlanCard = ({ homepage, history }) => {
                                             layoutClickChanger ? "" : "ms-2"
                                           } card-dot d-inline-block `}
                                         ></span>
-                                        <span> {val} </span>
+                                        <span className="card-text px-2">
+                                          {" "}
+                                          {val}{" "}
+                                        </span>
                                       </>
                                     )}
                                   </span>
