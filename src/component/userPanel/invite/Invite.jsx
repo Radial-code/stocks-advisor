@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Invite = () => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
   const copyReferalUrl = (url) => {
     var copyUrlText = document.createElement("textarea");
@@ -27,20 +27,10 @@ const Invite = () => {
         </div>
       </div>
       <div className="border mt-3 p-3 message-box">
-        <p>Hey</p>
-        <p>
-          Join this website{" "}
-          <Link
-            className="text-decoration-none fs-15 text-5CBD4C "
-            to="https://stockadvisor-app.herokuapp.com"
-          >
-            {getValueOf("https://stockadvisor.com")}.
-          </Link>
+        <p className={`${layoutClickChanger ? "" : ""} d-flex`}>
+          {layoutClickChanger ? <>...Messages</> : <>Messages...</>}
         </p>
-        <p>
-          and user promo code :<code></code>
-        </p>
-        <p>to get $50 when you sign up for a plan.</p>
+        <p>afghjklwertyuiopdfghjklrtyuio</p>
       </div>
       <div className="my-4 row">
         <div className="col-md-8 col-sm-7 col-5 pe-sm-2 pe-0">
@@ -52,7 +42,11 @@ const Invite = () => {
             id="exampleFormControlInput12"
           />
         </div>
-        <div className="col-md-4 col-sm-5 col-7 ps-0">
+        <div
+          className={`${
+            layoutClickChanger ? "" : "ps-0"
+          }  col-md-4 col-sm-5 col-7 `}
+        >
           <div className="add-new-btn h-100">
             <button
               className="update-btn w-100 h-100"
