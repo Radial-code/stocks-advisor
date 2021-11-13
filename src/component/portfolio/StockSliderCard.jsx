@@ -19,7 +19,11 @@ const StockSliderCard = ({
             alt="newsImg"
           />
           <div className="news-wrapper-bottom-section">
-            <p className="text-end stock-paragraph cursor-pointer">
+            <p
+              className={`${
+                layoutClickChanger ? "text-end" : "text-start"
+              }  stock-paragraph cursor-pointer`}
+            >
               <img
                 className="w-19 h-19 mx-2 d-inline-block"
                 src={CalenderIcon}
@@ -28,7 +32,11 @@ const StockSliderCard = ({
               <span>{moment(soldValue.createdAt).format("DD/MMM/YY")}</span>
             </p>
             {layoutClickChanger ? (
-              <h4 className="news-heading-font text-end">
+              <h4
+                className={`${
+                  layoutClickChanger ? "text-end" : "text-start"
+                } news-heading-font `}
+              >
                 <span
                   onClick={() => history.push(`/news/details/${soldValue._id}`)}
                   className="text-ellipsis-dots cursor-pointer"
@@ -37,7 +45,11 @@ const StockSliderCard = ({
                 </span>
               </h4>
             ) : (
-              <h4 className="news-heading-font text-end">
+              <h4
+                className={`${
+                  layoutClickChanger ? "text-end" : "text-start"
+                } news-heading-font `}
+              >
                 <span
                   onClick={() => history.push(`/news/details/${soldValue._id}`)}
                   className="text-ellipsis-dots cursor-pointer"
@@ -47,16 +59,24 @@ const StockSliderCard = ({
               </h4>
             )}
             {layoutClickChanger ? (
-              <p className="text-ellipsis-three-line stock-paragraph text-end">
+              <p
+                className={`${
+                  layoutClickChanger ? "text-end" : "text-start"
+                } text-ellipsis-three-line stock-paragraph `}
+              >
                 <span>{soldValue.adescription}</span>
               </p>
             ) : (
-              <p className="text-ellipsis-three-line stock-paragraph text-end">
+              <p
+                className={`${
+                  layoutClickChanger ? "text-end" : "text-start"
+                } text-ellipsis-three-line stock-paragraph `}
+              >
                 <span>{soldValue.description}</span>
               </p>
             )}
 
-            <p className="text-end cursor-pointer">
+            <p className={`${layoutClickChanger ? "text-end" : "text-start"}`}>
               <span
                 className="read-more"
                 onClick={() => history.push(`/news/details/${soldValue._id}`)}
@@ -77,7 +97,9 @@ const StockSliderCard = ({
                     }/stock-tags`
                   )
                 }
-                className="text-end cursor-pointer mb-0 text-ellipsis-dots color-blue"
+                className={`${
+                  layoutClickChanger ? " text-end " : " text-start"
+                } cursor-pointer mb-0 text-ellipsis-dots color-blue`}
               >
                 {soldValue.atags}
               </p>
@@ -93,7 +115,9 @@ const StockSliderCard = ({
                     }/stock-tags`
                   )
                 }
-                className="text-end cursor-pointer mb-0 text-ellipsis-dots color-blue"
+                className={`${
+                  layoutClickChanger ? " text-end " : " text-start"
+                } cursor-pointer mb-0 text-ellipsis-dots color-blue`}
               >
                 {soldValue.tags}
               </p>

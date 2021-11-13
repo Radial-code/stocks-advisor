@@ -5,11 +5,14 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import LayoutChangerProvider, {
+  useLayoutChangerProvider,
+} from "../../../redux/LayoutChangerProvider";
 
 let detailsString;
 const SubscriptionDetails = () => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { setLayoutClickChanger, layoutClickChanger, getValueOf } =
+    useLayoutChangerProvider();
   const dispatch = useDispatch();
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   const [loading, setLoading] = useState(false);
@@ -73,7 +76,11 @@ const SubscriptionDetails = () => {
                   </div>
                 </div>
                 <div className="pb-4">
-                  <span className="float-md-end me-auto ">
+                  <span
+                    className={`${
+                      layoutClickChanger ? "float-end" : " float-start"
+                    }  me-auto`}
+                  >
                     <div className="d-flex flex-sm-row flex-column ">
                       <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
                         {getValueOf("Auto Renew")}:
@@ -100,7 +107,11 @@ const SubscriptionDetails = () => {
             >
               <section className="current-para">
                 <p className="fs-14 fw-500 ">
-                  : {getValueOf("Plan Description")}
+                  {layoutClickChanger ? (
+                    <> : {getValueOf("Plan Description")}</>
+                  ) : (
+                    <> {getValueOf("Plan Description")} :</>
+                  )}
                 </p>
                 <p className="stock-paragraph fs-sm-14 ">
                   {detailsString &&

@@ -43,7 +43,7 @@ const Invite = () => {
         <p>to get $50 when you sign up for a plan.</p>
       </div>
       <div className="my-4 row">
-        <div className="col-md-9 col-sm-7 col-6 pe-0">
+        <div className="col-md-9 col-sm-7 col-6 ">
           <input
             type="text"
             placeholder="https://stockadvisor-app.herokuapp.com"
