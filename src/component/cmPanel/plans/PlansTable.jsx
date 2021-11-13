@@ -38,19 +38,15 @@ function PlansTable({ history }) {
     });
     swalWithBootstrapButtons
       .fire({
-        title: `${
-          layoutClickChanger
-            ? `${getValueOf("? Are You Sure")}`
-            : `${getValueOf("Are You Sure ?")}`
-        }`,
+        title: `${layoutClickChanger ? "? Are You Sure" : "Are You Sure ?"}`,
         text: `${
           layoutClickChanger
             ? !isActive
-              ? `${getValueOf(".You want to Enable This Plan")}`
-              : `${getValueOf(".You want to Disable This Plan")}`
+              ? ".You want to Enable This Plan"
+              : ".You want to Disable This Plan"
             : !isActive
-            ? `${getValueOf("You want to Enable This Plan.")}`
-            : `${getValueOf("You want to Disable This Plan.")}`
+            ? "You want to Enable This Plan."
+            : "You want to Disable This Plan."
         }`,
 
         icon: "Error",
@@ -112,7 +108,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Date")}
+                      Date
                     </th>
 
                     <th
@@ -126,7 +122,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Title")}
+                      Title
                     </th>
                     <th
                       scope="col"
@@ -139,7 +135,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Price")}
+                      Price
                     </th>
                     <th
                       scope="col"
@@ -152,7 +148,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Type")}
+                      Type
                     </th>
                     <th
                       scope="col"
@@ -165,7 +161,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Update")}
+                      Update
                     </th>
 
                     <th
@@ -179,7 +175,7 @@ function PlansTable({ history }) {
                           alt="sort arrow"
                         />
                       </span>
-                      {getValueOf("Action")}
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -206,9 +202,7 @@ function PlansTable({ history }) {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">
-                {getValueOf("You don't have any Plan List")}
-              </h4>
+              <h4 className="fw-bold">You don't have any Plan List</h4>
             </div>
           )}
         </>
@@ -290,7 +284,7 @@ export function PlansTableListItem({
               history.push(`/content/manager/edit/plan/${value._id}`)
             }
           >
-            {getValueOf("Edit")}
+            Edit
           </button>
         </td>
         <td className="text-end whitespace Ellipse">
@@ -300,9 +294,7 @@ export function PlansTableListItem({
             onClick={() => deletePlans(value._id, value.isActive)}
             className="px-3 py-1 delete-button"
           >
-            {!value.isActive
-              ? `${getValueOf("Disable")}`
-              : `${getValueOf("Enable")}`}
+            {!value.isActive ? "Disable" : "Enable"}
           </button>
         </td>
       </tr>

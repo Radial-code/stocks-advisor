@@ -82,9 +82,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2 py-3">
-            <p className="cn-sidebar-text mb-0 ">
-              {getValueOf("Content Manager")}
-            </p>
+            <p className="cn-sidebar-text mb-0 ">Content Manager</p>
 
             <img
               className="cancel-icon cursor-pointer"
@@ -103,9 +101,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <Stocks />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("Stocks")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Stocks</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -116,9 +112,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <News />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("News")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">News</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -129,9 +123,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <User />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
-              {getValueOf("Users")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Users</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -142,9 +134,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <ServiceIcon />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("Other Services")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Other Services</p>
           </div>
 
           <div
@@ -156,9 +146,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <PlansIcon />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("Our Plans")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Our Plans</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -169,9 +157,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <TeamIcon />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("Team")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Team</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -182,9 +168,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <Enquiry />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">
-              {getValueOf("Enquiry")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">Enquiry</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -195,9 +179,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <Notify />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
-              {getValueOf("Notification")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Notification</p>
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
@@ -208,18 +190,14 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
             <span className="px-2">
               <Invite />
             </span>
-            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">
-              {getValueOf("Invite")}
-            </p>
+            <p className="cn-sidebar-texts px-sm-3 px-2 mb-0 ">Invite</p>
           </div>
         </div>
       </div>
       <div className="col">
         <div className=" px-lg-4 pt-4 d-lg-none d-flex flex-column mb-5">
           <div className="d-flex align-items-center mb-3 justify-content-between">
-            <p className="cn-sidebar-text text-end mb-0">
-              {getValueOf("Content Manager")}
-            </p>
+            <p className="cn-sidebar-text text-end mb-0">Content Manager</p>
             <span
               className=" cursor-pointer"
               onClick={() => setShowSidebar2(true)}

@@ -28,18 +28,14 @@ const AdminInvite = () => {
     <div className="px-xxl-5 px-2 py-4 form-box-shadow container h-100">
       <div className="d-flex flex-md-row flex-column justify-content-between mt-lg-3">
         <div>
-          <p className="from-heading mb-0 text-md-end text-center">
-            {getValueOf("Invite")}
-          </p>
+          <p className="from-heading mb-0 text-md-end text-center">Invite</p>
         </div>
         <div className="d-none d-md-flex">
           <button
             className="from-edit-profile-btn   mt-3 mt-sm-0"
             onClick={handleShow}
           >
-            {inviteMessageCode.length > 0
-              ? getValueOf("Edit")
-              : getValueOf("Add")}
+            {inviteMessageCode.length > 0 ? "Edit" : "Add"}
           </button>
         </div>
       </div>
@@ -94,7 +90,7 @@ const AdminInvite = () => {
             alt="NoData"
           />
           <h4 className="fw-bold">
-            {getValueOf("You don't have any Invite Message for User.")}
+            You don't have any Invite Message for User.
           </h4>
         </div>
       )}

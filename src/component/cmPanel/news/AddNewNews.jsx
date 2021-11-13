@@ -152,15 +152,11 @@ const AddNewNews = ({ edit, match, history }) => {
       <div className="manger-panel-shadow p-sm-5 w-xl-1000 scroll-bar   news-form-height">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
           <p className="heading-stock d-none d-sm-block fs-sm-20">
-            {edit
-              ? `${getValueOf("Update News")}`
-              : `${getValueOf("Add New News")}`}
+            {edit ? `${"Update News"}` : `${"Add New News"}`}
           </p>
-          <p className="heading-stock d-block d-sm-none">
-            {getValueOf("Add News")}
-          </p>
+          <p className="heading-stock d-block d-sm-none">Add News</p>
           <Link to="/content/manager/news">
-            <button className="update-btn-2">{getValueOf("Back")}</button>
+            <button className="update-btn-2">Back</button>
           </Link>
         </div>
 
@@ -181,7 +177,7 @@ const AddNewNews = ({ edit, match, history }) => {
           setCategoryArray={setCategoryArray}
           categoryArray={categoryArray}
         />
-        <div className=" ">
+        <div>
           {edit ? (
             <>
               <button
@@ -190,7 +186,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 disabled={addStockLoading}
                 onClick={() => updateNewsDetails()}
               >
-                {updateLoading ? <Loader /> : `${getValueOf("Update")}`}
+                {updateLoading ? <Loader /> : "Update"}
               </button>
               <button
                 className="add-btn m-2"
@@ -198,7 +194,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 disabled={addStockLoading}
                 onClick={() => deleteNews()}
               >
-                {getValueOf("Delete")}
+                Delete
               </button>
             </>
           ) : (
@@ -208,7 +204,7 @@ const AddNewNews = ({ edit, match, history }) => {
               disabled={addStockLoading}
               onClick={() => AddNewNewsDetails()}
             >
-              {addStockLoading ? <Loader /> : `${getValueOf("Add")}`}
+              {addStockLoading ? <Loader /> : `${"Add"}`}
             </button>
           )}
         </div>

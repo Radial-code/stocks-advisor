@@ -56,9 +56,7 @@ const Cards = () => {
                 src={NoData}
                 alt="NoData"
               />
-              <h4 className="fw-bold">
-                {getValueOf("You don't have any Team")}
-              </h4>
+              <h4 className="fw-bold">You don't have any Team</h4>
             </div>
           )}
         </div>

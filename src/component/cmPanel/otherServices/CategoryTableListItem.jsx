@@ -18,7 +18,7 @@ function CategoryTableListItem({
             className="px-3 py-1 edit-button "
             onClick={() => editCategory(value)}
           >
-            {getValueOf("Edit")}
+            Edit
           </button>
         </td>
         <td className="text-end  whitespace Ellipse">
@@ -26,7 +26,7 @@ function CategoryTableListItem({
             onClick={() => deleteCategory(value._id)}
             className="px-3 py-1 delete-button"
           >
-            {getValueOf("Delete")}
+            Delete
           </button>
         </td>
       </tr>

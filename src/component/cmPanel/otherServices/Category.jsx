@@ -24,7 +24,7 @@ function Category() {
               className="px-3 py-1 add-button ms-3 my-sm-3"
               onClick={handleShow}
             >
-              {getValueOf("Add")}
+              Add
             </button>
           </div>
         </div>

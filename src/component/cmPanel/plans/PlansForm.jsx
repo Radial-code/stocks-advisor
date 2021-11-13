@@ -121,12 +121,10 @@ function PlansForm({ history, edit, id }) {
         <div className="add-stock-bg p-sm-5 p-3   w-xl-1000">
           <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
             <h1 className="current-stock-text ff-popins mb-sm-0 mb-3 fs-sm-20">
-              {edit
-                ? `${getValueOf("Update Plan")}`
-                : `${getValueOf("Add New Plans")}`}
+              {edit ? "Update Plan" : "Add New Plans"}
             </h1>
             <Link to="/content/manager/our/plans/details">
-              <button className="update-btn-2 ">{getValueOf("Back")}</button>
+              <button className="update-btn-2 ">Back</button>
             </Link>
           </div>
           <Form className="pt-sm-5  pt-4">
@@ -138,7 +136,7 @@ function PlansForm({ history, edit, id }) {
                 >
                   <Form.Control
                     type="number"
-                    placeholder={getValueOf("Price")}
+                    placeholder="Price"
                     value={planDetails.price}
                     onChange={(e) => {
                       setPlanDetails({
@@ -149,7 +147,7 @@ function PlansForm({ history, edit, id }) {
                   />
                   <span className="text-danger">
                     {error && planDetails.price === undefined
-                      ? `${getValueOf("Price is required")}`
+                      ? "Price is required"
                       : null}
                   </span>
                 </Form.Group>
@@ -161,7 +159,7 @@ function PlansForm({ history, edit, id }) {
                 >
                   <Form.Control
                     type="text"
-                    placeholder={getValueOf("English Title")}
+                    placeholder="English Title"
                     value={planDetails.title}
                     onChange={(e) => {
                       setPlanDetails({
@@ -172,7 +170,7 @@ function PlansForm({ history, edit, id }) {
                   />
                   <span className="text-danger">
                     {error && planDetails.title === undefined
-                      ? `${getValueOf("Title is required")}`
+                      ? "Title is required"
                       : null}
                   </span>
                 </Form.Group>
@@ -201,13 +199,13 @@ function PlansForm({ history, edit, id }) {
                         : "form-select text-start cursor-pointer"
                     }`}
                   >
-                    <option>{getValueOf("Week")}</option>
-                    <option>{getValueOf("Month")}</option>
-                    <option>{getValueOf("Year")}</option>
+                    <option>Week</option>
+                    <option>Month</option>
+                    <option>Year</option>
                   </select>
                   <span className="text-danger">
                     {error && planDetails.type === undefined
-                      ? `${getValueOf("Week is required")}`
+                      ? "Week is required"
                       : null}
                   </span>
                 </FormGroup>
@@ -218,7 +216,7 @@ function PlansForm({ history, edit, id }) {
                   >
                     <Form.Control
                       type="text"
-                      placeholder={getValueOf("Arabic Title")}
+                      placeholder="Arabic Title"
                       value={planDetails.atitle}
                       onChange={(e) => {
                         setPlanDetails({
@@ -233,7 +231,7 @@ function PlansForm({ history, edit, id }) {
               <div className="col-12 mb-3">
                 <textarea
                   className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                  placeholder={getValueOf("English Description")}
+                  placeholder="English Description"
                   rows={5}
                   value={planDetails.details}
                   onChange={(e) => {
@@ -250,7 +248,7 @@ function PlansForm({ history, edit, id }) {
                 </span>
                 <textarea
                   className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                  placeholder={getValueOf("Arabic Description")}
+                  placeholder="Arabic Description"
                   rows={5}
                   value={planDetails.adetails}
                   onChange={(e) => {
@@ -261,9 +259,7 @@ function PlansForm({ history, edit, id }) {
                   }}
                 ></textarea>
                 <p className="text-danger">
-                  {getValueOf(
-                    "Note: Press enter after line end and start from the new line"
-                  )}
+                  Note: Press enter after line end and start from the new line
                 </p>
               </div>
               <p>{getValueOf("Select portfolio list")}</p>
@@ -319,12 +315,12 @@ function PlansForm({ history, edit, id }) {
                           </div>
                         );
                       })
-                    : `${getValueOf("You don't have any portfolio List")}`}
+                    : "You don't have any portfolio List"}
                 </>
               )}
               <span className="text-danger">
                 {error && planDetails.portfolio === undefined
-                  ? `${getValueOf("Portfolio  is required")}`
+                  ? "Portfolio  is required"
                   : null}
               </span>
             </div>
@@ -337,7 +333,7 @@ function PlansForm({ history, edit, id }) {
                   disabled={loading}
                   className="update-btn my-3 ff-popins"
                 >
-                  {loading ? <Loader /> : `${getValueOf("Update")}`}
+                  {loading ? <Loader /> : "Update"}
                 </button>
               ) : (
                 <button
@@ -346,7 +342,7 @@ function PlansForm({ history, edit, id }) {
                   disabled={loading}
                   className="update-btn my-3 ff-popins"
                 >
-                  {loading ? <Loader /> : `${getValueOf("Add")}`}
+                  {loading ? <Loader /> : "Add"}
                 </button>
               )}
             </div>

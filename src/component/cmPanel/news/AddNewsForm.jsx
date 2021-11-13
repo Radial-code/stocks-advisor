@@ -76,7 +76,7 @@ const AddNewsForm = ({
               }}
               value={newsDetails.link}
               type="text"
-              placeholder={getValueOf("YouTube / Image Link")}
+              placeholder="YouTube / Image Link"
             />
           </Form.Group>
         </div>
@@ -97,18 +97,14 @@ const AddNewsForm = ({
                     />
                     <button className="news-upload-btn cursor-pointer px-3 py-2">
                       <label for="my-file" className="cursor-pointer">
-                        {loadingImage ? (
-                          <Loader />
-                        ) : (
-                          `${getValueOf("upload img")}`
-                        )}
+                        {loadingImage ? <Loader /> : "upload img"}
                       </label>
                     </button>
                   </div>
                 )}
               </>
             ) : (
-              `${getValueOf("Uploading please wait for sometime")}`
+              "Uploading please wait for sometime"
             )}
           </div>
         </div>
@@ -118,7 +114,7 @@ const AddNewsForm = ({
           <div className=" input-tag w-100">
             <ReactTagInput
               tags={atags}
-              placeholder={getValueOf("Arabic Tags")}
+              placeholder="Arabic Tags"
               maxTags={5}
               value={newsDetails.atags}
               editable={true}
@@ -128,7 +124,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && atags.length === 0
-                ? `${getValueOf("Arabic Details is required")}`
+                ? "Arabic Details is required"
                 : null}
             </span>
           </div>
@@ -137,7 +133,7 @@ const AddNewsForm = ({
           <div className=" input-tag w-100">
             <ReactTagInput
               tags={tags}
-              placeholder={getValueOf("English Tags")}
+              placeholder="English Tags"
               maxTags={5}
               editable={true}
               readOnly={false}
@@ -146,9 +142,7 @@ const AddNewsForm = ({
               onChange={(newTags) => setTags(newTags)}
             />
             <span className="text-danger">
-              {error && tags.length === 0
-                ? `${getValueOf("Details is required")}`
-                : null}
+              {error && tags.length === 0 ? "Details is required" : null}
             </span>
           </div>
         </div>
@@ -167,7 +161,7 @@ const AddNewsForm = ({
               className=" add-new-stock-select mb-3"
             >
               <select className="form-select text-end cursor-pointer">
-                <option>{getValueOf("Stock")}</option>
+                <option>Stock</option>
                 {stockList ? (
                   stockList.map((stock, index) => {
                     return (
@@ -177,7 +171,7 @@ const AddNewsForm = ({
                     );
                   })
                 ) : (
-                  <option>{getValueOf("You don't have any stock")} </option>
+                  <option>You don't have any stock</option>
                 )}
               </select>
             </FormGroup>
@@ -199,7 +193,7 @@ const AddNewsForm = ({
                     : "form-select text-start cursor-pointer"
                 }`}
               >
-                <option>{getValueOf("Stock")}</option>
+                <option>Stock</option>
                 {stockList ? (
                   stockList.map((stock, index) => {
                     return (
@@ -209,7 +203,7 @@ const AddNewsForm = ({
                     );
                   })
                 ) : (
-                  <option>{getValueOf("You don't have any stock ")}</option>
+                  <option>You don't have any stock </option>
                 )}
               </select>
             </FormGroup>
@@ -224,7 +218,7 @@ const AddNewsForm = ({
           >
             <Form.Control
               type="text"
-              placeholder={getValueOf("Arabic Title")}
+              placeholder="Arabic Title"
               value={newsDetails.atitle}
               onChange={(e) => {
                 setNewsDetails({
@@ -235,7 +229,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && newsDetails.atitle === undefined
-                ? `${getValueOf("Arabic Title is required")}`
+                ? "Arabic Title is required"
                 : null}
             </span>
           </Form.Group>
@@ -247,7 +241,7 @@ const AddNewsForm = ({
           >
             <Form.Control
               type="text"
-              placeholder={getValueOf("English Title")}
+              placeholder="English Title"
               value={newsDetails.title}
               onChange={(e) => {
                 setNewsDetails({
@@ -258,7 +252,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {error && newsDetails.title === undefined
-                ? `${getValueOf("Title is required")}`
+                ? "Title is required"
                 : null}
             </span>
           </Form.Group>
@@ -276,7 +270,7 @@ const AddNewsForm = ({
             id=""
             cols=""
             rows="6"
-            placeholder={getValueOf("Arabic Description")}
+            placeholder="Arabic Description"
             onChange={(e) => {
               setNewsDetails({
                 ...newsDetails,
@@ -297,7 +291,7 @@ const AddNewsForm = ({
             id=""
             cols=""
             rows="6"
-            placeholder={getValueOf("English Description")}
+            placeholder="English Description"
             onChange={(e) => {
               setNewsDetails({
                 ...newsDetails,
@@ -315,7 +309,7 @@ const AddNewsForm = ({
               className="form-check-label check-box-text cursor-pointer"
               for="flexCheckDefault"
             >
-              {getValueOf("Feature on homepage")}
+              Feature on homepage
             </label>
             <input
               type="checkbox"
@@ -345,7 +339,7 @@ const AddNewsForm = ({
               className="form-check-label check-box-text cursor-pointer"
               for="flexCheckDefault"
             >
-              {getValueOf("Feature on homepage")}
+              Feature on homepage
             </label>
           </>
         )}

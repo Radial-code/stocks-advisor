@@ -41,23 +41,23 @@ const NewsTable = ({ history }) => {
                 <tr className="user-list-panel">
                   <th className="whitespace table-width">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    {getValueOf("Date")}
+                    Date
                   </th>
                   <th className="whitespace table-width-header">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                    {getValueOf("Eng-Title")}
+                    Eng-Title
                   </th>
                   <th className="whitespace table-width-header">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
-                    {getValueOf("Arabic-Title")}
+                    Arabic-Title
                   </th>
                   <th className="whitespace">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    {getValueOf(" Eng-Tags")}
+                    Eng-Tags
                   </th>
                   <th className="whitespace">
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-                    {getValueOf("Arabic-Tags")}
+                    Arabic-Tags
                   </th>
                 </tr>
               </thead>
@@ -110,10 +110,7 @@ const NewsTable = ({ history }) => {
           ) : (
             <div className="d-flex justify-content-center flex-column align-items-center">
               <img className="nodata-img" src={NoData} alt="NoData" />
-              <h4 className="text-center fw-bold">
-                {" "}
-                {getValueOf("You don't have any news")}
-              </h4>
+              <h4 className="text-center fw-bold"> You don't have any news</h4>
             </div>
           )}
         </>

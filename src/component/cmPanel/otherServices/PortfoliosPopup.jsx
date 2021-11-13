@@ -53,9 +53,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
         />
         <div>
           <h4 className="mb-0 text-center fw-bold">
-            {edit
-              ? `${getValueOf("Update Portfolio")}`
-              : `${getValueOf("Add Portfolio")}`}
+            {edit ? "Update Portfolio" : "Add Portfolio"}
           </h4>
         </div>
       </div>
@@ -65,19 +63,19 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
           <input
             type="text"
             value={!!portfolios ? portfolios : updateValue.title}
-            placeholder={getValueOf("English Portfolio")}
+            placeholder="English Portfolio"
             className="py-2 px-3 w-100"
             onChange={(e) => setPortfolios(e.target.value)}
           />
           <span className="text-danger">
             {error && portfolios === undefined
-              ? `${getValueOf("Portfolios is required")}`
+              ? "Portfolios is required"
               : null}
           </span>
           <input
             type="text"
             value={!!aportfolios ? aportfolios : updateValue.atitle}
-            placeholder={getValueOf("Arabic Portfolio")}
+            placeholder="Arabic Portfolio"
             className="py-2 px-3 w-100 mt-2"
             onChange={(e) => setaPortfolios(e.target.value)}
           />
@@ -90,7 +88,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : `${getValueOf("Submit")}`}
+            {loading ? <Loader /> : "Submit"}
           </button>
         ) : (
           <button
@@ -98,7 +96,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
             disabled={loading}
             className="px-5 py-2 add-button ms-3 my-sm-3"
           >
-            {loading ? <Loader /> : `${getValueOf("Submit")}`}
+            {loading ? <Loader /> : "Submit"}
           </button>
         )}
       </Modal.Footer>

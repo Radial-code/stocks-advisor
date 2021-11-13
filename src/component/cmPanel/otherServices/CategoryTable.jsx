@@ -91,7 +91,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  {getValueOf("Date")}
+                  Date
                 </th>
 
                 <th
@@ -101,7 +101,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  {getValueOf("Category")}
+                  Category
                 </th>
 
                 <th
@@ -111,7 +111,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  {getValueOf("Edit")}
+                  Edit
                 </th>
                 <th
                   scope="col"
@@ -120,7 +120,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   <span>
                     <img className="ps-1" src={Sortarrow} alt="sort arrow" />
                   </span>
-                  {getValueOf("Delete")}
+                  Delete
                 </th>
               </tr>
             </thead>
@@ -146,9 +146,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
             src={NoData}
             alt="NoData"
           />
-          <h4 className="fw-bold">
-            {getValueOf("You don't have any Category list")}
-          </h4>
+          <h4 className="fw-bold">You don't have any Category list</h4>
         </div>
       )}
 

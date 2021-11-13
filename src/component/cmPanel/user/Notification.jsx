@@ -67,9 +67,7 @@ function Notification() {
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-sm-4  pt-5">
         <div className="mb-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
-          <p className="heading-stock mb-0 pt-2">
-            {getValueOf("Notification")}
-          </p>
+          <p className="heading-stock mb-0 pt-2">Notification</p>
         </div>
         <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
           <div className="container">
@@ -81,7 +79,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder={getValueOf("Body")}
+                    placeholder="Body"
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -91,7 +89,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.body === ""
-                      ? `${getValueOf("Body is required")}`
+                      ? "Body is required"
                       : null}
                   </span>
                 </Form.Group>
@@ -103,7 +101,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder={getValueOf("Title")}
+                    placeholder="Title"
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -113,7 +111,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.title === ""
-                      ? `${getValueOf("Title is required")}`
+                      ? "Title is required"
                       : null}
                   </span>
                 </Form.Group>
@@ -127,7 +125,7 @@ function Notification() {
                 >
                   <Form.Control
                     type="text"
-                    placeholder={getValueOf("Type")}
+                    placeholder="Type"
                     onChange={(e) => {
                       setNotificationForm({
                         ...notificationForm,
@@ -137,7 +135,7 @@ function Notification() {
                   />
                   <span className="text-danger">
                     {error && notificationForm.body === ""
-                      ? `${getValueOf("Type is required")}`
+                      ? "Type is required"
                       : null}
                   </span>
                 </Form.Group>
@@ -152,7 +150,7 @@ function Notification() {
                     className="form-check-label check-box-text text-dark cursor-pointer"
                     for="flexCheckDefault"
                   >
-                    {getValueOf("Send to")}:
+                    Send to :
                   </label>
                 </div>
               )}
@@ -194,7 +192,7 @@ function Notification() {
                   className="form-check-label check-box-text cursor-pointer"
                   for="flexCheckDefault"
                 >
-                  {getValueOf("All")}
+                  All
                 </label>
               </div>
               {layoutClickChanger ? (
@@ -203,7 +201,7 @@ function Notification() {
                     className="form-check-label check-box-text text-dark cursor-pointer"
                     for="flexCheckDefault"
                   >
-                    : {getValueOf("Send to")}
+                    : Send to
                   </label>
                 </div>
               ) : (
