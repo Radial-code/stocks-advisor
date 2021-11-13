@@ -113,8 +113,8 @@ const StripeForm = ({
   };
 
   return (
-    <div className="col-lg-5 ml-lg-5 col-12 pt-lg-5 mt-lg-5 pt-4">
-      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4">
+    <div className="col-lg-5 ml-lg-5 col-12">
+      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 mt-lg-0 mt-4">
         <div>
           <p className="fs-24 payment-stripe-text">{getValueOf("Payment")}</p>
         </div>
@@ -133,7 +133,7 @@ const StripeForm = ({
             <div className="col-12">
               <input
                 type="text"
-                className="form-control w-70-input"
+                className="form-control "
                 placeholder="Promo Code"
                 onChange={(e) => setPromoCodeDetails(e.target.value)}
               />
@@ -160,12 +160,13 @@ const StripeForm = ({
               )}
             </div>
           </div>
-          <div className="mt-3" style={{ maWidth: "100%" }}>
+          <div className="mt-3" style={{ maWidth: "20px" }}>
             <HCaptcha
               sitekey="340a426e-e981-47e6-8a61-6ae115ab23a2"
               onVerify={(token, ekey) => setReCaptchaToken(token, ekey)}
             />
           </div>
+
           <span className="text-danger">
             {errorPayment && !reCaptchaToken
               ? `${getValueOf("Please solved Captcha")}`
