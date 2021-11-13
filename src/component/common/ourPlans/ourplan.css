@@ -57,7 +57,7 @@
   font-size: var(--font-18);
   font-weight: 500;
   background-color: var(--color-88BEFC);
-  padding: 7.5px 111px;
+  padding: 7.5px 90px;
   border: 1px solid var(--color-88BEFC);
   border-radius: 4px;
   color: white;
@@ -108,7 +108,7 @@
   font-size: var(--font-18);
   font-weight: 500;
   background-color: var(--color-127CF9);
-  padding: 7.5px 111px;
+  padding: 7.5px 90px;
   border: none;
   color: white;
   border: 1px solid var(--color-127CF9);
