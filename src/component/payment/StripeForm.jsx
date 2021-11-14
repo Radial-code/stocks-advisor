@@ -40,6 +40,7 @@ const StripeForm = ({
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [paymentId, setPaymentId] = useState("");
   const [promoCodeDetails, setPromoCodeDetails] = useState("");
+  const [promoCode, setPromoCode] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -90,6 +91,7 @@ const StripeForm = ({
       const data = {
         planId: id,
         id: paymentId,
+        promoCode: promoCode ? promoCode : "",
       };
       setTimeout(await dispatch(confirmPlanByIdForStripe(data, history)), 7000);
     }
@@ -104,12 +106,20 @@ const StripeForm = ({
       code: promoCodeDetails,
       planId: id,
     };
-    dispatch(verifyPromoCodeAction(data, setVerifyLoading, setPromoCodeData));
+    dispatch(
+      verifyPromoCodeAction(
+        data,
+        setVerifyLoading,
+        setPromoCodeData,
+        setPromoCode
+      )
+    );
   };
 
   const removePromoCode = () => {
     setPromoCodeData("");
     setPromoCodeDetails("");
+    setPromoCode("");
   };
 
   return (

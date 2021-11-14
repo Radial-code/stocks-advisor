@@ -38,7 +38,10 @@ const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
                 <div className="d-flex justify-content-between payment-border pb-2">
                   <p className="profile-heading-promo">Discount</p>
                   <p className="payment-page-amount-promo">
-                    ${promoCodeData.discountPrice}
+                    $
+                    {promoCodeData.discountPrice
+                      ? promoCodeData.discountPrice
+                      : promoCodeData.discount}
                   </p>
                 </div>
                 <div className="d-flex justify-content-between payment-border pb-2">

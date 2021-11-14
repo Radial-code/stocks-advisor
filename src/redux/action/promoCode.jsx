@@ -175,13 +175,14 @@ const verifyPromoCode = (data) => ({
 });
 
 export const verifyPromoCodeAction =
-  (data, setLoading, setPromoCodeData) => async (dispatch) => {
+  (data, setLoading, setPromoCodeData, setPromoCode) => async (dispatch) => {
     setLoading(true);
     try {
       const response = await verifyPromoCodeApi(data);
       if (response.success) {
         dispatch(verifyPromoCode(response));
         setPromoCodeData(response);
+        setPromoCode(data.code);
         setLoading(false);
       } else {
         setLoading(false);
