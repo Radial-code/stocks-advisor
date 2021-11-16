@@ -16,7 +16,9 @@ import DropDown from "../../assets/img/btnarrow.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NetflixChart = ({ setType, type }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
+
   const stockChatList = useSelector((state) => state.list.stockChatList);
   const [chatList, setChatList] = useState([]);
   const getMonth = (date) => {
@@ -58,7 +60,11 @@ const NetflixChart = ({ setType, type }) => {
   return (
     <div className="container">
       <div className="netflix-chart mt-5">
-        <div className="d-sm-flex  d-none align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4 ps-xl-5 pt-2">
+        <div
+          className={`${
+            layoutClickChanger ? "ps-xl-5" : "pe-xl-5"
+          } d-sm-flex  d-none align-items-sm-center justify-content-sm-between ms-xl-5 ms-sm-4 ps-sm-4  pt-2`}
+        >
           <div className="mx-sm-3">
             <button
               onClick={() => setType("1y")}
@@ -100,7 +106,11 @@ const NetflixChart = ({ setType, type }) => {
               stockChatList[getKey(type)].meta.symbol}
           </p>
         </div>
-        <div className="d-sm-none d-flex align-items-center justify-content-between ms-xl-5 ms-4 ps-4 ps-xl-5 pt-2">
+        <div
+          className={`${
+            layoutClickChanger ? "ps-xl-5  ms-xl-5 ms-4" : ""
+          } d-sm-none d-flex align-items-center justify-content-between ps-4  pt-2`}
+        >
           <div className="mx-3">
             <button className="chart-btn ff-popins mx-1 border-0">
               <span className="px-1">
@@ -153,7 +163,7 @@ const NetflixChart = ({ setType, type }) => {
               tick={{ fill: "#fff" }}
               tickLine={false}
               width={90}
-              dx={-63}
+              dx={layoutClickChanger ? -40 : -10}
               tickFormatter={(number) => `$${number}`}
             />
             <Tooltip />

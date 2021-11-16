@@ -43,7 +43,7 @@ const Stockpage = ({ match }) => {
   }, [type]);
 
   return (
-    <div className="bg-f9f9f9">
+    <div className="bg-f9f9f9 mt-100">
       {tags === "stock-tags" ? (
         <NetflixChart setType={setType} type={type} />
       ) : null}

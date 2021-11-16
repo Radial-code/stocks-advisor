@@ -14,7 +14,8 @@ const StockSliderCard = ({
         <div className="news-slider-wrapper">
           <img
             onClick={() => history.push(`/news/details/${soldValue._id}`)}
-            className="w-100 h-100 cursor-pointer"
+            // className="w-100 h-100 cursor-pointer"
+            className="slider-img"
             src={soldValue.imagePath}
             alt="newsImg"
           />

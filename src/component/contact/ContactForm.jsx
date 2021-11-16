@@ -184,7 +184,7 @@ const ContactForm = () => {
                     onClick={handleClick}
                     className="contact-border2"
                   >
-                    <span className="contact-text"> Open Menu</span>
+                    <span className="contact-text">Country Code</span>
                   </div>{" "}
                   <Menu
                     id="simple-menu"
@@ -259,59 +259,65 @@ const ContactForm = () => {
                       });
                     }}
                   />
-                  <span className="text-danger">
-                    {error && contactDetails.phone === ""
-                      ? "Phone Number is required"
-                      : error && PhoneRegex.test(contactDetails.phone) === false
-                      ? "Enter valid Phone Number"
-                      : null}
-                  </span>
                 </Form.Group>
               </div>
+              <span className="text-danger mb-2">
+                {error && contactDetails.phone === ""
+                  ? "Phone Number is required"
+                  : error && PhoneRegex.test(contactDetails.phone) === false
+                  ? "Enter valid Phone Number"
+                  : null}
+              </span>
             </>
           )}
         </div>
-        {/* DROPDOWN */}
+        <div className="row">
+          <div className="col-12">
+            <input
+              className={`${
+                layoutClickChanger
+                  ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0   w-100 input-text border-A3A3A3 "
+                  : " input-border  py-2 py-md-3 ps-3   w-100 input-text border-A3A3A3 "
+              } `}
+              type="text"
+              placeholder={getValueOf("Subject")}
+              required
+              onChange={(e) => {
+                setContactDetails({
+                  ...contactDetails,
+                  reason: e.target.value,
+                });
+              }}
+            />
+            {error && contactDetails.reason === "" ? (
+              <span className="text-danger">Reason is required</span>
+            ) : null}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <textarea
+              className={`${
+                layoutClickChanger
+                  ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3  input-text border-A3A3A3 "
+                  : " input-border  py-2 py-md-3 ps-3  mt-3  input-text border-A3A3A3 "
+              } w-100`}
+              rows="6"
+              placeholder={getValueOf("Message…")}
+              required
+              onChange={(e) => {
+                setContactDetails({
+                  ...contactDetails,
+                  message: e.target.value,
+                });
+              }}
+            ></textarea>
+            {error && contactDetails.message === "" ? (
+              <span className="text-danger">Message is required</span>
+            ) : null}
+          </div>
+        </div>
 
-        <input
-          className={`${
-            layoutClickChanger
-              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0   w-100 input-text border-A3A3A3 "
-              : " input-border  py-2 py-md-3 ps-3   w-100 input-text border-A3A3A3 "
-          }`}
-          type="text"
-          placeholder={getValueOf("Subject")}
-          required
-          onChange={(e) => {
-            setContactDetails({
-              ...contactDetails,
-              reason: e.target.value,
-            });
-          }}
-        />
-        {error && contactDetails.reason === "" ? (
-          <span className="text-danger">Reason is required</span>
-        ) : null}
-        {/* MESSAGE */}
-        <textarea
-          className={`${
-            layoutClickChanger
-              ? " input-border  py-2 py-md-3 pe-3 pe-md-4 ps-0  mt-3 w-100 input-text border-A3A3A3 "
-              : " input-border  py-2 py-md-3 ps-3  mt-3 w-100 input-text border-A3A3A3 "
-          }`}
-          rows="6"
-          placeholder={getValueOf("Message…")}
-          required
-          onChange={(e) => {
-            setContactDetails({
-              ...contactDetails,
-              message: e.target.value,
-            });
-          }}
-        ></textarea>
-        {error && contactDetails.message === "" ? (
-          <span className="text-danger">Message is required</span>
-        ) : null}
         {/* BUTTON */}
         <div className="text-end">
           <button

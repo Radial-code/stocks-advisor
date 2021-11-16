@@ -34,50 +34,50 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Date Bought")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
 
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Date Sold")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Name")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Symbol")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Category")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                     {getValueOf("Join Price")}
                   </th>
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("sell Price")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                   <th scope="col" className="text-center whitespace">
                     {getValueOf("Profit/Loss")}
                     <span>
-                      <img className="pe-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="pe-1" src={Sortarrow} alt="sort arrow" /> */}
                     </span>
                   </th>
                 </tr>
@@ -86,7 +86,7 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
                 soldStockList.map((value) => {
                   return (
                     <tbody className="table-hover-scale">
-                      <tr className="sold-stock-data table-border-bottom">
+                      <tr className="sold-stock-data table-border-bottom ">
                         <td className="text-center whitespace">
                           {moment(value.createdAt).format("DD/MMM/YYYY")}
                         </td>
@@ -95,7 +95,7 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
                           {moment(value.soldDate).format("DD/MMM/YYYY")}
                         </td>
                         <td
-                          className="text-center whitespace"
+                          className="text-center whitespace text-primary cursor-pointer"
                           onClick={() =>
                             history.push(`/stock/news/${value._id}/stock-tags`)
                           }

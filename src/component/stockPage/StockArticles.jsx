@@ -25,7 +25,7 @@ const StockArticles = ({ history, getValueOf }) => {
                         <Col xl={3} lg={4} xs={4}>
                           <div className="stock-articles-img ">
                             <img
-                              className="w-100 h-100"
+                              className="stock-articles-img"
                               src={value.imagePath}
                               alt=""
                             />

@@ -231,7 +231,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           onClick={handleClick}
                           className="contact-border "
                         >
-                          <span className="contact-text"> Open Menu</span>
+                          <span className="contact-text">Country Code</span>
                         </div>{" "}
                         <Menu
                           id="simple-menu"

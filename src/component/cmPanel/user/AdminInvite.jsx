@@ -86,10 +86,10 @@ const AdminInvite = () => {
                 <p className="flex-row-reverse">
                   Discount :{" "}
                   <span>
-                    $
                     {inviteMessageCode[0].isDiscount
                       ? inviteMessageCode[0].discount
                       : "0"}
+                    %
                   </span>
                 </p>
               </div>

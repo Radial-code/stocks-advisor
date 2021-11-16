@@ -67,6 +67,7 @@ const Navbar = ({
   const [Lang, setLang] = useState(false);
   const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
+  const [closePopup, setclosePopup] = useState(false);
   const userData = useSelector((state) => state.auth.userData);
   const initialLanguage = localStorage.getItem("stock-advisor-lang")
     ? localStorage.getItem("stock-advisor-lang")
@@ -136,7 +137,9 @@ const Navbar = ({
     history.goBack();
     searchPage();
   };
-
+  const viewAll = () => {
+    history.push("/dashboard/notification");
+  };
   const closeSidebar = (value) => {
     if (value === "home") {
       history.push("/");
@@ -522,23 +525,22 @@ const Navbar = ({
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <p className="mb-0 px-2 notification-text fw-bold">
-                            Notifications
-                          </p>
-                        </div>
-                        <div
-                          onClick={() =>
-                            history.push("/dashboard/notification")
-                          }
-                        >
-                          <p className="mb-0 px-2 notification-text">
-                            View All
-                          </p>
-                        </div>
+                      <div className="notification-dropdown-item">
+                        <Dropdown.Item>
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div className="d-flex align-items-center justify-content-between">
+                              <p className="mb-0 px-2 notification-text fw-bold">
+                                Notifications
+                              </p>
+                            </div>
+                            <div onClick={() => viewAll()}>
+                              <p className="mb-0 px-2 notification-text">
+                                View All
+                              </p>
+                            </div>
+                          </div>
+                        </Dropdown.Item>
                       </div>
-
                       {notificationLoading ? (
                         <BubblesLoader />
                       ) : (
@@ -546,30 +548,34 @@ const Navbar = ({
                           {notificationList && notificationList.length
                             ? notificationList.map((value, index) => {
                                 return (
-                                  <div
-                                    key={index}
-                                    className="d-flex justify-content-between align-items-center pt-3"
-                                  >
-                                    <div className="d-flex align-items-center">
-                                      {/* <img
+                                  <div className="notification-dropdown-item">
+                                    <Dropdown.Item>
+                                      <div
+                                        key={index}
+                                        className="d-flex justify-content-between align-items-center pt-3"
+                                      >
+                                        <div className="d-flex align-items-center">
+                                          {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
                                       /> */}
-                                      <div>
-                                        <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                                          {value.body}
-                                        </p>
-                                        <p className="mb-0 px-2  notification-text notify-time">
-                                          {value.title}
-                                        </p>
+                                          <div>
+                                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                              {value.body}
+                                            </p>
+                                            <p className="mb-0 px-2  notification-text notify-time">
+                                              {value.title}
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <p className="mb-0 px-2  notification-text notify-time">
+                                            {GetTime(value.createdAt)}
+                                          </p>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div>
-                                      <p className="mb-0 px-2  notification-text notify-time">
-                                        {GetTime(value.createdAt)}
-                                      </p>
-                                    </div>
+                                    </Dropdown.Item>
                                   </div>
                                 );
                               })
@@ -781,22 +787,20 @@ const Navbar = ({
                       </span>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div className="d-flex align-items-center justify-content-between ">
-                          <p className="mb-0 px-2 notification-text fw-bold">
-                            Notifications
-                          </p>
+                      <Dropdown.Item>
+                        <div className="d-flex align-items-center justify-content-between">
+                          <div className="d-flex align-items-center justify-content-between ">
+                            <p className="mb-0 px-2 notification-text fw-bold">
+                              Notifications
+                            </p>
+                          </div>
+                          <div onClick={() => viewAll()}>
+                            <p className="mb-0 px-2 notification-text">
+                              View All
+                            </p>
+                          </div>
                         </div>
-                        <div
-                          onClick={() =>
-                            history.push("/dashboard/notification")
-                          }
-                        >
-                          <p className="mb-0 px-2 notification-text">
-                            View All
-                          </p>
-                        </div>
-                      </div>
+                      </Dropdown.Item>
                       {notificationLoading ? (
                         <BubblesLoader />
                       ) : (
@@ -804,30 +808,34 @@ const Navbar = ({
                           {notificationList && notificationList.length
                             ? notificationList.map((value, index) => {
                                 return (
-                                  <div
-                                    key={index}
-                                    className="d-flex justify-content-between align-items-center pt-3"
-                                  >
-                                    <div className="d-flex align-items-center">
-                                      {/* <img
+                                  <div className="notification-dropdown-item">
+                                    <Dropdown.Item>
+                                      <div
+                                        key={index}
+                                        className="d-flex justify-content-between align-items-center pt-3"
+                                      >
+                                        <div className="d-flex align-items-center">
+                                          {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
                                       /> */}
-                                      <div>
-                                        <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                                          {value.body}
-                                        </p>
-                                        <p className="mb-0 px-2  notification-text notify-time">
-                                          {value.title}
-                                        </p>
+                                          <div>
+                                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                              {value.body}
+                                            </p>
+                                            <p className="mb-0 px-2  notification-text notify-time">
+                                              {value.title}
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <p className="mb-0 px-2  notification-text notify-time">
+                                            {GetTime(value.createdAt)}
+                                          </p>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div>
-                                      <p className="mb-0 px-2  notification-text notify-time">
-                                        {GetTime(value.createdAt)}
-                                      </p>
-                                    </div>
+                                    </Dropdown.Item>
                                   </div>
                                 );
                               })

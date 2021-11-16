@@ -17,13 +17,14 @@ const NewsList = ({ history, value, index, loading }) => {
         </div>
       ) : (
         <Row key={index} className="justify-content-between ">
-          <Col xl={4} lg={4} xs={4}>
-            <div className="stock-articles-img ">
+          <Col xl={4} lg={4} xs={4} className="my-auto">
+            <div>
               <img
-                className="w-100 h-341 cursor-pointer"
+                // className="w-100 h-341 cursor-pointer"
+                className="stock-articles-img mx-auto "
                 src={value.imagePath}
                 onClick={() => history.push(`/news/details/${value._id}`)}
-                alt=""
+                alt="news img"
               />
             </div>
           </Col>

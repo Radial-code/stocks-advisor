@@ -124,11 +124,8 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 )}
               </p>
-            </div>
-
-            <div className="col-xl-6 d-flex jusitfy-content-center  col-xxl-5 mt-5 mt-xl-0">
               <img
-                className=" w-100 object-fit-cover h-xs-276 h-sm-xl-500 h-xxl-275 "
+                className="newsImg-slider"
                 src={
                   newsDetails && newsDetails.imagePath
                     ? newsDetails.imagePath
@@ -137,6 +134,27 @@ const NewsDetailsPage = ({ history, loading }) => {
                 alt="news Image"
               />
             </div>
+
+            {/* <div className="col-xl-6  col-xxl-5 mt-5 mt-xl-0"> */}
+            {/* <img
+                className=" w-100 object-fit-cover h-xs-276 h-sm-xl-500 h-xxl-275 "
+                src={
+                  newsDetails && newsDetails.imagePath
+                    ? newsDetails.imagePath
+                    : "N/A"
+                }
+                alt="news Image"
+              /> */}
+            {/* <img
+                className="newsImg-slider"
+                src={
+                  newsDetails && newsDetails.imagePath
+                    ? newsDetails.imagePath
+                    : "N/A"
+                }
+                alt="news Image"
+              />
+            </div> */}
 
             <div className="col-12 mt-5 mt-xl-0">
               <p className="stock-paragraph mt-2 fs-sm-14">

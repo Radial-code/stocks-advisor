@@ -155,11 +155,16 @@ const ViewProfile = () => {
         <ProfileForm
           setUpdateUserDetailsData={setUpdateUserDetailsData}
           inputDisable={inputDisable}
+          loading={loading}
+          setLoading={setLoading}
           userDetails={userDetails}
           UpdateUserDetailsData={UpdateUserDetailsData}
         />
       ) : (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center">
+          {" "}
+          <BubblesLoader />
+        </div>
       )}
     </div>
   );

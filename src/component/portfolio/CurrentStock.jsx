@@ -14,49 +14,49 @@ function CurrentStock({ history, getValueOf }) {
             <tr className="current-stock-table-head table-border-bottom table-border-top">
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Date")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Name")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Symbol")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Portfolio")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Category")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Join Price")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Current Price")}
               </th>
               <th scope="col" className="text-center">
                 <span>
-                  <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                  {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                 </span>
                 {getValueOf("Profit/Loss")}
               </th>
@@ -66,7 +66,7 @@ function CurrentStock({ history, getValueOf }) {
             currentStockList.map((value, index) => {
               return (
                 <tbody key={index} className="table-hover-scale">
-                  <tr className="current-stock-data table-border-bottom">
+                  <tr className="current-stock-data table-border-bottom ">
                     <td className="text-center whitespace">
                       {moment(value && value.createdAt).format("DD/MMM/YYYY")}
                     </td>
@@ -85,7 +85,8 @@ function CurrentStock({ history, getValueOf }) {
                         : "N/A"}
                     </td>
                     <td
-                      className="text-center whitespace"
+                      className="text-center whitespace text-primary  cursor-pointer
+                      "
                       onClick={() =>
                         history.push(
                           `/stock/news/${value && value._id}/stock-tags`

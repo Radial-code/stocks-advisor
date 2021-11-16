@@ -51,18 +51,6 @@ const Portfolio = ({ match }) => {
             soldLoading={soldLoading}
           />
         </div>
-        {soldStockNewsList && (
-          <div className="m-4">
-            <h1 className="profile-heading pe-3 pt-2">
-              {getValueOf("Related News")}
-            </h1>
-            <StockSoldSlider
-              getValueOf={getValueOf}
-              soldStockNewsList={soldStockNewsList}
-              layoutClickChanger={layoutClickChanger}
-            />
-          </div>
-        )}
       </div>
     </>
   );

@@ -9,7 +9,10 @@ const NotificationTable = ({ loading, getValueOf }) => {
   return (
     <>
       {loading ? (
-        <BubblesLoader />
+        <div className="d-flex justify-content-center">
+          {" "}
+          <BubblesLoader />
+        </div>
       ) : (
         <>
           {notificationList && notificationList.length !== 0 ? (
@@ -17,13 +20,16 @@ const NotificationTable = ({ loading, getValueOf }) => {
               <table className="table table-borderless">
                 <thead>
                   <tr className="current-stock-table-head table-border-bottom table-border-top">
-                    <th scope="col" className="text-center observations">
+                    <th scope="col" className="text-start observations">
                       {getValueOf("Title")}
                     </th>
-                    <th scope="col" className="text-center observations">
+                    <th
+                      scope="col"
+                      className="text-start observations description-width"
+                    >
                       {getValueOf("Description")}
                     </th>
-                    <th scope="col" className="text-center observations">
+                    <th scope="col" className="text-start observations">
                       {getValueOf("Date")}
                     </th>
                   </tr>
@@ -36,15 +42,13 @@ const NotificationTable = ({ loading, getValueOf }) => {
                           key={index}
                           className="current-stock-data table-border-bottom sold-stock-data"
                         >
-                          <td className="email text-center whitespace">
+                          <td className="email text-start whitespace">
                             {value.title}
                           </td>
-                          <td className="email text-center whitespace">
-                            <span className="text-ellipsis-dots-oneline">
-                              {value.body}
-                            </span>
+                          <td className="email text-start ">
+                            <span>{value.body}</span>
                           </td>
-                          <td className="email text-center whitespace">
+                          <td className="email text-start whitespace">
                             {moment(value.createdAt).format("DD/MM/YY")}
                           </td>
                         </tr>

@@ -72,50 +72,136 @@ function Notification() {
         <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
           <div className="container">
             <div className="row">
-              <div className="col-12 col-lg-6 mb-3">
-                <Form.Group
-                  className="mb-3 add-new-stock-field "
-                  controlId="formBasicEmail"
-                >
-                  <Form.Control
-                    type="text"
-                    placeholder="Body"
-                    onChange={(e) => {
-                      setNotificationForm({
-                        ...notificationForm,
-                        body: e.target.value,
-                      });
-                    }}
-                  />
-                  <span className="text-danger">
-                    {error && notificationForm.body === ""
-                      ? "Body is required"
-                      : null}
-                  </span>
-                </Form.Group>
-              </div>
-              <div className="col-12 col-lg-6 mb-3">
-                <Form.Group
-                  className="mb-3 add-new-stock-field "
-                  controlId="formBasicEmail"
-                >
-                  <Form.Control
-                    type="text"
-                    placeholder="Title"
-                    onChange={(e) => {
-                      setNotificationForm({
-                        ...notificationForm,
-                        title: e.target.value,
-                      });
-                    }}
-                  />
-                  <span className="text-danger">
-                    {error && notificationForm.title === ""
-                      ? "Title is required"
-                      : null}
-                  </span>
-                </Form.Group>
-              </div>
+              {layoutClickChanger ? (
+                <>
+                  <div className="col-12 col-lg-6 mb-3">
+                    <textarea
+                      className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                      rows="1"
+                      placeholder="Body"
+                      onChange={(e) => {
+                        setNotificationForm({
+                          ...notificationForm,
+                          body: e.target.value,
+                        });
+                      }}
+                    ></textarea>
+                    <span className="text-danger">
+                      {error && notificationForm.body === ""
+                        ? "Body is required"
+                        : null}
+                    </span>
+                  </div>
+                  {/* <div className="col-12 col-lg-6 mb-3">
+                    <Form.Group
+                      className="mb-3 add-new-stock-field "
+                      controlId="formBasicEmail"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Body"
+                        onChange={(e) => {
+                          setNotificationForm({
+                            ...notificationForm,
+                            body: e.target.value,
+                          });
+                        }}
+                      />
+                      <span className="text-danger">
+                        {error && notificationForm.body === ""
+                          ? "Body is required"
+                          : null}
+                      </span>
+                    </Form.Group>
+                  </div> */}
+                  <div className="col-12 col-lg-6 mb-3">
+                    <Form.Group
+                      className="mb-3 add-new-stock-field "
+                      controlId="formBasicEmail"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Title"
+                        onChange={(e) => {
+                          setNotificationForm({
+                            ...notificationForm,
+                            title: e.target.value,
+                          });
+                        }}
+                      />
+                      <span className="text-danger">
+                        {error && notificationForm.title === ""
+                          ? "Title is required"
+                          : null}
+                      </span>
+                    </Form.Group>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <div className="col-12 col-lg-6 mb-3">
+                    <Form.Group
+                      className="mb-3 add-new-stock-field "
+                      controlId="formBasicEmail"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Title"
+                        onChange={(e) => {
+                          setNotificationForm({
+                            ...notificationForm,
+                            title: e.target.value,
+                          });
+                        }}
+                      />
+                      <span className="text-danger">
+                        {error && notificationForm.title === ""
+                          ? "Title is required"
+                          : null}
+                      </span>
+                    </Form.Group>
+                  </div>
+                  <div className="col-12 col-lg-6 mb-3">
+                    <textarea
+                      className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                      rows="1"
+                      placeholder="Body "
+                      onChange={(e) => {
+                        setNotificationForm({
+                          ...notificationForm,
+                          body: e.target.value,
+                        });
+                      }}
+                    ></textarea>
+                    <span className="text-danger">
+                      {error && notificationForm.body === ""
+                        ? "Body is required"
+                        : null}
+                    </span>
+                    {/* <Form.Group
+                      className="mb-3 add-new-stock-field "
+                      controlId="formBasicEmail"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Body"
+                        onChange={(e) => {
+                          setNotificationForm({
+                            ...notificationForm,
+                            body: e.target.value,
+                          });
+                        }}
+                      />
+                      <span className="text-danger">
+                        {error && notificationForm.body === ""
+                          ? "Body is required"
+                          : null}
+                      </span>
+                    </Form.Group> */}
+                  </div>
+                </>
+              )}
             </div>
             <div className="row">
               <div className="col-12 col-lg-6 mb-3">

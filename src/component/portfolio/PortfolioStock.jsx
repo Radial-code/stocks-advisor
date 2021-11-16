@@ -3,8 +3,20 @@ import "./portfolios.css";
 import SoldStock from "./SoldStock";
 import CurrentStock from "./CurrentStock";
 import BubblesLoader from "../common/BubblesLoader";
+import { useDispatch, useSelector } from "react-redux";
+import StockSoldSlider from "./StockSoldSlider";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-function PortfolioStock({ loading, setSoldLoading, getValueOf }) {
+function PortfolioStock({
+  loading,
+  setSoldLoading,
+  getValueOf,
+  layoutClickChanger,
+}) {
+  const dispatch = useDispatch();
+  const soldStockNewsList = useSelector(
+    (state) => state.list.soldStockNewsList
+  );
   return (
     <>
       <div className="width-table mr-lg-30 ">
@@ -30,6 +42,18 @@ function PortfolioStock({ loading, setSoldLoading, getValueOf }) {
             </div>
           </div>
         </div>
+        {soldStockNewsList && (
+          <div className="m-4">
+            <h1 className="profile-heading pe-3 pt-2">
+              {getValueOf("Related News")}
+            </h1>
+            <StockSoldSlider
+              getValueOf={getValueOf}
+              soldStockNewsList={soldStockNewsList}
+              layoutClickChanger={layoutClickChanger}
+            />
+          </div>
+        )}
       </div>
     </>
   );

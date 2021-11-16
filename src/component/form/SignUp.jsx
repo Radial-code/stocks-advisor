@@ -294,7 +294,7 @@ function SignUp({ history, match }) {
                           onClick={handleClick}
                           className="contact-border2"
                         >
-                          <span className="contact-text"> Open Menu</span>
+                          <span className="contact-text">Country Code</span>
                         </div>{" "}
                         <Menu
                           id="simple-menu"
@@ -340,17 +340,16 @@ function SignUp({ history, match }) {
                           type="tel"
                           placeholder={getValueOf("Phone Number")}
                         />
-
-                        <span className="text-danger">
-                          {error && signUpDetails.phone === "" ? (
-                            <>{getValueOf("Phone Number is required")}</>
-                          ) : error &&
-                            PhoneRegex.test(signUpDetails.phone) === false ? (
-                            <>{getValueOf("Enter valid Phone Number")}</>
-                          ) : null}
-                        </span>
                       </Form.Group>
                     </div>
+                    <span className="text-danger mb-2">
+                      {error && signUpDetails.phone === "" ? (
+                        <>{getValueOf("Phone Number is required")}</>
+                      ) : error &&
+                        PhoneRegex.test(signUpDetails.phone) === false ? (
+                        <>{getValueOf("Enter valid Phone Number")}</>
+                      ) : null}
+                    </span>
                   </>
                 )}
               </div>

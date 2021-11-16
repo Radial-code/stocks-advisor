@@ -20,7 +20,7 @@ const Stocks = () => {
               </Link>
             </div>
             <div className="overflow-auto current-stock-calc-height scroll-bar mt-3 ">
-              <div className="table-responsive  current-stock-scrollbar h-100 cursor-pointer">
+              <div className="table-responsive  current-stock-scrollbar h-100 ">
                 <CurrentStockTable />
               </div>
             </div>

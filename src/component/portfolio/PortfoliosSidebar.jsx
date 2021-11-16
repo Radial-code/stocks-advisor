@@ -6,11 +6,15 @@ import { Back } from "../common/icons/Icons";
 
 const PortfoliosSidebar = ({ history, getValueOf }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [portfolioActive, setPortfolioActive] = useState(
+    "/protfolios/stock/:id"
+  );
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
   );
   const openRoutes = (value) => {
     setShowSidebar(false);
+    setPortfolioActive(true);
     if (value) {
       history.push(`/protfolios/stock/${value}`);
     }
@@ -42,7 +46,9 @@ const PortfoliosSidebar = ({ history, getValueOf }) => {
             ? dashboardPortfoliosList.map((value) => {
                 return (
                   <div
-                    className="cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace"
+                    className={`${
+                      portfolioActive ? "cn-sidebar-active" : ""
+                    } cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace`}
                     onClick={() => openRoutes(value._id)}
                   >
                     <p className="cn-sidebar-texts px-sm-3 px-2 mb-0">

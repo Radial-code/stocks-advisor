@@ -6,7 +6,7 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
     <>
       <tr
         onClick={() => history.push(`/content/manager/edit/stock/${value._id}`)}
-        className="current-stock-data table-border-bottom"
+        className="current-stock-data table-border-bottom "
       >
         <td
           className={`${
@@ -22,7 +22,7 @@ const StockListItem = ({ value, history, layoutClickChanger }) => {
             layoutClickChanger
               ? "text-end whitespace Ellipse"
               : "text-start whitespace Ellipse"
-          }`}
+          } text-primary cursor-pointer`}
         >
           {value && value.symbol ? value.symbol : "N/A"}
         </td>

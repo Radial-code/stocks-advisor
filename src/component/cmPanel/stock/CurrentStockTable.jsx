@@ -49,11 +49,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Join Date
                     </th>
@@ -67,11 +67,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Symbol
                     </th>
@@ -84,11 +84,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       State
                     </th>
@@ -101,11 +101,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Join Price
                     </th>
@@ -118,11 +118,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Sold Price
                     </th>
@@ -136,11 +136,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Sold Date
                     </th>
@@ -153,11 +153,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Category
                     </th>
@@ -170,11 +170,11 @@ const CurrentStockTable = ({ history, getValueOf }) => {
                       }`}
                     >
                       <span>
-                        <img
+                        {/* <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
-                        />
+                        /> */}
                       </span>
                       Profit/Loss
                     </th>
