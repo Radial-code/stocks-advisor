@@ -296,7 +296,7 @@
 }
 .notification-dropdown .dropdown-menu {
   min-width: 17rem;
-  inset: 0px 0px auto auto !important;
+  /* inset: 0px 0px auto auto !important; */
 }
 .flag-img {
   width: 30px;

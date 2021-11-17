@@ -89,7 +89,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   className="text-end  position-sticky top-0  whitespace "
                 >
                   <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                   </span>
                   Date
                 </th>
@@ -99,7 +99,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   className="text-end  position-sticky top-0  whitespace"
                 >
                   <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                   </span>
                   Category
                 </th>
@@ -109,7 +109,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   className="text-end  position-sticky top-0  whitespace"
                 >
                   <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                   </span>
                   Edit
                 </th>
@@ -118,7 +118,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                   className="text-end  position-sticky top-0  whitespace"
                 >
                   <span>
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                   </span>
                   Delete
                 </th>

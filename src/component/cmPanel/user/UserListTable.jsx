@@ -49,7 +49,7 @@ const UserListTable = () => {
                       }`}
                     >
                       {" "}
-                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                       Join Date
                     </th>
                     <th
@@ -59,7 +59,7 @@ const UserListTable = () => {
                           : "text-start whitespace"
                       }`}
                     >
-                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                      {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "} */}
                       Name
                     </th>
                     <th
@@ -69,7 +69,7 @@ const UserListTable = () => {
                           : "text-start whitespace"
                       }`}
                     >
-                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                       Phone
                     </th>
                     <th
@@ -79,7 +79,7 @@ const UserListTable = () => {
                           : "text-start whitespace"
                       }`}
                     >
-                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                       E-mail
                     </th>
                     <th
@@ -89,7 +89,7 @@ const UserListTable = () => {
                           : "text-start whitespace"
                       }`}
                     >
-                      <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                      {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                       Subscription Plan Name
                     </th>
                   </tr>

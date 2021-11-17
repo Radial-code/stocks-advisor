@@ -40,23 +40,23 @@ const NewsTable = ({ history }) => {
               <thead className="portfolio-sticky">
                 <tr className="user-list-panel">
                   <th className="whitespace table-width">
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                     Date
                   </th>
                   <th className="whitespace table-width-header">
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "} */}
                     Eng-Title
                   </th>
                   <th className="whitespace table-width-header">
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "}
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" />{" "} */}
                     Arabic-Title
                   </th>
                   <th className="whitespace">
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                     Eng-Tags
                   </th>
                   <th className="whitespace">
-                    <img className="ps-1" src={Sortarrow} alt="sort arrow" />
+                    {/* <img className="ps-1" src={Sortarrow} alt="sort arrow" /> */}
                     Arabic-Tags
                   </th>
                 </tr>

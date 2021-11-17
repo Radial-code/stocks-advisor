@@ -49,41 +49,41 @@ const PromoCodeTableList = ({
       <thead className="portfolio-sticky ">
         <tr className="current-stock-table-head table-border-bottom table-border-top">
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             Start Date
           </th>
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             End Date
           </th>
 
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             Code
           </th>
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             Type
           </th>
 
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             Edit
           </th>
           <th scope="col" className="text-end position-sticky top-0 whitespace">
-            <span>
+            {/* <span>
               <img className="ps-1" src={Sortarrow} alt="sort arrow" />
-            </span>
+            </span> */}
             Delete
           </th>
         </tr>

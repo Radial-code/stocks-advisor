@@ -101,13 +101,13 @@ function PlansTable({ history }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Date
                     </th>
 
@@ -115,52 +115,52 @@ function PlansTable({ history }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Title
                     </th>
                     <th
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Price
                     </th>
                     <th
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Type
                     </th>
                     <th
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Update
                     </th>
 
@@ -168,13 +168,13 @@ function PlansTable({ history }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Action
                     </th>
                   </tr>

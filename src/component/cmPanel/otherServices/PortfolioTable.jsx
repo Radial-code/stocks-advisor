@@ -82,13 +82,13 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace "
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Date
                     </th>
 
@@ -96,13 +96,13 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Portfolio
                     </th>
 
@@ -110,26 +110,26 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Edit
                     </th>
                     <th
                       scope="col"
                       className="text-end position-sticky top-0 whitespace"
                     >
-                      <span>
+                      {/* <span>
                         <img
                           className="ps-1"
                           src={Sortarrow}
                           alt="sort arrow"
                         />
-                      </span>
+                      </span> */}
                       Delete
                     </th>
                   </tr>
