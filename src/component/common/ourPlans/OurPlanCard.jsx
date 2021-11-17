@@ -74,7 +74,6 @@ const OurPlanCard = ({ homepage, history }) => {
                           <span className="d-none d-sm-block month">
                             {getValueOf(`${value.type}`)}/
                           </span>
-
                           <span> {value.price} $</span>
                         </p>
                       </div>

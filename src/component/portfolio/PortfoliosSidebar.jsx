@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import Cancel from "../../assets/img/cancel.png";
 import { Back } from "../common/icons/Icons";
-
-const PortfoliosSidebar = ({ history, getValueOf }) => {
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+const PortfoliosSidebar = ({ history }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [portfolioActive, setPortfolioActive] = useState(
     "/protfolios/stock/:id"
   );
@@ -28,7 +29,9 @@ const PortfoliosSidebar = ({ history, getValueOf }) => {
       ></div>
       <div className="col">
         <div
-          className={`${showSidebar ? "right-0" : "right-350"} 
+          className={`${showSidebar ? "right-0" : "right-350"} ${
+            layoutClickChanger ? "left-350" : "left-0 "
+          }${showSidebar ? "left-0" : "left-350"}
             bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
           <div className="d-flex align-items-center justify-content-between mb-2">

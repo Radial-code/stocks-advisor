@@ -13,23 +13,23 @@ const PaymentTable = ({ getValueOf }) => {
             <thead className="portfolio-sticky">
               <tr>
                 <th scope="col-5" className="payment-thead">
-                  <DropDownIcon />
+                  {/* <DropDownIcon /> */}
                   <span className="me-2">{getValueOf("Status")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
-                  <DropDownIcon />
+                  {/* <DropDownIcon /> */}
                   <span className="me-2">{getValueOf("Card No")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
-                  <DropDownIcon />
+                  {/* <DropDownIcon /> */}
                   <span className="me-2">{getValueOf("Plan")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
-                  <DropDownIcon />
+                  {/* <DropDownIcon /> */}
                   <span className="me-2">{getValueOf("Amount")}</span>
                 </th>
                 <th scope="col-5" className="payment-thead">
-                  <DropDownIcon />
+                  {/* <DropDownIcon /> */}
                   <span className="me-2">{getValueOf("Date")}</span>
                 </th>
               </tr>

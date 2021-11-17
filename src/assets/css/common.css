@@ -268,7 +268,8 @@
   height: auto;
   width: auto;
   max-width: 230px;
-  max-height: 95px;
+  /* max-height: 95px; */
+  max-height: 230px;
 }
 .dots-data {
   display: inline-block;
@@ -746,6 +747,11 @@ input::-webkit-inner-spin-button {
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
   transition: 0.5s ease;
   height: 465px;
+}
+@media (max-width: 375px) {
+  .news-slider-wrapper {
+    margin: 0 5px;
+  }
 }
 .newsImg-slider {
   /* height: 250px; */
