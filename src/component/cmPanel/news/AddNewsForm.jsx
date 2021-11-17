@@ -37,11 +37,9 @@ const AddNewsForm = ({
     setNewsDetails({ ...newsDetails, adescription: editorState });
   };
   const onEditorDesStateChange = (editorState) => {
-    console.log(editorState);
     setNewsDetails({ ...newsDetails, description: editorState });
   };
 
-  console.log("newsDetails.description", newsDetails.description);
   return (
     <>
       <div className="row">

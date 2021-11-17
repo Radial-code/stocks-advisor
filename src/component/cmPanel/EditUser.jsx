@@ -70,11 +70,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   }, []);
 
   const updateAutoCard = (e) => {
-    console.log(e.target.checked);
     const data = {
       autoRenewalOfPlans: e.target.checked,
     };
-    console.log("autoRenewalOfPlans", data);
     dispatch(updateUserDetailsAction(data));
   };
 
