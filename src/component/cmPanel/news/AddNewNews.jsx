@@ -14,10 +14,11 @@ import AddNewsForm from "./AddNewsForm";
 import NewsSelectTypes from "./NewsSelectTypes";
 import Swal from "sweetalert2";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import { EditorState } from "draft-js";
 
 const initialState = {
   title: "",
-  atitle: "",
+  atitle: EditorState.createEmpty(),
   description: "",
   adescription: "",
   showOnHomePage: false,

@@ -17,6 +17,7 @@ import "../cmPanelCss/userEdit.css";
 import { userUpdateByAdminAction } from "../../redux/action/portfolios";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 
 let data = {};
 let detailsString = [];
@@ -67,6 +68,15 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
       dispatch(removeUserProfileDetailsAction());
     };
   }, []);
+
+  const updateAutoCard = (e) => {
+    console.log(e.target.checked);
+    const data = {
+      autoRenewalOfPlans: e.target.checked,
+    };
+    console.log("autoRenewalOfPlans", data);
+    dispatch(updateUserDetailsAction(data));
+  };
 
   const UpdateUser = () => {
     data = {
@@ -161,7 +171,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       });
                     }}
                   />
-                  <input
+                  {/*  <input
                     className="input-edit-user edit-user-input-style"
                     placeholder={phone}
                     type="number"
@@ -171,7 +181,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                         phone: e.target.value,
                       });
                     }}
-                  />
+                  />**/}
 
                   <div
                     className={`d-flex my-2 ${
@@ -231,9 +241,13 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           onClick={handleClick}
                           className="contact-border "
                         >
-                          <span className="contact-text">Country Code</span>
+                          <span className="contact-text">
+                            {updateUser.countryCode
+                              ? updateUser.countryCode
+                              : "N/A"}
+                          </span>
                         </div>{" "}
-                        <Menu
+                        <select
                           id="simple-menu"
                           anchorEl={anchorEl}
                           keepMounted
@@ -245,6 +259,12 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             countries.map((value, i) => {
                               return (
                                 <MenuItem
+                                  onChange={(e) => {
+                                    setUpdateUser({
+                                      ...updateUser,
+                                      countryCode: e.target.value,
+                                    });
+                                  }}
                                   value={value.dial_code}
                                   onClick={handleClose}
                                 >
@@ -252,7 +272,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 </MenuItem>
                               );
                             })}
-                        </Menu>
+                        </select>
                       </div>
                     </div>
                     <input
@@ -365,7 +385,12 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             <div>
                               <span className="float-md-end me-auto ">
                                 <label className="switch-2" for="checkbox-2">
-                                  <input type="checkbox" id="checkbox-2" />
+                                  <input
+                                    type="checkbox"
+                                    id="checkbox-2"
+                                    checked={autoRenewalOfPlans}
+                                    onChange={(e) => updateAutoCard(e)}
+                                  />
                                   <div className="slider-2 round"></div>
                                 </label>
                               </span>
@@ -387,12 +412,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                   type="checkbox"
                                   id="checkbox-2"
                                   checked={autoRenewalOfPlans}
-                                  onChange={(e) => {
-                                    setUpdateUser({
-                                      ...updateUser,
-                                      autoRenewalOfPlans: e.target.checked,
-                                    });
-                                  }}
+                                  onChange={(e) => updateAutoCard(e)}
                                 />
 
                                 <div className="slider-2 round"></div>

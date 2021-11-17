@@ -5,24 +5,21 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import FoundImg from "../../../assets/img/notfound.png";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
-import LayoutChangerProvider, {
-  useLayoutChangerProvider,
-} from "../../../redux/LayoutChangerProvider";
+import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 let detailsString;
 const SubscriptionDetails = () => {
-  const { setLayoutClickChanger, layoutClickChanger, getValueOf } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
-  const [loading, setLoading] = useState(false);
+  const autoRenewal = useSelector((state) => state.auth.userData);
   const [detailsData, setDetailsData] = useState(false);
 
   const updateAutoCard = (e) => {
     const data = {
       autoRenewalOfPlans: e.target.checked,
     };
-    dispatch(updateUserDetailsAction(data, setLoading));
+    dispatch(updateUserDetailsAction(data));
   };
 
   useEffect(() => {
@@ -89,6 +86,7 @@ const SubscriptionDetails = () => {
                         <input
                           type="checkbox"
                           id="checkbox-2"
+                          checked={autoRenewal.autoRenewalOfPlans}
                           onChange={(e) => updateAutoCard(e)}
                         />
                         <div className="slider-2 round "></div>

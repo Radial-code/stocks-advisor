@@ -940,3 +940,11 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
   background-color: #c1c7cc85;
 }
+
+.rdw-editor-main {
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid rgba(22, 25, 30, 0.2);
+  height: 170px;
+  overflow: hidden;
+}

@@ -1,6 +1,9 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { withRouter } from "react-router";
 import { Form, FormGroup } from "react-bootstrap";
+import { uploadImageCallBack } from "../../../contexts/HtmlEditor";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { Editor } from "react-draft-wysiwyg";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,7 +22,7 @@ const AddNewsForm = ({
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
   const [uploadImg, setUploadImg] = useState("");
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
 
@@ -30,6 +33,15 @@ const AddNewsForm = ({
     setUploadImg(image);
   };
 
+  const onEditoraDesStateChange = (editorState) => {
+    setNewsDetails({ ...newsDetails, adescription: editorState });
+  };
+  const onEditorDesStateChange = (editorState) => {
+    console.log(editorState);
+    setNewsDetails({ ...newsDetails, description: editorState });
+  };
+
+  console.log("newsDetails.description", newsDetails.description);
   return (
     <>
       <div className="row">
@@ -260,7 +272,7 @@ const AddNewsForm = ({
       </div>
       <div className="row">
         <div className="col-12 mb-3">
-          <textarea
+          {/*} <textarea
             className={`${
               layoutClickChanger
                 ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-end"
@@ -278,10 +290,31 @@ const AddNewsForm = ({
               });
             }}
             value={newsDetails.adescription}
-          ></textarea>
+          />**/}
+          <div className="editor">
+            <Editor
+              className="inputs-border"
+              editorState={newsDetails.adescription}
+              toolbarClassName="toolbarClassName"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              onEditorStateChange={onEditoraDesStateChange}
+              toolbar={{
+                inline: { inDropdown: true },
+                list: { inDropdown: true },
+                textAlign: { inDropdown: true },
+                link: { inDropdown: true },
+                history: { inDropdown: true },
+                image: {
+                  uploadCallback: uploadImageCallBack,
+                  alt: { present: true, mandatory: true },
+                },
+              }}
+            />
+          </div>
         </div>
         <div className="col-12 mb-3" dir="ltr">
-          <textarea
+          {/*<textarea
             className={`${
               layoutClickChanger
                 ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-start"
@@ -299,7 +332,29 @@ const AddNewsForm = ({
               });
             }}
             value={newsDetails.description}
-          ></textarea>
+          ></textarea>**/}
+
+          <div className="editor">
+            <Editor
+              className="inputs-border"
+              editorState={newsDetails.description}
+              toolbarClassName="toolbarClassName"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              onEditorStateChange={onEditorDesStateChange}
+              toolbar={{
+                inline: { inDropdown: true },
+                list: { inDropdown: true },
+                textAlign: { inDropdown: true },
+                link: { inDropdown: true },
+                history: { inDropdown: true },
+                image: {
+                  uploadCallback: uploadImageCallBack,
+                  alt: { present: true, mandatory: true },
+                },
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="col-auto mb-3">

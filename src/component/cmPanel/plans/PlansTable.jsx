@@ -294,7 +294,7 @@ export function PlansTableListItem({
             onClick={() => deletePlans(value._id, value.isActive)}
             className="px-3 py-1 delete-button"
           >
-            {!value.isActive ? "Disable" : "Enable"}
+            {!value.isActive ? "Enable" : "Disable"}
           </button>
         </td>
       </tr>
