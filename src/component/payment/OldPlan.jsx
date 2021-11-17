@@ -15,7 +15,7 @@ function OldPlan({ allPlanDetails, history }) {
   };
 
   return (
-    <div className="col-lg-7 col-12 pt-lg-0 pt-4">
+    <div className="col pt-lg-0 pt-4 mt-lg-4 mt-3">
       <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 ">
         <div>
           <p className="fs-24 payment-stripe-text">{getValueOf("Payment")}</p>

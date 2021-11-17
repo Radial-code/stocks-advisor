@@ -123,8 +123,8 @@ const StripeForm = ({
   };
 
   return (
-    <div className="col-lg-5 ml-lg-5 col-12">
-      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 mt-lg-0 mt-4">
+    <div className=" ml-lg-5 col-12">
+      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 mt-lg-4 mt-5">
         <div>
           <p className="fs-24 payment-stripe-text">{getValueOf("Payment")}</p>
         </div>

@@ -8,8 +8,8 @@ const OldPlanDetails = ({ loading, planDetails }) => {
     planDetails && planDetails.details && planDetails.details.split(",");
 
   return (
-    <Col lg={5}>
-      <section className=" select-plan-payment p-lg-4 p-3 me-0 mt-lg-4 mt-5 h-100 mb-lg-0 mb-3">
+    <Col>
+      <section className=" select-plan-payment p-lg-4 p-3 me-0 mt-lg-0 mt-4 h-100 mb-lg-0 mb-3">
         <p className="heading-stock fs-sm-20 d-sm-flex justify-content-center d-lg-block ">
           {getValueOf("Old Plan Details")}
         </p>

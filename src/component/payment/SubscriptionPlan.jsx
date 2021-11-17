@@ -8,7 +8,7 @@ const SubscriptionPlan = ({ loading, promoCodeData, planDetails }) => {
     planDetails && planDetails.details && planDetails.details.split(",");
 
   return (
-    <div className="col-lg-7  mt-lg-0 mt-5 pt-lg-0 pt-4">
+    <div className="col  mt-lg-0 mt-5 pt-lg-0 pt-4">
       <section className=" select-plan-payment p-lg-4 p-3 h-100 ">
         <p className="heading-stock fs-sm-20 d-sm-flex justify-content-center d-lg-block">
           {getValueOf("Selected Subscription Plan")}
