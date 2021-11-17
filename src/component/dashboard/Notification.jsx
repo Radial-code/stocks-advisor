@@ -96,7 +96,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
 
         <Modal.Body>
           <div className="row">
-            <div className="col-3 d-flex  flex-column align-items-center">
+            <div className="col-md-3 d-flex  flex-column align-items-center">
               <p className=" notification-show-text mb-0 text-center py-3 fw-bold">
                 {getValueOf("Receive Notification When")}
               </p>
@@ -125,7 +125,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 {getValueOf("Related news is added")}
               </label>
             </div>
-            <div className="col-3 d-flex  flex-column align-items-center">
+            <div className="col-md-3 d-flex  flex-column align-items-center">
               <p className=" notification-show-text mb-0 text-center py-3 fw-bold">
                 {getValueOf("Mobile")}
               </p>
@@ -174,7 +174,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
                 }}
               />
             </div>
-            <div className="col-3 d-flex  flex-column align-items-center">
+            <div className="col-md-3 d-flex  flex-column align-items-center">
               <p className=" notification-show-text mb-0 text-center py-3 fw-bold">
                 {getValueOf("Web")}
               </p>
@@ -224,7 +224,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               />
             </div>
 
-            <div className="col-3 d-flex  flex-column align-items-center">
+            <div className="col-md-3 d-flex  flex-column align-items-center">
               <p className=" notification-show-text mb-0 text-center py-3 fw-bold">
                 {getValueOf("E-mail")}
               </p>
@@ -274,7 +274,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               />
             </div>
             <div className="row ">
-              <div className="col d-flex justify-content-end my-3">
+              <div className="col d-flex justify-content-md-end justify-content-center my-3">
                 <button
                   type="button"
                   onClick={() => updateNotification()}

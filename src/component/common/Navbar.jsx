@@ -812,7 +812,7 @@ const Navbar = ({
                                     <Dropdown.Item>
                                       <div
                                         key={index}
-                                        className="d-flex justify-content-between align-items-center pt-3"
+                                        className="d-flex justify-content-between flex-sm-row flex-column align-items-center pt-3"
                                       >
                                         <div className="d-flex align-items-center">
                                           {/* <img
