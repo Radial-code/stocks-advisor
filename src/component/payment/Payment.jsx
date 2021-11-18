@@ -23,86 +23,52 @@ const Payment = ({ match }) => {
 
   return (
     <>
-      <Container className="max-w-1400 mt-5 mb-5 ">
-        <Row className="justify-content-between mt-100 pt-3">
-          <SubscriptionPlan
-            loading={loading}
-            promoCodeData={promoCodeData}
-            planDetails={planDetails}
-          />
-          {allPlanDetails.isOldPlan ? (
-            <OldPlanDetails
+      <Container className="mt-100 mb-4">
+        <div className="d-flex flex-lg-row flex-column justify-content-between">
+          <div className="w-100 px-2">
+            <SubscriptionPlan
               loading={loading}
-              planDetails={allPlanDetails.oldPlan}
+              promoCodeData={promoCodeData}
+              planDetails={planDetails}
             />
-          ) : (
-            ""
-          )}
-          {allPlanDetails.youHaveToPay === 0 ? (
-            <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
-          ) : (
-            <>
-              {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
-                <>
-                  <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+            {!!allPlanDetails && !!allPlanDetails.isOldPlan ? (
+              <OldPlanDetails
+                loading={loading}
+                planDetails={allPlanDetails.oldPlan}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="w-100">
+            {allPlanDetails.youHaveToPay === 0 ? (
+              <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
+            ) : (
+              <>
+                {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
+                  <>
+                    <StripeForm
+                      setPromoCodeData={setPromoCodeData}
+                      promoCodeData={promoCodeData}
+                      youHaveToPay={allPlanDetails.youHaveToPay}
+                    />
+                    <OldPlan
+                      allPlanDetails={allPlanDetails}
+                      loading={loading}
+                    />
+                  </>
+                ) : (
                   <StripeForm
                     setPromoCodeData={setPromoCodeData}
                     promoCodeData={promoCodeData}
                     youHaveToPay={allPlanDetails.youHaveToPay}
                   />
-                </>
-              ) : (
-                <StripeForm
-                  setPromoCodeData={setPromoCodeData}
-                  promoCodeData={promoCodeData}
-                  youHaveToPay={allPlanDetails.youHaveToPay}
-                />
-              )}
-            </>
-          )}
-        </Row>
+                )}
+              </>
+            )}
+          </div>
+        </div>
       </Container>
-      {/* <div className="d-flex flex-lg-row flex-column mt-100 max-w-1400 justify-content-center">
-        <div>
-          <SubscriptionPlan
-            loading={loading}
-            promoCodeData={promoCodeData}
-            planDetails={planDetails}
-          />
-          {!!allPlanDetails && !!allPlanDetails.isOldPlan ? (
-            <OldPlanDetails
-              loading={loading}
-              planDetails={allPlanDetails.oldPlan}
-            />
-          ) : (
-            ""
-          )}
-        </div>
-        <div>
-          {allPlanDetails.youHaveToPay === 0 ? (
-            <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
-          ) : (
-            <>
-              {allPlanDetails.youHaveToPay > 0 && allPlanDetails.isOldPlan ? (
-                <>
-                  <StripeForm
-                    setPromoCodeData={setPromoCodeData}
-                    promoCodeData={promoCodeData}
-                    youHaveToPay={allPlanDetails.youHaveToPay}
-                  />
-                  <OldPlan allPlanDetails={allPlanDetails} loading={loading} />
-                </>
-              ) : (
-                <StripeForm
-                  setPromoCodeData={setPromoCodeData}
-                  promoCodeData={promoCodeData}
-                  youHaveToPay={allPlanDetails.youHaveToPay}
-                />
-              )}
-            </>
-          )}
-        </div>
-      </div> */}
     </>
   );
 };
