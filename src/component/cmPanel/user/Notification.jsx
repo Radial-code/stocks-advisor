@@ -242,10 +242,10 @@ function Notification() {
                   </span>
                 </Form.Group>
               </div>
-              <div>
-                <h4>Select User</h4>
+              <div className="col-12 col-lg-6  cursor-pointer multi-selector">
                 <MultiSelect
                   options={userOption}
+                  className="cursor-pointer"
                   value={selected}
                   onChange={setSelected}
                   labelledBy="Select"

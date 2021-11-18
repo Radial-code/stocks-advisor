@@ -267,7 +267,7 @@ function SignUp({ history, match }) {
                                   key={index}
                                   value={value.dial_code}
                                 >
-                                  {value.name}({value.dial_code})
+                                  ({value.dial_code})
                                 </option>
                               );
                             })
@@ -287,7 +287,7 @@ function SignUp({ history, match }) {
                           : "col-sm-5 pe-0 col-6"
                       }`}
                     >
-                      <div className="contact-field">
+                      {/* <div className="contact-field">
                         <div
                           aria-controls="simple-menu"
                           aria-haspopup="true"
@@ -316,7 +316,37 @@ function SignUp({ history, match }) {
                               );
                             })}
                         </Menu>
-                      </div>
+                      </div> */}
+                      <FormGroup className="contact-select">
+                        <select
+                          onChange={(e) => {
+                            setSignUpDetails({
+                              ...signUpDetails,
+                              countryCode: e.target.value,
+                            });
+                          }}
+                          className={`${
+                            layoutClickChanger
+                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
+                              : "form-select   text-end cursor-pointer ps-5"
+                          }`}
+                        >
+                          <option>Code</option>
+                          {countries && countries.length
+                            ? countries.map((value, index) => {
+                                return (
+                                  <option
+                                    className="country-dots"
+                                    key={index}
+                                    value={value.dial_code}
+                                  >
+                                    ({value.dial_code})
+                                  </option>
+                                );
+                              })
+                            : "Something went wrong"}
+                        </select>
+                      </FormGroup>
                     </div>{" "}
                     <div
                       className={`${

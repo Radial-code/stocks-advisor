@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, FormGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
@@ -169,7 +169,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       });
                     }}
                   />
-                  {/*  <input
+                  {/* <input
                     className="input-edit-user edit-user-input-style"
                     placeholder={phone}
                     type="number"
@@ -179,7 +179,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                         phone: e.target.value,
                       });
                     }}
-                  />**/}
+                  /> */}
 
                   <div
                     className={`d-flex my-2 ${
@@ -199,7 +199,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                           : "col-sm-5 ps-0 col-6"
                       } h-100`}
                     >
-                      {/* <FormGroup className=" sign-up-select">
+                      <FormGroup className="edit-user-select">
                         <select
                           value={updateUser.countryCode}
                           onChange={(e) => {
@@ -214,7 +214,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               : "form-select   text-end cursor-pointer ps-5"
                           }`}
                         >
-                          <option>Code</option>
+                          <option> Country Code</option>
                           {countries && countries.length ? (
                             countries.map((value, index) => {
                               return (
@@ -223,7 +223,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                   key={index}
                                   value={value.dial_code}
                                 >
-                                  {value.name}({value.dial_code})
+                                  {value.dial_code}
                                 </option>
                               );
                             })
@@ -231,8 +231,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                             <>{getValueOf("Something went wrong")}</>
                           )}
                         </select>
-                      </FormGroup> */}
-                      <div className="contact-field">
+                      </FormGroup>
+                      {/* <div className="contact-field">
                         <div
                           aria-controls="simple-menu"
                           aria-haspopup="true"
@@ -271,7 +271,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               );
                             })}
                         </select>
-                      </div>
+                      </div> */}
                     </div>
                     <input
                       className="input-edit-user edit-user-input-style"
@@ -285,7 +285,6 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                       }}
                     />
                   </div>
-
                   <input
                     className="input-edit-user edit-user-input-style"
                     placeholder={email}

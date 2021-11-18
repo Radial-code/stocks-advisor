@@ -477,7 +477,13 @@
 .homePageSlider .slick-dots {
   display: flex !important;
 }
-
+.multi-selector .rmsc .dropdown-container:focus-within {
+  border-color: rgba(22, 25, 30, 0.2) !important;
+  box-shadow: 0 0 0 0.25rem transparent !important;
+}
+.multi-selector .rmsc .dropdown-container {
+  padding: 7px;
+}
 .homePageSlider .slick-dots button {
   width: 23px;
   height: 4px;

@@ -164,7 +164,7 @@ const ContactForm = () => {
                               key={index}
                               value={value.dial_code}
                             >
-                              {value.name}({value.dial_code})
+                              ({value.dial_code})
                             </option>
                           );
                         })
@@ -205,7 +205,7 @@ const ContactForm = () => {
                               key={index}
                               value={value.dial_code}
                             >
-                              {value.name}({value.dial_code})
+                              ({value.dial_code})
                             </option>
                           );
                         })

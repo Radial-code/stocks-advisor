@@ -29,7 +29,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                 />
               ) : (
                 <img
-                  className="w-50"
+                  className="w-100"
                   src={newsDetails && newsDetails.link}
                   alt="news"
                 />
