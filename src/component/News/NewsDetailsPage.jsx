@@ -18,13 +18,23 @@ const NewsDetailsPage = ({ history, loading }) => {
       ) : (
         <div className="profile-box-2 w-xs-303 p-4 h-100">
           <div className=" my-3">
-            <ReactPlayer
-              url={newsDetails && newsDetails.link}
-              controls
-              playbackRate={2}
-              width="100%"
-              height="504px"
-            />
+            {newsDetails && newsDetails.link ? (
+              newsDetails.link.includes("youtube") ? (
+                <ReactPlayer
+                  url={newsDetails && newsDetails.link}
+                  controls
+                  playbackRate={2}
+                  width="100%"
+                  height="504px"
+                />
+              ) : (
+                <img
+                  className="w-50"
+                  src={newsDetails && newsDetails.link}
+                  alt="news"
+                />
+              )
+            ) : null}
             <h6
               className={` ${
                 layoutClickChanger

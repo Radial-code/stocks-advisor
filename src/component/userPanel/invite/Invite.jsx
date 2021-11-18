@@ -13,6 +13,7 @@ const Invite = () => {
   const inviteYourMessageCode = useSelector(
     (state) => state.list.inviteYourMessageCode
   );
+  const myReferalCodeForInvite = useSelector((state) => state.auth.userData);
   useEffect(() => {
     dispatch(InviteYourFriendsCodeAction(setInviteFriendMessage));
   }, []);
@@ -85,6 +86,44 @@ const Invite = () => {
                       }
                     >
                       {`${getValueOf("Copy Link")}`}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="my-4 row">
+                <div className="col-md-8 col-sm-7 col-5 pe-sm-2 pe-0">
+                  <input
+                    type="text"
+                    placeholder={`${
+                      myReferalCodeForInvite &&
+                      myReferalCodeForInvite.myReferalCode
+                        ? myReferalCodeForInvite.myReferalCode
+                        : "N/A"
+                    }`}
+                    disabled="disabled"
+                    className="form-control  input-border-16191e33 btn-disable  py-3 profile-input-placeholder"
+                    id="exampleFormControlInput12"
+                  />
+                </div>
+                <div
+                  className={`${
+                    layoutClickChanger ? "" : "ps-0"
+                  }  col-md-4 col-sm-5 col-7 `}
+                >
+                  <div className="add-new-btn h-100">
+                    <button
+                      className="update-btn w-100 h-100"
+                      type="button"
+                      onClick={() =>
+                        copyReferalUrl(
+                          myReferalCodeForInvite &&
+                            myReferalCodeForInvite.myReferalCode
+                            ? myReferalCodeForInvite.myReferalCode
+                            : null
+                        )
+                      }
+                    >
+                      {`${getValueOf("Copy Code")}`}
                     </button>
                   </div>
                 </div>

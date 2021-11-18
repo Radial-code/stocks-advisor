@@ -130,6 +130,10 @@ export const getBuyPlanAction =
         setPaymentId(response.paymentId);
         setLoading(false);
         const paymentWindow = window.open(response.url, "_blank");
+        if (!paymentWindow) {
+          Swal.fire("Error", "Please allow popups for this website", "error");
+          setTimeout(Swal.close, 2000);
+        }
       } else {
         setLoading(false);
         Swal.fire("Error", "Failed to add payment", "error");

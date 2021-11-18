@@ -136,6 +136,10 @@ const ContactForm = () => {
                     : "col-sm-5 ps-0 col-6"
                 }`}
               >
+                {console.log(
+                  "contactDetails.countryCode",
+                  contactDetails.countryCode
+                )}
                 <FormGroup className="contact-select">
                   <select
                     onChange={(e) => {
@@ -144,6 +148,7 @@ const ContactForm = () => {
                         countryCode: e.target.value,
                       });
                     }}
+                    value={contactDetails.countryCode}
                     className={`${
                       layoutClickChanger
                         ? "form-select form-field-3 text-end cursor-pointer ps-5"
@@ -177,37 +182,7 @@ const ContactForm = () => {
                     : "col-sm-5 pe-0 col-6"
                 }`}
               >
-                <div className="contact-field">
-                  <div
-                    aria-controls="simple-menu"
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    className="contact-border2"
-                  >
-                    <span className="contact-text">Country Code</span>
-                  </div>{" "}
-                  <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                  >
-                    {countries &&
-                      countries.length &&
-                      countries.map((value, i) => {
-                        return (
-                          <MenuItem
-                            value={value.dial_code}
-                            onClick={handleClose}
-                          >
-                            {value.name}({value.dial_code})
-                          </MenuItem>
-                        );
-                      })}
-                  </Menu>
-                </div>
-                {/* <FormGroup className="contact-select">
+                <FormGroup className="contact-select">
                   <select
                     onChange={(e) => {
                       setContactDetails({
@@ -236,7 +211,7 @@ const ContactForm = () => {
                         })
                       : "Something went wrong"}
                   </select>
-                </FormGroup> */}
+                </FormGroup>
               </div>
               <div
                 className={`${

@@ -6,14 +6,20 @@ import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
 import { addNewNotificationAction } from "../../../redux/action/contact";
 import Loader from "../../common/Loader";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
+import { getUserListForAdminAction } from "../../../redux/action/cmPanel/stock";
+import { MultiSelect } from "react-multi-select-component";
 
 const data = [];
+const userOption = [];
 const valueId = [];
 function Notification() {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
+  const adminUserList = useSelector((state) => state.cmPanel.adminUserList);
   const planList = useSelector((state) => state.list.planList);
   const [loading, setLoading] = useState(false);
+  const [selected, setSelected] = useState([]);
+  const [loadingUser, setLoadingUser] = useState(false);
   const [planLoading, setPlanLoading] = useState(false);
   const [allPlan, setAllPlan] = useState(false);
   const [error, setError] = useState(false);
@@ -22,12 +28,22 @@ function Notification() {
     body: "",
     sendTo: "",
     type: "",
+    usersList: [],
   });
 
-  useEffect(() => {
+  useEffect(async () => {
     const limit = 10;
     const page = 0;
     dispatch(getPlansListAction(setPlanLoading, page, limit, null));
+    await dispatch(getUserListForAdminAction(setLoadingUser, page));
+    if (adminUserList && adminUserList.length > 0) {
+      adminUserList.map((item) => {
+        userOption.push({
+          label: item.firstName,
+          value: item.firstName,
+        });
+      });
+    }
   }, []);
 
   const selectPlan = (id, type) => {
@@ -225,6 +241,16 @@ function Notification() {
                       : null}
                   </span>
                 </Form.Group>
+              </div>
+              <div>
+                <h4>Select User</h4>
+                <MultiSelect
+                  options={userOption}
+                  value={selected}
+                  onChange={setSelected}
+                  labelledBy="Select"
+                  hasSelectAll={false}
+                />
               </div>
             </div>
             <div className="row py-4">

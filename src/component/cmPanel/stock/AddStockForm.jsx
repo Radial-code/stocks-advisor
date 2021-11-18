@@ -59,10 +59,10 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
   }, []);
 
   useEffect(() => {
-    if (!detailLoading) {
+    if (!detailLoading && edit) {
       setStockDetails(stockDetailsList);
     }
-  }, [detailLoading]);
+  }, [detailLoading, edit]);
 
   const submitStockDetails = () => {
     setError(true);

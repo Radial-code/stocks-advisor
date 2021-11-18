@@ -32,7 +32,7 @@ const initialState = {
 
 const AddNewNews = ({ edit, match, history }) => {
   const { id } = match.params;
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
 
   const dispatch = useDispatch();
   const newsDetailsList = useSelector((state) => state.userPanel.newsDetails);
@@ -48,10 +48,10 @@ const AddNewNews = ({ edit, match, history }) => {
   const [categoryArray, setCategoryArray] = useState([]);
 
   useEffect(() => {
-    if (newsDetailsList) {
+    if (newsDetailsList && edit) {
       setNewsDetails(newsDetailsList);
     }
-  }, [newsDetailsList]);
+  }, [newsDetailsList, edit]);
 
   useEffect(() => {
     dispatch(getStockListAction(0, setLoading));

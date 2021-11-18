@@ -4,6 +4,7 @@ import { Form, FormGroup } from "react-bootstrap";
 import { uploadImageCallBack } from "../../../contexts/HtmlEditor";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from "react-draft-wysiwyg";
+
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
@@ -34,12 +35,16 @@ const AddNewsForm = ({
   };
 
   const onEditoraDesStateChange = (editorState) => {
+    console.log(editorState, "editor state");
     setNewsDetails({ ...newsDetails, adescription: editorState });
   };
   const onEditorDesStateChange = (editorState) => {
     setNewsDetails({ ...newsDetails, description: editorState });
   };
-
+  const onContentStateChange = (e) => {
+    console.log(e);
+    console.log(e.blocks[0].text, "text");
+  };
   return (
     <>
       <div className="row">
@@ -157,6 +162,9 @@ const AddNewsForm = ({
           </div>
         </div>
       </div>
+      <p className="text-danger">
+        Note: Press enter after tag and start New Tag.
+      </p>
       <div className="row">
         <div className="col-12 mb-3">
           {layoutClickChanger ? (
@@ -296,6 +304,7 @@ const AddNewsForm = ({
               toolbarClassName="toolbarClassName"
               wrapperClassName="wrapperClassName"
               editorClassName="editorClassName"
+              onContentStateChange={onContentStateChange}
               onEditorStateChange={onEditoraDesStateChange}
               toolbar={{
                 inline: { inDropdown: true },

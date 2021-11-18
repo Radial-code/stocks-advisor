@@ -34,10 +34,10 @@ function PlansForm({ history, edit, id }) {
   const [planDetails, setPlanDetails] = useState(initialState);
 
   useEffect(() => {
-    if (PlanDetailsList) {
+    if (PlanDetailsList && edit) {
       setPlanDetails(PlanDetailsList);
     }
-  }, [PlanDetailsList]);
+  }, [PlanDetailsList, edit]);
 
   const submitPlanDetails = () => {
     setError(true);
