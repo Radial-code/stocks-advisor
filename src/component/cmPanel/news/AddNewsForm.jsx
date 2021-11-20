@@ -35,17 +35,13 @@ const AddNewsForm = ({
     setUploadImg(image);
   };
 
-  const onEditoraDesStateChange = (editorState) => {
-    console.log(editorState, "editor state");
-    setNewsDetails({ ...newsDetails, adescription: editorState });
+  const onEditoraDesStateChange = (e) => {
+    setNewsDetails({ ...newsDetails, adescription: e });
   };
-  const onEditorDesStateChange = (editorState) => {
-    setNewsDetails({ ...newsDetails, description: editorState });
+  const onEditorDesStateChange = (e) => {
+    setNewsDetails({ ...newsDetails, description: e });
   };
-  const onContentStateChange = (e) => {
-    console.log(e);
-    console.log(e.blocks[0].text, "text");
-  };
+
   return (
     <>
       <div className="row">
@@ -299,7 +295,11 @@ const AddNewsForm = ({
             value={newsDetails.adescription}
           />**/}
           <div className="editor">
-            <DraftEditor />
+            <DraftEditor
+              setNewsDetails={setNewsDetails}
+              details={newsDetails.adescription}
+              onEditorStateChange={onEditoraDesStateChange}
+            />
           </div>
         </div>
         <div className="col-12 mb-3" dir="ltr">
@@ -324,24 +324,10 @@ const AddNewsForm = ({
           ></textarea>**/}
 
           <div className="editor">
-            <Editor
-              className="inputs-border"
-              editorState={newsDetails.description}
-              toolbarClassName="toolbarClassName"
-              wrapperClassName="wrapperClassName"
-              editorClassName="editorClassName"
+            <DraftEditor
+              setNewsDetails={setNewsDetails}
+              details={newsDetails.description}
               onEditorStateChange={onEditorDesStateChange}
-              toolbar={{
-                inline: { inDropdown: true },
-                list: { inDropdown: true },
-                textAlign: { inDropdown: true },
-                link: { inDropdown: true },
-                history: { inDropdown: true },
-                image: {
-                  uploadCallback: uploadImageCallBack,
-                  alt: { present: true, mandatory: true },
-                },
-              }}
             />
           </div>
         </div>
