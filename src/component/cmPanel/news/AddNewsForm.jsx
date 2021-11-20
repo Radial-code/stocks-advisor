@@ -10,6 +10,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Loader from "../../common/Loader";
+import DraftEditor from "./DraftEditor";
 
 const AddNewsForm = ({
   setNewsDetails,
@@ -298,26 +299,7 @@ const AddNewsForm = ({
             value={newsDetails.adescription}
           />**/}
           <div className="editor">
-            <Editor
-              className="inputs-border"
-              editorState={newsDetails.adescription}
-              toolbarClassName="toolbarClassName"
-              wrapperClassName="wrapperClassName"
-              editorClassName="editorClassName"
-              onContentStateChange={onContentStateChange}
-              onEditorStateChange={onEditoraDesStateChange}
-              toolbar={{
-                inline: { inDropdown: true },
-                list: { inDropdown: true },
-                textAlign: { inDropdown: true },
-                link: { inDropdown: true },
-                history: { inDropdown: true },
-                image: {
-                  uploadCallback: uploadImageCallBack,
-                  alt: { present: true, mandatory: true },
-                },
-              }}
-            />
+            <DraftEditor />
           </div>
         </div>
         <div className="col-12 mb-3" dir="ltr">
