@@ -4,10 +4,12 @@ import {
   addNewNotificationApi,
   getContactListApi,
   getNotificationListApi,
+  getUnseenNotificationListApi,
 } from "../api/contact";
 
 export const GET_CONTACT_LIST = "GET_CONTACT_LIST";
 export const GET_NOTIFICATION_LIST = "GET_NOTIFICATION_LIST";
+export const GET_UNSEEN_NOTIFICATION_LIST = "GET_UNSEEN_NOTIFICATION_LIST";
 /**
  * add contact action
  * @param {Object} data
@@ -81,7 +83,7 @@ export const getNotificationListAction = (setLoading) => async (dispatch) => {
   try {
     const response = await getNotificationListApi();
     if (response.success) {
-      dispatch(getNotificationList(response.allNotifications));
+      dispatch(getNotificationList(response));
       setLoading(false);
     } else {
       setLoading(false);
@@ -90,6 +92,29 @@ export const getNotificationListAction = (setLoading) => async (dispatch) => {
     }
   } catch (error) {
     setLoading(false);
+    Swal.fire("Error!", "Something went wrong", "error");
+    setTimeout(Swal.close, 2000);
+  }
+};
+
+/**
+ * Get contact list action
+ * @param {Object} data
+ * @returns
+ */
+
+const getUnseenNotificationList = (data) => ({
+  type: GET_UNSEEN_NOTIFICATION_LIST,
+  data,
+});
+
+export const getUnseenNotificationListAction = () => async (dispatch) => {
+  try {
+    const response = await getUnseenNotificationListApi();
+    if (response.success) {
+      dispatch(getUnseenNotificationList(response.data));
+    }
+  } catch (error) {
     Swal.fire("Error!", "Something went wrong", "error");
     setTimeout(Swal.close, 2000);
   }
@@ -110,8 +135,6 @@ export const addNewNotificationAction = (data, setLoading) => async () => {
       setTimeout(Swal.close, 2000);
     } else {
       setLoading(false);
-      Swal.fire("Error", "Failed to add Notification", "error");
-      setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);

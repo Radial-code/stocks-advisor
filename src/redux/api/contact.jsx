@@ -26,6 +26,14 @@ export const getNotificationListApi = async () => {
 };
 
 /**
+ * Get unseen notification list Api
+ * @returns
+ */
+export const getUnseenNotificationListApi = async () => {
+  return await axiosRequest("GET", `/notification-unseen`);
+};
+
+/**
  * add new notification Api
  * @returns
  */

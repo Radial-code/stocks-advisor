@@ -31,6 +31,10 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import BubblesLoader from "./BubblesLoader";
 import GetTime from "./dateTime";
+import {
+  getNotificationListAction,
+  getUnseenNotificationListAction,
+} from "../../redux/action/contact";
 
 const Navbar = ({
   history,
@@ -39,10 +43,13 @@ const Navbar = ({
   searchData,
   searchshow,
   setSearchShow,
-  notificationLoading,
 }) => {
   const [activeId, setActiveId] = useState("");
+  const [notificationLoading, setNotificationLoading] = useState(false);
   const notificationList = useSelector((state) => state.list.notificationList);
+  const unseenNotificationList = useSelector(
+    (state) => state.list.unseenNotificationList
+  );
 
   function toggleActive(id) {
     if (activeId === id) {
@@ -195,6 +202,10 @@ const Navbar = ({
   } else {
     document.dir = "ltr";
   }
+
+  const getNotification = () => {
+    dispatch(getNotificationListAction(setNotificationLoading));
+  };
 
   return (
     <>
@@ -520,7 +531,10 @@ const Navbar = ({
                 <div className="cursor-pointer d-none d-xxl-flex align-items-center mx-3 position-relative">
                   <Dropdown className="notification-dropdown">
                     <Dropdown.Toggle>
-                      <span className="notification-icon ">
+                      <span
+                        className="notification-icon"
+                        onClick={() => getNotification()}
+                      >
                         <Notify />
                       </span>
                     </Dropdown.Toggle>
@@ -584,8 +598,11 @@ const Navbar = ({
                       )}
                     </Dropdown.Menu>
                   </Dropdown>
-
-                  <span className="d-block notify-dot"></span>
+                  {unseenNotificationList > 0 ? (
+                    <span className="d-block notify-dot">
+                      {unseenNotificationList}
+                    </span>
+                  ) : null}
                 </div>
               ) : (
                 // <>

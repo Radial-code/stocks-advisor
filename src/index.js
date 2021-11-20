@@ -8,17 +8,20 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./Store";
 import FixedScreenProvider from "./contexts/FixedScreenProvider";
 import LayoutChangerProvider from "./redux/LayoutChangerProvider";
+import SocketProvider from "./redux/SocketProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <FixedScreenProvider>
-          <LayoutChangerProvider>
-            <App />
-          </LayoutChangerProvider>
-        </FixedScreenProvider>
-      </Router>
+      <SocketProvider>
+        <Router>
+          <FixedScreenProvider>
+            <LayoutChangerProvider>
+              <App />
+            </LayoutChangerProvider>
+          </FixedScreenProvider>
+        </Router>
+      </SocketProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

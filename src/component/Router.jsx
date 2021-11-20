@@ -37,7 +37,6 @@ const Router = ({
   showSidebar2,
   setShowSidebar2,
   sideBarHandler,
-  notificationLoading,
 }) => {
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchData] = useState("");
@@ -51,7 +50,6 @@ const Router = ({
         searchData={searchData}
         searchshow={searchshow}
         setSearchShow={setSearchShow}
-        notificationLoading={notificationLoading}
       />
       <Switch>
         {/**Auth routes */}

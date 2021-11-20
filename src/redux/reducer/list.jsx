@@ -11,7 +11,11 @@ import {
   REMOVE_PLAN_DETAILS,
   GET_STOCK_CHAT_LIST,
 } from "../action/cmPanel/stock";
-import { GET_CONTACT_LIST, GET_NOTIFICATION_LIST } from "../action/contact";
+import {
+  GET_CONTACT_LIST,
+  GET_NOTIFICATION_LIST,
+  GET_UNSEEN_NOTIFICATION_LIST,
+} from "../action/contact";
 import {
   GET_INVITE_MESSAGE_CODE,
   INVITE_YOUR_MESSAGE_CODE,
@@ -71,6 +75,7 @@ const initialState = {
   inviteMessageCode: {},
   inviteYourMessageCode: {},
   allPlanDetails: {},
+  unseenNotificationList: 0,
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -279,7 +284,9 @@ export default function ListReducer(state = initialState, action) {
     case GET_NOTIFICATION_LIST: {
       return {
         ...state,
-        notificationList: action.data,
+        notificationList: action.data.allNotifications,
+        unseenNotificationList:
+          state.unseenNotificationList - action.data.totalUnseen,
       };
     }
 
@@ -349,6 +356,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         inviteYourMessageCode: data,
+      };
+    }
+
+    //unseen notification
+    case GET_UNSEEN_NOTIFICATION_LIST: {
+      return {
+        ...state,
+        unseenNotificationList: action.data,
       };
     }
 

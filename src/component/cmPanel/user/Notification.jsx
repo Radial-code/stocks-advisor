@@ -36,16 +36,26 @@ function Notification() {
     const page = 0;
     dispatch(getPlansListAction(setPlanLoading, page, limit, null));
     await dispatch(getUserListForAdminAction(setLoadingUser, page));
-    if (adminUserList && adminUserList.length > 0) {
-      adminUserList.map((item) => {
-        userOption.push({
-          label: item.firstName,
-          value: item.firstName,
-        });
-      });
-    }
+    // if (adminUserList && adminUserList.length > 0) {
+    //   adminUserList.map((item) => {
+    //     userOption.push({
+    //       label: item.firstName,
+    //       value: item.firstName,
+    //     });
+    //   });
+    // }
   }, []);
 
+  const userList =
+    adminUserList && adminUserList.length > 0
+      ? adminUserList.map((item) =>
+          userOption.push({
+            label: item.firstName,
+            value: item.firstName,
+          })
+        )
+      : [];
+  console.log(userOption, userList);
   const selectPlan = (id, type) => {
     if (type === "all") {
       setAllPlan(!allPlan);
@@ -244,7 +254,7 @@ function Notification() {
               </div>
               <div className="col-12 col-lg-6  cursor-pointer multi-selector">
                 <MultiSelect
-                  options={userOption}
+                  options={userList}
                   className="cursor-pointer"
                   value={selected}
                   onChange={setSelected}

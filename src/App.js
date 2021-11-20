@@ -17,7 +17,11 @@ import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import ConfirmRoute from "./component/ConfirmRoute";
 import { getCountryListAction } from "./redux/action/portfolios";
-import { getNotificationListAction } from "./redux/action/contact";
+import {
+  getNotificationListAction,
+  getUnseenNotificationListAction,
+} from "./redux/action/contact";
+import JoinSocket from "./redux/JoinSocket";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -45,12 +49,11 @@ function App() {
     }
     dispatch(getCountryListAction());
     if (!!auth && !!token) {
-      setTimeout(
-        dispatch(getNotificationListAction(setNotificationLoading)),
-        2000
-      );
+      setTimeout(dispatch(getUnseenNotificationListAction()), 2000);
     }
   }, [auth, token]);
+
+  JoinSocket();
 
   return (
     <div
@@ -78,7 +81,6 @@ function App() {
               <ConfirmRoute />
             ) : (
               <Router
-                notificationLoading={notificationLoading}
                 showSidebar={showSidebar}
                 sideBarHandler={sideBarHandler}
                 setShowSidebar={setShowSidebar}
