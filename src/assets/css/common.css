@@ -763,7 +763,7 @@ input::-webkit-inner-spin-button {
   /* height: 250px; */
   height: auto;
   width: auto;
-  max-height: 95px;
+  max-height: 180px;
   max-width: 230px;
 }
 /* @media (max-width: 1024px) {

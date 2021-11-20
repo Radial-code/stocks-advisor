@@ -555,53 +555,61 @@ const Navbar = ({
                           </div>
                         </Dropdown.Item>
                       </div>
-                      {notificationLoading ? (
-                        <BubblesLoader />
+                      {!notificationLoading ? (
+                        <div className="d-flex justify-content-center my-5">
+                          <BubblesLoader />
+                        </div>
                       ) : (
                         <>
-                          {notificationList && notificationList.length
-                            ? notificationList.map((value, index) => {
-                                return (
-                                  <div className="notification-dropdown-item">
-                                    <Dropdown.Item>
-                                      <div
-                                        key={index}
-                                        className="d-flex justify-content-between align-items-center pt-3"
-                                      >
-                                        <div className="d-flex align-items-center">
-                                          {/* <img
+                          {notificationList && notificationList.length ? (
+                            notificationList.map((value, index) => {
+                              return (
+                                <div className="notification-dropdown-item">
+                                  <Dropdown.Item>
+                                    <div
+                                      key={index}
+                                      className="d-flex justify-content-between align-items-center pt-3"
+                                    >
+                                      <div className="d-flex align-items-center">
+                                        {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
                                       /> */}
-                                          <div>
-                                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                                              {value.body}
-                                            </p>
-                                            <p className="mb-0 px-2  notification-text notify-time">
-                                              {value.title}
-                                            </p>
-                                          </div>
-                                        </div>
                                         <div>
+                                          <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                            {value.body}
+                                          </p>
                                           <p className="mb-0 px-2  notification-text notify-time">
-                                            {GetTime(value.createdAt)}
+                                            {value.title}
                                           </p>
                                         </div>
                                       </div>
-                                    </Dropdown.Item>
-                                  </div>
-                                );
-                              })
-                            : "You don't not have any notification list"}
+                                      <div>
+                                        <p className="mb-0 px-2  notification-text notify-time">
+                                          {GetTime(value.createdAt)}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </Dropdown.Item>
+                                </div>
+                              );
+                            })
+                          ) : (
+                            <p className="text-center">
+                              You don't not have any notification list
+                            </p>
+                          )}
                         </>
                       )}
                     </Dropdown.Menu>
                   </Dropdown>
                   {unseenNotificationList !== 0 ? (
-                    <span className="d-block notify-dot">
-                      {unseenNotificationList}
-                    </span>
+                    <div className="notify-dot d-flex justify-content-center align-items-center">
+                      <span className="text-white">
+                        {unseenNotificationList}
+                      </span>
+                    </div>
                   ) : null}
                 </div>
               ) : (
@@ -822,7 +830,9 @@ const Navbar = ({
                         </div>
                       </Dropdown.Item>
                       {notificationLoading ? (
-                        <BubblesLoader />
+                        <div className="d-flex justify-content-center my-5">
+                          <BubblesLoader />
+                        </div>
                       ) : (
                         <>
                           {notificationList && notificationList.length
@@ -865,9 +875,11 @@ const Navbar = ({
                     </Dropdown.Menu>
                   </Dropdown>
                   {auth && unseenNotificationList !== 0 ? (
-                    <span className="d-block notify-dot">
-                      {unseenNotificationList}
-                    </span>
+                    <div className="notify-dot2 d-flex justify-content-center align-items-center">
+                      <span className="text-white">
+                        {unseenNotificationList}
+                      </span>
+                    </div>
                   ) : null}
                 </div>
                 <div
