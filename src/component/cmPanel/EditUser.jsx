@@ -18,6 +18,7 @@ import { userUpdateByAdminAction } from "../../redux/action/portfolios";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
+import { getPlansListAction } from "../../redux/action/cmPanel/plans";
 
 const initialState = {
   firstName: "",
@@ -33,12 +34,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [loadingPlan, setLoadingPlan] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(initialState);
   const { userId } = match.params;
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
   );
+  const planList = useSelector((state) => state.list.planList);
   const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
   const { createdAt, expiresOn, details, price, title } = userPlanDetails
     ? userPlanDetails
@@ -88,6 +91,16 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   useEffect(() => {
     detailsString = details && details.split(",");
   }, [details]);
+
+  const updatePlanGetUserList = () => {
+    const limit = 10;
+    const page = 0;
+    dispatch(getPlansListAction(setLoadingPlan, page, limit));
+  };
+
+  const setUserUpdateData = (value) => {
+    console.log("value", value);
+  };
 
   return (
     <Container>
@@ -392,6 +405,28 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                               </label>
                             </span>
                           </div>
+                          <button
+                            type="button"
+                            onClick={() => updatePlanGetUserList()}
+                            className="update-btn-2 mt-3"
+                            disabled={loadingPlan}
+                          >
+                            {loadingPlan ? <Loader /> : "Update Plan"}
+                          </button>
+                          {planList && !!planList.length
+                            ? planList.map((val) => {
+                                return (
+                                  <>
+                                    <input
+                                      type="radio"
+                                      value="JavaScript"
+                                      onChange={() => setUserUpdateData(val)}
+                                    />
+                                    <span>{val.title}</span>
+                                  </>
+                                );
+                              })
+                            : null}
                         </section>
                       </Col>
                     </Row>
