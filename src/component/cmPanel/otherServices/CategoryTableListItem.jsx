@@ -4,7 +4,7 @@ function CategoryTableListItem({
   value,
   editCategory,
   deleteCategory,
-  getValueOf,
+  layoutClickChanger,
 }) {
   return (
     <>
@@ -12,7 +12,9 @@ function CategoryTableListItem({
         <td className="text-end  whitespace Ellipse">
           {moment(value.createdAt).format("MM/ddd")}
         </td>
-        <td className="text-end  whitespace Ellipse">{value.title}</td>
+        <td className="text-end  whitespace Ellipse">
+          {layoutClickChanger ? value.atitle : value.title}
+        </td>
         <td className="text-end  whitespace Ellipse">
           <button
             className="px-3 py-1 edit-button "

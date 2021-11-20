@@ -8,7 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
+function PortfoliosPopup({ handleClose, show, edit, updateValue }) {
   const dispatch = useDispatch();
   const [portfolios, setPortfolios] = useState(
     !!updateValue ? updateValue.title : ""
@@ -30,7 +30,7 @@ function PortfoliosPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const updatePortfolios = () => {
     setError(true);
     if (portfolios !== "") {
-      const data = { title: portfolios };
+      const data = { title: portfolios, atitle: aportfolios };
       dispatch(
         updatePortfolioDetailsAction(
           updateValue._id,

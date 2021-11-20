@@ -6,17 +6,8 @@ import { Form, FormGroup } from "react-bootstrap";
 import { EmailRegex, PhoneRegex } from "../common/Validation";
 import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+
 const ContactForm = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.list.countries);
@@ -42,6 +33,7 @@ const ContactForm = () => {
       contactDetails.countryCode !== "" &&
       EmailRegex.test(contactDetails.email) === true
     ) {
+      setError(false);
       dispatch(addContactAction(contactDetails, setSetLoading));
       setContactDetails({
         name: "",

@@ -8,7 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function ExchangePopup({ handleClose, show, edit, updateValue, getValueOf }) {
+function ExchangePopup({ handleClose, show, edit, updateValue }) {
   const dispatch = useDispatch();
   const [Exchange, setExchange] = useState(
     !!updateValue && !!updateValue.title ? updateValue.title : ""

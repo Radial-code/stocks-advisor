@@ -13,7 +13,7 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 function ExchangeTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [loading, setExchangeLoading] = useState(false);
   const exchangeList = useSelector((state) => state.cmPanel.exchangeList);
 
