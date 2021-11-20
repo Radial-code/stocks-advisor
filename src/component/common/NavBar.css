@@ -155,12 +155,14 @@
 }
 
 .notification-dropdown .dropdown-menu {
-  height: calc(100vh - 875px);
+  height: calc(100vh - 575px);
   overflow: auto;
 }
+
 .notification-dropdown-item .dropdown-item:active {
   background-color: white !important;
 }
+
 .user-img {
   height: 40px;
   width: 40px;

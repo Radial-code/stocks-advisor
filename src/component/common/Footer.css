@@ -11,6 +11,9 @@
   transition: 0.3s;
   border: 0;
 }
+.footer-list-active {
+  color: var(--color-127CF9);
+}
 
 .filter-img {
   filter: grayscale(1);
