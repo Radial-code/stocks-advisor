@@ -47,11 +47,20 @@ function SocketProvider({ children }) {
   const token = localStorage.getItem("stock-advisor");
 
   useEffect(() => {
-    const newSocket = io(SERVER_URL, {});
+    if (!auth || !token) return;
+    const newSocket = io(SERVER_URL, {
+      extraHeaders: {
+        "x-api-key": token,
+      },
+    });
     setSocket(newSocket);
-    console.log("socket", newSocket);
     return () => newSocket.close();
-  }, [token]);
+  }, [token, auth]);
+
+  useEffect(() => {
+    if (!socket) return;
+    socket && socket.emit("online", {});
+  }, [socket]);
 
   return (
     <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>

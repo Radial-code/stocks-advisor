@@ -7,6 +7,9 @@ import FoundImg from "../../../assets/img/notfound.png";
 import { updateUserDetailsAction } from "../../../redux/action/userPanel/user";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
+const initialState = {
+  autoRenewalOfPlans: false,
+};
 let detailsString;
 const SubscriptionDetails = () => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
@@ -14,8 +17,10 @@ const SubscriptionDetails = () => {
   const myPlanDetails = useSelector((state) => state.list.myPlanDetails);
   const autoRenewal = useSelector((state) => state.auth.userData);
   const [detailsData, setDetailsData] = useState(false);
+  const [autoRenewalOfPlans, setAutoRenewalOfPlans] = useState(initialState);
 
   const updateAutoCard = (e) => {
+    setAutoRenewalOfPlans(e.target.checked);
     const data = {
       autoRenewalOfPlans: e.target.checked,
     };
@@ -28,6 +33,12 @@ const SubscriptionDetails = () => {
       setDetailsData(detailsString);
     }
   }, [myPlanDetails]);
+
+  useEffect(() => {
+    if (autoRenewal) {
+      setAutoRenewalOfPlans(autoRenewal);
+    }
+  }, [autoRenewal]);
 
   return (
     <Col xs={12} className="d-flex justify-content-end flex-column">
@@ -86,7 +97,7 @@ const SubscriptionDetails = () => {
                         <input
                           type="checkbox"
                           id="checkbox-2"
-                          checked={autoRenewal.autoRenewalOfPlans}
+                          checked={autoRenewalOfPlans.autoRenewalOfPlans}
                           onChange={(e) => updateAutoCard(e)}
                         />
                         <div className="slider-2 round "></div>

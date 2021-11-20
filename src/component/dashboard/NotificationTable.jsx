@@ -1,11 +1,23 @@
 import moment from "moment";
 import { useSelector } from "react-redux";
+import ReactPaginate from "react-paginate";
 import BubblesLoader from "../common/BubblesLoader";
 import NotFound from "../../assets/img/notfound.png";
 import NoData from "../../assets/img/emptydata.jpg";
 
-const NotificationTable = ({ loading, getValueOf }) => {
+const NotificationTable = ({
+  loading,
+  getValueOf,
+  totalNotification,
+  layoutClickChanger,
+  setPage,
+  page,
+}) => {
   const notificationList = useSelector((state) => state.list.notificationList);
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setPage(selectedPage);
+  };
   return (
     <>
       {loading ? (
@@ -77,6 +89,49 @@ const NotificationTable = ({ loading, getValueOf }) => {
                 {getValueOf("You don't have any payment list")}
               </h4>
             </div>
+          )}
+          {totalNotification <= 10 ? (
+            ""
+          ) : (
+            <>
+              {layoutClickChanger ? (
+                <ReactPaginate
+                  previousLabel={"Prev"}
+                  nextLabel={"Next"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(totalNotification / 10)}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={2}
+                  onPageChange={handlePageClick}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"activePage"}
+                  initialPage={page}
+                />
+              ) : (
+                <div className="react-pagination  ">
+                  {totalNotification <= 10 ? (
+                    ""
+                  ) : (
+                    <ReactPaginate
+                      previousLabel={"Prev"}
+                      nextLabel={"Next"}
+                      breakLabel={"..."}
+                      breakClassName={"break-me"}
+                      pageCount={Math.ceil(totalNotification / 10)}
+                      marginPagesDisplayed={3}
+                      pageRangeDisplayed={2}
+                      onPageChange={handlePageClick}
+                      containerClassName={"pagination"}
+                      subContainerClassName={"pages pagination"}
+                      activeClassName={"activePage"}
+                      initialPage={page}
+                    />
+                  )}
+                </div>
+              )}
+            </>
           )}
         </>
       )}

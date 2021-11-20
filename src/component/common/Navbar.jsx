@@ -598,7 +598,7 @@ const Navbar = ({
                       )}
                     </Dropdown.Menu>
                   </Dropdown>
-                  {unseenNotificationList > 0 ? (
+                  {unseenNotificationList !== 0 ? (
                     <span className="d-block notify-dot">
                       {unseenNotificationList}
                     </span>
@@ -799,7 +799,10 @@ const Navbar = ({
                 <div className="cursor-pointer d-flex my-auto d-xxl-none align-items-center mx-2 position-relative">
                   <Dropdown className="notification-dropdown">
                     <Dropdown.Toggle>
-                      <span className="notification-icon">
+                      <span
+                        className="notification-icon"
+                        onClick={() => getNotification()}
+                      >
                         <Notify />
                       </span>
                     </Dropdown.Toggle>
@@ -861,8 +864,11 @@ const Navbar = ({
                       )}
                     </Dropdown.Menu>
                   </Dropdown>
-
-                  {auth ? <span className="d-block notify-dot2"></span> : ""}
+                  {auth && unseenNotificationList !== 0 ? (
+                    <span className="d-block notify-dot">
+                      {unseenNotificationList}
+                    </span>
+                  ) : null}
                 </div>
                 <div
                   className={`${

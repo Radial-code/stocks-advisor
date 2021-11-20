@@ -14,6 +14,7 @@ import {
 import {
   GET_CONTACT_LIST,
   GET_NOTIFICATION_LIST,
+  GET_SOCECT_NOTIFICATION_VALUE,
   GET_UNSEEN_NOTIFICATION_LIST,
 } from "../action/contact";
 import {
@@ -364,6 +365,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         unseenNotificationList: action.data,
+      };
+    }
+
+    //socket notification value
+    case GET_SOCECT_NOTIFICATION_VALUE: {
+      return {
+        ...state,
+        unseenNotificationList: state.unseenNotificationList + action.data,
       };
     }
 

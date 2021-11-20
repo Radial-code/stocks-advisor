@@ -21,8 +21,8 @@ export const getContactListApi = async (page) => {
  * Get notification list Api
  * @returns
  */
-export const getNotificationListApi = async () => {
-  return await axiosRequest("GET", `/notification-my`);
+export const getNotificationListApi = async (page) => {
+  return await axiosRequest("GET", `/notification-my?page=${page}&limit=10`);
 };
 
 /**

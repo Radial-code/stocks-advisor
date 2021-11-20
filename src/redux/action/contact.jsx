@@ -10,6 +10,12 @@ import {
 export const GET_CONTACT_LIST = "GET_CONTACT_LIST";
 export const GET_NOTIFICATION_LIST = "GET_NOTIFICATION_LIST";
 export const GET_UNSEEN_NOTIFICATION_LIST = "GET_UNSEEN_NOTIFICATION_LIST";
+export const GET_SOCECT_NOTIFICATION_VALUE = "GET_SOCECT_NOTIFICATION_VALUE";
+
+export const getScoketNotificationList = (data) => ({
+  type: GET_SOCECT_NOTIFICATION_VALUE,
+  data,
+});
 /**
  * add contact action
  * @param {Object} data
@@ -78,24 +84,24 @@ const getNotificationList = (data) => ({
   data,
 });
 
-export const getNotificationListAction = (setLoading) => async (dispatch) => {
-  setLoading(true);
-  try {
-    const response = await getNotificationListApi();
-    if (response.success) {
-      dispatch(getNotificationList(response));
+export const getNotificationListAction =
+  (setLoading, page, setTotalNotification) => async (dispatch) => {
+    setLoading(true);
+    try {
+      const response = await getNotificationListApi(page);
+      if (response.success) {
+        dispatch(getNotificationList(response));
+        setTotalNotification(response.totalNotifications);
+        setLoading(false);
+      } else {
+        setLoading(false);
+        Swal.fire("Error", "Failed to Load notification list", "error");
+        setTimeout(Swal.close, 2000);
+      }
+    } catch (error) {
       setLoading(false);
-    } else {
-      setLoading(false);
-      Swal.fire("Error", "Failed to Load notification list", "error");
-      setTimeout(Swal.close, 2000);
     }
-  } catch (error) {
-    setLoading(false);
-    Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
-};
+  };
 
 /**
  * Get contact list action
@@ -135,6 +141,8 @@ export const addNewNotificationAction = (data, setLoading) => async () => {
       setTimeout(Swal.close, 2000);
     } else {
       setLoading(false);
+      Swal.fire("Error", "Failed to create notification try again!", "success");
+      setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);

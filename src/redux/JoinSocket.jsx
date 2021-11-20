@@ -1,15 +1,19 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getScoketNotificationList } from "./action/contact";
 import { useSocket } from "./SocketProvider";
 
 export default function JoinSocket() {
   const socket = useSocket();
-  console.log("socket", socket);
-  useEffect(() => {
-    if (socket == null) return;
-    socket.on(function () {
-      console.log("connected");
-    });
-  }, [socket]);
+  const dispatch = useDispatch();
 
-  return socket;
+  useEffect(() => {
+    if (!socket) return;
+    socket &&
+      socket.on("notification", function (res) {
+        dispatch(getScoketNotificationList(res.notification));
+      });
+
+    return () => socket && socket.off("online");
+  }, [socket]);
 }

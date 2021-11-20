@@ -19,7 +19,14 @@ import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
 
-let data = {};
+const initialState = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  email: "",
+  autoRenewalOfPlans: false,
+  countryCode: "",
+};
 let detailsString = [];
 const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   const countries = useSelector((state) => state.list.countries);
@@ -27,40 +34,16 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
-  const [updateUser, setUpdateUser] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    autoRenewalOfPlans: false,
-    countryCode: "",
-  });
+  const [updateUser, setUpdateUser] = useState(initialState);
   const { userId } = match.params;
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  // GET DATA FROM REDUX
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
   );
   const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
-  const {
-    email,
-    firstName,
-    lastName,
-    phone,
-    isPaidPlan,
-    autoRenewalOfPlans,
-    countryCode,
-  } = userProfileDetails;
   const { createdAt, expiresOn, details, price, title } = userPlanDetails
     ? userPlanDetails
     : "";
+
   // DISPATCH USER PROFILE DETAILS API HERE
   useEffect(() => {
     dispatch(getUserProfileDetailsAction(userId, setLoading));
@@ -69,50 +52,38 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!!userProfileDetails) {
+      setUpdateUser(userProfileDetails);
+    }
+  }, [userProfileDetails]);
+
   const updateAutoCard = (e) => {
+    setUpdateUser({
+      ...updateUser,
+      autoRenewalOfPlans: e.target.checked,
+    });
     const data = {
       autoRenewalOfPlans: e.target.checked,
     };
     dispatch(updateUserDetailsAction(data));
   };
 
-  const UpdateUser = () => {
-    data = {
-      firstName: updateUser.firstName === "" ? firstName : updateUser.firstName,
-      lastName: updateUser.lastName === "" ? lastName : updateUser.lastName,
-      phone: updateUser.phone === "" ? phone : updateUser.phone,
-      autoRenewalOfPlans:
-        updateUser.autoRenewalOfPlans === ""
-          ? autoRenewalOfPlans
-          : updateUser.autoRenewalOfPlans,
-      countryCode:
-        updateUser.countryCode === "" ? countryCode : updateUser.countryCode,
-    };
-    dispatch(userUpdateByAdminAction(userId, data, setUserLoading));
+  const UpdateUserFunction = () => {
+    dispatch(userUpdateByAdminAction(userId, updateUser, setUserLoading));
   };
   // DISPATCH USER PLAN DETAILS API HERE
   useEffect(() => {
-    if (isPaidPlan) {
+    if (userProfileDetails.isPaidPlan) {
       dispatch(getUserPlanDetailAction(userId, setLoading));
     }
 
     return () => {
-      if (isPaidPlan) {
+      if (userProfileDetails.isPaidPlan) {
         dispatch(removeUserPlanDetailsAction());
       }
     };
-  }, [isPaidPlan]);
-
-  data = {
-    firstName: updateUser.firstName === "" ? firstName : updateUser.firstName,
-    lastName: updateUser.lastName === "" ? lastName : updateUser.lastName,
-    phone: updateUser.phone === "" ? phone : updateUser.phone,
-    autoRenewalOfPlans:
-      updateUser.autoRenewalOfPlans === ""
-        ? autoRenewalOfPlans
-        : updateUser.autoRenewalOfPlans,
-    countryCode: countryCode,
-  };
+  }, [userProfileDetails.isPaidPlan]);
 
   useEffect(() => {
     detailsString = details && details.split(",");
@@ -129,7 +100,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
           <section className="shadow bg-white w-1000 w-100  p-3 p-sm-5 ">
             <div className="mt-4 d-flex flex-sm-row flex-column justify-content-sm-between align-items-center">
               <p className="heading-stock fs-sm-20">
-                {data.firstName}&nbsp;{data.lastName}
+                {updateUser.firstName}&nbsp;
+                {updateUser.lastName}
               </p>
               <Link to="/content/manager/users">
                 <button className="update-btn-2 ">Back</button>
@@ -149,7 +121,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                 <Col xl={6} xs={12}>
                   <input
                     className="input-edit-user edit-user-input-style "
-                    placeholder={`${firstName} `}
+                    placeholder="username"
+                    value={`${updateUser.firstName}`}
                     type="text"
                     onChange={(e) => {
                       setUpdateUser({
@@ -160,7 +133,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   />
                   <input
                     className="input-edit-user edit-user-input-style my-2"
-                    placeholder={`${lastName}`}
+                    placeholder="lastname"
+                    value={`${updateUser.lastName}`}
                     type="text"
                     onChange={(e) => {
                       setUpdateUser({
@@ -275,7 +249,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                     </div>
                     <input
                       className="input-edit-user edit-user-input-style"
-                      placeholder={phone}
+                      placeholder={updateUser.phone}
+                      value={updateUser.phone}
                       type="number"
                       onChange={(e) => {
                         setUpdateUser({
@@ -287,7 +262,8 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   </div>
                   <input
                     className="input-edit-user edit-user-input-style"
-                    placeholder={email}
+                    placeholder="your-email@gmail.com"
+                    value={updateUser.email}
                     onChange={(e) => {
                       setUpdateUser({
                         ...updateUser,
@@ -298,7 +274,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                   />
                 </Col>
 
-                {isPaidPlan ? (
+                {userProfileDetails.isPaidPlan ? (
                   <Col xl={6} xs={12}>
                     <Row className="pe-xl-4">
                       <Col className="mt-lg-0 ">
@@ -385,7 +361,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                   <input
                                     type="checkbox"
                                     id="checkbox-2"
-                                    checked={autoRenewalOfPlans}
+                                    checked={updateUser.autoRenewalOfPlans}
                                     onChange={(e) => updateAutoCard(e)}
                                   />
                                   <div className="slider-2 round"></div>
@@ -408,7 +384,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
                                 <input
                                   type="checkbox"
                                   id="checkbox-2"
-                                  checked={autoRenewalOfPlans}
+                                  checked={updateUser.autoRenewalOfPlans}
                                   onChange={(e) => updateAutoCard(e)}
                                 />
 
@@ -428,7 +404,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
             <button
               className="update-btn-2 mt-3"
               disabled={userLoading}
-              onClick={() => UpdateUser()}
+              onClick={() => UpdateUserFunction()}
             >
               {userLoading ? <Loader /> : "Update"}
             </button>

@@ -136,10 +136,6 @@ const ContactForm = () => {
                     : "col-sm-5 ps-0 col-6"
                 }`}
               >
-                {console.log(
-                  "contactDetails.countryCode",
-                  contactDetails.countryCode
-                )}
                 <FormGroup className="contact-select">
                   <select
                     onChange={(e) => {

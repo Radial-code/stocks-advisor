@@ -29,12 +29,15 @@ const initialState = {
 };
 
 const Notification = ({ setSidebarActive, sidebarActive }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
   const profileData = useSelector((state) => state.auth.userData);
   const [notificationLoading, setNotificationLoading] = useState(false);
   const [showNotificationWhen, setShowNotificationWhen] =
     useState(initialState);
   const [show, setShow] = useState(false);
+  const [page, setPage] = useState(0);
+  const [totalNotification, setTotalNotification] = useState(0);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -45,8 +48,8 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
     if (profileData) {
       setShowNotificationWhen(profileData);
     }
-    dispatch(getNotificationListAction(setLoading));
-  }, [profileData]);
+    dispatch(getNotificationListAction(setLoading, page, setTotalNotification));
+  }, [profileData, page]);
 
   const updateNotification = () => {
     dispatch(
@@ -82,7 +85,14 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
               /> */}
             </div>
             <div className="table-responsive scroll-bar current-stock-scrollbar mt-5">
-              <NotificationTable loading={loading} getValueOf={getValueOf} />
+              <NotificationTable
+                loading={loading}
+                getValueOf={getValueOf}
+                totalNotification={totalNotification}
+                layoutClickChanger={layoutClickChanger}
+                setPage={setPage}
+                page={page}
+              />
             </div>
           </section>
         </Col>

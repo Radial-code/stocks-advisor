@@ -32,30 +32,28 @@ function Notification() {
   });
 
   useEffect(async () => {
-    const limit = 10;
     const page = 0;
-    dispatch(getPlansListAction(setPlanLoading, page, limit, null));
     await dispatch(getUserListForAdminAction(setLoadingUser, page));
-    // if (adminUserList && adminUserList.length > 0) {
-    //   adminUserList.map((item) => {
-    //     userOption.push({
-    //       label: item.firstName,
-    //       value: item.firstName,
-    //     });
-    //   });
-    // }
-  }, []);
-
-  const userList =
-    adminUserList && adminUserList.length > 0
-      ? adminUserList.map((item) =>
+    setTimeout(
+      !!adminUserList &&
+        !!adminUserList.length &&
+        adminUserList.map((item) => {
           userOption.push({
             label: item.firstName,
             value: item.firstName,
-          })
-        )
-      : [];
-  console.log(userOption, userList);
+            id: item._id,
+          });
+        }),
+      2000
+    );
+  }, []);
+
+  useEffect(async () => {
+    const limit = 10;
+    const page = 0;
+    dispatch(getPlansListAction(setPlanLoading, page, limit, null));
+  }, []);
+
   const selectPlan = (id, type) => {
     if (type === "all") {
       setAllPlan(!allPlan);
@@ -86,7 +84,18 @@ function Notification() {
       !!notificationForm.title &&
       !!notificationForm.type
     ) {
-      dispatch(addNewNotificationAction(notificationForm, setLoading));
+      const userIds = [];
+      selected &&
+        selected.length > 0 &&
+        selected.map((item) => userIds.push(item.id));
+      const data = {
+        title: notificationForm.title,
+        body: notificationForm.body,
+        sendTo: notificationForm.sendTo,
+        type: notificationForm.type,
+        usersList: userIds,
+      };
+      dispatch(addNewNotificationAction(data, setLoading));
     }
   };
   return (
@@ -254,7 +263,7 @@ function Notification() {
               </div>
               <div className="col-12 col-lg-6  cursor-pointer multi-selector">
                 <MultiSelect
-                  options={userList}
+                  options={userOption}
                   className="cursor-pointer"
                   value={selected}
                   onChange={setSelected}
