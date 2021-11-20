@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 
 function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
   const dispatach = useDispatch();
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [totalPortfolios, setTotalPortfolios] = useState(0);
@@ -146,7 +146,13 @@ function PortfolioTable({ setShow, setEdit, setUpdateValue }) {
                               {moment(value.createdAt).format("MM/ddd")}
                             </td>
                             <td className="text-end whitespace Ellipse">
-                              {value.title}
+                              {layoutClickChanger
+                                ? value.atitle
+                                  ? value.atitle
+                                  : "N/A"
+                                : value.title
+                                ? value.title
+                                : "N/A"}
                             </td>
                             <td className="text-end whitespace Ellipse">
                               <button

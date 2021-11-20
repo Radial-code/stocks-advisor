@@ -555,7 +555,7 @@ const Navbar = ({
                           </div>
                         </Dropdown.Item>
                       </div>
-                      {!notificationLoading ? (
+                      {notificationLoading ? (
                         <div className="d-flex justify-content-center my-5">
                           <BubblesLoader />
                         </div>

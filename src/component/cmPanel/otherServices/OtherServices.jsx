@@ -7,7 +7,6 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Promocode from "./PromoCode";
 
 const OtherServices = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   const [categoryTable, setCategoryTable] = useState(true);
   const [portfolioTable, setPortfolioTable] = useState(false);
   const [exchangeTable, setExchangeTable] = useState(false);

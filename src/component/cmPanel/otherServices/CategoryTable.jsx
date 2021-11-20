@@ -130,7 +130,7 @@ function CategoryTable({ setShow, setEdit, setUpdateValue }) {
                     <CategoryTableListItem
                       key={index}
                       value={obj}
-                      getValueOf={getValueOf}
+                      layoutClickChanger={layoutClickChanger}
                       editCategory={editCategory}
                       deleteCategory={deleteCategory}
                     />

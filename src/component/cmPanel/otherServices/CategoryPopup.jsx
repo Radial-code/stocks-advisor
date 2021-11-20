@@ -8,7 +8,7 @@ import {
 import Loader from "../../common/Loader";
 import CloseIcon from "../../../assets/img/close-icon.png";
 
-function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
+function CategoryPopup({ handleClose, show, edit, updateValue }) {
   const dispatch = useDispatch();
   const [category, setCategory] = useState(
     !!updateValue ? updateValue.title : ""
@@ -30,7 +30,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue, getValueOf }) {
   const updateCategory = () => {
     setError(true);
     if (category !== "") {
-      const data = { title: category };
+      const data = { title: category, atitle: acategory };
       dispatch(
         updateCategoryDetailsAction(
           updateValue._id,
