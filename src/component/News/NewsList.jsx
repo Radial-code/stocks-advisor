@@ -1,14 +1,23 @@
 import moment from "moment";
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { EditorState, convertToRaw, ContentState } from "draft-js";
 import { withRouter } from "react-router-dom";
 import img_2 from "../../assets/img/calendar-icon.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-
+import draftToHtml from "draftjs-to-html";
 const NewsList = ({ history, value, index, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
-
+  const { description } = value;
+  const EditorState = { ...description };
+  console.log(EditorState);
+  const contentHandler = () => {
+    return {
+      __html: draftToHtml(convertToRaw(EditorState.getCurrentContent())),
+    };
+  };
+  console.log(value);
   return (
     <section className="news-articles-card  p-3 mb-4">
       {loading ? (
@@ -69,7 +78,12 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
               <p className="stock-paragraph max-w-para d-none  d-md-block">
                 <p className="mb-0 dots">
-                  {value && value.description ? value.description : "N/A"}
+                  {/* {value && value.description ? value.description : "N/A"} */}
+                  {/* <p
+                    dangerouslySetInnerHTML={
+                      value.description._immutable ? contentHandler() : "N/A"
+                    }
+                  /> */}
                 </p>
               </p>
               <p

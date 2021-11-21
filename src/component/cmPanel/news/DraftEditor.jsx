@@ -3,6 +3,7 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const DraftEditor = ({ details, onEditorStateChange }) => {
+  console.log(details);
   return (
     <Editor
       className="inputs-border"
