@@ -538,10 +538,10 @@ const Navbar = ({
                         <Notify />
                       </span>
                     </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <div className="notification-dropdown-item">
+                    <Dropdown.Menu className="pt-0">
+                      <div className="notification-dropdown-item position-sticky top-0 bg-white py-2">
                         <Dropdown.Item>
-                          <div className="d-flex align-items-center justify-content-between">
+                          <div className="d-flex align-items-center justify-content-between ">
                             <div className="d-flex align-items-center justify-content-between">
                               <p className="mb-0 px-2 notification-text fw-bold">
                                 Notifications

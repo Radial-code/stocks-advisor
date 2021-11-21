@@ -46,7 +46,7 @@ function CategoryPopup({ handleClose, show, edit, updateValue }) {
     <Modal show={show} onHide={handleClose} centered>
       <div className=" p-sm-3 p-2">
         <img
-          className="close-popup-icon "
+          className="close-popup-icon cursor-pointer"
           onClick={handleClose}
           src={CloseIcon}
           alt=""

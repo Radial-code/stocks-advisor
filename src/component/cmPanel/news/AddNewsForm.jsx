@@ -4,14 +4,14 @@ import { Form, FormGroup } from "react-bootstrap";
 import { uploadImageCallBack } from "../../../contexts/HtmlEditor";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from "react-draft-wysiwyg";
-
+import { EditorState, convertToRaw, ContentState } from "draft-js";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Loader from "../../common/Loader";
 import DraftEditor from "./DraftEditor";
-
+import draftToHtml from "draftjs-to-html";
 const AddNewsForm = ({
   setNewsDetails,
   newsDetails,
@@ -36,10 +36,21 @@ const AddNewsForm = ({
   };
 
   const onEditoraDesStateChange = (e) => {
-    setNewsDetails({ ...newsDetails, adescription: e });
+    setNewsDetails({
+      ...newsDetails,
+      adescription: e,
+    });
   };
   const onEditorDesStateChange = (e) => {
-    setNewsDetails({ ...newsDetails, description: e });
+    // console.log(e, "sdgtsdfgdsf=>>>>>>>>>>>>");
+    console.log(
+      draftToHtml(convertToRaw(e.getCurrentContent())),
+      "dsfsdfsdfdfdf"
+    );
+    // setNewsDetails({
+    //   ...newsDetails,
+    //   description: e ? draftToHtml(convertToRaw(e.getCurrentContent())) : "",
+    // });
   };
 
   return (
@@ -298,7 +309,7 @@ const AddNewsForm = ({
             <DraftEditor
               setNewsDetails={setNewsDetails}
               details={newsDetails.adescription}
-              onEditorStateChange={onEditoraDesStateChange}
+              newsDetails={newsDetails}
             />
           </div>
         </div>

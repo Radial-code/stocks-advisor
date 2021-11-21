@@ -11,10 +11,10 @@ const NewsList = ({ history, value, index, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const { description } = value;
   const EditorState = { ...description };
-  console.log(EditorState);
+  console.log(value.description);
   const contentHandler = () => {
     return {
-      __html: draftToHtml(convertToRaw(EditorState.getCurrentContent())),
+      __html: value.description,
     };
   };
   console.log(value);
@@ -79,11 +79,11 @@ const NewsList = ({ history, value, index, loading }) => {
               <p className="stock-paragraph max-w-para d-none  d-md-block">
                 <p className="mb-0 dots">
                   {/* {value && value.description ? value.description : "N/A"} */}
-                  {/* <p
+                  <p
                     dangerouslySetInnerHTML={
-                      value.description._immutable ? contentHandler() : "N/A"
+                      value.description ? contentHandler() : "N/A"
                     }
-                  /> */}
+                  />
                 </p>
               </p>
               <p
