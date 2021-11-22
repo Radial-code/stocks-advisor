@@ -142,7 +142,9 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
 
             <span
               onClick={() =>
-                history.push(`/stock/news/${stock ? stock : tags}/stock-tags`)
+                history.push(
+                  `/stock/news/${stock ? stock && stock._id : tags}/stock-tags`
+                )
               }
               className="cursor-pointer fw-bold color-blue"
             >

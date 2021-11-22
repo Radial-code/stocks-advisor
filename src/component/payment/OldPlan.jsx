@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
 import { plansUpgradeAction } from "../../redux/action/cmPanel/plans";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
@@ -9,9 +9,18 @@ function OldPlan({ allPlanDetails, history }) {
   const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [addPlansLoading, setAddPlansLoading] = useState(false);
+  const userData = useSelector((state) => state.auth.userData);
 
   const upgradePlan = (id) => {
-    dispatch(plansUpgradeAction({ planId: id }, setAddPlansLoading, history));
+    const refresh = true;
+    dispatch(
+      plansUpgradeAction(
+        { planId: id, userId: userData._id },
+        setAddPlansLoading,
+        history,
+        refresh
+      )
+    );
   };
 
   return (

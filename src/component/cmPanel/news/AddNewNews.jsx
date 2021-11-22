@@ -85,8 +85,8 @@ const AddNewNews = ({ edit, match, history }) => {
       const data = {
         title: newsDetails.title,
         atitle: newsDetails.atitle,
-        description: description,
-        adescription: adescription,
+        description: description ? description : newsDetails.description,
+        adescription: adescription ? adescription : newsDetails.adescription,
         showOnHomePage: newsDetails.showOnHomePage,
         stock: newsDetails.stock,
         tags: TagValue,

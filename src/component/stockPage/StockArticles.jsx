@@ -30,9 +30,14 @@ const StockArticles = ({ history, getValueOf }) => {
                     <section className="news-articles-card p-lg-5 p-3 mb-4">
                       <Row className="justify-content-between">
                         <Col xl={3} lg={4} xs={4}>
-                          <div className="stock-articles-img ">
+                          <div
+                            className="stock-articles-img "
+                            onClick={() =>
+                              history.push(`/news/details/${value._id}`)
+                            }
+                          >
                             <img
-                              className="stock-articles-img"
+                              className="stock-articles-img cursor-pointer"
                               src={value.imagePath}
                               alt=""
                             />
@@ -46,7 +51,12 @@ const StockArticles = ({ history, getValueOf }) => {
                               </span>
                               - {moment(value.updatedAt).format("dd/MM/YYYY")}
                             </p>
-                            <p className="heading-stock fs-md-25 fs-sm-20 articles-title">
+                            <p
+                              onClick={() =>
+                                history.push(`/news/details/${value._id}`)
+                              }
+                              className="heading-stock fs-md-25 fs-sm-20 articles-title cursor-pointer"
+                            >
                               {layoutClickChanger ? (
                                 <>{value.atitle ? value.atitle : "N/A"}</>
                               ) : (
@@ -72,8 +82,20 @@ const StockArticles = ({ history, getValueOf }) => {
                                 />
                               )}
                             </p>
-                            <p className="read-more d-none d-lg-block mb-0">
-                              {getValueOf("Read More")}
+                            <p
+                              className={`${
+                                layoutClickChanger ? "text-end" : "text-start"
+                              }`}
+                            >
+                              <span
+                                className="read-more cursor-pointer"
+                                onClick={() =>
+                                  history.push(`/news/details/${value._id}`)
+                                }
+                              >
+                                {" "}
+                                {getValueOf("Read More")}
+                              </span>
                             </p>
                             <p
                               className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mb-3 mt-3 color-blue"

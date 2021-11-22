@@ -44,7 +44,7 @@ export const addNewPlansDetailsAction =
  * @returns
  */
 export const plansUpgradeAction =
-  (data, setAddPlansLoading, history) => async () => {
+  (data, setAddPlansLoading, history, refresh) => async () => {
     setAddPlansLoading(true);
     try {
       const response = await plansUpgradeApi(data);
@@ -52,8 +52,10 @@ export const plansUpgradeAction =
         setAddPlansLoading(false);
         Swal.fire("Success", "Plans Changed successfully", "success");
         setTimeout(Swal.close, 2000);
-        history.push("/dashboard/manage/subscription");
-        window.location.reload();
+        if (refresh) {
+          history.push("/dashboard/manage/subscription");
+          window.location.reload();
+        }
       } else {
         setAddPlansLoading(false);
         Swal.fire("Error", "Failed to add Plans", "error");

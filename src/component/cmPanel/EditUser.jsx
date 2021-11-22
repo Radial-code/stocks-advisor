@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, FormGroup, Form } from "react-bootstrap";
+import { Container, Row, Col, FormGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-
 import {
   getUserPlanDetailAction,
   getUserProfileDetailsAction,
@@ -45,11 +42,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
   );
+  const userData = useSelector((state) => state.auth.userData);
   const planList = useSelector((state) => state.list.planList);
   const userPlanDetails = useSelector((state) => state.list.userPlanDetails);
-  const { createdAt, expiresOn, details, price, title } = userPlanDetails
-    ? userPlanDetails
-    : "";
+  const { createdAt, expiresOn, details, price, title, planId } =
+    userPlanDetails ? userPlanDetails : "";
 
   // DISPATCH USER PROFILE DETAILS API HERE
   useEffect(() => {
@@ -103,8 +100,14 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
   };
 
   const setUserUpdateData = (value) => {
+    const refresh = false;
     dispatch(
-      plansUpgradeAction({ planId: value._id }, setAddPlansLoading, history)
+      plansUpgradeAction(
+        { planId: value._id, userId: userData._id },
+        setAddPlansLoading,
+        history,
+        refresh
+      )
     );
   };
 
@@ -304,132 +307,154 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                 )}
               </Row>
             )}
-            <Row>
-              <Col xs={12} className="d-flex pe-xl-5 flex-column my-3">
-                <section className="plan-card-edituser p-3">
-                  <div
-                    className={`${
-                      layoutClickChanger ? "" : "flex-row-reverse"
-                    }  d-flex justify-content-between border-b-1 `}
-                  >
-                    <p className="edituser-amount d-none d-sm-block">
-                      ${price}
-                    </p>
-                    <p className="profile-heading fs-sm-16">{title}</p>
-                    <p className="edituser-amount d-sm-none fs-sm-16">
-                      ${price}
-                    </p>
-                  </div>
-                  <div
-                    className={`${
-                      layoutClickChanger ? "" : "flex-row-reverse"
-                    }  d-flex justify-content-between  mt-2`}
-                  >
-                    <span className="stock-paragraph ps-3 ps-lg-0 ps-xl-1 fs-sm-11">
-                      {createdAt && createdAt.split(",")[0]}
-                    </span>
-                    {layoutClickChanger ? (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        : Purchase Date
-                      </span>
-                    ) : (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        Purchase Date :
-                      </span>
-                    )}
-                  </div>
-                  <div
-                    className={`${
-                      layoutClickChanger ? "" : "flex-row-reverse"
-                    }  d-flex justify-content-between  mt-2`}
-                  >
-                    <span className="stock-paragraph fs-sm-11">
-                      {createdAt && expiresOn.split(",")[0]}
-                    </span>
-                    {layoutClickChanger ? (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        : Expiry Date
-                      </span>
-                    ) : (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        Expiry Date :
-                      </span>
-                    )}
-                  </div>
-                  <div
-                    className={`${
-                      layoutClickChanger ? "" : "flex-row-reverse"
-                    }  d-flex justify-content-between  mt-2`}
-                  >
-                    <div>
-                      <span className="float-md-end me-auto ">
-                        <label className="switch-2" for="checkbox-2">
-                          <input
-                            type="checkbox"
-                            id="checkbox-2"
-                            checked={updateUser.autoRenewalOfPlans}
-                            onChange={(e) => updateAutoCard(e)}
-                          />
-                          <div className="slider-2 round"></div>
-                        </label>
-                      </span>
-                    </div>
-                    {layoutClickChanger ? (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        : Auto Renew
-                      </span>
-                    ) : (
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                        Auto Renew :
-                      </span>
-                    )}
-                  </div>
-                  <div className="d-sm-none">
-                    <span className="float-md-end me-auto ">
-                      <label className="switch-2" for="checkbox-2">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          checked={updateUser.autoRenewalOfPlans}
-                          onChange={(e) => updateAutoCard(e)}
-                        />
-
-                        <div className="slider-2 round"></div>
-                      </label>
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => updatePlanGetUserList()}
-                    className="update-btn-2 my-3"
-                    disabled={loadingPlan}
-                  >
-                    {loadingPlan ? <Loader /> : "Update Plan"}
-                  </button>
-                   {" "}
-                  {planList && !!planList.length
-                    ? planList.map((val) => {
-                        return (
-                          <>
-                            {val.price === price ? (
-                              <div className="cursor-pointer pt-1 update-plan">
+            {loading ? (
+              <div className="d-flex justify-content-center align-items-center w-100 h-300">
+                <BubblesLoader />
+              </div>
+            ) : (
+              <>
+                {userProfileDetails.isPaidPlan ? (
+                  <Row>
+                    <Col xs={12} className="d-flex pe-xl-5 flex-column my-3">
+                      <section className="plan-card-edituser p-3">
+                        <div
+                          className={`${
+                            layoutClickChanger ? "" : "flex-row-reverse"
+                          }  d-flex justify-content-between border-b-1 `}
+                        >
+                          <p className="edituser-amount d-none d-sm-block">
+                            ${price}
+                          </p>
+                          <p className="profile-heading fs-sm-16">{title}</p>
+                          <p className="edituser-amount d-sm-none fs-sm-16">
+                            ${price}
+                          </p>
+                        </div>
+                        <div
+                          className={`${
+                            layoutClickChanger ? "" : "flex-row-reverse"
+                          }  d-flex justify-content-between  mt-2`}
+                        >
+                          <span className="stock-paragraph ps-3 ps-lg-0 ps-xl-1 fs-sm-11">
+                            {createdAt && createdAt.split(",")[0]}
+                          </span>
+                          {layoutClickChanger ? (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              : Purchase Date
+                            </span>
+                          ) : (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              Purchase Date :
+                            </span>
+                          )}
+                        </div>
+                        <div
+                          className={`${
+                            layoutClickChanger ? "" : "flex-row-reverse"
+                          }  d-flex justify-content-between  mt-2`}
+                        >
+                          <span className="stock-paragraph fs-sm-11">
+                            {createdAt && expiresOn.split(",")[0]}
+                          </span>
+                          {layoutClickChanger ? (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              : Expiry Date
+                            </span>
+                          ) : (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              Expiry Date :
+                            </span>
+                          )}
+                        </div>
+                        <div
+                          className={`${
+                            layoutClickChanger ? "" : "flex-row-reverse"
+                          }  d-flex justify-content-between  mt-2`}
+                        >
+                          <div>
+                            <span className="float-md-end me-auto ">
+                              <label className="switch-2" for="checkbox-2">
                                 <input
-                                  type="radio"
-                                  id="html"
-                                  name="fav_language"
-                                  onChange={() => setUserUpdateData(val)}
-                                  value="JavaScript"
+                                  type="checkbox"
+                                  id="checkbox-2"
+                                  checked={updateUser.autoRenewalOfPlans}
+                                  onChange={(e) => updateAutoCard(e)}
                                 />
-                                <span className="px-1">{val.title}</span>
-                              </div>
-                            ) : null}
-                          </>
-                        );
-                      })
-                    : null}
-                </section>
-              </Col>
-            </Row>
+                                <div className="slider-2 round"></div>
+                              </label>
+                            </span>
+                          </div>
+                          {layoutClickChanger ? (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              : Auto Renew
+                            </span>
+                          ) : (
+                            <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                              Auto Renew :
+                            </span>
+                          )}
+                        </div>
+                        <div className="d-sm-none">
+                          <span className="float-md-end me-auto ">
+                            <label className="switch-2" for="checkbox-2">
+                              <input
+                                type="checkbox"
+                                id="checkbox-2"
+                                checked={updateUser.autoRenewalOfPlans}
+                                onChange={(e) => updateAutoCard(e)}
+                              />
+
+                              <div className="slider-2 round"></div>
+                            </label>
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => updatePlanGetUserList()}
+                          className="update-btn-2 my-3"
+                          disabled={loadingPlan}
+                        >
+                          {loadingPlan ? <Loader /> : "Change Plan"}
+                        </button>{" "}
+                        {planList && !!planList.length
+                          ? planList.map((val) => {
+                              return (
+                                <>
+                                  {val.price === price ? (
+                                    <>
+                                      {val._id !== planId ? (
+                                        <div className="cursor-pointer pt-1 update-plan">
+                                          <input
+                                            className="cursor-pointer "
+                                            type="radio"
+                                            id="html"
+                                            name="fav_language"
+                                            onChange={() =>
+                                              setUserUpdateData(val)
+                                            }
+                                            value="JavaScript"
+                                          />
+                                          <span className="px-1">
+                                            {val.title}
+                                          </span>
+                                        </div>
+                                      ) : (
+                                        ""
+                                      )}
+                                    </>
+                                  ) : null}
+                                </>
+                              );
+                            })
+                          : null}
+                      </section>
+                    </Col>
+                  </Row>
+                ) : (
+                  ""
+                )}
+              </>
+            )}
             <button
               className="update-btn-2 mt-3"
               disabled={userLoading}

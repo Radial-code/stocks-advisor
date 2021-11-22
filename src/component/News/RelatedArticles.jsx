@@ -127,7 +127,12 @@ const RelatedArticles = ({ history }) => {
                             />
                           )}
                         </span>
-                        <span className="read-more ">
+                        <span
+                          className="read-more cursor-pointer"
+                          onClick={() =>
+                            history.push(`/news/details/${value._id}`)
+                          }
+                        >
                           {getValueOf("Read More")}
                         </span>
                         <p

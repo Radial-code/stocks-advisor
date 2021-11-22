@@ -128,6 +128,7 @@ function CurrentStock({ history, getValueOf }) {
                           value.profitOrLoss &&
                           value.profitOrLoss.percentage
                       ).toFixed(2)}
+                      %
                     </td>
                   </tr>
                 </tbody>

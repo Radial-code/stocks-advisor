@@ -128,7 +128,7 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
                               : "text-danger"
                           } text-center whitespace`}
                         >
-                          {parseInt(value.profitOrLoss.percentage).toFixed(2)}
+                          {parseInt(value.profitOrLoss.percentage).toFixed(2)}%
                         </td>
                       </tr>
                     </tbody>
