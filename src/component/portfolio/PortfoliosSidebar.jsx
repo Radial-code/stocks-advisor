@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import Cancel from "../../assets/img/cancel.png";
 import { Back } from "../common/icons/Icons";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-const PortfoliosSidebar = ({ history }) => {
+const PortfoliosSidebar = ({ history, match }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [portfolioActive, setPortfolioActive] = useState(
@@ -13,6 +13,7 @@ const PortfoliosSidebar = ({ history }) => {
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
   );
+  console.log("fghjk", match.params);
   const openRoutes = (value) => {
     setShowSidebar(false);
     setPortfolioActive(true);
@@ -47,10 +48,11 @@ const PortfoliosSidebar = ({ history }) => {
           <div className="cn-sidebar-border"></div>
           {dashboardPortfoliosList && dashboardPortfoliosList.length
             ? dashboardPortfoliosList.map((value) => {
+                console.log(" value._id , value._id ", value._id);
                 return (
                   <div
                     className={`${
-                      portfolioActive ? "cn-sidebar-active" : ""
+                      value._id === match.params.id ? "cn-sidebar-active" : ""
                     } cn-sidebar-active-tag align-items-center d-flex  my-4 whitespace`}
                     onClick={() => openRoutes(value._id)}
                   >
