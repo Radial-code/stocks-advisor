@@ -223,11 +223,7 @@ const RelatedArticles = ({ history }) => {
               {allRelatedNews && !!allRelatedNews.length ? (
                 allRelatedNews.map((value, index) => {
                   return (
-                    <Col
-                      xl={4}
-                      md={6}
-                      className="d-flex justify-content-center"
-                    >
+                    <Col className="d-flex justify-content-center mx-4">
                       <section key={index} className="articles-card p-3 ">
                         <div>
                           {value.imagePath === "" ? (
@@ -247,7 +243,7 @@ const RelatedArticles = ({ history }) => {
                         <p
                           className={
                             layoutClickChanger
-                              ? "text-end stock-paragraph cursor-pointer pt-3 "
+                              ? "text-start ps-2 stock-paragraph cursor-pointer pt-3 "
                               : "text-start stock-paragraph cursor-pointer pt-3 "
                           }
                         >
@@ -265,7 +261,7 @@ const RelatedArticles = ({ history }) => {
                           <p
                             className={
                               layoutClickChanger
-                                ? "news-heading-font max-w-articles p-2 mb-0 Slider-Ellipse py-2"
+                                ? "news-heading-font  max-w-articles p-2 mb-0 Slider-Ellipse py-2"
                                 : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse py-2"
                             }
                             dir="ltr"
@@ -303,7 +299,7 @@ const RelatedArticles = ({ history }) => {
                           )}
                         </span>
                         <span
-                          className="read-more cursor-pointer"
+                          className="read-more cursor-pointer ps-2"
                           onClick={() =>
                             history.push(`/news/details/${value._id}`)
                           }
@@ -313,8 +309,8 @@ const RelatedArticles = ({ history }) => {
                         <p
                           className={
                             layoutClickChanger
-                              ? "text-end cursor-pointer mb-0 text-ellipsis-dots color-blue"
-                              : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue"
+                              ? "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
+                              : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
                           }
                           onClick={() =>
                             history.push(
@@ -331,8 +327,8 @@ const RelatedArticles = ({ history }) => {
                         <p
                           className={
                             layoutClickChanger
-                              ? "small-paragraph text-end"
-                              : "small-paragraph text-start"
+                              ? "small-paragraph text-start ps-2"
+                              : "small-paragraph text-start ps-2"
                           }
                         >
                           <span className=" cursor-pointer fw-bold">
