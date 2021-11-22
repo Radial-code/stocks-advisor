@@ -773,84 +773,88 @@ const Navbar = ({
                     ""
                   )}
                 </div>
-                <div className="cursor-pointer d-flex my-auto d-xxl-none align-items-center mx-2 position-relative">
-                  <Dropdown className="notification-dropdown">
-                    <Dropdown.Toggle>
-                      <span
-                        className="notification-icon"
-                        onClick={() => getNotification()}
-                      >
-                        <Notify />
-                      </span>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item>
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div className="d-flex align-items-center justify-content-between ">
-                            <p className="mb-0 px-2 notification-text fw-bold">
-                              Notifications
-                            </p>
+                {auth ? (
+                  <div className="cursor-pointer d-flex my-auto d-xxl-none align-items-center mx-2 position-relative">
+                    <Dropdown className="notification-dropdown">
+                      <Dropdown.Toggle>
+                        <span
+                          className="notification-icon"
+                          onClick={() => getNotification()}
+                        >
+                          <Notify />
+                        </span>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div className="d-flex align-items-center justify-content-between ">
+                              <p className="mb-0 px-2 notification-text fw-bold">
+                                Notifications
+                              </p>
+                            </div>
+                            <div onClick={() => viewAll()}>
+                              <p className="mb-0 px-2 notification-text">
+                                View All
+                              </p>
+                            </div>
                           </div>
-                          <div onClick={() => viewAll()}>
-                            <p className="mb-0 px-2 notification-text">
-                              View All
-                            </p>
+                        </Dropdown.Item>
+                        {notificationLoading ? (
+                          <div className="d-flex justify-content-center my-5">
+                            <BubblesLoader />
                           </div>
-                        </div>
-                      </Dropdown.Item>
-                      {notificationLoading ? (
-                        <div className="d-flex justify-content-center my-5">
-                          <BubblesLoader />
-                        </div>
-                      ) : (
-                        <>
-                          {notificationList && notificationList.length
-                            ? notificationList.map((value, index) => {
-                                return (
-                                  <div className="notification-dropdown-item">
-                                    <Dropdown.Item>
-                                      <div
-                                        key={index}
-                                        className="d-flex justify-content-between flex-sm-row flex-column align-items-center pt-3"
-                                      >
-                                        <div className="d-flex align-items-center">
-                                          {/* <img
+                        ) : (
+                          <>
+                            {notificationList && notificationList.length
+                              ? notificationList.map((value, index) => {
+                                  return (
+                                    <div className="notification-dropdown-item">
+                                      <Dropdown.Item>
+                                        <div
+                                          key={index}
+                                          className="d-flex justify-content-between flex-sm-row flex-column align-items-center pt-3"
+                                        >
+                                          <div className="d-flex align-items-center">
+                                            {/* <img
                                         className="user-img mx-1"
                                         src="https://laptop-care.in/img/testimonial/img1.jpg"
                                         alt="user-img"
                                       /> */}
+                                            <div>
+                                              <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
+                                                {value.body}
+                                              </p>
+                                              <p className="mb-0 px-2  notification-text notify-time">
+                                                {value.title}
+                                              </p>
+                                            </div>
+                                          </div>
                                           <div>
-                                            <p className="mb-0 px-2 text-dark fw-bold notify-user-name">
-                                              {value.body}
-                                            </p>
                                             <p className="mb-0 px-2  notification-text notify-time">
-                                              {value.title}
+                                              {GetTime(value.createdAt)}
                                             </p>
                                           </div>
                                         </div>
-                                        <div>
-                                          <p className="mb-0 px-2  notification-text notify-time">
-                                            {GetTime(value.createdAt)}
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </Dropdown.Item>
-                                  </div>
-                                );
-                              })
-                            : ""}
-                        </>
-                      )}
-                    </Dropdown.Menu>
-                  </Dropdown>
-                  {auth && unseenNotificationList !== 0 ? (
-                    <div className="notify-dot2 d-flex justify-content-center align-items-center">
-                      <span className="text-white">
-                        {unseenNotificationList}
-                      </span>
-                    </div>
-                  ) : null}
-                </div>
+                                      </Dropdown.Item>
+                                    </div>
+                                  );
+                                })
+                              : ""}
+                          </>
+                        )}
+                      </Dropdown.Menu>
+                    </Dropdown>
+                    {auth && unseenNotificationList !== 0 ? (
+                      <div className="notify-dot2 d-flex justify-content-center align-items-center">
+                        <span className="text-white">
+                          {unseenNotificationList}
+                        </span>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : (
+                  ""
+                )}
                 <div
                   className={`${
                     layoutClickChanger
