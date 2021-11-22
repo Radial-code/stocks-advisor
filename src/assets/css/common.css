@@ -785,9 +785,9 @@ input::-webkit-inner-spin-button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.description-width {
+/* .description-width {
   width: 2000px;
-}
+} */
 .text-ellipsis-dots {
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;

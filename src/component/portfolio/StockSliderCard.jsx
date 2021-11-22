@@ -1,19 +1,16 @@
 import moment from "moment";
 import { withRouter } from "react-router";
 import CalenderIcon from "../../assets/img/calendar-icon.png";
+import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
-const StockSliderCard = ({
-  soldValue,
-  getValueOf,
-  history,
-  layoutClickChanger,
-}) => {
+const StockSliderCard = ({ soldValue, getValueOf, history }) => {
   const contentHandler = (value) => {
     return {
       __html: value,
     };
   };
-
+  const { setLayoutClickChanger, layoutClickChanger } =
+    useLayoutChangerProvider();
   return (
     <>
       <div className="my-3 ">
@@ -105,7 +102,7 @@ const StockSliderCard = ({
                   )
                 }
                 className={`${
-                  layoutClickChanger ? " text-end " : " text-start"
+                  layoutClickChanger ? " text-end" : " text-start"
                 } cursor-pointer mb-0 text-ellipsis-dots color-blue`}
               >
                 {soldValue.atags}

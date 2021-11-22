@@ -58,7 +58,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
     handleClose(false);
   };
   return (
-    <Container className="mr-lg-30">
+    <div className="mr-lg-30">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}
@@ -100,10 +100,6 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
       {/* Modal */}
 
       <Modal show={show} onHide={handleClose} centered size="xl">
-        {/* <p className=" heading-stock fs-sm-20 mb-0 text-center py-3 fw-bold">
-          {getValueOf("Get rid of the title")}
-        </p> */}
-
         <Modal.Body>
           <div className="row">
             <div className="col-md-3 d-flex  flex-column align-items-center">
@@ -303,7 +299,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
           </div>
         </Modal.Body>
       </Modal>
-    </Container>
+    </div>
   );
 };
 export default Notification;

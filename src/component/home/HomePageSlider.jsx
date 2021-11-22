@@ -81,7 +81,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     <span
                       className={` ${
                         layoutClickChanger
-                          ? " justify-content-end"
+                          ? " justify-content-start"
                           : " justify-content-start"
                       }  d-flex align-items-center`}
                     >
