@@ -29,7 +29,7 @@ const StockArticles = ({ history, getValueOf }) => {
                   <Col xs={12} className="mt-5">
                     <section className="news-articles-card p-lg-5 p-3 mb-4">
                       <Row className="justify-content-between">
-                        <Col xl={3} lg={4} xs={4}>
+                        <Col xl={3} lg={4} xs={4} className="my-auto ">
                           <div
                             className="stock-articles-img "
                             onClick={() =>
@@ -37,7 +37,7 @@ const StockArticles = ({ history, getValueOf }) => {
                             }
                           >
                             <img
-                              className="stock-articles-img cursor-pointer"
+                              className="stock-articles-img cursor-pointer d-block mx-auto"
                               src={value.imagePath}
                               alt=""
                             />
