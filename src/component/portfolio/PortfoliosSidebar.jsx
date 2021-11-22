@@ -13,7 +13,6 @@ const PortfoliosSidebar = ({ history, match }) => {
   const dashboardPortfoliosList = useSelector(
     (state) => state.list.dashboardPortfoliosList
   );
-  console.log("fghjk", match.params);
   const openRoutes = (value) => {
     setShowSidebar(false);
     setPortfolioActive(true);
@@ -48,7 +47,6 @@ const PortfoliosSidebar = ({ history, match }) => {
           <div className="cn-sidebar-border"></div>
           {dashboardPortfoliosList && dashboardPortfoliosList.length
             ? dashboardPortfoliosList.map((value) => {
-                console.log(" value._id , value._id ", value._id);
                 return (
                   <div
                     className={`${
