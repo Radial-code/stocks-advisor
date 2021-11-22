@@ -1,23 +1,20 @@
 import moment from "moment";
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { EditorState, convertToRaw, ContentState } from "draft-js";
 import { withRouter } from "react-router-dom";
 import img_2 from "../../assets/img/calendar-icon.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-import draftToHtml from "draftjs-to-html";
+
 const NewsList = ({ history, value, index, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
-  const { description } = value;
-  const EditorState = { ...description };
-  console.log(value.description);
-  const contentHandler = () => {
+
+  const contentHandler = (data) => {
     return {
-      __html: value.description,
+      __html: data ? data : "N/A",
     };
   };
-  console.log(value);
+
   return (
     <section className="news-articles-card  p-3 mb-4">
       {loading ? (
@@ -78,12 +75,23 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
               <p className="stock-paragraph max-w-para d-none  d-md-block">
                 <p className="mb-0 dots">
-                  {/* {value && value.description ? value.description : "N/A"} */}
-                  <p
-                    dangerouslySetInnerHTML={
-                      value.description ? contentHandler() : "N/A"
-                    }
-                  />
+                  {layoutClickChanger ? (
+                    <p
+                      dangerouslySetInnerHTML={
+                        !!value && !!value.adescription
+                          ? contentHandler(value.adescription)
+                          : "N/A"
+                      }
+                    />
+                  ) : (
+                    <p
+                      dangerouslySetInnerHTML={
+                        !!value && !!value.description
+                          ? contentHandler(value.description)
+                          : "N/A"
+                      }
+                    />
+                  )}
                 </p>
               </p>
               <p

@@ -18,7 +18,10 @@ import { userUpdateByAdminAction } from "../../redux/action/portfolios";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { updateUserDetailsAction } from "../../redux/action/userPanel/user";
-import { getPlansListAction } from "../../redux/action/cmPanel/plans";
+import {
+  getPlansListAction,
+  plansUpgradeAction,
+} from "../../redux/action/cmPanel/plans";
 
 const initialState = {
   firstName: "",
@@ -29,13 +32,14 @@ const initialState = {
   countryCode: "",
 };
 let detailsString = [];
-const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
+const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
   const countries = useSelector((state) => state.list.countries);
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [loadingPlan, setLoadingPlan] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
+  const [addPlansLoading, setAddPlansLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(initialState);
   const { userId } = match.params;
   const userProfileDetails = useSelector(
@@ -99,7 +103,9 @@ const EditUser = ({ setSidebarActive, sidebarActive, match }) => {
   };
 
   const setUserUpdateData = (value) => {
-    console.log("value", value);
+    dispatch(
+      plansUpgradeAction({ planId: value._id }, setAddPlansLoading, history)
+    );
   };
 
   return (

@@ -31,6 +31,12 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
     dispatch(getRelatedNewsAction(data, setRelatedLoading));
   }, [getRelatedNewsAction]);
 
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
+
   return (
     <>
       {loading ? (
@@ -98,9 +104,21 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     } cursor-pointer`}
                   >
                     {layoutClickChanger ? (
-                      <>{value.atitle ? value.adescription : "N/A"}</>
+                      <p
+                        dangerouslySetInnerHTML={
+                          !!value && !!value.adescription
+                            ? contentHandler(value.adescription)
+                            : "N/A"
+                        }
+                      />
                     ) : (
-                      <>{value.title ? value.description : "N/A"}</>
+                      <p
+                        dangerouslySetInnerHTML={
+                          !!value && !!value.description
+                            ? contentHandler(value.description)
+                            : "N/A"
+                        }
+                      />
                     )}
                   </p>
                   <p
