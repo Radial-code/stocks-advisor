@@ -4,7 +4,6 @@ import ReactPaginate from "react-paginate";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { getNewsListForAdminAction } from "../../../redux/action/news";
 import { withRouter } from "react-router";

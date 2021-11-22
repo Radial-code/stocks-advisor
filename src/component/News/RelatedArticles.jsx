@@ -141,6 +141,11 @@ const RelatedArticles = ({ history }) => {
                               ? "text-end cursor-pointer mb-0 text-ellipsis-dots color-blue"
                               : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue"
                           }
+                          onClick={() =>
+                            history.push(
+                              `/stock/news/${value.stock._id}/${value.tags}`
+                            )
+                          }
                         >
                           {layoutClickChanger ? (
                             <>{value.atags ? value.atags : "N/A"}</>

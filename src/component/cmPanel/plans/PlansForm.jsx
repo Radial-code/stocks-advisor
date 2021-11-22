@@ -94,6 +94,24 @@ function PlansForm({ history, edit, id }) {
 
   const UpdatePlanDetails = () => {
     if (!!id) {
+      let details;
+      let adetails;
+      let planDetailsData;
+      let planADetailsData;
+      if (planDetails.details !== "") {
+        details =
+          planDetails && planDetails.details && planDetails.details.split("\n");
+        planDetailsData = details && details.join();
+      }
+      if (planDetails.adetails !== "") {
+        adetails =
+          planDetails &&
+          planDetails.adetails &&
+          planDetails.adetails.split("\n");
+        planADetailsData = adetails && adetails.join();
+      }
+      planDetails.details = planDetailsData;
+      planDetails.adetails = planADetailsData;
       if (
         planDetails.title !== undefined &&
         planDetails.price !== undefined &&
@@ -108,12 +126,13 @@ function PlansForm({ history, edit, id }) {
   };
 
   let planPortFoliosArray = [];
-  const array =
-    PlanDetailsList &&
-    PlanDetailsList.portfolios &&
-    PlanDetailsList.portfolios.map((val) => {
-      return planPortFoliosArray.push(val.portfolioId);
-    });
+  const array = edit
+    ? PlanDetailsList &&
+      PlanDetailsList.portfolios &&
+      PlanDetailsList.portfolios.map((val) => {
+        return planPortFoliosArray.push(val.portfolioId);
+      })
+    : null;
 
   return (
     <div>

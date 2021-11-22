@@ -82,7 +82,7 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
 
             <p className={`${layoutClickChanger ? "text-end" : "text-start"}`}>
               <span
-                className="read-more"
+                className="read-more cursor-pointer"
                 onClick={() => history.push(`/news/details/${soldValue._id}`)}
               >
                 {" "}

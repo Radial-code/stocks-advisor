@@ -95,6 +95,9 @@ const AddNewNews = ({ edit, match, history }) => {
         link: newsDetails.link,
         portfolios: newsDetails.portfolios,
       };
+      if (!data.stock) {
+        delete data.stock;
+      }
       dispatch(addNewNewsDetailsAction(data, setAddStockLoading, history));
       setError(false);
     }

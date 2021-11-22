@@ -6,6 +6,7 @@ import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
 import NoImg from "../../assets/img/no-image.png";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
@@ -37,10 +38,9 @@ const NewsDetailsPage = ({ history, loading }) => {
                   height="504px"
                 />
               ) : (
-                <img
-                  className="w-100"
-                  src={newsDetails && newsDetails.link}
-                  alt="news"
+                <LinkPreview
+                  url={newsDetails && newsDetails.link}
+                  width="100%"
                 />
               )
             ) : (
@@ -83,41 +83,30 @@ const NewsDetailsPage = ({ history, loading }) => {
                 </span>
               )}
             </p>
-            {newsDetails &&
-            newsDetails.stock &&
-            newsDetails.stock.chartData &&
-            newsDetails.stock.chartData.name ? (
-              <p
-                className={`${
-                  layoutClickChanger
-                    ? "small-paragraph text-end"
-                    : "small-paragraph"
-                }`}
+
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "small-paragraph text-end"
+                  : "small-paragraph"
+              }`}
+            >
+              <span className="cursor-pointer fw-bold color-blue">
+                {getValueOf("Stock")} :
+              </span>
+              <span
+                onClick={() =>
+                  history.push(
+                    `/stock/news/${newsDetails.stock._id}/stock-tags`
+                  )
+                }
+                className="cursor-pointer fw-bold color-blue"
               >
-                <span className="cursor-pointer fw-bold color-blue">
-                  {getValueOf("Stock")} :
-                </span>
-                <span
-                  onClick={() =>
-                    history.push(
-                      `/stock/news/${newsDetails.stock._id}/stock-tags`
-                    )
-                  }
-                  className="cursor-pointer fw-bold color-blue"
-                >
-                  {newsDetails &&
-                  newsDetails.stock &&
-                  newsDetails.stock.chartData &&
-                  newsDetails.stock.chartData.name
-                    ? newsDetails.stock.chartData.name
-                    : newsDetails.stock && newsDetails.stock.symbol
-                    ? newsDetails.stock.symbol
-                    : "N/A"}
-                </span>
-              </p>
-            ) : (
-              ""
-            )}
+                {newsDetails && newsDetails.stock && newsDetails.stock.symbol
+                  ? newsDetails.stock.symbol
+                  : "N/A"}
+              </span>
+            </p>
             <p
               className={`${
                 layoutClickChanger
@@ -182,16 +171,22 @@ const NewsDetailsPage = ({ history, loading }) => {
               <p className="stock-paragraph mt-2 fs-sm-14">
                 {layoutClickChanger ? (
                   <>
-                    {newsDetails && newsDetails.adescription
-                      ? newsDetails.adescription
-                      : "N/A"}
+                    {newsDetails && newsDetails.adescription ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          adescription && contentHandler(adescription)
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
                   </>
                 ) : (
                   <>
                     {newsDetails && newsDetails.description ? (
                       <p
                         dangerouslySetInnerHTML={
-                          description && contentHandler()
+                          description && contentHandler(description)
                         }
                       />
                     ) : (

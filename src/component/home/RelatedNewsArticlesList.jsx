@@ -12,6 +12,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
     atitle,
     _id,
     tags,
+    atags,
     stock,
     description,
     adescription,
@@ -114,7 +115,10 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             onClick={() => history.push(`/news/details/${_id}`)}
           >
             {" "}
-            <span className="read-more "> {getValueOf("Read More")}</span>
+            <span className="read-more cursor-pointer ">
+              {" "}
+              {getValueOf("Read More")}
+            </span>
           </p>
           <p
             className={`${
@@ -122,8 +126,9 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
                 ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
                 : "text-start cursor-pointer mb-0 text-ellipsis-dots"
             } color-blue cursor`}
+            onClick={() => history.push(`/stock/news/${stock._id}/${tags}`)}
           >
-            {tags}
+            {layoutClickChanger ? (tags ? tags : "") : atags ? atags : ""}
           </p>
           <p
             className={`${

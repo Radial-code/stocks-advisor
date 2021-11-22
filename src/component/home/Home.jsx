@@ -5,6 +5,7 @@ import Team from "../../assets/img/team_1.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+
 const Home = () => {
   const settings = {
     dots: false,

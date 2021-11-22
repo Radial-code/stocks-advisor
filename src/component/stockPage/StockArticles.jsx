@@ -93,7 +93,6 @@ const StockArticles = ({ history, getValueOf }) => {
                                   history.push(`/news/details/${value._id}`)
                                 }
                               >
-                                {" "}
                                 {getValueOf("Read More")}
                               </span>
                             </p>
@@ -111,27 +110,31 @@ const StockArticles = ({ history, getValueOf }) => {
                                 <>{value.tags ? value.tags : "N/A"}</>
                               )}
                             </p>
-                            <p
-                              className={`${
-                                layoutClickChanger
-                                  ? "small-paragraph text-end"
-                                  : "small-paragraph text-start"
-                              }`}
-                            >
-                              <span className="ps-1 cursor-pointer fw-bold">
-                                Stock :
-                              </span>
-                              <span
-                                className="cursor-pointer fw-bold color-blue"
-                                onClick={() =>
-                                  history.push(
-                                    `/stock/news/${value.stock._id}/stock-tags`
-                                  )
-                                }
+                            {value && value.stock && value.stock.symbol ? (
+                              <p
+                                className={`${
+                                  layoutClickChanger
+                                    ? "small-paragraph text-end"
+                                    : "small-paragraph text-start"
+                                }`}
                               >
-                                {value.stock.symbol}
-                              </span>
-                            </p>
+                                <span className="ps-1 cursor-pointer fw-bold">
+                                  Stock :
+                                </span>
+                                <span
+                                  className="cursor-pointer fw-bold color-blue"
+                                  onClick={() =>
+                                    history.push(
+                                      `/stock/news/${value.stock._id}/stock-tags`
+                                    )
+                                  }
+                                >
+                                  {value.stock.symbol}
+                                </span>
+                              </p>
+                            ) : (
+                              ""
+                            )}
                           </div>
                         </Col>
                       </Row>

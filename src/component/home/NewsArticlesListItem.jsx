@@ -62,7 +62,12 @@ const NewsArticlesListItem = ({
             >
               {getValueOf("Read More")}
             </p>
-            <p class="small-paragraph text-end Slider-Ellipse">
+            <p
+              class="small-paragraph text-end Slider-Ellipse cursor-pointer"
+              onClick={() =>
+                history.push(`/stock/news/${value.stock._id}/${value.tags}`)
+              }
+            >
               {layoutClickChanger ? (atags ? atags : "") : tags ? tags : ""}
             </p>
             <p className={`small-paragraph text-end Slider-Ellipse`}>

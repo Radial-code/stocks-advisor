@@ -238,7 +238,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {(error && newsDetails.atitle === undefined) ||
-              newsDetails.atitle === ""
+              (error && newsDetails.atitle === "")
                 ? "Arabic Title is required"
                 : null}
             </span>
@@ -262,7 +262,7 @@ const AddNewsForm = ({
             />
             <span className="text-danger">
               {(error && newsDetails.title === undefined) ||
-              newsDetails.title === ""
+              (error && newsDetails.title === "")
                 ? "Title is required"
                 : null}
             </span>
