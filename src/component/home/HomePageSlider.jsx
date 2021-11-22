@@ -8,6 +8,7 @@ import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import NoImage from "../../assets/img/no-image.png";
 import SearchNews from "../../assets/img/searchnews.png";
 
 const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
@@ -49,12 +50,27 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
             homeNewsList.slice(0, 8).map((value, index) => {
               return (
                 <div key={index}>
-                  <img
+                  {value.imagePath === "" ? (
+                    <img
+                      onClick={() => history.push(`/news/details/${value._id}`)}
+                      className=" slider-img d-block mx-auto cursor-pointer"
+                      src={NoImage}
+                      alt="NoImage"
+                    />
+                  ) : (
+                    <img
+                      onClick={() => history.push(`/news/details/${value._id}`)}
+                      className=" slider-img d-block mx-auto cursor-pointer"
+                      src={value.imagePath}
+                      alt=""
+                    />
+                  )}
+                  {/* <img
                     onClick={() => history.push(`/news/details/${value._id}`)}
                     className=" slider-img d-block mx-auto cursor-pointer"
                     src={value.imagePath}
                     alt=""
-                  />
+                  /> */}
                   <p
                     className={
                       layoutClickChanger

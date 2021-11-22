@@ -5,6 +5,7 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
+import NoImg from "../../assets/img/no-image.png";
 
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
@@ -147,15 +148,19 @@ const NewsDetailsPage = ({ history, loading }) => {
                   />
                 )}
               </p>
-              <img
-                className="newsImg-slider"
-                src={
-                  newsDetails && newsDetails.imagePath
-                    ? newsDetails.imagePath
-                    : "N/A"
-                }
-                alt="news Image"
-              />
+              {newsDetails.imagePath === "" ? (
+                <img className="newsImg-slider" src={NoImg} alt="news Image" />
+              ) : (
+                <img
+                  className="newsImg-slider"
+                  src={
+                    newsDetails && newsDetails.imagePath
+                      ? newsDetails.imagePath
+                      : "N/A"
+                  }
+                  alt="news Image"
+                />
+              )}
             </div>
 
             {/* <div className="col-xl-6  col-xxl-5 mt-5 mt-xl-0"> */}

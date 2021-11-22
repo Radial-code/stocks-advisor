@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 import moment from "moment";
+import NoImg from "../../assets/img/no-image.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const RelatedArticles = () => {
@@ -46,12 +47,20 @@ const RelatedArticles = () => {
                       className="d-flex justify-content-center"
                     >
                       <section key={index} className="articles-card p-3">
-                        <div className="">
-                          <img
-                            className="w-100 newsImg-slider"
-                            src={value.imagePath}
-                            alt=""
-                          />
+                        <div>
+                          {value.imagePath === "" ? (
+                            <img
+                              className="w-100 newsImg-slider mx-auto d-block"
+                              src={NoImg}
+                              alt=""
+                            />
+                          ) : (
+                            <img
+                              className="w-100 newsImg-slider mx-auto d-block"
+                              src={value.imagePath}
+                              alt=""
+                            />
+                          )}
                         </div>
                         <p
                           className={
@@ -69,6 +78,19 @@ const RelatedArticles = () => {
                             alt="CalenderIcon"
                           />
                         </p>
+
+                        <div className="d-flex align-items-center">
+                          <p
+                            className={
+                              layoutClickChanger
+                                ? "news-heading-font max-w-articles p-2 mb-0 Slider-Ellipse py-2"
+                                : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse py-2"
+                            }
+                            dir="ltr"
+                          >
+                            {value.title}
+                          </p>
+                        </div>
                         <span
                           className={
                             layoutClickChanger
@@ -78,19 +100,6 @@ const RelatedArticles = () => {
                         >
                           {value.description}
                         </span>
-                        <div className="d-flex justify-content-center align-items-center">
-                          <p
-                            className={
-                              layoutClickChanger
-                                ? "news-heading-font max-w-articles p-2 mb-0 Slider-Ellipse"
-                                : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse"
-                            }
-                            dir="ltr"
-                          >
-                            {value.title}
-                          </p>
-                        </div>
-
                         <span className="read-more ">
                           {getValueOf("Read More")}
                         </span>
