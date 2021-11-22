@@ -82,7 +82,7 @@ const ViewProfile = () => {
               <button
                 onClick={() => UpdateUserProfile()}
                 disabled={loading}
-                className="from-edit-profile-btn  me-sm-3 mt-3 mt-sm-0"
+                className="from-edit-profile-btn  mx-3 mt-3 mt-sm-0"
               >
                 {loading ? <Loader /> : `${getValueOf("Save")}`}
               </button>
@@ -145,7 +145,7 @@ const ViewProfile = () => {
           </button>
           <button
             onClick={() => UpdateUserProfile()}
-            className="from-edit-profile-btn  me-sm-3 me-2"
+            className="from-edit-profile-btn  mx-sm-3 mx-2"
           >
             {getValueOf("Back")}
           </button>
