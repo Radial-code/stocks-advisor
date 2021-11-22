@@ -19,11 +19,12 @@ import ConfirmRoute from "./component/ConfirmRoute";
 import { getCountryListAction } from "./redux/action/portfolios";
 import { getUnseenNotificationListAction } from "./redux/action/contact";
 import JoinSocket from "./redux/JoinSocket";
+import { getUserListForAdminAction } from "./redux/action/cmPanel/stock";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(false);
   const [showSidebar2, setShowSidebar2] = useState(false);
-  const [notificationLoading, setNotificationLoading] = useState(false);
   const sideBarHandler = () => setShowSidebar(!showSidebar);
   const stripePromise = loadStripe(
     "pk_test_51JojDBSA6U9MBWzFtxmw0E1QxCkuXOW4qlOGhqtFPlS6Mo84Rsvbs65KVJ0JjSdC7HmYnSwgvu8zkM8lYpfF9RDt008ZkphiZj"
@@ -46,7 +47,12 @@ function App() {
     }
     dispatch(getCountryListAction());
     if (!!auth && !!token) {
+      const page = 0;
       setTimeout(dispatch(getUnseenNotificationListAction()), 2000);
+      setTimeout(
+        dispatch(getUserListForAdminAction(setLoadingUser, page)),
+        2000
+      );
     }
   }, [auth, token]);
 
@@ -82,6 +88,7 @@ function App() {
                 sideBarHandler={sideBarHandler}
                 setShowSidebar={setShowSidebar}
                 showSidebar2={showSidebar2}
+                loadingUser={loadingUser}
                 setShowSidebar2={setShowSidebar2}
               />
             )
