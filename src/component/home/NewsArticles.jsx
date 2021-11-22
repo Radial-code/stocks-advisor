@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NewsArticles = ({ history }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
   const newsListData = useSelector((state) => state.cmPanel.homeNewsList);
 
   var settings = {
@@ -81,7 +81,11 @@ const NewsArticles = ({ history }) => {
               {newsListData &&
                 newsListData.length &&
                 newsListData.map((obj) => (
-                  <NewsArticlesListItem news={obj} getValueOf={getValueOf} />
+                  <NewsArticlesListItem
+                    news={obj}
+                    getValueOf={getValueOf}
+                    layoutClickChanger={layoutClickChanger}
+                  />
                 ))}
             </Slider>
           </div>

@@ -10,14 +10,12 @@ import NoImg from "../../assets/img/no-image.png";
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
-  const { description } = newsDetails;
+  const { description, adescription } = newsDetails;
 
-  const contentHandler = () => {
-    if (description) {
-      return {
-        __html: description,
-      };
-    }
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
   };
 
   return (
@@ -135,16 +133,22 @@ const NewsDetailsPage = ({ history, loading }) => {
               <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
                 {layoutClickChanger ? (
                   <>
-                    {newsDetails && newsDetails.adescription
-                      ? newsDetails.adescription
-                      : "N/A"}
+                    {newsDetails && newsDetails.adescription ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          adescription && contentHandler(adescription)
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
                   </>
                 ) : (
                   <>
                     {newsDetails && newsDetails.description ? (
                       <p
                         dangerouslySetInnerHTML={
-                          description && contentHandler()
+                          description && contentHandler(description)
                         }
                       />
                     ) : (

@@ -3,8 +3,19 @@ import img_1 from "../../assets/img/calendar-icon.png";
 import moment from "moment";
 import { withRouter } from "react-router";
 
-const NewsArticlesListItem = ({ news, history, getValueOf }) => {
-  const { createdAt, title, description, _id, tags, stock } = news;
+const NewsArticlesListItem = ({
+  news,
+  history,
+  getValueOf,
+  layoutClickChanger,
+}) => {
+  const { createdAt, title, description, _id, tags, stock, description } = news;
+
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
 
   return (
     <>
@@ -22,10 +33,28 @@ const NewsArticlesListItem = ({ news, history, getValueOf }) => {
               </span>
             </p>
             <h3 className="news-heading-font text-end Slider-Ellipse">
-              {title ? title : "N/A"}
+              {layoutClickChanger
+                ? atitle
+                  ? atitle
+                  : "N/A"
+                : title
+                ? title
+                : "N/A"}
             </h3>
             <p className="stock-paragraph text-end Slider-Ellipse">
-              {description}
+              {layoutClickChanger ? (
+                <p
+                  dangerouslySetInnerHTML={
+                    !!adescription ? contentHandler(adescription) : "N/A"
+                  }
+                />
+              ) : (
+                <p
+                  dangerouslySetInnerHTML={
+                    !!description ? contentHandler(description) : "N/A"
+                  }
+                />
+              )}{" "}
             </p>
             <p
               className="read-more text-end cursor-pointer"
@@ -33,7 +62,9 @@ const NewsArticlesListItem = ({ news, history, getValueOf }) => {
             >
               {getValueOf("Read More")}
             </p>
-            <p class="small-paragraph text-end Slider-Ellipse">{tags}</p>
+            <p class="small-paragraph text-end Slider-Ellipse">
+              {layoutClickChanger ? (atags ? atags : "") : tags ? tags : ""}
+            </p>
             <p className={`small-paragraph text-end Slider-Ellipse`}>
               <span className=" cursor-pointer fw-bold">
                 {getValueOf("Stock")} :
