@@ -118,9 +118,22 @@ function PlansForm({ history, edit, id }) {
         planDetails.type !== undefined &&
         planDetails.details !== undefined
       ) {
-        dispatch(
-          updatePlansDetailsAction(planDetails, id, setLoading, history, "data")
-        );
+        if (
+          planDetails.title !== "" &&
+          planDetails.price !== "" &&
+          planDetails.type !== "" &&
+          planDetails.details !== ""
+        ) {
+          dispatch(
+            updatePlansDetailsAction(
+              planDetails,
+              id,
+              setLoading,
+              history,
+              "data"
+            )
+          );
+        }
       }
     }
   };
@@ -165,7 +178,8 @@ function PlansForm({ history, edit, id }) {
                     }}
                   />
                   <span className="text-danger">
-                    {error && planDetails.price === undefined
+                    {(error && planDetails.price === undefined) ||
+                    (error && planDetails.price === "")
                       ? "Price is required"
                       : null}
                   </span>
@@ -188,7 +202,8 @@ function PlansForm({ history, edit, id }) {
                     }}
                   />
                   <span className="text-danger">
-                    {error && planDetails.title === undefined
+                    {(error && planDetails.title === undefined) ||
+                    (error && planDetails.title === "")
                       ? "Title is required"
                       : null}
                   </span>
@@ -223,7 +238,8 @@ function PlansForm({ history, edit, id }) {
                     <option>Year</option>
                   </select>
                   <span className="text-danger">
-                    {error && planDetails.type === undefined
+                    {(error && planDetails.type === undefined) ||
+                    (error && planDetails.type === "")
                       ? "Week is required"
                       : null}
                   </span>
