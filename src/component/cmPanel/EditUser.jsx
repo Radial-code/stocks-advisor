@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, FormGroup } from "react-bootstrap";
+import { Container, Row, Col, FormGroup, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
@@ -368,7 +368,6 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                               </span>
                             )}
                           </div>
-
                           <div
                             className={`${
                               layoutClickChanger ? "" : "flex-row-reverse"
@@ -414,22 +413,25 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                           <button
                             type="button"
                             onClick={() => updatePlanGetUserList()}
-                            className="update-btn-2 mt-3"
+                            className="update-btn-2 my-3"
                             disabled={loadingPlan}
                           >
                             {loadingPlan ? <Loader /> : "Update Plan"}
                           </button>
+                           {" "}
                           {planList && !!planList.length
                             ? planList.map((val) => {
                                 return (
-                                  <>
+                                  <div className="cursor-pointer pt-1 update-plan">
                                     <input
                                       type="radio"
-                                      value="JavaScript"
+                                      id="html"
+                                      name="fav_language"
                                       onChange={() => setUserUpdateData(val)}
+                                      value="JavaScript"
                                     />
-                                    <span>{val.title}</span>
-                                  </>
+                                    <span className="px-1">{val.title}</span>
+                                  </div>
                                 );
                               })
                             : null}
