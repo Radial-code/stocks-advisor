@@ -1,19 +1,34 @@
 import CalenderIcon from "../../assets/img/calendar-icon.png";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-
+import NoImg from "../../assets/img/no-image.png";
 export const RelatedNewsArticlesList = ({ news, history }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const { imagePath, createdAt, title, description, _id, tags, stock } = news;
   return (
     <div className="my-3 ">
       <div className="news-slider-wrapper">
-        <img
+        {imagePath !== "" ? (
+          <img
+            className="newsImg-slider cursor-pointer"
+            src={imagePath}
+            onClick={() => history.push(`/news/details/${_id}`)}
+            alt="newsImg"
+          />
+        ) : (
+          <img
+            className="newsImg-slider cursor-pointer"
+            src={NoImg}
+            onClick={() => history.push(`/news/details/${_id}`)}
+            alt="newsImg"
+          />
+        )}
+        {/* <img
           className="newsImg-slider cursor-pointer"
           src={imagePath}
           onClick={() => history.push(`/news/details/${_id}`)}
           alt="newsImg"
-        />
+        /> */}
         <div className="news-wrapper-bottom-section">
           <p
             className={`${
