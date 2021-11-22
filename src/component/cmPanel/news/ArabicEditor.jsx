@@ -5,7 +5,7 @@ import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
-const DraftEditor = ({ newsDetails, setNewsDetails }) => {
+const ArabicEditor = ({ newsDetails, setNewsDetails }) => {
   const [editorState, setEditorState] = React.useState();
 
   useEffect(() => {
@@ -27,10 +27,10 @@ const DraftEditor = ({ newsDetails, setNewsDetails }) => {
 
   useEffect(() => {
     if (editorState) {
-      const description = draftToHtml(
+      const adescription = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
-      setNewsDetails({ ...newsDetails, description });
+      setNewsDetails({ ...newsDetails, adescription });
     }
   }, [editorState]);
 
@@ -53,4 +53,4 @@ const DraftEditor = ({ newsDetails, setNewsDetails }) => {
   );
 };
 
-export default DraftEditor;
+export default ArabicEditor;

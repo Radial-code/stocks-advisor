@@ -9,6 +9,12 @@ import BubblesLoader from "../common/BubblesLoader";
 const NewsList = ({ history, value, index, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
 
+  const contentHandler = (data) => {
+    return {
+      __html: data ? data : "N/A",
+    };
+  };
+
   return (
     <section className="news-articles-card  p-3 mb-4">
       {loading ? (
@@ -69,7 +75,23 @@ const NewsList = ({ history, value, index, loading }) => {
               </p>
               <p className="stock-paragraph max-w-para d-none  d-md-block">
                 <p className="mb-0 dots">
-                  {value && value.description ? value.description : "N/A"}
+                  {layoutClickChanger ? (
+                    <p
+                      dangerouslySetInnerHTML={
+                        !!value && !!value.adescription
+                          ? contentHandler(value.adescription)
+                          : "N/A"
+                      }
+                    />
+                  ) : (
+                    <p
+                      dangerouslySetInnerHTML={
+                        !!value && !!value.description
+                          ? contentHandler(value.description)
+                          : "N/A"
+                      }
+                    />
+                  )}
                 </p>
               </p>
               <p

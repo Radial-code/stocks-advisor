@@ -5,10 +5,21 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-
+import { EditorState, convertToRaw, ContentState } from "draft-js";
+import draftToHtml from "draftjs-to-html";
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
+  console.log(newsDetails);
+  const { description } = newsDetails;
+  const contentHandler = () => {
+    console.log(typeof description, description);
+    if (description) {
+      return {
+        __html: description,
+      };
+    }
+  };
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
       {loading ? (
@@ -128,9 +139,15 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 ) : (
                   <>
-                    {newsDetails && newsDetails.description
-                      ? newsDetails.description
-                      : "N/A"}
+                    {newsDetails && newsDetails.description ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          description && contentHandler()
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
                   </>
                 )}
               </p>

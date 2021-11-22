@@ -1,16 +1,16 @@
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { withRouter } from "react-router";
 import { Form, FormGroup } from "react-bootstrap";
-import { uploadImageCallBack } from "../../../contexts/HtmlEditor";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { Editor } from "react-draft-wysiwyg";
-
+import { convertToRaw } from "draft-js";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import Loader from "../../common/Loader";
 import DraftEditor from "./DraftEditor";
+import ArabicEditor from "./ArabicEditor";
+import draftToHtml from "draftjs-to-html";
 
 const AddNewsForm = ({
   setNewsDetails,
@@ -24,6 +24,8 @@ const AddNewsForm = ({
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
   const [uploadImg, setUploadImg] = useState("");
+  const [adescription, setAdescription] = useState("");
+  const [description, setdescription] = useState("");
   const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
@@ -36,10 +38,21 @@ const AddNewsForm = ({
   };
 
   const onEditoraDesStateChange = (e) => {
-    setNewsDetails({ ...newsDetails, adescription: e });
+    setNewsDetails({
+      ...newsDetails,
+      adescription: e,
+    });
   };
   const onEditorDesStateChange = (e) => {
-    setNewsDetails({ ...newsDetails, description: e });
+    // console.log(e, "sdgtsdfgdsf=>>>>>>>>>>>>");
+    console.log(
+      draftToHtml(convertToRaw(e.getCurrentContent())),
+      "dsfsdfsdfdfdf"
+    );
+    // setNewsDetails({
+    //   ...newsDetails,
+    //   description: e ? draftToHtml(convertToRaw(e.getCurrentContent())) : "",
+    // });
   };
 
   return (
@@ -275,58 +288,19 @@ const AddNewsForm = ({
       </div>
       <div className="row">
         <div className="col-12 mb-3">
-          {/*} <textarea
-            className={`${
-              layoutClickChanger
-                ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-end"
-                : "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-start"
-            }`}
-            name=""
-            id=""
-            cols=""
-            rows="6"
-            placeholder="Arabic Description"
-            onChange={(e) => {
-              setNewsDetails({
-                ...newsDetails,
-                adescription: e.target.value,
-              });
-            }}
-            value={newsDetails.adescription}
-          />**/}
           <div className="editor">
             <DraftEditor
-              setNewsDetails={setNewsDetails}
-              details={newsDetails.adescription}
-              onEditorStateChange={onEditoraDesStateChange}
+              setNewsDetails={setAdescription}
+              details={newsDetails}
+              newsDetails={newsDetails}
             />
           </div>
         </div>
         <div className="col-12 mb-3" dir="ltr">
-          {/*<textarea
-            className={`${
-              layoutClickChanger
-                ? "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-start"
-                : "w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3 text-end"
-            }`}
-            name=""
-            id=""
-            cols=""
-            rows="6"
-            placeholder="English Description"
-            onChange={(e) => {
-              setNewsDetails({
-                ...newsDetails,
-                description: e.target.value,
-              });
-            }}
-            value={newsDetails.description}
-          ></textarea>**/}
-
           <div className="editor">
             <DraftEditor
-              setNewsDetails={setNewsDetails}
-              details={newsDetails.description}
+              setNewsDetails={setdescription}
+              details={newsDetails}
               onEditorStateChange={onEditorDesStateChange}
             />
           </div>
