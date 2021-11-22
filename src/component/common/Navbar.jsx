@@ -610,34 +610,6 @@ const Navbar = ({
                   ) : null}
                 </div>
               ) : (
-                // <>
-                //   {userData.isAdmin ? (
-                //     <Dropdown className="d-flex  mx-0 mx-xxl-2  stock-dashboard-dropdown  align-items-center">
-                //       <Dropdown.Toggle
-                //         className="d-none d-xxl-block "
-                //         id="dropdown-basic"
-                //       >
-                //         {getValueOf("Dashboard")}
-                //       </Dropdown.Toggle>
-                //       <Dropdown.Menu>
-                //         <Dropdown.Item
-                //           onClick={() =>
-                //             history.push("/dashboard/manage/subscription")
-                //           }
-                //         >
-                //           {getValueOf("User Dashboard")}
-                //         </Dropdown.Item>
-                //         <Dropdown.Item
-                //           onClick={() =>
-                //             history.push("/content/manager/stocks")
-                //           }
-                //         >
-                //           {getValueOf("Admin Dashboard")}
-                //         </Dropdown.Item>
-                //       </Dropdown.Menu>
-                //     </Dropdown>
-                //   ) : null}
-                // </>
                 ""
               )}
               {!!auth && !!firstname && !!lastname ? (
