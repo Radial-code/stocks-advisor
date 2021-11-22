@@ -29,7 +29,6 @@ const DraftEditor = ({ setdescription }) => {
       const description = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
-      console.log(description);
       setdescription(description);
     }
   }, [editorState]);

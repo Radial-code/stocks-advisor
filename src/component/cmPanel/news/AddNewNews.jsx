@@ -57,7 +57,6 @@ const AddNewNews = ({ edit, match, history }) => {
     dispatch(getStockListAction(0, setLoading));
   }, []);
 
-  console.log("newsDetails", newsDetails.title);
   const AddNewNewsDetails = () => {
     setError(true);
     if (

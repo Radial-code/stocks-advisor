@@ -6,7 +6,6 @@ import { axiosRequest } from "../helper";
  * @returns
  */
 export const addNewNewsDetailsApi = async (data) => {
-  console.log("data", data);
   return await axiosRequest("POST", `/news`, data);
 };
 
