@@ -5,12 +5,11 @@ import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
-const ArabicEditor = ({ newsDetails, setNewsDetails }) => {
+const ArabicEditor = ({ setAdescription }) => {
   const [editorState, setEditorState] = React.useState();
 
   useEffect(() => {
-    const html =
-      "<p>Please type  <strong>Here </strong> For Edit  <strong> News </strong> Description 😀</p>";
+    const html = "";
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
@@ -30,7 +29,7 @@ const ArabicEditor = ({ newsDetails, setNewsDetails }) => {
       const adescription = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
-      setNewsDetails({ ...newsDetails, adescription });
+      setAdescription(adescription);
     }
   }, [editorState]);
 

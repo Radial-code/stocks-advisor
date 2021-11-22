@@ -14,11 +14,10 @@ import AddNewsForm from "./AddNewsForm";
 import NewsSelectTypes from "./NewsSelectTypes";
 import Swal from "sweetalert2";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
-import { EditorState } from "draft-js";
 
 const initialState = {
   title: "",
-  atitle: EditorState.createEmpty(),
+  atitle: "",
   description: "",
   adescription: "",
   showOnHomePage: false,
@@ -37,7 +36,8 @@ const AddNewNews = ({ edit, match, history }) => {
   const dispatch = useDispatch();
   const newsDetailsList = useSelector((state) => state.userPanel.newsDetails);
   const uploadImageUrl = useSelector((state) => state.list.uploadImageUrl);
-
+  const [adescription, setAdescription] = useState("");
+  const [description, setdescription] = useState("");
   const [tags, setTags] = useState([]);
   const [atags, setATags] = useState([]);
   const [updateLoading, setUpdateLoading] = useState(false);
@@ -57,13 +57,18 @@ const AddNewNews = ({ edit, match, history }) => {
     dispatch(getStockListAction(0, setLoading));
   }, []);
 
+  console.log("newsDetails", newsDetails.title);
   const AddNewNewsDetails = () => {
     setError(true);
     if (
       newsDetails.title !== undefined &&
+      newsDetails.title !== "" &&
+      newsDetails.atitle !== "" &&
       tags !== undefined &&
       newsDetails.atitle !== undefined &&
-      atags !== undefined
+      atags !== undefined &&
+      adescription !== "" &&
+      description !== ""
     ) {
       const tagsArray = [...tags, ...categoryArray];
       const atagsArray = [...atags, ...categoryArray];
@@ -81,8 +86,8 @@ const AddNewNews = ({ edit, match, history }) => {
       const data = {
         title: newsDetails.title,
         atitle: newsDetails.atitle,
-        description: newsDetails.description,
-        adescription: newsDetails.adescription,
+        description: description,
+        adescription: adescription,
         showOnHomePage: newsDetails.showOnHomePage,
         stock: newsDetails.stock,
         tags: TagValue,
@@ -170,6 +175,8 @@ const AddNewNews = ({ edit, match, history }) => {
           tags={tags}
           atags={atags}
           loading={loading}
+          setAdescription={setAdescription}
+          setdescription={setdescription}
         />
         <NewsSelectTypes
           newsDetailsList={newsDetailsList}

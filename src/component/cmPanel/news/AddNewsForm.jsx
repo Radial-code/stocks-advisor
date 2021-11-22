@@ -6,16 +6,17 @@ import { convertToRaw } from "draft-js";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../common/Loader";
 import DraftEditor from "./DraftEditor";
 import ArabicEditor from "./ArabicEditor";
-import draftToHtml from "draftjs-to-html";
 
 const AddNewsForm = ({
   setNewsDetails,
   newsDetails,
   error,
+  setAdescription,
+  setdescription,
   setATags,
   setTags,
   tags,
@@ -24,8 +25,6 @@ const AddNewsForm = ({
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
   const [uploadImg, setUploadImg] = useState("");
-  const [adescription, setAdescription] = useState("");
-  const [description, setdescription] = useState("");
   const { layoutClickChanger } = useLayoutChangerProvider();
   const stockList = useSelector((state) => state.cmPanel.stockList);
   const userDetails = useSelector((state) => state.auth.userData);
@@ -35,24 +34,6 @@ const AddNewsForm = ({
     let img = e.target.files[0];
     let image = URL.createObjectURL(img);
     setUploadImg(image);
-  };
-
-  const onEditoraDesStateChange = (e) => {
-    setNewsDetails({
-      ...newsDetails,
-      adescription: e,
-    });
-  };
-  const onEditorDesStateChange = (e) => {
-    // console.log(e, "sdgtsdfgdsf=>>>>>>>>>>>>");
-    console.log(
-      draftToHtml(convertToRaw(e.getCurrentContent())),
-      "dsfsdfsdfdfdf"
-    );
-    // setNewsDetails({
-    //   ...newsDetails,
-    //   description: e ? draftToHtml(convertToRaw(e.getCurrentContent())) : "",
-    // });
   };
 
   return (
@@ -256,7 +237,8 @@ const AddNewsForm = ({
               }}
             />
             <span className="text-danger">
-              {error && newsDetails.atitle === undefined
+              {(error && newsDetails.atitle === undefined) ||
+              newsDetails.atitle === ""
                 ? "Arabic Title is required"
                 : null}
             </span>
@@ -279,7 +261,8 @@ const AddNewsForm = ({
               }}
             />
             <span className="text-danger">
-              {error && newsDetails.title === undefined
+              {(error && newsDetails.title === undefined) ||
+              newsDetails.title === ""
                 ? "Title is required"
                 : null}
             </span>
@@ -290,18 +273,16 @@ const AddNewsForm = ({
         <div className="col-12 mb-3">
           <div className="editor">
             <DraftEditor
-              setNewsDetails={setAdescription}
-              details={newsDetails}
+              setdescription={setdescription}
               newsDetails={newsDetails}
             />
           </div>
         </div>
         <div className="col-12 mb-3" dir="ltr">
           <div className="editor">
-            <DraftEditor
-              setNewsDetails={setdescription}
-              details={newsDetails}
-              onEditorStateChange={onEditorDesStateChange}
+            <ArabicEditor
+              setAdescription={setAdescription}
+              newsDetails={newsDetails}
             />
           </div>
         </div>

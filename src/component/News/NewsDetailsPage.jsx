@@ -5,21 +5,19 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-import { EditorState, convertToRaw, ContentState } from "draft-js";
-import draftToHtml from "draftjs-to-html";
+
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
-  console.log(newsDetails);
-  const { description } = newsDetails;
-  const contentHandler = () => {
-    console.log(typeof description, description);
-    if (description) {
+
+  const contentHandler = (data) => {
+    if (data) {
       return {
-        __html: description,
+        __html: data,
       };
     }
   };
+
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
       {loading ? (
@@ -132,23 +130,21 @@ const NewsDetailsPage = ({ history, loading }) => {
             <div className="col-xl-6 col-xxl-7">
               <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
                 {layoutClickChanger ? (
-                  <>
-                    {newsDetails && newsDetails.adescription
-                      ? newsDetails.adescription
-                      : "N/A"}
-                  </>
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!newsDetails && !!newsDetails.adescription
+                        ? contentHandler(newsDetails.adescription)
+                        : "N/A"
+                    }
+                  />
                 ) : (
-                  <>
-                    {newsDetails && newsDetails.description ? (
-                      <p
-                        dangerouslySetInnerHTML={
-                          description && contentHandler()
-                        }
-                      />
-                    ) : (
-                      "N/A"
-                    )}
-                  </>
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!newsDetails && !!newsDetails.description
+                        ? contentHandler(newsDetails.description)
+                        : "N/A"
+                    }
+                  />
                 )}
               </p>
               <img
@@ -172,31 +168,25 @@ const NewsDetailsPage = ({ history, loading }) => {
                 }
                 alt="news Image"
               /> */}
-            {/* <img
-                className="newsImg-slider"
-                src={
-                  newsDetails && newsDetails.imagePath
-                    ? newsDetails.imagePath
-                    : "N/A"
-                }
-                alt="news Image"
-              />
-            </div> */}
 
             <div className="col-12 mt-5 mt-xl-0">
               <p className="stock-paragraph mt-2 fs-sm-14">
                 {layoutClickChanger ? (
-                  <>
-                    {newsDetails && newsDetails.adescription
-                      ? newsDetails.adescription
-                      : "N/A"}
-                  </>
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!newsDetails && !!newsDetails.adescription
+                        ? contentHandler(newsDetails.adescription)
+                        : "N/A"
+                    }
+                  />
                 ) : (
-                  <>
-                    {newsDetails && newsDetails.description
-                      ? newsDetails.description
-                      : "N/A"}
-                  </>
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!newsDetails && !!newsDetails.description
+                        ? contentHandler(newsDetails.description)
+                        : "N/A"
+                    }
+                  />
                 )}
               </p>
             </div>
