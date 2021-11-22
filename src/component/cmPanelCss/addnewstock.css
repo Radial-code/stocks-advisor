@@ -140,7 +140,9 @@
   border-radius: 5px;
   border: 1px solid rgba(22, 25, 30, 0.2);
 }
-
+.editor .rdw-embedded-modal {
+  height: 214px;
+}
 .datepicker-input
   .react-datepicker-wrapper
   .react-datepicker__input-container

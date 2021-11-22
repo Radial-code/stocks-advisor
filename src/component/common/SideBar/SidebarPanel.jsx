@@ -81,7 +81,7 @@ const SidebarPanel = ({ history, showSidebar2, setShowSidebar2, match }) => {
           }${showSidebar2 ? "left-0" : "left-350"}
            bg-white content-manager-sidebar shadow px-3 pt-4`}
         >
-          <div className="d-flex align-items-center justify-content-between mb-2 py-3">
+          <div className="d-flex align-items-center justify-content-between mb-2 py-3 mt-lg-0 mt-5 pt-lg-0 pt-4">
             <p className="cn-sidebar-text mb-0 ">Content Manager</p>
 
             <img
