@@ -58,7 +58,7 @@ const Notification = ({ setSidebarActive, sidebarActive }) => {
     handleClose(false);
   };
   return (
-    <div className="mr-lg-30">
+    <div className="mr-lg-30 flex-grow-1 overflow-hidden">
       <div
         onClick={() => setSidebarActive((preState) => !preState)}
         className={`admin-overlay ${sidebarActive ? "w-100vw-m" : ""}`}

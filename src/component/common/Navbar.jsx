@@ -236,7 +236,7 @@ const Navbar = ({
                 <img className="logo-img-navbar" src={logo} alt="" />
               </NavLink>
               <div
-                className="d-block mt-3 cursor-pointer d-xxl-none"
+                className="d-block mt-3 cursor-pointer d-xxl-none mt-5 pt-5"
                 onClick={sidebarClosedHandler}
                 // () =>
               >
@@ -245,7 +245,7 @@ const Navbar = ({
               <div className="position-relative  mt-3 d-xxl-none d-block ">
                 <input
                   type="search"
-                  className="search-box-nav py-2 w-100 pe-3"
+                  className="search-box-nav py-2 w-100 pe-3 "
                   id="search"
                   placeholder="Search..."
                   onClick={() => closeSidebar("search")}
