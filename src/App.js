@@ -17,10 +17,7 @@ import "./App.css";
 import { getPortfolioListForDashBoardAction } from "./redux/action/portfolio";
 import ConfirmRoute from "./component/ConfirmRoute";
 import { getCountryListAction } from "./redux/action/portfolios";
-import {
-  getNotificationListAction,
-  getUnseenNotificationListAction,
-} from "./redux/action/contact";
+import { getUnseenNotificationListAction } from "./redux/action/contact";
 import JoinSocket from "./redux/JoinSocket";
 
 function App() {

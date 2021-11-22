@@ -31,10 +31,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import BubblesLoader from "./BubblesLoader";
 import GetTime from "./dateTime";
-import {
-  getNotificationListAction,
-  getUnseenNotificationListAction,
-} from "../../redux/action/contact";
+import { getNotificationListAction } from "../../redux/action/contact";
 
 const Navbar = ({
   history,
@@ -74,7 +71,6 @@ const Navbar = ({
   const [Lang, setLang] = useState(false);
   const [loadingLogOut, setLoadingLogOut] = useState(false);
   const [navbarCollapsed, setNavbarCollapsed] = useState(true);
-  const [closePopup, setclosePopup] = useState(false);
   const userData = useSelector((state) => state.auth.userData);
   const initialLanguage = localStorage.getItem("stock-advisor-lang")
     ? localStorage.getItem("stock-advisor-lang")
@@ -204,7 +200,8 @@ const Navbar = ({
   }
 
   const getNotification = () => {
-    dispatch(getNotificationListAction(setNotificationLoading));
+    const page = 0;
+    dispatch(getNotificationListAction(setNotificationLoading, page));
   };
 
   return (
