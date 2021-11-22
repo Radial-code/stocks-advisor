@@ -8,6 +8,12 @@ const StockSliderCard = ({
   history,
   layoutClickChanger,
 }) => {
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
+
   return (
     <>
       <div className="my-3 ">
@@ -61,20 +67,20 @@ const StockSliderCard = ({
             )}
             {layoutClickChanger ? (
               <p
-                className={`${
-                  layoutClickChanger ? "text-end" : "text-start"
-                } text-ellipsis-three-line stock-paragraph `}
-              >
-                <span>{soldValue.adescription}</span>
-              </p>
+                dangerouslySetInnerHTML={
+                  !!soldValue && !!soldValue.adescription
+                    ? contentHandler(soldValue.adescription)
+                    : "N/A"
+                }
+              />
             ) : (
               <p
-                className={`${
-                  layoutClickChanger ? "text-end" : "text-start"
-                } text-ellipsis-three-line stock-paragraph `}
-              >
-                <span>{soldValue.description}</span>
-              </p>
+                dangerouslySetInnerHTML={
+                  !!soldValue && !!soldValue.description
+                    ? contentHandler(soldValue.description)
+                    : "N/A"
+                }
+              />
             )}
 
             <p className={`${layoutClickChanger ? "text-end" : "text-start"}`}>

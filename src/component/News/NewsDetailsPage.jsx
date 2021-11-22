@@ -10,11 +10,12 @@ import NoImg from "../../assets/img/no-image.png";
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
+  const { description } = newsDetails;
 
-  const contentHandler = (data) => {
-    if (data) {
+  const contentHandler = () => {
+    if (description) {
       return {
-        __html: data,
+        __html: description,
       };
     }
   };
@@ -44,7 +45,9 @@ const NewsDetailsPage = ({ history, loading }) => {
                   alt="news"
                 />
               )
-            ) : null}
+            ) : (
+              <img className="w-90" src={NoImg} alt="news" />
+            )}
             <h6
               className={` ${
                 layoutClickChanger
@@ -131,36 +134,34 @@ const NewsDetailsPage = ({ history, loading }) => {
             <div className="col-xl-6 col-xxl-7">
               <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
                 {layoutClickChanger ? (
-                  <p
-                    dangerouslySetInnerHTML={
-                      !!newsDetails && !!newsDetails.adescription
-                        ? contentHandler(newsDetails.adescription)
-                        : "N/A"
-                    }
-                  />
+                  <>
+                    {newsDetails && newsDetails.adescription
+                      ? newsDetails.adescription
+                      : "N/A"}
+                  </>
                 ) : (
-                  <p
-                    dangerouslySetInnerHTML={
-                      !!newsDetails && !!newsDetails.description
-                        ? contentHandler(newsDetails.description)
-                        : "N/A"
-                    }
-                  />
+                  <>
+                    {newsDetails && newsDetails.description ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          description && contentHandler()
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
+                  </>
                 )}
               </p>
-              {newsDetails.imagePath === "" ? (
-                <img className="newsImg-slider" src={NoImg} alt="news Image" />
-              ) : (
-                <img
-                  className="newsImg-slider"
-                  src={
-                    newsDetails && newsDetails.imagePath
-                      ? newsDetails.imagePath
-                      : "N/A"
-                  }
-                  alt="news Image"
-                />
-              )}
+              <img
+                className="newsImg-slider"
+                src={
+                  newsDetails && newsDetails.imagePath
+                    ? newsDetails.imagePath
+                    : NoImg
+                }
+                alt="news Image"
+              />
             </div>
 
             {/* <div className="col-xl-6  col-xxl-5 mt-5 mt-xl-0"> */}
@@ -173,25 +174,26 @@ const NewsDetailsPage = ({ history, loading }) => {
                 }
                 alt="news Image"
               /> */}
-
             <div className="col-12 mt-5 mt-xl-0">
               <p className="stock-paragraph mt-2 fs-sm-14">
                 {layoutClickChanger ? (
-                  <p
-                    dangerouslySetInnerHTML={
-                      !!newsDetails && !!newsDetails.adescription
-                        ? contentHandler(newsDetails.adescription)
-                        : "N/A"
-                    }
-                  />
+                  <>
+                    {newsDetails && newsDetails.adescription
+                      ? newsDetails.adescription
+                      : "N/A"}
+                  </>
                 ) : (
-                  <p
-                    dangerouslySetInnerHTML={
-                      !!newsDetails && !!newsDetails.description
-                        ? contentHandler(newsDetails.description)
-                        : "N/A"
-                    }
-                  />
+                  <>
+                    {newsDetails && newsDetails.description ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          description && contentHandler()
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
+                  </>
                 )}
               </p>
             </div>

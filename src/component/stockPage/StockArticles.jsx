@@ -7,6 +7,13 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 const StockArticles = ({ history, getValueOf }) => {
   const allRelatedNews = useSelector((state) => state.cmPanel.allRelatedNews);
   const { layoutClickChanger } = useLayoutChangerProvider();
+
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
+
   return (
     <>
       <Container className="max-w-container ">
@@ -48,24 +55,28 @@ const StockArticles = ({ history, getValueOf }) => {
                             </p>
                             <p className="stock-paragraph max-w-para d-none d-lg-block">
                               {layoutClickChanger ? (
-                                <>
-                                  {value.adescription
-                                    ? value.adescription
-                                    : "N/A"}
-                                </>
+                                <p
+                                  dangerouslySetInnerHTML={
+                                    !!value && !!value.adescription
+                                      ? contentHandler(value.adescription)
+                                      : "N/A"
+                                  }
+                                />
                               ) : (
-                                <>
-                                  {value.description
-                                    ? value.description
-                                    : "N/A"}
-                                </>
+                                <p
+                                  dangerouslySetInnerHTML={
+                                    !!value && !!value.description
+                                      ? contentHandler(value.description)
+                                      : "N/A"
+                                  }
+                                />
                               )}
                             </p>
                             <p className="read-more d-none d-lg-block mb-0">
                               {getValueOf("Read More")}
                             </p>
                             <p
-                              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mb-3 mt-3"
+                              className="small-paragraph d-none d-lg-block mb-0 cursor-pointer fw-bold mb-3 mt-3 color-blue"
                               onClick={() =>
                                 history.push(
                                   `/stock/news/${value.stock._id}/${value.tags}`
@@ -89,7 +100,7 @@ const StockArticles = ({ history, getValueOf }) => {
                                 Stock :
                               </span>
                               <span
-                                className="cursor-pointer fw-bold"
+                                className="cursor-pointer fw-bold color-blue"
                                 onClick={() =>
                                   history.push(
                                     `/stock/news/${value.stock._id}/stock-tags`

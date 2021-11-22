@@ -2,9 +2,27 @@ import CalenderIcon from "../../assets/img/calendar-icon.png";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import NoImg from "../../assets/img/no-image.png";
+
 export const RelatedNewsArticlesList = ({ news, history }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
-  const { imagePath, createdAt, title, description, _id, tags, stock } = news;
+  const {
+    imagePath,
+    createdAt,
+    title,
+    atitle,
+    _id,
+    tags,
+    stock,
+    description,
+    adescription,
+  } = news;
+
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
+
   return (
     <div className="my-3 ">
       <div className="news-slider-wrapper">
@@ -23,12 +41,6 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             alt="newsImg"
           />
         )}
-        {/* <img
-          className="newsImg-slider cursor-pointer"
-          src={imagePath}
-          onClick={() => history.push(`/news/details/${_id}`)}
-          alt="newsImg"
-        /> */}
         <div className="news-wrapper-bottom-section">
           <p
             className={`${
@@ -53,7 +65,15 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
                 : "news-heading-font text-start"
             } cursor-pointer`}
           >
-            <span className="text-ellipsis-dots">{title ? title : "N/A"}</span>
+            <span className="text-ellipsis-dots">
+              {layoutClickChanger
+                ? atitle
+                  ? atitle
+                  : "N/A"
+                : title
+                ? title
+                : "N/A"}
+            </span>
           </h4>
           <p
             onClick={() => history.push(`/news/details/${_id}`)}
@@ -70,7 +90,19 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
                   : "text-ellipsis-three-line stock-paragraph text-start"
               } cursor-pointer`}
             >
-              {description ? description : "N/A"}
+              {layoutClickChanger ? (
+                <p
+                  dangerouslySetInnerHTML={
+                    !!adescription ? contentHandler(adescription) : "N/A"
+                  }
+                />
+              ) : (
+                <p
+                  dangerouslySetInnerHTML={
+                    !!description ? contentHandler(description) : "N/A"
+                  }
+                />
+              )}
             </span>
           </p>
           <p

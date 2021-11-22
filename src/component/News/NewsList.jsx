@@ -118,7 +118,14 @@ const NewsList = ({ history, value, index, loading }) => {
                   history.push(`/stock/news/${value.stock._id}/${value.tags}`)
                 }
               >
-                {value && value.tags ? value.tags : ""}
+                {console.log("value", value)}
+                {layoutClickChanger
+                  ? value && value.atags
+                    ? value.atags
+                    : ""
+                  : value && value.tags
+                  ? value.tags
+                  : ""}
               </p>
               <p
                 className={`${

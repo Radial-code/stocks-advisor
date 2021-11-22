@@ -7,8 +7,9 @@ import BubblesLoader from "../common/BubblesLoader";
 import moment from "moment";
 import NoImg from "../../assets/img/no-image.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import { withRouter } from "react-router";
 
-const RelatedArticles = () => {
+const RelatedArticles = ({ history }) => {
   const dispatch = useDispatch();
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const [relatedLoading, setRelatedLoading] = useState(false);
@@ -24,6 +25,12 @@ const RelatedArticles = () => {
       dispatch(getRelatedNewsAction(data, setRelatedLoading));
     }
   }, []);
+
+  const contentHandler = (value) => {
+    return {
+      __html: value,
+    };
+  };
 
   return (
     <Container className="mt-5">
@@ -88,7 +95,11 @@ const RelatedArticles = () => {
                             }
                             dir="ltr"
                           >
-                            {value.title}
+                            {layoutClickChanger ? (
+                              <>{value.atitle ? value.atitle : "N/A"}</>
+                            ) : (
+                              <>{value.title ? value.title : "N/A"}</>
+                            )}
                           </p>
                         </div>
                         <span
@@ -98,7 +109,23 @@ const RelatedArticles = () => {
                               : "text-ellipsis-three-line stock-paragraph text-start"
                           }
                         >
-                          {value.description}
+                          {layoutClickChanger ? (
+                            <p
+                              dangerouslySetInnerHTML={
+                                !!value && !!value.adescription
+                                  ? contentHandler(value.adescription)
+                                  : "N/A"
+                              }
+                            />
+                          ) : (
+                            <p
+                              dangerouslySetInnerHTML={
+                                !!value && !!value.description
+                                  ? contentHandler(value.description)
+                                  : "N/A"
+                              }
+                            />
+                          )}
                         </span>
                         <span className="read-more ">
                           {getValueOf("Read More")}
@@ -106,11 +133,15 @@ const RelatedArticles = () => {
                         <p
                           className={
                             layoutClickChanger
-                              ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
-                              : "text-start cursor-pointer mb-0 text-ellipsis-dots"
+                              ? "text-end cursor-pointer mb-0 text-ellipsis-dots color-blue"
+                              : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue"
                           }
                         >
-                          {value.tags}
+                          {layoutClickChanger ? (
+                            <>{value.atags ? value.atags : "N/A"}</>
+                          ) : (
+                            <>{value.tags ? value.tags : "N/A"}</>
+                          )}
                         </p>
                         <p
                           className={
@@ -122,7 +153,14 @@ const RelatedArticles = () => {
                           <span className=" cursor-pointer fw-bold">
                             {getValueOf("Stock")} :
                           </span>
-                          <span className="cursor-pointer fw-bold">
+                          <span
+                            className="cursor-pointer fw-bold color-blue"
+                            onClick={() =>
+                              history.push(
+                                `/stock/news/${value.stock._id}/stock-tags`
+                              )
+                            }
+                          >
                             {value.stock.symbol}
                           </span>
                         </p>
@@ -143,4 +181,4 @@ const RelatedArticles = () => {
   );
 };
 
-export default RelatedArticles;
+export default withRouter(RelatedArticles);
