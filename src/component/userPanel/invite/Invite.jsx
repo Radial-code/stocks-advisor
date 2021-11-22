@@ -70,7 +70,7 @@ const Invite = () => {
                 </div>
                 <div
                   className={`${
-                    layoutClickChanger ? "" : "ps-0"
+                    layoutClickChanger ? "" : ""
                   }  col-md-4 col-sm-5 col-7 `}
                 >
                   <div className="add-new-btn h-100">
@@ -107,7 +107,7 @@ const Invite = () => {
                 </div>
                 <div
                   className={`${
-                    layoutClickChanger ? "" : "ps-0"
+                    layoutClickChanger ? "" : ""
                   }  col-md-4 col-sm-5 col-7 `}
                 >
                   <div className="add-new-btn h-100">

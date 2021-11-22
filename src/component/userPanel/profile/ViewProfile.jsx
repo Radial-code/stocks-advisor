@@ -135,7 +135,7 @@ const ViewProfile = () => {
             onClick={() => setInputDisable(false)}
             className={
               inputDisable
-                ? "from-edit-profile-btn px-2  me-2 me-sm-3  "
+                ? "from-edit-profile-btn px-2  mx-2 me-sm-3  "
                 : "from-edit-profile-btn  px-4"
             }
           >
