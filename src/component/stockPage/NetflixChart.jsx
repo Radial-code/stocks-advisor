@@ -128,55 +128,65 @@ const NetflixChart = ({ setType, type }) => {
           </p>
         </div>
         <ResponsiveContainer width="100%" height={400}>
-          <AreaChart
-            data={chatList}
-            margin={{
-              top: 0,
-              right: 40,
-              left: 0,
-              bottom: 10,
-            }}
-          >
-            <Line type="monotone" dataKey="uv" />
-            <CartesianGrid stroke="0" />
-            <defs>
-              <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4870b3" stopOpacity={0.9}></stop>
-                <stop
-                  offset="75%"
-                  stopColor="#4870b3"
-                  stopOpacity={0.04}
-                ></stop>
-              </linearGradient>
-            </defs>
-            <XAxis
-              dataKey="name"
-              axisLine={true}
-              tick={{ fill: "#fff" }}
-              align="center"
-              dy={7}
-              tickLine={false}
-            />
-            <YAxis
-              dataKey="uv"
-              axisLine={true}
-              tick={{ fill: "#fff" }}
-              tickLine={false}
-              width={90}
-              dx={layoutClickChanger ? -40 : -10}
-              tickFormatter={(number) => `$${number}`}
-            />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="#fff"
-              color="#ffff"
-              strokeWidth="2"
-              fill="url(#color)"
-            />
-            <YAxis axisLine={true} style={{ color: "white" }} />
-          </AreaChart>
+          {stockChatList && stockChatList == null ? (
+            <h2 className="text-white text-center pt-5">
+              No Related Range here
+            </h2>
+          ) : (
+            <AreaChart
+              data={chatList}
+              margin={{
+                top: 0,
+                right: 40,
+                left: 0,
+                bottom: 10,
+              }}
+            >
+              <Line type="monotone" dataKey="uv" />
+              <CartesianGrid stroke="0" />
+              <defs>
+                <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="#4870b3"
+                    stopOpacity={0.9}
+                  ></stop>
+                  <stop
+                    offset="75%"
+                    stopColor="#4870b3"
+                    stopOpacity={0.04}
+                  ></stop>
+                </linearGradient>
+              </defs>
+              <XAxis
+                dataKey="name"
+                axisLine={true}
+                tick={{ fill: "#fff" }}
+                align="center"
+                dy={7}
+                tickLine={false}
+              />
+              <YAxis
+                dataKey="uv"
+                axisLine={true}
+                tick={{ fill: "#fff" }}
+                tickLine={false}
+                width={90}
+                dx={layoutClickChanger ? -40 : -10}
+                tickFormatter={(number) => `$${number}`}
+              />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="uv"
+                stroke="#fff"
+                color="#ffff"
+                strokeWidth="2"
+                fill="url(#color)"
+              />
+              <YAxis axisLine={true} style={{ color: "white" }} />
+            </AreaChart>
+          )}
         </ResponsiveContainer>
       </div>
     </div>
