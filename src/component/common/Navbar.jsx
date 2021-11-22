@@ -233,7 +233,7 @@ const Navbar = ({
                 <img className="logo-img-navbar" src={logo} alt="" />
               </NavLink>
               <div
-                className="d-block mt-3 cursor-pointer d-xxl-none mt-5 pt-5"
+                className="d-block mt-3 cursor-pointer d-xxl-none mt-5 pt-5 "
                 onClick={sidebarClosedHandler}
                 // () =>
               >
@@ -700,18 +700,18 @@ const Navbar = ({
                 ""
               )}
               {!!auth && token !== null ? (
-                <div className="mx-xxl-2 mx-0  mx-auto  my-auto ">
+                <div className="mx-xxl-2 mx-0  mx-auto  my-auto  ">
                   <button
                     onClick={() =>
                       dispatch(LogoutAction(setLoadingLogOut, history))
                     }
-                    className="mt-4 mt-xxl-0 py-2  btn log_in_btn "
+                    className="mt-4 mt-xxl-0 py-2 mb-xl-0 mb-4   btn log_in_btn "
                   >
                     {loadingLogOut ? <Loader /> : "Log Out"}
                   </button>
                 </div>
               ) : (
-                <div className="mx-xxl-2 mx-0 mx-auto    my-auto ">
+                <div className="mx-xxl-2 mx-0 mx-auto    my-auto mb-xl-0 mb-4  ">
                   <button
                     onClick={() => closeSidebar("login")}
                     className="mt-4 mt-xxl-0 py-2 ms-3 mx-2  btn join_now_btn "
