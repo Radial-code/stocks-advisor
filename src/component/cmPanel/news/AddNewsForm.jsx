@@ -2,11 +2,10 @@ import ReactTagInput from "@pathofdev/react-tag-input";
 import { withRouter } from "react-router";
 import { Form, FormGroup } from "react-bootstrap";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { convertToRaw } from "draft-js";
 import { uploadImageAction } from "../../../redux/uploadImage";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loader from "../../common/Loader";
 import DraftEditor from "./DraftEditor";
 import ArabicEditor from "./ArabicEditor";
@@ -21,6 +20,7 @@ const AddNewsForm = ({
   setTags,
   tags,
   atags,
+  edit,
 }) => {
   const dispatch = useDispatch();
   const [loadingImage, setLoadingImage] = useState(false);
@@ -275,6 +275,7 @@ const AddNewsForm = ({
             <DraftEditor
               setdescription={setdescription}
               newsDetails={newsDetails}
+              edit={edit}
             />
           </div>
         </div>
@@ -283,6 +284,7 @@ const AddNewsForm = ({
             <ArabicEditor
               setAdescription={setAdescription}
               newsDetails={newsDetails}
+              edit={edit}
             />
           </div>
         </div>

@@ -54,6 +54,11 @@
   border-bottom: 3px solid var(--color-127CF9);
 }
 
+.scroll-effect {
+  overflow: auto;
+  height: 100vh;
+}
+
 @media (max-width: 1400px) {
   .stock-sidebar-navbar {
     min-height: 100vh;

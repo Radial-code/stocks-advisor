@@ -179,6 +179,7 @@ const AddNewNews = ({ edit, match, history }) => {
           loading={loading}
           setAdescription={setAdescription}
           setdescription={setdescription}
+          edit={edit}
         />
         <NewsSelectTypes
           newsDetailsList={newsDetailsList}

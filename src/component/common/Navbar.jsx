@@ -221,7 +221,7 @@ const Navbar = ({
             : "stock-sidebar-navbar d-block "
         }`}
       >
-        <div className="container">
+        <div className="container scroll-effect">
           <div className="d-flex flex-xxl-row flex-column align-items-xxl-center justify-content-between">
             <div className="d-flex flex-xxl-row flex-column">
               <NavLink

@@ -5,11 +5,10 @@ import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
-const DraftEditor = ({ setdescription, newsDetails }) => {
+const DraftEditor = ({ setdescription, newsDetails, edit }) => {
   const [editorState, setEditorState] = React.useState();
-
   useEffect(() => {
-    const html = newsDetails.description;
+    const html = edit ? newsDetails.description : "";
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
@@ -18,7 +17,7 @@ const DraftEditor = ({ setdescription, newsDetails }) => {
       const newState = EditorState.createWithContent(contentState);
       setEditorState(newState);
     }
-  }, []);
+  }, [edit, newsDetails]);
 
   const onEditorStateChange = (e) => {
     setEditorState(e);
