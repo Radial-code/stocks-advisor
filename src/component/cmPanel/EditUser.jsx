@@ -162,29 +162,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                       });
                     }}
                   />
-                  {/* <input
-                    className="input-edit-user edit-user-input-style"
-                    placeholder={phone}
-                    type="number"
-                    onChange={(e) => {
-                      setUpdateUser({
-                        ...updateUser,
-                        phone: e.target.value,
-                      });
-                    }}
-                  /> */}
-
                   <div
                     className={`d-flex my-2 ${
                       layoutClickChanger ? "flex-row-reverse" : ""
                     }`}
                   >
-                    {/* <div
-                      className={`me-2 edit-user-input-style bg-dark-grey  w-70`}
-                      disabled
-                    >
-                      {countryCode ? countryCode : "N/A"}
-                    </div> */}
                     <div
                       className={`${
                         layoutClickChanger
@@ -422,16 +404,24 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                           {planList && !!planList.length
                             ? planList.map((val) => {
                                 return (
-                                  <div className="cursor-pointer pt-1 update-plan">
-                                    <input
-                                      type="radio"
-                                      id="html"
-                                      name="fav_language"
-                                      onChange={() => setUserUpdateData(val)}
-                                      value="JavaScript"
-                                    />
-                                    <span className="px-1">{val.title}</span>
-                                  </div>
+                                  <>
+                                    {val.price === price ? (
+                                      <div className="cursor-pointer pt-1 update-plan">
+                                        <input
+                                          type="radio"
+                                          id="html"
+                                          name="fav_language"
+                                          onChange={() =>
+                                            setUserUpdateData(val)
+                                          }
+                                          value="JavaScript"
+                                        />
+                                        <span className="px-1">
+                                          {val.title}
+                                        </span>
+                                      </div>
+                                    ) : null}
+                                  </>
                                 );
                               })
                             : null}

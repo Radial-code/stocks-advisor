@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
+import moment from "moment";
 import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import CloseIcon from "../../../assets/img/close-icon.png";
 import { getPlansListAction } from "../../../redux/action/cmPanel/plans";
@@ -10,7 +11,7 @@ import {
   uploadNewPromoCodeAction,
 } from "../../../redux/action/promoCode";
 import Loader from "../../common/Loader";
-import moment from "moment";
+import GiftEditor from "./GiftEditor";
 
 const initialState = {
   code: "",
@@ -403,17 +404,9 @@ const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
                 )}
                 <br></br>
                 <label className="mt-3">Gift Message</label>
-                <textarea
-                  type="text"
-                  placeholder={getValueOf("Message")}
-                  value={promoCodeData.giftText}
-                  className="py-2 px-3 w-100 mt"
-                  onChange={(e) =>
-                    setPromoCodeData({
-                      ...promoCodeData,
-                      giftText: e.target.value,
-                    })
-                  }
+                <GiftEditor
+                  setPromoCodeData={setPromoCodeData}
+                  promoCodeData={promoCodeData}
                 />
                 {promoCodeData.isGift &&
                 error &&
