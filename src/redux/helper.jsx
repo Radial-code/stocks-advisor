@@ -3,6 +3,7 @@ import Axios from "axios";
 export let SERVER_URL = "https://stockadvisor-api.herokuapp.com";
 
 export let PUBLIC_URL = `${SERVER_URL}/api/v1`;
+
 export async function axiosRequest(method, url, data = null) {
   try {
     const token = localStorage.getItem("stock-advisor");
