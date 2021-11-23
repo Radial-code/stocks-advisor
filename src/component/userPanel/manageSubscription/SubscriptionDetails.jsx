@@ -51,7 +51,7 @@ const SubscriptionDetails = () => {
             {getValueOf("Current Subscription Info")}
           </p>
         </div>
-        {myPlanDetails ? (
+        {!!myPlanDetails && !!myPlanDetails.title ? (
           <Row className="mt-5 ">
             <Col xl={6} xs={12}>
               <section className="plan-card-edituser p-3">
