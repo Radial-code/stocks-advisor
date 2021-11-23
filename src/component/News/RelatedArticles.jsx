@@ -41,6 +41,13 @@ const RelatedArticles = ({ history }) => {
           slidesToShow: 1,
         },
       },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        },
+      },
     ],
   };
   const dispatch = useDispatch();
@@ -223,130 +230,128 @@ const RelatedArticles = ({ history }) => {
               {allRelatedNews && !!allRelatedNews.length ? (
                 allRelatedNews.map((value, index) => {
                   return (
-                    <Col className="d-flex justify-content-center mx-4">
-                      <section key={index} className="articles-card p-3 ">
-                        <div>
-                          {value.imagePath === "" ? (
-                            <img
-                              className="w-100 newsImg-slider mx-auto d-block"
-                              src={NoImg}
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              className="w-100 newsImg-slider mx-auto d-block"
-                              src={value.imagePath}
-                              alt=""
-                            />
-                          )}
-                        </div>
+                    <section key={index} className="articles-card p-3 ">
+                      <div>
+                        {value.imagePath === "" ? (
+                          <img
+                            className="w-100 newsImg-slider mx-auto d-block"
+                            src={NoImg}
+                            alt=""
+                          />
+                        ) : (
+                          <img
+                            className="w-100 newsImg-slider mx-auto d-block"
+                            src={value.imagePath}
+                            alt=""
+                          />
+                        )}
+                      </div>
+                      <p
+                        className={
+                          layoutClickChanger
+                            ? "text-start ps-2 stock-paragraph cursor-pointer pt-3 "
+                            : "text-start stock-paragraph cursor-pointer pt-3 "
+                        }
+                      >
+                        <span>
+                          {moment(value.createdAt).format("DD/MMM/YYYY")}
+                        </span>
+                        <img
+                          className="w-19 h-19 d-inline-block mx-2"
+                          src={CalenderIcon}
+                          alt="CalenderIcon"
+                        />
+                      </p>
+
+                      <div className="d-flex align-items-center">
                         <p
                           className={
                             layoutClickChanger
-                              ? "text-start ps-2 stock-paragraph cursor-pointer pt-3 "
-                              : "text-start stock-paragraph cursor-pointer pt-3 "
+                              ? "news-heading-font  max-w-articles p-2 mb-0 Slider-Ellipse py-2"
+                              : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse py-2"
                           }
-                        >
-                          <span>
-                            {moment(value.createdAt).format("DD/MMM/YYYY")}
-                          </span>
-                          <img
-                            className="w-19 h-19 d-inline-block mx-2"
-                            src={CalenderIcon}
-                            alt="CalenderIcon"
-                          />
-                        </p>
-
-                        <div className="d-flex align-items-center">
-                          <p
-                            className={
-                              layoutClickChanger
-                                ? "news-heading-font  max-w-articles p-2 mb-0 Slider-Ellipse py-2"
-                                : "news-heading-font max-w-articles p-0 mb-0 Slider-Ellipse py-2"
-                            }
-                            dir="ltr"
-                          >
-                            {layoutClickChanger ? (
-                              <>{value.atitle ? value.atitle : "N/A"}</>
-                            ) : (
-                              <>{value.title ? value.title : "N/A"}</>
-                            )}
-                          </p>
-                        </div>
-                        <span
-                          className={
-                            layoutClickChanger
-                              ? "text-ellipsis-three-line stock-paragraph text-end"
-                              : "text-ellipsis-three-line stock-paragraph text-start"
-                          }
+                          dir="ltr"
                         >
                           {layoutClickChanger ? (
-                            <p
-                              dangerouslySetInnerHTML={
-                                !!value && !!value.adescription
-                                  ? contentHandler(value.adescription)
-                                  : "N/A"
-                              }
-                            />
+                            <>{value.atitle ? value.atitle : "N/A"}</>
                           ) : (
-                            <p
-                              dangerouslySetInnerHTML={
-                                !!value && !!value.description
-                                  ? contentHandler(value.description)
-                                  : "N/A"
-                              }
-                            />
+                            <>{value.title ? value.title : "N/A"}</>
                           )}
+                        </p>
+                      </div>
+                      <span
+                        className={
+                          layoutClickChanger
+                            ? "text-ellipsis-three-line stock-paragraph text-end"
+                            : "text-ellipsis-three-line stock-paragraph text-start"
+                        }
+                      >
+                        {layoutClickChanger ? (
+                          <p
+                            dangerouslySetInnerHTML={
+                              !!value && !!value.adescription
+                                ? contentHandler(value.adescription)
+                                : "N/A"
+                            }
+                          />
+                        ) : (
+                          <p
+                            dangerouslySetInnerHTML={
+                              !!value && !!value.description
+                                ? contentHandler(value.description)
+                                : "N/A"
+                            }
+                          />
+                        )}
+                      </span>
+                      <span
+                        className="read-more cursor-pointer ps-2"
+                        onClick={() =>
+                          history.push(`/news/details/${value._id}`)
+                        }
+                      >
+                        {getValueOf("Read More")}
+                      </span>
+                      <p
+                        className={
+                          layoutClickChanger
+                            ? "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
+                            : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
+                        }
+                        onClick={() =>
+                          history.push(
+                            `/stock/news/${value.stock._id}/${value.tags}`
+                          )
+                        }
+                      >
+                        {layoutClickChanger ? (
+                          <>{value.atags ? value.atags : "N/A"}</>
+                        ) : (
+                          <>{value.tags ? value.tags : "N/A"}</>
+                        )}
+                      </p>
+                      <p
+                        className={
+                          layoutClickChanger
+                            ? "small-paragraph text-start ps-2"
+                            : "small-paragraph text-start ps-2"
+                        }
+                      >
+                        <span className=" cursor-pointer fw-bold">
+                          {getValueOf("Stock")} :
                         </span>
                         <span
-                          className="read-more cursor-pointer ps-2"
-                          onClick={() =>
-                            history.push(`/news/details/${value._id}`)
-                          }
-                        >
-                          {getValueOf("Read More")}
-                        </span>
-                        <p
-                          className={
-                            layoutClickChanger
-                              ? "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
-                              : "text-start cursor-pointer mb-0 text-ellipsis-dots color-blue ps-2"
-                          }
+                          className="cursor-pointer fw-bold color-blue"
                           onClick={() =>
                             history.push(
-                              `/stock/news/${value.stock._id}/${value.tags}`
+                              `/stock/news/${value.stock._id}/stock-tags`
                             )
                           }
                         >
-                          {layoutClickChanger ? (
-                            <>{value.atags ? value.atags : "N/A"}</>
-                          ) : (
-                            <>{value.tags ? value.tags : "N/A"}</>
-                          )}
-                        </p>
-                        <p
-                          className={
-                            layoutClickChanger
-                              ? "small-paragraph text-start ps-2"
-                              : "small-paragraph text-start ps-2"
-                          }
-                        >
-                          <span className=" cursor-pointer fw-bold">
-                            {getValueOf("Stock")} :
-                          </span>
-                          <span
-                            className="cursor-pointer fw-bold color-blue"
-                            onClick={() =>
-                              history.push(
-                                `/stock/news/${value.stock._id}/stock-tags`
-                              )
-                            }
-                          >
-                            {value.stock.symbol}
-                          </span>
-                        </p>
-                      </section>
-                    </Col>
+                          {value.stock.symbol}
+                        </span>
+                      </p>
+                    </section>
                   );
                 })
               ) : (

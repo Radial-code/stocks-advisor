@@ -8,7 +8,44 @@ const Contact = () => {
 
   return (
     <div className="container  py-5 mt-100">
-      <div className="row  justify-content-center align-items-center h-100 ">
+      <div className="row">
+        <div className="col-lg-7 ">
+          <h1 className=" mb-2 mb-md-3  section-heading fs-sm-24">
+            {getValueOf("Contact Us")}
+          </h1>
+          <p className=" sub-text m-0">Send us your concerns 24x7</p>
+          <div className="row pt-4">
+            <div className="col-4">
+              <p className=" email-heading pb-2 m-0">{getValueOf("Email")}</p>
+              <p
+                className={`${
+                  layoutClickChanger ? "email-para  text-end" : "email-para"
+                }`}
+                dir="ltr"
+              >
+                stockadvisor <span className="d-lg-block">@email.com</span>
+              </p>
+            </div>
+            <div className="col-4">
+              <p className=" email-heading pb-2 m-0 fs-sm-14">
+                {getValueOf("Telephone")}
+              </p>
+              <p className=" email-para">1234567890</p>
+            </div>
+            <div className="col-4">
+              <p className="email-heading pb-md-3 pb-3 m-0">
+                {getValueOf("Address")}
+              </p>
+              <p className="addres-sub-heading pt-1">Santo Domingo</p>
+              <p className="sub-text">Lorem passagess</p>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-5">
+          <ContactForm />
+        </div>
+      </div>
+      {/* <div className="row  justify-content-center align-items-center h-100 ">
         <div className="col">
           <div className="row d-flex justify-content-between">
             <div className="col-12 col-lg-7 d-flex justify-content-center d-sm-block  pt-3  ">
@@ -58,7 +95,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

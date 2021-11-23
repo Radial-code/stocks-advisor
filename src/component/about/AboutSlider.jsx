@@ -39,7 +39,7 @@ const AboutSlider = ({ getValueOf }) => {
         },
       },
       {
-        breakpoint: 400,
+        breakpoint: 350,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 3,

@@ -110,7 +110,7 @@
   }
 
   .input-border {
-    width: 303px !important;
+    /* width: 303px !important; */
   }
 
   .send-msg-btn {
@@ -138,6 +138,16 @@
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   color: #75758b;
+}
+@media (max-width: 567px) {
+  .number-field-contact .form-control {
+    padding: 7px !important;
+  }
+}
+@media (max-width: 567px) {
+  .contact-select .form-select {
+    padding: 7px !important;
+  }
 }
 .contact-border2 {
   border: 1px solid #16191e33;
