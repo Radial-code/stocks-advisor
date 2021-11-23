@@ -144,6 +144,9 @@
     padding: 7px !important;
   }
 }
+.validation-text {
+  font-size: 12px;
+}
 @media (max-width: 567px) {
   .contact-select .form-select {
     padding: 7px !important;

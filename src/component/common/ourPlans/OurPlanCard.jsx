@@ -194,7 +194,11 @@ const OurPlanCard = ({ homepage, history }) => {
                                   <span
                                     className={`${
                                       val === "" ? "list-unstyled" : ""
-                                    }  d-flex align-items-center`}
+                                    } ${`${
+                                      layoutClickChanger
+                                        ? "ms-2 text-end"
+                                        : "text-start"
+                                    }`}  d-flex align-items-center `}
                                   >
                                     {" "}
                                     {layoutClickChanger ? (
@@ -203,7 +207,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                         {val}{" "}
                                         <span
                                           className={`${
-                                            layoutClickChanger ? "me-2" : ""
+                                            layoutClickChanger ? "mx-2" : ""
                                           } card-dot d-inline-block `}
                                         ></span>
                                       </>

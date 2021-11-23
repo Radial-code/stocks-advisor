@@ -44,7 +44,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                 />
               )
             ) : (
-              <img className="w-90" src={NoImg} alt="news" />
+              <img className="slider-img" src={NoImg} alt="news" />
             )}
             <h6
               className={` ${

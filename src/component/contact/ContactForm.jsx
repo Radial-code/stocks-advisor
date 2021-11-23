@@ -64,7 +64,7 @@ const ContactForm = () => {
           }}
         />
         {error && contactDetails.name === "" ? (
-          <span className="text-danger">Name is required</span>
+          <span className="text-danger validation-text">Name is required</span>
         ) : null}
         {/* EMAIL */}
         <input
@@ -84,9 +84,9 @@ const ContactForm = () => {
           }}
         />
         {error && contactDetails.email === "" ? (
-          <span className="text-danger">Email is required</span>
+          <span className="text-danger validation-text">Email is required</span>
         ) : error && EmailRegex.test(contactDetails.email) === false ? (
-          <span className="text-danger">Enter valid email</span>
+          <span className="text-danger validation-text">Enter valid email</span>
         ) : null}
         <div
           className={`${layoutClickChanger ? "" : "align-items-center"} row `}
@@ -116,7 +116,7 @@ const ContactForm = () => {
                       });
                     }}
                   />
-                  <span className="text-danger">
+                  <span className="text-danger validation-text">
                     {error && contactDetails.phone === ""
                       ? "Phone No is required"
                       : error && PhoneRegex.test(contactDetails.phone) === false
@@ -228,7 +228,7 @@ const ContactForm = () => {
                   />
                 </Form.Group>
               </div>
-              <span className="text-danger mb-2">
+              <span className="text-danger mb-2 validation-text">
                 {error && contactDetails.phone === ""
                   ? "Phone Number is required"
                   : error && PhoneRegex.test(contactDetails.phone) === false
@@ -257,7 +257,9 @@ const ContactForm = () => {
               }}
             />
             {error && contactDetails.reason === "" ? (
-              <span className="text-danger">Reason is required</span>
+              <span className="text-danger validation-text">
+                Reason is required
+              </span>
             ) : null}
           </div>
         </div>
@@ -280,7 +282,9 @@ const ContactForm = () => {
               }}
             ></textarea>
             {error && contactDetails.message === "" ? (
-              <span className="text-danger">Message is required</span>
+              <span className="text-danger validation-text">
+                Message is required
+              </span>
             ) : null}
           </div>
         </div>

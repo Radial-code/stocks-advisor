@@ -282,8 +282,8 @@ const RelatedArticles = ({ history }) => {
                       <span
                         className={
                           layoutClickChanger
-                            ? "text-ellipsis-three-line stock-paragraph text-end"
-                            : "text-ellipsis-three-line stock-paragraph text-start"
+                            ? "text-ellipsis-three-line stock-paragraph text-start"
+                            : "text-ellipsis-three-line stock-paragraph text-end pe-3"
                         }
                       >
                         {layoutClickChanger ? (
