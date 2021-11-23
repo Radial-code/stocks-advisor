@@ -22,7 +22,11 @@
   max-height: 180px;
   max-width: 230px;
 }
-
+@media (max-width: 768px) {
+  .stock-articles-img {
+    max-width: 94px;
+  }
+}
 .pl-50 {
   padding-left: 50px;
 }
