@@ -33,12 +33,13 @@ const promoCodePlanDetails = [];
 const promoCodePlanId = [];
 
 const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const planList = useSelector((state) => state.list.planList);
   const [error, setError] = useState(false);
   const [promoCodeLoading, setPromoCodeLoading] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [discount, setDiscount] = useState(false);
   const [amount, setAmount] = useState(false);
   const [promroCodeDataId, setPromroCodeDataId] = useState([]);
@@ -278,7 +279,9 @@ const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
               }
             />
             <label
-              className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
+              className={`${
+                layoutClickChanger ? "me-2" : "ms-2"
+              } form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 `}
               for="flexCheckDefault"
             >
               {getValueOf(" Fix Discount")}
@@ -322,7 +325,9 @@ const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
               }
             />
             <label
-              className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
+              className={`${
+                layoutClickChanger ? "me-2" : "ms-2"
+              } form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 `}
               for="flexCheckDefault"
             >
               {getValueOf("Fix Amount")}
@@ -372,7 +377,9 @@ const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
               }
             />
             <label
-              className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
+              className={`${
+                layoutClickChanger ? "me-2" : "ms-2"
+              } form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 `}
               for="flexCheckDefault"
             >
               {getValueOf("Gift")}
@@ -439,7 +446,9 @@ const PromocodePopup = ({ show, handleClose, edit, updateValue }) => {
               }
             />
             <label
-              className="form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 ms-2"
+              className={`${
+                layoutClickChanger ? "me-2" : "ms-2"
+              } form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 `}
               for="flexCheckDefault"
             >
               {getValueOf("Is Related To Plan")}

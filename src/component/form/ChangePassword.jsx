@@ -62,7 +62,7 @@ const ChangePassword = () => {
                   id="exampleFormControlInput6"
                   placeholder={getValueOf("Current Password")}
                 />
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && changePasswordDetails.password === "" ? (
                     <>{getValueOf("Please Enter Your Old Password")}</>
                   ) : null}
@@ -83,7 +83,7 @@ const ChangePassword = () => {
                   id="exampleFormControlInput7"
                   placeholder={getValueOf("New Password")}
                 />
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && changePasswordDetails.newPassword === "" ? (
                     <>{getValueOf("Please Enter Your New Password")}</>
                   ) : specialChar &&
@@ -107,9 +107,9 @@ const ChangePassword = () => {
                   id="exampleFormControlInput8"
                   placeholder={getValueOf("Confirm Password")}
                 />
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && changePasswordDetails.confirmPassword === "" ? (
-                    <>{getValueOf("Please Enter confirm Confirm password")}</>
+                    <>{getValueOf("Please Enter confirm  password")}</>
                   ) : error &&
                     changePasswordDetails.newPassword !==
                       changePasswordDetails.confirmPassword ? (
