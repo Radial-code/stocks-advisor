@@ -7,7 +7,7 @@ import Loader from "../common/Loader";
 import { EmailRegex } from "../common/Validation";
 
 const ForgetPassword = () => {
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
@@ -20,7 +20,7 @@ const ForgetPassword = () => {
     }
   };
   return (
-    <div>
+    <div className="mt-100">
       <div className="container min-h-576px-80vh my-3 my-sm-5 pt-sm-5 d-flex flex-column justify-content-center">
         <div className="row">
           <div className="col-xxl-5 col-lg-7 col-md-10 col-12 mx-auto form-box-shadow">
@@ -36,12 +36,18 @@ const ForgetPassword = () => {
                 <span className="position-relative d-flex flex-column justify-content-center ">
                   <input
                     type="text"
-                    className="form-control  padding-right-50"
+                    className={`${
+                      layoutClickChanger ? "" : "px-5"
+                    } form-control  padding-right-50`}
                     id="exampleFormControlInput3"
                     placeholder={getValueOf("Johndoe@gmail.com")}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <div className="position-absolute me-4">
+                  <div
+                    className={`${
+                      layoutClickChanger ? "me-4" : "ms-2"
+                    } position-absolute `}
+                  >
                     <ForgetpasswordIcon />
                   </div>
                 </span>
