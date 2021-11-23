@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getUserDetailsAction } from "../../../redux/action/userPanel/user";
 
-function UserProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
+function UserProfile() {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
@@ -13,8 +13,8 @@ function UserProfile({ sideBarHandler, setSidebarActive, sidebarActive }) {
   }, []);
 
   return (
-    <div>
-      <ViewProfile loading={loading} />
+    <div className="w-100">
+      <ViewProfile loadingUser={loading} />
     </div>
   );
 }
