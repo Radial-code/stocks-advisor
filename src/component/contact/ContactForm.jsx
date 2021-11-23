@@ -88,7 +88,9 @@ const ContactForm = () => {
         ) : error && EmailRegex.test(contactDetails.email) === false ? (
           <span className="text-danger">Enter valid email</span>
         ) : null}
-        <div className="row align-items-center">
+        <div
+          className={`${layoutClickChanger ? "" : "align-items-center"} row `}
+        >
           {layoutClickChanger ? (
             <>
               <div
@@ -96,10 +98,12 @@ const ContactForm = () => {
                   layoutClickChanger
                     ? "col-sm-7 col-6 ps-0 "
                     : "col-sm-7 col-6  pe-0 "
-                }`}
+                } mt-2`}
               >
                 <Form.Group
-                  className="my-3 form-field number-field-contact"
+                  className={`${
+                    layoutClickChanger ? "" : "mt-3"
+                  }  mb-3 form-field number-field-contact`}
                   controlId="formBasicPassword"
                 >
                   <Form.Control
@@ -114,7 +118,7 @@ const ContactForm = () => {
                   />
                   <span className="text-danger">
                     {error && contactDetails.phone === ""
-                      ? "Phone Number is required"
+                      ? "Phone No is required"
                       : error && PhoneRegex.test(contactDetails.phone) === false
                       ? "Enter valid Phone Number"
                       : null}
@@ -126,7 +130,7 @@ const ContactForm = () => {
                   layoutClickChanger
                     ? "col-sm-5  pe-0 col-6"
                     : "col-sm-5 ps-0 col-6"
-                }`}
+                } mt-2`}
               >
                 <FormGroup className="contact-select">
                   <select
@@ -282,7 +286,7 @@ const ContactForm = () => {
         </div>
 
         {/* BUTTON */}
-        <div className="text-end">
+        <div className="text-sm-end text-center">
           <button
             type="button"
             disabled={loading}
