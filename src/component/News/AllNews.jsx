@@ -41,7 +41,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
         {totalNews <= 4 ? (
           ""
         ) : (
-          <>
+          <div>
             {layoutClickChanger ? (
               <ReactPaginate
                 previousLabel={"Prev"}
@@ -79,7 +79,7 @@ const AllNews = ({ setPage, page, loading, totalNews }) => {
                 )}
               </div>
             )}
-          </>
+          </div>
         )}
       </Row>
     </div>

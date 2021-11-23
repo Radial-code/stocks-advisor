@@ -15,7 +15,7 @@
 
 @media (max-width: 576px) {
   .news-scroll {
-    height: 800px;
+    /* height: 800px; */
     overflow: auto;
   }
 }
