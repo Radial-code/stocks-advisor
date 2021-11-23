@@ -172,6 +172,12 @@
   height: calc(100vh - 575px);
   overflow: auto;
 }
+@media (max-width: 567px) {
+  .notification-dropdown .dropdown-menu {
+    height: calc(100vh - 311px);
+  }
+}
+
 .notification-dropdown .dropdown-menu::-webkit-scrollbar {
   width: 10px;
 }

@@ -588,7 +588,7 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
                   <button
                     type="button"
                     disabled={deleteLoading}
-                    className="m-2 update-btn my-3 ff-popins"
+                    className=" mx-sm-3 update-btn my-3 ff-popins"
                     onClick={() => deleteStock()}
                   >
                     {deleteLoading ? <Loader /> : "Delete"}
