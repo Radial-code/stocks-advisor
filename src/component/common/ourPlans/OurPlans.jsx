@@ -32,7 +32,7 @@ const OurPlans = ({ homepage, history, getValueOf }) => {
           </Col>
 
           {loading ? (
-            <div className="text-center d-flex  justify-content-center pt-2 mx-4">
+            <div className="text-center d-flex  justify-content-center pt-2 ">
               <BubblesLoader />
             </div>
           ) : (
