@@ -158,6 +158,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media (max-width: 567px) {
+  .notify-time {
+    width: 300px;
+  }
+}
 .notify-user-name {
   font-size: var(--font-15);
   width: 300px;

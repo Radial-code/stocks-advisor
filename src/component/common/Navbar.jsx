@@ -561,7 +561,7 @@ const Navbar = ({
                           {notificationList && notificationList.length ? (
                             notificationList.map((value, index) => {
                               return (
-                                <div className="notification-dropdown-item">
+                                <div className="notification-dropdown-item ">
                                   <Dropdown.Item>
                                     <div
                                       key={index}
