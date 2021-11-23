@@ -42,6 +42,13 @@ const OurPlanCard = ({ homepage, history }) => {
           slidesToShow: 1,
         },
       },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        },
+      },
     ],
   };
 
@@ -187,7 +194,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                   <span
                                     className={`${
                                       val === "" ? "list-unstyled" : ""
-                                    } `}
+                                    }  d-flex align-items-center`}
                                   >
                                     {" "}
                                     {layoutClickChanger ? (
@@ -197,7 +204,7 @@ const OurPlanCard = ({ homepage, history }) => {
                                         <span
                                           className={`${
                                             layoutClickChanger ? "me-2" : ""
-                                          } card-dot d-inline-block`}
+                                          } card-dot d-inline-block `}
                                         ></span>
                                       </>
                                     ) : (
