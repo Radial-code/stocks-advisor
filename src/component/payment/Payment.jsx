@@ -23,7 +23,7 @@ const Payment = ({ match }) => {
 
   return (
     <>
-      <Container className="mt-100 mb-4">
+      <Container className="mt-100 pt-sm-5 mb-4">
         <div className="d-flex flex-lg-row flex-column justify-content-between">
           <div className="w-100 px-2">
             <SubscriptionPlan

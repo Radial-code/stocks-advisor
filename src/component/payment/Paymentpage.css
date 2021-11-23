@@ -206,7 +206,7 @@ input:focus-visible {
     height: 26px;
   }
   .select-plan-payment {
-    width: 303px;
+    /* width: 303px; */
   }
   .card-payment {
     width: 303px;

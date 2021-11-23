@@ -177,7 +177,7 @@ function PlansForm({ history, edit, id }) {
                       });
                     }}
                   />
-                  <span className="text-danger">
+                  <span className="text-danger validation-text">
                     {(error && planDetails.price === undefined) ||
                     (error && planDetails.price === "")
                       ? "Price is required"
@@ -201,7 +201,7 @@ function PlansForm({ history, edit, id }) {
                       });
                     }}
                   />
-                  <span className="text-danger">
+                  <span className="text-danger validation-text">
                     {(error && planDetails.title === undefined) ||
                     (error && planDetails.title === "")
                       ? "Title is required"
@@ -237,7 +237,7 @@ function PlansForm({ history, edit, id }) {
                     <option>Month</option>
                     <option>Year</option>
                   </select>
-                  <span className="text-danger">
+                  <span className="text-danger validation-text">
                     {(error && planDetails.type === undefined) ||
                     (error && planDetails.type === "")
                       ? "Week is required"
@@ -265,7 +265,7 @@ function PlansForm({ history, edit, id }) {
               </div>
               <div className="col-12 mb-3">
                 <textarea
-                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize link-text pt-3 pe-2"
                   placeholder="English Description"
                   rows={5}
                   value={planDetails.details}
@@ -276,13 +276,13 @@ function PlansForm({ history, edit, id }) {
                     });
                   }}
                 ></textarea>
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && planDetails.details === undefined
                     ? "Description is required"
                     : null}
                 </span>
                 <textarea
-                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                  className="w-100 inputs-border input-focus-none p_16_20 textarea-rsize link-text pt-3 pe-2"
                   placeholder="Arabic Description"
                   rows={5}
                   value={planDetails.adetails}
@@ -293,7 +293,7 @@ function PlansForm({ history, edit, id }) {
                     });
                   }}
                 ></textarea>
-                <p className="text-danger">
+                <p className="text-danger validation-text">
                   Note: Press enter after line end and start from the new line
                 </p>
               </div>
@@ -353,7 +353,7 @@ function PlansForm({ history, edit, id }) {
                     : "You don't have any portfolio List"}
                 </>
               )}
-              <span className="text-danger">
+              <span className="text-danger validation-text">
                 {error && planDetails.portfolio === undefined
                   ? "Portfolio  is required"
                   : null}

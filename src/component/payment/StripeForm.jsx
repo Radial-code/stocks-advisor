@@ -124,7 +124,7 @@ const StripeForm = ({
 
   return (
     <div className="col ml-lg-5 col-12">
-      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 mt-lg-4 mt-5">
+      <section className="bg-white br-9_4 p-30 p-9 shadow-sm payment-container px-3 py-4 h-100 mt-lg-4 mt-5 ">
         <div>
           <p className="fs-24 payment-stripe-text">{getValueOf("Payment")}</p>
         </div>
@@ -138,7 +138,11 @@ const StripeForm = ({
               }}
             />
           </fieldset>
-          {error && <StripeErrorMessage>{error.message}</StripeErrorMessage>}
+          {error && (
+            <StripeErrorMessage>
+              <span className="text-danger">{error.message}</span>
+            </StripeErrorMessage>
+          )}
           <div className="row mt-3 d-flex">
             <div className="col-12">
               <input

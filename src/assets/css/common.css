@@ -468,7 +468,17 @@
     --font-xxs: 11px;
   }
 }
-
+.link-text {
+  font-size: var(--font-xxs);
+  font-weight: 400;
+  color: var(--color-16191e);
+}
+.link-text::placeholder {
+  color: #16191e;
+}
+.multi-selector .rmsc .gray {
+  color: #16191e !important;
+}
 .about-slider .slick-slide {
   padding-right: 10px;
   padding-left: 10px;

@@ -188,7 +188,7 @@ const AddNewNews = ({ edit, match, history }) => {
           setCategoryArray={setCategoryArray}
           categoryArray={categoryArray}
         />
-        <div>
+        <div className="d-flex flex-sm-row flex-column ">
           {edit ? (
             <>
               <button
@@ -200,7 +200,7 @@ const AddNewNews = ({ edit, match, history }) => {
                 {updateLoading ? <Loader /> : "Update"}
               </button>
               <button
-                className="add-btn m-2"
+                className="add-btn mx-sm-3 my-sm-0 my-2"
                 type="button"
                 disabled={addStockLoading}
                 onClick={() => deleteNews()}

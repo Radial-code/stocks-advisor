@@ -199,7 +199,7 @@ function Notification() {
                   </div>
                   <div className="col-12 col-lg-6 mb-3">
                     <textarea
-                      className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
+                      className="w-100 inputs-border p_16_20 textarea-rsize link-text pt-3 pe-3"
                       rows="1"
                       placeholder="Body "
                       onChange={(e) => {
@@ -272,7 +272,7 @@ function Notification() {
                 />
               </div>
             </div>
-            <div className="row py-4">
+            <div className="row flex-sm-row flex-column py-4">
               {layoutClickChanger ? (
                 ""
               ) : (
@@ -293,7 +293,7 @@ function Notification() {
                     ? planList.map((value) => {
                         return (
                           <>
-                            <div className="col-auto">
+                            <div className="col-auto ">
                               <input
                                 className="cursor-pointer mx-2"
                                 type="checkbox"
@@ -329,7 +329,7 @@ function Notification() {
               {layoutClickChanger ? (
                 <div className="col-auto">
                   <label
-                    className="form-check-label check-box-text text-dark cursor-pointer"
+                    className="form-check-label check-box-text text-dark cursor-pointer "
                     for="flexCheckDefault"
                   >
                     : Send to
@@ -341,7 +341,7 @@ function Notification() {
             </div>
             <button
               type="button"
-              className="join_now_btn btn px-4 br-5
+              className="join_now_btn btn px-4 br-5 mb-3
                py-2 "
               onClick={() => submitNotifiction()}
             >

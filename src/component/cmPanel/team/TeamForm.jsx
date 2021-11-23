@@ -101,11 +101,11 @@ const TeamForm = ({ history }) => {
               </div>
               <div className="col-12 col-lg-6 mb-3 ">
                 <div className="inputs-border   d-flex justify-content-between align-items-center py-2 ps-1 pe_12">
-                  <span className="small-paragraph d-none d-sm-block Ellipse">
+                  <span className="link-text d-none d-sm-block Ellipse">
                     {getValueOf("Image Link")}
                   </span>
 
-                  <span className="small-paragraph d-block d-sm-none Ellipse">
+                  <span className="link-text ps-2 d-block d-sm-none Ellipse">
                     {getValueOf("Image Link")}
                   </span>
 
@@ -119,8 +119,9 @@ const TeamForm = ({ history }) => {
 
                   <button
                     disabled={loadingImage}
-                    className="upload-img-btn2 d-none d-sm-block cursor-pointer"
+                    className="upload-img-btn2  cursor-pointer"
                   >
+                    {/* d-none d-sm-block */}
                     <label className="cursor-pointer" for="my-file">
                       {loadingImage ? (
                         <Loader />
@@ -143,10 +144,7 @@ const TeamForm = ({ history }) => {
               </div>
               <div className="col-12 mb-3">
                 <textarea
-                  className="w-100 inputs-border p_16_20 textarea-rsize small-paragraph pt-3 pe-3"
-                  name=""
-                  id=""
-                  cols=""
+                  className="w-100 inputs-border p_16_20 textarea-rsize link-text pt-3 pe-2"
                   rows="6"
                   onChange={(e) => {
                     setTeamData({
@@ -164,9 +162,9 @@ const TeamForm = ({ history }) => {
               </div>
             </div>
             <div className="d-flex justify-content-sm-start align-items-center flex-sm-row flex-column">
-              <div className="add-new-btn w-100">
+              <div className="add-new-btn w-100 ">
                 <button
-                  className="update-btn"
+                  className="update-btn mb-3"
                   disabled={loading}
                   onClick={() => submitTeamData()}
                 >
