@@ -17,7 +17,7 @@ const DraftEditor = ({ setdescription, newsDetails, edit }) => {
       const newState = EditorState.createWithContent(contentState);
       setEditorState(newState);
     }
-  }, [edit, newsDetails]);
+  }, [edit]);
 
   const onEditorStateChange = (e) => {
     setEditorState(e);
