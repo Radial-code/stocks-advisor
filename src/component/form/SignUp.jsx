@@ -120,9 +120,9 @@ function SignUp({ history, match }) {
                       className=""
                       placeholder={getValueOf("Last Name")}
                     />
-                    <span className="text-danger">
+                    <span className="text-danger validation-text">
                       {error && signUpDetails.lastName === "" ? (
-                        <>{getValueOf("Last name is required")}</>
+                        <>{getValueOf("LastName is required")}</>
                       ) : null}
                     </span>
                   </Form.Group>
@@ -143,9 +143,9 @@ function SignUp({ history, match }) {
                       type="text"
                       placeholder={getValueOf("First Name")}
                     />
-                    <span className="text-danger">
+                    <span className="text-danger validation-text">
                       {error && signUpDetails.firstName === ""
-                        ? "First name is required"
+                        ? "FirstName is required"
                         : null}
                     </span>
                   </Form.Group>
@@ -163,7 +163,7 @@ function SignUp({ history, match }) {
                   placeholder="UserName"
                 />
 
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {" "}
                   {error && signUpDetails.username === "" ? (
                     <>{getValueOf("UserName is required")}</>
@@ -171,7 +171,7 @@ function SignUp({ history, match }) {
                     error
                   )}
                 </span>
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {userNameError ? (
                     <>{getValueOf("User Name already exist")}</>
                   ) : null}
@@ -190,7 +190,7 @@ function SignUp({ history, match }) {
                   type="email"
                   placeholder={getValueOf("Email")}
                 />
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && signUpDetails.email === "" ? (
                     <>{getValueOf("email is required")}</>
                   ) : error &&
@@ -199,7 +199,11 @@ function SignUp({ history, match }) {
                   ) : null}
                 </span>
               </Form.Group>
-              <div className="row align-items-center">
+              <div
+                className={`${
+                  layoutClickChanger ? "" : "align-items-center"
+                } row `}
+              >
                 {layoutClickChanger ? (
                   <>
                     {" "}
@@ -211,7 +215,9 @@ function SignUp({ history, match }) {
                       }`}
                     >
                       <Form.Group
-                        className="my-3 form-field number-field"
+                        className={`${
+                          layoutClickChanger ? "mt-3" : " mt-3"
+                        } mb-3 form-field number-field`}
                         controlId="formBasicPassword"
                       >
                         <Form.Control
@@ -226,12 +232,12 @@ function SignUp({ history, match }) {
                           placeholder={getValueOf("Phone Number")}
                         />
 
-                        <span className="text-danger">
+                        <span className="text-danger validation-text">
                           {error && signUpDetails.phone === "" ? (
-                            <>{getValueOf("Phone Number is required")}</>
+                            <>{getValueOf("Phone No is required")}</>
                           ) : error &&
                             PhoneRegex.test(signUpDetails.phone) === false ? (
-                            <>{getValueOf("Enter valid Phone Number")}</>
+                            <>{getValueOf("Enter valid Phone No")}</>
                           ) : null}
                         </span>
                       </Form.Group>
@@ -256,7 +262,7 @@ function SignUp({ history, match }) {
                             layoutClickChanger
                               ? "form-select form-field-3 text-end cursor-pointer ps-5"
                               : "form-select   text-end cursor-pointer ps-5"
-                          }`}
+                          } mt-3 `}
                         >
                           <option>Code</option>
                           {countries && countries.length ? (
@@ -372,7 +378,7 @@ function SignUp({ history, match }) {
                         />
                       </Form.Group>
                     </div>
-                    <span className="text-danger mb-2">
+                    <span className="text-danger mb-2 validation-text">
                       {error && signUpDetails.phone === "" ? (
                         <>{getValueOf("Phone Number is required")}</>
                       ) : error &&
@@ -399,12 +405,14 @@ function SignUp({ history, match }) {
                   type="password"
                   placeholder={getValueOf("Password")}
                 />
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && signUpDetails.password === "" ? (
                     <>{getValueOf("Password is required")}</>
                   ) : null}
                   {error && signUpDetails.password === "" ? (
-                    <>{getValueOf("Please Enter Your New Password")}</>
+                    <>
+                      <p></p>
+                    </>
                   ) : specialChar &&
                     passwordRegex.test(signUpDetails.password) === false ? (
                     <>{getValueOf("Enter strong password")}</>
@@ -426,7 +434,7 @@ function SignUp({ history, match }) {
                   type="password"
                   placeholder={getValueOf("Confirm Password")}
                 />{" "}
-                <span className="text-danger">
+                <span className="text-danger validation-text">
                   {error && signUpDetails.confirmPassword === "" ? (
                     <>{getValueOf("Confirm Password is required")}</>
                   ) : error &&
@@ -488,7 +496,7 @@ function SignUp({ history, match }) {
                   </select>
                 </FormGroup>
               )}
-              <span className="text-danger">
+              <span className="text-danger validation-text">
                 {error && signUpDetails.country === "" ? (
                   <>{getValueOf("Country is required")}</>
                 ) : null}
@@ -499,7 +507,7 @@ function SignUp({ history, match }) {
                   onVerify={(token, ekey) => setReCaptchaToken(token, ekey)}
                 />
               </div>
-              <span className="text-danger">
+              <span className="text-danger validation-text">
                 {error && !reCaptchaToken ? (
                   <>{getValueOf("Please solved Captcha")}</>
                 ) : null}
