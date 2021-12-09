@@ -178,6 +178,7 @@ export const UserNameAction = (data, setUserNameError) => async () => {
   try {
     const response = await UserNameApi(data);
     if (response.success) {
+      setUserNameError(response);
     } else {
       setUserNameError(response);
     }

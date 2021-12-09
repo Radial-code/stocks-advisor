@@ -9,8 +9,7 @@ import { passwordRegex, EmailRegex, PhoneRegex } from "../common/Validation";
 import Loader from "../common/Loader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { useSelector } from "react-redux";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import Select from "react-select";
 
 function SignUp({ history, match }) {
   const { inviteCode } = match.params;
@@ -27,14 +26,7 @@ function SignUp({ history, match }) {
   const [userNameError, setUserNameError] = useState("");
   const [specialChar, SetSpecialChar] = useState(false);
   const [reCaptchaToken, setReCaptchaToken] = useState(null);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const [countryCode, setCountryCode] = useState();
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
     lastName: "",
@@ -92,6 +84,29 @@ function SignUp({ history, match }) {
       );
     }
   };
+
+  const handleChange = (selectedOption) => {
+    const codeCountry = {
+      value: selectedOption.value,
+      label: selectedOption.value,
+    };
+    setSignUpDetails({
+      ...signUpDetails,
+      countryCode: codeCountry.value,
+    });
+
+    setCountryCode(codeCountry);
+  };
+
+  const countriesCode =
+    countries && countries.length > 0
+      ? countries.map((item) => {
+          return {
+            value: item.dial_code,
+            label: `${item.name}(${item.dial_code})`,
+          };
+        })
+      : "";
 
   return (
     <div className="container  d-flex  flex-column justify-content-center ">
@@ -162,20 +177,12 @@ function SignUp({ history, match }) {
                   type="text"
                   placeholder="UserName"
                 />
-
-                <span className="text-danger validation-text">
-                  {" "}
-                  {error && signUpDetails.username === "" ? (
-                    <>{getValueOf("UserName is required")}</>
-                  ) : (
-                    error
-                  )}
-                </span>
-                <span className="text-danger validation-text">
-                  {userNameError ? (
-                    <>{getValueOf("User Name already exist")}</>
-                  ) : null}
-                </span>
+                {console.log(userNameError)}
+                {signUpDetails.username !== "" && userNameError.success ? (
+                  <span className="text-success">{userNameError.message}</span>
+                ) : (
+                  <span className="text-danger">{userNameError.message}</span>
+                )}
               </Form.Group>
               {/* email */}
               <Form.Group className=" form-field " controlId="formBasicEmail">
@@ -250,37 +257,11 @@ function SignUp({ history, match }) {
                       }`}
                     >
                       <FormGroup className=" sign-up-select">
-                        <select
-                          value={signUpDetails.countryCode}
-                          onChange={(e) => {
-                            setSignUpDetails({
-                              ...signUpDetails,
-                              countryCode: e.target.value,
-                            });
-                          }}
-                          className={`${
-                            layoutClickChanger
-                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                              : "form-select   text-end cursor-pointer ps-5"
-                          } mt-3 `}
-                        >
-                          <option>Code</option>
-                          {countries && countries.length ? (
-                            countries.map((value, index) => {
-                              return (
-                                <option
-                                  className="country-dots"
-                                  key={index}
-                                  value={value.dial_code}
-                                >
-                                  ({value.dial_code})
-                                </option>
-                              );
-                            })
-                          ) : (
-                            <>{getValueOf("Something went wrong")}</>
-                          )}
-                        </select>
+                        <Select
+                          value={countryCode}
+                          onChange={handleChange}
+                          options={countriesCode}
+                        />
                       </FormGroup>
                     </div>
                   </>
@@ -293,65 +274,12 @@ function SignUp({ history, match }) {
                           : "col-sm-5 pe-0 col-6"
                       }`}
                     >
-                      {/* <div className="contact-field">
-                        <div
-                          aria-controls="simple-menu"
-                          aria-haspopup="true"
-                          onClick={handleClick}
-                          className="contact-border2"
-                        >
-                          <span className="contact-text">Country Code</span>
-                        </div>{" "}
-                        <Menu
-                          id="simple-menu"
-                          anchorEl={anchorEl}
-                          keepMounted
-                          open={Boolean(anchorEl)}
-                          onClose={handleClose}
-                        >
-                          {countries &&
-                            countries.length &&
-                            countries.map((value, i) => {
-                              return (
-                                <MenuItem
-                                  value={value.dial_code}
-                                  onClick={handleClose}
-                                >
-                                  {value.name}({value.dial_code})
-                                </MenuItem>
-                              );
-                            })}
-                        </Menu>
-                      </div> */}
                       <FormGroup className="contact-select">
-                        <select
-                          onChange={(e) => {
-                            setSignUpDetails({
-                              ...signUpDetails,
-                              countryCode: e.target.value,
-                            });
-                          }}
-                          className={`${
-                            layoutClickChanger
-                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                              : "form-select   text-end cursor-pointer ps-5"
-                          }`}
-                        >
-                          <option>Code</option>
-                          {countries && countries.length
-                            ? countries.map((value, index) => {
-                                return (
-                                  <option
-                                    className="country-dots"
-                                    key={index}
-                                    value={value.dial_code}
-                                  >
-                                    ({value.dial_code})
-                                  </option>
-                                );
-                              })
-                            : "Something went wrong"}
-                        </select>
+                        <Select
+                          value={countryCode}
+                          onChange={handleChange}
+                          options={countriesCode}
+                        />
                       </FormGroup>
                     </div>{" "}
                     <div
@@ -536,5 +464,4 @@ function SignUp({ history, match }) {
     </div>
   );
 }
-
 export default withRouter(SignUp);
