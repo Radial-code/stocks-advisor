@@ -3,9 +3,8 @@ import "./portfolios.css";
 import SoldStock from "./SoldStock";
 import CurrentStock from "./CurrentStock";
 import BubblesLoader from "../common/BubblesLoader";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import StockSoldSlider from "./StockSoldSlider";
-import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 function PortfolioStock({
   loading,
@@ -13,7 +12,6 @@ function PortfolioStock({
   getValueOf,
   layoutClickChanger,
 }) {
-  const dispatch = useDispatch();
   const soldStockNewsList = useSelector(
     (state) => state.list.soldStockNewsList
   );

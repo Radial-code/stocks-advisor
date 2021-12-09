@@ -9,8 +9,7 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
       __html: value,
     };
   };
-  const { setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   return (
     <>
       <div className="my-3 ">
