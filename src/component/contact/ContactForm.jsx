@@ -6,11 +6,13 @@ import { Form, FormGroup } from "react-bootstrap";
 import { EmailRegex, PhoneRegex } from "../common/Validation";
 import { useSelector } from "react-redux";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
+import Select from "react-select";
 
 const ContactForm = () => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.list.countries);
+  const [countryCode, setCountryCode] = useState();
   const [contactDetails, setContactDetails] = useState({
     name: "",
     message: "",
@@ -43,6 +45,29 @@ const ContactForm = () => {
       });
     }
   };
+
+  const handleChange = (selectedOption) => {
+    const codeCountry = {
+      value: selectedOption.value,
+      label: selectedOption.value,
+    };
+    setContactDetails({
+      ...contactDetails,
+      countryCode: codeCountry.value,
+    });
+
+    setCountryCode(codeCountry);
+  };
+
+  const countriesCode =
+    countries && countries.length > 0
+      ? countries.map((item) => {
+          return {
+            value: item.dial_code,
+            label: `${item.name}(${item.dial_code})`,
+          };
+        })
+      : "";
 
   return (
     <form className="form-box p-xl-5 p-sm-3 p-2 " action="">
@@ -133,35 +158,11 @@ const ContactForm = () => {
                 } mt-2`}
               >
                 <FormGroup className="contact-select">
-                  <select
-                    onChange={(e) => {
-                      setContactDetails({
-                        ...contactDetails,
-                        countryCode: e.target.value,
-                      });
-                    }}
-                    value={contactDetails.countryCode}
-                    className={`${
-                      layoutClickChanger
-                        ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                        : "form-select   text-end cursor-pointer ps-5"
-                    }`}
-                  >
-                    <option>Code</option>
-                    {countries && countries.length
-                      ? countries.map((value, index) => {
-                          return (
-                            <option
-                              className="country-dots"
-                              key={index}
-                              value={value.dial_code}
-                            >
-                              ({value.dial_code})
-                            </option>
-                          );
-                        })
-                      : "Something went wrong"}
-                  </select>
+                  <Select
+                    value={countryCode}
+                    onChange={handleChange}
+                    options={countriesCode}
+                  />
                 </FormGroup>
               </div>
             </>
@@ -175,34 +176,11 @@ const ContactForm = () => {
                 }`}
               >
                 <FormGroup className="contact-select">
-                  <select
-                    onChange={(e) => {
-                      setContactDetails({
-                        ...contactDetails,
-                        countryCode: e.target.value,
-                      });
-                    }}
-                    className={`${
-                      layoutClickChanger
-                        ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                        : "form-select   text-end cursor-pointer ps-5"
-                    }`}
-                  >
-                    <option>Code</option>
-                    {countries && countries.length
-                      ? countries.map((value, index) => {
-                          return (
-                            <option
-                              className="country-dots"
-                              key={index}
-                              value={value.dial_code}
-                            >
-                              ({value.dial_code})
-                            </option>
-                          );
-                        })
-                      : "Something went wrong"}
-                  </select>
+                  <Select
+                    value={countryCode}
+                    onChange={handleChange}
+                    options={countriesCode}
+                  />
                 </FormGroup>
               </div>
               <div

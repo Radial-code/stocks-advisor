@@ -19,6 +19,7 @@ import {
   getPlansListAction,
   plansUpgradeAction,
 } from "../../redux/action/cmPanel/plans";
+import Select from "react-select";
 
 const initialState = {
   firstName: "",
@@ -38,6 +39,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
   const [userLoading, setUserLoading] = useState(false);
   const [addPlansLoading, setAddPlansLoading] = useState(false);
   const [updateUser, setUpdateUser] = useState(initialState);
+  const [countryCode, setCountryCode] = useState();
   const { userId } = match.params;
   const userProfileDetails = useSelector(
     (state) => state.list.userProfileDetails
@@ -111,6 +113,29 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
     );
   };
 
+  const handleChange = (selectedOption) => {
+    const codeCountry = {
+      value: selectedOption.value,
+      label: selectedOption.value,
+    };
+    setUpdateUser({
+      ...updateUser,
+      countryCode: codeCountry.value,
+    });
+
+    setCountryCode(codeCountry);
+  };
+
+  const countriesCode =
+    countries && countries.length > 0
+      ? countries.map((item) => {
+          return {
+            value: item.dial_code,
+            label: `${item.name}(${item.dial_code})`,
+          };
+        })
+      : "";
+
   return (
     <Container>
       <div
@@ -178,37 +203,11 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
                       } h-100`}
                     >
                       <FormGroup className="edit-user-select">
-                        <select
-                          value={updateUser.countryCode}
-                          onChange={(e) => {
-                            setUpdateUser({
-                              ...updateUser,
-                              countryCode: e.target.value,
-                            });
-                          }}
-                          className={`${
-                            layoutClickChanger
-                              ? "form-select form-field-3 text-end cursor-pointer ps-5"
-                              : "form-select   text-end cursor-pointer ps-5"
-                          }`}
-                        >
-                          <option> Country Code</option>
-                          {countries && countries.length ? (
-                            countries.map((value, index) => {
-                              return (
-                                <option
-                                  className="country-dots"
-                                  key={index}
-                                  value={value.dial_code}
-                                >
-                                  {value.dial_code}
-                                </option>
-                              );
-                            })
-                          ) : (
-                            <>{getValueOf("Something went wrong")}</>
-                          )}
-                        </select>
+                        <Select
+                          value={countryCode}
+                          onChange={handleChange}
+                          options={countriesCode}
+                        />
                       </FormGroup>
                       {/* <div className="contact-field">
                         <div
