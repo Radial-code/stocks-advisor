@@ -39,7 +39,7 @@ function SignUp({ history, match }) {
     countryCode: "",
     "recaptcha-token": reCaptchaToken,
   });
-  console.log("countryCode", countryCode);
+
   const submitSignUpForm = () => {
     setError(true);
     if (
