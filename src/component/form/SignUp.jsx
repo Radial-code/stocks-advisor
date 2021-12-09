@@ -256,7 +256,7 @@ function SignUp({ history, match }) {
                           : "col-sm-5 ps-0 col-6"
                       }`}
                     >
-                      <FormGroup className=" sign-up-select">
+                      <FormGroup className="contact-select pt-3">
                         <Select
                           value={countryCode}
                           onChange={handleChange}

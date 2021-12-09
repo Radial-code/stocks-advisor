@@ -172,11 +172,24 @@
 .contact-select .form-select {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
-  color: #75758b;
+  color: #212529;
   padding: 14px;
   border-radius: 0px;
   border-bottom-left-radius: 5px !important;
   border-top-left-radius: 5px !important;
+}
+.contact-select .css-1s2u09g-control {
+  min-height: 54px;
+}
+.contact-select .css-1pahdxg-control {
+  min-height: 54px;
+}
+.contact-select .css-6j8wv5-Input {
+  color: #212529;
+}
+.contact-select .css-1pahdxg-control {
+  border-color: rgba(22, 25, 30, 0.2);
+  box-shadow: 0 0 0 1px rgba(22, 25, 30, 0.2);
 }
 .contact-select .form-select {
   -webkit-appearance: none !important;
