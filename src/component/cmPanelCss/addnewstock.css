@@ -118,6 +118,19 @@
   color: #757575;
   padding: 12px;
 }
+.edit-user-select .css-1s2u09g-control {
+  min-height: 49px;
+}
+.edit-user-select .css-1pahdxg-control {
+  min-height: 49px;
+}
+.edit-user-select .css-1pahdxg-control {
+  border-color: #16191e33;
+  box-shadow: 0 0 0 1px #16191e33;
+}
+.edit-user-select .css-1pahdxg-control:hover {
+  border-color: #16191e33;
+}
 
 .edit-user-select .form-select {
   -webkit-appearance: none !important;

@@ -35,12 +35,13 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
             alt="newsImg"
           />
         ) : (
-          <img
-            className="newsImg-slider cursor-pointer"
-            src={NoImg}
-            onClick={() => history.push(`/news/details/${_id}`)}
-            alt="newsImg"
-          />
+          ""
+          // <img
+          //   className="newsImg-slider cursor-pointer"
+          //   src={NoImg}
+          //   onClick={() => history.push(`/news/details/${_id}`)}
+          //   alt="newsImg"
+          // />
         )}
         <div className="news-wrapper-bottom-section">
           <p

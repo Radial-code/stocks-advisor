@@ -27,13 +27,14 @@ const NewsList = ({ history, value, index, loading }) => {
           <Col xl={4} lg={4} xs={4} className="my-auto">
             <div>
               {value.imagePath === "" ? (
-                <img
-                  // className="w-100 h-341 cursor-pointer"
-                  className="stock-articles-img mx-auto "
-                  src={NoImg}
-                  onClick={() => history.push(`/news/details/${value._id}`)}
-                  alt="news img"
-                />
+                // <img
+                //   // className="w-100 h-341 cursor-pointer"
+                //   className="stock-articles-img mx-auto "
+                //   src={NoImg}
+                //   onClick={() => history.push(`/news/details/${value._id}`)}
+                //   alt="news img"
+                // />
+                ""
               ) : (
                 <img
                   // className="w-100 h-341 cursor-pointer"

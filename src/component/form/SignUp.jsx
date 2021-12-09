@@ -242,8 +242,7 @@ function SignUp({ history, match }) {
                         <span className="text-danger validation-text">
                           {error && signUpDetails.phone === "" ? (
                             <>{getValueOf("Phone No is required")}</>
-                          ) : error &&
-                            PhoneRegex.test(signUpDetails.phone) === false ? (
+                          ) : error && signUpDetails.phone < 10 ? (
                             <>{getValueOf("Enter valid Phone No")}</>
                           ) : null}
                         </span>
