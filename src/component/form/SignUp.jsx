@@ -39,7 +39,7 @@ function SignUp({ history, match }) {
     countryCode: "",
     "recaptcha-token": reCaptchaToken,
   });
-
+  console.log("countryCode", countryCode);
   const submitSignUpForm = () => {
     setError(true);
     if (
@@ -132,7 +132,6 @@ function SignUp({ history, match }) {
                         });
                       }}
                       type="text"
-                      className=""
                       placeholder={getValueOf("Last Name")}
                     />
                     <span className="text-danger validation-text">
@@ -178,9 +177,13 @@ function SignUp({ history, match }) {
                   placeholder="UserName"
                 />
                 {signUpDetails.username !== "" && userNameError.success ? (
-                  <span className="text-success">{userNameError.message}</span>
+                  <span className="text-success validation-text">
+                    {userNameError.message}
+                  </span>
                 ) : (
-                  <span className="text-danger">{userNameError.message}</span>
+                  <span className="text-danger validation-text">
+                    {userNameError.message}
+                  </span>
                 )}
               </Form.Group>
               {/* email */}
