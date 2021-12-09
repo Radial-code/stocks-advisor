@@ -18,7 +18,7 @@ const NewsDetailsPage = ({ history, loading }) => {
       __html: value,
     };
   };
-
+  console.log("newsDetails", newsDetails);
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
       {loading ? (
@@ -44,7 +44,8 @@ const NewsDetailsPage = ({ history, loading }) => {
                 />
               )
             ) : (
-              <img className="slider-img" src={NoImg} alt="news" />
+              // <img className="slider-img" src={NoImg} alt="news" />
+              ""
             )}
             <h6
               className={` ${
@@ -86,9 +87,7 @@ const NewsDetailsPage = ({ history, loading }) => {
 
             <p
               className={`${
-                layoutClickChanger
-                  ? "small-paragraph text-end"
-                  : "small-paragraph"
+                layoutClickChanger ? "small-paragraph " : "small-paragraph"
               }`}
             >
               <span className="cursor-pointer fw-bold color-blue">
@@ -167,7 +166,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                 }
                 alt="news Image"
               /> */}
-            <div className="col-12 mt-5 mt-xl-0">
+            {/* <div className="col-12 mt-5 mt-xl-0">
               <p className="stock-paragraph mt-2 fs-sm-14">
                 {layoutClickChanger ? (
                   <>
@@ -195,7 +194,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 )}
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
