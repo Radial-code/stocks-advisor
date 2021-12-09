@@ -51,12 +51,13 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
               return (
                 <div key={index}>
                   {value.imagePath === "" ? (
-                    <img
-                      onClick={() => history.push(`/news/details/${value._id}`)}
-                      className=" slider-img d-block mx-auto cursor-pointer"
-                      src={NoImage}
-                      alt="NoImage"
-                    />
+                    // <img
+                    //   onClick={() => history.push(`/news/details/${value._id}`)}
+                    //   className=" slider-img d-block mx-auto cursor-pointer"
+                    //   src={NoImage}
+                    //   alt="NoImage"
+                    // />
+                    ""
                   ) : (
                     <img
                       onClick={() => history.push(`/news/details/${value._id}`)}

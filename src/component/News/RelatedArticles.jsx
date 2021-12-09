@@ -98,12 +98,13 @@ const RelatedArticles = ({ history }) => {
                           <section key={index} className="articles-card p-3">
                             <div>
                               {value.imagePath === "" ? (
-                                <img
-                                  className="w-100 newsImg-slider mx-auto d-block"
-                                  src={NoImg}
-                                  alt=""
-                                />
+                                ""
                               ) : (
+                                // <img
+                                //   className="w-100 newsImg-slider mx-auto d-block"
+                                //   src={NoImg}
+                                //   alt=""
+                                // />
                                 <img
                                   className="w-100 newsImg-slider mx-auto d-block"
                                   src={value.imagePath}
