@@ -90,7 +90,7 @@ function Notification() {
       const data = {
         title: notificationForm.title,
         body: notificationForm.body,
-        sendTo: notificationForm.sendTo,
+        sendTo: notificationForm.sendTo ? notificationForm.sendTo : [],
         type: notificationForm.type,
         usersList: userIds,
       };

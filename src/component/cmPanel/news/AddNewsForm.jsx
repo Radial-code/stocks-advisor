@@ -276,6 +276,7 @@ const AddNewsForm = ({
               setdescription={setdescription}
               newsDetails={newsDetails}
               edit={edit}
+              setNewsDetails={setNewsDetails}
             />
           </div>
         </div>
@@ -285,6 +286,8 @@ const AddNewsForm = ({
               setAdescription={setAdescription}
               newsDetails={newsDetails}
               edit={edit}
+              setNewsDetails={setNewsDetails}
+              newsDetails={newsDetails}
             />
           </div>
         </div>

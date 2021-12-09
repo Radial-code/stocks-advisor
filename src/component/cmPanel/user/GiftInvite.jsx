@@ -5,25 +5,20 @@ import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
-const ArabicEditor = ({
-  setAdescription,
-  newsDetails,
-  edit,
-  setNewsDetails,
-}) => {
+const GiftInvite = ({ setInviteDetails, inviteDetails }) => {
   const [editorState, setEditorState] = React.useState();
 
-  useEffect(() => {
-    const html = edit ? newsDetails.adescription : "";
-    const contentBlock = htmlToDraft(html);
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(
-        contentBlock.contentBlocks
-      );
-      const newState = EditorState.createWithContent(contentState);
-      setEditorState(newState);
-    }
-  }, [edit]);
+  // useEffect(() => {
+  //   const html = inviteDetails.giftText;
+  //   const contentBlock = htmlToDraft(html);
+  //   if (contentBlock) {
+  //     const contentState = ContentState.createFromBlockArray(
+  //       contentBlock.contentBlocks
+  //     );
+  //     const newState = EditorState.createWithContent(contentState);
+  //     setEditorState(newState);
+  //   }
+  // }, []);
 
   const onEditorStateChange = (e) => {
     setEditorState(e);
@@ -31,16 +26,10 @@ const ArabicEditor = ({
 
   useEffect(() => {
     if (editorState) {
-      const adescription = draftToHtml(
+      const giftText = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
-      const regex = /(<([^>]+)>)/gi;
-      const result = adescription.replace(regex, "");
-      setNewsDetails({
-        ...newsDetails,
-        pdescription: result,
-      });
-      setAdescription(adescription);
+      setInviteDetails({ ...inviteDetails, giftText });
     }
   }, [editorState]);
 
@@ -62,5 +51,4 @@ const ArabicEditor = ({
     />
   );
 };
-
-export default ArabicEditor;
+export default GiftInvite;

@@ -18,7 +18,6 @@ const NewsDetailsPage = ({ history, loading }) => {
       __html: value,
     };
   };
-  console.log("newsDetails", newsDetails);
   return (
     <div className="col-xl-8  col-lg-10 d-flex justify-content-center d-sm-block">
       {loading ? (

@@ -20,6 +20,7 @@ const initialState = {
   atitle: "",
   description: "",
   adescription: "",
+  pdescription: "",
   showOnHomePage: false,
   stock: "",
   tags: "",
@@ -94,6 +95,7 @@ const AddNewNews = ({ edit, match, history }) => {
         media: uploadImageUrl,
         link: newsDetails.link,
         portfolios: newsDetails.portfolios,
+        pdescription: newsDetails.pdescription,
       };
       if (!data.stock) {
         delete data.stock;

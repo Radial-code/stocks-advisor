@@ -93,7 +93,10 @@ const StripeForm = ({
         id: paymentId,
         promoCode: promoCode ? promoCode : "",
       };
-      setTimeout(await dispatch(confirmPlanByIdForStripe(data, history)), 7000);
+      setTimeout(
+        await dispatch(confirmPlanByIdForStripe(data, history)),
+        10000
+      );
     }
   };
 

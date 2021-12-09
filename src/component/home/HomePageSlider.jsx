@@ -121,13 +121,19 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     } cursor-pointer`}
                   >
                     {layoutClickChanger ? (
-                      <p
-                        dangerouslySetInnerHTML={
-                          !!value && !!value.adescription
-                            ? contentHandler(value.adescription)
-                            : "N/A"
-                        }
-                      />
+                      value.pdescription ? (
+                        value.pdescription
+                      ) : (
+                        <p
+                          dangerouslySetInnerHTML={
+                            !!value && !!value.adescription
+                              ? contentHandler(value.adescription)
+                              : "N/A"
+                          }
+                        />
+                      )
+                    ) : value.pdescription ? (
+                      value.pdescription
                     ) : (
                       <p
                         dangerouslySetInnerHTML={

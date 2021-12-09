@@ -16,6 +16,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
     stock,
     description,
     adescription,
+    pdescription,
   } = news;
 
   const contentHandler = (value) => {
@@ -93,11 +94,17 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
               } cursor-pointer`}
             >
               {layoutClickChanger ? (
-                <p
-                  dangerouslySetInnerHTML={
-                    !!adescription ? contentHandler(adescription) : "N/A"
-                  }
-                />
+                pdescription ? (
+                  pdescription
+                ) : (
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!adescription ? contentHandler(adescription) : "N/A"
+                    }
+                  />
+                )
+              ) : pdescription ? (
+                pdescription
               ) : (
                 <p
                   dangerouslySetInnerHTML={

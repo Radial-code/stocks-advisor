@@ -8,6 +8,8 @@ import {
   updateInviteFriendMessageAction,
 } from "../../../redux/action/inviteFriends";
 import Loader from "../../common/Loader";
+import GiftEditor from "../otherServices/GiftEditor";
+import GiftInvite from "./GiftInvite";
 
 const initialState = {
   isDiscount: false,
@@ -15,6 +17,9 @@ const initialState = {
   amount: "",
   isFixedAmount: false,
   message: "",
+  isGift: false,
+  userEmail: "",
+  giftText: "",
 };
 
 const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
@@ -23,7 +28,7 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
   const [error, setError] = useState(false);
   const [discount, setDiscount] = useState(false);
   const [inviteFriendMessage, setInviteFriendMessage] = useState(false);
-  const { getValueOf } = useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
 
   const [inviteDetails, setInviteDetails] = useState(initialState);
 
@@ -54,6 +59,10 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
         amount: inviteDetails.isFixedAmount ? inviteDetails.amount : null,
         isFixedAmount: discount ? false : inviteDetails.isFixedAmount,
         message: inviteDetails.message,
+
+        isGift: inviteDetails.isGift,
+        userEmail: inviteDetails.isGift ? inviteDetails.userEmail : null,
+        giftText: inviteDetails.isGift ? inviteDetails.giftText : null,
       };
       dispatch(
         inviteFriendsMessageAction(data, setInviteFriendMessage, handleClose)
@@ -70,6 +79,9 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
         amount: inviteDetails.isFixedAmount ? inviteDetails.amount : null,
         isFixedAmount: discount ? false : inviteDetails.isFixedAmount,
         message: inviteDetails.message,
+        isGift: inviteDetails.isGift,
+        userEmail: inviteDetails.isGift ? inviteDetails.userEmail : null,
+        giftText: inviteDetails.isGift ? inviteDetails.giftText : null,
       };
       dispatch(
         updateInviteFriendMessageAction(
@@ -196,6 +208,73 @@ const AdminInvitePopup = ({ handleClose, show, inviteMessageCode }) => {
                     />
                   </div>
                 </>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <input
+                className="cursor-pointer my-3 ms-sm-3"
+                type="checkbox"
+                checked={inviteDetails.isGift}
+                onChange={(e) =>
+                  setInviteDetails({
+                    ...inviteDetails,
+                    isGift: e.target.checked,
+                  })
+                }
+              />
+              <label
+                className={`${
+                  layoutClickChanger ? "me-2" : "ms-2"
+                } form-check-label check-box-text cursor-pointer  fw-bold ms-sm-3 `}
+                for="flexCheckDefault"
+              >
+                {getValueOf("Gift")}
+              </label>
+
+              {inviteDetails.isGift ? (
+                <div className="add-new-stock-field my-3 ms-sm-3">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    value={inviteDetails.userEmail}
+                    placeholder={getValueOf("Email")}
+                    className="py-2 px-3 w-100"
+                    onChange={(e) =>
+                      setInviteDetails({
+                        ...inviteDetails,
+                        userEmail: e.target.value,
+                      })
+                    }
+                  />
+                  {inviteDetails.isGift &&
+                  error &&
+                  inviteDetails.userEmail === "" ? (
+                    <span className="text-danger">
+                      {getValueOf("Email is required")}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                  <br></br>
+                  <label className="mt-3">Gift Message</label>
+                  <GiftInvite
+                    setInviteDetails={setInviteDetails}
+                    inviteDetails={inviteDetails}
+                  />
+                  {inviteDetails.isGift &&
+                  error &&
+                  inviteDetails.giftText === "" ? (
+                    <span className="text-danger">
+                      {getValueOf("Gift Message is required")}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </div>
               ) : (
                 ""
               )}

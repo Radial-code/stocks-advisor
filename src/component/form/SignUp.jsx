@@ -177,7 +177,6 @@ function SignUp({ history, match }) {
                   type="text"
                   placeholder="UserName"
                 />
-                {console.log(userNameError)}
                 {signUpDetails.username !== "" && userNameError.success ? (
                   <span className="text-success">{userNameError.message}</span>
                 ) : (

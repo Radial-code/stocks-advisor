@@ -63,7 +63,6 @@ const AddStockForm = ({ edit, match, history, detailLoading }) => {
       setStockDetails(stockDetailsList);
     }
   }, [detailLoading, edit]);
-  console.log("stockDetails.joinDate", stockDetails.symbol);
   const submitStockDetails = () => {
     setError(true);
     if (

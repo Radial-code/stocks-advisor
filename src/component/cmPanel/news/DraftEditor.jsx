@@ -5,7 +5,7 @@ import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import htmlToDraft from "html-to-draftjs";
 
-const DraftEditor = ({ setdescription, newsDetails, edit }) => {
+const DraftEditor = ({ setdescription, newsDetails, edit, setNewsDetails }) => {
   const [editorState, setEditorState] = React.useState();
   useEffect(() => {
     const html = edit ? newsDetails.description : "";
@@ -28,6 +28,12 @@ const DraftEditor = ({ setdescription, newsDetails, edit }) => {
       const description = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
+      const regex = /(<([^>]+)>)/gi;
+      const result = description.replace(regex, "");
+      setNewsDetails({
+        ...newsDetails,
+        pdescription: result,
+      });
       setdescription(description);
     }
   }, [editorState]);
