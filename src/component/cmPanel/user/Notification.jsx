@@ -39,8 +39,8 @@ function Notification() {
         !!adminUserList.length &&
         adminUserList.map((item) => {
           userOption.push({
-            label: item.firstName,
-            value: item.firstName,
+            label: item.email,
+            value: item.email,
             id: item._id,
           });
         }),
@@ -79,7 +79,6 @@ function Notification() {
   const submitNotifiction = () => {
     setError(true);
     if (
-      !!notificationForm.sendTo &&
       !!notificationForm.body &&
       !!notificationForm.title &&
       !!notificationForm.type
