@@ -47,8 +47,10 @@ function App() {
     }
     dispatch(getCountryListAction());
     if (!!auth && !!token) {
-      const page = 0;
       setTimeout(dispatch(getUnseenNotificationListAction()), 2000);
+    }
+    if (!!auth && !!token && userData.isAdmin === true) {
+      const page = 0;
       setTimeout(
         dispatch(getUserListForAdminAction(setLoadingUser, page)),
         2000
