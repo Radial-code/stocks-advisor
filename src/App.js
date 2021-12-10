@@ -53,7 +53,7 @@ function App() {
       const page = 0;
       setTimeout(
         dispatch(getUserListForAdminAction(setLoadingUser, page)),
-        2000
+        5000
       );
     }
   }, [auth, token]);
