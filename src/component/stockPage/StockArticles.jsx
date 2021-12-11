@@ -63,15 +63,21 @@ const StockArticles = ({ history, getValueOf }) => {
                                 <>{value.title ? value.title : "N/A"}</>
                               )}
                             </p>
-                            <p className="stock-paragraph max-w-para d-none d-lg-block">
+                            <p className="stock-paragraph max-w-para d-none d-lg-block about-slider">
                               {layoutClickChanger ? (
-                                <p
-                                  dangerouslySetInnerHTML={
-                                    !!value && !!value.adescription
-                                      ? contentHandler(value.adescription)
-                                      : "N/A"
-                                  }
-                                />
+                                !!value && !!value.pdescription ? (
+                                  value.pdescription
+                                ) : (
+                                  <p
+                                    dangerouslySetInnerHTML={
+                                      !!value && !!value.adescription
+                                        ? contentHandler(value.adescription)
+                                        : "N/A"
+                                    }
+                                  />
+                                )
+                              ) : !!value && !!value.pdescription ? (
+                                value.pdescription
                               ) : (
                                 <p
                                   dangerouslySetInnerHTML={

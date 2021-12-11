@@ -11,7 +11,7 @@ import { LinkPreview } from "@dhaiwat10/react-link-preview";
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
-  const { description, adescription } = newsDetails;
+  const { description, adescription, pdescription } = newsDetails;
 
   const contentHandler = (value) => {
     return {
@@ -116,11 +116,24 @@ const NewsDetailsPage = ({ history, loading }) => {
             </p>
           </div>
           <div className="row">
-            <div className="col-xl-6 col-xxl-7">
-              <p className="stock-paragraph m-0 max-w-546 fs-sm-14">
+            <div className="col">
+              <span className="stock-paragraph  d-inline-block m-0 fs-sm-14">
+                <span>
+                  <img
+                    className="newsImg-slider pe-3"
+                    src={
+                      newsDetails && newsDetails.imagePath
+                        ? newsDetails.imagePath
+                        : NoImg
+                    }
+                    alt="news Image"
+                  />
+                </span>
                 {layoutClickChanger ? (
                   <>
-                    {newsDetails && newsDetails.adescription ? (
+                    {pdescription ? (
+                      pdescription
+                    ) : newsDetails && newsDetails.adescription ? (
                       <p
                         dangerouslySetInnerHTML={
                           adescription && contentHandler(adescription)
@@ -132,7 +145,9 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 ) : (
                   <>
-                    {newsDetails && newsDetails.description ? (
+                    {pdescription ? (
+                      pdescription
+                    ) : newsDetails && newsDetails.description ? (
                       <p
                         dangerouslySetInnerHTML={
                           description && contentHandler(description)
@@ -143,16 +158,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                     )}
                   </>
                 )}
-              </p>
-              <img
-                className="newsImg-slider"
-                src={
-                  newsDetails && newsDetails.imagePath
-                    ? newsDetails.imagePath
-                    : NoImg
-                }
-                alt="news Image"
-              />
+              </span>
             </div>
 
             {/* <div className="col-xl-6  col-xxl-5 mt-5 mt-xl-0"> */}

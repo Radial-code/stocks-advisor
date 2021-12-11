@@ -231,7 +231,7 @@ const RelatedArticles = ({ history }) => {
               {allRelatedNews && !!allRelatedNews.length ? (
                 allRelatedNews.map((value, index) => {
                   return (
-                    <section key={index} className="articles-card p-3 ">
+                    <section key={index} className="articles-card p-3 mx-4">
                       <div>
                         {value.imagePath === "" ? (
                           <img
@@ -288,13 +288,19 @@ const RelatedArticles = ({ history }) => {
                         }
                       >
                         {layoutClickChanger ? (
-                          <p
-                            dangerouslySetInnerHTML={
-                              !!value && !!value.adescription
-                                ? contentHandler(value.adescription)
-                                : "N/A"
-                            }
-                          />
+                          !!value && !!value.pdescription ? (
+                            value.pdescription
+                          ) : (
+                            <p
+                              dangerouslySetInnerHTML={
+                                !!value && !!value.adescription
+                                  ? contentHandler(value.adescription)
+                                  : "N/A"
+                              }
+                            />
+                          )
+                        ) : !!value && !!value.pdescription ? (
+                          value.pdescription
                         ) : (
                           <p
                             dangerouslySetInnerHTML={
