@@ -2,20 +2,16 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import PortfolioStock from "./PortfolioStock";
 import PortfoliosSidebar from "./PortfoliosSidebar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   getCurrentPortfolioListForDashBoardAction,
   getSoldPortfolioListForDashBoardAction,
 } from "../../redux/action/portfolio";
-import StockSoldSlider from "./StockSoldSlider";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const Portfolio = ({ match }) => {
-  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
+  const { getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
-  const soldStockNewsList = useSelector(
-    (state) => state.list.soldStockNewsList
-  );
   const [sidebarActive, setSidebarActive] = useState(false);
   const [soldLoading, setSoldLoading] = useState(false);
   const [portfoliosId, setPortfoliosId] = useState(null);

@@ -16,8 +16,7 @@ import DropDown from "../../assets/img/btnarrow.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const NetflixChart = ({ setType, type }) => {
-  const { getValueOf, setLayoutClickChanger, layoutClickChanger } =
-    useLayoutChangerProvider();
+  const { getValueOf, layoutClickChanger } = useLayoutChangerProvider();
 
   const stockChatList = useSelector((state) => state.list.stockChatList);
   const [chatList, setChatList] = useState([]);

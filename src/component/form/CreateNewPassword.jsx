@@ -2,7 +2,7 @@ import React from "react";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const CreateNewPassword = () => {
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { getValueOf } = useLayoutChangerProvider();
 
   return (
     <div>
