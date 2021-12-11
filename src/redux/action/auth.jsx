@@ -246,7 +246,7 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
     if (response.success) {
       Swal.fire("success!", `Your Email is verified successfully`, "success");
       history.push("/verify/mobile-otp/resend");
-      setTimeout(window.reload(), 3000);
+      setTimeout(window.reload(), 4000);
     }
     //
     else {
