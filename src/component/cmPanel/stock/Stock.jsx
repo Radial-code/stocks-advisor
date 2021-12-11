@@ -2,10 +2,8 @@ import React from "react";
 import "../../cmPanelCss/Stock.css";
 import { Link } from "react-router-dom";
 import CurrentStockTable from "./CurrentStockTable";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Stocks = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div className="width-table">
       <div className="row">

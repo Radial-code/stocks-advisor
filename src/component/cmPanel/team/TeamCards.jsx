@@ -1,11 +1,9 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import Cards from "./Cards";
 
 const TeamCards = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div className="container">
       <div className="row">

@@ -10,7 +10,7 @@ import { getContactListAction } from "../../../redux/action/contact";
 import NoData from "../../../assets/img/emptydata.jpg";
 
 const EnquiryTable = () => {
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { layoutClickChanger } = useLayoutChangerProvider();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
@@ -19,7 +19,7 @@ const EnquiryTable = () => {
 
   useEffect(() => {
     dispatch(getContactListAction(setLoading, page, setTotalContact));
-  }, [page]);
+  }, [page, dispatch]);
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;

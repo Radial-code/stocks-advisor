@@ -1,10 +1,8 @@
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import NewsTable from "./NewsTable";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const NewsList = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <Col className="d-flex justify-content-lg-end">
       <section className="user-panel-card w-xl-1000 p-4  pt-5">

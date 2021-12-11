@@ -1,9 +1,7 @@
 import PlansTable from "./PlansTable";
 import { Link } from "react-router-dom";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 
 const Plans = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <div className="container ">
       <div className="row">

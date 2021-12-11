@@ -2,7 +2,6 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
   DeletePortfolioDetailsAction,
   getPortfolioListAction,

@@ -1,10 +1,8 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 import UserListTable from "./UserListTable";
 
 const UsersList = () => {
-  const { getValueOf } = useLayoutChangerProvider();
   return (
     <Col className="d-xl-flex justify-content-end ">
       <section className="user-panel-card w-xl-1000 p-md-5 p-2 pt-5">

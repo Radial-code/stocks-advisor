@@ -1,12 +1,10 @@
 import React from "react";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import BubblesLoader from "../../common/BubblesLoader";
 import { deletePromoCodeAction } from "../../../redux/action/promoCode";
 import moment from "moment";
 import Swal from "sweetalert2";
 
 const PromoCodeTableList = ({
-  getValueOf,
   layoutClickChanger,
   dispatch,
   loading,

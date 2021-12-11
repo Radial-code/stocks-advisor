@@ -17,7 +17,7 @@ const AddNews = ({ match }) => {
       setEdit(true);
       dispatch(getNewsDetailsAction(id, setLoading));
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <Container>

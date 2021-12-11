@@ -56,7 +56,7 @@ const AddNewNews = ({ edit, match, history }) => {
 
   useEffect(() => {
     dispatch(getStockListAction(0, setLoading));
-  }, []);
+  }, [dispatch]);
 
   const AddNewNewsDetails = () => {
     setError(true);

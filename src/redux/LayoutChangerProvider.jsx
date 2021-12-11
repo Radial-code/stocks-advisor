@@ -26,7 +26,7 @@ export default function LayoutChangerProvider({ children }) {
 
   useEffect(() => {
     getValueOf();
-  }, [layoutClickChanger]);
+  }, [layoutClickChanger, getValueOf]);
 
   const value = {
     setLayoutClickChanger,

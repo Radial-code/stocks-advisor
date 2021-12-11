@@ -14,7 +14,7 @@ const Homepage = () => {
 
   useEffect(() => {
     dispatch(getTeamMemberListAction(setLoading));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

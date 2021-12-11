@@ -32,7 +32,7 @@ const Stockpage = ({ match }) => {
         dispatch(getRelatedNewsAction(data, getRelatedNewsLoader));
       }
     }
-  }, [id, tags]);
+  }, [id, tags, dispatch]);
 
   useEffect(() => {
     if (id) {

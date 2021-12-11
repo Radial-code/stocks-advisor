@@ -11,7 +11,7 @@ const ManageSubscription = ({ setSidebarActive, sidebarActive }) => {
 
   useEffect(() => {
     dispatch(getMyPlanAction(setLoading));
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>

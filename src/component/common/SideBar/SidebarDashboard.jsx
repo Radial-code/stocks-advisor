@@ -84,7 +84,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
           <div className="cn-sidebar-border"></div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "manage" ? "cn-sidebar-active" : ""
+              activeLink === "manage" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("manage")}
           >
@@ -98,7 +98,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
 
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "notification" ? "cn-sidebar-active" : ""
+              activeLink === "notification" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("notification")}
           >
@@ -111,7 +111,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "profile" ? "cn-sidebar-active" : ""
+              activeLink === "profile" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("profile")}
           >
@@ -124,7 +124,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "payment" ? "cn-sidebar-active" : ""
+              activeLink === "payment" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("payment")}
           >
@@ -137,7 +137,7 @@ function SidebarDashboard({ history, showSidebar, setShowSidebar, match }) {
           </div>
           <div
             className={`cn-sidebar-active-tag align-items-center d-flex my-4 whitespace ${
-              activeLink == "invite" ? "cn-sidebar-active" : ""
+              activeLink === "invite" ? "cn-sidebar-active" : ""
             }`}
             onClick={() => openRoutes("invite")}
           >

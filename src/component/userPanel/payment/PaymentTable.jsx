@@ -1,6 +1,5 @@
 import moment from "moment";
 import { useSelector } from "react-redux";
-import { DropDownIcon } from "../../common/icons/Icons";
 import NoData from "../../../assets/img/emptydata.jpg";
 
 const PaymentTable = ({ getValueOf }) => {

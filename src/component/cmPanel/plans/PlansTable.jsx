@@ -2,7 +2,6 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import Sortarrow from "../../../assets/img/sortarrow.png";
 import {
   getPlansListAction,
   updatePlansDetailsAction,
@@ -26,7 +25,7 @@ function PlansTable({ history }) {
   useEffect(() => {
     const limit = 10;
     dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
-  }, [page]);
+  }, [page, dispatch]);
 
   const deletePlans = (id, isActive) => {
     const swalWithBootstrapButtons = Swal.mixin({
