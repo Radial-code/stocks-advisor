@@ -119,7 +119,7 @@ export const SignUpAction = (data, setLoading, history) => async (dispatch) => {
       dispatch(SignUpSuccess(response));
       localStorage.setItem("stock-advisor", response["x-api-key"]);
       setLoading(false);
-      history.push("/our-plan");
+      history.push("/");
     } else {
       setLoading(false);
       Swal.fire(
@@ -245,10 +245,9 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
       Swal.fire("success!", `Your Email is verified successfully`, "success");
-      setTimeout(history.push("/verify/mobile-otp/resend"), 4000);
-      setTimeout(window.reload(), 4000);
+      history.push("/verify/mobile-otp/resend");
+      setTimeout(window.reload(), 3000);
     }
-
     //
     else {
       if (userData.isEmailConfirmed) {
