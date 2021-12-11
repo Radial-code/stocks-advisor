@@ -117,7 +117,7 @@ const NewsDetailsPage = ({ history, loading }) => {
           </div>
           <div className="row">
             <div className="col">
-              <span className="stock-paragraph  d-inline-block m-0 fs-sm-14">
+              {/* <span className="stock-paragraph  m-0 fs-sm-14">
                 <span>
                   <img
                     className="newsImg-slider pe-3"
@@ -129,6 +129,50 @@ const NewsDetailsPage = ({ history, loading }) => {
                     alt="news Image"
                   />
                 </span>
+               <span>
+                   {layoutClickChanger ? (
+                  <>
+                    {pdescription ? (
+                      pdescription
+                    ) : newsDetails && newsDetails.adescription ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          adescription && contentHandler(adescription)
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {pdescription ? (
+                      pdescription
+                    ) : newsDetails && newsDetails.description ? (
+                      <p
+                        dangerouslySetInnerHTML={
+                          description && contentHandler(description)
+                        }
+                      />
+                    ) : (
+                      "N/A"
+                    )}
+                  </>
+                )}
+               </span>
+              
+              </span> */}
+
+              <div>
+                <img
+                  className="newsImg-slider float-left pe-3"
+                  src={
+                    newsDetails && newsDetails.imagePath
+                      ? newsDetails.imagePath
+                      : NoImg
+                  }
+                  alt="news Image"
+                />
                 {layoutClickChanger ? (
                   <>
                     {pdescription ? (
@@ -158,7 +202,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                     )}
                   </>
                 )}
-              </span>
+              </div>
             </div>
 
             {/* <div className="col-xl-6  col-xxl-5 mt-5 mt-xl-0"> */}

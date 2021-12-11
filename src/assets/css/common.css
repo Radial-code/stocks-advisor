@@ -970,3 +970,14 @@ input::-webkit-inner-spin-button {
   height: 170px;
   overflow: hidden;
 }
+
+.news-para-ellipse-adjust {
+  overflow: hidden;
+  display: -webkit-box !important ;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical !important ;
+}
+
+.float-left {
+  float: left;
+}

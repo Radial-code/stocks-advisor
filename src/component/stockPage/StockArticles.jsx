@@ -63,7 +63,7 @@ const StockArticles = ({ history, getValueOf }) => {
                                 <>{value.title ? value.title : "N/A"}</>
                               )}
                             </p>
-                            <p className="stock-paragraph max-w-para d-none d-lg-block about-slider">
+                            <p className="stock-paragraph max-w-para d-none d-lg-block about-slider news-para-ellipse-adjust">
                               {layoutClickChanger ? (
                                 !!value && !!value.pdescription ? (
                                   value.pdescription
