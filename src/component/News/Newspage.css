@@ -37,7 +37,7 @@
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 15px #0000000d;
   border-radius: 10px;
-  width: 449px;
+  width: 95% !important;
   /* height: 435px; */
 }
 .dots-class {

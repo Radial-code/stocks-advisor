@@ -227,7 +227,7 @@ const RelatedArticles = ({ history }) => {
           </>
         ) : (
           <>
-            <Slider className="d-flex align-items-center" {...settings}>
+            <Slider className="d-flex align-items-center w-90" {...settings}>
               {allRelatedNews && !!allRelatedNews.length ? (
                 allRelatedNews.map((value, index) => {
                   return (

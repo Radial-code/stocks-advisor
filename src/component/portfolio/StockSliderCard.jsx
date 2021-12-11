@@ -13,7 +13,7 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
   return (
     <>
       <div className="my-3 ">
-        <div className="news-slider-wrapper">
+        <div className="news-slider-wrapper col-4">
           <img
             onClick={() => history.push(`/news/details/${soldValue._id}`)}
             // className="w-100 h-100 cursor-pointer"
@@ -62,13 +62,19 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
               </h4>
             )}
             {layoutClickChanger ? (
-              <p
-                dangerouslySetInnerHTML={
-                  !!soldValue && !!soldValue.adescription
-                    ? contentHandler(soldValue.adescription)
-                    : "N/A"
-                }
-              />
+              soldValue && soldValue.pdescription ? (
+                <p className="text-clamp-two-lines">{soldValue.pdescription}</p>
+              ) : (
+                <p
+                  dangerouslySetInnerHTML={
+                    !!soldValue && !!soldValue.adescription
+                      ? contentHandler(soldValue.adescription)
+                      : "N/A"
+                  }
+                />
+              )
+            ) : soldValue && soldValue.pdescription ? (
+              <p className="text-clamp-two-lines">{soldValue.pdescription}</p>
             ) : (
               <p
                 dangerouslySetInnerHTML={
