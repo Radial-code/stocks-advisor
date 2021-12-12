@@ -9,7 +9,7 @@ const DraftEditor = ({ setdescription, newsDetails, edit, setNewsDetails }) => {
   const [editorState, setEditorState] = React.useState();
   const data = newsDetails.description;
   useEffect(() => {
-    const html = data;
+    const html = data ? data : "";
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
