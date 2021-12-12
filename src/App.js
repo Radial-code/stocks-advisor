@@ -91,6 +91,7 @@ function App() {
                 setShowSidebar={setShowSidebar}
                 showSidebar2={showSidebar2}
                 loadingUser={loadingUser}
+                sideBarLoading={sideBarLoading}
                 setShowSidebar2={setShowSidebar2}
               />
             )

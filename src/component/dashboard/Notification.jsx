@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../dashboardCss/Notification.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import NotificationTable from "./NotificationTable";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";

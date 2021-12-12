@@ -8,7 +8,6 @@ import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
 import { getRelatedNewsAction } from "../../redux/action/news";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
-import NoImage from "../../assets/img/no-image.png";
 import SearchNews from "../../assets/img/searchnews.png";
 
 const HomePageSlider = ({ history, loading, setRelatedLoading }) => {

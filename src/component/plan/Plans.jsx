@@ -18,7 +18,7 @@ function Plans({ history, getValueOf }) {
     const limit = 10;
     const page = 0;
     dispatch(getPlansListAction(setLoading, page, limit));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container px-sm-4 px-0 subs-plan-scroll">

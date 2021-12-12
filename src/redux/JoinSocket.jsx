@@ -15,5 +15,5 @@ export default function JoinSocket() {
       });
 
     return () => socket && socket.off("online");
-  }, [socket]);
+  }, [socket, dispatch]);
 }

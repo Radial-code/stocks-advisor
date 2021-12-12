@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import SubscriptionPlan from "./SubscriptionPlan";
 import StripeForm from "./StripeForm";
 import "./Paymentpage.css";

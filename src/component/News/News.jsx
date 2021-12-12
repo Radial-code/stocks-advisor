@@ -21,7 +21,7 @@ const News = () => {
 
   useEffect(() => {
     dispatch(getAllNewsListAction(setLoading, page, setTotalNews));
-  }, [page]);
+  }, [page, dispatch]);
 
   return (
     <div>

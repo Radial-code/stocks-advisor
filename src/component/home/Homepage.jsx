@@ -15,7 +15,7 @@ const Homepage = () => {
 
   useEffect(() => {
     dispatch(getHomeNewsListApiAction(setLoading));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

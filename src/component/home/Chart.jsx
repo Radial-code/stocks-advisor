@@ -17,7 +17,7 @@ const Chart = ({ getValueOf }) => {
 
   useEffect(() => {
     dispatch(getPortFolioChatListDataAction(setLoading));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

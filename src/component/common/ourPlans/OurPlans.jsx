@@ -15,7 +15,7 @@ const OurPlans = ({ homepage, history, getValueOf }) => {
     const limit = 10;
     const page = 0;
     dispatch(getPlansListAction(setLoading, page, limit, setPlanListCount));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

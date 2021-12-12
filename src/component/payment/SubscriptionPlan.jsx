@@ -1,4 +1,3 @@
-import { Col } from "react-bootstrap";
 import BubblesLoader from "../common/BubblesLoader";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import Sortarrow from "../../assets/img/sortarrow.png";
 import { getRelatedSoldStockNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 

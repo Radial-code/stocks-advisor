@@ -8,7 +8,7 @@ import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
-  const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
+  const { getValueOf } = useLayoutChangerProvider();
 
   const [changePasswordDetails, setChangePasswordDetails] = useState({
     password: "",
