@@ -186,7 +186,7 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                       <p
                         className={` ${
                           layoutClickChanger
-                            ? "small-paragraph text-end "
+                            ? "small-paragraph text-end mb-5 "
                             : "small-paragraph mb-5 "
                         } `}
                       >

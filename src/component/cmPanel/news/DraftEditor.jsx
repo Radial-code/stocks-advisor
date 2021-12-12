@@ -7,8 +7,9 @@ import htmlToDraft from "html-to-draftjs";
 
 const DraftEditor = ({ setdescription, newsDetails, edit, setNewsDetails }) => {
   const [editorState, setEditorState] = React.useState();
+  const data = newsDetails.description;
   useEffect(() => {
-    const html = edit ? newsDetails.description : "";
+    const html = data;
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
@@ -17,7 +18,7 @@ const DraftEditor = ({ setdescription, newsDetails, edit, setNewsDetails }) => {
       const newState = EditorState.createWithContent(contentState);
       setEditorState(newState);
     }
-  }, [edit]);
+  }, [edit, data]);
 
   const onEditorStateChange = (e) => {
     setEditorState(e);

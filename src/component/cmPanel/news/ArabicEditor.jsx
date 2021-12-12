@@ -12,9 +12,10 @@ const ArabicEditor = ({
   setNewsDetails,
 }) => {
   const [editorState, setEditorState] = React.useState();
+  const valueData = newsDetails.adescription;
 
   useEffect(() => {
-    const html = edit ? newsDetails.adescription : "";
+    const html = valueData;
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
@@ -23,7 +24,7 @@ const ArabicEditor = ({
       const newState = EditorState.createWithContent(contentState);
       setEditorState(newState);
     }
-  }, [edit]);
+  }, [edit, valueData]);
 
   const onEditorStateChange = (e) => {
     setEditorState(e);
