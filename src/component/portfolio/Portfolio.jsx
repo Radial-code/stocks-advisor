@@ -24,7 +24,7 @@ const Portfolio = ({ match }) => {
       dispatch(getCurrentPortfolioListForDashBoardAction(id, setLoading));
       dispatch(getSoldPortfolioListForDashBoardAction(id, setLoading));
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <>
