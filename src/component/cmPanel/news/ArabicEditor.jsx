@@ -47,7 +47,7 @@ const ArabicEditor = ({
 
   return (
     <Editor
-      className="inputs-border"
+      className="inputs-border "
       toolbarClassName="toolbarClassName"
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
