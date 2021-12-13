@@ -15,7 +15,7 @@ const ArabicEditor = ({
   const valueData = newsDetails.adescription;
 
   useEffect(() => {
-    const html = valueData ? valueData : "";
+    const html = !!valueData ? valueData : "";
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(

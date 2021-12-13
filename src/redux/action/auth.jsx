@@ -244,18 +244,18 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
   try {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
-      Swal.fire("success!", `Your Email is verified successfully`, "success");
+      // Swal.fire("success!", `Your Email is verified successfully`, "success");
       history.push("/verify/mobile-otp/resend");
-      setTimeout(window.reload(), 4000);
+      setTimeout(window.reload(), 8000);
     }
     //
     else {
       if (userData.isEmailConfirmed) {
-        Swal.fire("success!", `Your Email is verified successfully`, "success");
+        // Swal.fire("success!", `Your Email is verified successfully`, "success");
         history.push("/verify/mobile-otp/resend");
-        setTimeout(window.reload(), 4000);
+        setTimeout(window.reload(), 8000);
       }
-      setTimeout(window.reload(), 4000);
+      setTimeout(window.reload(), 8000);
     }
   } catch (error) {
     // Swal.fire("Error!", "Something went wrong", "error");
