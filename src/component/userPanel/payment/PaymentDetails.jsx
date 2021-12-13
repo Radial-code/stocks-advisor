@@ -13,7 +13,7 @@ const PaymentDetails = ({ setSidebarActive, sidebarActive }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     dispatch(getUserPaymentMethodAction(setLoading));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="mr-lg-30 width-table">
