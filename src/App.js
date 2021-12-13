@@ -83,7 +83,7 @@ function App() {
             </div>
           ) : userData !== {} ? (
             !userData.isEmailConfirmed || !userData.isMobileNumberConfirmed ? (
-              <ConfirmRoute />
+              <ConfirmRoute userData={userData} />
             ) : (
               <Router
                 showSidebar={showSidebar}

@@ -72,14 +72,20 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
       dispatch(LoginSuccess(response["x-api-key"]));
       localStorage.setItem("stock-advisor", response["x-api-key"]);
       setLoading(false);
-      if (!response.user.isAdmin) {
-        if (response.user.isPaidPlan) {
-          history.push("/portfolio/portfolio1");
-        } else {
-          history.push("/our-plan");
-        }
-      } else {
+      if (!response.user.isEmailConfirmed) {
         history.push("/");
+      } else if (!response.user.isMobileNumberConfirmed) {
+        history.push("/verify/mobile-otp/resend");
+      } else {
+        if (!response.user.isAdmin) {
+          if (response.user.isPaidPlan) {
+            history.push("/portfolio/portfolio1");
+          } else {
+            history.push("/our-plan");
+          }
+        } else {
+          history.push("/");
+        }
       }
     } else {
       setLoading(false);
@@ -244,23 +250,17 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
   try {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
-      // Swal.fire("success!", `Your Email is verified successfully`, "success");
       history.push("/verify/mobile-otp/resend");
-      setTimeout(window.reload(), 8000);
-    }
-    //
-    else {
+      // setTimeout(window.reload(), 8000);
+    } else {
       if (userData.isEmailConfirmed) {
-        // Swal.fire("success!", `Your Email is verified successfully`, "success");
         history.push("/verify/mobile-otp/resend");
+        // setTimeout(window.reload(), 8000);
+      } else {
         setTimeout(window.reload(), 8000);
       }
-      setTimeout(window.reload(), 8000);
     }
-  } catch (error) {
-    // Swal.fire("Error!", "Something went wrong", "error");
-    setTimeout(Swal.close, 2000);
-  }
+  } catch (error) {}
 };
 
 /**

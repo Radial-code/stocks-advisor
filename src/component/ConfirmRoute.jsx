@@ -12,11 +12,16 @@ import IsEmailConfirmed from "./auth/verfiy/IsEmailConfirmed";
 import IsPhoneConfirmed from "./auth/verfiy/IsPhoneConfirmed";
 import ResendOtp from "./auth/verfiy/ResendOtp";
 
-const ConfirmRoute = () => {
+const ConfirmRoute = ({ userData }) => {
   return (
     <BrowserRouter>
       <Switch>
         {/**Auth routes */}
+        {!userData.isEmailConfirmed ? (
+          <Route exact path="/" component={IsEmailMessage} />
+        ) : (
+          <Route exact path="/" component={IsPhoneConfirmed} />
+        )}
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup/:inviteCode" component={SignUp} />
         <Route path="/forget/password" component={ForgetPassword} />
