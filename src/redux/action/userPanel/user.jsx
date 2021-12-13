@@ -5,6 +5,7 @@ import {
 } from "../../api/userPanel/user";
 
 export const GET_USER_DETAILS = "GET_USER_DETAILS";
+export const UPDATE_AUTO_RENEWAL = "UPDATE_AUTO_RENEWAL";
 /**
  * Get user details action
  * @param {Object} data
@@ -40,11 +41,16 @@ export const getUserDetailsAction = (setLoading) => async (dispatch) => {
  * @param {Object} data
  * @returns
  */
+const updateUserDetails = (data) => ({
+  type: UPDATE_AUTO_RENEWAL,
+  data,
+});
 
-export const updateUserDetailsAction = (data) => async () => {
+export const updateUserDetailsAction = (data) => async (dispatch) => {
   try {
     const response = await updateUserDetailsApi(data);
     if (response.success) {
+      dispatch(updateUserDetails(data));
       return response.data;
     } else {
       Swal.fire("Error", "Failed to update user details", "error");

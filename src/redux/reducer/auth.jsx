@@ -5,6 +5,7 @@ import {
   SIGN_UP_SUCCESSFULLY,
 } from "../action/auth";
 import { LOGIN_SUCCESSFULLY } from "../action/auth";
+import { UPDATE_AUTO_RENEWAL } from "../action/userPanel/user";
 
 const initialState = {
   token: "",
@@ -40,6 +41,15 @@ export default function AuthReducer(state = initialState, action) {
         userData: action.payload.data,
         token: action.payload.token,
         auth: action.payload.token === "null" ? false : true,
+      };
+    }
+    // get profile list data
+    case UPDATE_AUTO_RENEWAL: {
+      const userdata = { ...state.userData };
+      userdata.autoRenewalOfPlans = action.data.autoRenewalOfPlans;
+      return {
+        ...state,
+        userData: userdata,
       };
     }
 
