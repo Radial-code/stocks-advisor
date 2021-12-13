@@ -82,7 +82,7 @@ const AddNewNews = ({ edit, match, history }) => {
       atagsArray.map((item) => {
         aTagValue += `${item},`;
       });
-
+      console.log(uploadImageUrl, "uploadImageUrl");
       const data = {
         title: newsDetails.title,
         atitle: newsDetails.atitle,
@@ -150,9 +150,21 @@ const AddNewNews = ({ edit, match, history }) => {
         newsDetails.stock !== "" &&
         newsDetails.tags !== ""
       ) {
-        dispatch(
-          updateNewsDetailsAction(id, newsDetails, setUpdateLoading, history)
-        );
+        const data = {
+          title: newsDetails.title,
+          atitle: newsDetails.atitle,
+          description: description ? description : newsDetails.description,
+          adescription: adescription ? adescription : newsDetails.adescription,
+          showOnHomePage: newsDetails.showOnHomePage,
+          stock: newsDetails.stock,
+          tags: newsDetails.tags,
+          atags: newsDetails.atags,
+          media: uploadImageUrl ? uploadImageUrl : newsDetails.media,
+          link: newsDetails.link,
+          portfolios: newsDetails.portfolios,
+          pdescription: newsDetails.pdescription,
+        };
+        dispatch(updateNewsDetailsAction(id, data, setUpdateLoading, history));
       }
     }
   };

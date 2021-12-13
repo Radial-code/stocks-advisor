@@ -15,7 +15,7 @@ const ArabicEditor = ({
   const valueData = newsDetails.adescription;
 
   useEffect(() => {
-    const html = valueData;
+    const html = valueData ? valueData : "";
     const contentBlock = htmlToDraft(html);
     if (contentBlock) {
       const contentState = ContentState.createFromBlockArray(
@@ -47,7 +47,7 @@ const ArabicEditor = ({
 
   return (
     <Editor
-      className="inputs-border"
+      className="inputs-border "
       toolbarClassName="toolbarClassName"
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
