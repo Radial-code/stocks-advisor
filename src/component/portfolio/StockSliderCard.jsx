@@ -9,146 +9,163 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
       __html: value,
     };
   };
+  const {
+    imagePath,
+    createdAt,
+    title,
+    atitle,
+    _id,
+    tags,
+    atags,
+    stock,
+    description,
+    adescription,
+    padescription,
+    pdescription,
+  } = soldValue;
   const { layoutClickChanger } = useLayoutChangerProvider();
   return (
     <>
-      <div className="m-3">
-        <div className="news-slider-wrapper-related  col-4 w-img-75">
-          <img
-            onClick={() => history.push(`/news/details/${soldValue._id}`)}
-            // className="w-100 h-100 cursor-pointer"
-            className="slider-img mt-3"
-            src={soldValue.imagePath}
-            alt="newsImg"
-          />
+      <div className="my-3 ">
+        <div className="news-slider-wrapper">
+          {imagePath !== "" ? (
+            <img
+              className="newsImg-slider cursor-pointer"
+              src={imagePath}
+              onClick={() => history.push(`/news/details/${_id}`)}
+              alt="newsImg"
+            />
+          ) : (
+            ""
+            // <img
+            //   className="newsImg-slider cursor-pointer"
+            //   src={NoImg}
+            //   onClick={() => history.push(`/news/details/${_id}`)}
+            //   alt="newsImg"
+            // />
+          )}
           <div className="news-wrapper-bottom-section">
             <p
               className={`${
-                layoutClickChanger ? "text-end" : "text-start"
-              }  stock-paragraph cursor-pointer`}
+                layoutClickChanger
+                  ? "text-end stock-paragraph cursor-pointer"
+                  : "text-start stock-paragraph cursor-pointer"
+              } cursor-pointer`}
             >
+              <span> {moment(createdAt).format("DD/MMM/YYYY")}</span>
               <img
-                className="w-19 h-19 mx-2 d-inline-block"
+                className="w-19 h-19 d-inline-block mx-2"
                 src={CalenderIcon}
                 alt="CalenderIcon"
               />
-              <span>{moment(soldValue.createdAt).format("DD/MMM/YY")}</span>
             </p>
-            {layoutClickChanger ? (
-              <h4
-                className={`${
-                  layoutClickChanger ? "text-end" : "text-start"
-                } news-heading-font `}
-              >
-                <span
-                  onClick={() => history.push(`/news/details/${soldValue._id}`)}
-                  className="text-ellipsis-dots cursor-pointer"
-                >
-                  {soldValue.atitle}
-                </span>
-              </h4>
-            ) : (
-              <h4
-                className={`${
-                  layoutClickChanger ? "text-end" : "text-start"
-                } news-heading-font `}
-              >
-                <span
-                  onClick={() => history.push(`/news/details/${soldValue._id}`)}
-                  className="text-ellipsis-dots cursor-pointer"
-                >
-                  {soldValue.title}
-                </span>
-              </h4>
-            )}
-            {layoutClickChanger ? (
-              soldValue && soldValue.padescription ? (
-                <p className="text-clamp-two-lines">
-                  {soldValue.padescription}
-                </p>
-              ) : (
-                <p
-                  dangerouslySetInnerHTML={
-                    !!soldValue && !!soldValue.adescription
-                      ? contentHandler(soldValue.adescription)
-                      : "N/A"
-                  }
-                />
-              )
-            ) : soldValue && soldValue.pdescription ? (
-              <p className="text-clamp-two-lines">{soldValue.pdescription}</p>
-            ) : (
-              <p
-                dangerouslySetInnerHTML={
-                  !!soldValue && !!soldValue.description
-                    ? contentHandler(soldValue.description)
-                    : "N/A"
-                }
-              />
-            )}
 
-            <p className={`${layoutClickChanger ? "text-end" : "text-start"}`}>
+            <h4
+              onClick={() => history.push(`/news/details/${_id}`)}
+              className={`${
+                layoutClickChanger
+                  ? "news-heading-font text-end"
+                  : "news-heading-font text-start"
+              } cursor-pointer`}
+            >
+              <span className="text-ellipsis-dots">
+                {layoutClickChanger
+                  ? atitle
+                    ? atitle
+                    : "N/A"
+                  : title
+                  ? title
+                  : "N/A"}
+              </span>
+            </h4>
+            <p
+              onClick={() => history.push(`/news/details/${_id}`)}
+              className={`${
+                layoutClickChanger
+                  ? "text-ellipsis-three-line stock-paragraph text-end"
+                  : "text-ellipsis-three-line stock-paragraph text-start"
+              } text-ellipsis-three-line cursor-pointer`}
+            >
               <span
-                className="read-more cursor-pointer"
-                onClick={() => history.push(`/news/details/${soldValue._id}`)}
+                className={`${
+                  layoutClickChanger
+                    ? "text-ellipsis-three-line stock-paragraph text-end"
+                    : "text-ellipsis-three-line stock-paragraph text-start"
+                } cursor-pointer`}
               >
+                {layoutClickChanger ? (
+                  padescription ? (
+                    padescription
+                  ) : (
+                    <p
+                      dangerouslySetInnerHTML={
+                        !!adescription ? contentHandler(adescription) : "N/A"
+                      }
+                    />
+                  )
+                ) : pdescription ? (
+                  pdescription
+                ) : (
+                  <p
+                    dangerouslySetInnerHTML={
+                      !!description ? contentHandler(description) : "N/A"
+                    }
+                  />
+                )}
+              </span>
+            </p>
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "text-end cursor-pointer"
+                  : "text-start cursor-pointer"
+              }`}
+              onClick={() => history.push(`/news/details/${_id}`)}
+            >
+              {" "}
+              <span className="read-more cursor-pointer ">
                 {" "}
                 {getValueOf("Read More")}
               </span>
             </p>
-            {layoutClickChanger ? (
-              <p
-                onClick={() =>
-                  history.push(
-                    `/stock/news/${
-                      soldValue &&
-                      soldValue.stock &&
-                      soldValue.stock._id &&
-                      soldValue.stock._id
-                    }/stock-tags`
-                  )
-                }
-                className={`${
-                  layoutClickChanger ? " text-end" : " text-start"
-                } cursor-pointer mb-0 text-ellipsis-dots color-blue`}
-              >
-                {soldValue.atags}
-              </p>
-            ) : (
-              <p
-                onClick={() =>
-                  history.push(
-                    `/stock/news/${
-                      soldValue &&
-                      soldValue.stock &&
-                      soldValue.stock._id &&
-                      soldValue.stock._id
-                    }/stock-tags`
-                  )
-                }
-                className={`${
-                  layoutClickChanger ? " text-end " : " text-start"
-                } cursor-pointer mb-0 text-ellipsis-dots color-blue`}
-              >
-                {soldValue.tags}
-              </p>
-            )}
-
-            {soldValue && soldValue.stock && soldValue.stock.chartData ? (
-              <p className="small-paragraph text-end">
-                <span className=" cursor-pointer fw-bold">
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "text-end cursor-pointer mb-0 text-ellipsis-dots"
+                  : "text-start cursor-pointer mb-0 text-ellipsis-dots"
+              } color-blue cursor`}
+              onClick={() => history.push(`/stock/news/${stock._id}/${tags}`)}
+            >
+              {layoutClickChanger ? (tags ? tags : "") : atags ? atags : ""}
+            </p>
+            <p
+              className={`${
+                layoutClickChanger
+                  ? "small-paragraph text-end"
+                  : "small-paragraph text-start"
+              }`}
+            >
+              {stock && stock.symbol ? (
+                <span className=" cursor-pointer fw-bold color-blue">
                   {getValueOf("Stock")} :
                 </span>
-                <span className="cursor-pointer fw-bold color-blue">
-                  {soldValue &&
-                    soldValue.stock &&
-                    soldValue.stock.chartData &&
-                    soldValue.stock.chartData.name}
-                </span>
-              </p>
-            ) : (
-              ""
-            )}
+              ) : (
+                ""
+              )}
+
+              <span
+                onClick={() =>
+                  history.push(
+                    `/stock/news/${
+                      stock ? stock && stock._id : tags
+                    }/stock-tags`
+                  )
+                }
+                className="cursor-pointer fw-bold color-blue"
+              >
+                {stock && stock.symbol ? stock.symbol : ""}
+              </span>
+            </p>
           </div>
         </div>
       </div>
