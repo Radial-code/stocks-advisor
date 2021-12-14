@@ -12,7 +12,11 @@ function Search({ searchData, loading, searchshow }) {
     <div className="container mt-100">
       {searchData === "" ? (
         <>
-          <img className="searchnews mx-auto d-block" src={SearchNews} alt="" />
+          <img
+            className="searchnews mx-auto d-block mt-5"
+            src={SearchNews}
+            alt=""
+          />
           <h4 className="text-center">
             ...{getValueOf("Type to Search News Result")}
           </h4>

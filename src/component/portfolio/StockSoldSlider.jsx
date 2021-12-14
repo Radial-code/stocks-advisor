@@ -49,37 +49,35 @@ const StockSoldSlider = ({
   return (
     <div className="container my-4 ">
       <div className="row">
-        <div className="col my-4">
-          <div className="d-flex flex-lg-row flex-column justify-content-center">
-            {soldStockNewsList && soldStockNewsList !== 0 ? (
-              <>
-                {soldStockNewsList &&
-                  soldStockNewsList.length < 4 &&
-                  soldStockNewsList.map((value, index) => {
-                    return (
-                      <StockSliderCard
-                        soldValue={value}
-                        index={index}
-                        getValueOf={getValueOf}
-                        layoutClickChanger={layoutClickChanger}
-                      />
-                    );
-                  })}{" "}
-              </>
-            ) : (
-              <>
-                {" "}
-                <img
-                  className="searchnews mx-auto d-block"
-                  src={SearchNews}
-                  alt=""
-                />{" "}
-                <h4 className="text-center">
-                  {getValueOf("You don't have any News")}{" "}
-                </h4>{" "}
-              </>
-            )}
-          </div>
+        <div className="col d-flex justify-content-center my-4">
+          {soldStockNewsList && soldStockNewsList !== 0 ? (
+            <>
+              {soldStockNewsList &&
+                soldStockNewsList.length < 4 &&
+                soldStockNewsList.map((value, index) => {
+                  return (
+                    <StockSliderCard
+                      soldValue={value}
+                      index={index}
+                      getValueOf={getValueOf}
+                      layoutClickChanger={layoutClickChanger}
+                    />
+                  );
+                })}{" "}
+            </>
+          ) : (
+            <>
+              {" "}
+              <img
+                className="searchnews mx-auto d-block"
+                src={SearchNews}
+                alt=""
+              />{" "}
+              <h4 className="text-center">
+                {getValueOf("You don't have any News")}{" "}
+              </h4>{" "}
+            </>
+          )}
 
           {!loader ? (
             <Slider

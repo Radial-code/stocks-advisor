@@ -288,8 +288,8 @@ const RelatedArticles = ({ history }) => {
                         }
                       >
                         {layoutClickChanger ? (
-                          !!value && !!value.pdescription ? (
-                            value.pdescription
+                          !!value && !!value.padescription ? (
+                            value.padescription
                           ) : (
                             <p
                               dangerouslySetInnerHTML={

@@ -24,17 +24,21 @@ function Login({ history }) {
 
   const submitLoginInForm = () => {
     setError(true);
-    if (
-      logInDetails.email &&
-      logInDetails.password &&
-      !!reCaptchaToken &&
-      EmailRegex.test(logInDetails.email) === true
-    ) {
-      const data = {
-        "recaptcha-token": reCaptchaToken,
-        email: logInDetails.email,
-        password: logInDetails.password,
-      };
+    let data = {};
+    if (logInDetails.email && logInDetails.password && !!reCaptchaToken) {
+      if (logInDetails.email.includes("@")) {
+        data = {
+          "recaptcha-token": reCaptchaToken,
+          email: logInDetails.email,
+          password: logInDetails.password,
+        };
+      } else {
+        data = {
+          "recaptcha-token": reCaptchaToken,
+          username: logInDetails.email,
+          password: logInDetails.password,
+        };
+      }
       dispatch(loginAction(data, setLoading, history, userData));
     }
   };
@@ -61,13 +65,11 @@ function Login({ history }) {
                     });
                   }}
                   type="email"
-                  placeholder={getValueOf("Email")}
+                  placeholder={getValueOf("Email or Username")}
                 />
                 <span className="text-danger">
                   {error && logInDetails.email === "" ? (
-                    <>{getValueOf("email is required")}</>
-                  ) : error && EmailRegex.test(logInDetails.email) === false ? (
-                    <>{getValueOf("Enter valid email")}</>
+                    <>{getValueOf("email/username is required")}</>
                   ) : null}
                 </span>
               </Form.Group>

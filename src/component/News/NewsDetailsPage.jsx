@@ -5,13 +5,12 @@ import { withRouter } from "react-router";
 import moment from "moment";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-import NoImg from "../../assets/img/no-image.png";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 const NewsDetailsPage = ({ history, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const newsDetails = useSelector((state) => state.userPanel.newsDetails);
-  const { description, adescription, pdescription } = newsDetails;
+  const { description, adescription } = newsDetails;
 
   const contentHandler = (value) => {
     return {
@@ -119,22 +118,21 @@ const NewsDetailsPage = ({ history, loading }) => {
             <div className="col">
               {/* <span className="stock-paragraph  m-0 fs-sm-14">
                 <span>
+                {newsDetails && newsDetails.imagePath?
                   <img
                     className="newsImg-slider pe-3"
                     src={
                       newsDetails && newsDetails.imagePath
                         ? newsDetails.imagePath
-                        : NoImg
+                        : ""
                     }
                     alt="news Image"
-                  />
+                  />:""}
                 </span>
                <span>
                    {layoutClickChanger ? (
                   <>
-                    {pdescription ? (
-                      pdescription
-                    ) : newsDetails && newsDetails.adescription ? (
+                    { newsDetails && newsDetails.adescription ? (
                       <p
                         dangerouslySetInnerHTML={
                           adescription && contentHandler(adescription)
@@ -146,9 +144,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 ) : (
                   <>
-                    {pdescription ? (
-                      pdescription
-                    ) : newsDetails && newsDetails.description ? (
+                    { newsDetails && newsDetails.description ? (
                       <p
                         dangerouslySetInnerHTML={
                           description && contentHandler(description)
@@ -164,20 +160,22 @@ const NewsDetailsPage = ({ history, loading }) => {
               </span> */}
 
               <div>
-                <img
-                  className="newsImg-slider float-left pe-3"
-                  src={
-                    newsDetails && newsDetails.imagePath
-                      ? newsDetails.imagePath
-                      : NoImg
-                  }
-                  alt="news Image"
-                />
+                {newsDetails && newsDetails.imagePath ? (
+                  <img
+                    className="newsImg-slider float-left pe-3"
+                    src={
+                      newsDetails && newsDetails.imagePath
+                        ? newsDetails.imagePath
+                        : ""
+                    }
+                    alt="news Image"
+                  />
+                ) : (
+                  ""
+                )}
                 {layoutClickChanger ? (
                   <>
-                    {pdescription ? (
-                      pdescription
-                    ) : newsDetails && newsDetails.adescription ? (
+                    {newsDetails && newsDetails.adescription ? (
                       <p
                         dangerouslySetInnerHTML={
                           adescription && contentHandler(adescription)
@@ -189,9 +187,7 @@ const NewsDetailsPage = ({ history, loading }) => {
                   </>
                 ) : (
                   <>
-                    {pdescription ? (
-                      pdescription
-                    ) : newsDetails && newsDetails.description ? (
+                    {newsDetails && newsDetails.description ? (
                       <p
                         dangerouslySetInnerHTML={
                           description && contentHandler(description)

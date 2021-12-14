@@ -46,6 +46,7 @@ const DraftEditor = ({ setdescription, newsDetails, edit, setNewsDetails }) => {
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
       editorState={editorState}
+      placeholder="English Description"
       onEditorStateChange={onEditorStateChange}
       toolbar={{
         inline: { inDropdown: true },

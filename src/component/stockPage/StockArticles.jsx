@@ -65,8 +65,8 @@ const StockArticles = ({ history, getValueOf }) => {
                             </p>
                             <p className="stock-paragraph  max-w-para d-none d-lg-block about-slider news-para-ellipse-adjust">
                               {layoutClickChanger ? (
-                                !!value && !!value.pdescription ? (
-                                  value.pdescription
+                                !!value && !!value.padescription ? (
+                                  value.padescription
                                 ) : (
                                   <p
                                     dangerouslySetInnerHTML={

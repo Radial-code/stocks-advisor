@@ -89,16 +89,30 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
       }
     } else {
       setLoading(false);
-      Swal.fire(
-        "Error!",
-        `${
-          response && response.response && response.response.data
-            ? response.response.data.message
-            : "You have entered wrong email or password"
-        }`,
-        "error"
-      );
-      setTimeout(Swal.close, 2000);
+      if (
+        response &&
+        response.response &&
+        response.response.data &&
+        response.response.data.message
+      ) {
+        Swal.fire(
+          "Error!",
+          `${
+            response && response.response && response.response.data
+              ? response.response.data.message
+              : "You have entered wrong email or password"
+          }`,
+          "error"
+        );
+        setTimeout(Swal.close, 2000);
+      } else {
+        Swal.fire(
+          "Error!",
+          "You have entered wrong email or password",
+          "error"
+        );
+        setTimeout(Swal.close, 2000);
+      }
     }
   } catch (error) {
     setLoading(false);
@@ -251,11 +265,9 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
       history.push("/verify/mobile-otp/resend");
-      // setTimeout(window.reload(), 8000);
     } else {
       if (userData.isEmailConfirmed) {
         history.push("/verify/mobile-otp/resend");
-        // setTimeout(window.reload(), 8000);
       } else {
         setTimeout(window.reload(), 8000);
       }

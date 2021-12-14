@@ -120,8 +120,8 @@ const HomePageSlider = ({ history, loading, setRelatedLoading }) => {
                     } cursor-pointer`}
                   >
                     {layoutClickChanger ? (
-                      value.pdescription ? (
-                        value.pdescription
+                      value.padescription ? (
+                        value.padescription
                       ) : (
                         <p
                           dangerouslySetInnerHTML={

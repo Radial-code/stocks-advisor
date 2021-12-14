@@ -12,12 +12,12 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
   const { layoutClickChanger } = useLayoutChangerProvider();
   return (
     <>
-      <div className="my-3 ">
-        <div className="news-slider-wrapper col-4">
+      <div className="m-3">
+        <div className="news-slider-wrapper-related  col-4 w-img-75">
           <img
             onClick={() => history.push(`/news/details/${soldValue._id}`)}
             // className="w-100 h-100 cursor-pointer"
-            className="slider-img"
+            className="slider-img mt-3"
             src={soldValue.imagePath}
             alt="newsImg"
           />
@@ -62,8 +62,10 @@ const StockSliderCard = ({ soldValue, getValueOf, history }) => {
               </h4>
             )}
             {layoutClickChanger ? (
-              soldValue && soldValue.pdescription ? (
-                <p className="text-clamp-two-lines">{soldValue.pdescription}</p>
+              soldValue && soldValue.padescription ? (
+                <p className="text-clamp-two-lines">
+                  {soldValue.padescription}
+                </p>
               ) : (
                 <p
                   dangerouslySetInnerHTML={

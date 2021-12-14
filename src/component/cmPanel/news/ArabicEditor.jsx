@@ -39,7 +39,7 @@ const ArabicEditor = ({
       const result = adescription.replace(regex, "");
       setNewsDetails({
         ...newsDetails,
-        pdescription: result,
+        padescription: result,
       });
       setAdescription(adescription);
     }
@@ -52,6 +52,7 @@ const ArabicEditor = ({
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
       editorState={editorState}
+      placeholder="Arabic Description"
       onEditorStateChange={onEditorStateChange}
       toolbar={{
         inline: { inDropdown: true },

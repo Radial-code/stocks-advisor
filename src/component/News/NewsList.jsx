@@ -88,8 +88,8 @@ const NewsList = ({ history, value, index, loading }) => {
               <p className="stock-paragraph max-w-para d-none  d-md-block">
                 <p className="mb-0 dots">
                   {layoutClickChanger ? (
-                    value.pdescription ? (
-                      value.pdescription
+                    value.padescription ? (
+                      value.padescription
                     ) : (
                       <p
                         dangerouslySetInnerHTML={

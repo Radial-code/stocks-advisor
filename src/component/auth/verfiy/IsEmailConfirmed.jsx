@@ -21,7 +21,7 @@ const IsEmailConfirmed = ({ match, history }) => {
       };
       dispatch(verfiyEmailTokenAction(data, history, userData));
     }
-  }, []);
+  }, [token, userId, dispatch]);
 
   return (
     <div className="container">
