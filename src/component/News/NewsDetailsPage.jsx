@@ -82,28 +82,34 @@ const NewsDetailsPage = ({ history, loading }) => {
                 </span>
               )}
             </p>
-
-            <p
-              className={`${
-                layoutClickChanger ? "small-paragraph " : "small-paragraph"
-              }`}
-            >
-              <span className="cursor-pointer fw-bold color-blue">
-                {getValueOf("Stock")} :
-              </span>
-              <span
-                onClick={() =>
-                  history.push(
-                    `/stock/news/${newsDetails.stock._id}/stock-tags`
-                  )
-                }
-                className="cursor-pointer fw-bold color-blue"
+            {newsDetails &&
+            newsDetails.stock &&
+            newsDetails.stock.symbol === undefined ? (
+              ""
+            ) : (
+              <p
+                className={`${
+                  layoutClickChanger ? "small-paragraph " : "small-paragraph"
+                }`}
               >
-                {newsDetails && newsDetails.stock && newsDetails.stock.symbol
-                  ? newsDetails.stock.symbol
-                  : "N/A"}
-              </span>
-            </p>
+                <span className="cursor-pointer fw-bold color-blue">
+                  {getValueOf("Stock")} :
+                </span>
+                <span
+                  onClick={() =>
+                    history.push(
+                      `/stock/news/${newsDetails.stock._id}/stock-tags`
+                    )
+                  }
+                  className="cursor-pointer fw-bold color-blue"
+                >
+                  {newsDetails && newsDetails.stock && newsDetails.stock.symbol
+                    ? newsDetails.stock.symbol
+                    : ""}
+                </span>
+              </p>
+            )}
+
             <p
               className={`${
                 layoutClickChanger

@@ -234,11 +234,7 @@ const RelatedArticles = ({ history }) => {
                     <section key={index} className="articles-card p-3 mx-4">
                       <div>
                         {value.imagePath === "" ? (
-                          <img
-                            className="w-100 newsImg-slider mx-auto d-block"
-                            src={NoImg}
-                            alt=""
-                          />
+                          ""
                         ) : (
                           <img
                             className="w-100 newsImg-slider mx-auto d-block"
@@ -337,27 +333,31 @@ const RelatedArticles = ({ history }) => {
                           <>{value.tags ? value.tags : "N/A"}</>
                         )}
                       </p>
-                      <p
-                        className={
-                          layoutClickChanger
-                            ? "small-paragraph text-start ps-2"
-                            : "small-paragraph text-start ps-2"
-                        }
-                      >
-                        <span className=" cursor-pointer fw-bold">
-                          {getValueOf("Stock")} :
-                        </span>
-                        <span
-                          className="cursor-pointer fw-bold color-blue"
-                          onClick={() =>
-                            history.push(
-                              `/stock/news/${value.stock._id}/stock-tags`
-                            )
+                      {value.stock.symbol === undefined ? (
+                        ""
+                      ) : (
+                        <p
+                          className={
+                            layoutClickChanger
+                              ? "small-paragraph text-start ps-2"
+                              : "small-paragraph text-start ps-2"
                           }
                         >
-                          {value.stock.symbol}
-                        </span>
-                      </p>
+                          <span className=" cursor-pointer fw-bold">
+                            {getValueOf("Stock")} :
+                          </span>
+                          <span
+                            className="cursor-pointer fw-bold color-blue"
+                            onClick={() =>
+                              history.push(
+                                `/stock/news/${value.stock._id}/stock-tags`
+                              )
+                            }
+                          >
+                            {value.stock.symbol}
+                          </span>
+                        </p>
+                      )}
                     </section>
                   );
                 })
