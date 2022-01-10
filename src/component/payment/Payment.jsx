@@ -19,7 +19,7 @@ const Payment = ({ match }) => {
 
   useEffect(() => {
     dispatch(getPlanDetailsByIdAction(id, setLoading));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <>

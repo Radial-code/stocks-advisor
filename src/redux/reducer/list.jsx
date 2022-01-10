@@ -15,6 +15,7 @@ import {
   GET_CONTACT_LIST,
   GET_NOTIFICATION_LIST,
   GET_SOCECT_NOTIFICATION_VALUE,
+  GET_SOCKET_PAYMENT_STATUS,
   GET_UNSEEN_NOTIFICATION_LIST,
 } from "../action/contact";
 import {
@@ -77,6 +78,7 @@ const initialState = {
   inviteYourMessageCode: {},
   allPlanDetails: {},
   unseenNotificationList: 0,
+  paymentStatus: {},
 };
 
 export default function ListReducer(state = initialState, action) {
@@ -373,6 +375,14 @@ export default function ListReducer(state = initialState, action) {
       return {
         ...state,
         unseenNotificationList: state.unseenNotificationList + action.data,
+      };
+    }
+
+    //payment status with socket
+    case GET_SOCKET_PAYMENT_STATUS: {
+      return {
+        ...state,
+        paymentStatus: action.data,
       };
     }
 

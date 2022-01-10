@@ -74,14 +74,16 @@ const OurPlanCard = ({ homepage, history }) => {
                       </p>
                       <div
                         className={`${
-                          value.type === "Week" ? "week-plan" : "card-amount"
+                          userData.planId === value._id
+                            ? "week-plan cursor-not-allowed"
+                            : "card-amount"
                         } card-amount text-white d-flex justify-content-center align-items-center p-9-0 mt-4`}
                       >
                         <p className="amount-card-month align-items-center d-flex  mb-0">
-                          <span className="d-none d-sm-block month">
-                            {getValueOf(`${value.type}`)}/
+                          <span> $ {value.price}</span>
+                          <span className="d-none d-sm-block month px-1">
+                            / {getValueOf(`${value.type}`)}
                           </span>
-                          <span> {value.price} $</span>
                         </p>
                       </div>
                       <p className=" mt-4 h-143">
@@ -107,12 +109,18 @@ const OurPlanCard = ({ homepage, history }) => {
                               history.push(`/payment/${value._id}`)
                             }
                             className={`${
-                              value.type === "Week"
-                                ? "join-now-btn-2"
+                              userData.planId === value._id
+                                ? "join-now-btn-2 cursor-not-allowed"
                                 : "join-now-btn"
                             } join-now-btn `}
+                            disabled={
+                              userData.planId === value._id ? true : false
+                            }
                           >
-                            {getValueOf("Buy now")}
+                            {userData.planId === value._id
+                              ? `
+                                  ${getValueOf("Current Plan")}`
+                              : `${getValueOf("Change Plan")}`}
                           </button>
                         ) : (
                           <button

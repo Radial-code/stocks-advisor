@@ -11,11 +11,20 @@ export const GET_CONTACT_LIST = "GET_CONTACT_LIST";
 export const GET_NOTIFICATION_LIST = "GET_NOTIFICATION_LIST";
 export const GET_UNSEEN_NOTIFICATION_LIST = "GET_UNSEEN_NOTIFICATION_LIST";
 export const GET_SOCECT_NOTIFICATION_VALUE = "GET_SOCECT_NOTIFICATION_VALUE";
+export const GET_SOCKET_PAYMENT_STATUS = "GET_SOCKET_PAYMENT_STATUS";
 
+//get current socket notification value
 export const getScoketNotificationList = (data) => ({
   type: GET_SOCECT_NOTIFICATION_VALUE,
   data,
 });
+
+//Get payment status by socket
+export const getPaymentStatus = (data) => ({
+  type: GET_SOCKET_PAYMENT_STATUS,
+  data,
+});
+
 /**
  * add contact action
  * @param {Object} data

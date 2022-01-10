@@ -70,8 +70,6 @@ export const getMyPlanAction = (setLoading) => async (dispatch) => {
       setLoading(false);
     } else {
       setLoading(false);
-      // Swal.fire("Error", "Failed to Load user plan list", "error");
-      // setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     setLoading(false);
@@ -120,29 +118,21 @@ export const getPlanDetailsByIdAction =
  * @returns
  */
 export const getBuyPlanAction =
-  (data, setLoading, setPaymentId) => async () => {
+  (data, setLoading, setPaymentId, setStripeUrl) => async () => {
     setLoading(true);
     try {
       const response = await getBuyPlanApi(data);
       if (response.success) {
-        Swal.fire("Success", "Plan Subscribed successfully", "success");
-        setTimeout(Swal.close, 2000);
         setPaymentId(response.paymentId);
         setLoading(false);
-        const paymentWindow = window.open(response.url, "_blank");
-        if (!paymentWindow) {
-          Swal.fire("Error", "Please allow popups for this website", "error");
-          setTimeout(Swal.close, 2000);
-        }
+        setStripeUrl(response.url);
       } else {
         setLoading(false);
-        Swal.fire("Error", "Failed to add payment", "error");
-        setTimeout(Swal.close, 2000);
       }
     } catch (error) {
       setLoading(false);
       Swal.fire("Error!", "You already have a plan", "error");
-      setTimeout(Swal.close, 2000);
+      setTimeout(Swal.close, 5000);
     }
   };
 
@@ -156,17 +146,8 @@ export const confirmPlanByIdForStripe = (data, history) => async () => {
   try {
     const response = await confirmPlanByIdForStripeApi(data);
     if (response.success) {
-      setTimeout(function () {
-        window.location.href = response.url;
-      }, 5000);
-      setTimeout(function () {
-        window.location.href = "localhost:3000";
-      }, 5000);
       history.push("/");
       window.location.reload();
-    } else {
-      Swal.fire("Error", "Failed to add payment method", "error");
-      setTimeout(Swal.close, 2000);
     }
   } catch (error) {
     Swal.fire("Error!", "Failed to add payment method", "error");

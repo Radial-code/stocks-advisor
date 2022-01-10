@@ -15,6 +15,8 @@ import {
 import { withRouter } from "react-router";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { verifyPromoCodeAction } from "../../redux/action/promoCode";
+import StripePaymentModel from "./StripePaymentModel";
+import { useSocket } from "../../redux/SocketProvider";
 
 const StripeForm = ({
   loader,
@@ -27,6 +29,7 @@ const StripeForm = ({
   const { getValueOf } = useLayoutChangerProvider();
   const { id } = match.params;
   const stripeID = useSelector((state) => state.list.stripeID);
+  const paymentStatus = useSelector((state) => state.list.paymentStatus);
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
@@ -41,6 +44,9 @@ const StripeForm = ({
   const [paymentId, setPaymentId] = useState("");
   const [promoCodeDetails, setPromoCodeDetails] = useState("");
   const [promoCode, setPromoCode] = useState("");
+  const [stripeUrl, setStripeUrl] = useState("");
+  const [paymentOpen, setPaymentOpen] = useState(false);
+  const socket = useSocket();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -73,6 +79,24 @@ const StripeForm = ({
     }
   };
 
+  // useEffect(() => {
+  //   if (paymentId) {
+  //     setTimeout(socket.emit("payment_status", { id: paymentId }), 4000);
+  //     console.log(paymentStatus, "paymentStatus");
+  //     if (paymentStatus && paymentStatus.message === "Payment confirmed") {
+  //       const data = {
+  //         planId: id,
+  //         id: paymentId,
+  //         promoCode: promoCode ? promoCode : "",
+  //       };
+  //       console.log(data, "data");
+  //       dispatch(confirmPlanByIdForStripe(data, history));
+  //     } else {
+  //       socket.emit("payment_status", { id: paymentId });
+  //     }
+  //   }
+  // }, [dispatch, paymentStatus, paymentId]);
+
   const handleSubmitPayment = async () => {
     setErrorPayment(true);
     if (paymentMethod) {
@@ -85,24 +109,15 @@ const StripeForm = ({
         amount: youHaveToPay,
         "recaptcha-token": reCaptchaToken,
       };
-      await dispatch(getBuyPlanAction(data, setLoading, setPaymentId));
-    }
-    if (paymentId) {
-      const data = {
-        planId: id,
-        id: paymentId,
-        promoCode: promoCode ? promoCode : "",
-      };
-      setTimeout(
-        await dispatch(confirmPlanByIdForStripe(data, history)),
-        10000
+      await dispatch(
+        getBuyPlanAction(data, setLoading, setPaymentId, setStripeUrl)
       );
     }
   };
 
   useEffect(() => {
     handleSubmitPayment();
-  }, [paymentMethod, stripeID, paymentId]);
+  }, [paymentMethod, stripeID]);
 
   const submitPromoCode = () => {
     const data = {
@@ -124,6 +139,12 @@ const StripeForm = ({
     setPromoCodeDetails("");
     setPromoCode("");
   };
+
+  useEffect(() => {
+    if (stripeUrl) {
+      setPaymentOpen(true);
+    }
+  }, [stripeUrl]);
 
   return (
     <div className="col ml-lg-5 col-12">
@@ -199,6 +220,12 @@ const StripeForm = ({
           </StripeSubmitButton>
         </form>
       </section>
+
+      <StripePaymentModel
+        stripeUrl={stripeUrl}
+        paymentOpen={paymentOpen}
+        setPaymentOpen={setPaymentOpen}
+      />
     </div>
   );
 };
