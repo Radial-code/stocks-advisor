@@ -79,23 +79,23 @@ const StripeForm = ({
     }
   };
 
-  // useEffect(() => {
-  //   if (paymentId) {
-  //     setTimeout(socket.emit("payment_status", { id: paymentId }), 4000);
-  //     console.log(paymentStatus, "paymentStatus");
-  //     if (paymentStatus && paymentStatus.message === "Payment confirmed") {
-  //       const data = {
-  //         planId: id,
-  //         id: paymentId,
-  //         promoCode: promoCode ? promoCode : "",
-  //       };
-  //       console.log(data, "data");
-  //       dispatch(confirmPlanByIdForStripe(data, history));
-  //     } else {
-  //       socket.emit("payment_status", { id: paymentId });
-  //     }
-  //   }
-  // }, [dispatch, paymentStatus, paymentId]);
+  useEffect(() => {
+    if (paymentId) {
+      if (paymentStatus === {}) {
+        setTimeout(socket.emit("payment_status", { id: paymentId }), 8000);
+      }
+      if (paymentStatus && paymentStatus.message === "Payment confirmed") {
+        const data = {
+          planId: id,
+          id: paymentId,
+          promoCode: promoCode ? promoCode : "",
+        };
+        dispatch(confirmPlanByIdForStripe(data, history));
+      } else {
+        socket.emit("payment_status", { id: paymentId });
+      }
+    }
+  }, [dispatch, paymentId, paymentStatus]);
 
   const handleSubmitPayment = async () => {
     setErrorPayment(true);

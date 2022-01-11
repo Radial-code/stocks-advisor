@@ -23,8 +23,6 @@ export default function JoinSocket() {
       socket.on("payment_confirmed", function (res) {
         dispatch(getPaymentStatus(res));
       });
-
-    return () => socket && socket.off("online");
   }, [socket, dispatch]);
 
   useEffect(() => {
@@ -33,8 +31,6 @@ export default function JoinSocket() {
       socket.on("payment_failed", function (res) {
         dispatch(getPaymentStatus(res));
       });
-
-    return () => socket && socket.off("online");
   }, [socket, dispatch]);
 
   useEffect(() => {
@@ -43,7 +39,5 @@ export default function JoinSocket() {
       socket.on("payment_pending", function (res) {
         dispatch(getPaymentStatus(res));
       });
-
-    return () => socket && socket.off("online");
   }, [socket, dispatch]);
 }

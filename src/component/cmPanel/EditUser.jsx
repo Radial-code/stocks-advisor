@@ -116,7 +116,7 @@ const EditUser = ({ setSidebarActive, sidebarActive, match, history }) => {
       )
     );
   };
-  console.log(updateUser.countryCode, countryCode, "njjjj");
+
   const handleChange = (selectedOption) => {
     const codeCountry = {
       value: selectedOption.value,
