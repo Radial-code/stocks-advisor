@@ -21,6 +21,7 @@ export default function JoinSocket() {
     if (!socket) return;
     socket &&
       socket.on("payment_confirmed", function (res) {
+        console.log("payment_confirmed", res);
         dispatch(getPaymentStatus(res));
       });
   }, [socket, dispatch]);
@@ -29,6 +30,7 @@ export default function JoinSocket() {
     if (!socket) return;
     socket &&
       socket.on("payment_failed", function (res) {
+        console.log("payment_failed", res);
         dispatch(getPaymentStatus(res));
       });
   }, [socket, dispatch]);
@@ -37,6 +39,7 @@ export default function JoinSocket() {
     if (!socket) return;
     socket &&
       socket.on("payment_pending", function (res) {
+        console.log("payment_pending", res);
         dispatch(getPaymentStatus(res));
       });
   }, [socket, dispatch]);

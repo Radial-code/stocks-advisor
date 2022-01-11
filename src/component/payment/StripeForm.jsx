@@ -80,18 +80,22 @@ const StripeForm = ({
   };
 
   useEffect(() => {
+    console.log("paymentId", paymentId);
     if (paymentId) {
       if (paymentStatus === {}) {
         setTimeout(socket.emit("payment_status", { id: paymentId }), 8000);
       }
+      console.log("paymentStatus", paymentStatus);
       if (paymentStatus && paymentStatus.message === "Payment confirmed") {
         const data = {
           planId: id,
           id: paymentId,
           promoCode: promoCode ? promoCode : "",
         };
+        console.log("Data", data);
         dispatch(confirmPlanByIdForStripe(data, history));
       } else {
+        console.log("Data", paymentId);
         socket.emit("payment_status", { id: paymentId });
       }
     }
