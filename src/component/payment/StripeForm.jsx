@@ -80,26 +80,26 @@ const StripeForm = ({
   };
 
   useEffect(() => {
-    console.log("paymentId", paymentId);
     if (paymentId) {
-      if (paymentStatus === {}) {
-        setTimeout(socket.emit("payment_status", { id: paymentId }), 8000);
-      }
-      console.log("paymentStatus", paymentStatus);
-      if (paymentStatus && paymentStatus.message === "Payment confirmed") {
-        const data = {
-          planId: id,
-          id: paymentId,
-          promoCode: promoCode ? promoCode : "",
-        };
-        console.log("Data", data);
-        dispatch(confirmPlanByIdForStripe(data, history));
-      } else {
-        console.log("Data", paymentId);
-        socket.emit("payment_status", { id: paymentId });
+      if (Object.keys(paymentStatus).length === 0) {
+        setTimeout(socket.emit("payment_status", { id: paymentId }), 10000);
       }
     }
+    if (paymentStatus && paymentStatus.message === "Payment requires action") {
+      setTimeout(socket.emit("payment_status", { id: paymentId }), 10000);
+    }
   }, [dispatch, paymentId, paymentStatus]);
+
+  useEffect(() => {
+    if (paymentStatus && paymentStatus.message === "Payment confirmed") {
+      const data = {
+        planId: id,
+        id: paymentId,
+        promoCode: promoCode ? promoCode : "",
+      };
+      dispatch(confirmPlanByIdForStripe(data, history));
+    }
+  }, [paymentStatus]);
 
   const handleSubmitPayment = async () => {
     setErrorPayment(true);
