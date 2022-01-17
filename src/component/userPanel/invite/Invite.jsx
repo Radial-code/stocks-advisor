@@ -14,9 +14,10 @@ const Invite = () => {
     (state) => state.list.inviteYourMessageCode
   );
   const myReferalCodeForInvite = useSelector((state) => state.auth.userData);
+
   useEffect(() => {
     dispatch(InviteYourFriendsCodeAction(setInviteFriendMessage));
-  }, []);
+  }, [dispatch]);
 
   const copyReferalUrl = (url) => {
     var copyUrlText = document.createElement("textarea");

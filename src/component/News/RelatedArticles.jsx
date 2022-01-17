@@ -6,8 +6,6 @@ import { getRelatedNewsAction } from "../../redux/action/news";
 import BubblesLoader from "../common/BubblesLoader";
 import moment from "moment";
 import Slider from "react-slick";
-
-import NoImg from "../../assets/img/no-image.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import { withRouter } from "react-router";
 

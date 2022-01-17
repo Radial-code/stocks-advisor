@@ -82,7 +82,7 @@ function App() {
               <BubblesLoader />
             </div>
           ) : userData !== {} ? (
-            !userData.isEmailConfirmed || !userData.isMobileNumberConfirmed ? (
+            !userData.isEmailConfirmed ? (
               <ConfirmRoute userData={userData} />
             ) : (
               <Router

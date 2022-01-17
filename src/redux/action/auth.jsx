@@ -74,9 +74,11 @@ export const loginAction = (data, setLoading, history) => async (dispatch) => {
       setLoading(false);
       if (!response.user.isEmailConfirmed) {
         history.push("/");
-      } else if (!response.user.isMobileNumberConfirmed) {
-        history.push("/verify/mobile-otp/resend");
-      } else {
+      }
+      // else if (!response.user.isMobileNumberConfirmed) {
+      //   history.push("/verify/mobile-otp/resend");
+      // }
+      else {
         if (!response.user.isAdmin) {
           if (response.user.isPaidPlan) {
             history.push("/portfolio/portfolio1");
@@ -264,13 +266,7 @@ export const verfiyEmailTokenAction = (data, history, userData) => async () => {
   try {
     const response = await verfiyEmailTokenApi(data);
     if (response.success) {
-      history.push("/verify/mobile-otp/resend");
-    } else {
-      if (userData.isEmailConfirmed) {
-        history.push("/verify/mobile-otp/resend");
-      } else {
-        setTimeout(window.reload(), 8000);
-      }
+      history.push("/our-plan");
     }
   } catch (error) {}
 };

@@ -10,7 +10,9 @@ import { useLayoutChangerProvider } from "../../../redux/LayoutChangerProvider";
 const initialState = {
   autoRenewalOfPlans: false,
 };
+
 let detailsString;
+
 const SubscriptionDetails = () => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
   const dispatch = useDispatch();
@@ -53,10 +55,10 @@ const SubscriptionDetails = () => {
         </div>
         {!!myPlanDetails && !!myPlanDetails.title ? (
           <Row className="mt-5 ">
-            <Col xl={6} xs={12}>
+            <Col xl={12} xs={12}>
               <section className="plan-card-edituser p-3">
                 <div className="d-flex justify-content-between border-b-1">
-                  <p className="profile-heading fs-sm-16">
+                  <p className="profile-heading fs-sm-16 ">
                     {myPlanDetails.title}
                   </p>
                   <p className="edituser-amount  fs-sm-16">
@@ -77,7 +79,7 @@ const SubscriptionDetails = () => {
                       {getValueOf("Expired Date")} :
                     </span>
 
-                    <span className="stock-paragraph fs-sm-11">
+                    <span className="stock-paragraph fs-sm-11 margin-left-auto">
                       {myPlanDetails.expiresOn}
                     </span>
                   </div>
@@ -93,7 +95,10 @@ const SubscriptionDetails = () => {
                         {getValueOf("Auto Renew")}:
                       </span>
 
-                      <label className="switch-2 mx-2" for="checkbox-2">
+                      <label
+                        className="switch-2 mx-2 margin-left-auto"
+                        for="checkbox-2"
+                      >
                         <input
                           type="checkbox"
                           id="checkbox-2"
@@ -109,9 +114,10 @@ const SubscriptionDetails = () => {
             </Col>
 
             <Col
-              xl={6}
+              xl={12}
               xs={12}
-              className="d-flex justify-content-center mt-5 mt-xl-0"
+              ss={12}
+              className="d-flex  mt-5 mt-xl-0 mt-3 pt-3"
             >
               <section className="current-para">
                 <p className="fs-14 fw-500 ">

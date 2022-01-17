@@ -1,4 +1,3 @@
-import Sortarrow from "../../assets/img/sortarrow.png";
 import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
 import moment from "moment";

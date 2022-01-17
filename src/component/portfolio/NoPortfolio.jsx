@@ -6,7 +6,11 @@ const NoPortfolio = () => {
 
   return (
     <div className="my-5">
-      <img className="not-found-img mx-auto mt-100  d-block" src={FoundImg} />
+      <img
+        className="not-found-img mx-auto mt-100  d-block"
+        src={FoundImg}
+        alt="not-found"
+      />
       <h2 className="text-center">
         {layoutClickChanger ? "." : ""}
         {getValueOf("Currently You don't have any portfolio")}

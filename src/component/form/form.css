@@ -223,6 +223,9 @@
   color: var(--color-44464A);
 }
 
+.margin-left-auto {
+  margin-left: auto;
+}
 @media (min-width: 576px) {
   .min-h-576px-80vh {
     min-height: 80vh !important;

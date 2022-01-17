@@ -13,7 +13,7 @@ function SoldStock({ loading, history, setSoldLoading, getValueOf, match }) {
   useEffect(() => {
     const data = { portfolios: [id] };
     dispatch(getRelatedSoldStockNewsAction(data, setSoldLoading));
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <div className="mt-5">

@@ -82,16 +82,19 @@ const StripeForm = ({
   useEffect(() => {
     if (paymentId) {
       if (Object.keys(paymentStatus).length === 0) {
+        console.log("paymentStatus", paymentStatus);
         setTimeout(socket.emit("payment_status", { id: paymentId }), 10000);
       }
     }
     if (paymentStatus && paymentStatus.message === "Payment requires action") {
+      console.log("paymentStatus", paymentStatus);
       setTimeout(socket.emit("payment_status", { id: paymentId }), 10000);
     }
   }, [dispatch, paymentId, paymentStatus]);
 
   useEffect(() => {
     if (paymentStatus && paymentStatus.message === "Payment confirmed") {
+      setPaymentOpen(false);
       const data = {
         planId: id,
         id: paymentId,

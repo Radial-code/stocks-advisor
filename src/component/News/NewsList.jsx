@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import img_2 from "../../assets/img/calendar-icon.png";
 import { useLayoutChangerProvider } from "../../redux/LayoutChangerProvider";
 import BubblesLoader from "../common/BubblesLoader";
-import NoImg from "../../assets/img/no-image.png";
 
 const NewsList = ({ history, value, index, loading }) => {
   const { layoutClickChanger, getValueOf } = useLayoutChangerProvider();
@@ -27,17 +26,9 @@ const NewsList = ({ history, value, index, loading }) => {
           <Col xl={4} lg={4} xs={4} className="my-auto">
             <div>
               {value.imagePath === "" ? (
-                // <img
-                //   // className="w-100 h-341 cursor-pointer"
-                //   className="stock-articles-img mx-auto "
-                //   src={NoImg}
-                //   onClick={() => history.push(`/news/details/${value._id}`)}
-                //   alt="news img"
-                // />
                 ""
               ) : (
                 <img
-                  // className="w-100 h-341 cursor-pointer"
                   className="stock-articles-img mx-auto "
                   src={value.imagePath}
                   onClick={() => history.push(`/news/details/${value._id}`)}
