@@ -65,50 +65,46 @@ const SubscriptionDetails = () => {
                     ${myPlanDetails.price}
                   </p>
                 </div>
-                <div className="d-flex flex-sm-row flex-column mt-2">
-                  <span className="fs-xs fw-500 pr-15 fs-sm-11">
+                <div className="d-flex flex-sm-row justify-content-between flex-column mt-2">
+                  <p className="fs-xs fw-500 pr-15 fs-sm-11">
                     {getValueOf("Purchase Date")}:
-                  </span>
-                  <span className="stock-paragraph fs-sm-11">
+                  </p>
+                  <p className="stock-paragraph fs-sm-11">
                     {myPlanDetails.createdAt}
-                  </span>
+                  </p>
                 </div>
-                <div className="d-flex justify-content-between mt-2 mb-4">
-                  <div className="d-flex flex-sm-row flex-column">
-                    <span className="fs-xs fw-500 pr-15 fs-sm-11">
-                      {getValueOf("Expired Date")} :
-                    </span>
+                <div className="d-flex flex-sm-row justify-content-between flex-column mt-2">
+                  <p className="fs-xs fw-500 pr-15 fs-sm-11">
+                    {getValueOf("Expired Date")} :
+                  </p>
+                  <p className="stock-paragraph fs-sm-11">
+                    {myPlanDetails.expiresOn}
+                  </p>
+                </div>
 
-                    <span className="stock-paragraph fs-sm-11 margin-left-auto">
-                      {myPlanDetails.expiresOn}
-                    </span>
-                  </div>
-                </div>
-                <div className="pb-4">
-                  <span
+                <div className="pb-4 d-flex flex-sm-row flex-column w-100  justify-content-between">
+                  <div
                     className={`${
-                      layoutClickChanger ? "float-end" : " float-start"
-                    }  me-auto`}
+                      layoutClickChanger ? "" : ""
+                    }  d-flex flex-sm-row flex-column w-100  justify-content-between`}
                   >
-                    <div className="d-flex flex-sm-row flex-column ">
-                      <span className="fs-xs fw-500 pr-15 fs-sm-11 ">
-                        {getValueOf("Auto Renew")}:
-                      </span>
+                    <p className="fs-xs fw-500 pr-15 fs-sm-11 ">
+                      {getValueOf("Auto Renew")}:
+                    </p>
 
-                      <label
-                        className="switch-2 mx-2 margin-left-auto"
-                        for="checkbox-2"
-                      >
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          checked={autoRenewalOfPlans.autoRenewalOfPlans}
-                          onChange={(e) => updateAutoCard(e)}
-                        />
-                        <div className="slider-2 round "></div>
-                      </label>
-                    </div>
-                  </span>
+                    <label
+                      className="switch-2 mx-2 margin-left-auto"
+                      for="checkbox-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="checkbox-2"
+                        checked={autoRenewalOfPlans.autoRenewalOfPlans}
+                        onChange={(e) => updateAutoCard(e)}
+                      />
+                      <div className="slider-2 round "></div>
+                    </label>
+                  </div>
                 </div>
               </section>
             </Col>
