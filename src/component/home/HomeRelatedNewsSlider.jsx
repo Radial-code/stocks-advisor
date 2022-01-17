@@ -56,7 +56,7 @@ const HomeRelatedNewsSlider = ({ loader, history, getValueOf }) => {
             {newsListData && newsListData.length !== 0 ? (
               <>
                 {newsListData &&
-                  newsListData.length < 4 &&
+                  newsListData.length <= 4 &&
                   newsListData.map((news, index) => {
                     return (
                       <RelatedNewsArticlesList

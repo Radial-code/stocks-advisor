@@ -27,7 +27,7 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
   };
 
   return (
-    <div className="my-3 ">
+    <div className="my-3 col-xl-4 col-lg-6">
       <div className="news-slider-wrapper">
         {imagePath !== "" ? (
           <img
@@ -38,12 +38,6 @@ export const RelatedNewsArticlesList = ({ news, history }) => {
           />
         ) : (
           ""
-          // <img
-          //   className="newsImg-slider cursor-pointer"
-          //   src={NoImg}
-          //   onClick={() => history.push(`/news/details/${_id}`)}
-          //   alt="newsImg"
-          // />
         )}
         <div className="news-wrapper-bottom-section">
           <p
