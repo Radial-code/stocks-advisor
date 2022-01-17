@@ -54,10 +54,10 @@ const TeamForm = ({ history }) => {
             </Link>
           </div>
         </div>
-        <div className="h-calc-100vh-380 scroll-bar overflow-auto mt-5">
+        <div className=" scroll-bar overflow-auto mt-5">
           <div className="container">
             <div className="row">
-              <div className="col-12 col-lg-6 mb-2">
+              <div className="col-12 col-xl-6 mb-2">
                 <Form.Group
                   className="mb-3 add-new-stock-field "
                   controlId="formBasicEmail"
@@ -99,7 +99,7 @@ const TeamForm = ({ history }) => {
                   </span>
                 </Form.Group>
               </div>
-              <div className="col-12 col-lg-6 mb-3 ">
+              <div className="col-12 col-xl-6 mb-3 ">
                 <div className="inputs-border   d-flex justify-content-between align-items-center py-2 ps-1 pe_12">
                   <span className="link-text d-none d-sm-block Ellipse">
                     {getValueOf("Image Link")}
